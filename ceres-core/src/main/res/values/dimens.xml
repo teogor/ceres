@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2022 teogor (Teodor Grigor) All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources>
+  <!-- Common sizes -->
+  <dimen name="none">0dp</dimen>
+
+  <!-- Constraint Layout common sizes -->
+  <dimen name="constraint.layout.fit.screen">0dp</dimen>
+  <dimen name="constraint.layout.fit.ratio">0dp</dimen>
+
+  <!-- TODO margins -->
+  <!--Margin-->
+  <dimen name="margin.margin.xs">4dp</dimen>
+  <dimen name="margin.s">8dp</dimen>
+  <dimen name="margin.sm">12dp</dimen>
+  <dimen name="margin.sx">14dp</dimen>
+  <dimen name="margin.m">16dp</dimen>
+  <dimen name="margin.l">24dp</dimen>
+  <dimen name="margin.xxxxl">64dp</dimen>
+  <dimen name="margin.s.sm">2dp</dimen>
+  <dimen name="margin.s.m">4dp</dimen>
+  <dimen name="margin.s.l">6dp</dimen>
+  <dimen name="margin.m.sm">8dp</dimen>
+  <dimen name="margin.m.m">10dp</dimen>
+  <dimen name="margin.m.l">12dp</dimen>
+  <dimen name="margin.l.sm">14dp</dimen>
+  <dimen name="margin.l.m">16dp</dimen>
+  <dimen name="margin.l.l">18dp</dimen>
+  <dimen name="margin.xl.sm">20dp</dimen>
+  <dimen name="margin.xl.m">22dp</dimen>
+  <dimen name="margin.xl.l">24dp</dimen>
+  <dimen name="margin.horizontal.regular">24dp</dimen>
+  <dimen name="margin.horizontal.big">32dp</dimen>
+
+  <!-- Padding -->
+  <dimen name="padding.s.sm">2dp</dimen>
+  <dimen name="padding.s.m">4dp</dimen>
+  <dimen name="padding.s.l">6dp</dimen>
+  <dimen name="padding.m.sm">8dp</dimen>
+  <dimen name="padding.m.m">10dp</dimen>
+  <dimen name="padding.m.l">12dp</dimen>
+  <dimen name="padding.l.sm">14dp</dimen>
+  <dimen name="padding.l.m">16dp</dimen>
+  <dimen name="padding.l.l">18dp</dimen>
+  <dimen name="padding.xl.sm">20dp</dimen>
+  <dimen name="padding.xl.m">22dp</dimen>
+  <dimen name="padding.xl.l">24dp</dimen>
+</resources>
