@@ -91,7 +91,7 @@ subprojects {
   extensions.configure<com.diffplug.gradle.spotless.SpotlessExtension> {
     kotlin {
       target("**/*.kt")
-      targetExclude("$buildDir/**/*.kt")
+      targetExclude("$buildDir/**/*.kt", "$rootDir/buildSrc/**/*.kt")
       ktlint().setUseExperimental(true).editorConfigOverride(
         mapOf(
           "indent_size" to "2",
