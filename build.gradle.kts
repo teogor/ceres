@@ -1,8 +1,10 @@
 import dev.teogor.ceres.Configuration
 import org.jetbrains.dokka.gradle.DokkaTaskPartial
+import com.vanniktech.maven.publish.SonatypeHost
 
 plugins {
   id("org.jetbrains.dokka") version "1.7.20"
+  id("com.vanniktech.maven.publish") version "0.18.0"
 }
 
 buildscript {
@@ -35,6 +37,20 @@ subprojects {
   }
   plugins.withId("com.android.library") {
     apply(plugin = "org.jetbrains.dokka")
+    apply(plugin = "com.vanniktech.maven.publish")
+
+    // Define versions in a single place
+    extra.apply{
+      val moduleName = this@subprojects.name.replace("ceres-", "")
+      set("moduleName", moduleName.replace("-", "."))
+      val publishGroupId = Configuration.artifactGroup
+      val publishArtifactId = "${Configuration.baseArtifactId}-${extra.get("moduleName")}"
+      val publishVersion = Configuration.versionName
+
+      set("PUBLISH_GROUP_ID", publishGroupId)
+      set("PUBLISH_ARTIFACT_ID", publishArtifactId)
+      set("VERSION_NAME", publishVersion)
+    }
 
     tasks.withType<DokkaTaskPartial>().configureEach {
       dokkaSourceSets {
@@ -119,6 +135,40 @@ subprojects {
   }
 }
 
-tasks.register("clean", Delete::class) {
-  delete(rootProject.buildDir)
+group = Configuration.artifactGroup
+version = Configuration.versionName
+mavenPublishing {
+  publishToMavenCentral(SonatypeHost.S01)
+  signAllPublications()
+
+  pom {
+    name.set(Configuration.artifactGroup)
+    description.set("A description of what my library does.")
+    inceptionYear.set("2022")
+    url.set("https://github.com/teogor/ceres/")
+    licenses {
+      license {
+        name.set("The Apache License, Version 2.0")
+        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+        distribution.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+      }
+    }
+    developers {
+      developer {
+        id.set("teogor")
+        name.set("Teodor Grigor")
+        url.set("https://github.com/teogor/")
+      }
+    }
+    scm {
+      url.set("https://github.com/teogor/ceres/")
+      connection.set("scm:git:git://github.com/teogor/ceres.git")
+      developerConnection.set("scm:git:ssh://git@github.com/teogor/ceres.git")
+    }
+  }
 }
+
+// todo conflicts with maven
+//  tasks.register("clean", Delete::class) {
+//    delete(rootProject.buildDir)
+//  }

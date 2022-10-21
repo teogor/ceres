@@ -13,7 +13,7 @@ plugins {
 }
 
 android {
-  namespace = "${Configuration.baseNamespace}.m3"
+  namespace = "${Configuration.baseNamespace}.${extra.get("moduleName")}"
   compileSdk = Configuration.compileSdk
 
   defaultConfig {

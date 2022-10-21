@@ -14,7 +14,7 @@ plugins {
 }
 
 android {
-  namespace = "${Configuration.baseNamespace}.firebase"
+  namespace = "${Configuration.baseNamespace}.${extra.get("moduleName")}"
   compileSdk = Configuration.compileSdk
 
   defaultConfig {
