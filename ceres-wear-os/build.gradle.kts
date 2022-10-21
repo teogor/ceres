@@ -10,7 +10,7 @@ plugins {
 }
 
 android {
-  namespace = "${Configuration.baseNamespace}.wear.os"
+  namespace = "${Configuration.baseNamespace}.${extra.get("moduleName")}"
   compileSdk = Configuration.compileSdk
 
   defaultConfig {

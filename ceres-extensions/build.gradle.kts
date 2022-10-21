@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-  namespace = "${Configuration.baseNamespace}.extensions"
+  namespace = "${Configuration.baseNamespace}.${extra.get("moduleName")}"
   compileSdk = Configuration.compileSdk
 
   defaultConfig {
