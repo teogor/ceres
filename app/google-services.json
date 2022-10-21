@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "951629051326",
+    "project_id": "teogor-ceres",
+    "storage_bucket": "teogor-ceres.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951629051326:android:2c9daba923ae43258a35ef",
+        "android_client_info": {
+          "package_name": "dev.teogor.ceres"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951629051326-hk4ofg6cvuhk4psr5gu0osgrv6d7qlmu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIdULaHzXh-XLDJ-RPL__BSlku8Nl-wiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951629051326-hk4ofg6cvuhk4psr5gu0osgrv6d7qlmu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951629051326:android:2c9daba923ae43258a35ef",
+        "android_client_info": {
+          "package_name": "dev.teogor.ceres.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951629051326-hk4ofg6cvuhk4psr5gu0osgrv6d7qlmu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIdULaHzXh-XLDJ-RPL__BSlku8Nl-wiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951629051326-hk4ofg6cvuhk4psr5gu0osgrv6d7qlmu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2022 teogor (Teodor Grigor) All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<com.google.android.gms.ads.nativead.NativeAdView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content">
+
+  <dev.teogor.ceres.m3.ContainerM3
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:paddingVertical="14dp"
+    app:background_m3="tertiaryContainer"
+    app:corner_radius="20dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/ad_app_icon"
+      android:layout_width="40dp"
+      android:layout_height="40dp"
+      android:layout_marginStart="30dp"
+      android:adjustViewBounds="true"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <dev.teogor.ceres.m3.TextViewM3
+      android:id="@+id/ad_headline"
+      style="@style/Title3Strong"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="10dp"
+      android:layout_marginEnd="@dimen/margin.s.l"
+      app:color_m3="onSecondaryContainer"
+      app:layout_constraintBottom_toTopOf="@+id/holder_sub"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@+id/ad_app_icon"
+      app:layout_constraintTop_toTopOf="@id/ad_app_icon"
+      app:layout_constraintVertical_chainStyle="packed"
+      tools:text="Aquarium LWP: Ad" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/holder_sub"
+      android:layout_width="@dimen/constraint.layout.fit.screen"
+      android:layout_height="wrap_content"
+      app:layout_constraintBottom_toBottomOf="@id/ad_app_icon"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/ad_app_icon"
+      app:layout_constraintTop_toBottomOf="@+id/ad_headline">
+
+      <TextView
+        android:id="@+id/ad_advertiser"
+        style="@style/Body2Strong"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <dev.teogor.ceres.m3.RatingBarM3
+        android:id="@+id/ad_stars"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:color_m3="onSecondaryContainer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ad_advertiser"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginStart="10dp" />
+
+      <dev.teogor.ceres.m3.TextViewM3
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@string/ad_attribution"
+        android:textSize="12sp"
+        app:color_m3="onSecondaryContainer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ad_stars"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <dev.teogor.ceres.m3.TextViewM3
+      android:id="@+id/ad_body"
+      style="@style/Body2Regular"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginHorizontal="30dp"
+      android:layout_marginTop="@dimen/margin.m.l"
+      android:textSize="12sp"
+      app:color_m3="onSecondaryContainer"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/holder_sub" />
+
+    <dev.teogor.ceres.m3.ButtonM3
+      android:id="@+id/ad_call_to_action"
+      style="@style/Body2Strong"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:layout_marginEnd="20dp"
+      android:paddingVertical="@dimen/padding.l.sm"
+      app:background_m3="tertiary"
+      app:corner_radius="16dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/ad_body"
+      app:layout_constraintWidth_percent=".6"
+      app:ripple_enabled="true"
+      app:text_color_m3="onTertiary" />
+
+  </dev.teogor.ceres.m3.ContainerM3>
+</com.google.android.gms.ads.nativead.NativeAdView>

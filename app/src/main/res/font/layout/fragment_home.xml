@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2022 teogor (Teodor Grigor) All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:fragment="http://schemas.android.com/apk/res-auto">
+
+  <data>
+
+    <variable
+      name="viewModel"
+      type="dev.teogor.ceres.presentation.feature.home.HomeViewModel" />
+  </data>
+
+  <dev.teogor.ceres.m3.widgets.container.FragmentContainer
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="10dp"
+    fragment:consumeTop="true">
+
+    <View
+      android:id="@+id/container_apply_wallpaper"
+      android:layout_width="@dimen/constraint.layout.fit.screen"
+      android:layout_height="90dp"
+      android:onClick="@{() -> viewModel.onApplyWallpaper()}"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/icon_apply_wallpaper"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:layout_marginHorizontal="@dimen/margin.s"
+      android:background="@drawable/background_circle"
+      android:backgroundTint="?colorPrimaryContainer"
+      android:padding="@dimen/margin.l"
+      android:tint="?colorPrimary"
+      app:layout_constraintBottom_toBottomOf="@id/container_apply_wallpaper"
+      app:layout_constraintEnd_toStartOf="@id/title_apply_wallpaper"
+      app:layout_constraintHorizontal_chainStyle="packed"
+      app:layout_constraintStart_toStartOf="@id/container_apply_wallpaper"
+      app:layout_constraintTop_toTopOf="@id/container_apply_wallpaper"
+      app:srcCompat="@drawable/ic_live_editor_set_wallpaper" />
+
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/title_apply_wallpaper"
+      style="@style/Title2Strong"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginHorizontal="@dimen/margin.s"
+      android:text="Apply Wallpaper"
+      android:textColor="?colorOnBackground"
+      app:layout_constraintBottom_toBottomOf="@id/container_apply_wallpaper"
+      app:layout_constraintEnd_toEndOf="@id/container_apply_wallpaper"
+      app:layout_constraintStart_toEndOf="@id/icon_apply_wallpaper"
+      app:layout_constraintTop_toTopOf="@id/container_apply_wallpaper" />
+
+    <FrameLayout
+      android:id="@+id/ad_frame"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="30dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/container_apply_wallpaper" />
+
+  </dev.teogor.ceres.m3.widgets.container.FragmentContainer>
+
+</layout>

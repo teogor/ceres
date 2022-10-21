@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2022 teogor (Teodor Grigor) All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources>
+
+  <!--TextSize-->
+  <dimen name="textSize.TitleHuge">48sp</dimen>
+  <dimen name="textSize.Title0">28sp</dimen>
+  <dimen name="textSize.Title1">20sp</dimen>
+  <dimen name="textSize.Title2">18sp</dimen>
+  <dimen name="textSize.Title3">16sp</dimen>
+  <dimen name="textSize.Body1">16sp</dimen>
+  <dimen name="textSize.Body2">14sp</dimen>
+  <dimen name="textSize.Body3">12sp</dimen>
+  <dimen name="textSize.Body4">10sp</dimen>
+  <dimen name="textSize.Caption1">14sp</dimen>
+  <dimen name="textSize.Caption2">12sp</dimen>
+
+  <style name="TitleHuge">
+    <item name="fontFamily">@font/font_bold</item>
+    <item name="android:letterSpacing">-0.01</item>
+    <item name="android:textSize">@dimen/textSize.TitleHuge</item>
+  </style>
+
+  <style name="Title0">
+    <item name="fontFamily">@font/font_bold</item>
+    <item name="android:letterSpacing">-0.01</item>
+    <item name="android:textSize">@dimen/textSize.Title0</item>
+  </style>
+
+  <style name="Title0Regular">
+    <item name="fontFamily">@font/font_regular</item>
+    <item name="android:textSize">@dimen/textSize.Title0</item>
+  </style>
+
+  <style name="Title0Strong">
+    <item name="fontFamily">@font/font_bold</item>
+    <item name="android:textSize">@dimen/textSize.Title0</item>
+  </style>
+
+  <style name="Title1Regular">
+    <item name="fontFamily">@font/font_regular</item>
+    <item name="android:textSize">@dimen/textSize.Title1</item>
+  </style>
+
+  <style name="Title1Strong">
+    <item name="fontFamily">@font/font_bold</item>
+    <item name="android:textSize">@dimen/textSize.Title1</item>
+  </style>
+
+  <style name="Title2Regular">
+    <item name="fontFamily">@font/font_regular</item>
+    <item name="android:textSize">@dimen/textSize.Title2</item>
+  </style>
+
+  <style name="Title2Strong">
+    <item name="fontFamily">@font/font_bold</item>
+    <item name="android:textSize">@dimen/textSize.Title2</item>
+  </style>
+
+  <style name="Title3Regular">
+    <item name="fontFamily">@font/font_regular</item>
+    <item name="android:textSize">@dimen/textSize.Title3</item>
+  </style>
+
+  <style name="Title3Strong">
+    <item name="fontFamily">@font/font_bold</item>
+    <item name="android:textSize">@dimen/textSize.Title3</item>
+  </style>
+
+  <style name="Title2">
+    <item name="fontFamily">@font/font_bold</item>
+    <item name="android:textSize">@dimen/textSize.Title2</item>
+  </style>
+
+  <style name="Title3">
+    <item name="fontFamily">@font/font_regular</item>
+    <item name="android:textSize">@dimen/textSize.Title3</item>
+  </style>
+
+  <style name="Body1Regular">
+    <item name="fontFamily">@font/font_regular</item>
+    <item name="android:textSize">@dimen/textSize.Body1</item>
+  </style>
+
+  <style name="Body1Strong">
+    <item name="fontFamily">@font/font_bold</item>
+    <item name="android:textSize">@dimen/textSize.Body1</item>
+  </style>
+
+  <style name="Body2Regular">
+    <item name="fontFamily">@font/font_regular</item>
+    <item name="android:textSize">@dimen/textSize.Body2</item>
+  </style>
+
+  <style name="Body2Strong">
+    <item name="fontFamily">@font/font_bold</item>
+    <item name="android:textSize">@dimen/textSize.Body2</item>
+  </style>
+
+  <style name="Body3Regular">
+    <item name="fontFamily">@font/font_regular</item>
+    <item name="android:textSize">@dimen/textSize.Body3</item>
+  </style>
+
+  <style name="Body3Strong">
+    <item name="fontFamily">@font/font_bold</item>
+    <item name="android:textSize">@dimen/textSize.Body3</item>
+  </style>
+
+  <style name="Body4Regular">
+    <item name="fontFamily">@font/font_regular</item>
+    <item name="android:textSize">@dimen/textSize.Body4</item>
+  </style>
+
+  <style name="Body4Strong">
+    <item name="fontFamily">@font/font_bold</item>
+    <item name="android:textSize">@dimen/textSize.Body4</item>
+  </style>
+
+</resources>
