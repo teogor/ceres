@@ -79,21 +79,27 @@ enforce_branch_merge:
 # branches that contains files without license will not be merged
 license_checker:
   # if enabled, LC will work for this repository
-  enabled: false
+  enabled: true
   # allowed parameters
   allowed:
     # people/organisations who own the license
     copyright_holders:
+      - teogor (Teodor Grigor)
     # licenses that are approved
     licenses:
+      - Apache-2.0
   # files to check
   to_check:
     # with extension
     extensions:
+     - kt
+     - java
+     - xml
   # files to ignore
   to_ignore:
     # with path
     files_path:
+     - buildSrc/
 
 # Draft Release (DR)
 # automatically make a draft release
