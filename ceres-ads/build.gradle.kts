@@ -10,7 +10,7 @@ plugins {
 }
 
 android {
-  namespace = "${Configuration.baseNamespace}.extensions"
+  namespace = "${Configuration.baseNamespace}.ads"
   compileSdk = Configuration.compileSdk
 
   defaultConfig {
