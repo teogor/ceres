@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2022 teogor (Teodor Grigor) All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources>
+  <color name="splash">#202125</color>
+  <color name="ic_launcher_background">#2F2FD3</color>
+
+  <color name="md_theme_primary">#92D787</color>
+  <color name="md_theme_onPrimary">#003A06</color>
+  <color name="md_theme_primaryContainer">#0E5212</color>
+  <color name="md_theme_onPrimaryContainer">#ADF4A1</color>
+  <color name="md_theme_secondary">#94D786</color>
+  <color name="md_theme_onSecondary">#003A03</color>
+  <color name="md_theme_secondaryContainer">#115211</color>
+  <color name="md_theme_onSecondaryContainer">#AFF49F</color>
+  <color name="md_theme_tertiary">#A0CFD3</color>
+  <color name="md_theme_onTertiary">#00363A</color>
+  <color name="md_theme_tertiaryContainer">#1E4D51</color>
+  <color name="md_theme_onTertiaryContainer">#BCEBEF</color>
+  <color name="md_theme_error">#FFB4AB</color>
+  <color name="md_theme_errorContainer">#93000A</color>
+  <color name="md_theme_onError">#690005</color>
+  <color name="md_theme_onErrorContainer">#FFDAD6</color>
+  <color name="md_theme_background">#1A1C19</color>
+  <color name="md_theme_onBackground">#E2E3DD</color>
+  <color name="md_theme_surface">#1A1C19</color>
+  <color name="md_theme_onSurface">#E2E3DD</color>
+  <color name="md_theme_surfaceVariant">#42493F</color>
+  <color name="md_theme_onSurfaceVariant">#C2C8BC</color>
+  <color name="md_theme_outline">#8C9388</color>
+  <color name="md_theme_inverseOnSurface">#1A1C19</color>
+  <color name="md_theme_inverseSurface">#E2E3DD</color>
+  <color name="md_theme_inversePrimary">#2B6B29</color>
+  <color name="md_theme_shadow">#000000</color>
+  <color name="md_theme_surfaceTint">#92D787</color>
+  <color name="md_theme_surfaceTintColor">#92D787</color>
+
+  <color name="error">#FFB4A9</color>
+  <color name="errorContainer">#930006</color>
+  <color name="onError">#680003</color>
+  <color name="onErrorContainer">#FFDAD4</color>
+
+  <color name="divider_default">#1FFFFFFF</color>
+</resources>

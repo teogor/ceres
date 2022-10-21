@@ -1,4 +1,4 @@
-# ceres
+# Ceres
 Android Library
 
 # License

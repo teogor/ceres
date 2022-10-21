@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2022 teogor (Teodor Grigor) All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<dev.teogor.ceres.m3.ContainerBaseM3 xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/container"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:paddingVertical="8dp">
+
+  <dev.teogor.ceres.m3.TextViewM3
+    android:id="@+id/text_title"
+    android:layout_width="@dimen/constraint.layout.fit.screen"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="10dp"
+    android:textSize="16sp"
+    app:color_m3="onSurface"
+    app:layout_constraintBottom_toTopOf="@id/barrier"
+    app:layout_constraintEnd_toStartOf="@id/barrier_image"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_chainStyle="packed"
+    tools:text="Title" />
+
+  <androidx.constraintlayout.widget.Barrier
+    android:id="@+id/barrier"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:barrierDirection="top"
+    app:constraint_referenced_ids="text_subtitle,parent" />
+
+  <dev.teogor.ceres.m3.TextViewM3
+    android:id="@+id/text_subtitle"
+    android:layout_width="@dimen/constraint.layout.fit.screen"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="10dp"
+    android:textSize="14sp"
+    app:color_m3="onSurface"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="@id/barrier_image"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/barrier"
+    app:layout_goneMarginTop="0dp"
+    tools:text="Subtitle" />
+
+  <androidx.constraintlayout.widget.Barrier
+    android:id="@+id/barrier_image"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:barrierDirection="start"
+    app:constraint_referenced_ids="switch_m3,parent" />
+
+  <dev.teogor.ceres.m3.SwitchM3
+    android:id="@+id/switch_m3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="14dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:ignore="SpeakableTextPresentCheck" />
+
+</dev.teogor.ceres.m3.ContainerBaseM3>

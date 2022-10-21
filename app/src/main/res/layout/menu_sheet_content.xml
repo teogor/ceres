@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2022 teogor (Teodor Grigor) All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="viewModel"
+      type="dev.teogor.ceres.presentation.feature.menu.MenuViewModel" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--  Flag the bottom sheet as full-time  -->
+    <View
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
+
+    <dev.teogor.ceres.m3.ImageViewM3
+      android:id="@+id/toolbar_logo"
+      android:layout_width="44dp"
+      android:layout_height="44dp"
+      android:layout_marginEnd="6dp"
+      android:onClick="@{() -> viewModel.onCloseClicked()}"
+      android:padding="16dp"
+      app:color_m3="onPrimaryMenu"
+      app:layout_constraintBottom_toBottomOf="@+id/title_company"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/title_company"
+      app:ripple_enabled="true"
+      app:srcCompat="@drawable/ic_close" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/title_company"
+      style="@style/Title1Regular"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="14dp"
+      android:text="@string/app_name"
+      android:textColor="?colorOnBackground"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <dev.teogor.ceres.m3.MaterialDivider
+      android:id="@+id/decoration_line_1"
+      android:layout_width="@dimen/constraint.layout.fit.screen"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      app:dividerInsetEnd="10dp"
+      app:dividerInsetStart="10dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/title_company" />
+
+    <dev.teogor.ceres.m3.ImageComponentM3
+      android:id="@+id/item_settings"
+      android:layout_width="@dimen/constraint.layout.fit.screen"
+      android:layout_height="wrap_content"
+      android:fontFamily="@font/font_regular"
+      android:paddingHorizontal="10dp"
+      app:corner_radius="14dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/decoration_line_1"
+      app:onClicked="@{() -> viewModel.onSettingsClicked()}"
+      app:padding_image="12dp"
+      app:ripple_enabled="true"
+      app:src_image="@drawable/ic_settings"
+      app:title="Settings" />
+
+    <dev.teogor.ceres.m3.ImageComponentM3
+      android:id="@+id/item_notifications"
+      android:layout_width="@dimen/constraint.layout.fit.screen"
+      android:layout_height="wrap_content"
+      android:fontFamily="@font/font_regular"
+      android:paddingHorizontal="10dp"
+      app:corner_radius="14dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/item_settings"
+      app:onClicked="@{() -> viewModel.onNotificationsClicked()}"
+      app:padding_image="12dp"
+      app:ripple_enabled="true"
+      app:src_image="@drawable/ic_settings"
+      app:title="Notifications" />
+
+    <dev.teogor.ceres.m3.ImageComponentM3
+      android:id="@+id/item_about"
+      android:layout_width="@dimen/constraint.layout.fit.screen"
+      android:layout_height="wrap_content"
+      android:fontFamily="@font/font_regular"
+      android:paddingHorizontal="10dp"
+      app:corner_radius="14dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/item_notifications"
+      app:onClicked="@{() -> viewModel.onAboutClicked()}"
+      app:padding_image="12dp"
+      app:ripple_enabled="true"
+      app:src_image="@drawable/ic_settings"
+      app:title="About" />
+
+    <dev.teogor.ceres.m3.ImageComponentM3
+      android:id="@+id/item_developer_options"
+      android:layout_width="@dimen/constraint.layout.fit.screen"
+      android:layout_height="wrap_content"
+      android:fontFamily="@font/font_regular"
+      android:paddingHorizontal="10dp"
+      app:corner_radius="14dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/item_about"
+      app:onClicked="@{() -> viewModel.onDeveloperOptionsClicked()}"
+      app:padding_image="12dp"
+      app:ripple_enabled="true"
+      app:show="@{viewModel.liveDeveloperOptionsEnabled}"
+      app:src_image="@drawable/ic_settings"
+      app:title="Developer options" />
+
+    <androidx.constraintlayout.widget.Barrier
+      android:id="@+id/barrier_developer_options"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:barrierDirection="bottom"
+      app:constraint_referenced_ids="item_developer_options, item_about" />
+
+    <dev.teogor.ceres.m3.MaterialDivider
+      android:id="@+id/decoration_line_2"
+      android:layout_width="@dimen/constraint.layout.fit.screen"
+      android:layout_height="wrap_content"
+      app:dividerInsetEnd="10dp"
+      app:dividerInsetStart="10dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/barrier_developer_options" />
+
+    <dev.teogor.ceres.m3.TextViewM3
+      android:id="@+id/button_privacy_policy"
+      style="@style/Body3Regular"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:layout_marginEnd="3dp"
+      android:gravity="center"
+      android:paddingHorizontal="7dp"
+      android:paddingVertical="4dp"
+      android:text="Privacy Policy"
+      app:color_m3="onSurface"
+      app:corner_radius="5dp"
+      app:layout_constraintEnd_toStartOf="@id/decoration_space"
+      app:layout_constraintHorizontal_chainStyle="packed"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/decoration_line_2"
+      app:ripple_enabled="true" />
+
+    <TextView
+      android:id="@+id/decoration_space"
+      style="@style/Symbol.Small"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:fontFamily="@font/font_regular"
+      android:text="@string/symbol.black_circle"
+      android:textColor="?colorOnBackground"
+      app:layout_constraintBottom_toBottomOf="@id/button_privacy_policy"
+      app:layout_constraintEnd_toStartOf="@id/button_terms_of_service"
+      app:layout_constraintStart_toEndOf="@id/button_privacy_policy"
+      app:layout_constraintTop_toTopOf="@id/button_privacy_policy" />
+
+    <dev.teogor.ceres.m3.TextViewM3
+      android:id="@+id/button_terms_of_service"
+      style="@style/Body3Regular"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="3dp"
+      android:gravity="center"
+      android:paddingHorizontal="7dp"
+      android:paddingVertical="4dp"
+      android:text="Terms of service"
+      app:color_m3="onSurface"
+      app:corner_radius="5dp"
+      app:layout_constraintBottom_toBottomOf="@id/button_privacy_policy"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/decoration_space"
+      app:layout_constraintTop_toTopOf="@id/button_privacy_policy"
+      app:ripple_enabled="true" />
+
+    <dev.teogor.ceres.m3.TextViewM3
+      android:id="@+id/developer_name"
+      style="@style/Body4Regular"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:gravity="center"
+      android:text="&#169; Teogor 2022"
+      app:color_m3="onSurface"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/button_privacy_policy" />
+
+    <dev.teogor.ceres.m3.TextViewM3
+      android:id="@+id/short_about_version"
+      style="@style/Body4Regular"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:text="@{viewModel.liveVersion}"
+      app:color_m3="onSurface"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/developer_name"
+      tools:text="v1.0.0" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

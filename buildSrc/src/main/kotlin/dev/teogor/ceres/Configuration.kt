@@ -1,5 +1,7 @@
 package dev.teogor.ceres
 
+import org.gradle.api.JavaVersion
+
 object Configuration {
   private const val majorVersion = 1
   private const val minorVersion = 0
@@ -14,4 +16,7 @@ object Configuration {
   const val artifactGroup = "dev.teogor"
   const val baseArtifactId = "ceres"
   const val baseNamespace = "dev.teogor.ceres"
+
+  val javaVersion = JavaVersion.VERSION_11
+  const val jvmTarget = "11"
 }

@@ -1,0 +1,21 @@
+root = true
+
+[*]
+# Most of the standard properties are supported
+indent_size = 2
+max_line_length = 100
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# todo
+# root = true
+# [*]
+# # Most of the standard properties are supported
+# charset = utf-8
+# end_of_line = lf
+# indent_size = 4
+# indent_style = space
+# max_line_length = 100
+# insert_final_newline = true
+# trim_trailing_whitespace = true
