@@ -33,11 +33,11 @@
       android:id="@+id/ad_home"
       android:layout_width="@dimen/constraint.layout.fit.screen"
       android:layout_height="wrap_content"
+      app:ad="@{viewModel.liveHomeAd}"
+      app:binder="@{viewModel.liveHomeAdBinder}"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:ad="@{viewModel.liveHomeAd}"
-      app:binder="@{viewModel.liveHomeAdBinder}" />
+      app:layout_constraintTop_toTopOf="parent" />
 
   </dev.teogor.ceres.m3.widgets.container.FragmentContainer>
 

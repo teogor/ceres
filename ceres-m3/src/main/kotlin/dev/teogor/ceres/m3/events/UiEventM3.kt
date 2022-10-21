@@ -21,7 +21,6 @@ import android.view.View
 import androidx.annotation.StringRes
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import dev.teogor.ceres.components.events.UiEvent
-import dev.teogor.ceres.m3.snackbar.Snackbar
 
 open class UiEventM3 {
 

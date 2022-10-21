@@ -33,26 +33,11 @@ import java.util.Map;
  * the Performance of K-Means for Color Quantization. https://arxiv.org/abs/1101.0395
  */
 public final class QuantizerWsmeans {
-  private QuantizerWsmeans() {
-  }
-
-  private static final class Distance implements Comparable<Distance> {
-    int index;
-    double distance;
-
-    Distance() {
-      this.index = -1;
-      this.distance = -1;
-    }
-
-    @Override
-    public int compareTo(Distance other) {
-      return ((Double) this.distance).compareTo(other.distance);
-    }
-  }
-
   private static final int MAX_ITERATIONS = 10;
   private static final double MIN_MOVEMENT_DISTANCE = 3.0;
+
+  private QuantizerWsmeans() {
+  }
 
   /**
    * Reduce the number of colors needed to represented the input, minimizing the difference
@@ -228,5 +213,20 @@ public final class QuantizerWsmeans {
     }
 
     return argbToPopulation;
+  }
+
+  private static final class Distance implements Comparable<Distance> {
+    int index;
+    double distance;
+
+    Distance() {
+      this.index = -1;
+      this.distance = -1;
+    }
+
+    @Override
+    public int compareTo(Distance other) {
+      return ((Double) this.distance).compareTo(other.distance);
+    }
   }
 }

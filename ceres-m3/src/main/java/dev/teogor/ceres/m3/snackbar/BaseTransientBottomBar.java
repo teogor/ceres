@@ -110,107 +110,6 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
    * Animation mode that corresponds to the fade in and out animations.
    */
   public static final int ANIMATION_MODE_FADE = 1;
-
-  /**
-   * Animation modes that can be set on the {@link BaseTransientBottomBar}.
-   *
-   * @hide
-   */
-  @RestrictTo(LIBRARY_GROUP)
-  @IntDef({ANIMATION_MODE_SLIDE, ANIMATION_MODE_FADE})
-  @Retention(RetentionPolicy.SOURCE)
-  public @interface AnimationMode {
-  }
-
-  /**
-   * Base class for {@link BaseTransientBottomBar} callbacks.
-   *
-   * @param <B> The transient bottom bar subclass.
-   * @see BaseTransientBottomBar#addCallback(BaseCallback)
-   */
-  public abstract static class BaseCallback<B> {
-    /**
-     * Indicates that the Snackbar was dismissed via a swipe.
-     */
-    public static final int DISMISS_EVENT_SWIPE = 0;
-    /**
-     * Indicates that the Snackbar was dismissed via an action click.
-     */
-    public static final int DISMISS_EVENT_ACTION = 1;
-    /**
-     * Indicates that the Snackbar was dismissed via a timeout.
-     */
-    public static final int DISMISS_EVENT_TIMEOUT = 2;
-    /**
-     * Indicates that the Snackbar was dismissed via a call to {@link #dismiss()}.
-     */
-    public static final int DISMISS_EVENT_MANUAL = 3;
-    /**
-     * Indicates that the Snackbar was dismissed from a new Snackbar being shown.
-     */
-    public static final int DISMISS_EVENT_CONSECUTIVE = 4;
-
-    /**
-     * Annotation for types of Dismiss events.
-     *
-     * @hide
-     */
-    @RestrictTo(LIBRARY_GROUP)
-    @IntDef({
-      DISMISS_EVENT_SWIPE,
-      DISMISS_EVENT_ACTION,
-      DISMISS_EVENT_TIMEOUT,
-      DISMISS_EVENT_MANUAL,
-      DISMISS_EVENT_CONSECUTIVE
-    })
-    @Retention(RetentionPolicy.SOURCE)
-    public @interface DismissEvent {
-    }
-
-    /**
-     * Called when the given {@link BaseTransientBottomBar} has been dismissed, either through a
-     * time-out, having been manually dismissed, or an action being clicked.
-     *
-     * @param transientBottomBar The transient bottom bar which has been dismissed.
-     * @param event              The event which caused the dismissal. One of either: {@link
-     *                           #DISMISS_EVENT_SWIPE}, {@link #DISMISS_EVENT_ACTION}, {@link #DISMISS_EVENT_TIMEOUT},
-     *                           {@link #DISMISS_EVENT_MANUAL} or {@link #DISMISS_EVENT_CONSECUTIVE}.
-     * @see BaseTransientBottomBar#dismiss()
-     */
-    public void onDismissed(B transientBottomBar, @DismissEvent int event) {
-      // empty
-    }
-
-    /**
-     * Called when the given {@link BaseTransientBottomBar} is visible.
-     *
-     * @param transientBottomBar The transient bottom bar which is now visible.
-     * @see BaseTransientBottomBar#show()
-     */
-    public void onShown(B transientBottomBar) {
-      // empty
-    }
-  }
-
-  /**
-   * Interface that defines the behavior of the main content of a transient bottom bar.
-   *
-   * @deprecated Use {@link ContentViewCallback} instead.
-   */
-  @Deprecated
-  public interface ContentViewCallback
-    extends dev.teogor.ceres.m3.snackbar.ContentViewCallback {
-  }
-
-  /**
-   * @hide
-   */
-  @RestrictTo(LIBRARY_GROUP)
-  @IntRange(from = LENGTH_INDEFINITE)
-  @Retention(RetentionPolicy.SOURCE)
-  public @interface Duration {
-  }
-
   /**
    * Show the Snackbar indefinitely. This means that the Snackbar will be displayed from the time
    * that is {@link #show() shown} until either it is dismissed, or another Snackbar is shown.
@@ -218,29 +117,29 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
    * @see #setDuration
    */
   public static final int LENGTH_INDEFINITE = -2;
-
   /**
    * Show the Snackbar for a short period of time.
    *
    * @see #setDuration
    */
   public static final int LENGTH_SHORT = -1;
-
   /**
    * Show the Snackbar for a long period of time.
    *
    * @see #setDuration
    */
   public static final int LENGTH_LONG = 0;
-
   // Legacy slide animation duration constant.
   static final int DEFAULT_SLIDE_ANIMATION_DURATION = 250;
   // Legacy slide animation content fade duration constant.
   static final int DEFAULT_ANIMATION_FADE_DURATION = 180;
+  @NonNull
+  static final Handler handler;
+  static final int MSG_SHOW = 0;
+  static final int MSG_DISMISS = 1;
   // Legacy slide animation interpolator constant.
   private static final TimeInterpolator DEFAULT_ANIMATION_SLIDE_INTERPOLATOR =
     FAST_OUT_SLOW_IN_INTERPOLATOR;
-
   // Fade and scale animation constants.
   private static final int DEFAULT_ANIMATION_FADE_IN_DURATION = 150;
   private static final int DEFAULT_ANIMATION_FADE_OUT_DURATION = 75;
@@ -248,26 +147,11 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
   private static final TimeInterpolator DEFAULT_ANIMATION_SCALE_INTERPOLATOR =
     LINEAR_OUT_SLOW_IN_INTERPOLATOR;
   private static final float ANIMATION_SCALE_FROM_VALUE = 0.8f;
-
-  private final int animationFadeInDuration;
-  private final int animationFadeOutDuration;
-  private final int animationSlideDuration;
-  private final TimeInterpolator animationFadeInterpolator;
-  private final TimeInterpolator animationSlideInterpolator;
-  private final TimeInterpolator animationScaleInterpolator;
-
-  @NonNull
-  static final Handler handler;
-  static final int MSG_SHOW = 0;
-  static final int MSG_DISMISS = 1;
-
   // On JB/KK versions of the platform sometimes View.setTranslationY does not result in
   // layout / draw pass, and CoordinatorLayout relies on a draw pass to happen to sync vertical
   // positioning of all its child views
   private static final boolean USE_OFFSET_API = false;
-
   private static final int[] SNACKBAR_STYLE_ATTR = new int[]{R.attr.snackbarStyle};
-
   private static final String TAG = BaseTransientBottomBar.class.getSimpleName();
 
   static {
@@ -293,22 +177,45 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
   }
 
   @NonNull
+  protected final SnackbarBaseLayout view;
+  private final int animationFadeInDuration;
+  private final int animationFadeOutDuration;
+  private final int animationSlideDuration;
+  private final TimeInterpolator animationFadeInterpolator;
+  private final TimeInterpolator animationSlideInterpolator;
+  private final TimeInterpolator animationScaleInterpolator;
+  @NonNull
   private final ViewGroup targetParent;
   private final Context context;
   @NonNull
-  protected final SnackbarBaseLayout view;
-
-  @NonNull
   private final dev.teogor.ceres.m3.snackbar.ContentViewCallback contentViewCallback;
+  @Nullable
+  private final AccessibilityManager accessibilityManager;
+  @NonNull
+  SnackbarManager.Callback managerCallback =
+    new SnackbarManager.Callback() {
+      @Override
+      public void show() {
+        handler.sendMessage(
+          handler.obtainMessage(MSG_SHOW, BaseTransientBottomBar.this));
+      }
 
+      @Override
+      public void dismiss(int event) {
+        handler.sendMessage(
+          handler.obtainMessage(
+            MSG_DISMISS, event, 0, BaseTransientBottomBar.this));
+      }
+    };
   private int duration;
   private boolean gestureInsetBottomIgnored;
-
   @Nullable
   private Anchor anchor;
-
   private boolean anchorViewLayoutListenerEnabled = false;
-
+  private int extraBottomMarginWindowInset;
+  private int extraLeftMarginWindowInset;
+  private int extraRightMarginWindowInset;
+  private int extraBottomMarginGestureInset;
   @RequiresApi(VERSION_CODES.Q)
   private final Runnable bottomMarginGestureInsetRunnable =
     new Runnable() {
@@ -344,21 +251,10 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         view.requestLayout();
       }
     };
-
-  private int extraBottomMarginWindowInset;
-  private int extraLeftMarginWindowInset;
-  private int extraRightMarginWindowInset;
-  private int extraBottomMarginGestureInset;
   private int extraBottomMarginAnchorView;
-
   private boolean pendingShowingView;
-
   private List<BaseCallback<B>> callbacks;
-
   private Behavior behavior;
-
-  @Nullable
-  private final AccessibilityManager accessibilityManager;
 
   /**
    * Constructor for the transient bottom bar.
@@ -484,6 +380,25 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         DEFAULT_ANIMATION_SLIDE_INTERPOLATOR);
   }
 
+  @NonNull
+  private static MaterialShapeDrawable createMaterialShapeDrawableBackground(
+    @ColorInt int backgroundColor, @NonNull ShapeAppearanceModel shapeAppearanceModel) {
+    MaterialShapeDrawable background = new MaterialShapeDrawable(shapeAppearanceModel);
+    background.setFillColor(ColorStateList.valueOf(backgroundColor));
+    return background;
+  }
+
+  @NonNull
+  private static GradientDrawable createGradientDrawableBackground(
+    @ColorInt int backgroundColor, @NonNull Resources resources) {
+    float cornerRadius = resources.getDimension(R.dimen.mtrl_snackbar_background_corner_radius);
+    GradientDrawable background = new GradientDrawable();
+    background.setShape(GradientDrawable.RECTANGLE);
+    background.setCornerRadius(cornerRadius);
+    background.setColor(backgroundColor);
+    return background;
+  }
+
   private void updateMargins() {
     LayoutParams layoutParams = view.getLayoutParams();
     if (!(layoutParams instanceof MarginLayoutParams) || view.originalMargins == null) {
@@ -535,6 +450,16 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
   }
 
   /**
+   * Return the duration.
+   *
+   * @see #setDuration
+   */
+  @Duration
+  public int getDuration() {
+    return duration;
+  }
+
+  /**
    * Set how long to show the view for.
    *
    * @param duration How long to display the message. Can be {@link #LENGTH_SHORT}, {@link
@@ -547,13 +472,11 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
   }
 
   /**
-   * Return the duration.
-   *
-   * @see #setDuration
+   * Returns whether this bottom bar should adjust it's position based on the system gesture area
+   * on Android Q and above. See {@link #setGestureInsetBottomIgnored(boolean)}.
    */
-  @Duration
-  public int getDuration() {
-    return duration;
+  public boolean isGestureInsetBottomIgnored() {
+    return gestureInsetBottomIgnored;
   }
 
   /**
@@ -568,14 +491,6 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
   public B setGestureInsetBottomIgnored(boolean gestureInsetBottomIgnored) {
     this.gestureInsetBottomIgnored = gestureInsetBottomIgnored;
     return (B) this;
-  }
-
-  /**
-   * Returns whether this bottom bar should adjust it's position based on the system gesture area
-   * on Android Q and above. See {@link #setGestureInsetBottomIgnored(boolean)}.
-   */
-  public boolean isGestureInsetBottomIgnored() {
-    return gestureInsetBottomIgnored;
   }
 
   /**
@@ -656,6 +571,15 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
   }
 
   /**
+   * Return the behavior.
+   *
+   * @see #setBehavior(Behavior)
+   */
+  public Behavior getBehavior() {
+    return behavior;
+  }
+
+  /**
    * Sets the {@link Behavior} to be used in this {@link BaseTransientBottomBar}.
    *
    * @param behavior {@link Behavior} to be applied.
@@ -664,15 +588,6 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
   public B setBehavior(Behavior behavior) {
     this.behavior = behavior;
     return (B) this;
-  }
-
-  /**
-   * Return the behavior.
-   *
-   * @see #setBehavior(Behavior)
-   */
-  public Behavior getBehavior() {
-    return behavior;
   }
 
   /**
@@ -762,23 +677,6 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
   public boolean isShownOrQueued() {
     return SnackbarManager.getInstance().isCurrentOrNext(managerCallback);
   }
-
-  @NonNull
-  SnackbarManager.Callback managerCallback =
-    new SnackbarManager.Callback() {
-      @Override
-      public void show() {
-        handler.sendMessage(
-          handler.obtainMessage(MSG_SHOW, BaseTransientBottomBar.this));
-      }
-
-      @Override
-      public void dismiss(int event) {
-        handler.sendMessage(
-          handler.obtainMessage(
-            MSG_DISMISS, event, 0, BaseTransientBottomBar.this));
-      }
-    };
 
   @NonNull
   protected SwipeDismissBehavior<? extends View> getNewBehavior() {
@@ -1182,6 +1080,106 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
   }
 
   /**
+   * Animation modes that can be set on the {@link BaseTransientBottomBar}.
+   *
+   * @hide
+   */
+  @RestrictTo(LIBRARY_GROUP)
+  @IntDef({ANIMATION_MODE_SLIDE, ANIMATION_MODE_FADE})
+  @Retention(RetentionPolicy.SOURCE)
+  public @interface AnimationMode {
+  }
+
+  /**
+   * Interface that defines the behavior of the main content of a transient bottom bar.
+   *
+   * @deprecated Use {@link ContentViewCallback} instead.
+   */
+  @Deprecated
+  public interface ContentViewCallback
+    extends dev.teogor.ceres.m3.snackbar.ContentViewCallback {
+  }
+
+  /**
+   * @hide
+   */
+  @RestrictTo(LIBRARY_GROUP)
+  @IntRange(from = LENGTH_INDEFINITE)
+  @Retention(RetentionPolicy.SOURCE)
+  public @interface Duration {
+  }
+
+  /**
+   * Base class for {@link BaseTransientBottomBar} callbacks.
+   *
+   * @param <B> The transient bottom bar subclass.
+   * @see BaseTransientBottomBar#addCallback(BaseCallback)
+   */
+  public abstract static class BaseCallback<B> {
+    /**
+     * Indicates that the Snackbar was dismissed via a swipe.
+     */
+    public static final int DISMISS_EVENT_SWIPE = 0;
+    /**
+     * Indicates that the Snackbar was dismissed via an action click.
+     */
+    public static final int DISMISS_EVENT_ACTION = 1;
+    /**
+     * Indicates that the Snackbar was dismissed via a timeout.
+     */
+    public static final int DISMISS_EVENT_TIMEOUT = 2;
+    /**
+     * Indicates that the Snackbar was dismissed via a call to {@link #dismiss()}.
+     */
+    public static final int DISMISS_EVENT_MANUAL = 3;
+    /**
+     * Indicates that the Snackbar was dismissed from a new Snackbar being shown.
+     */
+    public static final int DISMISS_EVENT_CONSECUTIVE = 4;
+
+    /**
+     * Called when the given {@link BaseTransientBottomBar} has been dismissed, either through a
+     * time-out, having been manually dismissed, or an action being clicked.
+     *
+     * @param transientBottomBar The transient bottom bar which has been dismissed.
+     * @param event              The event which caused the dismissal. One of either: {@link
+     *                           #DISMISS_EVENT_SWIPE}, {@link #DISMISS_EVENT_ACTION}, {@link #DISMISS_EVENT_TIMEOUT},
+     *                           {@link #DISMISS_EVENT_MANUAL} or {@link #DISMISS_EVENT_CONSECUTIVE}.
+     * @see BaseTransientBottomBar#dismiss()
+     */
+    public void onDismissed(B transientBottomBar, @DismissEvent int event) {
+      // empty
+    }
+
+    /**
+     * Called when the given {@link BaseTransientBottomBar} is visible.
+     *
+     * @param transientBottomBar The transient bottom bar which is now visible.
+     * @see BaseTransientBottomBar#show()
+     */
+    public void onShown(B transientBottomBar) {
+      // empty
+    }
+
+    /**
+     * Annotation for types of Dismiss events.
+     *
+     * @hide
+     */
+    @RestrictTo(LIBRARY_GROUP)
+    @IntDef({
+      DISMISS_EVENT_SWIPE,
+      DISMISS_EVENT_ACTION,
+      DISMISS_EVENT_TIMEOUT,
+      DISMISS_EVENT_MANUAL,
+      DISMISS_EVENT_CONSECUTIVE
+    })
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface DismissEvent {
+    }
+  }
+
+  /**
    * @hide
    */
   @RestrictTo(LIBRARY_GROUP)
@@ -1195,17 +1193,16 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
           return true;
         }
       };
-
-    @Nullable
-    private BaseTransientBottomBar<?> baseTransientBottomBar;
-    @Nullable
-    ShapeAppearanceModel shapeAppearanceModel;
-    @AnimationMode
-    private int animationMode;
     private final float backgroundOverlayColorAlpha;
     private final float actionTextColorAlpha;
     private final int maxWidth;
     private final int maxInlineActionWidth;
+    @Nullable
+    ShapeAppearanceModel shapeAppearanceModel;
+    @Nullable
+    private BaseTransientBottomBar<?> baseTransientBottomBar;
+    @AnimationMode
+    private int animationMode;
     private ColorStateList backgroundTint;
     private PorterDuff.Mode backgroundTintMode;
 
@@ -1427,25 +1424,6 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     }
   }
 
-  @NonNull
-  private static MaterialShapeDrawable createMaterialShapeDrawableBackground(
-    @ColorInt int backgroundColor, @NonNull ShapeAppearanceModel shapeAppearanceModel) {
-    MaterialShapeDrawable background = new MaterialShapeDrawable(shapeAppearanceModel);
-    background.setFillColor(ColorStateList.valueOf(backgroundColor));
-    return background;
-  }
-
-  @NonNull
-  private static GradientDrawable createGradientDrawableBackground(
-    @ColorInt int backgroundColor, @NonNull Resources resources) {
-    float cornerRadius = resources.getDimension(R.dimen.mtrl_snackbar_background_corner_radius);
-    GradientDrawable background = new GradientDrawable();
-    background.setShape(GradientDrawable.RECTANGLE);
-    background.setCornerRadius(cornerRadius);
-    background.setColor(backgroundColor);
-    return background;
-  }
-
   /**
    * Behavior for {@link BaseTransientBottomBar}.
    */
@@ -1531,6 +1509,12 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     @NonNull
     private final WeakReference<View> anchorView;
 
+    private Anchor(
+      @NonNull BaseTransientBottomBar transientBottomBar, @NonNull View anchorView) {
+      this.transientBottomBar = new WeakReference<>(transientBottomBar);
+      this.anchorView = new WeakReference<>(anchorView);
+    }
+
     static Anchor anchor(
       @NonNull BaseTransientBottomBar transientBottomBar, @NonNull View anchorView) {
       Anchor anchor = new Anchor(transientBottomBar, anchorView);
@@ -1539,12 +1523,6 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
       }
       anchorView.addOnAttachStateChangeListener(anchor);
       return anchor;
-    }
-
-    private Anchor(
-      @NonNull BaseTransientBottomBar transientBottomBar, @NonNull View anchorView) {
-      this.transientBottomBar = new WeakReference<>(transientBottomBar);
-      this.anchorView = new WeakReference<>(anchorView);
     }
 
     @Override

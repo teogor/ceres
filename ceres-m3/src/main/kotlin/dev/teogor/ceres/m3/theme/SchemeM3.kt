@@ -18,8 +18,6 @@ package dev.teogor.ceres.m3.theme
 
 import android.graphics.Color
 import androidx.annotation.ColorInt
-import dev.teogor.ceres.m3.generator.palettes.CorePalette
-import dev.teogor.ceres.m3.generator.palettes.TonalPalette
 
 @Suppress("MemberVisibilityCanBePrivate", "unused")
 class SchemeM3 private constructor(
@@ -28,7 +26,8 @@ class SchemeM3 private constructor(
   val dynamicColors: Boolean
 ) {
 
-  val corePalette: dev.teogor.ceres.m3.generator.palettes.CorePalette = dev.teogor.ceres.m3.generator.palettes.CorePalette.of(primaryColor)
+  val corePalette: dev.teogor.ceres.m3.generator.palettes.CorePalette =
+    dev.teogor.ceres.m3.generator.palettes.CorePalette.of(primaryColor)
   val primaryPalette: dev.teogor.ceres.m3.generator.palettes.TonalPalette = corePalette.a1
   val secondaryPalette: dev.teogor.ceres.m3.generator.palettes.TonalPalette = corePalette.a2
   val tertiaryPalette: dev.teogor.ceres.m3.generator.palettes.TonalPalette = corePalette.a3

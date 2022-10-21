@@ -27,7 +27,12 @@ import android.util.TypedValue
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ListAdapter
-import androidx.annotation.*
+import androidx.annotation.ArrayRes
+import androidx.annotation.AttrRes
+import androidx.annotation.DrawableRes
+import androidx.annotation.Px
+import androidx.annotation.StringRes
+import androidx.annotation.StyleRes
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.view.ViewCompat

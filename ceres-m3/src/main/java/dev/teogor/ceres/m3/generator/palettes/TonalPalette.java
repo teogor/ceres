@@ -16,10 +16,10 @@
 
 package dev.teogor.ceres.m3.generator.palettes;
 
-import dev.teogor.ceres.m3.generator.hct.Hct;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import dev.teogor.ceres.m3.generator.hct.Hct;
 
 /**
  * A convenience class for retrieving colors that are constant in hue and chroma, but vary in tone.
@@ -28,6 +28,12 @@ public final class TonalPalette {
   Map<Integer, Integer> cache;
   double hue;
   double chroma;
+
+  private TonalPalette(double hue, double chroma) {
+    cache = new HashMap<>();
+    this.hue = hue;
+    this.chroma = chroma;
+  }
 
   /**
    * Create tones using the HCT hue and chroma from a color.
@@ -49,12 +55,6 @@ public final class TonalPalette {
    */
   public static final TonalPalette fromHueAndChroma(double hue, double chroma) {
     return new TonalPalette(hue, chroma);
-  }
-
-  private TonalPalette(double hue, double chroma) {
-    cache = new HashMap<>();
-    this.hue = hue;
-    this.chroma = chroma;
   }
 
   /**

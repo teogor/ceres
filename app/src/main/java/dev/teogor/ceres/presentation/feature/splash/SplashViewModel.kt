@@ -20,7 +20,6 @@ import androidx.navigation.NavDirections
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.teogor.ceres.components.toolbar.ToolbarType
 import dev.teogor.ceres.m3.app.BaseViewModelM3
-import dev.teogor.ceres.presentation.memo.AppDataMemo
 import javax.inject.Inject
 
 @HiltViewModel

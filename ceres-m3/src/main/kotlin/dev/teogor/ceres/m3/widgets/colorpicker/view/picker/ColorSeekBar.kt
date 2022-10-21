@@ -18,7 +18,12 @@ package dev.teogor.ceres.m3.widgets.colorpicker.view.picker
 
 import android.animation.ObjectAnimator
 import android.content.Context
-import android.graphics.drawable.*
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.GradientDrawable
+import android.graphics.drawable.LayerDrawable
+import android.graphics.drawable.RippleDrawable
+import android.graphics.drawable.ScaleDrawable
+import android.graphics.drawable.StateListDrawable
 import android.os.Build
 import android.util.AttributeSet
 import android.util.Log

@@ -25,7 +25,11 @@ import androidx.annotation.FontRes
 import androidx.annotation.Px
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.setPadding
-import dev.teogor.ceres.extensions.*
+import dev.teogor.ceres.extensions.dpToPx
+import dev.teogor.ceres.extensions.hide
+import dev.teogor.ceres.extensions.show
+import dev.teogor.ceres.extensions.validDrawableId
+import dev.teogor.ceres.extensions.validFontId
 import dev.teogor.ceres.m3.databinding.Lm3ImageComponentBinding
 
 class ImageComponentM3(

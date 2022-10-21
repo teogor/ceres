@@ -24,7 +24,6 @@ import androidx.core.graphics.ColorUtils
 import com.google.android.material.color.MaterialColors
 import dev.teogor.ceres.core.internal.ViewUtils
 import dev.teogor.ceres.m3.R
-import dev.teogor.ceres.m3.resources.MaterialAttributes
 import kotlin.math.roundToInt
 
 /**
@@ -50,7 +49,11 @@ class ElevationOverlayProvider(
 ) {
 
   constructor(context: Context) : this(
-    dev.teogor.ceres.m3.resources.MaterialAttributes.resolveBoolean(context, R.attr.elevationOverlayEnabled, false),
+    dev.teogor.ceres.m3.resources.MaterialAttributes.resolveBoolean(
+      context,
+      R.attr.elevationOverlayEnabled,
+      false
+    ),
     MaterialColors.getColor(context, R.attr.elevationOverlayColor, Color.TRANSPARENT),
     MaterialColors.getColor(context, R.attr.elevationOverlayAccentColor, Color.TRANSPARENT),
     MaterialColors.getColor(context, R.attr.colorSurface, Color.TRANSPARENT),

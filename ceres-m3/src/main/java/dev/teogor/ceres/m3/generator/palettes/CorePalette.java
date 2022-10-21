@@ -33,24 +33,6 @@ public final class CorePalette {
   public TonalPalette n2;
   public TonalPalette error;
 
-  /**
-   * Create key tones from a color.
-   *
-   * @param argb ARGB representation of a color
-   */
-  public static CorePalette of(int argb) {
-    return new CorePalette(argb, false);
-  }
-
-  /**
-   * Create content key tones from a color.
-   *
-   * @param argb ARGB representation of a color
-   */
-  public static CorePalette contentOf(int argb) {
-    return new CorePalette(argb, true);
-  }
-
   private CorePalette(int argb, boolean isContent) {
     Hct hct = Hct.fromInt(argb);
     double hue = hct.getHue();
@@ -69,5 +51,23 @@ public final class CorePalette {
       this.n2 = TonalPalette.fromHueAndChroma(hue, 8.);
     }
     this.error = TonalPalette.fromHueAndChroma(25, 84.);
+  }
+
+  /**
+   * Create key tones from a color.
+   *
+   * @param argb ARGB representation of a color
+   */
+  public static CorePalette of(int argb) {
+    return new CorePalette(argb, false);
+  }
+
+  /**
+   * Create content key tones from a color.
+   *
+   * @param argb ARGB representation of a color
+   */
+  public static CorePalette contentOf(int argb) {
+    return new CorePalette(argb, true);
   }
 }

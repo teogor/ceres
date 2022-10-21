@@ -27,7 +27,7 @@ android {
 
   buildTypes {
     configureEach {
-      if(this.name == "release") {
+      if (this.name == "release") {
         buildConfigField("boolean", "IS_RELEASE_VERSION", "true")
       } else {
         buildConfigField("boolean", "IS_RELEASE_VERSION", "false")

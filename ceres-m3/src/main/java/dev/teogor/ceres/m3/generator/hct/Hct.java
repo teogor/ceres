@@ -43,6 +43,10 @@ public final class Hct {
   private double tone;
   private int argb;
 
+  private Hct(int argb) {
+    setInternalState(argb);
+  }
+
   /**
    * Create an HCT color from hue, chroma, and tone.
    *
@@ -67,24 +71,8 @@ public final class Hct {
     return new Hct(argb);
   }
 
-  private Hct(int argb) {
-    setInternalState(argb);
-  }
-
   public double getHue() {
     return hue;
-  }
-
-  public double getChroma() {
-    return chroma;
-  }
-
-  public double getTone() {
-    return tone;
-  }
-
-  public int toInt() {
-    return argb;
   }
 
   /**
@@ -97,6 +85,10 @@ public final class Hct {
     setInternalState(HctSolver.solveToInt(newHue, chroma, tone));
   }
 
+  public double getChroma() {
+    return chroma;
+  }
+
   /**
    * Set the chroma of this color. Chroma may decrease because chroma has a different maximum for
    * any given hue and tone.
@@ -107,6 +99,10 @@ public final class Hct {
     setInternalState(HctSolver.solveToInt(hue, newChroma, tone));
   }
 
+  public double getTone() {
+    return tone;
+  }
+
   /**
    * Set the tone of this color. Chroma may decrease because chroma has a different maximum for
    * any given hue and tone.
@@ -115,6 +111,10 @@ public final class Hct {
    */
   public void setTone(double newTone) {
     setInternalState(HctSolver.solveToInt(hue, chroma, newTone));
+  }
+
+  public int toInt() {
+    return argb;
   }
 
   private void setInternalState(int argb) {

@@ -57,44 +57,33 @@ public final class ViewingConditions {
   private final double flRoot;
   private final double z;
 
-  public double getAw() {
-    return aw;
-  }
-
-  public double getN() {
-    return n;
-  }
-
-  public double getNbb() {
-    return nbb;
-  }
-
-  double getNcb() {
-    return ncb;
-  }
-
-  double getC() {
-    return c;
-  }
-
-  double getNc() {
-    return nc;
-  }
-
-  public double[] getRgbD() {
-    return rgbD;
-  }
-
-  double getFl() {
-    return fl;
-  }
-
-  public double getFlRoot() {
-    return flRoot;
-  }
-
-  double getZ() {
-    return z;
+  /**
+   * Parameters are intermediate values of the CAM16 conversion process. Their names are shorthand
+   * for technical color science terminology, this class would not benefit from documenting them
+   * individually. A brief overview is available in the CAM16 specification, and a complete
+   * overview requires a color science textbook, such as Fairchild's Color Appearance Models.
+   */
+  private ViewingConditions(
+    double n,
+    double aw,
+    double nbb,
+    double ncb,
+    double c,
+    double nc,
+    double[] rgbD,
+    double fl,
+    double flRoot,
+    double z) {
+    this.n = n;
+    this.aw = aw;
+    this.nbb = nbb;
+    this.ncb = ncb;
+    this.c = c;
+    this.nc = nc;
+    this.rgbD = rgbD;
+    this.fl = fl;
+    this.flRoot = flRoot;
+    this.z = z;
   }
 
   /**
@@ -171,32 +160,43 @@ public final class ViewingConditions {
     return new ViewingConditions(n, aw, nbb, ncb, c, nc, rgbD, fl, Math.pow(fl, 0.25), z);
   }
 
-  /**
-   * Parameters are intermediate values of the CAM16 conversion process. Their names are shorthand
-   * for technical color science terminology, this class would not benefit from documenting them
-   * individually. A brief overview is available in the CAM16 specification, and a complete
-   * overview requires a color science textbook, such as Fairchild's Color Appearance Models.
-   */
-  private ViewingConditions(
-    double n,
-    double aw,
-    double nbb,
-    double ncb,
-    double c,
-    double nc,
-    double[] rgbD,
-    double fl,
-    double flRoot,
-    double z) {
-    this.n = n;
-    this.aw = aw;
-    this.nbb = nbb;
-    this.ncb = ncb;
-    this.c = c;
-    this.nc = nc;
-    this.rgbD = rgbD;
-    this.fl = fl;
-    this.flRoot = flRoot;
-    this.z = z;
+  public double getAw() {
+    return aw;
+  }
+
+  public double getN() {
+    return n;
+  }
+
+  public double getNbb() {
+    return nbb;
+  }
+
+  double getNcb() {
+    return ncb;
+  }
+
+  double getC() {
+    return c;
+  }
+
+  double getNc() {
+    return nc;
+  }
+
+  public double[] getRgbD() {
+    return rgbD;
+  }
+
+  double getFl() {
+    return fl;
+  }
+
+  public double getFlRoot() {
+    return flRoot;
+  }
+
+  double getZ() {
+    return z;
   }
 }

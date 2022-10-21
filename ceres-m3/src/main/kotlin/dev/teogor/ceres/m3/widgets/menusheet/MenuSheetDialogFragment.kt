@@ -95,7 +95,8 @@ open class MenuSheetDialogFragment : AppCompatDialogFragment {
   private fun tryDismissWithAnimation(allowingStateLoss: Boolean): Boolean {
     val baseDialog = dialog
     if (baseDialog is dev.teogor.ceres.m3.widgets.menusheet.MenuSheetDialog) {
-      val behavior: dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour<*> = baseDialog.behavior
+      val behavior: dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour<*> =
+        baseDialog.behavior
       if (behavior.isHideable && baseDialog.getDismissWithAnimation()) {
         dismissWithAnimation(behavior, allowingStateLoss)
         return true
@@ -128,7 +129,8 @@ open class MenuSheetDialogFragment : AppCompatDialogFragment {
     }
   }
 
-  private inner class MenuSheetDismissCallback : dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour.MenuSheetCallback() {
+  private inner class MenuSheetDismissCallback :
+    dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour.MenuSheetCallback() {
     override fun onStateChanged(bottomSheet: View, newState: Int) {
       if (newState == dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour.STATE_HIDDEN) {
         dismissAfterAnimation()

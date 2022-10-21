@@ -57,7 +57,11 @@ class SnackbarBetaM3 private constructor(
     actionListener: View.OnClickListener? = null,
     duration: Int = dev.teogor.ceres.m3.snackbar.Snackbar.LENGTH_SHORT
   ): dev.teogor.ceres.m3.snackbar.Snackbar {
-    val snackBar = dev.teogor.ceres.m3.snackbar.Snackbar.make(activity.findViewById(android.R.id.content), message, duration)
+    val snackBar = dev.teogor.ceres.m3.snackbar.Snackbar.make(
+      activity.findViewById(android.R.id.content),
+      message,
+      duration
+    )
     if (action != null && actionListener != null) {
       snackBar.setAction(action, actionListener)
     }

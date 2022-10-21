@@ -64,93 +64,6 @@ public final class Cam16 {
   private final double bstar;
 
   /**
-   * CAM16 instances also have coordinates in the CAM16-UCS space, called J*, a*, b*, or jstar,
-   * astar, bstar in code. CAM16-UCS is included in the CAM16 specification, and is used to
-   * measure distances between colors.
-   */
-  double distance(Cam16 other) {
-    double dJ = getJstar() - other.getJstar();
-    double dA = getAstar() - other.getAstar();
-    double dB = getBstar() - other.getBstar();
-    double dEPrime = Math.sqrt(dJ * dJ + dA * dA + dB * dB);
-    double dE = 1.41 * Math.pow(dEPrime, 0.63);
-    return dE;
-  }
-
-  /**
-   * Hue in CAM16
-   */
-  public double getHue() {
-    return hue;
-  }
-
-  /**
-   * Chroma in CAM16
-   */
-  public double getChroma() {
-    return chroma;
-  }
-
-  /**
-   * Lightness in CAM16
-   */
-  public double getJ() {
-    return j;
-  }
-
-  /**
-   * Brightness in CAM16.
-   *
-   * <p>Prefer lightness, brightness is an absolute quantity. For example, a sheet of white paper
-   * is much brighter viewed in sunlight than in indoor light, but it is the lightest object under
-   * any lighting.
-   */
-  public double getQ() {
-    return q;
-  }
-
-  /**
-   * Colorfulness in CAM16.
-   *
-   * <p>Prefer chroma, colorfulness is an absolute quantity. For example, a yellow toy car is much
-   * more colorful outside than inside, but it has the same chroma in both environments.
-   */
-  public double getM() {
-    return m;
-  }
-
-  /**
-   * Saturation in CAM16.
-   *
-   * <p>Colorfulness in proportion to brightness. Prefer chroma, saturation measures colorfulness
-   * relative to the color's own brightness, where chroma is colorfulness relative to white.
-   */
-  public double getS() {
-    return s;
-  }
-
-  /**
-   * Lightness coordinate in CAM16-UCS
-   */
-  public double getJstar() {
-    return jstar;
-  }
-
-  /**
-   * a* coordinate in CAM16-UCS
-   */
-  public double getAstar() {
-    return astar;
-  }
-
-  /**
-   * b* coordinate in CAM16-UCS
-   */
-  public double getBstar() {
-    return bstar;
-  }
-
-  /**
    * All of the CAM16 dimensions can be calculated from 3 of the dimensions, in the following
    * combinations: - {j or q} and {c, m, or s} and hue - jstar, astar, bstar Prefer using a static
    * method that constructs from 3 of those dimensions. This constructor is intended for those
@@ -373,6 +286,93 @@ public final class Cam16 {
     }
     double j = jstar / (1. - (jstar - 100.) * 0.007);
     return fromJchInViewingConditions(j, c, h, viewingConditions);
+  }
+
+  /**
+   * CAM16 instances also have coordinates in the CAM16-UCS space, called J*, a*, b*, or jstar,
+   * astar, bstar in code. CAM16-UCS is included in the CAM16 specification, and is used to
+   * measure distances between colors.
+   */
+  double distance(Cam16 other) {
+    double dJ = getJstar() - other.getJstar();
+    double dA = getAstar() - other.getAstar();
+    double dB = getBstar() - other.getBstar();
+    double dEPrime = Math.sqrt(dJ * dJ + dA * dA + dB * dB);
+    double dE = 1.41 * Math.pow(dEPrime, 0.63);
+    return dE;
+  }
+
+  /**
+   * Hue in CAM16
+   */
+  public double getHue() {
+    return hue;
+  }
+
+  /**
+   * Chroma in CAM16
+   */
+  public double getChroma() {
+    return chroma;
+  }
+
+  /**
+   * Lightness in CAM16
+   */
+  public double getJ() {
+    return j;
+  }
+
+  /**
+   * Brightness in CAM16.
+   *
+   * <p>Prefer lightness, brightness is an absolute quantity. For example, a sheet of white paper
+   * is much brighter viewed in sunlight than in indoor light, but it is the lightest object under
+   * any lighting.
+   */
+  public double getQ() {
+    return q;
+  }
+
+  /**
+   * Colorfulness in CAM16.
+   *
+   * <p>Prefer chroma, colorfulness is an absolute quantity. For example, a yellow toy car is much
+   * more colorful outside than inside, but it has the same chroma in both environments.
+   */
+  public double getM() {
+    return m;
+  }
+
+  /**
+   * Saturation in CAM16.
+   *
+   * <p>Colorfulness in proportion to brightness. Prefer chroma, saturation measures colorfulness
+   * relative to the color's own brightness, where chroma is colorfulness relative to white.
+   */
+  public double getS() {
+    return s;
+  }
+
+  /**
+   * Lightness coordinate in CAM16-UCS
+   */
+  public double getJstar() {
+    return jstar;
+  }
+
+  /**
+   * a* coordinate in CAM16-UCS
+   */
+  public double getAstar() {
+    return astar;
+  }
+
+  /**
+   * b* coordinate in CAM16-UCS
+   */
+  public double getBstar() {
+    return bstar;
   }
 
   /**

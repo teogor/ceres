@@ -44,18 +44,18 @@
     android:id="@+id/homeFragment"
     android:name="dev.teogor.ceres.presentation.feature.home.HomeFragment"
     android:label="HomeFragment"
-    app:restoreState="true"
     app:popUpTo="@id/homeFragment"
     app:popUpToSaveState="true"
+    app:restoreState="true"
     tools:layout="@layout/fragment_home" />
 
   <fragment
     android:id="@+id/homeFragment2"
     android:name="dev.teogor.ceres.presentation.feature.home2.Home2Fragment"
     android:label="HomeFragment2"
-    app:restoreState="true"
     app:popUpTo="@id/homeFragment2"
     app:popUpToSaveState="true"
+    app:restoreState="true"
     tools:layout="@layout/fragment_home2" />
 
   <dialog
@@ -91,8 +91,8 @@
     android:id="@+id/aboutFragment"
     android:name="dev.teogor.ceres.presentation.feature.about.AboutFragment"
     android:label="AboutFragment"
-    app:restoreState="true"
     app:popUpToSaveState="true"
+    app:restoreState="true"
     tools:layout="@layout/fragment_about" />
 
   <!--  PREFS  -->
@@ -100,8 +100,8 @@
     android:id="@+id/prefsThemeFragment"
     android:name="dev.teogor.ceres.presentation.feature.prefs.theme.ThemePrefsFragment"
     android:label="ThemePrefsFragment"
-    app:restoreState="true"
     app:popUpToSaveState="true"
+    app:restoreState="true"
     tools:layout="@layout/prefs_fragment_theme" />
 
 </navigation>

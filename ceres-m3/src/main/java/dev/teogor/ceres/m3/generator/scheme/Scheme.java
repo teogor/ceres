@@ -17,7 +17,6 @@
 package dev.teogor.ceres.m3.generator.scheme;
 
 import dev.teogor.ceres.m3.generator.palettes.CorePalette;
-import dev.teogor.ceres.m3.generator.palettes.CorePalette;
 
 /**
  * Represents a Material color scheme, a mapping of color roles to colors.

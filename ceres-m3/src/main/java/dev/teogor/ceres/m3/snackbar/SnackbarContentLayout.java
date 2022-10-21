@@ -37,18 +37,15 @@ import com.google.android.material.motion.MotionUtils;
 
 import dev.teogor.ceres.m3.ButtonM3;
 import dev.teogor.ceres.m3.TextViewM3;
-import dev.teogor.ceres.m3.ButtonM3;
-import dev.teogor.ceres.m3.TextViewM3;
 
 /**
  * @hide
  */
 @RestrictTo(LIBRARY_GROUP)
 public class SnackbarContentLayout extends LinearLayout implements ContentViewCallback {
+  private final TimeInterpolator contentInterpolator;
   private TextViewM3 messageView;
   private ButtonM3 actionView;
-  private final TimeInterpolator contentInterpolator;
-
   private int maxInlineActionWidth;
 
   public SnackbarContentLayout(@NonNull Context context) {
@@ -62,6 +59,21 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
         context,
         R.attr.motionEasingEmphasizedInterpolator,
         AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR);
+  }
+
+  private static void updateTopBottomPadding(
+    @NonNull View view, int topPadding, int bottomPadding) {
+    if (ViewCompat.isPaddingRelative(view)) {
+      ViewCompat.setPaddingRelative(
+        view,
+        ViewCompat.getPaddingStart(view),
+        topPadding,
+        ViewCompat.getPaddingEnd(view),
+        bottomPadding);
+    } else {
+      view.setPadding(
+        view.getPaddingLeft(), topPadding, view.getPaddingRight(), bottomPadding);
+    }
   }
 
   @Override
@@ -143,21 +155,6 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
       changed = true;
     }
     return changed;
-  }
-
-  private static void updateTopBottomPadding(
-    @NonNull View view, int topPadding, int bottomPadding) {
-    if (ViewCompat.isPaddingRelative(view)) {
-      ViewCompat.setPaddingRelative(
-        view,
-        ViewCompat.getPaddingStart(view),
-        topPadding,
-        ViewCompat.getPaddingEnd(view),
-        bottomPadding);
-    } else {
-      view.setPadding(
-        view.getPaddingLeft(), topPadding, view.getPaddingRight(), bottomPadding);
-    }
   }
 
   @Override

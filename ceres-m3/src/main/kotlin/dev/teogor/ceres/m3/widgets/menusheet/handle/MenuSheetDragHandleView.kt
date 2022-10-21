@@ -51,7 +51,8 @@ class MenuSheetDragHandleView @JvmOverloads constructor(
 ),
   AccessibilityManager.AccessibilityStateChangeListener {
   private val accessibilityManager: AccessibilityManager?
-  private var bottomSheetBehavior: dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour<*>? = null
+  private var bottomSheetBehavior: dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour<*>? =
+    null
   private var accessibilityServiceEnabled = false
   private var interactable = false
   private var clickToExpand = false
@@ -167,13 +168,14 @@ class MenuSheetDragHandleView @JvmOverloads constructor(
       )
     val currentState = bottomSheetBehavior!!.state
     val nextState: Int
-    nextState = if (currentState == dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour.STATE_COLLAPSED) {
-      if (canHalfExpand) dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour.STATE_HALF_EXPANDED else dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour.STATE_EXPANDED
-    } else if (currentState == dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour.STATE_EXPANDED) {
-      if (canHalfExpand) dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour.STATE_HALF_EXPANDED else dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour.STATE_COLLAPSED
-    } else {
-      if (clickToExpand) dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour.STATE_EXPANDED else dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour.STATE_COLLAPSED
-    }
+    nextState =
+      if (currentState == dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour.STATE_COLLAPSED) {
+        if (canHalfExpand) dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour.STATE_HALF_EXPANDED else dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour.STATE_EXPANDED
+      } else if (currentState == dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour.STATE_EXPANDED) {
+        if (canHalfExpand) dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour.STATE_HALF_EXPANDED else dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour.STATE_COLLAPSED
+      } else {
+        if (clickToExpand) dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour.STATE_EXPANDED else dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour.STATE_COLLAPSED
+      }
     bottomSheetBehavior!!.state = nextState
     return true
   }

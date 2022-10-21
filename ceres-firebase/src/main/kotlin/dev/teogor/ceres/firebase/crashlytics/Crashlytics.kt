@@ -23,7 +23,7 @@ import dev.teogor.ceres.core.network.NetworkQuality
 import dev.teogor.ceres.core.network.NetworkStatus
 import dev.teogor.ceres.core.util.AppUtils
 import dev.teogor.ceres.firebase.FirebaseMemo
-import java.util.*
+import java.util.Locale
 import javax.inject.Inject
 import javax.inject.Singleton
 

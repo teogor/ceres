@@ -28,10 +28,10 @@
     android:layout_height="44dp"
     android:layout_marginStart="10dp"
     android:padding="10dp"
+    app:color_m3="onSurface"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    app:color_m3="onSurface"
     tools:ignore="SpeakableTextPresentCheck"
     tools:srcCompat="@drawable/bg_transparency_tile" />
 

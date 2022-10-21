@@ -40,15 +40,15 @@
       android:id="@+id/toolbar_logo"
       android:layout_width="44dp"
       android:layout_height="44dp"
+      android:layout_marginEnd="6dp"
       android:onClick="@{() -> viewModel.onCloseClicked()}"
       android:padding="16dp"
-      android:layout_marginEnd="6dp"
+      app:color_m3="onPrimaryMenu"
       app:layout_constraintBottom_toBottomOf="@+id/title_company"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="@+id/title_company"
-      app:srcCompat="@drawable/ic_close"
       app:ripple_enabled="true"
-      app:color_m3="onPrimaryMenu" />
+      app:srcCompat="@drawable/ic_close" />
 
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/title_company"
@@ -127,7 +127,6 @@
       android:layout_height="wrap_content"
       android:fontFamily="@font/font_regular"
       android:paddingHorizontal="10dp"
-      app:show="@{viewModel.liveDeveloperOptionsEnabled}"
       app:corner_radius="14dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
@@ -135,6 +134,7 @@
       app:onClicked="@{() -> viewModel.onDeveloperOptionsClicked()}"
       app:padding_image="12dp"
       app:ripple_enabled="true"
+      app:show="@{viewModel.liveDeveloperOptionsEnabled}"
       app:src_image="@drawable/ic_settings"
       app:title="Developer options" />
 

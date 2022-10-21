@@ -16,16 +16,16 @@
 
 package dev.teogor.ceres.m3.generator.score;
 
-import dev.teogor.ceres.m3.generator.hct.Cam16;
-import dev.teogor.ceres.m3.utils.ColorUtils;
-import dev.teogor.ceres.m3.utils.MathUtils;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import dev.teogor.ceres.m3.generator.hct.Cam16;
+import dev.teogor.ceres.m3.utils.ColorUtils;
+import dev.teogor.ceres.m3.utils.MathUtils;
 
 /**
  * Given a large set of colors, remove colors that are unsuitable for a UI theme, and rank the rest

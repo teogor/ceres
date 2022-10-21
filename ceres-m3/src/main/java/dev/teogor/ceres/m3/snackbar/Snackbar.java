@@ -48,8 +48,6 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import dev.teogor.ceres.m3.ButtonM3;
 import dev.teogor.ceres.m3.R;
 import dev.teogor.ceres.m3.TextViewM3;
-import dev.teogor.ceres.m3.ButtonM3;
-import dev.teogor.ceres.m3.TextViewM3;
 
 /**
  * Snackbars provide lightweight feedback about an operation. They show a brief message at the
@@ -68,55 +66,12 @@ import dev.teogor.ceres.m3.TextViewM3;
  */
 public class Snackbar extends BaseTransientBottomBar<Snackbar> {
 
-  @Nullable
-  private final AccessibilityManager accessibilityManager;
-  private boolean hasAction;
-
   private static final int[] SNACKBAR_BUTTON_STYLE_ATTR = new int[]{R.attr.snackbarButtonStyle};
   private static final int[] SNACKBAR_CONTENT_STYLE_ATTRS =
     new int[]{R.attr.snackbarButtonStyle, R.attr.snackbarTextViewStyle};
-
-  /**
-   * Callback class for {@link Snackbar} instances.
-   *
-   * <p>Note: this class is here to provide backwards-compatible way for apps written before the
-   * existence of the base {@link BaseTransientBottomBar} class.
-   *
-   * @see BaseTransientBottomBar#addCallback(BaseCallback)
-   */
-  public static class Callback extends BaseCallback<Snackbar> {
-    /**
-     * Indicates that the Snackbar was dismissed via a swipe.
-     */
-    public static final int DISMISS_EVENT_SWIPE = BaseCallback.DISMISS_EVENT_SWIPE;
-    /**
-     * Indicates that the Snackbar was dismissed via an action click.
-     */
-    public static final int DISMISS_EVENT_ACTION = BaseCallback.DISMISS_EVENT_ACTION;
-    /**
-     * Indicates that the Snackbar was dismissed via a timeout.
-     */
-    public static final int DISMISS_EVENT_TIMEOUT = BaseCallback.DISMISS_EVENT_TIMEOUT;
-    /**
-     * Indicates that the Snackbar was dismissed via a call to {@link #dismiss()}.
-     */
-    public static final int DISMISS_EVENT_MANUAL = BaseCallback.DISMISS_EVENT_MANUAL;
-    /**
-     * Indicates that the Snackbar was dismissed from a new Snackbar being shown.
-     */
-    public static final int DISMISS_EVENT_CONSECUTIVE = BaseCallback.DISMISS_EVENT_CONSECUTIVE;
-
-    @Override
-    public void onShown(Snackbar sb) {
-      // Stub implementation to make API check happy.
-    }
-
-    @Override
-    public void onDismissed(Snackbar transientBottomBar, @DismissEvent int event) {
-      // Stub implementation to make API check happy.
-    }
-  }
-
+  @Nullable
+  private final AccessibilityManager accessibilityManager;
+  private boolean hasAction;
   @Nullable
   private BaseCallback<Snackbar> callback;
 
@@ -129,30 +84,6 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
     accessibilityManager =
       (AccessibilityManager)
         parent.getContext().getSystemService(Context.ACCESSIBILITY_SERVICE);
-  }
-
-  // TODO: Delete this once custom Robolectric shadows no longer depend on this method being
-  // present
-  // (and instead properly utilize BaseTransientBottomBar hierarchy).
-  @Override
-  public void show() {
-    super.show();
-  }
-
-  // TODO: Delete this once custom Robolectric shadows no longer depend on this method being
-  // present
-  // (and instead properly utilize BaseTransientBottomBar hierarchy).
-  @Override
-  public void dismiss() {
-    super.dismiss();
-  }
-
-  // TODO: Delete this once custom Robolectric shadows no longer depend on this method being
-  // present
-  // (and instead properly utilize BaseTransientBottomBar hierarchy).
-  @Override
-  public boolean isShown() {
-    return super.isShown();
   }
 
   /**
@@ -305,6 +236,30 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
 
     // If we reach here then we didn't find a CoL or a suitable content view so we'll fallback
     return fallback;
+  }
+
+  // TODO: Delete this once custom Robolectric shadows no longer depend on this method being
+  // present
+  // (and instead properly utilize BaseTransientBottomBar hierarchy).
+  @Override
+  public void show() {
+    super.show();
+  }
+
+  // TODO: Delete this once custom Robolectric shadows no longer depend on this method being
+  // present
+  // (and instead properly utilize BaseTransientBottomBar hierarchy).
+  @Override
+  public void dismiss() {
+    super.dismiss();
+  }
+
+  // TODO: Delete this once custom Robolectric shadows no longer depend on this method being
+  // present
+  // (and instead properly utilize BaseTransientBottomBar hierarchy).
+  @Override
+  public boolean isShown() {
+    return super.isShown();
   }
 
   /**
@@ -498,6 +453,59 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
     return this;
   }
 
+  private TextViewM3 getMessageView() {
+    return getContentLayout().getMessageView();
+  }
+
+  private ButtonM3 getActionView() {
+    return getContentLayout().getActionView();
+  }
+
+  private SnackbarContentLayout getContentLayout() {
+    return (SnackbarContentLayout) view.getChildAt(0);
+  }
+
+  /**
+   * Callback class for {@link Snackbar} instances.
+   *
+   * <p>Note: this class is here to provide backwards-compatible way for apps written before the
+   * existence of the base {@link BaseTransientBottomBar} class.
+   *
+   * @see BaseTransientBottomBar#addCallback(BaseCallback)
+   */
+  public static class Callback extends BaseCallback<Snackbar> {
+    /**
+     * Indicates that the Snackbar was dismissed via a swipe.
+     */
+    public static final int DISMISS_EVENT_SWIPE = BaseCallback.DISMISS_EVENT_SWIPE;
+    /**
+     * Indicates that the Snackbar was dismissed via an action click.
+     */
+    public static final int DISMISS_EVENT_ACTION = BaseCallback.DISMISS_EVENT_ACTION;
+    /**
+     * Indicates that the Snackbar was dismissed via a timeout.
+     */
+    public static final int DISMISS_EVENT_TIMEOUT = BaseCallback.DISMISS_EVENT_TIMEOUT;
+    /**
+     * Indicates that the Snackbar was dismissed via a call to {@link #dismiss()}.
+     */
+    public static final int DISMISS_EVENT_MANUAL = BaseCallback.DISMISS_EVENT_MANUAL;
+    /**
+     * Indicates that the Snackbar was dismissed from a new Snackbar being shown.
+     */
+    public static final int DISMISS_EVENT_CONSECUTIVE = BaseCallback.DISMISS_EVENT_CONSECUTIVE;
+
+    @Override
+    public void onShown(Snackbar sb) {
+      // Stub implementation to make API check happy.
+    }
+
+    @Override
+    public void onDismissed(Snackbar transientBottomBar, @DismissEvent int event) {
+      // Stub implementation to make API check happy.
+    }
+  }
+
   /**
    * @hide Note: this class is here to provide backwards-compatible way for apps written before
    * the existence of the base {@link BaseTransientBottomBar} class.
@@ -531,17 +539,5 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         }
       }
     }
-  }
-
-  private TextViewM3 getMessageView() {
-    return getContentLayout().getMessageView();
-  }
-
-  private ButtonM3 getActionView() {
-    return getContentLayout().getActionView();
-  }
-
-  private SnackbarContentLayout getContentLayout() {
-    return (SnackbarContentLayout) view.getChildAt(0);
   }
 }

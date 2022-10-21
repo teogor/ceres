@@ -1,6 +1,5 @@
-import org.jetbrains.dokka.gradle.DokkaTaskPartial
-import dev.teogor.ceres.Dependencies
 import dev.teogor.ceres.Configuration
+import org.jetbrains.dokka.gradle.DokkaTaskPartial
 
 plugins {
   id("org.jetbrains.dokka") version "1.7.20"
@@ -35,7 +34,7 @@ subprojects {
 
   }
   plugins.withId("com.android.library") {
-    apply(plugin="org.jetbrains.dokka")
+    apply(plugin = "org.jetbrains.dokka")
 
     tasks.withType<DokkaTaskPartial>().configureEach {
       dokkaSourceSets {
@@ -71,7 +70,7 @@ subprojects {
     }
   }
 
-  apply(plugin="com.diffplug.spotless")
+  apply(plugin = "com.diffplug.spotless")
 
   tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
     kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()

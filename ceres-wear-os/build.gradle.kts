@@ -1,5 +1,4 @@
 import dev.teogor.ceres.Configuration
-import dev.teogor.ceres.Dependencies
 
 plugins {
   // android

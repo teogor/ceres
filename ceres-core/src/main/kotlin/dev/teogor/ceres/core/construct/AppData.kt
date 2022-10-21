@@ -21,7 +21,6 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.core.content.pm.PackageInfoCompat
 import com.zeoflow.startup.ktx.ApplicationInitializer
-import dev.teogor.ceres.core.BuildConfig
 
 object AppData {
 

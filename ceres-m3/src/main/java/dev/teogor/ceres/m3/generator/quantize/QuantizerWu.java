@@ -16,12 +16,12 @@
 
 package dev.teogor.ceres.m3.generator.quantize;
 
-import dev.teogor.ceres.m3.utils.ColorUtils;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import dev.teogor.ceres.m3.utils.ColorUtils;
 
 /**
  * An image quantizer that divides the image's pixels into clusters by recursively cutting an RGB
@@ -30,13 +30,6 @@ import java.util.Map;
  * <p>The algorithm was described by Xiaolin Wu in Graphic Gems II, published in 1991.
  */
 public final class QuantizerWu implements Quantizer {
-  int[] weights;
-  int[] momentsR;
-  int[] momentsG;
-  int[] momentsB;
-  double[] moments;
-  Box[] cubes;
-
   // A histogram of all the input colors is constructed. It has the shape of a
   // cube. The cube would be too large if it contained all 16 million colors:
   // historical best practice is to use 5 bits  of the 8 in each channel,
@@ -44,6 +37,69 @@ public final class QuantizerWu implements Quantizer {
   private static final int INDEX_BITS = 5;
   private static final int INDEX_COUNT = 33; // ((1 << INDEX_BITS) + 1)
   private static final int TOTAL_SIZE = 35937; // INDEX_COUNT * INDEX_COUNT * INDEX_COUNT
+  int[] weights;
+  int[] momentsR;
+  int[] momentsG;
+  int[] momentsB;
+  double[] moments;
+  Box[] cubes;
+
+  static int getIndex(int r, int g, int b) {
+    return (r << (INDEX_BITS * 2)) + (r << (INDEX_BITS + 1)) + r + (g << INDEX_BITS) + g + b;
+  }
+
+  static int volume(Box cube, int[] moment) {
+    return (moment[getIndex(cube.r1, cube.g1, cube.b1)]
+      - moment[getIndex(cube.r1, cube.g1, cube.b0)]
+      - moment[getIndex(cube.r1, cube.g0, cube.b1)]
+      + moment[getIndex(cube.r1, cube.g0, cube.b0)]
+      - moment[getIndex(cube.r0, cube.g1, cube.b1)]
+      + moment[getIndex(cube.r0, cube.g1, cube.b0)]
+      + moment[getIndex(cube.r0, cube.g0, cube.b1)]
+      - moment[getIndex(cube.r0, cube.g0, cube.b0)]);
+  }
+
+  static int bottom(Box cube, Direction direction, int[] moment) {
+    switch (direction) {
+      case RED:
+        return -moment[getIndex(cube.r0, cube.g1, cube.b1)]
+          + moment[getIndex(cube.r0, cube.g1, cube.b0)]
+          + moment[getIndex(cube.r0, cube.g0, cube.b1)]
+          - moment[getIndex(cube.r0, cube.g0, cube.b0)];
+      case GREEN:
+        return -moment[getIndex(cube.r1, cube.g0, cube.b1)]
+          + moment[getIndex(cube.r1, cube.g0, cube.b0)]
+          + moment[getIndex(cube.r0, cube.g0, cube.b1)]
+          - moment[getIndex(cube.r0, cube.g0, cube.b0)];
+      case BLUE:
+        return -moment[getIndex(cube.r1, cube.g1, cube.b0)]
+          + moment[getIndex(cube.r1, cube.g0, cube.b0)]
+          + moment[getIndex(cube.r0, cube.g1, cube.b0)]
+          - moment[getIndex(cube.r0, cube.g0, cube.b0)];
+    }
+    throw new IllegalArgumentException("unexpected direction " + direction);
+  }
+
+  static int top(Box cube, Direction direction, int position, int[] moment) {
+    switch (direction) {
+      case RED:
+        return (moment[getIndex(position, cube.g1, cube.b1)]
+          - moment[getIndex(position, cube.g1, cube.b0)]
+          - moment[getIndex(position, cube.g0, cube.b1)]
+          + moment[getIndex(position, cube.g0, cube.b0)]);
+      case GREEN:
+        return (moment[getIndex(cube.r1, position, cube.b1)]
+          - moment[getIndex(cube.r1, position, cube.b0)]
+          - moment[getIndex(cube.r0, position, cube.b1)]
+          + moment[getIndex(cube.r0, position, cube.b0)]);
+      case BLUE:
+        return (moment[getIndex(cube.r1, cube.g1, position)]
+          - moment[getIndex(cube.r1, cube.g0, position)]
+          - moment[getIndex(cube.r0, cube.g1, position)]
+          + moment[getIndex(cube.r0, cube.g0, position)]);
+    }
+    throw new IllegalArgumentException("unexpected direction " + direction);
+  }
 
   @Override
   public QuantizerResult quantize(int[] pixels, int colorCount) {
@@ -57,10 +113,6 @@ public final class QuantizerWu implements Quantizer {
       resultMap.put(color, 0);
     }
     return new QuantizerResult(resultMap);
-  }
-
-  static int getIndex(int r, int g, int b) {
-    return (r << (INDEX_BITS * 2)) + (r << (INDEX_BITS + 1)) + r + (g << INDEX_BITS) + g + b;
   }
 
   void constructHistogram(Map<Integer, Integer> pixels) {
@@ -313,59 +365,6 @@ public final class QuantizerWu implements Quantizer {
       }
     }
     return new MaximizeResult(cut, max);
-  }
-
-  static int volume(Box cube, int[] moment) {
-    return (moment[getIndex(cube.r1, cube.g1, cube.b1)]
-      - moment[getIndex(cube.r1, cube.g1, cube.b0)]
-      - moment[getIndex(cube.r1, cube.g0, cube.b1)]
-      + moment[getIndex(cube.r1, cube.g0, cube.b0)]
-      - moment[getIndex(cube.r0, cube.g1, cube.b1)]
-      + moment[getIndex(cube.r0, cube.g1, cube.b0)]
-      + moment[getIndex(cube.r0, cube.g0, cube.b1)]
-      - moment[getIndex(cube.r0, cube.g0, cube.b0)]);
-  }
-
-  static int bottom(Box cube, Direction direction, int[] moment) {
-    switch (direction) {
-      case RED:
-        return -moment[getIndex(cube.r0, cube.g1, cube.b1)]
-          + moment[getIndex(cube.r0, cube.g1, cube.b0)]
-          + moment[getIndex(cube.r0, cube.g0, cube.b1)]
-          - moment[getIndex(cube.r0, cube.g0, cube.b0)];
-      case GREEN:
-        return -moment[getIndex(cube.r1, cube.g0, cube.b1)]
-          + moment[getIndex(cube.r1, cube.g0, cube.b0)]
-          + moment[getIndex(cube.r0, cube.g0, cube.b1)]
-          - moment[getIndex(cube.r0, cube.g0, cube.b0)];
-      case BLUE:
-        return -moment[getIndex(cube.r1, cube.g1, cube.b0)]
-          + moment[getIndex(cube.r1, cube.g0, cube.b0)]
-          + moment[getIndex(cube.r0, cube.g1, cube.b0)]
-          - moment[getIndex(cube.r0, cube.g0, cube.b0)];
-    }
-    throw new IllegalArgumentException("unexpected direction " + direction);
-  }
-
-  static int top(Box cube, Direction direction, int position, int[] moment) {
-    switch (direction) {
-      case RED:
-        return (moment[getIndex(position, cube.g1, cube.b1)]
-          - moment[getIndex(position, cube.g1, cube.b0)]
-          - moment[getIndex(position, cube.g0, cube.b1)]
-          + moment[getIndex(position, cube.g0, cube.b0)]);
-      case GREEN:
-        return (moment[getIndex(cube.r1, position, cube.b1)]
-          - moment[getIndex(cube.r1, position, cube.b0)]
-          - moment[getIndex(cube.r0, position, cube.b1)]
-          + moment[getIndex(cube.r0, position, cube.b0)]);
-      case BLUE:
-        return (moment[getIndex(cube.r1, cube.g1, position)]
-          - moment[getIndex(cube.r1, cube.g0, position)]
-          - moment[getIndex(cube.r0, cube.g1, position)]
-          + moment[getIndex(cube.r0, cube.g0, position)]);
-    }
-    throw new IllegalArgumentException("unexpected direction " + direction);
   }
 
   private static enum Direction {

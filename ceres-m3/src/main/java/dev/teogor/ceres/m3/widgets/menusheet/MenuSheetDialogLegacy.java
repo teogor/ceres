@@ -51,7 +51,6 @@ import com.google.android.material.R;
 import com.google.android.material.shape.MaterialShapeDrawable;
 
 import dev.teogor.ceres.core.internal.EdgeToEdgeUtils;
-import dev.teogor.ceres.core.internal.EdgeToEdgeUtils;
 
 /**
  * Base class for {@link android.app.Dialog}s styled as a bottom sheet.
@@ -68,15 +67,12 @@ import dev.teogor.ceres.core.internal.EdgeToEdgeUtils;
  */
 public class MenuSheetDialogLegacy extends AppCompatDialog {
 
+  boolean dismissWithAnimation;
+  boolean cancelable = true;
   private MenuSheetBehaviour<FrameLayout> behavior;
-
   private FrameLayout container;
   private CoordinatorLayout coordinator;
   private MenuSheetContainer bottomSheet;
-
-  boolean dismissWithAnimation;
-
-  boolean cancelable = true;
   private boolean canceledOnTouchOutside = true;
   private boolean canceledOnTouchOutsideSet;
   private EdgeToEdgeCallback edgeToEdgeCallback;
@@ -109,6 +105,37 @@ public class MenuSheetDialogLegacy extends AppCompatDialog {
         .getTheme()
         .obtainStyledAttributes(new int[]{R.attr.enableEdgeToEdge})
         .getBoolean(0, false);
+  }
+
+  private static int getThemeResId(@NonNull Context context, int themeId) {
+    if (themeId == 0) {
+      // If the provided theme is 0, then retrieve the dialogTheme from our theme
+      TypedValue outValue = new TypedValue();
+      if (context.getTheme()
+        .resolveAttribute(R.attr.bottomSheetDialogTheme, outValue, true)) {
+        themeId = outValue.resourceId;
+      } else {
+        // bottomSheetDialogTheme is not provided; we default to our light theme
+        themeId = R.style.Theme_Design_Light_BottomSheetDialog;
+      }
+    }
+    return themeId;
+  }
+
+  /**
+   * @deprecated use {@link EdgeToEdgeUtils#setLightStatusBar(Window, boolean)} instead
+   */
+  @Deprecated
+  public static void setLightStatusBar(@NonNull View view, boolean isLight) {
+    if (VERSION.SDK_INT >= VERSION_CODES.M) {
+      int flags = view.getSystemUiVisibility();
+      if (isLight) {
+        flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+      } else {
+        flags &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+      }
+      view.setSystemUiVisibility(flags);
+    }
   }
 
   @Override
@@ -244,6 +271,14 @@ public class MenuSheetDialogLegacy extends AppCompatDialog {
   }
 
   /**
+   * Returns if dismissing will perform the swipe down animation on the bottom sheet, rather than
+   * the window animation for the dialog.
+   */
+  public boolean getDismissWithAnimation() {
+    return dismissWithAnimation;
+  }
+
+  /**
    * Set to perform the swipe down animation when dismissing instead of the window animation for
    * the dialog.
    *
@@ -251,14 +286,6 @@ public class MenuSheetDialogLegacy extends AppCompatDialog {
    */
   public void setDismissWithAnimation(boolean dismissWithAnimation) {
     this.dismissWithAnimation = dismissWithAnimation;
-  }
-
-  /**
-   * Returns if dismissing will perform the swipe down animation on the bottom sheet, rather than
-   * the window animation for the dialog.
-   */
-  public boolean getDismissWithAnimation() {
-    return dismissWithAnimation;
   }
 
   /**
@@ -378,26 +405,9 @@ public class MenuSheetDialogLegacy extends AppCompatDialog {
     return canceledOnTouchOutside;
   }
 
-  private static int getThemeResId(@NonNull Context context, int themeId) {
-    if (themeId == 0) {
-      // If the provided theme is 0, then retrieve the dialogTheme from our theme
-      TypedValue outValue = new TypedValue();
-      if (context.getTheme()
-        .resolveAttribute(R.attr.bottomSheetDialogTheme, outValue, true)) {
-        themeId = outValue.resourceId;
-      } else {
-        // bottomSheetDialogTheme is not provided; we default to our light theme
-        themeId = R.style.Theme_Design_Light_BottomSheetDialog;
-      }
-    }
-    return themeId;
-  }
-
   void removeDefaultCallback() {
     behavior.removeBottomSheetCallback(menuSheetCallback);
-  }
-
-  @NonNull
+  }  @NonNull
   private final MenuSheetBehaviour.MenuSheetCallback menuSheetCallback =
     new MenuSheetBehaviour.MenuSheetCallback() {
 
@@ -450,10 +460,6 @@ public class MenuSheetDialogLegacy extends AppCompatDialog {
     @Dimension
     private float marginSize = 0f;
 
-    public void setHorizontalMargin(@Dimension float marginSize) {
-      this.marginSize = marginSize;
-    }
-
     private EdgeToEdgeCallback(
       @NonNull final View bottomSheet, @NonNull WindowInsetsCompat insetsCompat) {
       this.insetsCompat = insetsCompat;
@@ -481,6 +487,10 @@ public class MenuSheetDialogLegacy extends AppCompatDialog {
         // Otherwise don't change the status bar color
         lightBottomSheet = null;
       }
+    }
+
+    public void setHorizontalMargin(@Dimension float marginSize) {
+      this.marginSize = marginSize;
     }
 
     @Override
@@ -554,19 +564,5 @@ public class MenuSheetDialogLegacy extends AppCompatDialog {
     }
   }
 
-  /**
-   * @deprecated use {@link EdgeToEdgeUtils#setLightStatusBar(Window, boolean)} instead
-   */
-  @Deprecated
-  public static void setLightStatusBar(@NonNull View view, boolean isLight) {
-    if (VERSION.SDK_INT >= VERSION_CODES.M) {
-      int flags = view.getSystemUiVisibility();
-      if (isLight) {
-        flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
-      } else {
-        flags &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
-      }
-      view.setSystemUiVisibility(flags);
-    }
-  }
+
 }

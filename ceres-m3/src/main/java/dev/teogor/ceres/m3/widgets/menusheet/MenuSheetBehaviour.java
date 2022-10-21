@@ -88,93 +88,29 @@ import java.util.Map;
 public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavior<V> {
 
   /**
-   * Callback for monitoring events about bottom sheets.
-   */
-  public abstract static class MenuSheetCallback {
-
-    /**
-     * Called when the bottom sheet changes its state.
-     *
-     * @param bottomSheet The bottom sheet view.
-     * @param newState    The new state. This will be one of {@link #STATE_DRAGGING}, {@link
-     *                    #STATE_SETTLING}, {@link #STATE_EXPANDED}, {@link #STATE_COLLAPSED}, {@link
-     *                    #STATE_HIDDEN}, or {@link #STATE_HALF_EXPANDED}.
-     */
-    public abstract void onStateChanged(@NonNull View bottomSheet, @State int newState);
-
-    /**
-     * Called when the bottom sheet is being dragged.
-     *
-     * @param bottomSheet The bottom sheet view.
-     * @param slideOffset The new offset of this bottom sheet within [-1,1] range. Offset
-     *                    increases as this bottom sheet is moving upward. From 0 to 1 the sheet is between
-     *                    collapsed and expanded states and from -1 to 0 it is between hidden and collapsed
-     *                    states.
-     */
-    public abstract void onSlide(@NonNull View bottomSheet, float slideOffset);
-
-    void onLayout(@NonNull View bottomSheet) {
-    }
-  }
-
-  /**
    * The bottom sheet is dragging.
    */
   public static final int STATE_DRAGGING = 1;
-
   /**
    * The bottom sheet is settling.
    */
   public static final int STATE_SETTLING = 2;
-
   /**
    * The bottom sheet is expanded.
    */
   public static final int STATE_EXPANDED = 3;
-
   /**
    * The bottom sheet is collapsed.
    */
   public static final int STATE_COLLAPSED = 4;
-
   /**
    * The bottom sheet is hidden.
    */
   public static final int STATE_HIDDEN = 5;
-
   /**
    * The bottom sheet is half-expanded (used when fitToContents is false).
    */
   public static final int STATE_HALF_EXPANDED = 6;
-
-  /**
-   * @hide
-   */
-  @RestrictTo(LIBRARY_GROUP)
-  @IntDef({
-    STATE_EXPANDED,
-    STATE_COLLAPSED,
-    STATE_DRAGGING,
-    STATE_SETTLING,
-    STATE_HIDDEN,
-    STATE_HALF_EXPANDED
-  })
-  @Retention(RetentionPolicy.SOURCE)
-  public @interface State {
-  }
-
-  /**
-   * Stable states that can be set by the {@link #setState(int)} method. These includes all the
-   * possible states a bottom sheet can be in when it's settled.
-   *
-   * @hide
-   */
-  @RestrictTo(LIBRARY_GROUP)
-  @IntDef({STATE_EXPANDED, STATE_COLLAPSED, STATE_HIDDEN, STATE_HALF_EXPANDED})
-  @Retention(RetentionPolicy.SOURCE)
-  public @interface StableState {
-  }
-
   /**
    * Peek at the 16:9 ratio keyline of its parent.
    *
@@ -182,110 +118,91 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
    * will return this when the value is set.
    */
   public static final int PEEK_HEIGHT_AUTO = -1;
-
   /**
    * This flag will preserve the peekHeight int value on configuration change.
    */
   public static final int SAVE_PEEK_HEIGHT = 0x1;
-
   /**
    * This flag will preserve the fitToContents boolean value on configuration change.
    */
   public static final int SAVE_FIT_TO_CONTENTS = 1 << 1;
-
   /**
    * This flag will preserve the hideable boolean value on configuration change.
    */
   public static final int SAVE_HIDEABLE = 1 << 2;
-
   /**
    * This flag will preserve the skipCollapsed boolean value on configuration change.
    */
   public static final int SAVE_SKIP_COLLAPSED = 1 << 3;
-
   /**
    * This flag will preserve all aforementioned values on configuration change.
    */
   public static final int SAVE_ALL = -1;
-
   /**
    * This flag will not preserve the aforementioned values set at runtime if the view is destroyed
    * and recreated. The only value preserved will be the positional state, e.g. collapsed, hidden,
    * expanded, etc. This is the default behavior.
    */
   public static final int SAVE_NONE = 0;
-
-  /**
-   * @hide
-   */
-  @RestrictTo(LIBRARY_GROUP)
-  @IntDef(
-    flag = true,
-    value = {
-      SAVE_PEEK_HEIGHT,
-      SAVE_FIT_TO_CONTENTS,
-      SAVE_HIDEABLE,
-      SAVE_SKIP_COLLAPSED,
-      SAVE_ALL,
-      SAVE_NONE,
-    })
-  @Retention(RetentionPolicy.SOURCE)
-  public @interface SaveFlags {
-  }
-
-  private static final String TAG = "BottomSheetBehavior";
-
-  @SaveFlags
-  private int saveFlags = SAVE_NONE;
-
   @VisibleForTesting
   static final int DEFAULT_SIGNIFICANT_VEL_THRESHOLD = 500;
-
+  private static final String TAG = "BottomSheetBehavior";
   private static final float HIDE_THRESHOLD = 0.5f;
-
   private static final float HIDE_FRICTION = 0.1f;
-
   private static final int CORNER_ANIMATION_DURATION = 500;
-
   private static final int NO_MAX_SIZE = -1;
-
+  private static final int DEF_STYLE_RES = R.style.Widget_Design_BottomSheet_Modal;
+  private final StateSettlingTracker stateSettlingTracker = new StateSettlingTracker();
+  @NonNull
+  private final ArrayList<MenuSheetCallback> callbacks = new ArrayList<>();
+  int expandedOffset;
+  int fitToContentsOffset;
+  int halfExpandedOffset;
+  float halfExpandedRatio = 0.5f;
+  int collapsedOffset;
+  float elevation = -1;
+  boolean hideable;
+  @State
+  int state = STATE_HALF_EXPANDED;
+  @State
+  int lastStableState = STATE_HALF_EXPANDED;
+  @Nullable
+  ViewDragHelper viewDragHelper;
+  int parentWidth;
+  int parentHeight;
+  @Nullable
+  WeakReference<V> viewRef;
+  @Nullable
+  WeakReference<View> nestedScrollingChildRef;
+  int activePointerId;
+  boolean touchingScrollingChild;
+  @SaveFlags
+  private int saveFlags = SAVE_NONE;
   private boolean fitToContents = true;
-
   private boolean updateImportantForAccessibilityOnSiblings = false;
-
   private float maximumVelocity;
-
   private int significantVelocityThreshold;
-
   /**
    * Peek height set by the user.
    */
   private int peekHeight;
-
   /**
    * Whether or not to use automatic peek height.
    */
   private boolean peekHeightAuto;
-
   /**
    * Minimum peek height permitted.
    */
   private int peekHeightMin;
-
   /**
    * Peek height gesture inset buffer to ensure enough swipeable space.
    */
   private int peekHeightGestureInsetBuffer;
-
   private MaterialShapeDrawable materialShapeDrawable;
-
   @Nullable
   private ColorStateList backgroundTint;
-
   private int maxWidth = NO_MAX_SIZE;
-
   private int maxHeight = NO_MAX_SIZE;
-
   private int gestureInsetBottom;
   private boolean gestureInsetBottomIgnored;
   private boolean paddingBottomSystemWindowInsets;
@@ -295,87 +212,179 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
   private boolean marginLeftSystemWindowInsets;
   private boolean marginRightSystemWindowInsets;
   private boolean marginTopSystemWindowInsets;
-
   private int insetBottom;
   private int insetTop;
-
   private boolean shouldRemoveExpandedCorners;
-
   /**
    * Default Shape Appearance to be used in bottomsheet
    */
   private ShapeAppearanceModel shapeAppearanceModelDefault;
-
   private boolean expandedCornersRemoved;
-
-  private final StateSettlingTracker stateSettlingTracker = new StateSettlingTracker();
-
   @Nullable
   private ValueAnimator interpolatorAnimator;
-
-  private static final int DEF_STYLE_RES = R.style.Widget_Design_BottomSheet_Modal;
-
-  int expandedOffset;
-
-  int fitToContentsOffset;
-
-  int halfExpandedOffset;
-
-  float halfExpandedRatio = 0.5f;
-
-  int collapsedOffset;
-
-  float elevation = -1;
-
-  boolean hideable;
-
   private boolean skipCollapsed;
-
   private boolean draggable = true;
-
-  @State
-  int state = STATE_HALF_EXPANDED;
-
-  @State
-  int lastStableState = STATE_HALF_EXPANDED;
-
-  @Nullable
-  ViewDragHelper viewDragHelper;
-
   private boolean ignoreEvents;
-
   private int lastNestedScrollDy;
-
   private boolean nestedScrolled;
-
   private float hideFriction = HIDE_FRICTION;
-
   private int childHeight;
-  int parentWidth;
-  int parentHeight;
-
-  @Nullable
-  WeakReference<V> viewRef;
-
-  @Nullable
-  WeakReference<View> nestedScrollingChildRef;
-
-  @NonNull
-  private final ArrayList<MenuSheetCallback> callbacks = new ArrayList<>();
-
   @Nullable
   private VelocityTracker velocityTracker;
-
-  int activePointerId;
-
   private int initialY;
-
-  boolean touchingScrollingChild;
-
   @Nullable
   private Map<View, Integer> importantForAccessibilityMap;
-
   private int expandHalfwayActionId = View.NO_ID;
+  private final ViewDragHelper.Callback dragCallback =
+    new ViewDragHelper.Callback() {
+
+      private long viewCapturedMillis;
+
+      @Override
+      public boolean tryCaptureView(@NonNull View child, int pointerId) {
+        if (state == STATE_DRAGGING) {
+          return false;
+        }
+        if (touchingScrollingChild) {
+          return false;
+        }
+        if (state == STATE_EXPANDED && activePointerId == pointerId) {
+          View scroll =
+            nestedScrollingChildRef != null
+              ? nestedScrollingChildRef.get()
+              : null;
+          if (scroll != null && scroll.canScrollVertically(-1)) {
+            // Let the content scroll up
+            return false;
+          }
+        }
+        viewCapturedMillis = System.currentTimeMillis();
+        return viewRef != null && viewRef.get() == child;
+      }
+
+      @Override
+      public void onViewPositionChanged(
+        @NonNull View changedView, int left, int top, int dx, int dy) {
+        dispatchOnSlide(top);
+      }
+
+      @Override
+      public void onViewDragStateChanged(@State int state) {
+        if (state == ViewDragHelper.STATE_DRAGGING && draggable) {
+          setStateInternal(STATE_DRAGGING);
+        }
+      }
+
+      private boolean releasedLow(@NonNull View child) {
+        // Needs to be at least half way to the bottom.
+        return child.getTop() > (parentHeight + getExpandedOffset()) / 2;
+      }
+
+      @Override
+      public void onViewReleased(@NonNull View releasedChild, float xvel, float yvel) {
+        @State int targetState;
+        if (yvel < 0) { // Moving up
+          if (fitToContents) {
+            targetState = STATE_EXPANDED;
+          } else {
+            int currentTop = releasedChild.getTop();
+            long dragDurationMillis =
+              System.currentTimeMillis() - viewCapturedMillis;
+
+            if (shouldSkipHalfExpandedStateWhenDragging()) {
+              float yPositionPercentage = currentTop * 100f / parentHeight;
+
+              if (shouldExpandOnUpwardDrag(
+                dragDurationMillis, yPositionPercentage)) {
+                targetState = STATE_EXPANDED;
+              } else {
+                targetState = STATE_HALF_EXPANDED;
+              }
+            } else {
+              if (currentTop > halfExpandedOffset) {
+                targetState = STATE_HALF_EXPANDED;
+              } else {
+                targetState = STATE_EXPANDED;
+              }
+            }
+          }
+        } else if (hideable && shouldHide(releasedChild, yvel)) {
+          // Hide if the view was either released low or it was a significant vertical
+          // swipe
+          // otherwise settle to closest expanded state.
+          if ((Math.abs(xvel) < Math.abs(yvel) && yvel > significantVelocityThreshold)
+            || releasedLow(releasedChild)) {
+            targetState = STATE_HIDDEN;
+          } else if (fitToContents) {
+            targetState = STATE_EXPANDED;
+          } else if (Math.abs(releasedChild.getTop() - getExpandedOffset())
+            < Math.abs(releasedChild.getTop() - halfExpandedOffset)) {
+            targetState = STATE_EXPANDED;
+          } else {
+            targetState = STATE_HALF_EXPANDED;
+          }
+        } else if (yvel == 0.f || Math.abs(xvel) > Math.abs(yvel)) {
+          // If the Y velocity is 0 or the swipe was mostly horizontal indicated by
+          // the X velocity
+          // being greater than the Y velocity, settle to the nearest correct height.
+          int currentTop = releasedChild.getTop();
+          if (fitToContents) {
+            if (Math.abs(currentTop - fitToContentsOffset)
+              < Math.abs(currentTop - halfExpandedOffset)) {
+              targetState = STATE_EXPANDED;
+            } else {
+              targetState = STATE_HALF_EXPANDED;
+            }
+          } else {
+            if (currentTop < halfExpandedOffset) {
+              if (shouldSkipHalfExpandedStateWhenDragging()) {
+                targetState = STATE_COLLAPSED;
+              } else {
+                targetState = STATE_HALF_EXPANDED;
+              }
+            } else {
+              if (shouldSkipHalfExpandedStateWhenDragging()) {
+                targetState = STATE_COLLAPSED;
+              } else {
+                targetState = STATE_HALF_EXPANDED;
+              }
+            }
+          }
+        } else { // Moving Down
+          if (fitToContents) {
+            targetState = STATE_HALF_EXPANDED;
+          } else {
+            // Settle to the nearest correct height.
+            if (shouldSkipHalfExpandedStateWhenDragging()) {
+              targetState = STATE_COLLAPSED;
+            } else {
+              targetState = STATE_HALF_EXPANDED;
+            }
+          }
+        }
+        startSettling(releasedChild, targetState, shouldSkipSmoothAnimation());
+      }
+
+      @Override
+      public int clampViewPositionVertical(@NonNull View child, int top, int dy) {
+        return MathUtils.clamp(
+          top, getExpandedOffset(), getViewVerticalDragRange(child));
+      }
+
+      @Override
+      public int clampViewPositionHorizontal(@NonNull View child, int left, int dx) {
+        return child.getLeft();
+      }
+
+      @Override
+      public int getViewVerticalDragRange(@NonNull View child) {
+        if (canBeHiddenByDragging()) {
+          return parentHeight;
+        } else {
+          return collapsedOffset;
+        }
+      }
+    };
 
   public MenuSheetBehaviour() {
   }
@@ -491,6 +500,27 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
     a.recycle();
     ViewConfiguration configuration = ViewConfiguration.get(context);
     maximumVelocity = configuration.getScaledMaximumFlingVelocity();
+  }
+
+  /**
+   * A utility function to get the {@link MenuSheetBehaviour} associated with the {@code view}.
+   *
+   * @param view The {@link View} with {@link MenuSheetBehaviour}.
+   * @return The {@link MenuSheetBehaviour} associated with the {@code view}.
+   */
+  @NonNull
+  @SuppressWarnings("unchecked")
+  public static <V extends View> MenuSheetBehaviour<V> from(@NonNull V view) {
+    ViewGroup.LayoutParams params = view.getLayoutParams();
+    if (!(params instanceof LayoutParams)) {
+      throw new IllegalArgumentException("The view is not a child of CoordinatorLayout");
+    }
+    CoordinatorLayout.Behavior<?> behavior = ((LayoutParams) params).getBehavior();
+    if (!(behavior instanceof MenuSheetBehaviour)) {
+      throw new IllegalArgumentException(
+        "The view is not associated with MenuSheetBehaviour");
+    }
+    return (MenuSheetBehaviour<V>) behavior;
   }
 
   @NonNull
@@ -965,19 +995,6 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
   }
 
   /**
-   * Sets the maximum width of the bottom sheet. The layout will be at most this dimension wide.
-   * This method should be called before {@link BottomSheetDialog#show()} in order for the width
-   * to be adjusted as expected.
-   *
-   * @param maxWidth The maximum width in pixels to be set
-   * @attr ref com.google.android.material.R.styleable#BottomSheetBehavior_Layout_android_maxWidth
-   * @see #getMaxWidth()
-   */
-  public void setMaxWidth(@Px int maxWidth) {
-    this.maxWidth = maxWidth;
-  }
-
-  /**
    * Returns the bottom sheet's maximum width, or -1 if no maximum width is set.
    *
    * @attr ref com.google.android.material.R.styleable#BottomSheetBehavior_Layout_android_maxWidth
@@ -989,16 +1006,16 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
   }
 
   /**
-   * Sets the maximum height of the bottom sheet. This method should be called before {@link
-   * BottomSheetDialog#show()} in order for the height to be adjusted as expected.
+   * Sets the maximum width of the bottom sheet. The layout will be at most this dimension wide.
+   * This method should be called before {@link BottomSheetDialog#show()} in order for the width
+   * to be adjusted as expected.
    *
-   * @param maxHeight The maximum height in pixels to be set
-   * @attr ref
-   * com.google.android.material.R.styleable#BottomSheetBehavior_Layout_android_maxHeight
-   * @see #getMaxHeight()
+   * @param maxWidth The maximum width in pixels to be set
+   * @attr ref com.google.android.material.R.styleable#BottomSheetBehavior_Layout_android_maxWidth
+   * @see #getMaxWidth()
    */
-  public void setMaxHeight(@Px int maxHeight) {
-    this.maxHeight = maxHeight;
+  public void setMaxWidth(@Px int maxWidth) {
+    this.maxWidth = maxWidth;
   }
 
   /**
@@ -1014,15 +1031,16 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
   }
 
   /**
-   * Sets the height of the bottom sheet when it is collapsed.
+   * Sets the maximum height of the bottom sheet. This method should be called before {@link
+   * BottomSheetDialog#show()} in order for the height to be adjusted as expected.
    *
-   * @param peekHeight The height of the collapsed bottom sheet in pixels, or {@link
-   *                   #PEEK_HEIGHT_AUTO} to configure the sheet to peek automatically at 16:9 ratio keyline.
+   * @param maxHeight The maximum height in pixels to be set
    * @attr ref
-   * com.google.android.material.R.styleable#BottomSheetBehavior_Layout_behavior_peekHeight
+   * com.google.android.material.R.styleable#BottomSheetBehavior_Layout_android_maxHeight
+   * @see #getMaxHeight()
    */
-  public void setPeekHeight(int peekHeight) {
-    setPeekHeight(peekHeight, false);
+  public void setMaxHeight(@Px int maxHeight) {
+    this.maxHeight = maxHeight;
   }
 
   /**
@@ -1083,6 +1101,29 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
   }
 
   /**
+   * Sets the height of the bottom sheet when it is collapsed.
+   *
+   * @param peekHeight The height of the collapsed bottom sheet in pixels, or {@link
+   *                   #PEEK_HEIGHT_AUTO} to configure the sheet to peek automatically at 16:9 ratio keyline.
+   * @attr ref
+   * com.google.android.material.R.styleable#BottomSheetBehavior_Layout_behavior_peekHeight
+   */
+  public void setPeekHeight(int peekHeight) {
+    setPeekHeight(peekHeight, false);
+  }
+
+  /**
+   * Gets the ratio for the height of the BottomSheet in the {@link #STATE_HALF_EXPANDED} state.
+   *
+   * @attr ref
+   * com.google.android.material.R.styleable#BottomSheetBehavior_Layout_behavior_halfExpandedRatio
+   */
+  @FloatRange(from = 0.0f, to = 1.0f)
+  public float getHalfExpandedRatio() {
+    return halfExpandedRatio;
+  }
+
+  /**
    * Determines the height of the BottomSheet in the {@link #STATE_HALF_EXPANDED} state. The
    * material guidelines recommended a value of 0.5, which results in the sheet filling half of
    * the parent. The height of the BottomSheet will be smaller as this ratio is decreased and
@@ -1108,14 +1149,16 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
   }
 
   /**
-   * Gets the ratio for the height of the BottomSheet in the {@link #STATE_HALF_EXPANDED} state.
+   * Returns the current expanded offset. If {@code fitToContents} is true, it will automatically
+   * pick the offset depending on the height of the content.
    *
    * @attr ref
-   * com.google.android.material.R.styleable#BottomSheetBehavior_Layout_behavior_halfExpandedRatio
+   * com.google.android.material.R.styleable#BottomSheetBehavior_Layout_behavior_expandedOffset
    */
-  @FloatRange(from = 0.0f, to = 1.0f)
-  public float getHalfExpandedRatio() {
-    return halfExpandedRatio;
+  public int getExpandedOffset() {
+    return fitToContents
+      ? fitToContentsOffset
+      : Math.max(expandedOffset, paddingTopSystemWindowInsets ? 0 : insetTop);
   }
 
   /**
@@ -1137,19 +1180,6 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
   }
 
   /**
-   * Returns the current expanded offset. If {@code fitToContents} is true, it will automatically
-   * pick the offset depending on the height of the content.
-   *
-   * @attr ref
-   * com.google.android.material.R.styleable#BottomSheetBehavior_Layout_behavior_expandedOffset
-   */
-  public int getExpandedOffset() {
-    return fitToContents
-      ? fitToContentsOffset
-      : Math.max(expandedOffset, paddingTopSystemWindowInsets ? 0 : insetTop);
-  }
-
-  /**
    * Calculates the current offset of the bottom sheet.
    *
    * <p>This method should be called when the child view is laid out.
@@ -1165,6 +1195,17 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
     }
 
     return calculateSlideOffsetWithTop(viewRef.get().getTop());
+  }
+
+  /**
+   * Gets whether this bottom sheet can hide when it is swiped down.
+   *
+   * @return {@code true} if this bottom sheet can hide.
+   * @attr ref
+   * com.google.android.material.R.styleable#BottomSheetBehavior_Layout_behavior_hideable
+   */
+  public boolean isHideable() {
+    return hideable;
   }
 
   /**
@@ -1186,14 +1227,15 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
   }
 
   /**
-   * Gets whether this bottom sheet can hide when it is swiped down.
+   * Sets whether this bottom sheet should skip the collapsed state when it is being hidden after
+   * it is expanded once.
    *
-   * @return {@code true} if this bottom sheet can hide.
+   * @return Whether the bottom sheet should skip the collapsed state.
    * @attr ref
-   * com.google.android.material.R.styleable#BottomSheetBehavior_Layout_behavior_hideable
+   * com.google.android.material.R.styleable#BottomSheetBehavior_Layout_behavior_skipCollapsed
    */
-  public boolean isHideable() {
-    return hideable;
+  public boolean getSkipCollapsed() {
+    return skipCollapsed;
   }
 
   /**
@@ -1208,16 +1250,8 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
     this.skipCollapsed = skipCollapsed;
   }
 
-  /**
-   * Sets whether this bottom sheet should skip the collapsed state when it is being hidden after
-   * it is expanded once.
-   *
-   * @return Whether the bottom sheet should skip the collapsed state.
-   * @attr ref
-   * com.google.android.material.R.styleable#BottomSheetBehavior_Layout_behavior_skipCollapsed
-   */
-  public boolean getSkipCollapsed() {
-    return skipCollapsed;
+  public boolean isDraggable() {
+    return draggable;
   }
 
   /**
@@ -1232,8 +1266,14 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
     this.draggable = draggable;
   }
 
-  public boolean isDraggable() {
-    return draggable;
+  /*
+   * Returns the significant velocity threshold.
+   *
+   * @see #setSignificantVelocityThreshold(int)
+   * @attr ref com.google.android.material.R.styleable#BottomSheetBehavior_Layout_behavior_significantVelocityThreshold
+   */
+  public int getSignificantVelocityThreshold() {
+    return this.significantVelocityThreshold;
   }
 
   /*
@@ -1248,14 +1288,16 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
     this.significantVelocityThreshold = significantVelocityThreshold;
   }
 
-  /*
-   * Returns the significant velocity threshold.
+  /**
+   * Returns the save flags.
    *
-   * @see #setSignificantVelocityThreshold(int)
-   * @attr ref com.google.android.material.R.styleable#BottomSheetBehavior_Layout_behavior_significantVelocityThreshold
+   * @attr ref
+   * com.google.android.material.R.styleable#BottomSheetBehavior_Layout_behavior_saveFlags
+   * @see #setSaveFlags(int)
    */
-  public int getSignificantVelocityThreshold() {
-    return this.significantVelocityThreshold;
+  @SaveFlags
+  public int getSaveFlags() {
+    return this.saveFlags;
   }
 
   /**
@@ -1272,15 +1314,14 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
   }
 
   /**
-   * Returns the save flags.
+   * Gets the friction coefficient to hide the bottom sheet, or set it to the next closest
+   * expanded state.
    *
-   * @attr ref
-   * com.google.android.material.R.styleable#BottomSheetBehavior_Layout_behavior_saveFlags
-   * @see #setSaveFlags(int)
+   * @return The friction coefficient that determines the swipe velocity needed to hide or set the
+   * bottom sheet to the closest expanded state.
    */
-  @SaveFlags
-  public int getSaveFlags() {
-    return this.saveFlags;
+  public float getHideFriction() {
+    return this.hideFriction;
   }
 
   /**
@@ -1292,17 +1333,6 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
    */
   public void setHideFriction(float hideFriction) {
     this.hideFriction = hideFriction;
-  }
-
-  /**
-   * Gets the friction coefficient to hide the bottom sheet, or set it to the next closest
-   * expanded state.
-   *
-   * @return The friction coefficient that determines the swipe velocity needed to hide or set the
-   * bottom sheet to the closest expanded state.
-   */
-  public float getHideFriction() {
-    return this.hideFriction;
   }
 
   /**
@@ -1347,6 +1377,51 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
     callbacks.remove(callback);
   }
 
+  private void runAfterLayout(V child, Runnable runnable) {
+    if (isLayouting(child)) {
+      child.post(runnable);
+    } else {
+      runnable.run();
+    }
+  }
+
+  private boolean isLayouting(V child) {
+    ViewParent parent = child.getParent();
+    return parent != null && parent.isLayoutRequested() && ViewCompat.isAttachedToWindow(child);
+  }
+
+  /**
+   * Returns whether this bottom sheet should adjust it's position based on the system gesture
+   * area.
+   */
+  public boolean isGestureInsetBottomIgnored() {
+    return gestureInsetBottomIgnored;
+  }
+
+  /**
+   * Sets whether this bottom sheet should adjust it's position based on the system gesture area
+   * on Android Q and above.
+   *
+   * <p>Note: the bottom sheet will only adjust it's position if it would be unable to be scrolled
+   * upwards because the peekHeight is less than the gesture inset margins,(because that would
+   * cause a gesture conflict), gesture navigation is enabled, and this {@code
+   * ignoreGestureInsetBottom} flag is false.
+   */
+  public void setGestureInsetBottomIgnored(boolean gestureInsetBottomIgnored) {
+    this.gestureInsetBottomIgnored = gestureInsetBottomIgnored;
+  }
+
+  /**
+   * Gets the current state of the bottom sheet.
+   *
+   * @return One of {@link #STATE_EXPANDED}, {@link #STATE_HALF_EXPANDED}, {@link
+   * #STATE_COLLAPSED}, {@link #STATE_DRAGGING}, or {@link #STATE_SETTLING}.
+   */
+  @State
+  public int getState() {
+    return state;
+  }
+
   /**
    * Sets the state of the bottom sheet. The bottom sheet will transition to that state with
    * animation.
@@ -1388,51 +1463,6 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
           }
         });
     }
-  }
-
-  private void runAfterLayout(V child, Runnable runnable) {
-    if (isLayouting(child)) {
-      child.post(runnable);
-    } else {
-      runnable.run();
-    }
-  }
-
-  private boolean isLayouting(V child) {
-    ViewParent parent = child.getParent();
-    return parent != null && parent.isLayoutRequested() && ViewCompat.isAttachedToWindow(child);
-  }
-
-  /**
-   * Sets whether this bottom sheet should adjust it's position based on the system gesture area
-   * on Android Q and above.
-   *
-   * <p>Note: the bottom sheet will only adjust it's position if it would be unable to be scrolled
-   * upwards because the peekHeight is less than the gesture inset margins,(because that would
-   * cause a gesture conflict), gesture navigation is enabled, and this {@code
-   * ignoreGestureInsetBottom} flag is false.
-   */
-  public void setGestureInsetBottomIgnored(boolean gestureInsetBottomIgnored) {
-    this.gestureInsetBottomIgnored = gestureInsetBottomIgnored;
-  }
-
-  /**
-   * Returns whether this bottom sheet should adjust it's position based on the system gesture
-   * area.
-   */
-  public boolean isGestureInsetBottomIgnored() {
-    return gestureInsetBottomIgnored;
-  }
-
-  /**
-   * Gets the current state of the bottom sheet.
-   *
-   * @return One of {@link #STATE_EXPANDED}, {@link #STATE_HALF_EXPANDED}, {@link
-   * #STATE_COLLAPSED}, {@link #STATE_DRAGGING}, or {@link #STATE_SETTLING}.
-   */
-  @State
-  public int getState() {
-    return state;
   }
 
   void setStateInternal(@State int state) {
@@ -1790,157 +1820,6 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
     throw new IllegalArgumentException("Invalid state to get top offset: " + state);
   }
 
-  private final ViewDragHelper.Callback dragCallback =
-    new ViewDragHelper.Callback() {
-
-      private long viewCapturedMillis;
-
-      @Override
-      public boolean tryCaptureView(@NonNull View child, int pointerId) {
-        if (state == STATE_DRAGGING) {
-          return false;
-        }
-        if (touchingScrollingChild) {
-          return false;
-        }
-        if (state == STATE_EXPANDED && activePointerId == pointerId) {
-          View scroll =
-            nestedScrollingChildRef != null
-              ? nestedScrollingChildRef.get()
-              : null;
-          if (scroll != null && scroll.canScrollVertically(-1)) {
-            // Let the content scroll up
-            return false;
-          }
-        }
-        viewCapturedMillis = System.currentTimeMillis();
-        return viewRef != null && viewRef.get() == child;
-      }
-
-      @Override
-      public void onViewPositionChanged(
-        @NonNull View changedView, int left, int top, int dx, int dy) {
-        dispatchOnSlide(top);
-      }
-
-      @Override
-      public void onViewDragStateChanged(@State int state) {
-        if (state == ViewDragHelper.STATE_DRAGGING && draggable) {
-          setStateInternal(STATE_DRAGGING);
-        }
-      }
-
-      private boolean releasedLow(@NonNull View child) {
-        // Needs to be at least half way to the bottom.
-        return child.getTop() > (parentHeight + getExpandedOffset()) / 2;
-      }
-
-      @Override
-      public void onViewReleased(@NonNull View releasedChild, float xvel, float yvel) {
-        @State int targetState;
-        if (yvel < 0) { // Moving up
-          if (fitToContents) {
-            targetState = STATE_EXPANDED;
-          } else {
-            int currentTop = releasedChild.getTop();
-            long dragDurationMillis =
-              System.currentTimeMillis() - viewCapturedMillis;
-
-            if (shouldSkipHalfExpandedStateWhenDragging()) {
-              float yPositionPercentage = currentTop * 100f / parentHeight;
-
-              if (shouldExpandOnUpwardDrag(
-                dragDurationMillis, yPositionPercentage)) {
-                targetState = STATE_EXPANDED;
-              } else {
-                targetState = STATE_HALF_EXPANDED;
-              }
-            } else {
-              if (currentTop > halfExpandedOffset) {
-                targetState = STATE_HALF_EXPANDED;
-              } else {
-                targetState = STATE_EXPANDED;
-              }
-            }
-          }
-        } else if (hideable && shouldHide(releasedChild, yvel)) {
-          // Hide if the view was either released low or it was a significant vertical
-          // swipe
-          // otherwise settle to closest expanded state.
-          if ((Math.abs(xvel) < Math.abs(yvel) && yvel > significantVelocityThreshold)
-            || releasedLow(releasedChild)) {
-            targetState = STATE_HIDDEN;
-          } else if (fitToContents) {
-            targetState = STATE_EXPANDED;
-          } else if (Math.abs(releasedChild.getTop() - getExpandedOffset())
-            < Math.abs(releasedChild.getTop() - halfExpandedOffset)) {
-            targetState = STATE_EXPANDED;
-          } else {
-            targetState = STATE_HALF_EXPANDED;
-          }
-        } else if (yvel == 0.f || Math.abs(xvel) > Math.abs(yvel)) {
-          // If the Y velocity is 0 or the swipe was mostly horizontal indicated by
-          // the X velocity
-          // being greater than the Y velocity, settle to the nearest correct height.
-          int currentTop = releasedChild.getTop();
-          if (fitToContents) {
-            if (Math.abs(currentTop - fitToContentsOffset)
-              < Math.abs(currentTop - halfExpandedOffset)) {
-              targetState = STATE_EXPANDED;
-            } else {
-              targetState = STATE_HALF_EXPANDED;
-            }
-          } else {
-            if (currentTop < halfExpandedOffset) {
-              if (shouldSkipHalfExpandedStateWhenDragging()) {
-                targetState = STATE_COLLAPSED;
-              } else {
-                targetState = STATE_HALF_EXPANDED;
-              }
-            } else {
-              if (shouldSkipHalfExpandedStateWhenDragging()) {
-                targetState = STATE_COLLAPSED;
-              } else {
-                targetState = STATE_HALF_EXPANDED;
-              }
-            }
-          }
-        } else { // Moving Down
-          if (fitToContents) {
-            targetState = STATE_HALF_EXPANDED;
-          } else {
-            // Settle to the nearest correct height.
-            if (shouldSkipHalfExpandedStateWhenDragging()) {
-              targetState = STATE_COLLAPSED;
-            } else {
-              targetState = STATE_HALF_EXPANDED;
-            }
-          }
-        }
-        startSettling(releasedChild, targetState, shouldSkipSmoothAnimation());
-      }
-
-      @Override
-      public int clampViewPositionVertical(@NonNull View child, int top, int dy) {
-        return MathUtils.clamp(
-          top, getExpandedOffset(), getViewVerticalDragRange(child));
-      }
-
-      @Override
-      public int clampViewPositionHorizontal(@NonNull View child, int left, int dx) {
-        return child.getLeft();
-      }
-
-      @Override
-      public int getViewVerticalDragRange(@NonNull View child) {
-        if (canBeHiddenByDragging()) {
-          return parentHeight;
-        } else {
-          return collapsedOffset;
-        }
-      }
-    };
-
   void dispatchOnSlide(int top) {
     View bottomSheet = viewRef.get();
     if (bottomSheet != null && !callbacks.isEmpty()) {
@@ -2054,139 +1933,6 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
   @RestrictTo(LIBRARY_GROUP)
   public int getLastStableState() {
     return lastStableState;
-  }
-
-  private class StateSettlingTracker {
-    @State
-    private int targetState;
-    private boolean isContinueSettlingRunnablePosted;
-
-    private final Runnable continueSettlingRunnable =
-      new Runnable() {
-        @Override
-        public void run() {
-          isContinueSettlingRunnablePosted = false;
-          if (viewDragHelper != null && viewDragHelper.continueSettling(true)) {
-            continueSettlingToState(targetState);
-          } else if (state == STATE_SETTLING) {
-            setStateInternal(targetState);
-          }
-          // In other cases, settling has been interrupted by certain UX interactions.
-          // Do nothing.
-        }
-      };
-
-    void continueSettlingToState(@State int targetState) {
-      if (viewRef == null || viewRef.get() == null) {
-        return;
-      }
-      this.targetState = targetState;
-      if (!isContinueSettlingRunnablePosted) {
-        ViewCompat.postOnAnimation(viewRef.get(), continueSettlingRunnable);
-        isContinueSettlingRunnablePosted = true;
-      }
-    }
-  }
-
-  /**
-   * State persisted across instances
-   */
-  protected static class SavedState extends AbsSavedState {
-    @State
-    final int state;
-    int peekHeight;
-    boolean fitToContents;
-    boolean hideable;
-    boolean skipCollapsed;
-
-    public SavedState(@NonNull Parcel source) {
-      this(source, null);
-    }
-
-    public SavedState(@NonNull Parcel source, ClassLoader loader) {
-      super(source, loader);
-      //noinspection ResourceType
-      state = source.readInt();
-      peekHeight = source.readInt();
-      fitToContents = source.readInt() == 1;
-      hideable = source.readInt() == 1;
-      skipCollapsed = source.readInt() == 1;
-    }
-
-    public SavedState(Parcelable superState, @NonNull MenuSheetBehaviour<?> behavior) {
-      super(superState);
-      this.state = behavior.state;
-      this.peekHeight = behavior.peekHeight;
-      this.fitToContents = behavior.fitToContents;
-      this.hideable = behavior.hideable;
-      this.skipCollapsed = behavior.skipCollapsed;
-    }
-
-    /**
-     * This constructor does not respect flags: {@link MenuSheetBehaviour#SAVE_PEEK_HEIGHT},
-     * {@link MenuSheetBehaviour#SAVE_FIT_TO_CONTENTS}, {@link
-     * MenuSheetBehaviour#SAVE_HIDEABLE}, {@link MenuSheetBehaviour#SAVE_SKIP_COLLAPSED}. It is
-     * as if {@link MenuSheetBehaviour#SAVE_NONE} were set.
-     *
-     * @deprecated Use {@link #SavedState(Parcelable, MenuSheetBehaviour)} instead.
-     */
-    @Deprecated
-    public SavedState(Parcelable superstate, @State int state) {
-      super(superstate);
-      this.state = state;
-    }
-
-    @Override
-    public void writeToParcel(@NonNull Parcel out, int flags) {
-      super.writeToParcel(out, flags);
-      out.writeInt(state);
-      out.writeInt(peekHeight);
-      out.writeInt(fitToContents ? 1 : 0);
-      out.writeInt(hideable ? 1 : 0);
-      out.writeInt(skipCollapsed ? 1 : 0);
-    }
-
-    public static final Creator<SavedState> CREATOR =
-      new ClassLoaderCreator<SavedState>() {
-        @NonNull
-        @Override
-        public SavedState createFromParcel(@NonNull Parcel in, ClassLoader loader) {
-          return new SavedState(in, loader);
-        }
-
-        @Nullable
-        @Override
-        public SavedState createFromParcel(@NonNull Parcel in) {
-          return new SavedState(in, null);
-        }
-
-        @NonNull
-        @Override
-        public SavedState[] newArray(int size) {
-          return new SavedState[size];
-        }
-      };
-  }
-
-  /**
-   * A utility function to get the {@link MenuSheetBehaviour} associated with the {@code view}.
-   *
-   * @param view The {@link View} with {@link MenuSheetBehaviour}.
-   * @return The {@link MenuSheetBehaviour} associated with the {@code view}.
-   */
-  @NonNull
-  @SuppressWarnings("unchecked")
-  public static <V extends View> MenuSheetBehaviour<V> from(@NonNull V view) {
-    ViewGroup.LayoutParams params = view.getLayoutParams();
-    if (!(params instanceof LayoutParams)) {
-      throw new IllegalArgumentException("The view is not a child of CoordinatorLayout");
-    }
-    CoordinatorLayout.Behavior<?> behavior = ((LayoutParams) params).getBehavior();
-    if (!(behavior instanceof MenuSheetBehaviour)) {
-      throw new IllegalArgumentException(
-        "The view is not associated with MenuSheetBehaviour");
-    }
-    return (MenuSheetBehaviour<V>) behavior;
   }
 
   /**
@@ -2332,5 +2078,192 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
         return true;
       }
     };
+  }
+
+  /**
+   * @hide
+   */
+  @RestrictTo(LIBRARY_GROUP)
+  @IntDef({
+    STATE_EXPANDED,
+    STATE_COLLAPSED,
+    STATE_DRAGGING,
+    STATE_SETTLING,
+    STATE_HIDDEN,
+    STATE_HALF_EXPANDED
+  })
+  @Retention(RetentionPolicy.SOURCE)
+  public @interface State {
+  }
+
+  /**
+   * Stable states that can be set by the {@link #setState(int)} method. These includes all the
+   * possible states a bottom sheet can be in when it's settled.
+   *
+   * @hide
+   */
+  @RestrictTo(LIBRARY_GROUP)
+  @IntDef({STATE_EXPANDED, STATE_COLLAPSED, STATE_HIDDEN, STATE_HALF_EXPANDED})
+  @Retention(RetentionPolicy.SOURCE)
+  public @interface StableState {
+  }
+
+  /**
+   * @hide
+   */
+  @RestrictTo(LIBRARY_GROUP)
+  @IntDef(
+    flag = true,
+    value = {
+      SAVE_PEEK_HEIGHT,
+      SAVE_FIT_TO_CONTENTS,
+      SAVE_HIDEABLE,
+      SAVE_SKIP_COLLAPSED,
+      SAVE_ALL,
+      SAVE_NONE,
+    })
+  @Retention(RetentionPolicy.SOURCE)
+  public @interface SaveFlags {
+  }
+
+  /**
+   * Callback for monitoring events about bottom sheets.
+   */
+  public abstract static class MenuSheetCallback {
+
+    /**
+     * Called when the bottom sheet changes its state.
+     *
+     * @param bottomSheet The bottom sheet view.
+     * @param newState    The new state. This will be one of {@link #STATE_DRAGGING}, {@link
+     *                    #STATE_SETTLING}, {@link #STATE_EXPANDED}, {@link #STATE_COLLAPSED}, {@link
+     *                    #STATE_HIDDEN}, or {@link #STATE_HALF_EXPANDED}.
+     */
+    public abstract void onStateChanged(@NonNull View bottomSheet, @State int newState);
+
+    /**
+     * Called when the bottom sheet is being dragged.
+     *
+     * @param bottomSheet The bottom sheet view.
+     * @param slideOffset The new offset of this bottom sheet within [-1,1] range. Offset
+     *                    increases as this bottom sheet is moving upward. From 0 to 1 the sheet is between
+     *                    collapsed and expanded states and from -1 to 0 it is between hidden and collapsed
+     *                    states.
+     */
+    public abstract void onSlide(@NonNull View bottomSheet, float slideOffset);
+
+    void onLayout(@NonNull View bottomSheet) {
+    }
+  }
+
+  /**
+   * State persisted across instances
+   */
+  protected static class SavedState extends AbsSavedState {
+    public static final Creator<SavedState> CREATOR =
+      new ClassLoaderCreator<SavedState>() {
+        @NonNull
+        @Override
+        public SavedState createFromParcel(@NonNull Parcel in, ClassLoader loader) {
+          return new SavedState(in, loader);
+        }
+
+        @Nullable
+        @Override
+        public SavedState createFromParcel(@NonNull Parcel in) {
+          return new SavedState(in, null);
+        }
+
+        @NonNull
+        @Override
+        public SavedState[] newArray(int size) {
+          return new SavedState[size];
+        }
+      };
+    @State
+    final int state;
+    int peekHeight;
+    boolean fitToContents;
+    boolean hideable;
+    boolean skipCollapsed;
+
+    public SavedState(@NonNull Parcel source) {
+      this(source, null);
+    }
+
+    public SavedState(@NonNull Parcel source, ClassLoader loader) {
+      super(source, loader);
+      //noinspection ResourceType
+      state = source.readInt();
+      peekHeight = source.readInt();
+      fitToContents = source.readInt() == 1;
+      hideable = source.readInt() == 1;
+      skipCollapsed = source.readInt() == 1;
+    }
+
+    public SavedState(Parcelable superState, @NonNull MenuSheetBehaviour<?> behavior) {
+      super(superState);
+      this.state = behavior.state;
+      this.peekHeight = behavior.peekHeight;
+      this.fitToContents = behavior.fitToContents;
+      this.hideable = behavior.hideable;
+      this.skipCollapsed = behavior.skipCollapsed;
+    }
+
+    /**
+     * This constructor does not respect flags: {@link MenuSheetBehaviour#SAVE_PEEK_HEIGHT},
+     * {@link MenuSheetBehaviour#SAVE_FIT_TO_CONTENTS}, {@link
+     * MenuSheetBehaviour#SAVE_HIDEABLE}, {@link MenuSheetBehaviour#SAVE_SKIP_COLLAPSED}. It is
+     * as if {@link MenuSheetBehaviour#SAVE_NONE} were set.
+     *
+     * @deprecated Use {@link #SavedState(Parcelable, MenuSheetBehaviour)} instead.
+     */
+    @Deprecated
+    public SavedState(Parcelable superstate, @State int state) {
+      super(superstate);
+      this.state = state;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel out, int flags) {
+      super.writeToParcel(out, flags);
+      out.writeInt(state);
+      out.writeInt(peekHeight);
+      out.writeInt(fitToContents ? 1 : 0);
+      out.writeInt(hideable ? 1 : 0);
+      out.writeInt(skipCollapsed ? 1 : 0);
+    }
+  }
+
+  private class StateSettlingTracker {
+    @State
+    private int targetState;
+    private boolean isContinueSettlingRunnablePosted;
+
+    void continueSettlingToState(@State int targetState) {
+      if (viewRef == null || viewRef.get() == null) {
+        return;
+      }
+      this.targetState = targetState;
+      if (!isContinueSettlingRunnablePosted) {
+        ViewCompat.postOnAnimation(viewRef.get(), continueSettlingRunnable);
+        isContinueSettlingRunnablePosted = true;
+      }
+    }    private final Runnable continueSettlingRunnable =
+      new Runnable() {
+        @Override
+        public void run() {
+          isContinueSettlingRunnablePosted = false;
+          if (viewDragHelper != null && viewDragHelper.continueSettling(true)) {
+            continueSettlingToState(targetState);
+          } else if (state == STATE_SETTLING) {
+            setStateInternal(targetState);
+          }
+          // In other cases, settling has been interrupted by certain UX interactions.
+          // Do nothing.
+        }
+      };
+
+
   }
 }
