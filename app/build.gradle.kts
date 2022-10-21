@@ -55,7 +55,7 @@ android {
 
     debug {
       isDebuggable = true
-      versionNameSuffix = " - debug"
+      versionNameSuffix = " [debug]"
       applicationIdSuffix = ".dev"
 
       resValue(
