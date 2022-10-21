@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2022 teogor (Teodor Grigor) All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <dimen name="acp_seek_progress_corner_radius">4dp</dimen>
+  <dimen name="acp_seek_progress_padding">5dp</dimen>
+  <dimen name="acp_seek_progress_height">10dp</dimen>
+  <dimen name="acp_thumb_stroke_width">4dp</dimen>
+  <dimen name="acp_thumb_size_full">30dp</dimen>
+  <dimen name="acp_thumb_size_default">24dp</dimen>
+  <dimen name="acp_thumb_ripple_radius">24dp</dimen>
+
+  <dimen name="handle_thickness">6dp</dimen>
+
+  <!-- todo this is a workaround. -->
+  <dimen name="design_bottom_navigation_active_text_size" tools:override="true">
+    @dimen/design_bottom_navigation_text_size
+  </dimen>
+</resources>
