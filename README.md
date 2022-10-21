@@ -6,8 +6,14 @@
 </p>
 <br>
 
-# License
+## Download
+[![Maven Central](https://img.shields.io/maven-central/v/dev.teogor/ceres.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22dev.teogor%22%20AND%20a:%22ceres%22)
 
+## Find this repository useful? :heart:
+Support it by joining __[stargazers](https://github.com/teogor/ceres/stargazers)__ for this repository. :star: <br>
+Also, __[follow me](https://github.com/teogor)__ on GitHub for my next creations! 🤩
+
+# License
 ```xml
 Designed and developed by 2022 Teogor (Teodor Grigor)
 
