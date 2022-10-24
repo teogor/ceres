@@ -16,6 +16,7 @@
 
 package dev.teogor.ceres.firebase
 
+import androidx.annotation.IdRes
 import dev.teogor.ceres.core.app.Module
 import dev.teogor.ceres.core.app.ModuleProvider
 import javax.inject.Inject
@@ -25,8 +26,11 @@ class FirebaseModule @Inject constructor(
   private val firebase: Firebase
 ) : ModuleProvider() {
 
+  @IdRes
+  var remoteConfigDefXML: Int = -1
+
   override fun onCreate() {
-    firebase.setupModules()
+    firebase.setupModules(remoteConfigDefXML)
     firebase.enableModules()
   }
 }
