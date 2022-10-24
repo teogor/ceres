@@ -1,0 +1,2459 @@
+public class dev/teogor/ceres/bindings/BR {
+	public static field _all I
+	public fun <init> ()V
+}
+
+public class dev/teogor/ceres/components/BR {
+	public static field _all I
+	public fun <init> ()V
+}
+
+public class dev/teogor/ceres/core/BR {
+	public static field _all I
+	public fun <init> ()V
+}
+
+public class dev/teogor/ceres/m3/BR {
+	public static field _all I
+	public fun <init> ()V
+}
+
+public final class dev/teogor/ceres/m3/BottomNavigationViewM3 : com/google/android/material/bottomnavigation/BottomNavigationView, dev/teogor/ceres/m3/theme/ThemeHandler {
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;II)V
+	public synthetic fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun circleDrawable (I)Landroid/graphics/drawable/Drawable;
+	public fun drawable (IZ)Landroid/graphics/drawable/Drawable;
+	public fun getBackgroundColorM3 (Landroid/view/View;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun getBackgroundDrawable (FLdev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;Z)Landroid/graphics/drawable/Drawable;
+	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
+	public fun getMaterialShapeDrawable (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;FLandroid/view/View;)Ldev/teogor/ceres/m3/ShapeDrawableM3;
+	public fun getRippleDrawable (Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/RippleDrawable;
+	public fun getSchemeColor ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public fun getSurfaceColorM3 (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun log (Ljava/lang/String;)V
+	public fun onThemeChanged ()V
+	public fun rippleColorStatesList ()Landroid/content/res/ColorStateList;
+	public fun rippleMask (Z)Landroid/graphics/drawable/Drawable;
+}
+
+public final class dev/teogor/ceres/m3/BuildConfig {
+	public static final field BUILD_TYPE Ljava/lang/String;
+	public static final field DEBUG Z
+	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
+	public fun <init> ()V
+}
+
+public final class dev/teogor/ceres/m3/ButtonM3 : dev/teogor/ceres/components/view/Button, dev/teogor/ceres/m3/theme/ThemeHandler {
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public synthetic fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun circleDrawable (I)Landroid/graphics/drawable/Drawable;
+	public fun drawable (IZ)Landroid/graphics/drawable/Drawable;
+	public fun getBackgroundColorM3 (Landroid/view/View;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun getBackgroundDrawable (FLdev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;Z)Landroid/graphics/drawable/Drawable;
+	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
+	public final fun getCornerRadius ()F
+	public fun getMaterialShapeDrawable (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;FLandroid/view/View;)Ldev/teogor/ceres/m3/ShapeDrawableM3;
+	public fun getRippleDrawable (Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/RippleDrawable;
+	public fun getSchemeColor ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public fun getSurfaceColorM3 (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun log (Ljava/lang/String;)V
+	public fun onThemeChanged ()V
+	public fun rippleColorStatesList ()Landroid/content/res/ColorStateList;
+	public fun rippleMask (Z)Landroid/graphics/drawable/Drawable;
+}
+
+public final class dev/teogor/ceres/m3/CheckedTextViewM3 : androidx/appcompat/widget/AppCompatCheckedTextView, dev/teogor/ceres/m3/theme/ThemeHandler {
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V
+	public fun circleDrawable (I)Landroid/graphics/drawable/Drawable;
+	public fun drawable (IZ)Landroid/graphics/drawable/Drawable;
+	public fun getBackgroundColorM3 (Landroid/view/View;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun getBackgroundDrawable (FLdev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;Z)Landroid/graphics/drawable/Drawable;
+	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
+	public fun getMaterialShapeDrawable (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;FLandroid/view/View;)Ldev/teogor/ceres/m3/ShapeDrawableM3;
+	public fun getRippleDrawable (Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/RippleDrawable;
+	public fun getSchemeColor ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public fun getSurfaceColorM3 (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun log (Ljava/lang/String;)V
+	public fun onThemeChanged ()V
+	public fun rippleColorStatesList ()Landroid/content/res/ColorStateList;
+	public fun rippleMask (Z)Landroid/graphics/drawable/Drawable;
+}
+
+public final class dev/teogor/ceres/m3/ColorM3 : java/lang/Enum {
+	public static final field Background Ldev/teogor/ceres/m3/ColorM3;
+	public static final field Error Ldev/teogor/ceres/m3/ColorM3;
+	public static final field ErrorContainer Ldev/teogor/ceres/m3/ColorM3;
+	public static final field InverseOnSurface Ldev/teogor/ceres/m3/ColorM3;
+	public static final field InversePrimary Ldev/teogor/ceres/m3/ColorM3;
+	public static final field InverseSurface Ldev/teogor/ceres/m3/ColorM3;
+	public static final field OnBackground Ldev/teogor/ceres/m3/ColorM3;
+	public static final field OnError Ldev/teogor/ceres/m3/ColorM3;
+	public static final field OnErrorContainer Ldev/teogor/ceres/m3/ColorM3;
+	public static final field OnPrimary Ldev/teogor/ceres/m3/ColorM3;
+	public static final field OnPrimaryContainer Ldev/teogor/ceres/m3/ColorM3;
+	public static final field OnPrimaryMenu Ldev/teogor/ceres/m3/ColorM3;
+	public static final field OnSecondary Ldev/teogor/ceres/m3/ColorM3;
+	public static final field OnSecondaryContainer Ldev/teogor/ceres/m3/ColorM3;
+	public static final field OnSurface Ldev/teogor/ceres/m3/ColorM3;
+	public static final field OnSurfaceVariant Ldev/teogor/ceres/m3/ColorM3;
+	public static final field OnTertiary Ldev/teogor/ceres/m3/ColorM3;
+	public static final field OnTertiaryContainer Ldev/teogor/ceres/m3/ColorM3;
+	public static final field Outline Ldev/teogor/ceres/m3/ColorM3;
+	public static final field OutlineVariant Ldev/teogor/ceres/m3/ColorM3;
+	public static final field Primary Ldev/teogor/ceres/m3/ColorM3;
+	public static final field PrimaryContainer Ldev/teogor/ceres/m3/ColorM3;
+	public static final field Scrim Ldev/teogor/ceres/m3/ColorM3;
+	public static final field Secondary Ldev/teogor/ceres/m3/ColorM3;
+	public static final field SecondaryContainer Ldev/teogor/ceres/m3/ColorM3;
+	public static final field Surface Ldev/teogor/ceres/m3/ColorM3;
+	public static final field SurfaceTint Ldev/teogor/ceres/m3/ColorM3;
+	public static final field SurfaceVariant Ldev/teogor/ceres/m3/ColorM3;
+	public static final field Tertiary Ldev/teogor/ceres/m3/ColorM3;
+	public static final field TertiaryContainer Ldev/teogor/ceres/m3/ColorM3;
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/m3/ColorM3;
+	public static fun values ()[Ldev/teogor/ceres/m3/ColorM3;
+}
+
+public final class dev/teogor/ceres/m3/ColorsContainerM3 : dev/teogor/ceres/m3/ContainerBaseM3 {
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public final fun getColor ()I
+	public final fun getOnColorPickListener ()Ldev/teogor/ceres/m3/ColorsContainerM3$OnColorPickListener;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun setColor (I)V
+	public fun setEnabled (Z)V
+	public final fun setOnColorPickListener (Ldev/teogor/ceres/m3/ColorsContainerM3$OnColorPickListener;)V
+	public final fun setTitle (Ljava/lang/String;)V
+}
+
+public abstract interface class dev/teogor/ceres/m3/ColorsContainerM3$OnColorPickListener {
+	public abstract fun onColorChanged (Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerHSLColor;)V
+}
+
+public class dev/teogor/ceres/m3/ContainerBaseM3 : androidx/constraintlayout/widget/ConstraintLayout, dev/teogor/ceres/m3/theme/ThemeHandler {
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun circleDrawable (I)Landroid/graphics/drawable/Drawable;
+	public fun drawable (IZ)Landroid/graphics/drawable/Drawable;
+	public final fun getBackgroundColorM3 ()Ldev/teogor/ceres/m3/ColorM3;
+	public fun getBackgroundColorM3 (Landroid/view/View;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun getBackgroundDrawable (FLdev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;Z)Landroid/graphics/drawable/Drawable;
+	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
+	public final fun getCornerRadius ()F
+	public fun getCustomBackground ()Z
+	public fun getMaterialShapeDrawable (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;FLandroid/view/View;)Ldev/teogor/ceres/m3/ShapeDrawableM3;
+	public fun getRippleDrawable (Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/RippleDrawable;
+	public final fun getRippleEnabled ()Z
+	public fun getSchemeColor ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public fun getSurfaceColorM3 (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public final fun getSurfaceLevel ()Ldev/teogor/ceres/m3/elevation/SurfaceLevel;
+	public final fun getSurfaceTint ()F
+	public final fun getSurfaceTintOverlay ()Ldev/teogor/ceres/m3/ColorM3;
+	public fun log (Ljava/lang/String;)V
+	public fun onThemeChanged ()V
+	public fun rippleColorStatesList ()Landroid/content/res/ColorStateList;
+	public fun rippleMask (Z)Landroid/graphics/drawable/Drawable;
+	public fun setEnabled (Z)V
+	public final fun setRippleEnabled (Z)V
+}
+
+public final class dev/teogor/ceres/m3/ContainerM3 : dev/teogor/ceres/m3/ContainerBaseM3 {
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun getCustomBackground ()Z
+	public fun onThemeChanged ()V
+}
+
+public class dev/teogor/ceres/m3/DataBinderMapperImpl : androidx/databinding/DataBinderMapper {
+	public fun <init> ()V
+	public fun collectDependencies ()Ljava/util/List;
+	public fun convertBrIdToString (I)Ljava/lang/String;
+	public fun getDataBinder (Landroidx/databinding/DataBindingComponent;Landroid/view/View;I)Landroidx/databinding/ViewDataBinding;
+	public fun getDataBinder (Landroidx/databinding/DataBindingComponent;[Landroid/view/View;I)Landroidx/databinding/ViewDataBinding;
+	public fun getLayoutId (Ljava/lang/String;)I
+}
+
+public class dev/teogor/ceres/m3/DataBindingTriggerClass {
+	public fun <init> ()V
+}
+
+public final class dev/teogor/ceres/m3/ErrorTextViewM3 : com/google/android/material/textview/MaterialTextView, dev/teogor/ceres/m3/theme/ThemeHandler {
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V
+	public fun circleDrawable (I)Landroid/graphics/drawable/Drawable;
+	public fun drawable (IZ)Landroid/graphics/drawable/Drawable;
+	public fun getBackgroundColorM3 (Landroid/view/View;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun getBackgroundDrawable (FLdev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;Z)Landroid/graphics/drawable/Drawable;
+	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
+	public fun getMaterialShapeDrawable (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;FLandroid/view/View;)Ldev/teogor/ceres/m3/ShapeDrawableM3;
+	public fun getRippleDrawable (Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/RippleDrawable;
+	public fun getSchemeColor ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public fun getSurfaceColorM3 (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun log (Ljava/lang/String;)V
+	public fun onThemeChanged ()V
+	public fun rippleColorStatesList ()Landroid/content/res/ColorStateList;
+	public fun rippleMask (Z)Landroid/graphics/drawable/Drawable;
+}
+
+public final class dev/teogor/ceres/m3/ImageComponentM3 : dev/teogor/ceres/m3/ContainerBaseM3 {
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public final fun getOnClickedChangeListener ()Ldev/teogor/ceres/m3/ImageComponentM3$OnClickedChangeListener;
+	public final fun getSubtitle ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun setOnClickedChangeListener (Ldev/teogor/ceres/m3/ImageComponentM3$OnClickedChangeListener;)V
+	public final fun setSubtitle (Ljava/lang/String;)V
+	public final fun setTitle (Ljava/lang/String;)V
+}
+
+public abstract interface class dev/teogor/ceres/m3/ImageComponentM3$OnClickedChangeListener {
+	public abstract fun onClicked ()V
+}
+
+public final class dev/teogor/ceres/m3/ImageViewM3 : androidx/appcompat/widget/AppCompatImageView, dev/teogor/ceres/m3/theme/ThemeHandler {
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun circleDrawable (I)Landroid/graphics/drawable/Drawable;
+	public fun drawable (IZ)Landroid/graphics/drawable/Drawable;
+	public fun getBackgroundColorM3 (Landroid/view/View;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun getBackgroundDrawable (FLdev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;Z)Landroid/graphics/drawable/Drawable;
+	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
+	public fun getMaterialShapeDrawable (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;FLandroid/view/View;)Ldev/teogor/ceres/m3/ShapeDrawableM3;
+	public fun getRippleDrawable (Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/RippleDrawable;
+	public fun getSchemeColor ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public fun getSurfaceColorM3 (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun log (Ljava/lang/String;)V
+	public fun onThemeChanged ()V
+	public fun rippleColorStatesList ()Landroid/content/res/ColorStateList;
+	public fun rippleMask (Z)Landroid/graphics/drawable/Drawable;
+}
+
+public final class dev/teogor/ceres/m3/MaterialDivider : android/view/View {
+	public static final field Companion Ldev/teogor/ceres/m3/MaterialDivider$Companion;
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V
+	public synthetic fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getDividerColor ()I
+	public final fun getDividerInsetEnd ()I
+	public final fun getDividerInsetStart ()I
+	public final fun getDividerThickness ()I
+	public final fun setDividerColor (I)V
+	public final fun setDividerColorResource (I)V
+	public final fun setDividerInsetEnd (I)V
+	public final fun setDividerInsetEndResource (I)V
+	public final fun setDividerInsetStart (I)V
+	public final fun setDividerInsetStartResource (I)V
+	public final fun setDividerThickness (I)V
+	public final fun setDividerThicknessResource (I)V
+}
+
+public final class dev/teogor/ceres/m3/MaterialDivider$Companion {
+}
+
+public final class dev/teogor/ceres/m3/MaterialDividerItemDecoration : androidx/recyclerview/widget/RecyclerView$ItemDecoration {
+	public static final field Companion Ldev/teogor/ceres/m3/MaterialDividerItemDecoration$Companion;
+	public static final field HORIZONTAL I
+	public static final field VERTICAL I
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;II)V
+	public synthetic fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getDividerColor ()I
+	public final fun getDividerInsetEnd ()I
+	public final fun getDividerInsetStart ()I
+	public final fun getDividerThickness ()I
+	public fun getItemOffsets (Landroid/graphics/Rect;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;)V
+	public final fun getOrientation ()I
+	public final fun isLastItemDecorated ()Z
+	public fun onDraw (Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;)V
+	public final fun setDividerColor (I)V
+	public final fun setDividerColorResource (Landroid/content/Context;I)V
+	public final fun setDividerInsetEnd (I)V
+	public final fun setDividerInsetEndResource (Landroid/content/Context;I)V
+	public final fun setDividerInsetStart (I)V
+	public final fun setDividerInsetStartResource (Landroid/content/Context;I)V
+	public final fun setDividerThickness (I)V
+	public final fun setDividerThicknessResource (Landroid/content/Context;I)V
+	public final fun setLastItemDecorated (Z)V
+	public final fun setOrientation (I)V
+}
+
+public final class dev/teogor/ceres/m3/MaterialDividerItemDecoration$Companion {
+}
+
+public final class dev/teogor/ceres/m3/RatingBarM3 : androidx/appcompat/widget/AppCompatRatingBar, dev/teogor/ceres/m3/theme/ThemeHandler {
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun circleDrawable (I)Landroid/graphics/drawable/Drawable;
+	public fun drawable (IZ)Landroid/graphics/drawable/Drawable;
+	public fun getBackgroundColorM3 (Landroid/view/View;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun getBackgroundDrawable (FLdev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;Z)Landroid/graphics/drawable/Drawable;
+	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
+	public fun getMaterialShapeDrawable (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;FLandroid/view/View;)Ldev/teogor/ceres/m3/ShapeDrawableM3;
+	public fun getRippleDrawable (Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/RippleDrawable;
+	public fun getSchemeColor ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public fun getSurfaceColorM3 (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun log (Ljava/lang/String;)V
+	public fun onThemeChanged ()V
+	public fun rippleColorStatesList ()Landroid/content/res/ColorStateList;
+	public fun rippleMask (Z)Landroid/graphics/drawable/Drawable;
+}
+
+public final class dev/teogor/ceres/m3/RippleDrawableM3 : android/graphics/drawable/RippleDrawable {
+	public static final field Companion Ldev/teogor/ceres/m3/RippleDrawableM3$Companion;
+	public synthetic fun <init> (Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class dev/teogor/ceres/m3/RippleDrawableM3$Builder {
+	public fun <init> (Lcom/google/android/material/shape/ShapeAppearanceModel;Ldev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;)V
+	public synthetic fun <init> (Lcom/google/android/material/shape/ShapeAppearanceModel;Ldev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun backgroundColor (Ldev/teogor/ceres/m3/ColorM3;)Ldev/teogor/ceres/m3/RippleDrawableM3$Builder;
+	public final fun build ()Ldev/teogor/ceres/m3/RippleDrawableM3;
+	public final fun copy (Lcom/google/android/material/shape/ShapeAppearanceModel;Ldev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;)Ldev/teogor/ceres/m3/RippleDrawableM3$Builder;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/m3/RippleDrawableM3$Builder;Lcom/google/android/material/shape/ShapeAppearanceModel;Ldev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;ILjava/lang/Object;)Ldev/teogor/ceres/m3/RippleDrawableM3$Builder;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public final fun surfaceTint (F)Ldev/teogor/ceres/m3/RippleDrawableM3$Builder;
+	public final fun surfaceTintOverlay (Ldev/teogor/ceres/m3/ColorM3;)Ldev/teogor/ceres/m3/RippleDrawableM3$Builder;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/m3/RippleDrawableM3$Companion {
+	public final fun toBuilder (Lcom/google/android/material/shape/ShapeAppearanceModel;)Ldev/teogor/ceres/m3/RippleDrawableM3$Builder;
+}
+
+public final class dev/teogor/ceres/m3/ShapeAppearanceModelM3 : com/google/android/material/shape/ShapeAppearanceModel {
+	public fun <init> ()V
+}
+
+public final class dev/teogor/ceres/m3/ShapeDrawableM3 : com/google/android/material/shape/MaterialShapeDrawable {
+	public fun <init> ()V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;II)V
+	public fun <init> (Lcom/google/android/material/shape/ShapeAppearanceModel;)V
+	public synthetic fun <init> (Lcom/google/android/material/shape/ShapeAppearanceModel;Ldev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun isBackgroundLight ()Z
+	public final fun toBuilder ()Ldev/teogor/ceres/m3/ShapeDrawableM3$Builder;
+}
+
+public final class dev/teogor/ceres/m3/ShapeDrawableM3$Builder {
+	public fun <init> (Lcom/google/android/material/shape/ShapeAppearanceModel;Ldev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;)V
+	public synthetic fun <init> (Lcom/google/android/material/shape/ShapeAppearanceModel;Ldev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun backgroundColor (Ldev/teogor/ceres/m3/ColorM3;)Ldev/teogor/ceres/m3/ShapeDrawableM3$Builder;
+	public final fun build ()Ldev/teogor/ceres/m3/ShapeDrawableM3;
+	public final fun copy (Lcom/google/android/material/shape/ShapeAppearanceModel;Ldev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;)Ldev/teogor/ceres/m3/ShapeDrawableM3$Builder;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/m3/ShapeDrawableM3$Builder;Lcom/google/android/material/shape/ShapeAppearanceModel;Ldev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;ILjava/lang/Object;)Ldev/teogor/ceres/m3/ShapeDrawableM3$Builder;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public final fun surfaceTint (F)Ldev/teogor/ceres/m3/ShapeDrawableM3$Builder;
+	public final fun surfaceTintOverlay (Ldev/teogor/ceres/m3/ColorM3;)Ldev/teogor/ceres/m3/ShapeDrawableM3$Builder;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/m3/SnackbarBetaM3 : dev/teogor/ceres/m3/theme/ThemeHandler {
+	public static final field Companion Ldev/teogor/ceres/m3/SnackbarBetaM3$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Landroid/view/View$OnClickListener;ILandroid/view/View;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun circleDrawable (I)Landroid/graphics/drawable/Drawable;
+	public fun drawable (IZ)Landroid/graphics/drawable/Drawable;
+	public fun getBackgroundColorM3 (Landroid/view/View;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun getBackgroundDrawable (FLdev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;Z)Landroid/graphics/drawable/Drawable;
+	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
+	public fun getMaterialShapeDrawable (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;FLandroid/view/View;)Ldev/teogor/ceres/m3/ShapeDrawableM3;
+	public fun getRippleDrawable (Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/RippleDrawable;
+	public fun getSchemeColor ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public fun getSurfaceColorM3 (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun log (Ljava/lang/String;)V
+	public fun onThemeChanged ()V
+	public fun rippleColorStatesList ()Landroid/content/res/ColorStateList;
+	public fun rippleMask (Z)Landroid/graphics/drawable/Drawable;
+	public final fun show ()V
+}
+
+public final class dev/teogor/ceres/m3/SnackbarBetaM3$Builder {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Landroid/view/View$OnClickListener;ILandroid/view/View;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Landroid/view/View$OnClickListener;ILandroid/view/View;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun action (Ljava/lang/String;Landroid/view/View$OnClickListener;)Ldev/teogor/ceres/m3/SnackbarBetaM3$Builder;
+	public final fun anchor (Landroid/view/View;)Ldev/teogor/ceres/m3/SnackbarBetaM3$Builder;
+	public final fun build ()Ldev/teogor/ceres/m3/SnackbarBetaM3;
+	public final fun buildAndShow ()Ldev/teogor/ceres/m3/SnackbarBetaM3;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Landroid/view/View$OnClickListener;ILandroid/view/View;)Ldev/teogor/ceres/m3/SnackbarBetaM3$Builder;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/m3/SnackbarBetaM3$Builder;Ljava/lang/String;Ljava/lang/String;Landroid/view/View$OnClickListener;ILandroid/view/View;ILjava/lang/Object;)Ldev/teogor/ceres/m3/SnackbarBetaM3$Builder;
+	public final fun duration (I)Ldev/teogor/ceres/m3/SnackbarBetaM3$Builder;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public final fun message (Ljava/lang/String;)Ldev/teogor/ceres/m3/SnackbarBetaM3$Builder;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/m3/SnackbarBetaM3$Companion {
+	public final fun toBuilder ()Ldev/teogor/ceres/m3/SnackbarBetaM3$Builder;
+}
+
+public final class dev/teogor/ceres/m3/SwitchComponentM3 : dev/teogor/ceres/m3/ContainerBaseM3 {
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public final fun getOnCheckedChangeListener ()Ldev/teogor/ceres/m3/SwitchComponentM3$OnCheckedChangeListener;
+	public final fun getOnClickedChangeListener ()Ldev/teogor/ceres/m3/SwitchComponentM3$OnClickedChangeListener;
+	public final fun getSubtitle ()Ljava/lang/String;
+	public final fun getSwitchChecked ()Z
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun onChecked (Z)V
+	public final fun setOnCheckedChangeListener (Ldev/teogor/ceres/m3/SwitchComponentM3$OnCheckedChangeListener;)V
+	public final fun setOnClickedChangeListener (Ldev/teogor/ceres/m3/SwitchComponentM3$OnClickedChangeListener;)V
+	public final fun setSubtitle (Ljava/lang/String;)V
+	public final fun setSwitchChecked (Z)V
+	public final fun setTitle (Ljava/lang/String;)V
+	public final fun showSwitch (Z)V
+}
+
+public abstract interface class dev/teogor/ceres/m3/SwitchComponentM3$OnCheckedChangeListener {
+	public abstract fun onCheckedChanged (Z)V
+}
+
+public abstract interface class dev/teogor/ceres/m3/SwitchComponentM3$OnClickedChangeListener {
+	public abstract fun onClicked ()V
+}
+
+public final class dev/teogor/ceres/m3/SwitchM3 : androidx/appcompat/widget/SwitchCompat, dev/teogor/ceres/m3/theme/ThemeHandler {
+	public static final field Companion Ldev/teogor/ceres/m3/SwitchM3$Companion;
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V
+	public synthetic fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun circleDrawable (I)Landroid/graphics/drawable/Drawable;
+	public fun drawable (IZ)Landroid/graphics/drawable/Drawable;
+	public fun getBackgroundColorM3 (Landroid/view/View;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun getBackgroundDrawable (FLdev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;Z)Landroid/graphics/drawable/Drawable;
+	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
+	public fun getMaterialShapeDrawable (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;FLandroid/view/View;)Ldev/teogor/ceres/m3/ShapeDrawableM3;
+	public fun getRippleDrawable (Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/RippleDrawable;
+	public fun getSchemeColor ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public fun getSurfaceColorM3 (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun getThumbDrawable ()Landroid/graphics/drawable/Drawable;
+	public final fun getThumbIconDrawable ()Landroid/graphics/drawable/Drawable;
+	public final fun getThumbIconTintList ()Landroid/content/res/ColorStateList;
+	public final fun getThumbIconTintMode ()Landroid/graphics/PorterDuff$Mode;
+	public fun getThumbTintList ()Landroid/content/res/ColorStateList;
+	public final fun getTrackDecorationDrawable ()Landroid/graphics/drawable/Drawable;
+	public final fun getTrackDecorationTintList ()Landroid/content/res/ColorStateList;
+	public final fun getTrackDecorationTintMode ()Landroid/graphics/PorterDuff$Mode;
+	public fun getTrackDrawable ()Landroid/graphics/drawable/Drawable;
+	public fun getTrackTintList ()Landroid/content/res/ColorStateList;
+	public final fun getWrapContext ()Landroid/content/Context;
+	public fun invalidate ()V
+	public fun log (Ljava/lang/String;)V
+	public fun onThemeChanged ()V
+	public fun rippleColorStatesList ()Landroid/content/res/ColorStateList;
+	public fun rippleMask (Z)Landroid/graphics/drawable/Drawable;
+	public fun setThumbDrawable (Landroid/graphics/drawable/Drawable;)V
+	public final fun setThumbIconDrawable (Landroid/graphics/drawable/Drawable;)V
+	public final fun setThumbIconResource (I)V
+	public final fun setThumbIconTintList (Landroid/content/res/ColorStateList;)V
+	public final fun setThumbIconTintMode (Landroid/graphics/PorterDuff$Mode;)V
+	public fun setThumbTintList (Landroid/content/res/ColorStateList;)V
+	public fun setThumbTintMode (Landroid/graphics/PorterDuff$Mode;)V
+	public final fun setTrackDecorationDrawable (Landroid/graphics/drawable/Drawable;)V
+	public final fun setTrackDecorationResource (I)V
+	public final fun setTrackDecorationTintList (Landroid/content/res/ColorStateList;)V
+	public final fun setTrackDecorationTintMode (Landroid/graphics/PorterDuff$Mode;)V
+	public fun setTrackDrawable (Landroid/graphics/drawable/Drawable;)V
+	public fun setTrackTintList (Landroid/content/res/ColorStateList;)V
+	public fun setTrackTintMode (Landroid/graphics/PorterDuff$Mode;)V
+	public final fun setWrapContext (Landroid/content/Context;)V
+}
+
+public final class dev/teogor/ceres/m3/SwitchM3$Companion {
+}
+
+public final class dev/teogor/ceres/m3/TextViewM3 : com/google/android/material/textview/MaterialTextView, dev/teogor/ceres/m3/theme/ThemeHandler {
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V
+	public fun circleDrawable (I)Landroid/graphics/drawable/Drawable;
+	public fun drawable (IZ)Landroid/graphics/drawable/Drawable;
+	public fun getBackgroundColorM3 (Landroid/view/View;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun getBackgroundDrawable (FLdev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;Z)Landroid/graphics/drawable/Drawable;
+	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
+	public fun getMaterialShapeDrawable (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;FLandroid/view/View;)Ldev/teogor/ceres/m3/ShapeDrawableM3;
+	public fun getRippleDrawable (Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/RippleDrawable;
+	public fun getSchemeColor ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public fun getSurfaceColorM3 (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun log (Ljava/lang/String;)V
+	public fun onThemeChanged ()V
+	public fun rippleColorStatesList ()Landroid/content/res/ColorStateList;
+	public fun rippleMask (Z)Landroid/graphics/drawable/Drawable;
+}
+
+public abstract interface annotation class dev/teogor/ceres/m3/annotation/M3 : java/lang/annotation/Annotation {
+}
+
+public abstract class dev/teogor/ceres/m3/app/BaseActivityM3 : dev/teogor/ceres/components/app/BaseActivity, dev/teogor/ceres/m3/theme/ThemeHandler {
+	public fun <init> ()V
+	public fun circleDrawable (I)Landroid/graphics/drawable/Drawable;
+	public fun drawable (IZ)Landroid/graphics/drawable/Drawable;
+	public fun getBackgroundColorM3 (Landroid/view/View;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun getBackgroundDrawable (FLdev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;Z)Landroid/graphics/drawable/Drawable;
+	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
+	public fun getMaterialShapeDrawable (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;FLandroid/view/View;)Ldev/teogor/ceres/m3/ShapeDrawableM3;
+	public fun getRippleDrawable (Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/RippleDrawable;
+	public fun getSchemeColor ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public fun getSnackbarAnchor ()Landroid/view/View;
+	public fun getSurfaceColorM3 (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	protected fun onCreate (Landroid/os/Bundle;)V
+	public fun onThemeChanged ()V
+	public fun processUiEvent (Ldev/teogor/ceres/components/events/UiEvent;)V
+	public fun rippleColorStatesList ()Landroid/content/res/ColorStateList;
+	public fun rippleMask (Z)Landroid/graphics/drawable/Drawable;
+	protected fun setupObservers ()V
+	protected fun setupUi ()V
+}
+
+public abstract class dev/teogor/ceres/m3/app/BaseFragmentM3 : dev/teogor/ceres/components/app/BaseFragment, dev/teogor/ceres/m3/theme/ThemeHandler {
+	public fun <init> ()V
+	public fun circleDrawable (I)Landroid/graphics/drawable/Drawable;
+	public fun drawable (IZ)Landroid/graphics/drawable/Drawable;
+	public fun getBackgroundColorM3 (Landroid/view/View;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun getBackgroundDrawable (FLdev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;Z)Landroid/graphics/drawable/Drawable;
+	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
+	public fun getMaterialShapeDrawable (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;FLandroid/view/View;)Ldev/teogor/ceres/m3/ShapeDrawableM3;
+	public fun getRippleDrawable (Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/RippleDrawable;
+	public fun getSchemeColor ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public fun getSurfaceColorM3 (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun onThemeChanged ()V
+	public fun rippleColorStatesList ()Landroid/content/res/ColorStateList;
+	public fun rippleMask (Z)Landroid/graphics/drawable/Drawable;
+}
+
+public abstract class dev/teogor/ceres/m3/app/BaseMenuSheetDialogFragmentM3 : dev/teogor/ceres/m3/widgets/menusheet/MenuSheetDialogFragment {
+	protected field navigationViewModel Ldev/teogor/ceres/components/navigation/NavigationViewModel;
+	public fun <init> ()V
+	public final fun getBackgroundColorM3 ()I
+	protected final fun getBinding ()Landroidx/databinding/ViewDataBinding;
+	protected abstract fun getBindingVariable ()I
+	protected abstract fun getContentViewId ()I
+	protected final fun getNavigationViewModel ()Ldev/teogor/ceres/components/navigation/NavigationViewModel;
+	protected final fun getViewModel ()Ldev/teogor/ceres/m3/app/BaseViewModelM3;
+	protected abstract fun getViewModelClass ()Ljava/lang/Class;
+	protected fun getViewModelScope ()Landroidx/lifecycle/ViewModelStoreOwner;
+	public fun onCreate (Landroid/os/Bundle;)V
+	public fun onCreateView (Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+	public fun onViewCreated (Landroid/os/Bundle;)V
+	protected fun processUiEvent (Ldev/teogor/ceres/components/events/UiEvent;)V
+	protected final fun setNavigationViewModel (Ldev/teogor/ceres/components/navigation/NavigationViewModel;)V
+	protected fun setupObservers ()V
+	protected fun setupUi ()V
+}
+
+public class dev/teogor/ceres/m3/app/BaseViewModelM3 : dev/teogor/ceres/components/app/BaseViewModel {
+	public fun <init> ()V
+}
+
+public final class dev/teogor/ceres/m3/binding/BindingMethods {
+	public static final field Companion Ldev/teogor/ceres/m3/binding/BindingMethods$Companion;
+	public fun <init> ()V
+	public static final fun onContentElementCheck (Ldev/teogor/ceres/m3/SwitchComponentM3;Ldev/teogor/ceres/m3/SwitchComponentM3$OnCheckedChangeListener;)V
+	public static final fun onContentElementChecked (Ldev/teogor/ceres/m3/ColorsContainerM3;Landroidx/lifecycle/MutableLiveData;)V
+	public static final fun onContentElementChecked (Ldev/teogor/ceres/m3/ColorsContainerM3;Ldev/teogor/ceres/m3/ColorsContainerM3$OnColorPickListener;)V
+	public static final fun onContentElementChecked (Ldev/teogor/ceres/m3/SwitchComponentM3;Landroidx/lifecycle/MutableLiveData;)V
+	public static final fun onContentElementClick (Ldev/teogor/ceres/m3/ImageComponentM3;Ldev/teogor/ceres/m3/ImageComponentM3$OnClickedChangeListener;)V
+	public static final fun onContentElementClick (Ldev/teogor/ceres/m3/SwitchComponentM3;Ldev/teogor/ceres/m3/SwitchComponentM3$OnClickedChangeListener;)V
+	public static final fun onContentElementSubtitle (Ldev/teogor/ceres/m3/SwitchComponentM3;Landroidx/lifecycle/MutableLiveData;)V
+	public static final fun onContentElementTitle (Ldev/teogor/ceres/m3/SwitchComponentM3;Landroidx/lifecycle/MutableLiveData;)V
+	public static final fun toolbarType (Ldev/teogor/ceres/m3/widgets/bar/ToolBar;Ldev/teogor/ceres/components/toolbar/ToolbarType;)V
+}
+
+public final class dev/teogor/ceres/m3/binding/BindingMethods$Companion {
+	public final fun onContentElementCheck (Ldev/teogor/ceres/m3/SwitchComponentM3;Ldev/teogor/ceres/m3/SwitchComponentM3$OnCheckedChangeListener;)V
+	public final fun onContentElementChecked (Ldev/teogor/ceres/m3/ColorsContainerM3;Landroidx/lifecycle/MutableLiveData;)V
+	public final fun onContentElementChecked (Ldev/teogor/ceres/m3/ColorsContainerM3;Ldev/teogor/ceres/m3/ColorsContainerM3$OnColorPickListener;)V
+	public final fun onContentElementChecked (Ldev/teogor/ceres/m3/SwitchComponentM3;Landroidx/lifecycle/MutableLiveData;)V
+	public final fun onContentElementClick (Ldev/teogor/ceres/m3/ImageComponentM3;Ldev/teogor/ceres/m3/ImageComponentM3$OnClickedChangeListener;)V
+	public final fun onContentElementClick (Ldev/teogor/ceres/m3/SwitchComponentM3;Ldev/teogor/ceres/m3/SwitchComponentM3$OnClickedChangeListener;)V
+	public final fun onContentElementSubtitle (Ldev/teogor/ceres/m3/SwitchComponentM3;Landroidx/lifecycle/MutableLiveData;)V
+	public final fun onContentElementTitle (Ldev/teogor/ceres/m3/SwitchComponentM3;Landroidx/lifecycle/MutableLiveData;)V
+	public final fun toolbarType (Ldev/teogor/ceres/m3/widgets/bar/ToolBar;Ldev/teogor/ceres/components/toolbar/ToolbarType;)V
+}
+
+public final class dev/teogor/ceres/m3/databinding/DesignMenuSheetDialogBinding : androidx/viewbinding/ViewBinding {
+	public final field container Landroid/widget/FrameLayout;
+	public final field coordinator Landroidx/coordinatorlayout/widget/CoordinatorLayout;
+	public final field designBottomSheet Ldev/teogor/ceres/m3/widgets/menusheet/MenuSheetContainer;
+	public final field touchOutside Landroid/view/View;
+	public static fun bind (Landroid/view/View;)Ldev/teogor/ceres/m3/databinding/DesignMenuSheetDialogBinding;
+	public synthetic fun getRoot ()Landroid/view/View;
+	public fun getRoot ()Landroid/widget/FrameLayout;
+	public static fun inflate (Landroid/view/LayoutInflater;)Ldev/teogor/ceres/m3/databinding/DesignMenuSheetDialogBinding;
+	public static fun inflate (Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Ldev/teogor/ceres/m3/databinding/DesignMenuSheetDialogBinding;
+}
+
+public final class dev/teogor/ceres/m3/databinding/LayoutDialogHslaBinding : androidx/viewbinding/ViewBinding {
+	public static fun bind (Landroid/view/View;)Ldev/teogor/ceres/m3/databinding/LayoutDialogHslaBinding;
+	public synthetic fun getRoot ()Landroid/view/View;
+	public fun getRoot ()Landroidx/constraintlayout/widget/ConstraintLayout;
+	public static fun inflate (Landroid/view/LayoutInflater;)Ldev/teogor/ceres/m3/databinding/LayoutDialogHslaBinding;
+	public static fun inflate (Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Ldev/teogor/ceres/m3/databinding/LayoutDialogHslaBinding;
+}
+
+public final class dev/teogor/ceres/m3/databinding/LayoutHslaGroupBinding : androidx/viewbinding/ViewBinding {
+	public final field alphaColorPickerSeekBar Ldev/teogor/ceres/m3/widgets/colorpicker/alpha/HSLAlphaColorPickerSeekBar;
+	public final field alphaTitleTextView Landroid/widget/TextView;
+	public final field hueColorPickerSeekBar Ldev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar;
+	public final field hueTitleTextView Landroid/widget/TextView;
+	public final field lightnessColorPickerSeekBar Ldev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar;
+	public final field lightnessTitleTextView Landroid/widget/TextView;
+	public final field saturationColorPickerSeekBar Ldev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar;
+	public final field saturationTitleTextView Landroid/widget/TextView;
+	public static fun bind (Landroid/view/View;)Ldev/teogor/ceres/m3/databinding/LayoutHslaGroupBinding;
+	public fun getRoot ()Landroid/view/View;
+	public static fun inflate (Landroid/view/LayoutInflater;Landroid/view/ViewGroup;)Ldev/teogor/ceres/m3/databinding/LayoutHslaGroupBinding;
+}
+
+public final class dev/teogor/ceres/m3/databinding/Lm3ColorsContainerBinding : androidx/viewbinding/ViewBinding {
+	public final field container Ldev/teogor/ceres/m3/ContainerBaseM3;
+	public final field hueSeekBar Ldev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar;
+	public final field textTitle Ldev/teogor/ceres/m3/TextViewM3;
+	public static fun bind (Landroid/view/View;)Ldev/teogor/ceres/m3/databinding/Lm3ColorsContainerBinding;
+	public synthetic fun getRoot ()Landroid/view/View;
+	public fun getRoot ()Ldev/teogor/ceres/m3/ContainerBaseM3;
+	public static fun inflate (Landroid/view/LayoutInflater;)Ldev/teogor/ceres/m3/databinding/Lm3ColorsContainerBinding;
+	public static fun inflate (Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Ldev/teogor/ceres/m3/databinding/Lm3ColorsContainerBinding;
+}
+
+public final class dev/teogor/ceres/m3/databinding/Lm3ImageComponentBinding : androidx/viewbinding/ViewBinding {
+	public final field barrier Landroidx/constraintlayout/widget/Barrier;
+	public final field barrierImage Landroidx/constraintlayout/widget/Barrier;
+	public final field container Ldev/teogor/ceres/m3/ContainerBaseM3;
+	public final field imageM3 Ldev/teogor/ceres/m3/ImageViewM3;
+	public final field textSubtitle Ldev/teogor/ceres/m3/TextViewM3;
+	public final field textTitle Ldev/teogor/ceres/m3/TextViewM3;
+	public static fun bind (Landroid/view/View;)Ldev/teogor/ceres/m3/databinding/Lm3ImageComponentBinding;
+	public synthetic fun getRoot ()Landroid/view/View;
+	public fun getRoot ()Ldev/teogor/ceres/m3/ContainerBaseM3;
+	public static fun inflate (Landroid/view/LayoutInflater;)Ldev/teogor/ceres/m3/databinding/Lm3ImageComponentBinding;
+	public static fun inflate (Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Ldev/teogor/ceres/m3/databinding/Lm3ImageComponentBinding;
+}
+
+public final class dev/teogor/ceres/m3/databinding/Lm3SnackbarBinding : androidx/viewbinding/ViewBinding {
+	public static fun bind (Landroid/view/View;)Ldev/teogor/ceres/m3/databinding/Lm3SnackbarBinding;
+	public synthetic fun getRoot ()Landroid/view/View;
+	public fun getRoot ()Ldev/teogor/ceres/m3/snackbar/Snackbar$SnackbarLayout;
+	public static fun inflate (Landroid/view/LayoutInflater;)Ldev/teogor/ceres/m3/databinding/Lm3SnackbarBinding;
+	public static fun inflate (Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Ldev/teogor/ceres/m3/databinding/Lm3SnackbarBinding;
+}
+
+public final class dev/teogor/ceres/m3/databinding/Lm3SnackbarIncludeBinding : androidx/viewbinding/ViewBinding {
+	public final field snackbarAction Ldev/teogor/ceres/m3/ButtonM3;
+	public final field snackbarText Ldev/teogor/ceres/m3/TextViewM3;
+	public static fun bind (Landroid/view/View;)Ldev/teogor/ceres/m3/databinding/Lm3SnackbarIncludeBinding;
+	public synthetic fun getRoot ()Landroid/view/View;
+	public fun getRoot ()Ldev/teogor/ceres/m3/snackbar/SnackbarContentLayout;
+	public static fun inflate (Landroid/view/LayoutInflater;)Ldev/teogor/ceres/m3/databinding/Lm3SnackbarIncludeBinding;
+	public static fun inflate (Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Ldev/teogor/ceres/m3/databinding/Lm3SnackbarIncludeBinding;
+}
+
+public final class dev/teogor/ceres/m3/databinding/Lm3SwitchComponentBinding : androidx/viewbinding/ViewBinding {
+	public final field barrier Landroidx/constraintlayout/widget/Barrier;
+	public final field barrierImage Landroidx/constraintlayout/widget/Barrier;
+	public final field container Ldev/teogor/ceres/m3/ContainerBaseM3;
+	public final field switchM3 Ldev/teogor/ceres/m3/SwitchM3;
+	public final field textSubtitle Ldev/teogor/ceres/m3/TextViewM3;
+	public final field textTitle Ldev/teogor/ceres/m3/TextViewM3;
+	public static fun bind (Landroid/view/View;)Ldev/teogor/ceres/m3/databinding/Lm3SwitchComponentBinding;
+	public synthetic fun getRoot ()Landroid/view/View;
+	public fun getRoot ()Ldev/teogor/ceres/m3/ContainerBaseM3;
+	public static fun inflate (Landroid/view/LayoutInflater;)Ldev/teogor/ceres/m3/databinding/Lm3SwitchComponentBinding;
+	public static fun inflate (Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Ldev/teogor/ceres/m3/databinding/Lm3SwitchComponentBinding;
+}
+
+public final class dev/teogor/ceres/m3/databinding/M3DialogSinglechoiceBinding : androidx/viewbinding/ViewBinding {
+	public final field text1 Ldev/teogor/ceres/m3/CheckedTextViewM3;
+	public static fun bind (Landroid/view/View;)Ldev/teogor/ceres/m3/databinding/M3DialogSinglechoiceBinding;
+	public synthetic fun getRoot ()Landroid/view/View;
+	public fun getRoot ()Ldev/teogor/ceres/m3/CheckedTextViewM3;
+	public static fun inflate (Landroid/view/LayoutInflater;)Ldev/teogor/ceres/m3/databinding/M3DialogSinglechoiceBinding;
+	public static fun inflate (Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Ldev/teogor/ceres/m3/databinding/M3DialogSinglechoiceBinding;
+}
+
+public final class dev/teogor/ceres/m3/elevation/ElevationOverlayProvider {
+	public static final field Companion Ldev/teogor/ceres/m3/elevation/ElevationOverlayProvider$Companion;
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (ZIIIF)V
+	public final fun calculateOverlayAlpha (F)I
+	public final fun calculateOverlayAlphaFraction (F)F
+	public final fun compositeOverlay (F)I
+	public final fun compositeOverlay (IF)I
+	public final fun compositeOverlay (IFLandroid/view/View;)I
+	public final fun compositeOverlayIfNeeded (IF)I
+	public final fun compositeOverlayIfNeeded (IFLandroid/view/View;)I
+	public final fun compositeOverlayWithThemeSurfaceColorIfNeeded (F)I
+	public final fun compositeOverlayWithThemeSurfaceColorIfNeeded (FLandroid/view/View;)I
+	public final fun getParentAbsoluteElevation (Landroid/view/View;)F
+	public final fun getThemeElevationOverlayColor ()I
+	public final fun getThemeSurfaceColor ()I
+}
+
+public final class dev/teogor/ceres/m3/elevation/ElevationOverlayProvider$Companion {
+}
+
+public final class dev/teogor/ceres/m3/elevation/SurfaceColors {
+	public fun <init> (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)V
+	public final fun getColor ()I
+}
+
+public final class dev/teogor/ceres/m3/elevation/SurfaceLevel : java/lang/Enum {
+	public static final field Lvl0 Ldev/teogor/ceres/m3/elevation/SurfaceLevel;
+	public static final field Lvl1 Ldev/teogor/ceres/m3/elevation/SurfaceLevel;
+	public static final field Lvl2 Ldev/teogor/ceres/m3/elevation/SurfaceLevel;
+	public static final field Lvl3 Ldev/teogor/ceres/m3/elevation/SurfaceLevel;
+	public static final field Lvl4 Ldev/teogor/ceres/m3/elevation/SurfaceLevel;
+	public static final field Lvl5 Ldev/teogor/ceres/m3/elevation/SurfaceLevel;
+	public static final field Lvl6 Ldev/teogor/ceres/m3/elevation/SurfaceLevel;
+	public static final field Lvl7 Ldev/teogor/ceres/m3/elevation/SurfaceLevel;
+	public static final field Lvl8 Ldev/teogor/ceres/m3/elevation/SurfaceLevel;
+	public static final field Transparent Ldev/teogor/ceres/m3/elevation/SurfaceLevel;
+	public static final field Unknown Ldev/teogor/ceres/m3/elevation/SurfaceLevel;
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/m3/elevation/SurfaceLevel;
+	public static fun values ()[Ldev/teogor/ceres/m3/elevation/SurfaceLevel;
+}
+
+public class dev/teogor/ceres/m3/events/UiEventM3 {
+	public fun <init> ()V
+}
+
+public final class dev/teogor/ceres/m3/events/UiEventM3$ChoiceDialog : dev/teogor/ceres/m3/events/UiEventM3$Dialog {
+	public fun <init> (I[Ljava/lang/String;ILdev/teogor/ceres/m3/events/UiEventM3$ChoiceSelected;)V
+	public final fun getCheckedPosition ()I
+	public final fun getChoices ()[Ljava/lang/String;
+	public final fun getListener ()Ldev/teogor/ceres/m3/events/UiEventM3$ChoiceSelected;
+}
+
+public abstract interface class dev/teogor/ceres/m3/events/UiEventM3$ChoiceSelected {
+	public abstract fun onSelected (Landroid/content/DialogInterface;I)V
+}
+
+public class dev/teogor/ceres/m3/events/UiEventM3$Dialog : dev/teogor/ceres/components/events/UiEvent {
+	public fun <init> (I)V
+	public final fun getTitleResId ()I
+}
+
+public final class dev/teogor/ceres/m3/events/UiEventM3$ShowSnackbar : dev/teogor/ceres/components/events/UiEvent {
+	public fun <init> ()V
+	public fun <init> (ILjava/lang/String;ILjava/lang/String;Landroid/view/View$OnClickListener;)V
+	public synthetic fun <init> (ILjava/lang/String;ILjava/lang/String;Landroid/view/View$OnClickListener;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getAction ()Ljava/lang/String;
+	public final fun getActionListener ()Landroid/view/View$OnClickListener;
+	public final fun getDuration ()I
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getTitleResId ()I
+}
+
+public final class dev/teogor/ceres/m3/extension/ThemeStoreExtKt {
+	public static final fun applyNewColor (Ldev/teogor/ceres/m3/theme/ThemeMemo;I)V
+	public static final fun applyNewColor (Ldev/teogor/ceres/m3/theme/ThemeMemo;Ljava/lang/String;)V
+}
+
+public class dev/teogor/ceres/m3/generator/blend/Blend {
+	public static fun cam16Ucs (IID)I
+	public static fun harmonize (II)I
+	public static fun hctHue (IID)I
+}
+
+public final class dev/teogor/ceres/m3/generator/hct/Cam16 {
+	public static fun fromInt (I)Ldev/teogor/ceres/m3/generator/hct/Cam16;
+	public static fun fromUcs (DDD)Ldev/teogor/ceres/m3/generator/hct/Cam16;
+	public static fun fromUcsInViewingConditions (DDDLdev/teogor/ceres/m3/generator/hct/ViewingConditions;)Ldev/teogor/ceres/m3/generator/hct/Cam16;
+	public fun getAstar ()D
+	public fun getBstar ()D
+	public fun getChroma ()D
+	public fun getHue ()D
+	public fun getJ ()D
+	public fun getJstar ()D
+	public fun getM ()D
+	public fun getQ ()D
+	public fun getS ()D
+	public fun toInt ()I
+}
+
+public final class dev/teogor/ceres/m3/generator/hct/Hct {
+	public static fun from (DDD)Ldev/teogor/ceres/m3/generator/hct/Hct;
+	public static fun fromInt (I)Ldev/teogor/ceres/m3/generator/hct/Hct;
+	public fun getChroma ()D
+	public fun getHue ()D
+	public fun getTone ()D
+	public fun setChroma (D)V
+	public fun setHue (D)V
+	public fun setTone (D)V
+	public fun toInt ()I
+}
+
+public class dev/teogor/ceres/m3/generator/hct/HctSolver {
+	public static fun solveToCam (DDD)Ldev/teogor/ceres/m3/generator/hct/Cam16;
+	public static fun solveToInt (DDD)I
+}
+
+public final class dev/teogor/ceres/m3/generator/hct/ViewingConditions {
+	public static final field DEFAULT Ldev/teogor/ceres/m3/generator/hct/ViewingConditions;
+	public fun getAw ()D
+	public fun getFlRoot ()D
+	public fun getN ()D
+	public fun getNbb ()D
+	public fun getRgbD ()[D
+}
+
+public final class dev/teogor/ceres/m3/generator/palettes/CorePalette {
+	public field a1 Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public field a2 Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public field a3 Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public field error Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public field n1 Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public field n2 Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public static fun contentOf (I)Ldev/teogor/ceres/m3/generator/palettes/CorePalette;
+	public static fun of (I)Ldev/teogor/ceres/m3/generator/palettes/CorePalette;
+}
+
+public final class dev/teogor/ceres/m3/generator/palettes/TonalPalette {
+	public static final fun fromHueAndChroma (DD)Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public static final fun fromInt (I)Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public fun tone (I)I
+}
+
+public abstract interface class dev/teogor/ceres/m3/generator/quantize/PointProvider {
+	public abstract fun distance ([D[D)D
+	public abstract fun fromInt (I)[D
+	public abstract fun toInt ([D)I
+}
+
+public final class dev/teogor/ceres/m3/generator/quantize/PointProviderLab : dev/teogor/ceres/m3/generator/quantize/PointProvider {
+	public fun <init> ()V
+	public fun distance ([D[D)D
+	public fun fromInt (I)[D
+	public fun toInt ([D)I
+}
+
+public final class dev/teogor/ceres/m3/generator/quantize/QuantizerCelebi {
+	public static fun quantize ([II)Ljava/util/Map;
+}
+
+public final class dev/teogor/ceres/m3/generator/quantize/QuantizerMap : dev/teogor/ceres/m3/generator/quantize/Quantizer {
+	public fun <init> ()V
+	public fun getColorToCount ()Ljava/util/Map;
+	public fun quantize ([II)Ldev/teogor/ceres/m3/generator/quantize/QuantizerResult;
+}
+
+public final class dev/teogor/ceres/m3/generator/quantize/QuantizerResult {
+	public final field colorToCount Ljava/util/Map;
+}
+
+public final class dev/teogor/ceres/m3/generator/quantize/QuantizerWsmeans {
+	public static fun quantize ([I[II)Ljava/util/Map;
+}
+
+public final class dev/teogor/ceres/m3/generator/quantize/QuantizerWu : dev/teogor/ceres/m3/generator/quantize/Quantizer {
+	public fun <init> ()V
+	public fun quantize ([II)Ldev/teogor/ceres/m3/generator/quantize/QuantizerResult;
+}
+
+public class dev/teogor/ceres/m3/generator/scheme/Scheme {
+	public fun <init> ()V
+	public fun <init> (IIIIIIIIIIIIIIIIIIIIIIIIIII)V
+	public static fun dark (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public static fun darkContent (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getBackground ()I
+	public fun getError ()I
+	public fun getErrorContainer ()I
+	public fun getInverseOnSurface ()I
+	public fun getInversePrimary ()I
+	public fun getInverseSurface ()I
+	public fun getOnBackground ()I
+	public fun getOnError ()I
+	public fun getOnErrorContainer ()I
+	public fun getOnPrimary ()I
+	public fun getOnPrimaryContainer ()I
+	public fun getOnSecondary ()I
+	public fun getOnSecondaryContainer ()I
+	public fun getOnSurface ()I
+	public fun getOnSurfaceVariant ()I
+	public fun getOnTertiary ()I
+	public fun getOnTertiaryContainer ()I
+	public fun getOutline ()I
+	public fun getPrimary ()I
+	public fun getPrimaryContainer ()I
+	public fun getSecondary ()I
+	public fun getSecondaryContainer ()I
+	public fun getShadow ()I
+	public fun getSurface ()I
+	public fun getSurfaceVariant ()I
+	public fun getTertiary ()I
+	public fun getTertiaryContainer ()I
+	public fun hashCode ()I
+	public static fun light (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public static fun lightContent (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun setBackground (I)V
+	public fun setError (I)V
+	public fun setErrorContainer (I)V
+	public fun setInverseOnSurface (I)V
+	public fun setInversePrimary (I)V
+	public fun setInverseSurface (I)V
+	public fun setOnBackground (I)V
+	public fun setOnError (I)V
+	public fun setOnErrorContainer (I)V
+	public fun setOnPrimary (I)V
+	public fun setOnPrimaryContainer (I)V
+	public fun setOnSecondary (I)V
+	public fun setOnSecondaryContainer (I)V
+	public fun setOnSurface (I)V
+	public fun setOnSurfaceVariant (I)V
+	public fun setOnTertiary (I)V
+	public fun setOnTertiaryContainer (I)V
+	public fun setOutline (I)V
+	public fun setPrimary (I)V
+	public fun setPrimaryContainer (I)V
+	public fun setSecondary (I)V
+	public fun setSecondaryContainer (I)V
+	public fun setShadow (I)V
+	public fun setSurface (I)V
+	public fun setSurfaceVariant (I)V
+	public fun setTertiary (I)V
+	public fun setTertiaryContainer (I)V
+	public fun toString ()Ljava/lang/String;
+	public fun withBackground (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withError (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withErrorContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withInverseOnSurface (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withInversePrimary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withInverseSurface (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withOnBackground (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withOnError (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withOnErrorContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withOnPrimary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withOnPrimaryContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withOnSecondary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withOnSecondaryContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withOnSurface (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withOnSurfaceVariant (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withOnTertiary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withOnTertiaryContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withOutline (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withPrimary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withPrimaryContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withSecondary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withSecondaryContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withShadow (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withSurface (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withSurfaceVariant (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withTertiary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public fun withTertiaryContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+}
+
+public final class dev/teogor/ceres/m3/generator/score/Score {
+	public static fun score (Ljava/util/Map;)Ljava/util/List;
+}
+
+public class dev/teogor/ceres/m3/resources/MaterialAttributes {
+	public fun <init> ()V
+	public static fun resolve (Landroid/content/Context;I)Landroid/util/TypedValue;
+	public static fun resolveBoolean (Landroid/content/Context;IZ)Z
+	public static fun resolveBooleanOrThrow (Landroid/content/Context;ILjava/lang/String;)Z
+	public static fun resolveDimension (Landroid/content/Context;II)I
+	public static fun resolveInteger (Landroid/content/Context;II)I
+	public static fun resolveMinimumAccessibleTouchTarget (Landroid/content/Context;)I
+	public static fun resolveOrThrow (Landroid/content/Context;ILjava/lang/String;)I
+	public static fun resolveOrThrow (Landroid/view/View;I)I
+	public static fun resolveTypedValueOrThrow (Landroid/content/Context;ILjava/lang/String;)Landroid/util/TypedValue;
+	public static fun resolveTypedValueOrThrow (Landroid/view/View;I)Landroid/util/TypedValue;
+}
+
+public class dev/teogor/ceres/m3/resources/MaterialResources {
+	public static fun getColorStateList (Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
+	public static fun getColorStateList (Landroid/content/Context;Landroidx/appcompat/widget/TintTypedArray;I)Landroid/content/res/ColorStateList;
+	public static fun getDimensionPixelSize (Landroid/content/Context;Landroid/content/res/TypedArray;II)I
+	public static fun getDrawable (Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/graphics/drawable/Drawable;
+	public static fun getTextAppearance (Landroid/content/Context;Landroid/content/res/TypedArray;I)Lcom/google/android/material/resources/TextAppearance;
+	public static fun getUnscaledTextSize (Landroid/content/Context;II)I
+	public static fun isFontScaleAtLeast1_3 (Landroid/content/Context;)Z
+	public static fun isFontScaleAtLeast2_0 (Landroid/content/Context;)Z
+}
+
+public abstract class dev/teogor/ceres/m3/snackbar/BaseTransientBottomBar {
+	public static final field ANIMATION_MODE_FADE I
+	public static final field ANIMATION_MODE_SLIDE I
+	public static final field LENGTH_INDEFINITE I
+	public static final field LENGTH_LONG I
+	public static final field LENGTH_SHORT I
+	protected final field view Ldev/teogor/ceres/m3/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;
+	protected fun <init> (Landroid/content/Context;Landroid/view/ViewGroup;Landroid/view/View;Ldev/teogor/ceres/m3/snackbar/ContentViewCallback;)V
+	protected fun <init> (Landroid/view/ViewGroup;Landroid/view/View;Ldev/teogor/ceres/m3/snackbar/ContentViewCallback;)V
+	public fun addCallback (Ldev/teogor/ceres/m3/snackbar/BaseTransientBottomBar$BaseCallback;)Ldev/teogor/ceres/m3/snackbar/BaseTransientBottomBar;
+	public fun dismiss ()V
+	protected fun dispatchDismiss (I)V
+	public fun getAnchorView ()Landroid/view/View;
+	public fun getAnimationMode ()I
+	public fun getBehavior ()Ldev/teogor/ceres/m3/snackbar/BaseTransientBottomBar$Behavior;
+	public fun getContext ()Landroid/content/Context;
+	public fun getDuration ()I
+	protected fun getNewBehavior ()Lcom/google/android/material/behavior/SwipeDismissBehavior;
+	protected fun getSnackbarBaseLayoutResId ()I
+	public fun getView ()Landroid/view/View;
+	public fun isAnchorViewLayoutListenerEnabled ()Z
+	public fun isGestureInsetBottomIgnored ()Z
+	public fun isShown ()Z
+	public fun isShownOrQueued ()Z
+	public fun removeCallback (Ldev/teogor/ceres/m3/snackbar/BaseTransientBottomBar$BaseCallback;)Ldev/teogor/ceres/m3/snackbar/BaseTransientBottomBar;
+	public fun setAnchorView (I)Ldev/teogor/ceres/m3/snackbar/BaseTransientBottomBar;
+	public fun setAnchorView (Landroid/view/View;)Ldev/teogor/ceres/m3/snackbar/BaseTransientBottomBar;
+	public fun setAnchorViewLayoutListenerEnabled (Z)V
+	public fun setAnimationMode (I)Ldev/teogor/ceres/m3/snackbar/BaseTransientBottomBar;
+	public fun setBehavior (Ldev/teogor/ceres/m3/snackbar/BaseTransientBottomBar$Behavior;)Ldev/teogor/ceres/m3/snackbar/BaseTransientBottomBar;
+	public fun setDuration (I)Ldev/teogor/ceres/m3/snackbar/BaseTransientBottomBar;
+	public fun setGestureInsetBottomIgnored (Z)Ldev/teogor/ceres/m3/snackbar/BaseTransientBottomBar;
+	public fun show ()V
+}
+
+public abstract interface annotation class dev/teogor/ceres/m3/snackbar/BaseTransientBottomBar$AnimationMode : java/lang/annotation/Annotation {
+}
+
+public abstract class dev/teogor/ceres/m3/snackbar/BaseTransientBottomBar$BaseCallback {
+	public static final field DISMISS_EVENT_ACTION I
+	public static final field DISMISS_EVENT_CONSECUTIVE I
+	public static final field DISMISS_EVENT_MANUAL I
+	public static final field DISMISS_EVENT_SWIPE I
+	public static final field DISMISS_EVENT_TIMEOUT I
+	public fun <init> ()V
+	public fun onDismissed (Ljava/lang/Object;I)V
+	public fun onShown (Ljava/lang/Object;)V
+}
+
+public abstract interface annotation class dev/teogor/ceres/m3/snackbar/BaseTransientBottomBar$BaseCallback$DismissEvent : java/lang/annotation/Annotation {
+}
+
+public class dev/teogor/ceres/m3/snackbar/BaseTransientBottomBar$Behavior : com/google/android/material/behavior/SwipeDismissBehavior {
+	public fun <init> ()V
+	public fun canSwipeDismissView (Landroid/view/View;)Z
+	public fun onInterceptTouchEvent (Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z
+}
+
+public class dev/teogor/ceres/m3/snackbar/BaseTransientBottomBar$BehaviorDelegate {
+	public fun <init> (Lcom/google/android/material/behavior/SwipeDismissBehavior;)V
+	public fun canSwipeDismissView (Landroid/view/View;)Z
+	public fun onInterceptTouchEvent (Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)V
+	public fun setBaseTransientBottomBar (Ldev/teogor/ceres/m3/snackbar/BaseTransientBottomBar;)V
+}
+
+public abstract interface class dev/teogor/ceres/m3/snackbar/BaseTransientBottomBar$ContentViewCallback : dev/teogor/ceres/m3/snackbar/ContentViewCallback {
+}
+
+public abstract interface annotation class dev/teogor/ceres/m3/snackbar/BaseTransientBottomBar$Duration : java/lang/annotation/Annotation {
+}
+
+protected class dev/teogor/ceres/m3/snackbar/BaseTransientBottomBar$SnackbarBaseLayout : android/widget/FrameLayout {
+	protected fun <init> (Landroid/content/Context;)V
+	protected fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	protected fun onAttachedToWindow ()V
+	protected fun onDetachedFromWindow ()V
+	protected fun onLayout (ZIIII)V
+	protected fun onMeasure (II)V
+	public fun setBackground (Landroid/graphics/drawable/Drawable;)V
+	public fun setBackgroundDrawable (Landroid/graphics/drawable/Drawable;)V
+	public fun setBackgroundTintList (Landroid/content/res/ColorStateList;)V
+	public fun setBackgroundTintMode (Landroid/graphics/PorterDuff$Mode;)V
+	public fun setLayoutParams (Landroid/view/ViewGroup$LayoutParams;)V
+	public fun setOnClickListener (Landroid/view/View$OnClickListener;)V
+}
+
+public abstract interface class dev/teogor/ceres/m3/snackbar/ContentViewCallback {
+	public abstract fun animateContentIn (II)V
+	public abstract fun animateContentOut (II)V
+}
+
+public class dev/teogor/ceres/m3/snackbar/Snackbar : dev/teogor/ceres/m3/snackbar/BaseTransientBottomBar {
+	public fun dismiss ()V
+	public fun getDuration ()I
+	protected static fun hasSnackbarButtonStyleAttr (Landroid/content/Context;)Z
+	public fun isShown ()Z
+	public static fun make (Landroid/content/Context;Landroid/view/View;Ljava/lang/CharSequence;I)Ldev/teogor/ceres/m3/snackbar/Snackbar;
+	public static fun make (Landroid/view/View;II)Ldev/teogor/ceres/m3/snackbar/Snackbar;
+	public static fun make (Landroid/view/View;Ljava/lang/CharSequence;I)Ldev/teogor/ceres/m3/snackbar/Snackbar;
+	public fun setAction (ILandroid/view/View$OnClickListener;)Ldev/teogor/ceres/m3/snackbar/Snackbar;
+	public fun setAction (Ljava/lang/CharSequence;Landroid/view/View$OnClickListener;)Ldev/teogor/ceres/m3/snackbar/Snackbar;
+	public fun setActionTextColor (I)Ldev/teogor/ceres/m3/snackbar/Snackbar;
+	public fun setActionTextColor (Landroid/content/res/ColorStateList;)Ldev/teogor/ceres/m3/snackbar/Snackbar;
+	public fun setBackgroundTint (I)Ldev/teogor/ceres/m3/snackbar/Snackbar;
+	public fun setBackgroundTintList (Landroid/content/res/ColorStateList;)Ldev/teogor/ceres/m3/snackbar/Snackbar;
+	public fun setBackgroundTintMode (Landroid/graphics/PorterDuff$Mode;)Ldev/teogor/ceres/m3/snackbar/Snackbar;
+	public fun setCallback (Ldev/teogor/ceres/m3/snackbar/Snackbar$Callback;)Ldev/teogor/ceres/m3/snackbar/Snackbar;
+	public fun setMaxInlineActionWidth (I)Ldev/teogor/ceres/m3/snackbar/Snackbar;
+	public fun setText (I)Ldev/teogor/ceres/m3/snackbar/Snackbar;
+	public fun setText (Ljava/lang/CharSequence;)Ldev/teogor/ceres/m3/snackbar/Snackbar;
+	public fun setTextColor (I)Ldev/teogor/ceres/m3/snackbar/Snackbar;
+	public fun setTextColor (Landroid/content/res/ColorStateList;)Ldev/teogor/ceres/m3/snackbar/Snackbar;
+	public fun setTextMaxLines (I)Ldev/teogor/ceres/m3/snackbar/Snackbar;
+	public fun show ()V
+}
+
+public class dev/teogor/ceres/m3/snackbar/Snackbar$Callback : dev/teogor/ceres/m3/snackbar/BaseTransientBottomBar$BaseCallback {
+	public static final field DISMISS_EVENT_ACTION I
+	public static final field DISMISS_EVENT_CONSECUTIVE I
+	public static final field DISMISS_EVENT_MANUAL I
+	public static final field DISMISS_EVENT_SWIPE I
+	public static final field DISMISS_EVENT_TIMEOUT I
+	public fun <init> ()V
+	public fun onDismissed (Ldev/teogor/ceres/m3/snackbar/Snackbar;I)V
+	public synthetic fun onDismissed (Ljava/lang/Object;I)V
+	public fun onShown (Ldev/teogor/ceres/m3/snackbar/Snackbar;)V
+	public synthetic fun onShown (Ljava/lang/Object;)V
+}
+
+public final class dev/teogor/ceres/m3/snackbar/Snackbar$SnackbarLayout : dev/teogor/ceres/m3/snackbar/BaseTransientBottomBar$SnackbarBaseLayout {
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public synthetic fun setBackground (Landroid/graphics/drawable/Drawable;)V
+	public synthetic fun setBackgroundDrawable (Landroid/graphics/drawable/Drawable;)V
+	public synthetic fun setBackgroundTintList (Landroid/content/res/ColorStateList;)V
+	public synthetic fun setBackgroundTintMode (Landroid/graphics/PorterDuff$Mode;)V
+	public synthetic fun setLayoutParams (Landroid/view/ViewGroup$LayoutParams;)V
+	public synthetic fun setOnClickListener (Landroid/view/View$OnClickListener;)V
+}
+
+public class dev/teogor/ceres/m3/snackbar/SnackbarContentLayout : android/widget/LinearLayout, dev/teogor/ceres/m3/snackbar/ContentViewCallback {
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun animateContentIn (II)V
+	public fun animateContentOut (II)V
+	public fun getActionView ()Ldev/teogor/ceres/m3/ButtonM3;
+	public fun getMessageView ()Ldev/teogor/ceres/m3/TextViewM3;
+	protected fun onFinishInflate ()V
+	protected fun onMeasure (II)V
+	public fun setMaxInlineActionWidth (I)V
+}
+
+public final class dev/teogor/ceres/m3/theme/AppThemeDefault : com/zeoflow/memo/common/DefaultType {
+	public fun <init> ()V
+	public fun value ()Ldev/teogor/ceres/m3/theme/AppThemeType;
+	public synthetic fun value ()Ljava/lang/Object;
+}
+
+public final class dev/teogor/ceres/m3/theme/AppThemeType : java/lang/Enum {
+	public static final field ClearlyWhite Ldev/teogor/ceres/m3/theme/AppThemeType;
+	public static final field FollowSystem Ldev/teogor/ceres/m3/theme/AppThemeType;
+	public static final field KindaDark Ldev/teogor/ceres/m3/theme/AppThemeType;
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/m3/theme/AppThemeType;
+	public static fun values ()[Ldev/teogor/ceres/m3/theme/AppThemeType;
+}
+
+public final class dev/teogor/ceres/m3/theme/ColorScheme {
+	public fun <init> (IIIIIIIIIIIIIIIIIIIIIIIIIIIII)V
+	public final fun component1 ()I
+	public final fun component10 ()I
+	public final fun component11 ()I
+	public final fun component12 ()I
+	public final fun component13 ()I
+	public final fun component14 ()I
+	public final fun component15 ()I
+	public final fun component16 ()I
+	public final fun component17 ()I
+	public final fun component18 ()I
+	public final fun component19 ()I
+	public final fun component2 ()I
+	public final fun component20 ()I
+	public final fun component21 ()I
+	public final fun component22 ()I
+	public final fun component23 ()I
+	public final fun component24 ()I
+	public final fun component25 ()I
+	public final fun component26 ()I
+	public final fun component27 ()I
+	public final fun component28 ()I
+	public final fun component29 ()I
+	public final fun component3 ()I
+	public final fun component4 ()I
+	public final fun component5 ()I
+	public final fun component6 ()I
+	public final fun component7 ()I
+	public final fun component8 ()I
+	public final fun component9 ()I
+	public final fun copy (IIIIIIIIIIIIIIIIIIIIIIIIIIIII)Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/m3/theme/ColorScheme;IIIIIIIIIIIIIIIIIIIIIIIIIIIIIILjava/lang/Object;)Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackground ()I
+	public final fun getError ()I
+	public final fun getErrorContainer ()I
+	public final fun getInverseOnSurface ()I
+	public final fun getInversePrimary ()I
+	public final fun getInverseSurface ()I
+	public final fun getOnBackground ()I
+	public final fun getOnError ()I
+	public final fun getOnErrorContainer ()I
+	public final fun getOnPrimary ()I
+	public final fun getOnPrimaryContainer ()I
+	public final fun getOnSecondary ()I
+	public final fun getOnSecondaryContainer ()I
+	public final fun getOnSurface ()I
+	public final fun getOnSurfaceVariant ()I
+	public final fun getOnTertiary ()I
+	public final fun getOnTertiaryContainer ()I
+	public final fun getOutline ()I
+	public final fun getOutlineVariant ()I
+	public final fun getPrimary ()I
+	public final fun getPrimaryContainer ()I
+	public final fun getScrim ()I
+	public final fun getSecondary ()I
+	public final fun getSecondaryContainer ()I
+	public final fun getSurface ()I
+	public final fun getSurfaceTint ()I
+	public final fun getSurfaceVariant ()I
+	public final fun getTertiary ()I
+	public final fun getTertiaryContainer ()I
+	public final fun getTransparent ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/m3/theme/ElevationOverlay {
+	public static final field Companion Ldev/teogor/ceres/m3/theme/ElevationOverlay$Companion;
+	public fun <init> (IIF)V
+	public fun <init> (Landroid/content/Context;Ldev/teogor/ceres/m3/theme/ColorScheme;)V
+	public final fun calculateOverlayAlpha (F)I
+	public final fun calculateOverlayAlphaFraction (F)F
+	public final fun compositeOverlay (F)I
+	public final fun compositeOverlay (IF)I
+	public final fun compositeOverlay (IFLandroid/view/View;)I
+	public final fun compositeOverlay (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public final fun compositeOverlayIfNeeded (IF)I
+	public final fun compositeOverlayIfNeeded (IFLandroid/view/View;)I
+	public final fun compositeOverlayWithThemeSurfaceColorIfNeeded (F)I
+	public final fun compositeOverlayWithThemeSurfaceColorIfNeeded (FLandroid/view/View;)I
+	public final fun getParentAbsoluteElevation (Landroid/view/View;)F
+	public final fun getThemeElevationOverlayColor ()I
+	public final fun getThemeSurfaceColor ()I
+}
+
+public final class dev/teogor/ceres/m3/theme/ElevationOverlay$Companion {
+}
+
+public final class dev/teogor/ceres/m3/theme/FalseBooleanDefault : com/zeoflow/memo/common/DefaultType {
+	public fun <init> ()V
+	public fun value ()Ljava/lang/Boolean;
+	public synthetic fun value ()Ljava/lang/Object;
+}
+
+public final class dev/teogor/ceres/m3/theme/JustBlackThemeDefault : com/zeoflow/memo/common/DefaultType {
+	public fun <init> ()V
+	public fun value ()Ldev/teogor/ceres/m3/theme/JustBlackThemeType;
+	public synthetic fun value ()Ljava/lang/Object;
+}
+
+public final class dev/teogor/ceres/m3/theme/JustBlackThemeType : java/lang/Enum {
+	public static final field AlwaysOn Ldev/teogor/ceres/m3/theme/JustBlackThemeType;
+	public static final field FollowSystem Ldev/teogor/ceres/m3/theme/JustBlackThemeType;
+	public static final field Off Ldev/teogor/ceres/m3/theme/JustBlackThemeType;
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/m3/theme/JustBlackThemeType;
+	public static fun values ()[Ldev/teogor/ceres/m3/theme/JustBlackThemeType;
+}
+
+public final class dev/teogor/ceres/m3/theme/MaterialTheme {
+	public static final field INSTANCE Ldev/teogor/ceres/m3/theme/MaterialTheme;
+	public final fun getCOLORS ()Ljava/util/List;
+	public final fun getTEXT_COLORS ()[Ljava/lang/String;
+	public final fun getTEXT_COLOR_EMPHASIS ()[Ljava/lang/String;
+	public final fun getTONE_VALUES ()[I
+}
+
+public final class dev/teogor/ceres/m3/theme/MaterialTheme$Color {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;II)V
+	public final fun getAttributeName (Ljava/lang/String;)Ljava/lang/String;
+	public final fun getName (Ljava/lang/String;)Ljava/lang/String;
+	public final fun getToneDark ()I
+	public final fun getToneLight ()I
+}
+
+public final class dev/teogor/ceres/m3/theme/SchemeM3 {
+	public synthetic fun <init> (Ljava/lang/String;IZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getCorePalette ()Ldev/teogor/ceres/m3/generator/palettes/CorePalette;
+	public final fun getDarkColorScheme ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public final fun getDynamicColors ()Z
+	public final fun getErrorPalette ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public final fun getJustBlackColorScheme ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public final fun getLightColorScheme ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public final fun getNeutralPalette ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public final fun getNeutralVariantPalette ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public final fun getPrimaryPalette ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public final fun getSecondaryPalette ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public final fun getSeed ()Ljava/lang/String;
+	public final fun getTertiaryPalette ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+}
+
+public final class dev/teogor/ceres/m3/theme/SchemeM3$Builder {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Z)V
+	public synthetic fun <init> (Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun build ()Ldev/teogor/ceres/m3/theme/SchemeM3;
+	public final fun copy (Ljava/lang/String;Z)Ldev/teogor/ceres/m3/theme/SchemeM3$Builder;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/m3/theme/SchemeM3$Builder;Ljava/lang/String;ZILjava/lang/Object;)Ldev/teogor/ceres/m3/theme/SchemeM3$Builder;
+	public final fun dynamicColors (Z)Ldev/teogor/ceres/m3/theme/SchemeM3$Builder;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public final fun seed (Ljava/lang/String;)Ldev/teogor/ceres/m3/theme/SchemeM3$Builder;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/m3/theme/StringDefault : com/zeoflow/memo/common/DefaultType {
+	public fun <init> ()V
+	public synthetic fun value ()Ljava/lang/Object;
+	public fun value ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/m3/theme/SurfaceOverlay : dev/teogor/ceres/core/logger/Logger {
+	public static final field Companion Ldev/teogor/ceres/m3/theme/SurfaceOverlay$Companion;
+	public fun <init> (II)V
+	public final fun forAlpha (F)I
+	public final fun forSurface (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public final fun getThemeOverlayColor ()I
+	public final fun getThemeSurfaceColor ()I
+	public fun log (Ljava/lang/String;)V
+}
+
+public final class dev/teogor/ceres/m3/theme/SurfaceOverlay$Companion {
+}
+
+public abstract interface class dev/teogor/ceres/m3/theme/ThemeHandler : dev/teogor/ceres/core/logger/Logger {
+	public abstract fun circleDrawable (I)Landroid/graphics/drawable/Drawable;
+	public abstract fun drawable (IZ)Landroid/graphics/drawable/Drawable;
+	public abstract fun getBackgroundColorM3 (Landroid/view/View;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public abstract fun getBackgroundDrawable (FLdev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;Z)Landroid/graphics/drawable/Drawable;
+	public abstract fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
+	public abstract fun getMaterialShapeDrawable (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;FLandroid/view/View;)Ldev/teogor/ceres/m3/ShapeDrawableM3;
+	public abstract fun getRippleDrawable (Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/RippleDrawable;
+	public abstract fun getSchemeColor ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public abstract fun getSurfaceColorM3 (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public abstract fun onThemeChanged ()V
+	public abstract fun rippleColorStatesList ()Landroid/content/res/ColorStateList;
+	public abstract fun rippleMask (Z)Landroid/graphics/drawable/Drawable;
+}
+
+public final class dev/teogor/ceres/m3/theme/ThemeHandler$DefaultImpls {
+	public static fun circleDrawable (Ldev/teogor/ceres/m3/theme/ThemeHandler;I)Landroid/graphics/drawable/Drawable;
+	public static fun drawable (Ldev/teogor/ceres/m3/theme/ThemeHandler;IZ)Landroid/graphics/drawable/Drawable;
+	public static synthetic fun drawable$default (Ldev/teogor/ceres/m3/theme/ThemeHandler;IZILjava/lang/Object;)Landroid/graphics/drawable/Drawable;
+	public static fun getBackgroundColorM3 (Ldev/teogor/ceres/m3/theme/ThemeHandler;Landroid/view/View;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public static fun getBackgroundDrawable (Ldev/teogor/ceres/m3/theme/ThemeHandler;FLdev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;Z)Landroid/graphics/drawable/Drawable;
+	public static synthetic fun getBackgroundDrawable$default (Ldev/teogor/ceres/m3/theme/ThemeHandler;FLdev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;ZILjava/lang/Object;)Landroid/graphics/drawable/Drawable;
+	public static fun getColorM3 (Ldev/teogor/ceres/m3/theme/ThemeHandler;Ldev/teogor/ceres/m3/ColorM3;)I
+	public static fun getMaterialShapeDrawable (Ldev/teogor/ceres/m3/theme/ThemeHandler;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;FLandroid/view/View;)Ldev/teogor/ceres/m3/ShapeDrawableM3;
+	public static fun getRippleDrawable (Ldev/teogor/ceres/m3/theme/ThemeHandler;Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/RippleDrawable;
+	public static synthetic fun getRippleDrawable$default (Ldev/teogor/ceres/m3/theme/ThemeHandler;Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;ILjava/lang/Object;)Landroid/graphics/drawable/RippleDrawable;
+	public static fun getSchemeColor (Ldev/teogor/ceres/m3/theme/ThemeHandler;)Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public static fun getSurfaceColorM3 (Ldev/teogor/ceres/m3/theme/ThemeHandler;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public static fun log (Ldev/teogor/ceres/m3/theme/ThemeHandler;Ljava/lang/String;)V
+	public static fun onThemeChanged (Ldev/teogor/ceres/m3/theme/ThemeHandler;)V
+	public static fun rippleColorStatesList (Ldev/teogor/ceres/m3/theme/ThemeHandler;)Landroid/content/res/ColorStateList;
+	public static fun rippleMask (Ldev/teogor/ceres/m3/theme/ThemeHandler;Z)Landroid/graphics/drawable/Drawable;
+	public static synthetic fun rippleMask$default (Ldev/teogor/ceres/m3/theme/ThemeHandler;ZILjava/lang/Object;)Landroid/graphics/drawable/Drawable;
+}
+
+public final class dev/teogor/ceres/m3/theme/ThemeM3 {
+	public static final field INSTANCE Ldev/teogor/ceres/m3/theme/ThemeM3;
+	public final fun appTheme ()Ldev/teogor/ceres/m3/theme/AppThemeType;
+	public final fun colouredBackgroundEnabled ()Z
+	public final fun currentColorScheme ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public final fun darkColorScheme ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public final fun isNightModeOn ()Z
+	public final fun justBlackTheme ()Ldev/teogor/ceres/m3/theme/JustBlackThemeType;
+	public final fun lightColorScheme ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public final fun materialYouEnabled ()Z
+	public final fun schemeM3 ()Ldev/teogor/ceres/m3/theme/SchemeM3;
+	public final fun themeStore ()Ldev/teogor/ceres/m3/theme/ThemeMemo;
+}
+
+public final class dev/teogor/ceres/m3/theme/ThemeMemo {
+	public fun <init> ()V
+	public final fun getAppTheme ()Ldev/teogor/ceres/m3/theme/AppThemeType;
+	public final fun getColouredBackgroundEnabled ()Z
+	public final fun getDesaturatedColoursEnabled ()Z
+	public final fun getJustBlackTheme ()Ldev/teogor/ceres/m3/theme/JustBlackThemeType;
+	public final fun getMaterialYouEnabled ()Z
+	public final fun getSeed ()Ljava/lang/String;
+	public final fun setAppTheme (Ldev/teogor/ceres/m3/theme/AppThemeType;)V
+	public final fun setColouredBackgroundEnabled (Z)V
+	public final fun setDesaturatedColoursEnabled (Z)V
+	public final fun setJustBlackTheme (Ldev/teogor/ceres/m3/theme/JustBlackThemeType;)V
+	public final fun setMaterialYouEnabled (Z)V
+	public final fun setSeed (Ljava/lang/String;)V
+}
+
+public final class dev/teogor/ceres/m3/theme/ThemeStore {
+	public fun <init> (Ljava/lang/String;Ldev/teogor/ceres/m3/theme/AppThemeType;Ldev/teogor/ceres/m3/theme/JustBlackThemeType;ZZZ)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ldev/teogor/ceres/m3/theme/AppThemeType;
+	public final fun component3 ()Ldev/teogor/ceres/m3/theme/JustBlackThemeType;
+	public final fun component4 ()Z
+	public final fun component5 ()Z
+	public final fun component6 ()Z
+	public final fun copy (Ljava/lang/String;Ldev/teogor/ceres/m3/theme/AppThemeType;Ldev/teogor/ceres/m3/theme/JustBlackThemeType;ZZZ)Ldev/teogor/ceres/m3/theme/ThemeStore;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/m3/theme/ThemeStore;Ljava/lang/String;Ldev/teogor/ceres/m3/theme/AppThemeType;Ldev/teogor/ceres/m3/theme/JustBlackThemeType;ZZZILjava/lang/Object;)Ldev/teogor/ceres/m3/theme/ThemeStore;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAppTheme ()Ldev/teogor/ceres/m3/theme/AppThemeType;
+	public final fun getColouredBackgroundEnabled ()Z
+	public final fun getDesaturatedColoursEnabled ()Z
+	public final fun getJustBlackTheme ()Ldev/teogor/ceres/m3/theme/JustBlackThemeType;
+	public final fun getMaterialYouEnabled ()Z
+	public final fun getSeed ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/m3/theme/ThemeStoreMemo {
+	public fun <init> ()V
+	public final fun getAppTheme ()Ldev/teogor/ceres/m3/theme/AppThemeType;
+	public final fun getColouredBackgroundEnabled ()Z
+	public final fun getDesaturatedColoursEnabled ()Z
+	public final fun getJustBlackTheme ()Ldev/teogor/ceres/m3/theme/JustBlackThemeType;
+	public final fun getMaterialYouEnabled ()Z
+	public final fun getSeed ()Ljava/lang/String;
+	public final fun setAppTheme (Ldev/teogor/ceres/m3/theme/AppThemeType;)V
+	public final fun setColouredBackgroundEnabled (Z)V
+	public final fun setDesaturatedColoursEnabled (Z)V
+	public final fun setJustBlackTheme (Ldev/teogor/ceres/m3/theme/JustBlackThemeType;)V
+	public final fun setMaterialYouEnabled (Z)V
+	public final fun setSeed (Ljava/lang/String;)V
+}
+
+public final class dev/teogor/ceres/m3/theme/TrueBooleanDefault : com/zeoflow/memo/common/DefaultType {
+	public fun <init> ()V
+	public fun value ()Ljava/lang/Boolean;
+	public synthetic fun value ()Ljava/lang/Object;
+}
+
+public final class dev/teogor/ceres/m3/util/DynamicColors {
+	public static final field INSTANCE Ldev/teogor/ceres/m3/util/DynamicColors;
+	public final fun isDynamicColorAvailable ()Z
+}
+
+public class dev/teogor/ceres/m3/utils/ColorUtils {
+	public static fun alphaFromArgb (I)I
+	public static fun argbFromLab (DDD)I
+	public static fun argbFromLinrgb ([D)I
+	public static fun argbFromLstar (D)I
+	public static fun argbFromRgb (III)I
+	public static fun argbFromXyz (DDD)I
+	public static fun blueFromArgb (I)I
+	public static fun delinearized (D)I
+	public static fun greenFromArgb (I)I
+	public static fun isOpaque (I)Z
+	public static fun labFromArgb (I)[D
+	public static fun linearized (I)D
+	public static fun lstarFromArgb (I)D
+	public static fun redFromArgb (I)I
+	public static fun whitePointD65 ()[D
+	public static fun xyzFromArgb (I)[D
+	public static fun yFromLstar (D)D
+}
+
+public class dev/teogor/ceres/m3/utils/MathUtils {
+	public static fun clampDouble (DDD)D
+	public static fun clampInt (III)I
+	public static fun differenceDegrees (DD)D
+	public static fun lerp (DDD)D
+	public static fun matrixMultiply ([D[[D)[D
+	public static fun rotationDirection (DD)D
+	public static fun sanitizeDegreesDouble (D)D
+	public static fun sanitizeDegreesInt (I)I
+	public static fun signum (D)I
+}
+
+public class dev/teogor/ceres/m3/widgets/bar/Bar : androidx/constraintlayout/widget/ConstraintLayout, dev/teogor/ceres/m3/theme/ThemeHandler {
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun circleDrawable (I)Landroid/graphics/drawable/Drawable;
+	public fun drawable (IZ)Landroid/graphics/drawable/Drawable;
+	public fun getBackgroundColorM3 (Landroid/view/View;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun getBackgroundDrawable (FLdev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;Z)Landroid/graphics/drawable/Drawable;
+	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
+	public fun getMaterialShapeDrawable (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;FLandroid/view/View;)Ldev/teogor/ceres/m3/ShapeDrawableM3;
+	public fun getRippleDrawable (Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/RippleDrawable;
+	public fun getSchemeColor ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public fun getSurfaceColorM3 (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun log (Ljava/lang/String;)V
+	public fun onThemeChanged ()V
+	public fun rippleColorStatesList ()Landroid/content/res/ColorStateList;
+	public fun rippleMask (Z)Landroid/graphics/drawable/Drawable;
+}
+
+public final class dev/teogor/ceres/m3/widgets/bar/BarGroup : android/view/View, dev/teogor/ceres/core/logger/Logger {
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun log (Ljava/lang/String;)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/bar/NavigationBar : dev/teogor/ceres/m3/widgets/bar/Bar {
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/bar/StatusBar : dev/teogor/ceres/m3/widgets/bar/Bar {
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun onThemeChanged ()V
+	public final fun setFilled (ZZ)V
+	public static synthetic fun setFilled$default (Ldev/teogor/ceres/m3/widgets/bar/StatusBar;ZZILjava/lang/Object;)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/bar/ToolBar : dev/teogor/ceres/m3/widgets/bar/Bar {
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun onThemeChanged ()V
+	public final fun setStatusBar (Ldev/teogor/ceres/m3/widgets/bar/StatusBar;)V
+	public final fun setType (Ldev/teogor/ceres/components/toolbar/ToolbarType;)V
+}
+
+public abstract class dev/teogor/ceres/m3/widgets/colorpicker/alpha/AlphaColorPickerSeekBar : dev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar {
+	public fun <init> (Ldev/teogor/ceres/m3/widgets/colorpicker/model/factory/ColorFactory;Landroid/content/Context;)V
+	public fun <init> (Ldev/teogor/ceres/m3/widgets/colorpicker/model/factory/ColorFactory;Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun <init> (Ldev/teogor/ceres/m3/widgets/colorpicker/model/factory/ColorFactory;Landroid/content/Context;Landroid/util/AttributeSet;I)V
+	public synthetic fun <init> (Ldev/teogor/ceres/m3/widgets/colorpicker/model/factory/ColorFactory;Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	protected fun onRefreshProgressDrawable (Landroid/graphics/drawable/LayerDrawable;)V
+	protected fun onRefreshThumb (Ljava/util/Set;)V
+	protected fun onSetupProgressDrawableLayers ([Landroid/graphics/drawable/Drawable;)[Landroid/graphics/drawable/Drawable;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/alpha/HSLAlphaColorPickerSeekBar : dev/teogor/ceres/m3/widgets/colorpicker/alpha/AlphaColorPickerSeekBar {
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V
+	public synthetic fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun getColorConverter ()Ldev/teogor/ceres/m3/widgets/colorpicker/converter/ColorConverter;
+	public synthetic fun onRefreshColorFromProgress (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;I)Z
+	public synthetic fun onRefreshProgressFromColor (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)Ljava/lang/Integer;
+	public synthetic fun onUpdateColorFrom (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)V
+	public fun setMax (I)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/cmyk/CMYKColorPickerSeekBar : dev/teogor/ceres/m3/widgets/colorpicker/view/picker/GradientColorSeekBar {
+	public static final field Companion Ldev/teogor/ceres/m3/widgets/colorpicker/cmyk/CMYKColorPickerSeekBar$Companion;
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V
+	public synthetic fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun getColorConverter ()Ldev/teogor/ceres/m3/widgets/colorpicker/converter/ColorConverter;
+	public final fun getColoringMode ()Ldev/teogor/ceres/m3/widgets/colorpicker/cmyk/CMYKColorPickerSeekBar$ColoringMode;
+	public final fun getMode ()Ldev/teogor/ceres/m3/widgets/colorpicker/cmyk/CMYKColorPickerSeekBar$Mode;
+	public synthetic fun onRefreshColorFromProgress (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;I)Z
+	public synthetic fun onRefreshProgressFromColor (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)Ljava/lang/Integer;
+	public synthetic fun onUpdateColorFrom (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)V
+	public final fun setColoringMode (Ldev/teogor/ceres/m3/widgets/colorpicker/cmyk/CMYKColorPickerSeekBar$ColoringMode;)V
+	public fun setMax (I)V
+	public final fun setMode (Ldev/teogor/ceres/m3/widgets/colorpicker/cmyk/CMYKColorPickerSeekBar$Mode;)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/cmyk/CMYKColorPickerSeekBar$ColoringMode : java/lang/Enum {
+	public static final field OUTPUT_COLOR Ldev/teogor/ceres/m3/widgets/colorpicker/cmyk/CMYKColorPickerSeekBar$ColoringMode;
+	public static final field PURE_COLOR Ldev/teogor/ceres/m3/widgets/colorpicker/cmyk/CMYKColorPickerSeekBar$ColoringMode;
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/m3/widgets/colorpicker/cmyk/CMYKColorPickerSeekBar$ColoringMode;
+	public static fun values ()[Ldev/teogor/ceres/m3/widgets/colorpicker/cmyk/CMYKColorPickerSeekBar$ColoringMode;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/cmyk/CMYKColorPickerSeekBar$Companion {
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/cmyk/CMYKColorPickerSeekBar$Mode : java/lang/Enum, dev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar$Mode {
+	public static final field MODE_C Ldev/teogor/ceres/m3/widgets/colorpicker/cmyk/CMYKColorPickerSeekBar$Mode;
+	public static final field MODE_K Ldev/teogor/ceres/m3/widgets/colorpicker/cmyk/CMYKColorPickerSeekBar$Mode;
+	public static final field MODE_M Ldev/teogor/ceres/m3/widgets/colorpicker/cmyk/CMYKColorPickerSeekBar$Mode;
+	public static final field MODE_Y Ldev/teogor/ceres/m3/widgets/colorpicker/cmyk/CMYKColorPickerSeekBar$Mode;
+	public final fun getCheckpoints ()[I
+	public fun getMaxProgress ()I
+	public fun getMinProgress ()I
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/m3/widgets/colorpicker/cmyk/CMYKColorPickerSeekBar$Mode;
+	public static fun values ()[Ldev/teogor/ceres/m3/widgets/colorpicker/cmyk/CMYKColorPickerSeekBar$Mode;
+}
+
+public abstract interface class dev/teogor/ceres/m3/widgets/colorpicker/converter/ColorConverter {
+	public abstract fun convertToColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public abstract fun convertToOpaqueColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public abstract fun convertToPureHueColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public abstract fun setFromColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;I)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/converter/ColorConverterExtensionsKt {
+	public static final fun getBInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public static final fun getGInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public static final fun getRInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public static final fun setFromColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;I)V
+	public static final fun toColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public static final fun toContrastColor (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;Ldev/teogor/ceres/m3/widgets/colorpicker/converter/ContrastColorAlphaMode;)I
+	public static synthetic fun toContrastColor$default (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;Ldev/teogor/ceres/m3/widgets/colorpicker/converter/ContrastColorAlphaMode;ILjava/lang/Object;)I
+	public static final fun toOpaqueColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public static final fun toPureHueColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/converter/ColorConverterHub {
+	public static final field INSTANCE Ldev/teogor/ceres/m3/widgets/colorpicker/converter/ColorConverterHub;
+	public final fun getConverterByKey (Ldev/teogor/ceres/m3/widgets/colorpicker/model/ColorKey;)Ldev/teogor/ceres/m3/widgets/colorpicker/converter/ColorConverter;
+	public final fun registerConverter (Ldev/teogor/ceres/m3/widgets/colorpicker/model/ColorKey;Ldev/teogor/ceres/m3/widgets/colorpicker/converter/ColorConverter;)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/converter/ContrastColorAlphaMode : java/lang/Enum {
+	public static final field DARK_BACKGROUND Ldev/teogor/ceres/m3/widgets/colorpicker/converter/ContrastColorAlphaMode;
+	public static final field LIGHT_BACKGROUND Ldev/teogor/ceres/m3/widgets/colorpicker/converter/ContrastColorAlphaMode;
+	public static final field NONE Ldev/teogor/ceres/m3/widgets/colorpicker/converter/ContrastColorAlphaMode;
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/m3/widgets/colorpicker/converter/ContrastColorAlphaMode;
+	public static fun values ()[Ldev/teogor/ceres/m3/widgets/colorpicker/converter/ContrastColorAlphaMode;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/converter/IntegerCMYKColorConverter : dev/teogor/ceres/m3/widgets/colorpicker/converter/ColorConverter {
+	public fun <init> ()V
+	public fun convertToColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public fun convertToOpaqueColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public fun convertToPureHueColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public fun setFromColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;I)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/converter/IntegerHSLColorConverter : dev/teogor/ceres/m3/widgets/colorpicker/converter/ColorConverter {
+	public fun <init> ()V
+	public fun convertToColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public final fun convertToDefaultLightness (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public fun convertToOpaqueColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public fun convertToPureHueColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public fun setFromColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;I)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/converter/IntegerLABColorConverter : dev/teogor/ceres/m3/widgets/colorpicker/converter/ColorConverter {
+	public fun <init> ()V
+	public fun convertToColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public fun convertToOpaqueColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public fun convertToPureHueColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public fun setFromColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;I)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/converter/IntegerRGBColorConverter : dev/teogor/ceres/m3/widgets/colorpicker/converter/ColorConverter {
+	public fun <init> ()V
+	public fun convertToColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public fun convertToOpaqueColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public fun convertToPureHueColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)I
+	public fun setFromColorInt (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;I)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/dialogs/ColorPickerDialogFragment : androidx/fragment/app/DialogFragment {
+	public fun <init> ()V
+	public fun onCreateDialog (Landroid/os/Bundle;)Landroid/app/Dialog;
+}
+
+public class dev/teogor/ceres/m3/widgets/colorpicker/group/PickerGroup : dev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar$OnColorPickListener, java/lang/Iterable, kotlin/jvm/internal/markers/KMappedMarker {
+	public fun <init> ()V
+	public final fun addListener (Ldev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar$OnColorPickListener;)V
+	public final fun clearListeners ()V
+	public fun iterator ()Ljava/util/Iterator;
+	public fun onColorChanged (Ldev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar;Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;I)V
+	public fun onColorPicked (Ldev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar;Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;IZ)V
+	public fun onColorPicking (Ldev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar;Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;IZ)V
+	public final fun registerPicker (Ldev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar;)V
+	public final fun removeListener (Ldev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar$OnColorPickListener;)V
+	public final fun setColor (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)V
+	public final fun unregisterPicker (Ldev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar;)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/group/PickerGroupExtensionsKt {
+	public static final fun registerPickers (Ldev/teogor/ceres/m3/widgets/colorpicker/group/PickerGroup;Ljava/lang/Iterable;)V
+	public static final fun registerPickers (Ldev/teogor/ceres/m3/widgets/colorpicker/group/PickerGroup;[Ldev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar;)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/group/PickerGroupLayoutWrapper {
+	public fun <init> (Landroid/view/View;)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar : dev/teogor/ceres/m3/widgets/colorpicker/view/picker/GradientColorSeekBar {
+	public static final field Companion Ldev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar$Companion;
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V
+	public synthetic fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun getColorConverter ()Ldev/teogor/ceres/m3/widgets/colorpicker/converter/ColorConverter;
+	public final fun getColoringMode ()Ldev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar$ColoringMode;
+	public final fun getMode ()Ldev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar$Mode;
+	public synthetic fun onRefreshColorFromProgress (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;I)Z
+	public synthetic fun onRefreshProgressFromColor (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)Ljava/lang/Integer;
+	public synthetic fun onUpdateColorFrom (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)V
+	public final fun setColoringMode (Ldev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar$ColoringMode;)V
+	public fun setMax (I)V
+	public final fun setMode (Ldev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar$Mode;)V
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar$ColoringMode : java/lang/Enum {
+	public static final field OUTPUT_COLOR Ldev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar$ColoringMode;
+	public static final field PURE_COLOR Ldev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar$ColoringMode;
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar$ColoringMode;
+	public static fun values ()[Ldev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar$ColoringMode;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar$Companion {
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar$Mode : java/lang/Enum, dev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar$Mode {
+	public static final field MODE_HUE Ldev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar$Mode;
+	public static final field MODE_LIGHTNESS Ldev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar$Mode;
+	public static final field MODE_SATURATION Ldev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar$Mode;
+	public fun getMaxProgress ()I
+	public fun getMinProgress ()I
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar$Mode;
+	public static fun values ()[Ldev/teogor/ceres/m3/widgets/colorpicker/hsl/HSLColorPickerSeekBar$Mode;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/lab/LABColorPickerSeekBar : dev/teogor/ceres/m3/widgets/colorpicker/view/picker/GradientColorSeekBar {
+	public static final field Companion Ldev/teogor/ceres/m3/widgets/colorpicker/lab/LABColorPickerSeekBar$Companion;
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V
+	public synthetic fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun getColorConverter ()Ldev/teogor/ceres/m3/widgets/colorpicker/converter/ColorConverter;
+	public final fun getColoringMode ()Ldev/teogor/ceres/m3/widgets/colorpicker/lab/LABColorPickerSeekBar$ColoringMode;
+	public final fun getMode ()Ldev/teogor/ceres/m3/widgets/colorpicker/lab/LABColorPickerSeekBar$Mode;
+	public synthetic fun onRefreshColorFromProgress (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;I)Z
+	public synthetic fun onRefreshProgressFromColor (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)Ljava/lang/Integer;
+	public synthetic fun onUpdateColorFrom (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)V
+	public final fun setColoringMode (Ldev/teogor/ceres/m3/widgets/colorpicker/lab/LABColorPickerSeekBar$ColoringMode;)V
+	public fun setMax (I)V
+	public final fun setMode (Ldev/teogor/ceres/m3/widgets/colorpicker/lab/LABColorPickerSeekBar$Mode;)V
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/lab/LABColorPickerSeekBar$ColoringMode : java/lang/Enum {
+	public static final field OUTPUT_COLOR Ldev/teogor/ceres/m3/widgets/colorpicker/lab/LABColorPickerSeekBar$ColoringMode;
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/m3/widgets/colorpicker/lab/LABColorPickerSeekBar$ColoringMode;
+	public static fun values ()[Ldev/teogor/ceres/m3/widgets/colorpicker/lab/LABColorPickerSeekBar$ColoringMode;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/lab/LABColorPickerSeekBar$Companion {
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/lab/LABColorPickerSeekBar$Mode : java/lang/Enum, dev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar$Mode {
+	public static final field MODE_A Ldev/teogor/ceres/m3/widgets/colorpicker/lab/LABColorPickerSeekBar$Mode;
+	public static final field MODE_B Ldev/teogor/ceres/m3/widgets/colorpicker/lab/LABColorPickerSeekBar$Mode;
+	public static final field MODE_L Ldev/teogor/ceres/m3/widgets/colorpicker/lab/LABColorPickerSeekBar$Mode;
+	public fun getMaxProgress ()I
+	public fun getMinProgress ()I
+	public final fun getSampledRangeIntArray ()[I
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/m3/widgets/colorpicker/lab/LABColorPickerSeekBar$Mode;
+	public static fun values ()[Ldev/teogor/ceres/m3/widgets/colorpicker/lab/LABColorPickerSeekBar$Mode;
+}
+
+public abstract interface class dev/teogor/ceres/m3/widgets/colorpicker/model/Color : java/lang/Cloneable {
+	public abstract fun clone ()Ljava/lang/Object;
+	public abstract fun getAlpha ()F
+	public abstract fun getColorKey ()Ldev/teogor/ceres/m3/widgets/colorpicker/model/ColorKey;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/model/Color$DefaultImpls {
+	public static fun clone (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)Ljava/lang/Object;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/model/ColorKey : java/lang/Enum {
+	public static final field CMYK Ldev/teogor/ceres/m3/widgets/colorpicker/model/ColorKey;
+	public static final field HSL Ldev/teogor/ceres/m3/widgets/colorpicker/model/ColorKey;
+	public static final field LAB Ldev/teogor/ceres/m3/widgets/colorpicker/model/ColorKey;
+	public static final field RGB Ldev/teogor/ceres/m3/widgets/colorpicker/model/ColorKey;
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/m3/widgets/colorpicker/model/ColorKey;
+	public static fun values ()[Ldev/teogor/ceres/m3/widgets/colorpicker/model/ColorKey;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/model/IntegerCMYKColor : dev/teogor/ceres/m3/widgets/colorpicker/model/IntegerColor {
+	public static final field Companion Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerCMYKColor$Companion;
+	public fun <init> ()V
+	public fun clone ()Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerCMYKColor;
+	public synthetic fun clone ()Ljava/lang/Object;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAlpha ()F
+	public fun getColorKey ()Ldev/teogor/ceres/m3/widgets/colorpicker/model/ColorKey;
+	public final fun getFloatC ()F
+	public final fun getFloatK ()F
+	public final fun getFloatM ()F
+	public final fun getFloatY ()F
+	public final fun getIntA ()I
+	public final fun getIntC ()I
+	public final fun getIntK ()I
+	public final fun getIntM ()I
+	public final fun getIntY ()I
+	public fun hashCode ()I
+	public final fun setFloatC (F)V
+	public final fun setFloatK (F)V
+	public final fun setFloatM (F)V
+	public final fun setFloatY (F)V
+	public final fun setIntA (I)V
+	public final fun setIntC (I)V
+	public final fun setIntK (I)V
+	public final fun setIntM (I)V
+	public final fun setIntY (I)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/model/IntegerCMYKColor$Companion {
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/model/IntegerCMYKColor$Component : java/lang/Enum {
+	public static final field A Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerCMYKColor$Component;
+	public static final field C Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerCMYKColor$Component;
+	public static final field K Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerCMYKColor$Component;
+	public static final field M Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerCMYKColor$Component;
+	public static final field Y Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerCMYKColor$Component;
+	public final fun getDefaultValue ()I
+	public final fun getIndex ()I
+	public final fun getMaxValue ()I
+	public final fun getMinValue ()I
+	public final fun getNormalizedDefaultValue ()F
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerCMYKColor$Component;
+	public static fun values ()[Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerCMYKColor$Component;
+}
+
+public abstract class dev/teogor/ceres/m3/widgets/colorpicker/model/IntegerColor : dev/teogor/ceres/m3/widgets/colorpicker/model/Color {
+	public static final field Companion Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerColor$Companion;
+	public fun <init> (I[I)V
+	public synthetic fun <init> (I[IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun clone ()Ljava/lang/Object;
+	public final fun copyValuesFrom ([I)V
+	public final fun copyValuesTo ([I)V
+	public fun equals (Ljava/lang/Object;)Z
+	protected final fun getIntValues ()[I
+	public fun hashCode ()I
+	public final fun setFrom (Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerColor;)V
+	protected final fun setValue (IIII)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/model/IntegerColor$Companion {
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/model/IntegerHSLColor : dev/teogor/ceres/m3/widgets/colorpicker/model/IntegerColor {
+	public static final field Companion Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerHSLColor$Companion;
+	public fun <init> ()V
+	public fun clone ()Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerHSLColor;
+	public synthetic fun clone ()Ljava/lang/Object;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAlpha ()F
+	public fun getColorKey ()Ldev/teogor/ceres/m3/widgets/colorpicker/model/ColorKey;
+	public final fun getFloatH ()F
+	public final fun getFloatL ()F
+	public final fun getFloatS ()F
+	public final fun getIntA ()I
+	public final fun getIntH ()I
+	public final fun getIntL ()I
+	public final fun getIntS ()I
+	public fun hashCode ()I
+	public final fun setFloatH (F)V
+	public final fun setFloatL (F)V
+	public final fun setFloatS (F)V
+	public final fun setIntA (I)V
+	public final fun setIntH (I)V
+	public final fun setIntL (I)V
+	public final fun setIntS (I)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/model/IntegerHSLColor$Companion {
+	public final fun createRandomColor (Z)Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerHSLColor;
+	public static synthetic fun createRandomColor$default (Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerHSLColor$Companion;ZILjava/lang/Object;)Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerHSLColor;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/model/IntegerHSLColor$Component : java/lang/Enum {
+	public static final field A Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerHSLColor$Component;
+	public static final field H Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerHSLColor$Component;
+	public static final field L Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerHSLColor$Component;
+	public static final field S Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerHSLColor$Component;
+	public final fun getDefaultValue ()I
+	public final fun getIndex ()I
+	public final fun getMaxValue ()I
+	public final fun getMinValue ()I
+	public final fun getNormalizedDefaultValue ()F
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerHSLColor$Component;
+	public static fun values ()[Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerHSLColor$Component;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColor : dev/teogor/ceres/m3/widgets/colorpicker/model/IntegerColor {
+	public static final field Companion Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColor$Companion;
+	public fun <init> ()V
+	public fun clone ()Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColor;
+	public synthetic fun clone ()Ljava/lang/Object;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAlpha ()F
+	public fun getColorKey ()Ldev/teogor/ceres/m3/widgets/colorpicker/model/ColorKey;
+	public final fun getIntA ()I
+	public final fun getIntAlpha ()I
+	public final fun getIntB ()I
+	public final fun getIntL ()I
+	public fun hashCode ()I
+	public final fun setIntA (I)V
+	public final fun setIntAlpha (I)V
+	public final fun setIntB (I)V
+	public final fun setIntL (I)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColor$Companion {
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColor$Component : java/lang/Enum {
+	public static final field A Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColor$Component;
+	public static final field ALPHA Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColor$Component;
+	public static final field B Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColor$Component;
+	public static final field L Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColor$Component;
+	public final fun getDefaultValue ()I
+	public final fun getIndex ()I
+	public final fun getMaxValue ()I
+	public final fun getMinValue ()I
+	public final fun getNormalizedDefaultValue ()F
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColor$Component;
+	public static fun values ()[Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColor$Component;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColorKt {
+	public static final fun getFloatA (Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColor;)F
+	public static final fun getFloatB (Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColor;)F
+	public static final fun getFloatL (Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColor;)F
+	public static final fun setFloatA (Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColor;F)V
+	public static final fun setFloatB (Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColor;F)V
+	public static final fun setFloatL (Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColor;F)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/model/IntegerRGBColor : dev/teogor/ceres/m3/widgets/colorpicker/model/IntegerColor {
+	public static final field Companion Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerRGBColor$Companion;
+	public fun <init> ()V
+	public fun clone ()Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerRGBColor;
+	public synthetic fun clone ()Ljava/lang/Object;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getAlpha ()F
+	public fun getColorKey ()Ldev/teogor/ceres/m3/widgets/colorpicker/model/ColorKey;
+	public final fun getFloatB ()F
+	public final fun getFloatG ()F
+	public final fun getFloatR ()F
+	public final fun getIntA ()I
+	public final fun getIntB ()I
+	public final fun getIntG ()I
+	public final fun getIntR ()I
+	public fun hashCode ()I
+	public final fun setFloatB (F)V
+	public final fun setFloatG (F)V
+	public final fun setFloatR (F)V
+	public final fun setIntA (I)V
+	public final fun setIntB (I)V
+	public final fun setIntG (I)V
+	public final fun setIntR (I)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/model/IntegerRGBColor$Companion {
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/model/IntegerRGBColor$Component : java/lang/Enum {
+	public static final field A Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerRGBColor$Component;
+	public static final field B Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerRGBColor$Component;
+	public static final field G Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerRGBColor$Component;
+	public static final field R Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerRGBColor$Component;
+	public final fun getDefaultValue ()I
+	public final fun getIndex ()I
+	public final fun getMaxValue ()I
+	public final fun getMinValue ()I
+	public final fun getNormalizedDefaultValue ()F
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerRGBColor$Component;
+	public static fun values ()[Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerRGBColor$Component;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/model/factory/CMYKColorFactory : dev/teogor/ceres/m3/widgets/colorpicker/model/factory/ColorFactory {
+	public fun <init> ()V
+	public synthetic fun create ()Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;
+	public fun create ()Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerCMYKColor;
+	public synthetic fun createColorFrom (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;
+	public fun createColorFrom (Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerCMYKColor;)Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerCMYKColor;
+}
+
+public abstract class dev/teogor/ceres/m3/widgets/colorpicker/model/factory/ColorFactory {
+	public fun <init> ()V
+	public abstract fun create ()Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;
+	public abstract fun createColorFrom (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/model/factory/HSLColorFactory : dev/teogor/ceres/m3/widgets/colorpicker/model/factory/ColorFactory {
+	public fun <init> ()V
+	public synthetic fun create ()Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;
+	public fun create ()Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerHSLColor;
+	public synthetic fun createColorFrom (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;
+	public fun createColorFrom (Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerHSLColor;)Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerHSLColor;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/model/factory/LABColorFactory : dev/teogor/ceres/m3/widgets/colorpicker/model/factory/ColorFactory {
+	public fun <init> ()V
+	public synthetic fun create ()Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;
+	public fun create ()Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColor;
+	public synthetic fun createColorFrom (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;
+	public fun createColorFrom (Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColor;)Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerLABColor;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/model/factory/RGBColorFactory : dev/teogor/ceres/m3/widgets/colorpicker/model/factory/ColorFactory {
+	public fun <init> ()V
+	public synthetic fun create ()Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;
+	public fun create ()Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerRGBColor;
+	public synthetic fun createColorFrom (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;
+	public fun createColorFrom (Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerRGBColor;)Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerRGBColor;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/rgb/RGBColorPickerSeekBar : dev/teogor/ceres/m3/widgets/colorpicker/view/picker/GradientColorSeekBar {
+	public static final field Companion Ldev/teogor/ceres/m3/widgets/colorpicker/rgb/RGBColorPickerSeekBar$Companion;
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V
+	public synthetic fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun getColorConverter ()Ldev/teogor/ceres/m3/widgets/colorpicker/converter/ColorConverter;
+	public final fun getColoringMode ()Ldev/teogor/ceres/m3/widgets/colorpicker/rgb/RGBColorPickerSeekBar$ColoringMode;
+	public final fun getMode ()Ldev/teogor/ceres/m3/widgets/colorpicker/rgb/RGBColorPickerSeekBar$Mode;
+	public synthetic fun onRefreshColorFromProgress (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;I)Z
+	public synthetic fun onRefreshProgressFromColor (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)Ljava/lang/Integer;
+	public synthetic fun onUpdateColorFrom (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)V
+	public final fun setColoringMode (Ldev/teogor/ceres/m3/widgets/colorpicker/rgb/RGBColorPickerSeekBar$ColoringMode;)V
+	public fun setMax (I)V
+	public final fun setMode (Ldev/teogor/ceres/m3/widgets/colorpicker/rgb/RGBColorPickerSeekBar$Mode;)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/rgb/RGBColorPickerSeekBar$ColoringMode : java/lang/Enum {
+	public static final field OUTPUT_COLOR Ldev/teogor/ceres/m3/widgets/colorpicker/rgb/RGBColorPickerSeekBar$ColoringMode;
+	public static final field PLAIN_COLOR Ldev/teogor/ceres/m3/widgets/colorpicker/rgb/RGBColorPickerSeekBar$ColoringMode;
+	public static final field PURE_COLOR Ldev/teogor/ceres/m3/widgets/colorpicker/rgb/RGBColorPickerSeekBar$ColoringMode;
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/m3/widgets/colorpicker/rgb/RGBColorPickerSeekBar$ColoringMode;
+	public static fun values ()[Ldev/teogor/ceres/m3/widgets/colorpicker/rgb/RGBColorPickerSeekBar$ColoringMode;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/rgb/RGBColorPickerSeekBar$Companion {
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/rgb/RGBColorPickerSeekBar$Mode : java/lang/Enum, dev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar$Mode {
+	public static final field MODE_B Ldev/teogor/ceres/m3/widgets/colorpicker/rgb/RGBColorPickerSeekBar$Mode;
+	public static final field MODE_G Ldev/teogor/ceres/m3/widgets/colorpicker/rgb/RGBColorPickerSeekBar$Mode;
+	public static final field MODE_R Ldev/teogor/ceres/m3/widgets/colorpicker/rgb/RGBColorPickerSeekBar$Mode;
+	public final fun getColoringModeCheckpointsMap ()Ljava/util/HashMap;
+	public fun getMaxProgress ()I
+	public fun getMinProgress ()I
+	public final fun getNameStringResId ()I
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/m3/widgets/colorpicker/rgb/RGBColorPickerSeekBar$Mode;
+	public static fun values ()[Ldev/teogor/ceres/m3/widgets/colorpicker/rgb/RGBColorPickerSeekBar$Mode;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/util/ArrayExtensionsKt {
+	public static final fun mapToIntArray ([I[ILkotlin/jvm/functions/Function1;)[I
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/util/BooleanExtensionsKt {
+	public static final fun marker (Lkotlin/reflect/KMutableProperty0;Lkotlin/jvm/functions/Function0;)V
+}
+
+public abstract class dev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar : androidx/appcompat/widget/AppCompatSeekBar, android/widget/SeekBar$OnSeekBarChangeListener {
+	public static final field Companion Ldev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar$Companion;
+	public fun <init> (Ldev/teogor/ceres/m3/widgets/colorpicker/model/factory/ColorFactory;Landroid/content/Context;)V
+	public fun <init> (Ldev/teogor/ceres/m3/widgets/colorpicker/model/factory/ColorFactory;Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun <init> (Ldev/teogor/ceres/m3/widgets/colorpicker/model/factory/ColorFactory;Landroid/content/Context;Landroid/util/AttributeSet;I)V
+	public synthetic fun <init> (Ldev/teogor/ceres/m3/widgets/colorpicker/model/factory/ColorFactory;Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun addListener (Ldev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar$OnColorPickListener;)V
+	public final fun clearListeners ()V
+	public final fun getAbsoluteProgress (Ldev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar$Mode;)I
+	protected fun getColorConverter ()Ldev/teogor/ceres/m3/widgets/colorpicker/converter/ColorConverter;
+	protected final fun getInternalPickedColor ()Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;
+	public final fun getNotifyListeners ()Z
+	public final fun getPickedColor ()Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;
+	protected final fun getThumbStrokeWidthPx ()I
+	public fun onProgressChanged (Landroid/widget/SeekBar;IZ)V
+	protected abstract fun onRefreshColorFromProgress (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;I)Z
+	protected abstract fun onRefreshProgressDrawable (Landroid/graphics/drawable/LayerDrawable;)V
+	protected abstract fun onRefreshProgressFromColor (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)Ljava/lang/Integer;
+	protected abstract fun onRefreshProperties ()V
+	protected abstract fun onRefreshThumb (Ljava/util/Set;)V
+	protected abstract fun onSetupProgressDrawableLayers ([Landroid/graphics/drawable/Drawable;)[Landroid/graphics/drawable/Drawable;
+	public fun onStartTrackingTouch (Landroid/widget/SeekBar;)V
+	public fun onStopTrackingTouch (Landroid/widget/SeekBar;)V
+	protected abstract fun onUpdateColorFrom (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)V
+	protected final fun refreshProgressDrawable ()V
+	protected final fun refreshProgressFromCurrentColor ()V
+	protected final fun refreshProperties ()V
+	protected final fun refreshThumb ()V
+	public final fun removeListener (Ldev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar$OnColorPickListener;)V
+	public fun setMax (I)V
+	public fun setMin (I)V
+	public final fun setNotifyListeners (Z)V
+	public final fun setOnSeekBarChangeListener (Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
+	public final fun setPickedColor (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar$Companion {
+}
+
+public class dev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar$DefaultOnColorPickListener : dev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar$OnColorPickListener {
+	public fun <init> ()V
+	public fun onColorChanged (Ldev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar;Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;I)V
+	public fun onColorPicked (Ldev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar;Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;IZ)V
+	public fun onColorPicking (Ldev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar;Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;IZ)V
+}
+
+public abstract interface class dev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar$Mode {
+	public abstract fun getMaxProgress ()I
+	public abstract fun getMinProgress ()I
+}
+
+public abstract interface class dev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar$OnColorPickListener {
+	public abstract fun onColorChanged (Ldev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar;Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;I)V
+	public abstract fun onColorPicked (Ldev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar;Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;IZ)V
+	public abstract fun onColorPicking (Ldev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar;Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;IZ)V
+}
+
+public abstract class dev/teogor/ceres/m3/widgets/colorpicker/view/picker/GradientColorSeekBar : dev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar {
+	public fun <init> (Ldev/teogor/ceres/m3/widgets/colorpicker/model/factory/ColorFactory;Landroid/content/Context;)V
+	public fun <init> (Ldev/teogor/ceres/m3/widgets/colorpicker/model/factory/ColorFactory;Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun <init> (Ldev/teogor/ceres/m3/widgets/colorpicker/model/factory/ColorFactory;Landroid/content/Context;Landroid/util/AttributeSet;I)V
+	public synthetic fun <init> (Ldev/teogor/ceres/m3/widgets/colorpicker/model/factory/ColorFactory;Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	protected fun onSetupProgressDrawableLayers ([Landroid/graphics/drawable/Drawable;)[Landroid/graphics/drawable/Drawable;
+}
+
+public abstract class dev/teogor/ceres/m3/widgets/colorpicker/view/set/ColorPickerSeekBarSet : android/widget/LinearLayout {
+	public static final field Companion Ldev/teogor/ceres/m3/widgets/colorpicker/view/set/ColorPickerSeekBarSet$Companion;
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V
+	public synthetic fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	protected final fun addLabel (I)V
+	public final fun getPickerGroup ()Ldev/teogor/ceres/m3/widgets/colorpicker/group/PickerGroup;
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/view/set/ColorPickerSeekBarSet$Companion {
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/view/set/RGBColorPickerSeekBarSet : dev/teogor/ceres/m3/widgets/colorpicker/view/set/ColorPickerSeekBarSet {
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V
+	public synthetic fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/colorpicker/view/swatch/SwatchView : android/view/View {
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V
+	public synthetic fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun setSwatchColor (Ldev/teogor/ceres/m3/widgets/colorpicker/model/Color;)V
+	public final fun setSwatchPatternTint (I)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/container/FragmentContainer : androidx/constraintlayout/widget/ConstraintLayout, dev/teogor/ceres/m3/theme/ThemeHandler {
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun circleDrawable (I)Landroid/graphics/drawable/Drawable;
+	public fun drawable (IZ)Landroid/graphics/drawable/Drawable;
+	public fun getBackgroundColorM3 (Landroid/view/View;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun getBackgroundDrawable (FLdev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;Z)Landroid/graphics/drawable/Drawable;
+	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
+	public fun getMaterialShapeDrawable (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;FLandroid/view/View;)Ldev/teogor/ceres/m3/ShapeDrawableM3;
+	public fun getRippleDrawable (Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/RippleDrawable;
+	public fun getSchemeColor ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public fun getSurfaceColorM3 (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
+	public fun log (Ljava/lang/String;)V
+	public fun onThemeChanged ()V
+	public fun rippleColorStatesList ()Landroid/content/res/ColorStateList;
+	public fun rippleMask (Z)Landroid/graphics/drawable/Drawable;
+}
+
+public class dev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3 : androidx/appcompat/app/AlertDialog$Builder {
+	public static final field Companion Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3$Companion;
+	public fun <init> (Landroid/content/Context;I)V
+	public synthetic fun <init> (Landroid/content/Context;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun create ()Landroidx/appcompat/app/AlertDialog;
+	public final fun getBackground ()Landroid/graphics/drawable/Drawable;
+	public final fun getWrapContext ()Landroid/content/Context;
+	public synthetic fun setAdapter (Landroid/widget/ListAdapter;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setAdapter (Landroid/widget/ListAdapter;Landroid/content/DialogInterface$OnClickListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public final fun setBackground (Landroid/graphics/drawable/Drawable;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public final fun setBackgroundInsetBottom (I)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public final fun setBackgroundInsetEnd (I)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public final fun setBackgroundInsetStart (I)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public final fun setBackgroundInsetTop (I)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setCancelable (Z)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setCancelable (Z)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setCursor (Landroid/database/Cursor;Landroid/content/DialogInterface$OnClickListener;Ljava/lang/String;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setCursor (Landroid/database/Cursor;Landroid/content/DialogInterface$OnClickListener;Ljava/lang/String;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setCustomTitle (Landroid/view/View;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setCustomTitle (Landroid/view/View;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setIcon (I)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setIcon (I)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setIcon (Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setIcon (Landroid/graphics/drawable/Drawable;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setIconAttribute (I)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setIconAttribute (I)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setItems (ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setItems (ILandroid/content/DialogInterface$OnClickListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setItems ([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setItems ([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setMessage (I)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setMessage (I)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setMessage (Ljava/lang/CharSequence;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setMessage (Ljava/lang/CharSequence;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setMultiChoiceItems (I[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setMultiChoiceItems (I[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setMultiChoiceItems (Landroid/database/Cursor;Ljava/lang/String;Ljava/lang/String;Landroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setMultiChoiceItems (Landroid/database/Cursor;Ljava/lang/String;Ljava/lang/String;Landroid/content/DialogInterface$OnMultiChoiceClickListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setMultiChoiceItems ([Ljava/lang/CharSequence;[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setMultiChoiceItems ([Ljava/lang/CharSequence;[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setNegativeButton (ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setNegativeButton (ILandroid/content/DialogInterface$OnClickListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setNegativeButton (Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setNegativeButton (Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setNegativeButtonIcon (Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setNegativeButtonIcon (Landroid/graphics/drawable/Drawable;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setNeutralButton (ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setNeutralButton (ILandroid/content/DialogInterface$OnClickListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setNeutralButton (Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setNeutralButton (Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setNeutralButtonIcon (Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setNeutralButtonIcon (Landroid/graphics/drawable/Drawable;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setOnCancelListener (Landroid/content/DialogInterface$OnCancelListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setOnCancelListener (Landroid/content/DialogInterface$OnCancelListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setOnDismissListener (Landroid/content/DialogInterface$OnDismissListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setOnDismissListener (Landroid/content/DialogInterface$OnDismissListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setOnItemSelectedListener (Landroid/widget/AdapterView$OnItemSelectedListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setOnItemSelectedListener (Landroid/widget/AdapterView$OnItemSelectedListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setOnKeyListener (Landroid/content/DialogInterface$OnKeyListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setOnKeyListener (Landroid/content/DialogInterface$OnKeyListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setPositiveButton (ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setPositiveButton (ILandroid/content/DialogInterface$OnClickListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setPositiveButton (Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setPositiveButton (Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setPositiveButtonIcon (Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setPositiveButtonIcon (Landroid/graphics/drawable/Drawable;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setSingleChoiceItems (IILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setSingleChoiceItems (IILandroid/content/DialogInterface$OnClickListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setSingleChoiceItems (Landroid/database/Cursor;ILjava/lang/String;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setSingleChoiceItems (Landroid/database/Cursor;ILjava/lang/String;Landroid/content/DialogInterface$OnClickListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setSingleChoiceItems (Landroid/widget/ListAdapter;ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setSingleChoiceItems (Landroid/widget/ListAdapter;ILandroid/content/DialogInterface$OnClickListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setSingleChoiceItems ([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setSingleChoiceItems ([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setTitle (I)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setTitle (I)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setTitle (Ljava/lang/CharSequence;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setTitle (Ljava/lang/CharSequence;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setView (I)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setView (I)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public synthetic fun setView (Landroid/view/View;)Landroidx/appcompat/app/AlertDialog$Builder;
+	public fun setView (Landroid/view/View;)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public final fun setWrapContext (Landroid/content/Context;)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3$Companion {
+}
+
+public final class dev/teogor/ceres/m3/widgets/dialog/DialogChoiceBuilderM3 : dev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3 {
+	public fun <init> (Landroid/content/Context;I)V
+	public synthetic fun <init> (Landroid/content/Context;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun setSingleChoiceItems ([Ljava/lang/String;ILandroid/content/DialogInterface$OnClickListener;)Ldev/teogor/ceres/m3/widgets/dialog/DialogChoiceBuilderM3;
+	public synthetic fun setTitle (I)Landroidx/appcompat/app/AlertDialog$Builder;
+	public synthetic fun setTitle (I)Ldev/teogor/ceres/m3/widgets/dialog/DialogBuilderM3;
+	public fun setTitle (I)Ldev/teogor/ceres/m3/widgets/dialog/DialogChoiceBuilderM3;
+}
+
+public final class dev/teogor/ceres/m3/widgets/dialog/InsetDialogOnTouchListener : android/view/View$OnTouchListener {
+	public fun <init> (Landroid/app/Dialog;Landroid/graphics/Rect;)V
+	public fun onTouch (Landroid/view/View;Landroid/view/MotionEvent;)Z
+}
+
+public final class dev/teogor/ceres/m3/widgets/dialog/MaterialDialogs {
+	public static final field INSTANCE Ldev/teogor/ceres/m3/widgets/dialog/MaterialDialogs;
+	public static final fun getDialogBackgroundInsets (Landroid/content/Context;II)Landroid/graphics/Rect;
+	public static final fun insetDrawable (Landroid/graphics/drawable/Drawable;Landroid/graphics/Rect;)Landroid/graphics/drawable/InsetDrawable;
+}
+
+public final class dev/teogor/ceres/m3/widgets/extension/BaseExtKt {
+	public static final fun resolveColor (Landroid/content/Context;I)I
+	public static final fun resolveColor (Landroid/content/Context;II)I
+	public static synthetic fun resolveColor$default (Landroid/content/Context;IIILjava/lang/Object;)I
+}
+
+public final class dev/teogor/ceres/m3/widgets/extension/ColorPickerKt {
+	public static final fun toHex (Ldev/teogor/ceres/m3/widgets/colorpicker/model/IntegerHSLColor;)Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/m3/widgets/extension/NavigationBarViewKt {
+	public static final fun setItemColors (Ldev/teogor/ceres/m3/BottomNavigationViewM3;II)V
+}
+
+public class dev/teogor/ceres/m3/widgets/menusheet/MenuSheetBehaviour : androidx/coordinatorlayout/widget/CoordinatorLayout$Behavior {
+	public static final field PEEK_HEIGHT_AUTO I
+	public static final field SAVE_ALL I
+	public static final field SAVE_FIT_TO_CONTENTS I
+	public static final field SAVE_HIDEABLE I
+	public static final field SAVE_NONE I
+	public static final field SAVE_PEEK_HEIGHT I
+	public static final field SAVE_SKIP_COLLAPSED I
+	public static final field STATE_COLLAPSED I
+	public static final field STATE_DRAGGING I
+	public static final field STATE_EXPANDED I
+	public static final field STATE_HALF_EXPANDED I
+	public static final field STATE_HIDDEN I
+	public static final field STATE_SETTLING I
+	public fun <init> ()V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun addBottomSheetCallback (Ldev/teogor/ceres/m3/widgets/menusheet/MenuSheetBehaviour$MenuSheetCallback;)V
+	public fun calculateSlideOffset ()F
+	public fun disableShapeAnimations ()V
+	public static fun from (Landroid/view/View;)Ldev/teogor/ceres/m3/widgets/menusheet/MenuSheetBehaviour;
+	public fun getExpandedOffset ()I
+	public fun getHalfExpandedRatio ()F
+	public fun getHideFriction ()F
+	public fun getLastStableState ()I
+	public fun getMaterialShapeDrawable ()Lcom/google/android/material/shape/MaterialShapeDrawable;
+	public fun getMaxHeight ()I
+	public fun getMaxWidth ()I
+	public fun getPeekHeight ()I
+	public fun getSaveFlags ()I
+	public fun getSignificantVelocityThreshold ()I
+	public fun getSkipCollapsed ()Z
+	public fun getState ()I
+	public fun isDraggable ()Z
+	public fun isFitToContents ()Z
+	public fun isGestureInsetBottomIgnored ()Z
+	public fun isHideable ()Z
+	public fun isHideableWhenDragging ()Z
+	public fun isNestedScrollingCheckEnabled ()Z
+	public fun onAttachedToLayoutParams (Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;)V
+	public fun onDetachedFromLayoutParams ()V
+	public fun onInterceptTouchEvent (Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z
+	public fun onLayoutChild (Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)Z
+	public fun onMeasureChild (Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;IIII)Z
+	public fun onNestedPreFling (Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;FF)Z
+	public fun onNestedPreScroll (Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;II[II)V
+	public fun onNestedScroll (Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;IIIII[I)V
+	public fun onRestoreInstanceState (Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/os/Parcelable;)V
+	public fun onSaveInstanceState (Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;)Landroid/os/Parcelable;
+	public fun onStartNestedScroll (Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;Landroid/view/View;II)Z
+	public fun onStopNestedScroll (Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;I)V
+	public fun onTouchEvent (Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z
+	public fun removeBottomSheetCallback (Ldev/teogor/ceres/m3/widgets/menusheet/MenuSheetBehaviour$MenuSheetCallback;)V
+	public fun setBottomSheetCallback (Ldev/teogor/ceres/m3/widgets/menusheet/MenuSheetBehaviour$MenuSheetCallback;)V
+	public fun setDraggable (Z)V
+	public fun setExpandedOffset (I)V
+	public fun setFitToContents (Z)V
+	public fun setGestureInsetBottomIgnored (Z)V
+	public fun setHalfExpandedRatio (F)V
+	public fun setHideFriction (F)V
+	public fun setHideable (Z)V
+	public fun setHideableInternal (Z)V
+	public fun setMaxHeight (I)V
+	public fun setMaxWidth (I)V
+	public fun setPeekHeight (I)V
+	public final fun setPeekHeight (IZ)V
+	public fun setSaveFlags (I)V
+	public fun setSignificantVelocityThreshold (I)V
+	public fun setSkipCollapsed (Z)V
+	public fun setState (I)V
+	public fun setUpdateImportantForAccessibilityOnSiblings (Z)V
+	public fun shouldExpandOnUpwardDrag (JF)Z
+	public fun shouldSkipHalfExpandedStateWhenDragging ()Z
+	public fun shouldSkipSmoothAnimation ()Z
+}
+
+public abstract class dev/teogor/ceres/m3/widgets/menusheet/MenuSheetBehaviour$MenuSheetCallback {
+	public fun <init> ()V
+	public abstract fun onSlide (Landroid/view/View;F)V
+	public abstract fun onStateChanged (Landroid/view/View;I)V
+}
+
+public abstract interface annotation class dev/teogor/ceres/m3/widgets/menusheet/MenuSheetBehaviour$SaveFlags : java/lang/annotation/Annotation {
+}
+
+protected class dev/teogor/ceres/m3/widgets/menusheet/MenuSheetBehaviour$SavedState : androidx/customview/view/AbsSavedState {
+	public static final field CREATOR Landroid/os/Parcelable$Creator;
+	public fun <init> (Landroid/os/Parcel;)V
+	public fun <init> (Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
+	public fun <init> (Landroid/os/Parcelable;I)V
+	public fun <init> (Landroid/os/Parcelable;Ldev/teogor/ceres/m3/widgets/menusheet/MenuSheetBehaviour;)V
+	public fun writeToParcel (Landroid/os/Parcel;I)V
+}
+
+public abstract interface annotation class dev/teogor/ceres/m3/widgets/menusheet/MenuSheetBehaviour$StableState : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class dev/teogor/ceres/m3/widgets/menusheet/MenuSheetBehaviour$State : java/lang/annotation/Annotation {
+}
+
+public final class dev/teogor/ceres/m3/widgets/menusheet/MenuSheetContainer : android/widget/FrameLayout {
+	public static final field Companion Ldev/teogor/ceres/m3/widgets/menusheet/MenuSheetContainer$Companion;
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V
+	public synthetic fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun setBehaviour (Ldev/teogor/ceres/m3/widgets/menusheet/MenuSheetBehaviour;)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/menusheet/MenuSheetContainer$Companion {
+}
+
+public class dev/teogor/ceres/m3/widgets/menusheet/MenuSheetDialog : androidx/appcompat/app/AppCompatDialog {
+	public fun <init> (Landroid/content/Context;I)V
+	protected fun <init> (Landroid/content/Context;ZLandroid/content/DialogInterface$OnCancelListener;)V
+	public fun cancel ()V
+	public fun getBehavior ()Ldev/teogor/ceres/m3/widgets/menusheet/MenuSheetBehaviour;
+	public fun getBottomSheet ()Ldev/teogor/ceres/m3/widgets/menusheet/MenuSheetContainer;
+	public fun getDismissWithAnimation ()Z
+	public fun getEdgeToEdgeEnabled ()Z
+	public fun onAttachedToWindow ()V
+	protected fun onCreate (Landroid/os/Bundle;)V
+	public fun onDetachedFromWindow ()V
+	protected fun onStart ()V
+	public fun setCancelable (Z)V
+	public fun setCanceledOnTouchOutside (Z)V
+	public fun setContentView (I)V
+	public fun setContentView (Landroid/view/View;)V
+	public fun setContentView (Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+	public fun setDismissWithAnimation (Z)V
+	public fun setHorizontalMargin (F)V
+	public static fun setLightStatusBar (Landroid/view/View;Z)V
+	public fun setTopCornersSize (F)V
+}
+
+public class dev/teogor/ceres/m3/widgets/menusheet/MenuSheetDialogFragment : androidx/appcompat/app/AppCompatDialogFragment {
+	public fun <init> ()V
+	public fun <init> (I)V
+	public fun dismiss ()V
+	public fun dismissAllowingStateLoss ()V
+	public final fun getBehaviour ()Ldev/teogor/ceres/m3/widgets/menusheet/MenuSheetBehaviour;
+	public fun getHalfExpandedRatio ()F
+	public fun getHorizontalMargin ()F
+	public fun getLayoutRes ()I
+	public final fun getMenuSheetDialog ()Ldev/teogor/ceres/m3/widgets/menusheet/MenuSheetDialog;
+	public fun getTopCornersSize ()F
+	public fun isFitToContent ()Z
+	public fun onCreateDialog (Landroid/os/Bundle;)Landroid/app/Dialog;
+	public fun onCreateView (Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+	public fun onViewCreated (Landroid/os/Bundle;)V
+	public fun onViewCreated (Landroid/view/View;Landroid/os/Bundle;)V
+}
+
+public class dev/teogor/ceres/m3/widgets/menusheet/MenuSheetDialogLegacy : androidx/appcompat/app/AppCompatDialog {
+	public fun <init> (Landroid/content/Context;I)V
+	protected fun <init> (Landroid/content/Context;ZLandroid/content/DialogInterface$OnCancelListener;)V
+	public fun cancel ()V
+	public fun getBehavior ()Ldev/teogor/ceres/m3/widgets/menusheet/MenuSheetBehaviour;
+	public fun getBottomSheet ()Ldev/teogor/ceres/m3/widgets/menusheet/MenuSheetContainer;
+	public fun getDismissWithAnimation ()Z
+	public fun getEdgeToEdgeEnabled ()Z
+	public fun onAttachedToWindow ()V
+	protected fun onCreate (Landroid/os/Bundle;)V
+	public fun onDetachedFromWindow ()V
+	protected fun onStart ()V
+	public fun setCancelable (Z)V
+	public fun setCanceledOnTouchOutside (Z)V
+	public fun setContentView (I)V
+	public fun setContentView (Landroid/view/View;)V
+	public fun setContentView (Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+	public fun setDismissWithAnimation (Z)V
+	public fun setHorizontalMargin (F)V
+	public static fun setLightStatusBar (Landroid/view/View;Z)V
+	public fun setTopCornersSize (F)V
+}
+
+public abstract interface class dev/teogor/ceres/m3/widgets/menusheet/TranslationUpdater {
+	public abstract fun updateTranslation (F)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/menusheet/handle/MenuSheetDragHandleView : androidx/appcompat/widget/AppCompatImageView, android/view/accessibility/AccessibilityManager$AccessibilityStateChangeListener {
+	public static final field Companion Ldev/teogor/ceres/m3/widgets/menusheet/handle/MenuSheetDragHandleView$Companion;
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V
+	public synthetic fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getWrapContext ()Landroid/content/Context;
+	public fun onAccessibilityStateChanged (Z)V
+	public final fun setWrapContext (Landroid/content/Context;)V
+}
+
+public final class dev/teogor/ceres/m3/widgets/menusheet/handle/MenuSheetDragHandleView$Companion {
+}
+
