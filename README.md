@@ -15,7 +15,7 @@ Also, __[follow me](https://github.com/teogor)__ on GitHub for my next creations
 
 # License
 ```xml
-  Designed and developed by 2022 Teogor (Teodor Grigor)
+  Designed and developed by 2022 teogor (Teodor Grigor)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
