@@ -100,6 +100,8 @@ license_checker:
     # with path
     files_path:
      - buildSrc/
+     - .idea/
+     - spotless/
 
 # Draft Release (DR)
 # automatically make a draft release
