@@ -17,6 +17,7 @@
 package dev.teogor.ceres.app
 
 import dagger.hilt.android.HiltAndroidApp
+import dev.teogor.ceres.R
 import dev.teogor.ceres.ads.AdsModule
 import dev.teogor.ceres.core.app.CoreApplication
 import dev.teogor.ceres.core.app.ModuleProvider
@@ -46,6 +47,7 @@ class Application : CoreApplication() {
         applicationOpenAd
       )
     )
+    firebaseModule.remoteConfigDefXML = R.xml.remote_config_defaults
     return listOf(
       networkModule,
       adsModule,

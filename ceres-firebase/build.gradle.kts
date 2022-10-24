@@ -41,7 +41,7 @@ dependencies {
   //---------------------------------------------------------------------
 
   //----------------------------- FIREBASE ------------------------------
-  implementation(platform("com.google.firebase:firebase-bom:31.0.0"))
+  implementation(platform("com.google.firebase:firebase-bom:31.0.1"))
   implementation("com.google.firebase:firebase-analytics-ktx")
   implementation("com.google.firebase:firebase-appcheck-safetynet")
   implementation("com.google.firebase:firebase-config-ktx")

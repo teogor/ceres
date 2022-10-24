@@ -16,33 +16,35 @@
 
 package dev.teogor.ceres.firebase.remote_config
 
-import com.google.android.gms.tasks.Task
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
-import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
+import com.google.firebase.remoteconfig.ktx.remoteConfig
+import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class RemoteConfig @Inject constructor() {
 
-  private var mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
+  private var mFirebaseRemoteConfig: FirebaseRemoteConfig = Firebase.remoteConfig
 
-  fun initialize() {
-    val configSettings = FirebaseRemoteConfigSettings.Builder()
-      .build()
+  fun initialize(remoteConfigDefXML: Int) {
+    val configSettings = remoteConfigSettings {
+      minimumFetchIntervalInSeconds = 3600
+    }
     mFirebaseRemoteConfig.setConfigSettingsAsync(configSettings)
-    // todo default
-    // mFirebaseRemoteConfig.setDefaultsAsync(R.xml.remote_config_defaults)
+    mFirebaseRemoteConfig.setDefaultsAsync(remoteConfigDefXML)
     fetch()
   }
 
   private fun fetch() {
-    val cacheExpiration: Long = 3600
-    mFirebaseRemoteConfig.fetch(cacheExpiration).addOnCompleteListener { task: Task<Void?> ->
-      if (task.isSuccessful) {
-        mFirebaseRemoteConfig.activate()
+    mFirebaseRemoteConfig.fetchAndActivate()
+      .addOnCompleteListener { task ->
+        if (task.isSuccessful) {
+          val updated = task.result
+        } else {
+        }
       }
-    }
   }
 
   fun getString(key: String): String {

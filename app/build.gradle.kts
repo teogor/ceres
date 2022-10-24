@@ -129,14 +129,7 @@ dependencies {
   //---------------------------------------------------------------------
 
   //----------------------------- FIREBASE ------------------------------
-  implementation(platform("com.google.firebase:firebase-bom:31.0.0"))
-  implementation("com.google.firebase:firebase-analytics-ktx")
-  implementation("com.google.firebase:firebase-appcheck-safetynet")
-  implementation("com.google.firebase:firebase-config-ktx")
-  implementation("com.google.firebase:firebase-crashlytics-ktx")
-  implementation("com.google.firebase:firebase-dynamic-links-ktx")
-  implementation("com.google.firebase:firebase-messaging-ktx")
-  implementation("com.google.firebase:firebase-perf-ktx")
+  implementation(platform("com.google.firebase:firebase-bom:31.0.1"))
   //---------------------------------------------------------------------
 
   //------------------------------ DAGGER -------------------------------
