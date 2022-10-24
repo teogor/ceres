@@ -5,6 +5,7 @@ import com.vanniktech.maven.publish.SonatypeHost
 plugins {
   id("org.jetbrains.dokka") version "1.7.20"
   id("com.vanniktech.maven.publish") version "0.18.0"
+  id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.11.1"
 }
 
 buildscript {
