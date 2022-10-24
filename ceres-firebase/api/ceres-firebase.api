@@ -9,7 +9,7 @@ public final class dev/teogor/ceres/firebase/Firebase {
 	public fun <init> (Ldev/teogor/ceres/firebase/FirebaseMemo;Ldev/teogor/ceres/firebase/analytics/Analytics;Ldev/teogor/ceres/firebase/crashlytics/Crashlytics;Ldev/teogor/ceres/firebase/performance/Performance;Ldev/teogor/ceres/firebase/remote_config/RemoteConfig;Ldev/teogor/ceres/firebase/app_check/AppCheck;)V
 	public final fun disableModules ()V
 	public final fun enableModules ()V
-	public final fun setupModules ()V
+	public final fun setupModules (I)V
 }
 
 public abstract interface annotation class dev/teogor/ceres/firebase/FirebaseConstants : java/lang/annotation/Annotation {
@@ -47,7 +47,9 @@ public final class dev/teogor/ceres/firebase/FirebaseMemo_Factory : dagger/inter
 
 public final class dev/teogor/ceres/firebase/FirebaseModule : dev/teogor/ceres/core/app/ModuleProvider {
 	public fun <init> (Ldev/teogor/ceres/firebase/Firebase;)V
+	public final fun getRemoteConfigDefXML ()I
 	public fun onCreate ()V
+	public final fun setRemoteConfigDefXML (I)V
 }
 
 public final class dev/teogor/ceres/firebase/FirebaseModule_Factory : dagger/internal/Factory {
@@ -168,7 +170,7 @@ public final class dev/teogor/ceres/firebase/remote_config/RemoteConfig {
 	public final fun getBoolean (Ljava/lang/String;)Z
 	public final fun getLong (Ljava/lang/String;)J
 	public final fun getString (Ljava/lang/String;)Ljava/lang/String;
-	public final fun initialize ()V
+	public final fun initialize (I)V
 }
 
 public abstract interface annotation class dev/teogor/ceres/firebase/remote_config/RemoteConfig$Constants : java/lang/annotation/Annotation {

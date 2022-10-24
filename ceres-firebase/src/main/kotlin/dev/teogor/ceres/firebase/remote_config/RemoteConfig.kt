@@ -42,9 +42,7 @@ class RemoteConfig @Inject constructor() {
       .addOnCompleteListener { task ->
         if (task.isSuccessful) {
           val updated = task.result
-
         } else {
-
         }
       }
   }
