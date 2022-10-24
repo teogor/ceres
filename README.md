@@ -22,7 +22,7 @@ dependencies {
 - for `build.gradle.kts`
 ```kotlin
 dependencies {
-    implementation("dev.teogor:ceres-core:<<version>>")
+    implementation("dev.teogor:ceres-core:1.0.0-alpha02")
 }
 ```
 
