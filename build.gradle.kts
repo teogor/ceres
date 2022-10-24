@@ -1,10 +1,11 @@
+import com.vanniktech.maven.publish.SonatypeHost
 import dev.teogor.ceres.Configuration
 import org.jetbrains.dokka.gradle.DokkaTaskPartial
-import com.vanniktech.maven.publish.SonatypeHost
 
 plugins {
   id("org.jetbrains.dokka") version "1.7.20"
   id("com.vanniktech.maven.publish") version "0.18.0"
+  id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.11.1"
 }
 
 buildscript {
@@ -40,7 +41,7 @@ subprojects {
     apply(plugin = "com.vanniktech.maven.publish")
 
     // Define versions in a single place
-    extra.apply{
+    extra.apply {
       val moduleName = this@subprojects.name.replace("ceres-", "")
       set("moduleName", moduleName.replace("-", "."))
       val publishGroupId = Configuration.artifactGroup
@@ -172,3 +173,21 @@ mavenPublishing {
 //  tasks.register("clean", Delete::class) {
 //    delete(rootProject.buildDir)
 //  }
+
+apiValidation {
+  /**
+   * Packages that are excluded from public API dumps even if they
+   * contain public API.
+   */
+  ignoredPackages.add("androidx.databinding")
+
+  /**
+   * Sub-projects that are excluded from API validation
+   */
+  ignoredProjects.addAll(listOf("app"))
+
+  /**
+   * Flag to programmatically disable compatibility validator
+   */
+  validationDisabled = false
+}
