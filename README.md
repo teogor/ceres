@@ -9,6 +9,25 @@
 ## Download
 [![Maven Central](https://img.shields.io/maven-central/v/dev.teogor/ceres-core.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22dev.teogor%22%20AND%20a:%22ceres-core%22)
 
+
+### Gradle
+
+Add the dependency below to your **module**'s `build.*` file.
+- for `build.gradle`
+```gradle
+dependencies {
+    implementation "dev.teogor:ceres-core:<<version>>"
+}
+```
+- for `build.gradle.kts`
+```kotlin
+dependencies {
+    implementation("dev.teogor:ceres-core:<<version>>")
+}
+```
+
+> **Note**: This library has more modules therefore include only the ones that you want to use.
+
 ## Find this repository useful? :heart:
 Support it by joining __[stargazers](https://github.com/teogor/ceres/stargazers)__ for this repository. :star: <br>
 Also, __[follow me](https://github.com/teogor)__ on GitHub for my next creations! 🤩
