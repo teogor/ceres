@@ -45,12 +45,47 @@ subprojects {
       val moduleName = this@subprojects.name.replace("ceres-", "")
       set("moduleName", moduleName.replace("-", "."))
       val publishGroupId = Configuration.artifactGroup
-      val publishArtifactId = "${Configuration.baseArtifactId}-${extra.get("moduleName")}"
+      val publishArtifactId = "${Configuration.baseArtifactId}-$moduleName"
       val publishVersion = Configuration.versionName
 
       set("PUBLISH_GROUP_ID", publishGroupId)
       set("PUBLISH_ARTIFACT_ID", publishArtifactId)
       set("VERSION_NAME", publishVersion)
+    }
+
+    group = Configuration.artifactGroup
+    version = Configuration.versionName
+    mavenPublishing {
+      publishToMavenCentral(SonatypeHost.S01)
+      signAllPublications()
+
+      pom {
+        name.set(Configuration.artifactGroup)
+        description.set("Modern Android development with Hilt, Coroutines, Flow, JetPack(ViewModel) based on MVVM architecture.")
+        inceptionYear.set("2022")
+        url.set("https://github.com/teogor/ceres/")
+        licenses {
+          license {
+            name.set("The Apache License, Version 2.0")
+            url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+            distribution.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+          }
+        }
+        developers {
+          developer {
+            id.set("teogor")
+            name.set("Teodor Grigor")
+            url.set("https://teogor.dev")
+            roles.set(listOf("Code Owner", "Developer", "Designer"))
+            organization.set("Teogor")
+          }
+        }
+        scm {
+          url.set("https://github.com/teogor/ceres/")
+          connection.set("scm:git:git://github.com/teogor/ceres.git")
+          developerConnection.set("scm:git:ssh://git@github.com/teogor/ceres.git")
+        }
+      }
     }
 
     tasks.withType<DokkaTaskPartial>().configureEach {
@@ -132,39 +167,6 @@ subprojects {
       target("**/*.xml")
       targetExclude("**/build/**/*.xml")
       licenseHeaderFile(rootProject.file("spotless/license.xml"), "(<[^!?])")
-    }
-  }
-}
-
-group = Configuration.artifactGroup
-version = Configuration.versionName
-mavenPublishing {
-  publishToMavenCentral(SonatypeHost.S01)
-  signAllPublications()
-
-  pom {
-    name.set(Configuration.artifactGroup)
-    description.set("A description of what my library does.")
-    inceptionYear.set("2022")
-    url.set("https://github.com/teogor/ceres/")
-    licenses {
-      license {
-        name.set("The Apache License, Version 2.0")
-        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
-        distribution.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
-      }
-    }
-    developers {
-      developer {
-        id.set("teogor")
-        name.set("Teodor Grigor")
-        url.set("https://github.com/teogor/")
-      }
-    }
-    scm {
-      url.set("https://github.com/teogor/ceres/")
-      connection.set("scm:git:git://github.com/teogor/ceres.git")
-      developerConnection.set("scm:git:ssh://git@github.com/teogor/ceres.git")
     }
   }
 }
