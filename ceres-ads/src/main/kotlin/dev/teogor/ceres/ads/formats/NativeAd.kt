@@ -53,11 +53,16 @@ abstract class NativeAd(
 
   open val maxNumberOfAds: Int = 1
 
+  open val stopLoadingAdsAfter: Int = 3
+
+  open val failedToLoadWaitTime: Long = TimeUnit.MINUTES.toMillis(30)
+
   open val refreshInterval: Long = TimeUnit.SECONDS.toMillis(45)
 
-  private var runs = 0
   private var currentMillis = 0L
   private var failedToLoad = 0
+  private var failedToLoadMillis = 0L
+  private var isFailedAdCopy = false
 
   @NativeAdOptions.AdChoicesPlacement
   open val adChoicesPlacement: Int = NativeAdOptions.ADCHOICES_TOP_RIGHT
@@ -283,36 +288,44 @@ abstract class NativeAd(
    *
    * [link](https://developer.android.com/topic/libraries/architecture/coroutines)
    */
-  fun startCoroutineTimer(
-    delayMillis: Long = 0,
-    repeatMillis: Long = 0,
-    action: () -> Unit,
-    owner: LifecycleOwner
+  fun buildRefresh(
+    owner: LifecycleOwner,
+    refreshAction: () -> Unit
   ) = owner.lifecycleScope.launch {
     owner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-      delay(delayMillis)
-      if (repeatMillis > 0) {
-        while (true) {
-          if (failedToLoad >= 2) {
-            break
+      while (true) {
+        isFailedAdCopy = isFailedAd()
+        var currentMillisS = if (isFailedAdCopy) {
+          if (failedToLoadMillis == 0L) {
+            failedToLoadMillis = failedToLoadWaitTime
           }
-          action()
-          currentMillis = if (currentMillis != 0L) {
-            currentMillis
-          } else {
-            repeatMillis
+          failedToLoadMillis
+        } else {
+          if (currentMillis == 0L) {
+            currentMillis = refreshInterval
           }
-          while (currentMillis > 0) {
-            currentMillis -= 100
-            delay(100)
-          }
-          currentMillis = 0L
-          runs++
+          currentMillis
         }
-      } else {
-        runs++
-        action()
+        while (currentMillisS > 0) {
+          currentMillisS -= 100
+          if (isFailedAdCopy) {
+            failedToLoadMillis -= 100
+          } else {
+            currentMillis -= 100
+          }
+          delay(100)
+        }
+        if (isFailedAdCopy) {
+          failedToLoadMillis = 0L
+          failedToLoad = 0
+          refreshAction()
+        } else {
+          currentMillis = 0L
+          refreshAction()
+        }
       }
     }
   }
+
+  private fun isFailedAd(): Boolean = failedToLoad >= stopLoadingAdsAfter
 }

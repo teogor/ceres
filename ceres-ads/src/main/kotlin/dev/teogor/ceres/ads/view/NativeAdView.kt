@@ -50,6 +50,11 @@ class NativeAdView(context: Context, attrs: AttributeSet) : FrameLayout(context,
       prepNativeAd()
     }
 
+  /**
+   * Bind to ad events
+   *
+   * emits event([AdEvent])
+   */
   val event = MutableLiveData<AdEvent>()
 
   private fun prepNativeAd() {
@@ -90,13 +95,11 @@ class NativeAdView(context: Context, attrs: AttributeSet) : FrameLayout(context,
     }
 
     if (ad.loadContinuously()) {
-      ad.startCoroutineTimer(
-        delayMillis = 0,
-        repeatMillis = ad.refreshInterval,
-        action = {
+      ad.buildRefresh(
+        owner = owner,
+        refreshAction = {
           ad.load()
-        },
-        owner = owner
+        }
       )
     } else {
       ad.load()
