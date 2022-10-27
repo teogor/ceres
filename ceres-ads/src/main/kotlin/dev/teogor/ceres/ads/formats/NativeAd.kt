@@ -47,10 +47,7 @@ abstract class NativeAd(
   val network: Network
 ) : Ad() {
 
-  private var mNativeAd: NativeAd? = null
-
-  lateinit var binder: AdBinder
-
+  //region API
   open val maxNumberOfAds: Int = 1
 
   open val stopLoadingAdsAfter: Int = 3
@@ -59,13 +56,17 @@ abstract class NativeAd(
 
   open val refreshInterval: Long = TimeUnit.SECONDS.toMillis(45)
 
+  @NativeAdOptions.AdChoicesPlacement
+  open val adChoicesPlacement: Int = NativeAdOptions.ADCHOICES_TOP_RIGHT
+  //endregion API
+
+  private var mNativeAd: NativeAd? = null
   private var currentMillis = 0L
   private var failedToLoad = 0
   private var failedToLoadMillis = 0L
   private var isFailedAdCopy = false
 
-  @NativeAdOptions.AdChoicesPlacement
-  open val adChoicesPlacement: Int = NativeAdOptions.ADCHOICES_TOP_RIGHT
+  lateinit var binder: AdBinder
 
   override fun load() {
     if (isLoading) {
@@ -327,5 +328,5 @@ abstract class NativeAd(
     }
   }
 
-  private fun isFailedAd(): Boolean = failedToLoad >= stopLoadingAdsAfter
+  fun isFailedAd(): Boolean = failedToLoad >= stopLoadingAdsAfter
 }
