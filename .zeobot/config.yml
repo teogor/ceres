@@ -79,7 +79,7 @@ enforce_branch_merge:
 # branches that contains files without license will not be merged
 license_checker:
   # if enabled, LC will work for this repository
-  enabled: true
+  enabled: false
   # allowed parameters
   allowed:
     # people/organisations who own the license
