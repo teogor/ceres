@@ -1,6 +1,7 @@
+@file:Suppress("RemoveRedundantQualifierName")
+
 import com.vanniktech.maven.publish.SonatypeHost
 import dev.teogor.ceres.Configuration
-import dev.teogor.ceres.Versions
 import org.jetbrains.dokka.gradle.DokkaTaskPartial
 
 plugins {
