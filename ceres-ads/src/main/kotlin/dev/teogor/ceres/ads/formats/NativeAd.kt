@@ -18,7 +18,6 @@ package dev.teogor.ceres.ads.formats
 
 import android.text.SpannableString
 import android.view.View
-import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.RatingBar
@@ -63,8 +62,6 @@ abstract class NativeAd(
   @NativeAdOptions.AdChoicesPlacement
   open val adChoicesPlacement: Int = NativeAdOptions.ADCHOICES_TOP_RIGHT
 
-  private var root: FrameLayout? = null
-
   override fun load() {
     if (isLoading) {
       return
@@ -86,7 +83,6 @@ abstract class NativeAd(
         if (useCache()) {
           cacheAds.nativeAd = nativeAd
         }
-        populateAd(nativeAd)
         onListener(AdEvent.LOADED)
       }
 
@@ -242,13 +238,27 @@ abstract class NativeAd(
       // Create a new VideoLifecycleCallbacks object and pass it to the VideoController. The
       // VideoController will call methods on this object when events occur in the video
       // lifecycle.
-      vc.videoLifecycleCallbacks =
-        object : VideoController.VideoLifecycleCallbacks() {
-          override fun onVideoEnd() {
-            super.onVideoEnd()
-          }
+      vc.videoLifecycleCallbacks = object : VideoController.VideoLifecycleCallbacks() {
+        override fun onVideoEnd() {
+          super.onVideoEnd()
         }
-    } else {
+
+        override fun onVideoMute(p0: Boolean) {
+          super.onVideoMute(p0)
+        }
+
+        override fun onVideoPause() {
+          super.onVideoPause()
+        }
+
+        override fun onVideoPlay() {
+          super.onVideoPlay()
+        }
+
+        override fun onVideoStart() {
+          super.onVideoStart()
+        }
+      }
     }
   }
 
@@ -265,27 +275,7 @@ abstract class NativeAd(
       return false
     }
     populateAd(ad)
-    val binder = binder
-    root = adFrame
-    adFrame.removeAllViews()
-    if (binder.getAdView().parent != null) {
-      (binder.getAdView().parent as ViewGroup).removeView(binder.getAdView())
-    }
-    adFrame.addView(binder.getAdView())
     return true
-  }
-
-  override fun show() {
-    super.show()
-
-    if (!canShow()) {
-      return
-    }
-    val ad = if (useCache() && cacheAds.nativeAd != null) {
-      cacheAds.nativeAd
-    } else {
-      mNativeAd
-    }
   }
 
   /**

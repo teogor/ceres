@@ -71,9 +71,11 @@ class NativeAdView(context: Context, attrs: AttributeSet) : FrameLayout(context,
     ad.binder = binder
     ad.event.observe(owner) {
       if (it == AdEvent.LOADED) {
-        ad.bind(this)
-        val adView = ad.binder.getAdView()
         removeAllViews()
+        if (!ad.bind(this)) {
+          return@observe
+        }
+        val adView = ad.binder.getAdView()
         addView(adView)
       } else if (it == AdEvent.FAILED_TO_LOAD) {
         isVisible = ad.bind(this)
