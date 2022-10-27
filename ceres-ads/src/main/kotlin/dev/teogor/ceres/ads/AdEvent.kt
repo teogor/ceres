@@ -19,27 +19,51 @@ package dev.teogor.ceres.ads
 import androidx.annotation.Keep
 
 enum class AdEvent {
+  /**
+   * Ad is currently loading
+   */
   @Keep
   IS_LOADING,
 
+  /**
+   * Ad failed to load
+   */
   @Keep
   FAILED_TO_LOAD,
 
+  /**
+   * Ad loaded
+   */
   @Keep
   LOADED,
 
+  /**
+   * Ad impression
+   */
   @Keep
   IMPRESSION,
 
+  /**
+   * Ad was clicked
+   */
   @Keep
   CLICKED,
 
+  /**
+   * Ad was dismissed
+   */
   @Keep
   DISMISSED,
 
+  /**
+   * Ad completed
+   */
   @Keep
   COMPLETED,
 
+  /**
+   * Ad not completed
+   */
   @Keep
   NOT_COMPLETED
 }

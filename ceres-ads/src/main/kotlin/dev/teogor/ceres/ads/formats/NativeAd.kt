@@ -18,7 +18,6 @@ package dev.teogor.ceres.ads.formats
 
 import android.text.SpannableString
 import android.view.View
-import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.RatingBar
@@ -48,22 +47,26 @@ abstract class NativeAd(
   val network: Network
 ) : Ad() {
 
-  private var mNativeAd: NativeAd? = null
-
-  lateinit var binder: AdBinder
-
+  //region API
   open val maxNumberOfAds: Int = 1
+
+  open val stopLoadingAdsAfter: Int = 3
+
+  open val failedToLoadWaitTime: Long = TimeUnit.MINUTES.toMillis(30)
 
   open val refreshInterval: Long = TimeUnit.SECONDS.toMillis(45)
 
-  private var runs = 0
-  private var currentMillis = 0L
-  private var failedToLoad = 0
-
   @NativeAdOptions.AdChoicesPlacement
   open val adChoicesPlacement: Int = NativeAdOptions.ADCHOICES_TOP_RIGHT
+  //endregion API
 
-  private var root: FrameLayout? = null
+  private var mNativeAd: NativeAd? = null
+  private var currentMillis = 0L
+  private var failedToLoad = 0
+  private var failedToLoadMillis = 0L
+  private var isFailedAdCopy = false
+
+  lateinit var binder: AdBinder
 
   override fun load() {
     if (isLoading) {
@@ -86,7 +89,6 @@ abstract class NativeAd(
         if (useCache()) {
           cacheAds.nativeAd = nativeAd
         }
-        populateAd(nativeAd)
         onListener(AdEvent.LOADED)
       }
 
@@ -242,13 +244,27 @@ abstract class NativeAd(
       // Create a new VideoLifecycleCallbacks object and pass it to the VideoController. The
       // VideoController will call methods on this object when events occur in the video
       // lifecycle.
-      vc.videoLifecycleCallbacks =
-        object : VideoController.VideoLifecycleCallbacks() {
-          override fun onVideoEnd() {
-            super.onVideoEnd()
-          }
+      vc.videoLifecycleCallbacks = object : VideoController.VideoLifecycleCallbacks() {
+        override fun onVideoEnd() {
+          super.onVideoEnd()
         }
-    } else {
+
+        override fun onVideoMute(p0: Boolean) {
+          super.onVideoMute(p0)
+        }
+
+        override fun onVideoPause() {
+          super.onVideoPause()
+        }
+
+        override fun onVideoPlay() {
+          super.onVideoPlay()
+        }
+
+        override fun onVideoStart() {
+          super.onVideoStart()
+        }
+      }
     }
   }
 
@@ -265,27 +281,7 @@ abstract class NativeAd(
       return false
     }
     populateAd(ad)
-    val binder = binder
-    root = adFrame
-    adFrame.removeAllViews()
-    if (binder.getAdView().parent != null) {
-      (binder.getAdView().parent as ViewGroup).removeView(binder.getAdView())
-    }
-    adFrame.addView(binder.getAdView())
     return true
-  }
-
-  override fun show() {
-    super.show()
-
-    if (!canShow()) {
-      return
-    }
-    val ad = if (useCache() && cacheAds.nativeAd != null) {
-      cacheAds.nativeAd
-    } else {
-      mNativeAd
-    }
   }
 
   /**
@@ -293,36 +289,44 @@ abstract class NativeAd(
    *
    * [link](https://developer.android.com/topic/libraries/architecture/coroutines)
    */
-  fun startCoroutineTimer(
-    delayMillis: Long = 0,
-    repeatMillis: Long = 0,
-    action: () -> Unit,
-    owner: LifecycleOwner
+  fun buildRefresh(
+    owner: LifecycleOwner,
+    refreshAction: () -> Unit
   ) = owner.lifecycleScope.launch {
     owner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-      delay(delayMillis)
-      if (repeatMillis > 0) {
-        while (true) {
-          if (failedToLoad >= 2) {
-            break
+      while (true) {
+        isFailedAdCopy = isFailedAd()
+        var currentMillisS = if (isFailedAdCopy) {
+          if (failedToLoadMillis == 0L) {
+            failedToLoadMillis = failedToLoadWaitTime
           }
-          action()
-          currentMillis = if (currentMillis != 0L) {
-            currentMillis
-          } else {
-            repeatMillis
+          failedToLoadMillis
+        } else {
+          if (currentMillis == 0L) {
+            currentMillis = refreshInterval
           }
-          while (currentMillis > 0) {
-            currentMillis -= 100
-            delay(100)
-          }
-          currentMillis = 0L
-          runs++
+          currentMillis
         }
-      } else {
-        runs++
-        action()
+        while (currentMillisS > 0) {
+          currentMillisS -= 100
+          if (isFailedAdCopy) {
+            failedToLoadMillis -= 100
+          } else {
+            currentMillis -= 100
+          }
+          delay(100)
+        }
+        if (isFailedAdCopy) {
+          failedToLoadMillis = 0L
+          failedToLoad = 0
+          refreshAction()
+        } else {
+          currentMillis = 0L
+          refreshAction()
+        }
       }
     }
   }
+
+  fun isFailedAd(): Boolean = failedToLoad >= stopLoadingAdsAfter
 }
