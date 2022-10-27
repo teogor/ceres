@@ -7,8 +7,12 @@
 <br>
 
 ## Download
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Maven Central](https://img.shields.io/maven-central/v/dev.teogor/ceres-core.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22dev.teogor%22%20AND%20a:%22ceres-core%22)
+[![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
 [![Android CI](https://github.com/teogor/ceres/actions/workflows/android.yml/badge.svg)](https://github.com/teogor/ceres/actions/workflows/android.yml)
+[![Profile](https://source.teogor.dev/badges/teogor-github.svg)](https://github.com/teogor)
+[![Portfolio](https://source.teogor.dev/badges/teogor-dev.svg)](https://teogor.dev)
 
 ### Gradle
 
@@ -16,13 +20,13 @@ Add the dependency below to your **module**'s `build.*` file.
 - for `build.gradle`
 ```gradle
 dependencies {
-    implementation 'dev.teogor:ceres-core:1.0.0-alpha02'
+  implementation 'dev.teogor:ceres-core:1.0.0-alpha02'
 }
 ```
 - for `build.gradle.kts`
 ```kotlin
 dependencies {
-    implementation("dev.teogor:ceres-core:1.0.0-alpha02")
+  implementation("dev.teogor:ceres-core:1.0.0-alpha02")
 }
 ```
 
