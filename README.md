@@ -16,7 +16,7 @@ Add the dependency below to your **module**'s `build.*` file.
 - for `build.gradle`
 ```gradle
 dependencies {
-    implementation "dev.teogor:ceres-core:<<version>>"
+    implementation "dev.teogor:ceres-core:1.0.0-alpha02"
 }
 ```
 - for `build.gradle.kts`
