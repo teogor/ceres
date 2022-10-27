@@ -20,11 +20,12 @@ import androidx.navigation.NavDirections
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.teogor.ceres.components.toolbar.ToolbarType
 import dev.teogor.ceres.m3.app.BaseViewModelM3
+import dev.teogor.ceres.presentation.memo.AppMemo
 import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(
-  private val appData: dev.teogor.ceres.presentation.memo.AppDataMemo
+  private val appMemo: AppMemo
 ) : BaseViewModelM3() {
 
   override fun onFragmentCreated() {
@@ -37,7 +38,7 @@ class SplashViewModel @Inject constructor(
   }
 
   private fun getNextFragment(): NavDirections {
-    return if (appData.onboardingApproved) {
+    return if (appMemo.onboardingApproved) {
       SplashFragmentDirections.actionFromSplashToHome()
     } else {
       SplashFragmentDirections.actionFromSplashToHome()
