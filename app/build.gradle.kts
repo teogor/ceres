@@ -1,5 +1,6 @@
 import dev.teogor.ceres.Configuration
 import dev.teogor.ceres.Dependencies
+import dev.teogor.ceres.Versions
 
 plugins {
   // android
@@ -14,10 +15,7 @@ plugins {
   id("com.google.firebase.crashlytics")
   id("com.google.firebase.firebase-perf")
   id("com.google.firebase.appdistribution")
-  // dagger
-  // todo once a higher version of ´dagger´ accepts the new
-  //  plugin id apply it -> id("com.google.dagger.hilt.android")
-  id("dagger.hilt.android.plugin")
+  id("com.google.dagger.hilt.android")
   // safe args
   id("androidx.navigation.safeargs.kotlin")
 }
@@ -113,9 +111,9 @@ dependencies {
   implementation("androidx.appcompat:appcompat:1.5.1")
   implementation("androidx.core:core-splashscreen:1.0.0")
   implementation("androidx.core:core-ktx:1.9.0")
-  implementation("androidx.fragment:fragment-ktx:1.5.3")
-  implementation("androidx.navigation:navigation-fragment-ktx:2.5.2")
-  implementation("androidx.navigation:navigation-ui-ktx:2.5.2")
+  implementation("androidx.fragment:fragment-ktx:1.5.4")
+  implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
+  implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
   implementation("androidx.multidex:multidex:2.0.1")
   //---------------------------------------------------------------------
 
@@ -133,10 +131,8 @@ dependencies {
   //---------------------------------------------------------------------
 
   //------------------------------ DAGGER -------------------------------
-  //noinspection GradleDependency todo ´dagger´ conflicts with memo
-  implementation("com.google.dagger:hilt-android:2.40.5")
-  //noinspection GradleDependency todo ´dagger´ conflicts with memo
-  kapt("com.google.dagger:hilt-compiler:2.40.5")
+  implementation("com.google.dagger:hilt-android:${Versions.DaggerHilt}")
+  kapt("com.google.dagger:hilt-compiler:${Versions.DaggerHilt}")
   //---------------------------------------------------------------------
 
   implementation("dev.chrisbanes.insetter:insetter:0.6.1")
