@@ -6,4 +6,5 @@ object Dependencies {
     "com.diffplug.spotless:spotless-plugin-gradle:${Versions.ANDROID_GRADLE_SPOTLESS}"
 
   const val GoogleMaterial = "com.google.android.material:material:${Versions.GoogleMaterial}"
+  const val DaggerHilt = "com.google.android.material:material:${Versions.DaggerHilt}"
 }

@@ -1,4 +1,5 @@
 import dev.teogor.ceres.Configuration
+import dev.teogor.ceres.Versions
 
 plugins {
   // android
@@ -8,9 +9,7 @@ plugins {
   id("kotlin-kapt")
   id("kotlin-parcelize")
   // dagger
-  // todo once a higher version of ´dagger´ accepts the new
-  //  plugin id apply it -> id("com.google.dagger.hilt.android")
-  id("dagger.hilt.android.plugin")
+  id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -50,10 +49,8 @@ dependencies {
   //---------------------------------------------------------------------
 
   //------------------------------ DAGGER -------------------------------
-  //noinspection GradleDependency todo ´dagger´ conflicts with memo
-  implementation("com.google.dagger:hilt-android:2.40.5")
-  //noinspection GradleDependency todo ´dagger´ conflicts with memo
-  kapt("com.google.dagger:hilt-compiler:2.40.5")
+  implementation("com.google.dagger:hilt-android:${Versions.DaggerHilt}")
+  kapt("com.google.dagger:hilt-compiler:${Versions.DaggerHilt}")
   //---------------------------------------------------------------------
 
   implementation("androidx.core:core-ktx:1.9.0")
