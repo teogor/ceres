@@ -6,5 +6,7 @@ object Versions {
 
   internal const val GoogleMaterial = "1.8.0-alpha01"
 
+  const val VanniktechMavenPublish = "0.22.0"
+
   const val DaggerHilt = "2.44"
 }
