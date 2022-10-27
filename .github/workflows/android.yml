@@ -54,9 +54,7 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
-
       - name: Make Gradle executable
         run: chmod +x ./gradlew
-
       - name: Build with Gradle
         run: ./gradlew build
