@@ -32,7 +32,10 @@ import dev.teogor.ceres.components.navigation.NavigationViewModel
 
 abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(), BaseCommon {
 
-  protected lateinit var binding: B private set
+  private var _binding: B? = null
+  protected val binding: B
+    get() = _binding!!
+
   protected lateinit var viewModel: VM private set
   protected lateinit var navigationViewModel: NavigationViewModel
 
@@ -55,7 +58,7 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(
     container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View {
-    binding = DataBindingUtil.inflate(layoutInflater, getContentViewId(), container, false)
+    _binding = DataBindingUtil.inflate(layoutInflater, getContentViewId(), container, false)
     return binding.root
   }
 
@@ -100,5 +103,11 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(
     viewModel.onThemeChanged.observe(viewLifecycleOwner) {
       (activity as? BaseActivity<*, *>)?.viewModel?.onThemeChanged?.value = it
     }
+  }
+
+  override fun onDestroyView() {
+    super.onDestroyView()
+    _binding?.unbind()
+    _binding = null
   }
 }

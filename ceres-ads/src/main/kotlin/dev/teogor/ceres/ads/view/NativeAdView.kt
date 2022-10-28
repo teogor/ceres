@@ -106,6 +106,11 @@ class NativeAdView(context: Context, attrs: AttributeSet) : FrameLayout(context,
     }
   }
 
+  override fun onDetachedFromWindow() {
+    super.onDetachedFromWindow()
+    removeAllViews()
+  }
+
   private fun initializationCompleted(): Boolean {
     return binder != null && ad != null
   }
