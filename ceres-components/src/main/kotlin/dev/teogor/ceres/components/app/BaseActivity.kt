@@ -45,7 +45,9 @@ import dev.teogor.ceres.extensions.hideKeyboard
 abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
   AppCompatActivity(), BaseCommon {
 
-  protected lateinit var binding: B
+  private var _binding: B? = null
+  protected val binding: B
+    get() = _binding!!
 
   lateinit var viewModel: VM
   lateinit var navigationViewModel: NavigationViewModel
@@ -69,7 +71,7 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
       return
     }
 
-    binding = DataBindingUtil.setContentView(this, getContentView())
+    _binding = DataBindingUtil.setContentView(this, getContentView())
     viewModel = ViewModelProvider(this)[getViewModelClass()]
     navigationViewModel = ViewModelProvider(this)[NavigationViewModel::class.java]
 
@@ -166,8 +168,10 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
     }
 
   override fun onDestroy() {
-    findNavController().removeOnDestinationChangedListener(listener)
     super.onDestroy()
+    findNavController().removeOnDestinationChangedListener(listener)
+    _binding?.unbind()
+    _binding = null
   }
 
   override fun attachBaseContext(cxt: Context) {
