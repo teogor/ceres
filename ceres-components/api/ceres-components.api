@@ -27,7 +27,6 @@ public abstract interface annotation class dev/teogor/ceres/components/annotatio
 }
 
 public abstract class dev/teogor/ceres/components/app/BaseActivity : androidx/appcompat/app/AppCompatActivity, dev/teogor/ceres/components/app/BaseCommon {
-	protected field binding Landroidx/databinding/ViewDataBinding;
 	public field navigationViewModel Ldev/teogor/ceres/components/navigation/NavigationViewModel;
 	public field viewModel Ldev/teogor/ceres/components/app/BaseViewModel;
 	public fun <init> ()V
@@ -45,7 +44,6 @@ public abstract class dev/teogor/ceres/components/app/BaseActivity : androidx/ap
 	protected fun onCreate (Landroid/os/Bundle;)V
 	protected fun onDestroy ()V
 	public fun processUiEvent (Ldev/teogor/ceres/components/events/UiEvent;)V
-	protected final fun setBinding (Landroidx/databinding/ViewDataBinding;)V
 	public final fun setNavigationViewModel (Ldev/teogor/ceres/components/navigation/NavigationViewModel;)V
 	public final fun setViewModel (Ldev/teogor/ceres/components/app/BaseViewModel;)V
 	protected fun setupObservers ()V
@@ -72,6 +70,7 @@ public abstract class dev/teogor/ceres/components/app/BaseFragment : androidx/fr
 	public fun log (Ljava/lang/String;)V
 	public fun onCreate (Landroid/os/Bundle;)V
 	public fun onCreateView (Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+	public fun onDestroyView ()V
 	public fun onRefresh ()V
 	public fun onViewCreated (Landroid/view/View;Landroid/os/Bundle;)V
 	protected fun processUiEvent (Ldev/teogor/ceres/components/events/UiEvent;)V
