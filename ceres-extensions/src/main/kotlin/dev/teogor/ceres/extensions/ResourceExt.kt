@@ -18,6 +18,7 @@ package dev.teogor.ceres.extensions
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.FontRes
+import androidx.annotation.IdRes
 import androidx.annotation.StringRes
 
 fun @receiver:DrawableRes Int.validDrawableId(): Boolean {
@@ -27,6 +28,9 @@ fun @receiver:DrawableRes Int.validDrawableId(): Boolean {
 fun @receiver:StringRes Int.validStringId(): Boolean {
   return this != -1
 }
+
+inline val @receiver:IdRes Int.validIdRes: Boolean
+  get() = this != -1
 
 fun @receiver:FontRes Int.validFontId(): Boolean {
   return this != -1

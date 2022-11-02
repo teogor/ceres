@@ -84,6 +84,7 @@ public final class dev/teogor/ceres/extensions/MutableLiveDataExtKt {
 }
 
 public final class dev/teogor/ceres/extensions/ResourceExtKt {
+	public static final fun getValidIdRes (I)Z
 	public static final fun validDrawableId (I)Z
 	public static final fun validFontId (I)Z
 	public static final fun validStringId (I)Z
