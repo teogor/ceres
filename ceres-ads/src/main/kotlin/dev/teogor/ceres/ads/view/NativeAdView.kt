@@ -76,12 +76,9 @@ class NativeAdView(context: Context, attrs: AttributeSet) : FrameLayout(context,
     ad.binder = binder
     ad.event.observe(owner) {
       if (it == AdEvent.LOADED) {
-        removeAllViews()
-        if (!ad.bind(this)) {
+        if (!addAd(ad)) {
           return@observe
         }
-        val adView = ad.binder.getAdView()
-        addView(adView)
       } else if (it == AdEvent.FAILED_TO_LOAD) {
         isVisible = ad.bind(this)
       }
@@ -94,14 +91,31 @@ class NativeAdView(context: Context, attrs: AttributeSet) : FrameLayout(context,
       }
     }
 
-    ad.load()
     if (ad.loadContinuously()) {
+      ad.apply {
+        if (!addAd(this)) {
+          load()
+        }
+      }
       ad.buildRefresh(
         owner = owner,
         refreshAction = {
           ad.load()
         }
       )
+    } else {
+      ad.load()
+    }
+  }
+
+  private fun addAd(ad: NativeAd): Boolean {
+    removeAllViews()
+    return if (ad.bind(this)) {
+      val adView = ad.binder.getAdView()
+      addView(adView)
+      true
+    } else {
+      false
     }
   }
 
