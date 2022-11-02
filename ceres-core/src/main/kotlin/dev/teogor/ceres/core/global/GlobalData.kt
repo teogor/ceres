@@ -21,7 +21,6 @@ import android.app.Application
 import android.content.Context
 import java.lang.ref.WeakReference
 
-@Suppress("unused")
 object GlobalData {
 
   private lateinit var activityWeak: WeakReference<Activity>
