@@ -87,7 +87,7 @@ abstract class BaseActivityM3<B : ViewDataBinding, VM : BaseViewModelM3> :
           .show()
       }
       is UiEventM3.ShowSnackbar -> {
-        val title = if (uiEvent.titleResId.validStringId()) {
+        val title = if (uiEvent.titleResId.validStringId) {
           resources.getString(uiEvent.titleResId)
         } else if (uiEvent.title.isNotEmpty()) {
           uiEvent.title

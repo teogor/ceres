@@ -21,17 +21,14 @@ import androidx.annotation.FontRes
 import androidx.annotation.IdRes
 import androidx.annotation.StringRes
 
-fun @receiver:DrawableRes Int.validDrawableId(): Boolean {
-  return this != -1
-}
-
-fun @receiver:StringRes Int.validStringId(): Boolean {
-  return this != -1
-}
-
 inline val @receiver:IdRes Int.validIdRes: Boolean
   get() = this != -1
 
-fun @receiver:FontRes Int.validFontId(): Boolean {
-  return this != -1
-}
+inline val @receiver:FontRes Int.validFontId: Boolean
+  get() = this != -1
+
+inline val @receiver:DrawableRes Int.validDrawableId: Boolean
+  get() = this != -1
+
+inline val @receiver:StringRes Int.validStringId: Boolean
+  get() = this != -1
