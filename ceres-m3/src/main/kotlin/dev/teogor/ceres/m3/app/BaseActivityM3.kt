@@ -16,7 +16,9 @@
 
 package dev.teogor.ceres.m3.app
 
+import android.content.res.Resources
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.ViewDataBinding
@@ -108,8 +110,7 @@ abstract class BaseActivityM3<B : ViewDataBinding, VM : BaseViewModelM3> :
   }
 
   private fun setupTheme() {
-    // fixme that#s not the right way to se the theme
-    setTheme(R.style.Theme_Base_M3)
+    setPostSplashScreenTheme(theme, TypedValue())
     when (ThemeM3.justBlackTheme()) {
       JustBlackThemeType.AlwaysOn -> AppCompatDelegate.setDefaultNightMode(
         AppCompatDelegate.MODE_NIGHT_YES
@@ -124,6 +125,18 @@ abstract class BaseActivityM3<B : ViewDataBinding, VM : BaseViewModelM3> :
       else -> setupAppTheme()
     }
     delegate.applyDayNight()
+  }
+
+  private fun setPostSplashScreenTheme(
+    currentTheme: Resources.Theme,
+    typedValue: TypedValue
+  ) {
+    if (currentTheme.resolveAttribute(R.attr.afterSplashScreenTheme, typedValue, true)) {
+      val finalThemeId = typedValue.resourceId
+      if (finalThemeId != 0) {
+        setTheme(finalThemeId)
+      }
+    }
   }
 
   private fun setupAppTheme() {
