@@ -50,7 +50,7 @@ abstract class NativeAd(
   //region API
   open val maxNumberOfAds: Int = 1
 
-  open val stopLoadingAdsAfter: Int = 3
+  open val failedToLoadCallAfter: Int = 3
 
   open val failedToLoadWaitTime: Long = TimeUnit.MINUTES.toMillis(30)
 
@@ -74,66 +74,62 @@ abstract class NativeAd(
     }
     super.load()
 
-    if (useCache() && cacheAds.nativeAd != null) {
+    onListener(AdEvent.IS_LOADING)
+
+    val builder = AdLoader.Builder(context, id)
+
+    builder.forNativeAd { nativeAd ->
+      // You must call destroy on old ads when you are done with them,
+      // otherwise you will have a memory leak.
+      mNativeAd?.destroy()
+      mNativeAd = nativeAd
+      if (useCache()) {
+        cacheAds.nativeAd = nativeAd
+      }
       onListener(AdEvent.LOADED)
-    } else {
-      onListener(AdEvent.IS_LOADING)
+    }
 
-      val builder = AdLoader.Builder(context, id)
+    val videoOptions = VideoOptions
+      .Builder()
+      .setStartMuted(true)
+      .build()
 
-      builder.forNativeAd { nativeAd ->
-        // You must call destroy on old ads when you are done with them,
-        // otherwise you will have a memory leak.
-        mNativeAd?.destroy()
-        mNativeAd = nativeAd
-        if (useCache()) {
-          cacheAds.nativeAd = nativeAd
+    val adOptions = NativeAdOptions.Builder()
+      .setVideoOptions(videoOptions)
+      .setAdChoicesPlacement(adChoicesPlacement)
+      .build()
+
+    builder.withNativeAdOptions(adOptions)
+
+    val adLoader = builder.withAdListener(
+      object : AdListener() {
+        override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+          failedToLoad++
+          onListener(AdEvent.FAILED_TO_LOAD)
         }
-        onListener(AdEvent.LOADED)
-      }
 
-      val videoOptions = VideoOptions
-        .Builder()
-        .setStartMuted(true)
-        .build()
-
-      val adOptions = NativeAdOptions.Builder()
-        .setVideoOptions(videoOptions)
-        .setAdChoicesPlacement(adChoicesPlacement)
-        .build()
-
-      builder.withNativeAdOptions(adOptions)
-
-      val adLoader = builder.withAdListener(
-        object : AdListener() {
-          override fun onAdFailedToLoad(loadAdError: LoadAdError) {
-            failedToLoad++
-            onListener(AdEvent.FAILED_TO_LOAD)
-          }
-
-          override fun onAdClicked() {
-            onListener(AdEvent.CLICKED)
-          }
-
-          override fun onAdClosed() {
-            onListener(AdEvent.DISMISSED)
-          }
-
-          override fun onAdImpression() {
-            onListener(AdEvent.IMPRESSION)
-          }
-
-          override fun onAdOpened() {
-          }
+        override fun onAdClicked() {
+          onListener(AdEvent.CLICKED)
         }
-      )
-        .build()
 
-      if (maxNumberOfAds == 1) {
-        adLoader.loadAd(AdRequest.Builder().build())
-      } else if (maxNumberOfAds > 1) {
-        adLoader.loadAds(AdRequest.Builder().build(), maxNumberOfAds)
+        override fun onAdClosed() {
+          onListener(AdEvent.DISMISSED)
+        }
+
+        override fun onAdImpression() {
+          onListener(AdEvent.IMPRESSION)
+        }
+
+        override fun onAdOpened() {
+        }
       }
+    )
+      .build()
+
+    if (maxNumberOfAds == 1) {
+      adLoader.loadAd(AdRequest.Builder().build())
+    } else if (maxNumberOfAds > 1) {
+      adLoader.loadAds(AdRequest.Builder().build(), maxNumberOfAds)
     }
   }
 
@@ -328,5 +324,5 @@ abstract class NativeAd(
     }
   }
 
-  fun isFailedAd(): Boolean = failedToLoad >= stopLoadingAdsAfter
+  fun isFailedAd(): Boolean = failedToLoad >= failedToLoadCallAfter
 }
