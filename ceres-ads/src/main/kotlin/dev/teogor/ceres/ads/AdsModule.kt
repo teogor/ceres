@@ -16,9 +16,11 @@
 
 package dev.teogor.ceres.ads
 
+import com.google.android.gms.ads.AdActivity
 import dev.teogor.ceres.ads.startup.AdsStartUp
 import dev.teogor.ceres.core.app.Module
 import dev.teogor.ceres.core.app.ModuleProvider
+import dev.teogor.ceres.core.provider.InitProviderData
 import java.lang.ref.WeakReference
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -26,6 +28,13 @@ import javax.inject.Singleton
 @Module
 @Singleton
 class AdsModule @Inject constructor() : ModuleProvider() {
+
+  override fun onCreate() {
+    super.onCreate()
+    InitProviderData.flagActivityClass(
+      AdActivity::class
+    )
+  }
 
   fun withAds(appOpenAds: List<Ad>) {
     val openAdsWeak = mutableListOf<WeakReference<Ad>>()
