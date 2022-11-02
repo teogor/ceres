@@ -481,6 +481,8 @@ public final class dev/teogor/ceres/m3/TextViewM3 : com/google/android/material/
 	public fun onThemeChanged ()V
 	public fun rippleColorStatesList ()Landroid/content/res/ColorStateList;
 	public fun rippleMask (Z)Landroid/graphics/drawable/Drawable;
+	public final fun setCornerRadius (F)V
+	public final fun setTextColor (Ldev/teogor/ceres/m3/ColorM3;)V
 }
 
 public abstract interface annotation class dev/teogor/ceres/m3/annotation/M3 : java/lang/annotation/Annotation {

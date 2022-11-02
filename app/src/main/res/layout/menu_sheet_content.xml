@@ -212,7 +212,7 @@
       android:layout_height="wrap_content"
       android:layout_marginTop="10dp"
       android:gravity="center"
-      android:text="&#169; Teogor 2022"
+      android:text="&#169; teogor (Teodor G.) 2022"
       app:color_m3="onSurface"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"

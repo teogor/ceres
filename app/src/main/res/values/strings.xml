@@ -15,7 +15,7 @@
     limitations under the License.
 -->
 <resources>
-  <string name="app_name">ceres</string>
+  <string name="app_name">Ceres</string>
 
   <string name="about">About</string>
   <string name="look_and_feel">Look and feel</string>
