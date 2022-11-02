@@ -263,8 +263,7 @@ object ViewUtils {
   }
 
   /**
-   * Backward-compatible [View.getOverlay]. TODO(b/144937975): Remove and use the official
-   * version from androidx when it's available.
+   * Backward-compatible [View.getOverlay].
    */
   fun getOverlay(view: View?): ViewOverlay? {
     return view?.overlay

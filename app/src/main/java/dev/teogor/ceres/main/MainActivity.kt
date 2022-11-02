@@ -30,7 +30,6 @@ import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
 import dagger.hilt.android.AndroidEntryPoint
 import dev.chrisbanes.insetter.applyInsetter
 import dev.teogor.ceres.R
-import dev.teogor.ceres.components.navigation.NavigationUI
 import dev.teogor.ceres.databinding.ActivityMainBinding
 import dev.teogor.ceres.extensions.dpToPx
 import dev.teogor.ceres.extensions.isVisible
@@ -95,23 +94,14 @@ class MainActivity : BaseActivityM3<ActivityMainBinding, MainViewModel>() {
   }
 
   private fun setupBottomNavigation() {
-    NavigationUI.setupWithNavController(
-      binding.bottomNavigation,
-      findNavController()
-    )
+    setupWithNavController(binding.bottomNavigation)
   }
 
   private fun showBottomAnim() {
-//        binding.bottomNavigation.animate()
-//            .translationY(0f)
-//            .duration = 300
     binding.bottomNavigation.isVisible = true
   }
 
   private fun hideBottomAnim() {
-//        binding.bottomNavigation.animate()
-//            .translationY(binding.bottomNavigation.height.toFloat())
-//            .duration = 300
     binding.bottomNavigation.isVisible = false
   }
 

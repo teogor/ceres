@@ -37,6 +37,7 @@ public abstract class dev/teogor/ceres/components/app/BaseActivity : androidx/ap
 	public abstract fun getBindingVariable ()I
 	public abstract fun getContentView ()I
 	public fun getNavController ()I
+	public final fun getNavHostFragment ()Landroidx/navigation/fragment/NavHostFragment;
 	public final fun getNavigationViewModel ()Ldev/teogor/ceres/components/navigation/NavigationViewModel;
 	public final fun getViewModel ()Ldev/teogor/ceres/components/app/BaseViewModel;
 	protected abstract fun getViewModelClass ()Ljava/lang/Class;
@@ -48,6 +49,7 @@ public abstract class dev/teogor/ceres/components/app/BaseActivity : androidx/ap
 	public final fun setViewModel (Ldev/teogor/ceres/components/app/BaseViewModel;)V
 	protected fun setupObservers ()V
 	protected fun setupUi ()V
+	public final fun setupWithNavController (Lcom/google/android/material/navigation/NavigationBarView;)V
 }
 
 public abstract interface class dev/teogor/ceres/components/app/BaseCommon : dev/teogor/ceres/core/logger/Logger {

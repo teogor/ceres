@@ -35,8 +35,10 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.DialogFragmentNavigator
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.navigation.NavigationBarView
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import dev.teogor.ceres.components.events.UiEvent
+import dev.teogor.ceres.components.navigation.NavigationUI
 import dev.teogor.ceres.components.navigation.NavigationViewModel
 import dev.teogor.ceres.core.internal.WindowPreferencesManager
 import dev.teogor.ceres.extensions.findNavController
@@ -53,6 +55,25 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
   lateinit var navigationViewModel: NavigationViewModel
 
   private var previousToast: Toast? = null
+
+  // todo navController move to a module that contains firebase
+  private val listener = NavController.OnDestinationChangedListener { controller, _, _ ->
+    val bundle = Bundle()
+    val currentFragmentClassName = when (controller.currentDestination) {
+      is FragmentNavigator.Destination -> {
+        (controller.currentDestination as FragmentNavigator.Destination).className
+      }
+      is DialogFragmentNavigator.Destination -> {
+        (controller.currentDestination as DialogFragmentNavigator.Destination).className
+      }
+      else -> {
+        "N/A"
+      }
+    }
+    // bundle.putString(FirebaseAnalytics.Param.SCREEN_NAME, destination.label.toString())
+    // bundle.putString(FirebaseAnalytics.Param.SCREEN_CLASS, currentFragmentClassName)
+    // analytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW, bundle)
+  }
 
   override fun onCreate(savedInstanceState: Bundle?) {
     // Prevent splash screen showing up on configuration changes
@@ -80,17 +101,16 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
 
     drawEdgeToEdge(splashScreen)
 
-    val navHostFragment =
-      supportFragmentManager.findFragmentById(getNavController()) as NavHostFragment
-    val navController = navHostFragment.navController
-    navController.addOnDestinationChangedListener(listener)
+    getNavHostFragment()?.apply {
+      navController.addOnDestinationChangedListener(listener)
+    }
 
     setupUi()
     setupObservers()
 
     viewModel.onActivityCreated()
-    viewModel.navigate.observe(this) { direction -> findNavController().navigate(direction) }
-    viewModel.onBackPressed.observe(this) { findNavController().popBackStack() }
+    viewModel.navigate.observe(this) { direction -> findNavController()?.navigate(direction) }
+    viewModel.onBackPressed.observe(this) { findNavController()?.popBackStack() }
     viewModel.uiEventStream.observe(this) { uiEvent -> processUiEvent(uiEvent) }
   }
 
@@ -110,10 +130,6 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
       window
     )
     WindowCompat.setDecorFitsSystemWindows(window, false)
-  }
-
-  fun findNavController(): NavController {
-    return findNavController(getNavController())
   }
 
   protected open fun setupUi() {
@@ -147,28 +163,8 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
     }
   }
 
-  private val listener =
-    NavController.OnDestinationChangedListener { controller, _, _ ->
-      val bundle = Bundle()
-      val currentFragmentClassName = when (controller.currentDestination) {
-        is FragmentNavigator.Destination -> {
-          (controller.currentDestination as FragmentNavigator.Destination).className
-        }
-        is DialogFragmentNavigator.Destination -> {
-          (controller.currentDestination as DialogFragmentNavigator.Destination).className
-        }
-        else -> {
-          "N/A"
-        }
-      }
-//           todo navController move to a module that contains firebase
-//            bundle.putString(FirebaseAnalytics.Param.SCREEN_NAME, destination.label.toString())
-//            bundle.putString(FirebaseAnalytics.Param.SCREEN_CLASS, currentFragmentClassName)
-//            analytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW, bundle)
-    }
-
   override fun onDestroy() {
-    findNavController().removeOnDestinationChangedListener(listener)
+    findNavController()?.removeOnDestinationChangedListener(listener)
     super.onDestroy()
     _binding?.unbind()
     _binding = null
@@ -181,5 +177,26 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
     configuration.uiMode = Configuration.UI_MODE_NIGHT_UNDEFINED
     val baseContext = cxt.createConfigurationContext(configuration)
     super.attachBaseContext(baseContext)
+  }
+
+  /**
+   * Navigation
+   */
+  fun getNavHostFragment() = supportFragmentManager.findFragmentById(
+    getNavController()
+  ) as NavHostFragment?
+
+  fun findNavController(): NavController? = findNavController(getNavController())
+
+  fun setupWithNavController(navigationBarView: NavigationBarView) {
+    val navController = findNavController() ?: throw IllegalArgumentException(
+      "NavController not found. Have you called getNavController() " +
+        "in your ${this.javaClass.simpleName}?\nPlease add this " +
+        "line `override fun getNavController(): Int = R.id.nav_controller`"
+    )
+    NavigationUI.setupWithNavController(
+      navigationBarView,
+      navController
+    )
   }
 }

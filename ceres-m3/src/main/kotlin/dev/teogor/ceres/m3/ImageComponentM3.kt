@@ -102,7 +102,7 @@ class ImageComponentM3(
     }
 
     // font family initialization
-    if (fontId.validFontId()) {
+    if (fontId.validFontId) {
       val typeface = ResourcesCompat.getFont(context, fontId)
       binding.textTitle.typeface = typeface
       binding.textSubtitle.typeface = typeface
@@ -112,8 +112,8 @@ class ImageComponentM3(
       onClicked()
     }
 
-    binding.imageM3.show(imageResId.validDrawableId())
-    if (imageResId.validDrawableId()) {
+    binding.imageM3.show(imageResId.validDrawableId)
+    if (imageResId.validDrawableId) {
       binding.imageM3.setImageResource(imageResId)
     }
     binding.imageM3.setPadding(paddingImage)
