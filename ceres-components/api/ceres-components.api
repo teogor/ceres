@@ -31,7 +31,7 @@ public abstract class dev/teogor/ceres/components/app/BaseActivity : androidx/ap
 	public field viewModel Ldev/teogor/ceres/components/app/BaseViewModel;
 	public fun <init> ()V
 	protected fun attachBaseContext (Landroid/content/Context;)V
-	protected fun drawEdgeToEdge (Landroidx/core/splashscreen/SplashScreen;)V
+	protected fun drawEdgeToEdge ()V
 	public final fun findNavController ()Landroidx/navigation/NavController;
 	protected final fun getBinding ()Landroidx/databinding/ViewDataBinding;
 	public abstract fun getBindingVariable ()I
@@ -39,6 +39,7 @@ public abstract class dev/teogor/ceres/components/app/BaseActivity : androidx/ap
 	public fun getNavController ()I
 	public final fun getNavHostFragment ()Landroidx/navigation/fragment/NavHostFragment;
 	public final fun getNavigationViewModel ()Ldev/teogor/ceres/components/navigation/NavigationViewModel;
+	public fun getSplashExitAnimDuration ()J
 	public final fun getViewModel ()Ldev/teogor/ceres/components/app/BaseViewModel;
 	protected abstract fun getViewModelClass ()Ljava/lang/Class;
 	public fun log (Ljava/lang/String;)V
