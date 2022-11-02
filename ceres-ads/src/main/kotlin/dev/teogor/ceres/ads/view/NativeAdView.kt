@@ -94,6 +94,7 @@ class NativeAdView(context: Context, attrs: AttributeSet) : FrameLayout(context,
       }
     }
 
+    ad.load()
     if (ad.loadContinuously()) {
       ad.buildRefresh(
         owner = owner,
@@ -101,8 +102,6 @@ class NativeAdView(context: Context, attrs: AttributeSet) : FrameLayout(context,
           ad.load()
         }
       )
-    } else {
-      ad.load()
     }
   }
 
