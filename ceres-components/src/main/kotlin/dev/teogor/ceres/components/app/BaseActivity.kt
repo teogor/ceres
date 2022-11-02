@@ -168,8 +168,8 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
     }
 
   override fun onDestroy() {
-    super.onDestroy()
     findNavController().removeOnDestinationChangedListener(listener)
+    super.onDestroy()
     _binding?.unbind()
     _binding = null
   }
