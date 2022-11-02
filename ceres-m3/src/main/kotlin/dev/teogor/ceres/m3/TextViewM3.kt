@@ -24,10 +24,10 @@ import dev.teogor.ceres.m3.theme.ThemeHandler
 
 class TextViewM3 : MaterialTextView, ThemeHandler {
 
-  private val surfaceLevel: SurfaceLevel
-  private val textColorM3: ColorM3
-  private val rippleEnabled: Boolean
-  private val cornerRadius: Float
+  private var surfaceLevel: SurfaceLevel
+  private var textColorM3: ColorM3
+  private var rippleEnabled: Boolean
+  private var cornerRadius: Float
 
   constructor(context: Context) : this(context, null)
 
@@ -79,7 +79,21 @@ class TextViewM3 : MaterialTextView, ThemeHandler {
   override fun onThemeChanged() {
     super.onThemeChanged()
 
+    setTextColor(textColorM3)
+    setBackground()
+  }
+
+  fun setTextColor(colorM3: ColorM3) {
+    textColorM3 = colorM3
     setTextColor(getColorM3(colorM3 = textColorM3))
+  }
+
+  fun setCornerRadius(radius: Float) {
+    cornerRadius = radius
+    setBackground()
+  }
+
+  private fun setBackground() {
     val materialShapeDrawable = getMaterialShapeDrawable(
       view = this,
       surfaceLevel = surfaceLevel,
