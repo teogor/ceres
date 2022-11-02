@@ -1,5 +1,5 @@
 import dev.teogor.ceres.Configuration
-import dev.teogor.ceres.Dependencies
+import dev.teogor.ceres.Versions
 
 plugins {
   // android-library
@@ -33,10 +33,10 @@ android {
 }
 
 dependencies {
-  implementation("com.zeoflow.startup:startup-ktx:1.1.0")
+  implementation("com.zeoflow.startup:startup-ktx:${Versions.ZeoFlowStartUp}")
 
   implementation("androidx.core:core-ktx:1.9.0")
   implementation("androidx.appcompat:appcompat:1.5.1")
 
-  implementation(Dependencies.GoogleMaterial)
+  implementation("com.google.android.material:material:${Versions.GoogleMaterial}")
 }

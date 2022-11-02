@@ -38,7 +38,7 @@ object Configuration {
   private const val majorVersion = 1
   private const val minorVersion = 0
   private const val patchVersion = 0
-  private const val preReleaseVersion = 3
+  private const val preReleaseVersion = 4
   const val versionCode = 1
   val versionFlags = VersionFlags.ALPHA
   val versionName = ConfigurationImpl.versionNameImpl()

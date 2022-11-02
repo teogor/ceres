@@ -20,13 +20,13 @@ Add the dependency below to your **module**'s `build.*` file.
 - for `build.gradle`
 ```gradle
 dependencies {
-  implementation 'dev.teogor:ceres-core:1.0.0-alpha03'
+  implementation 'dev.teogor:ceres-core:1.0.0-alpha04'
 }
 ```
 - for `build.gradle.kts`
 ```kotlin
 dependencies {
-  implementation("dev.teogor:ceres-core:1.0.0-alpha03")
+  implementation("dev.teogor:ceres-core:1.0.0-alpha04")
 }
 ```
 

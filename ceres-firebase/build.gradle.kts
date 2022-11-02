@@ -34,9 +34,9 @@ dependencies {
   implementation(project(":ceres-core"))
 
   //----------------------------- ZEOFLOW -------------------------------
-  implementation("com.zeoflow.startup:startup-ktx:1.1.0")
-  implementation("com.zeoflow.memo:memo:1.3.1")
-  implementation("com.zeoflow.memo:memo-runtime:1.3.1")
+  implementation("com.zeoflow.startup:startup-ktx:${Versions.ZeoFlowStartUp}")
+  implementation("com.zeoflow.memo:memo:${Versions.ZeoFlowMemo}")
+  implementation("com.zeoflow.memo:memo-runtime:${Versions.ZeoFlowMemo}")
   //---------------------------------------------------------------------
 
   //----------------------------- FIREBASE ------------------------------

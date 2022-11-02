@@ -20,12 +20,12 @@ buildscript {
     classpath("com.google.dagger:hilt-android-gradle-plugin:${dev.teogor.ceres.Versions.DaggerHilt}")
     classpath("com.google.gms:google-services:4.3.14")
     classpath("com.google.firebase:firebase-crashlytics-gradle:2.9.2")
-    classpath("com.google.firebase:firebase-appdistribution-gradle:3.0.3")
+    classpath("com.google.firebase:firebase-appdistribution-gradle:3.1.0")
     classpath("com.google.firebase:perf-plugin:1.4.2")
     classpath("com.google.android.gms:oss-licenses-plugin:0.10.5")
-    classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.5.3")
+    classpath("androidx.navigation:navigation-safe-args-gradle-plugin:${dev.teogor.ceres.Versions.AndroidXNavigation}")
     classpath("com.android.tools.build:gradle:7.3.1")
-    classpath(dev.teogor.ceres.Dependencies.spotlessGradlePlugin)
+    classpath("com.diffplug.spotless:spotless-plugin-gradle:${dev.teogor.ceres.Versions.Spotless}")
   }
 }
 
