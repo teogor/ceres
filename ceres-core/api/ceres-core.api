@@ -284,6 +284,17 @@ public final class dev/teogor/ceres/core/provider/InitProvider : android/app/App
 	public fun onActivityStopped (Landroid/app/Activity;)V
 }
 
+public final class dev/teogor/ceres/core/provider/InitProviderData {
+	public static final field INSTANCE Ldev/teogor/ceres/core/provider/InitProviderData;
+	public final fun flagActivity (Landroid/app/Activity;)V
+	public final fun flagActivityClass (Ljava/lang/Class;)V
+	public final fun flagActivityClass (Lkotlin/reflect/KClass;)V
+	public final fun flaggedActivity (Landroid/app/Activity;)Z
+	public final fun getActivityName (Landroid/app/Activity;)Ljava/lang/String;
+	public final fun getName (Lkotlin/reflect/KClass;)Ljava/lang/String;
+	public final fun nonFlaggedActivity (Landroid/app/Activity;)Z
+}
+
 public abstract interface annotation class dev/teogor/ceres/core/provider/InitializerModule : java/lang/annotation/Annotation {
 }
 

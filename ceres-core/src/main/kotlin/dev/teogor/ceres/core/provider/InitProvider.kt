@@ -32,15 +32,27 @@ class InitProvider constructor(application: Application) :
   }
 
   override fun onActivityCreated(activity: Activity, bundle: Bundle?) {
-    GlobalData.activity = activity
+    activity.checkValidActivity().apply {
+      if (this) {
+        GlobalData.activity = activity
+      }
+    }
   }
 
   override fun onActivityStarted(activity: Activity) {
-    GlobalData.activity = activity
+    activity.checkValidActivity().apply {
+      if (this) {
+        GlobalData.activity = activity
+      }
+    }
   }
 
   override fun onActivityResumed(activity: Activity) {
-    GlobalData.activity = activity
+    activity.checkValidActivity().apply {
+      if (this) {
+        GlobalData.activity = activity
+      }
+    }
   }
 
   override fun onActivityPaused(activity: Activity) {
@@ -53,5 +65,9 @@ class InitProvider constructor(application: Application) :
   }
 
   override fun onActivityDestroyed(activity: Activity) {
+  }
+
+  private fun Activity.checkValidActivity(): Boolean {
+    return InitProviderData.nonFlaggedActivity(this)
   }
 }
