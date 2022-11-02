@@ -83,33 +83,36 @@ object ThemeM3 {
   private fun getJustBlackColorSchemeImpl() = getSchemeM3Impl().justBlackColorScheme
 
   private fun getCurrentColorSchemeImpl(): ColorScheme {
-    val justBlackTheme = justBlackTheme()
-    val appTheme = appTheme()
-    when {
-      justBlackTheme == JustBlackThemeType.AlwaysOn -> {
-        return getJustBlackColorSchemeImpl()
+    return when (justBlackTheme()) {
+      JustBlackThemeType.AlwaysOn -> {
+        getJustBlackColorSchemeImpl()
       }
-      justBlackTheme == JustBlackThemeType.FollowSystem -> {
-        return if (isNightModeOn()) {
+      JustBlackThemeType.FollowSystem -> {
+        if (isNightModeOn()) {
           getJustBlackColorSchemeImpl()
         } else {
-          getLightColorSchemeImpl()
+          getAppThemeColorScheme()
         }
       }
-      appTheme == AppThemeType.ClearlyWhite -> {
-        return getLightColorSchemeImpl()
+      else -> getAppThemeColorScheme()
+    }
+  }
+
+  private fun getAppThemeColorScheme(): ColorScheme {
+    return when (appTheme()) {
+      AppThemeType.ClearlyWhite -> {
+        getLightColorSchemeImpl()
       }
-      appTheme == AppThemeType.KindaDark -> {
-        return getDarkColorSchemeImpl()
+      AppThemeType.KindaDark -> {
+        getDarkColorSchemeImpl()
       }
-      appTheme == AppThemeType.FollowSystem -> {
-        return if (isNightModeOn()) {
+      AppThemeType.FollowSystem -> {
+        if (isNightModeOn()) {
           getDarkColorSchemeImpl()
         } else {
           getLightColorSchemeImpl()
         }
       }
-      else -> return getLightColorSchemeImpl()
     }
   }
 }

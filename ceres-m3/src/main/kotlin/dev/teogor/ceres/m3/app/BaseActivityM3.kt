@@ -110,29 +110,34 @@ abstract class BaseActivityM3<B : ViewDataBinding, VM : BaseViewModelM3> :
   private fun setupTheme() {
     // fixme that#s not the right way to se the theme
     setTheme(R.style.Theme_Base_M3)
-    val justBlackTheme = ThemeM3.justBlackTheme()
-    val appTheme = ThemeM3.appTheme()
-    when {
-      justBlackTheme == JustBlackThemeType.AlwaysOn -> AppCompatDelegate.setDefaultNightMode(
+    when (ThemeM3.justBlackTheme()) {
+      JustBlackThemeType.AlwaysOn -> AppCompatDelegate.setDefaultNightMode(
         AppCompatDelegate.MODE_NIGHT_YES
       )
-      justBlackTheme == JustBlackThemeType.FollowSystem -> AppCompatDelegate.setDefaultNightMode(
-        AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
-      )
-      appTheme == AppThemeType.ClearlyWhite -> AppCompatDelegate.setDefaultNightMode(
+      JustBlackThemeType.FollowSystem -> if (ThemeM3.isNightModeOn()) {
+        AppCompatDelegate.setDefaultNightMode(
+          AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+        )
+      } else {
+        setupAppTheme()
+      }
+      else -> setupAppTheme()
+    }
+    delegate.applyDayNight()
+  }
+
+  private fun setupAppTheme() {
+    when (ThemeM3.appTheme()) {
+      AppThemeType.ClearlyWhite -> AppCompatDelegate.setDefaultNightMode(
         AppCompatDelegate.MODE_NIGHT_NO
       )
-      appTheme == AppThemeType.KindaDark -> AppCompatDelegate.setDefaultNightMode(
+      AppThemeType.KindaDark -> AppCompatDelegate.setDefaultNightMode(
         AppCompatDelegate.MODE_NIGHT_YES
       )
-      appTheme == AppThemeType.FollowSystem -> AppCompatDelegate.setDefaultNightMode(
-        AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
-      )
-      else -> AppCompatDelegate.setDefaultNightMode(
+      AppThemeType.FollowSystem -> AppCompatDelegate.setDefaultNightMode(
         AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
       )
     }
-    delegate.applyDayNight()
   }
 
   override fun onThemeChanged() {
