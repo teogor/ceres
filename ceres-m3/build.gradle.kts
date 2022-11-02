@@ -1,5 +1,5 @@
 import dev.teogor.ceres.Configuration
-import dev.teogor.ceres.Dependencies
+import dev.teogor.ceres.Versions
 
 plugins {
   // android
@@ -51,20 +51,20 @@ dependencies {
   implementation(project(":ceres-extensions"))
 
   //----------------------------- ZEOFLOW -------------------------------
-  implementation("com.zeoflow.startup:startup-ktx:1.1.0")
-  implementation("com.zeoflow.memo:memo:1.3.1")
-  implementation("com.zeoflow.memo:memo-runtime:1.3.1")
-  kapt("com.zeoflow.memo:memo-compiler-ktx:1.3.1")
+  implementation("com.zeoflow.startup:startup-ktx:${Versions.ZeoFlowStartUp}")
+  implementation("com.zeoflow.memo:memo:${Versions.ZeoFlowMemo}")
+  implementation("com.zeoflow.memo:memo-runtime:${Versions.ZeoFlowMemo}")
+  kapt("com.zeoflow.memo:memo-compiler-ktx:${Versions.ZeoFlowMemo}")
   //---------------------------------------------------------------------
 
   //--------------------------- ANDROID X ------------------------------
-  implementation(Dependencies.GoogleMaterial)
   implementation("androidx.constraintlayout:constraintlayout:2.1.4")
   implementation("androidx.appcompat:appcompat:1.5.1")
   implementation("androidx.core:core-ktx:1.9.0")
-  implementation("androidx.fragment:fragment-ktx:1.5.3")
-  implementation("androidx.navigation:navigation-fragment-ktx:2.5.2")
-  implementation("androidx.navigation:navigation-ui-ktx:2.5.2")
+  implementation("androidx.fragment:fragment-ktx:${Versions.AndroidXFragment}")
+  implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidXNavigation}")
+  implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidXNavigation}")
+  implementation("com.google.android.material:material:${Versions.GoogleMaterial}")
   //---------------------------------------------------------------------
 
   implementation("javax.inject:javax.inject:1")
