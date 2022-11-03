@@ -111,14 +111,14 @@ object QuantizerWsmeans {
       for (i in 0 until clusterCount) {
         for (j in i + 1 until clusterCount) {
           val distance = pointProvider.distance(clusters[i], clusters[j])
-          distanceToIndexMatrix[j][i]!!.distance = distance
-          distanceToIndexMatrix[j][i]!!.index = i
-          distanceToIndexMatrix[i][j]!!.distance = distance
-          distanceToIndexMatrix[i][j]!!.index = j
+          distanceToIndexMatrix[j][i].distance = distance
+          distanceToIndexMatrix[j][i].index = i
+          distanceToIndexMatrix[i][j].distance = distance
+          distanceToIndexMatrix[i][j].index = j
         }
         Arrays.sort(distanceToIndexMatrix[i])
         for (j in 0 until clusterCount) {
-          indexMatrix[i]!![j] = distanceToIndexMatrix[i][j]!!.index
+          indexMatrix[i]!![j] = distanceToIndexMatrix[i][j].index
         }
       }
       var pointsMoved = 0
@@ -130,7 +130,7 @@ object QuantizerWsmeans {
         var minimumDistance = previousDistance
         var newClusterIndex = -1
         for (j in 0 until clusterCount) {
-          if (distanceToIndexMatrix[previousClusterIndex][j]!!.distance
+          if (distanceToIndexMatrix[previousClusterIndex][j].distance
             >= 4 * previousDistance
           ) {
             continue
@@ -194,7 +194,7 @@ object QuantizerWsmeans {
     return argbToPopulation
   }
 
-  private class Distance internal constructor() : Comparable<Distance> {
+  private class Distance() : Comparable<Distance> {
     var index: Int
     var distance: Double
 

@@ -65,7 +65,6 @@ import androidx.customview.widget.ViewDragHelper;
 import com.google.android.material.R;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.internal.ViewUtils;
-import com.google.android.material.internal.ViewUtils.RelativePadding;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
@@ -1701,11 +1700,11 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
     ViewUtils.doOnApplyWindowInsets(
       child,
       new ViewUtils.OnApplyWindowInsetsListener() {
+        @NonNull
         @Override
         @SuppressWarnings("deprecation")
-        // getSystemWindowInsetBottom is used for adjustResize.
         public WindowInsetsCompat onApplyWindowInsets(
-          View view, WindowInsetsCompat insets, RelativePadding initialPadding) {
+          View view, WindowInsetsCompat insets, ViewUtils.RelativePadding initialPadding) {
           Insets systemBarInsets =
             insets.getInsets(WindowInsetsCompat.Type.systemBars());
           Insets mandatoryGestureInsets =
@@ -2160,26 +2159,25 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
    * State persisted across instances
    */
   protected static class SavedState extends AbsSavedState {
-    public static final Creator<SavedState> CREATOR =
-      new ClassLoaderCreator<SavedState>() {
-        @NonNull
-        @Override
-        public SavedState createFromParcel(@NonNull Parcel in, ClassLoader loader) {
-          return new SavedState(in, loader);
-        }
+    public static final Creator<SavedState> CREATOR = new ClassLoaderCreator<>() {
+      @NonNull
+      @Override
+      public SavedState createFromParcel(@NonNull Parcel in, ClassLoader loader) {
+        return new SavedState(in, loader);
+      }
 
-        @Nullable
-        @Override
-        public SavedState createFromParcel(@NonNull Parcel in) {
-          return new SavedState(in, null);
-        }
+      @NonNull
+      @Override
+      public SavedState createFromParcel(@NonNull Parcel in) {
+        return new SavedState(in, null);
+      }
 
-        @NonNull
-        @Override
-        public SavedState[] newArray(int size) {
-          return new SavedState[size];
-        }
-      };
+      @NonNull
+      @Override
+      public SavedState[] newArray(int size) {
+        return new SavedState[size];
+      }
+    };
     @State
     final int state;
     int peekHeight;
@@ -2249,7 +2247,9 @@ public class MenuSheetBehaviour<V extends View> extends CoordinatorLayout.Behavi
         ViewCompat.postOnAnimation(viewRef.get(), continueSettlingRunnable);
         isContinueSettlingRunnablePosted = true;
       }
-    }    private final Runnable continueSettlingRunnable =
+    }
+
+    private final Runnable continueSettlingRunnable =
       new Runnable() {
         @Override
         public void run() {

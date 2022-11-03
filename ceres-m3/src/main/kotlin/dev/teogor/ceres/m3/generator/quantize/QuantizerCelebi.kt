@@ -40,7 +40,7 @@ object QuantizerCelebi {
   fun quantize(pixels: IntArray, maxColors: Int): Map<Int, Int> {
     val wu = QuantizerWu()
     val wuResult = wu.quantize(pixels, maxColors)
-    val wuClustersAsObjects: Set<Int> = wuResult!!.colorToCount.keys
+    val wuClustersAsObjects: Set<Int> = wuResult.colorToCount.keys
     var index = 0
     val wuClusters = IntArray(wuClustersAsObjects.size)
     for (argb in wuClustersAsObjects) {

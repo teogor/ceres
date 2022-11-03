@@ -29,14 +29,12 @@ class MenuSheetContainer @JvmOverloads constructor(
   attrs: AttributeSet? = null,
   @StyleRes theme: Int = 0
 ) : FrameLayout(context, attrs, getThemeResId(context, theme)) {
-  private var behavior: dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour<*>? = null
-  fun setBehaviour(behavior: dev.teogor.ceres.m3.widgets.menusheet.MenuSheetBehaviour<*>?) {
+  private var behavior: MenuSheetBehaviour<*>? = null
+  fun setBehaviour(behavior: MenuSheetBehaviour<*>?) {
     this.behavior = behavior
   }
 
   companion object {
-    private const val TAG = "MenuSheetContainer"
-
     @SuppressLint("PrivateResource")
     private fun getThemeResId(context: Context, themeId: Int): Int {
       var themeIdCopy = themeId

@@ -17,7 +17,6 @@
 package dev.teogor.ceres.m3.generator.palettes
 
 import dev.teogor.ceres.m3.generator.hct.Hct
-import java.util.HashMap
 
 /**
  * A convenience class for retrieving colors that are constant in hue and chroma, but vary in tone.
