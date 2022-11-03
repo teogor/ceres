@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Teogor All Rights Reserved.
+ * Copyright 2022 teogor (Teodor Grigor) All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,30 +14,29 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.m3.generator.quantize;
+package dev.teogor.ceres.m3.generator.quantize
 
-import dev.teogor.ceres.m3.util.ColorUtils;
+import dev.teogor.ceres.m3.util.ColorUtils.argbFromLab
+import dev.teogor.ceres.m3.util.ColorUtils.labFromArgb
 
 /**
  * Provides conversions needed for K-Means quantization. Converting input to points, and converting
  * the final state of the K-Means algorithm to colors.
  */
-public final class PointProviderLab implements PointProvider {
+class PointProviderLab : PointProvider {
   /**
    * Convert a color represented in ARGB to a 3-element array of L*a*b* coordinates of the color.
    */
-  @Override
-  public double[] fromInt(int argb) {
-    double[] lab = ColorUtils.labFromArgb(argb);
-    return new double[]{lab[0], lab[1], lab[2]};
+  override fun fromInt(argb: Int): DoubleArray {
+    val lab = labFromArgb(argb)
+    return doubleArrayOf(lab[0], lab[1], lab[2])
   }
 
   /**
    * Convert a 3-element array to a color represented in ARGB.
    */
-  @Override
-  public int toInt(double[] lab) {
-    return ColorUtils.argbFromLab(lab[0], lab[1], lab[2]);
+  override fun toInt(point: DoubleArray?): Int {
+    return argbFromLab(point!![0], point[1], point[2])
   }
 
   /**
@@ -45,14 +44,14 @@ public final class PointProviderLab implements PointProvider {
    * used by quantization algorithms to compare distance, and the relative ordering is the same,
    * with or without a square root.
    *
-   * <p>This relatively minor optimization is helpful because this method is called at least once
+   *
+   * This relatively minor optimization is helpful because this method is called at least once
    * for each pixel in an image.
    */
-  @Override
-  public double distance(double[] one, double[] two) {
-    double dL = (one[0] - two[0]);
-    double dA = (one[1] - two[1]);
-    double dB = (one[2] - two[2]);
-    return (dL * dL + dA * dA + dB * dB);
+  override fun distance(a: DoubleArray?, b: DoubleArray?): Double {
+    val dL = a!![0] - b!![0]
+    val dA = a[1] - b[1]
+    val dB = a[2] - b[2]
+    return dL * dL + dA * dA + dB * dB
   }
 }

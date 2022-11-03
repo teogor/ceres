@@ -772,69 +772,142 @@ public final class dev/teogor/ceres/m3/extension/ThemeStoreExtKt {
 	public static final fun applyNewColor (Ldev/teogor/ceres/m3/theme/ThemeMemo;Ljava/lang/String;)V
 }
 
-public class dev/teogor/ceres/m3/generator/blend/Blend {
-	public static fun cam16Ucs (IID)I
-	public static fun harmonize (II)I
-	public static fun hctHue (IID)I
+public final class dev/teogor/ceres/m3/generator/blend/Blend {
+	public static final field INSTANCE Ldev/teogor/ceres/m3/generator/blend/Blend;
+	public final fun cam16Ucs (IID)I
+	public final fun harmonize (II)I
+	public final fun hctHue (IID)I
 }
 
 public final class dev/teogor/ceres/m3/generator/hct/Cam16 {
-	public static fun fromInt (I)Ldev/teogor/ceres/m3/generator/hct/Cam16;
-	public static fun fromUcs (DDD)Ldev/teogor/ceres/m3/generator/hct/Cam16;
-	public static fun fromUcsInViewingConditions (DDDLdev/teogor/ceres/m3/generator/hct/ViewingConditions;)Ldev/teogor/ceres/m3/generator/hct/Cam16;
-	public fun getAstar ()D
-	public fun getBstar ()D
-	public fun getChroma ()D
-	public fun getHue ()D
-	public fun getJ ()D
-	public fun getJstar ()D
-	public fun getM ()D
-	public fun getQ ()D
-	public fun getS ()D
-	public fun toInt ()I
+	public static final field Companion Ldev/teogor/ceres/m3/generator/hct/Cam16$Companion;
+	public static final field XYZ_TO_CAM16RGB [[D
+	public synthetic fun <init> (DDDDDDDDDLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun distance (Ldev/teogor/ceres/m3/generator/hct/Cam16;)D
+	public static final fun fromInt (I)Ldev/teogor/ceres/m3/generator/hct/Cam16;
+	public final fun getAstar ()D
+	public final fun getBstar ()D
+	public final fun getChroma ()D
+	public final fun getHue ()D
+	public final fun getJ ()D
+	public final fun getJstar ()D
+	public final fun getM ()D
+	public final fun getQ ()D
+	public final fun getS ()D
+	public final fun toInt ()I
+	public final fun viewed (Ldev/teogor/ceres/m3/generator/hct/ViewingConditions;)I
+}
+
+public final class dev/teogor/ceres/m3/generator/hct/Cam16$Companion {
+	public final fun fromInt (I)Ldev/teogor/ceres/m3/generator/hct/Cam16;
+	public final fun fromIntInViewingConditions (ILdev/teogor/ceres/m3/generator/hct/ViewingConditions;)Ldev/teogor/ceres/m3/generator/hct/Cam16;
+	public final fun fromJch (DDD)Ldev/teogor/ceres/m3/generator/hct/Cam16;
+	public final fun fromUcs (DDD)Ldev/teogor/ceres/m3/generator/hct/Cam16;
+	public final fun fromUcsInViewingConditions (DDDLdev/teogor/ceres/m3/generator/hct/ViewingConditions;)Ldev/teogor/ceres/m3/generator/hct/Cam16;
+	public final fun getCAM16RGB_TO_XYZ ()[[D
 }
 
 public final class dev/teogor/ceres/m3/generator/hct/Hct {
-	public static fun from (DDD)Ldev/teogor/ceres/m3/generator/hct/Hct;
-	public static fun fromInt (I)Ldev/teogor/ceres/m3/generator/hct/Hct;
-	public fun getChroma ()D
-	public fun getHue ()D
-	public fun getTone ()D
-	public fun setChroma (D)V
-	public fun setHue (D)V
-	public fun setTone (D)V
-	public fun toInt ()I
+	public static final field Companion Ldev/teogor/ceres/m3/generator/hct/Hct$Companion;
+	public synthetic fun <init> (ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getChroma ()D
+	public final fun getHue ()D
+	public final fun getTone ()D
+	public final fun setChroma (D)V
+	public final fun setHue (D)V
+	public final fun setTone (D)V
+	public final fun toInt ()I
 }
 
-public class dev/teogor/ceres/m3/generator/hct/HctSolver {
-	public static fun solveToCam (DDD)Ldev/teogor/ceres/m3/generator/hct/Cam16;
-	public static fun solveToInt (DDD)I
+public final class dev/teogor/ceres/m3/generator/hct/Hct$Companion {
+	public final fun from (DDD)Ldev/teogor/ceres/m3/generator/hct/Hct;
+	public final fun fromInt (I)Ldev/teogor/ceres/m3/generator/hct/Hct;
+}
+
+public final class dev/teogor/ceres/m3/generator/hct/HctSolver {
+	public static final field INSTANCE Ldev/teogor/ceres/m3/generator/hct/HctSolver;
+	public final fun areInCyclicOrder (DDD)Z
+	public final fun bisectToLimit (DD)[D
+	public final fun bisectToSegment (DD)[[D
+	public final fun chromaticAdaptation (D)D
+	public final fun criticalPlaneAbove (D)I
+	public final fun criticalPlaneBelow (D)I
+	public final fun findResultByJ (DDD)I
+	public final fun getCRITICAL_PLANES ()[D
+	public final fun getLINRGB_FROM_SCALED_DISCOUNT ()[[D
+	public final fun getSCALED_DISCOUNT_FROM_LINRGB ()[[D
+	public final fun getY_FROM_LINRGB ()[D
+	public final fun hueOf ([D)D
+	public final fun intercept (DDD)D
+	public final fun inverseChromaticAdaptation (D)D
+	public final fun isBounded (D)Z
+	public final fun lerpPoint ([DD[D)[D
+	public final fun midpoint ([D[D)[D
+	public final fun nthVertex (DI)[D
+	public final fun sanitizeRadians (D)D
+	public final fun setCoordinate ([DD[DI)[D
+	public final fun solveToCam (DDD)Ldev/teogor/ceres/m3/generator/hct/Cam16;
+	public static final fun solveToInt (DDD)I
+	public final fun trueDelinearized (D)D
 }
 
 public final class dev/teogor/ceres/m3/generator/hct/ViewingConditions {
-	public static final field DEFAULT Ldev/teogor/ceres/m3/generator/hct/ViewingConditions;
-	public fun getAw ()D
-	public fun getFlRoot ()D
-	public fun getN ()D
-	public fun getNbb ()D
-	public fun getRgbD ()[D
+	public static final field Companion Ldev/teogor/ceres/m3/generator/hct/ViewingConditions$Companion;
+	public synthetic fun <init> (DDDDDD[DDDDLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getAw ()D
+	public final fun getC ()D
+	public final fun getFl ()D
+	public final fun getFlRoot ()D
+	public final fun getN ()D
+	public final fun getNbb ()D
+	public final fun getNc ()D
+	public final fun getNcb ()D
+	public final fun getRgbD ()[D
+	public final fun getZ ()D
+}
+
+public final class dev/teogor/ceres/m3/generator/hct/ViewingConditions$Companion {
+	public final fun getDEFAULT ()Ldev/teogor/ceres/m3/generator/hct/ViewingConditions;
+	public final fun make ([DDDDZ)Ldev/teogor/ceres/m3/generator/hct/ViewingConditions;
 }
 
 public final class dev/teogor/ceres/m3/generator/palettes/CorePalette {
-	public field a1 Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
-	public field a2 Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
-	public field a3 Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
-	public field error Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
-	public field n1 Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
-	public field n2 Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
-	public static fun contentOf (I)Ldev/teogor/ceres/m3/generator/palettes/CorePalette;
-	public static fun of (I)Ldev/teogor/ceres/m3/generator/palettes/CorePalette;
+	public static final field Companion Ldev/teogor/ceres/m3/generator/palettes/CorePalette$Companion;
+	public synthetic fun <init> (IZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getA1 ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public final fun getA2 ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public final fun getA3 ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public final fun getError ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public final fun getN1 ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public final fun getN2 ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public final fun setA1 (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
+	public final fun setA2 (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
+	public final fun setA3 (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
+	public final fun setError (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
+	public final fun setN1 (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
+	public final fun setN2 (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
+}
+
+public final class dev/teogor/ceres/m3/generator/palettes/CorePalette$Companion {
+	public final fun contentOf (I)Ldev/teogor/ceres/m3/generator/palettes/CorePalette;
+	public final fun of (I)Ldev/teogor/ceres/m3/generator/palettes/CorePalette;
 }
 
 public final class dev/teogor/ceres/m3/generator/palettes/TonalPalette {
-	public static final fun fromHueAndChroma (DD)Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
-	public static final fun fromInt (I)Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
-	public fun tone (I)I
+	public static final field Companion Ldev/teogor/ceres/m3/generator/palettes/TonalPalette$Companion;
+	public synthetic fun <init> (DDLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getCache ()Ljava/util/Map;
+	public final fun getChroma ()D
+	public final fun getHue ()D
+	public final fun setCache (Ljava/util/Map;)V
+	public final fun setChroma (D)V
+	public final fun setHue (D)V
+	public final fun tone (I)I
+}
+
+public final class dev/teogor/ceres/m3/generator/palettes/TonalPalette$Companion {
+	public final fun fromHueAndChroma (DD)Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public final fun fromInt (I)Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
 }
 
 public abstract interface class dev/teogor/ceres/m3/generator/quantize/PointProvider {
@@ -851,123 +924,204 @@ public final class dev/teogor/ceres/m3/generator/quantize/PointProviderLab : dev
 }
 
 public final class dev/teogor/ceres/m3/generator/quantize/QuantizerCelebi {
-	public static fun quantize ([II)Ljava/util/Map;
+	public static final field INSTANCE Ldev/teogor/ceres/m3/generator/quantize/QuantizerCelebi;
+	public final fun quantize ([II)Ljava/util/Map;
 }
 
 public final class dev/teogor/ceres/m3/generator/quantize/QuantizerMap : dev/teogor/ceres/m3/generator/quantize/Quantizer {
 	public fun <init> ()V
-	public fun getColorToCount ()Ljava/util/Map;
+	public final fun getColorToCount ()Ljava/util/Map;
 	public fun quantize ([II)Ldev/teogor/ceres/m3/generator/quantize/QuantizerResult;
+	public final fun setColorToCount (Ljava/util/Map;)V
 }
 
 public final class dev/teogor/ceres/m3/generator/quantize/QuantizerResult {
-	public final field colorToCount Ljava/util/Map;
+	public final fun getColorToCount ()Ljava/util/Map;
 }
 
 public final class dev/teogor/ceres/m3/generator/quantize/QuantizerWsmeans {
-	public static fun quantize ([I[II)Ljava/util/Map;
+	public static final field INSTANCE Ldev/teogor/ceres/m3/generator/quantize/QuantizerWsmeans;
+	public final fun quantize ([I[II)Ljava/util/Map;
 }
 
 public final class dev/teogor/ceres/m3/generator/quantize/QuantizerWu : dev/teogor/ceres/m3/generator/quantize/Quantizer {
+	public static final field Companion Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$Companion;
+	public field cubes [Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$Box;
+	public field moments [D
+	public field momentsB [I
+	public field momentsG [I
+	public field momentsR [I
+	public field weights [I
 	public fun <init> ()V
+	public final fun constructHistogram (Ljava/util/Map;)V
+	public final fun createBoxes (I)Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$CreateBoxesResult;
+	public final fun createMoments ()V
+	public final fun createResult (I)Ljava/util/List;
+	public final fun cut (Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$Box;Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$Box;)Z
+	public final fun getCubes ()[Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$Box;
+	public final fun getMoments ()[D
+	public final fun getMomentsB ()[I
+	public final fun getMomentsG ()[I
+	public final fun getMomentsR ()[I
+	public final fun getWeights ()[I
+	public final fun maximize (Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$Box;Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$Direction;IIIIII)Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$MaximizeResult;
 	public fun quantize ([II)Ldev/teogor/ceres/m3/generator/quantize/QuantizerResult;
+	public final fun setCubes ([Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$Box;)V
+	public final fun setMoments ([D)V
+	public final fun setMomentsB ([I)V
+	public final fun setMomentsG ([I)V
+	public final fun setMomentsR ([I)V
+	public final fun setWeights ([I)V
+	public final fun variance (Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$Box;)D
 }
 
-public class dev/teogor/ceres/m3/generator/scheme/Scheme {
+public final class dev/teogor/ceres/m3/generator/quantize/QuantizerWu$Box {
+	public fun <init> ()V
+	public final fun getB0 ()I
+	public final fun getB1 ()I
+	public final fun getG0 ()I
+	public final fun getG1 ()I
+	public final fun getR0 ()I
+	public final fun getR1 ()I
+	public final fun getVol ()I
+	public final fun setB0 (I)V
+	public final fun setB1 (I)V
+	public final fun setG0 (I)V
+	public final fun setG1 (I)V
+	public final fun setR0 (I)V
+	public final fun setR1 (I)V
+	public final fun setVol (I)V
+}
+
+public final class dev/teogor/ceres/m3/generator/quantize/QuantizerWu$Companion {
+	public final fun bottom (Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$Box;Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$Direction;[I)I
+	public final fun getIndex (III)I
+	public final fun top (Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$Box;Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$Direction;I[I)I
+	public final fun volume (Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$Box;[I)I
+}
+
+public final class dev/teogor/ceres/m3/generator/quantize/QuantizerWu$CreateBoxesResult {
+	public final fun getRequestedCount ()I
+	public final fun getResultCount ()I
+	public final fun setRequestedCount (I)V
+	public final fun setResultCount (I)V
+}
+
+public final class dev/teogor/ceres/m3/generator/quantize/QuantizerWu$Direction : java/lang/Enum {
+	public static final field BLUE Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$Direction;
+	public static final field GREEN Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$Direction;
+	public static final field RED Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$Direction;
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$Direction;
+	public static fun values ()[Ldev/teogor/ceres/m3/generator/quantize/QuantizerWu$Direction;
+}
+
+public final class dev/teogor/ceres/m3/generator/quantize/QuantizerWu$MaximizeResult {
+	public final fun getCutLocation ()I
+	public final fun getMaximum ()D
+	public final fun setCutLocation (I)V
+	public final fun setMaximum (D)V
+}
+
+public final class dev/teogor/ceres/m3/generator/scheme/Scheme {
+	public static final field Companion Ldev/teogor/ceres/m3/generator/scheme/Scheme$Companion;
 	public fun <init> ()V
 	public fun <init> (IIIIIIIIIIIIIIIIIIIIIIIIIII)V
-	public static fun dark (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public static fun darkContent (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
 	public fun equals (Ljava/lang/Object;)Z
-	public fun getBackground ()I
-	public fun getError ()I
-	public fun getErrorContainer ()I
-	public fun getInverseOnSurface ()I
-	public fun getInversePrimary ()I
-	public fun getInverseSurface ()I
-	public fun getOnBackground ()I
-	public fun getOnError ()I
-	public fun getOnErrorContainer ()I
-	public fun getOnPrimary ()I
-	public fun getOnPrimaryContainer ()I
-	public fun getOnSecondary ()I
-	public fun getOnSecondaryContainer ()I
-	public fun getOnSurface ()I
-	public fun getOnSurfaceVariant ()I
-	public fun getOnTertiary ()I
-	public fun getOnTertiaryContainer ()I
-	public fun getOutline ()I
-	public fun getPrimary ()I
-	public fun getPrimaryContainer ()I
-	public fun getSecondary ()I
-	public fun getSecondaryContainer ()I
-	public fun getShadow ()I
-	public fun getSurface ()I
-	public fun getSurfaceVariant ()I
-	public fun getTertiary ()I
-	public fun getTertiaryContainer ()I
+	public final fun getBackground ()I
+	public final fun getError ()I
+	public final fun getErrorContainer ()I
+	public final fun getInverseOnSurface ()I
+	public final fun getInversePrimary ()I
+	public final fun getInverseSurface ()I
+	public final fun getOnBackground ()I
+	public final fun getOnError ()I
+	public final fun getOnErrorContainer ()I
+	public final fun getOnPrimary ()I
+	public final fun getOnPrimaryContainer ()I
+	public final fun getOnSecondary ()I
+	public final fun getOnSecondaryContainer ()I
+	public final fun getOnSurface ()I
+	public final fun getOnSurfaceVariant ()I
+	public final fun getOnTertiary ()I
+	public final fun getOnTertiaryContainer ()I
+	public final fun getOutline ()I
+	public final fun getPrimary ()I
+	public final fun getPrimaryContainer ()I
+	public final fun getSecondary ()I
+	public final fun getSecondaryContainer ()I
+	public final fun getShadow ()I
+	public final fun getSurface ()I
+	public final fun getSurfaceVariant ()I
+	public final fun getTertiary ()I
+	public final fun getTertiaryContainer ()I
 	public fun hashCode ()I
-	public static fun light (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public static fun lightContent (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun setBackground (I)V
-	public fun setError (I)V
-	public fun setErrorContainer (I)V
-	public fun setInverseOnSurface (I)V
-	public fun setInversePrimary (I)V
-	public fun setInverseSurface (I)V
-	public fun setOnBackground (I)V
-	public fun setOnError (I)V
-	public fun setOnErrorContainer (I)V
-	public fun setOnPrimary (I)V
-	public fun setOnPrimaryContainer (I)V
-	public fun setOnSecondary (I)V
-	public fun setOnSecondaryContainer (I)V
-	public fun setOnSurface (I)V
-	public fun setOnSurfaceVariant (I)V
-	public fun setOnTertiary (I)V
-	public fun setOnTertiaryContainer (I)V
-	public fun setOutline (I)V
-	public fun setPrimary (I)V
-	public fun setPrimaryContainer (I)V
-	public fun setSecondary (I)V
-	public fun setSecondaryContainer (I)V
-	public fun setShadow (I)V
-	public fun setSurface (I)V
-	public fun setSurfaceVariant (I)V
-	public fun setTertiary (I)V
-	public fun setTertiaryContainer (I)V
+	public final fun setBackground (I)V
+	public final fun setError (I)V
+	public final fun setErrorContainer (I)V
+	public final fun setInverseOnSurface (I)V
+	public final fun setInversePrimary (I)V
+	public final fun setInverseSurface (I)V
+	public final fun setOnBackground (I)V
+	public final fun setOnError (I)V
+	public final fun setOnErrorContainer (I)V
+	public final fun setOnPrimary (I)V
+	public final fun setOnPrimaryContainer (I)V
+	public final fun setOnSecondary (I)V
+	public final fun setOnSecondaryContainer (I)V
+	public final fun setOnSurface (I)V
+	public final fun setOnSurfaceVariant (I)V
+	public final fun setOnTertiary (I)V
+	public final fun setOnTertiaryContainer (I)V
+	public final fun setOutline (I)V
+	public final fun setPrimary (I)V
+	public final fun setPrimaryContainer (I)V
+	public final fun setSecondary (I)V
+	public final fun setSecondaryContainer (I)V
+	public final fun setShadow (I)V
+	public final fun setSurface (I)V
+	public final fun setSurfaceVariant (I)V
+	public final fun setTertiary (I)V
+	public final fun setTertiaryContainer (I)V
 	public fun toString ()Ljava/lang/String;
-	public fun withBackground (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withError (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withErrorContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withInverseOnSurface (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withInversePrimary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withInverseSurface (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withOnBackground (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withOnError (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withOnErrorContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withOnPrimary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withOnPrimaryContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withOnSecondary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withOnSecondaryContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withOnSurface (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withOnSurfaceVariant (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withOnTertiary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withOnTertiaryContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withOutline (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withPrimary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withPrimaryContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withSecondary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withSecondaryContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withShadow (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withSurface (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withSurfaceVariant (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withTertiary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
-	public fun withTertiaryContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withBackground (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withError (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withErrorContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withInverseOnSurface (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withInversePrimary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withInverseSurface (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withOnBackground (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withOnError (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withOnErrorContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withOnPrimary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withOnPrimaryContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withOnSecondary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withOnSecondaryContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withOnSurface (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withOnSurfaceVariant (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withOnTertiary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withOnTertiaryContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withOutline (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withPrimary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withPrimaryContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withSecondary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withSecondaryContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withShadow (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withSurface (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withSurfaceVariant (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withTertiary (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun withTertiaryContainer (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+}
+
+public final class dev/teogor/ceres/m3/generator/scheme/Scheme$Companion {
+	public final fun dark (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun darkContent (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun light (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
+	public final fun lightContent (I)Ldev/teogor/ceres/m3/generator/scheme/Scheme;
 }
 
 public final class dev/teogor/ceres/m3/generator/score/Score {
-	public static fun score (Ljava/util/Map;)Ljava/util/List;
+	public static final field INSTANCE Ldev/teogor/ceres/m3/generator/score/Score;
+	public final fun score (Ljava/util/Map;)Ljava/util/List;
 }
 
 public final class dev/teogor/ceres/m3/resources/MaterialAttributes {

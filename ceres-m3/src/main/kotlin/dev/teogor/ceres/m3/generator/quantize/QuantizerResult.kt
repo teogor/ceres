@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Teogor All Rights Reserved.
+ * Copyright 2022 teogor (Teodor Grigor) All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,15 +14,9 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.m3.generator.quantize;
+package dev.teogor.ceres.m3.generator.quantize
 
 /**
- * An interface to allow use of different color spaces by quantizers.
+ * Represents result of a quantizer run
  */
-public interface PointProvider {
-  public double[] fromInt(int argb);
-
-  public int toInt(double[] point);
-
-  public double distance(double[] a, double[] b);
-}
+class QuantizerResult internal constructor(val colorToCount: Map<Int, Int>)

@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Teogor All Rights Reserved.
+ * Copyright 2022 teogor (Teodor Grigor) All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.m3.generator.quantize;
+package dev.teogor.ceres.m3.generator.quantize
 
-interface Quantizer {
-  public QuantizerResult quantize(int[] pixels, int maxColors);
+internal interface Quantizer {
+  fun quantize(pixels: IntArray?, maxColors: Int): QuantizerResult?
 }

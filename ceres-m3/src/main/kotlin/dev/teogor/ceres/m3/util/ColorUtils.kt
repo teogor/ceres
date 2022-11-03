@@ -33,6 +33,7 @@ object ColorUtils {
     doubleArrayOf(0.2126, 0.7152, 0.0722),
     doubleArrayOf(0.01932141, 0.11916382, 0.95034478)
   )
+
   @JvmField
   val XYZ_TO_SRGB = arrayOf(
     doubleArrayOf(
@@ -51,6 +52,7 @@ object ColorUtils {
       1.0571799111220335
     )
   )
+
   @JvmField
   val WHITE_POINT_D65 = doubleArrayOf(95.047, 100.0, 108.883)
 
