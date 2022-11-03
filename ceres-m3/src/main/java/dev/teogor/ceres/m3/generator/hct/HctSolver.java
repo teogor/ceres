@@ -16,8 +16,8 @@
 
 package dev.teogor.ceres.m3.generator.hct;
 
-import dev.teogor.ceres.m3.utils.ColorUtils;
-import dev.teogor.ceres.m3.utils.MathUtils;
+import dev.teogor.ceres.m3.util.ColorUtils;
+import dev.teogor.ceres.m3.util.MathUtils;
 
 /**
  * A class that solves the HCT equation.

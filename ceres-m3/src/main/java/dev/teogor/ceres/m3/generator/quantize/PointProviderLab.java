@@ -16,7 +16,7 @@
 
 package dev.teogor.ceres.m3.generator.quantize;
 
-import dev.teogor.ceres.m3.utils.ColorUtils;
+import dev.teogor.ceres.m3.util.ColorUtils;
 
 /**
  * Provides conversions needed for K-Means quantization. Converting input to points, and converting

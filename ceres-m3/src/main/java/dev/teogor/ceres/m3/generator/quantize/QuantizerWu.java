@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import dev.teogor.ceres.m3.utils.ColorUtils;
+import dev.teogor.ceres.m3.util.ColorUtils;
 
 /**
  * An image quantizer that divides the image's pixels into clusters by recursively cutting an RGB
