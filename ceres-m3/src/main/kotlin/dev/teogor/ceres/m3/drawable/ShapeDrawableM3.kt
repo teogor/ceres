@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.m3
+package dev.teogor.ceres.m3.drawable
 
 import android.content.Context
 import android.util.AttributeSet
@@ -25,6 +25,7 @@ import com.google.android.material.shape.ShapeAppearanceModel
 import dev.teogor.ceres.extensions.blendColors
 import dev.teogor.ceres.extensions.colorStateList
 import dev.teogor.ceres.extensions.isColorLight
+import dev.teogor.ceres.m3.ColorM3
 import dev.teogor.ceres.m3.theme.ColorScheme
 import dev.teogor.ceres.m3.theme.SurfaceOverlay
 import dev.teogor.ceres.m3.theme.ThemeM3
@@ -120,11 +121,6 @@ class ShapeDrawableM3 : MaterialShapeDrawable {
     ).forAlpha(surfaceTint).isColorLight()
   }
 
-  /** Returns a builder with the edges and corners from this [ShapeDrawableM3]  */
-  fun toBuilder(): Builder {
-    return Builder(shapeAppearanceModel)
-  }
-
   /** Builder to create instances of [ShapeDrawableM3]s.  */
   data class Builder(
     private var shapeAppearanceModel: ShapeAppearanceModel,
@@ -133,6 +129,8 @@ class ShapeDrawableM3 : MaterialShapeDrawable {
     private var surfaceTint: Float = 0f,
     private var surfaceTintOverlay: ColorM3 = ColorM3.Primary
   ) {
+
+    internal constructor(shapeDrawable: MaterialShapeDrawable) : this(shapeDrawable.shapeAppearanceModel)
 
     fun backgroundColor(colorM3: ColorM3) = apply { this.backgroundColor = colorM3 }
 
