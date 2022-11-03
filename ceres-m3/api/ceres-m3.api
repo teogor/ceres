@@ -970,29 +970,31 @@ public final class dev/teogor/ceres/m3/generator/score/Score {
 	public static fun score (Ljava/util/Map;)Ljava/util/List;
 }
 
-public class dev/teogor/ceres/m3/resources/MaterialAttributes {
-	public fun <init> ()V
-	public static fun resolve (Landroid/content/Context;I)Landroid/util/TypedValue;
-	public static fun resolveBoolean (Landroid/content/Context;IZ)Z
-	public static fun resolveBooleanOrThrow (Landroid/content/Context;ILjava/lang/String;)Z
-	public static fun resolveDimension (Landroid/content/Context;II)I
-	public static fun resolveInteger (Landroid/content/Context;II)I
-	public static fun resolveMinimumAccessibleTouchTarget (Landroid/content/Context;)I
-	public static fun resolveOrThrow (Landroid/content/Context;ILjava/lang/String;)I
-	public static fun resolveOrThrow (Landroid/view/View;I)I
-	public static fun resolveTypedValueOrThrow (Landroid/content/Context;ILjava/lang/String;)Landroid/util/TypedValue;
-	public static fun resolveTypedValueOrThrow (Landroid/view/View;I)Landroid/util/TypedValue;
+public final class dev/teogor/ceres/m3/resources/MaterialAttributes {
+	public static final field INSTANCE Ldev/teogor/ceres/m3/resources/MaterialAttributes;
+	public static final fun resolve (Landroid/content/Context;I)Landroid/util/TypedValue;
+	public final fun resolveBoolean (Landroid/content/Context;IZ)Z
+	public final fun resolveBooleanOrThrow (Landroid/content/Context;ILjava/lang/String;)Z
+	public static final fun resolveDimension (Landroid/content/Context;II)I
+	public final fun resolveInteger (Landroid/content/Context;II)I
+	public final fun resolveMinimumAccessibleTouchTarget (Landroid/content/Context;)I
+	public final fun resolveOrThrow (Landroid/content/Context;ILjava/lang/String;)I
+	public final fun resolveOrThrow (Landroid/view/View;I)I
+	public static final fun resolveTypedValueOrThrow (Landroid/content/Context;ILjava/lang/String;)Landroid/util/TypedValue;
+	public final fun resolveTypedValueOrThrow (Landroid/view/View;I)Landroid/util/TypedValue;
 }
 
-public class dev/teogor/ceres/m3/resources/MaterialResources {
-	public static fun getColorStateList (Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
-	public static fun getColorStateList (Landroid/content/Context;Landroidx/appcompat/widget/TintTypedArray;I)Landroid/content/res/ColorStateList;
-	public static fun getDimensionPixelSize (Landroid/content/Context;Landroid/content/res/TypedArray;II)I
-	public static fun getDrawable (Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/graphics/drawable/Drawable;
-	public static fun getTextAppearance (Landroid/content/Context;Landroid/content/res/TypedArray;I)Lcom/google/android/material/resources/TextAppearance;
-	public static fun getUnscaledTextSize (Landroid/content/Context;II)I
-	public static fun isFontScaleAtLeast1_3 (Landroid/content/Context;)Z
-	public static fun isFontScaleAtLeast2_0 (Landroid/content/Context;)Z
+public final class dev/teogor/ceres/m3/resources/MaterialResources {
+	public static final field INSTANCE Ldev/teogor/ceres/m3/resources/MaterialResources;
+	public final fun getColorStateList (Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
+	public final fun getColorStateList (Landroid/content/Context;Landroidx/appcompat/widget/TintTypedArray;I)Landroid/content/res/ColorStateList;
+	public final fun getDimensionPixelSize (Landroid/content/Context;Landroid/content/res/TypedArray;II)I
+	public final fun getDrawable (Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/graphics/drawable/Drawable;
+	public final fun getIndexWithValue (Landroid/content/res/TypedArray;II)I
+	public final fun getTextAppearance (Landroid/content/Context;Landroid/content/res/TypedArray;I)Lcom/google/android/material/resources/TextAppearance;
+	public final fun getUnscaledTextSize (Landroid/content/Context;II)I
+	public final fun isFontScaleAtLeast1_3 (Landroid/content/Context;)Z
+	public final fun isFontScaleAtLeast2_0 (Landroid/content/Context;)Z
 }
 
 public abstract class dev/teogor/ceres/m3/snackbar/BaseTransientBottomBar {
@@ -1135,16 +1137,20 @@ public final class dev/teogor/ceres/m3/snackbar/Snackbar$SnackbarLayout : dev/te
 	public synthetic fun setOnClickListener (Landroid/view/View$OnClickListener;)V
 }
 
-public class dev/teogor/ceres/m3/snackbar/SnackbarContentLayout : android/widget/LinearLayout, dev/teogor/ceres/m3/snackbar/ContentViewCallback {
+public final class dev/teogor/ceres/m3/snackbar/SnackbarContentLayout : android/widget/LinearLayout, dev/teogor/ceres/m3/snackbar/ContentViewCallback {
+	public static final field Companion Ldev/teogor/ceres/m3/snackbar/SnackbarContentLayout$Companion;
 	public fun <init> (Landroid/content/Context;)V
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public synthetic fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun animateContentIn (II)V
 	public fun animateContentOut (II)V
-	public fun getActionView ()Ldev/teogor/ceres/m3/ButtonM3;
-	public fun getMessageView ()Ldev/teogor/ceres/m3/TextViewM3;
-	protected fun onFinishInflate ()V
-	protected fun onMeasure (II)V
-	public fun setMaxInlineActionWidth (I)V
+	public final fun getActionView ()Ldev/teogor/ceres/m3/ButtonM3;
+	public final fun getMessageView ()Ldev/teogor/ceres/m3/TextViewM3;
+	public final fun setMaxInlineActionWidth (I)V
+	public final fun updateActionTextColorAlphaIfNeeded (F)V
+}
+
+public final class dev/teogor/ceres/m3/snackbar/SnackbarContentLayout$Companion {
 }
 
 public final class dev/teogor/ceres/m3/theme/AppThemeDefault : com/zeoflow/memo/common/DefaultType {
@@ -1444,41 +1450,48 @@ public final class dev/teogor/ceres/m3/theme/TrueBooleanDefault : com/zeoflow/me
 	public synthetic fun value ()Ljava/lang/Object;
 }
 
+public final class dev/teogor/ceres/m3/util/ColorUtils {
+	public static final field INSTANCE Ldev/teogor/ceres/m3/util/ColorUtils;
+	public static final field SRGB_TO_XYZ [[D
+	public static final field WHITE_POINT_D65 [D
+	public static final field XYZ_TO_SRGB [[D
+	public static final fun alphaFromArgb (I)I
+	public static final fun argbFromLab (DDD)I
+	public static final fun argbFromLinrgb ([D)I
+	public static final fun argbFromLstar (D)I
+	public static final fun argbFromRgb (III)I
+	public static final fun argbFromXyz (DDD)I
+	public static final fun blueFromArgb (I)I
+	public static final fun delinearized (D)I
+	public static final fun greenFromArgb (I)I
+	public final fun isOpaque (I)Z
+	public static final fun labF (D)D
+	public static final fun labFromArgb (I)[D
+	public static final fun labInvf (D)D
+	public static final fun linearized (I)D
+	public static final fun lstarFromArgb (I)D
+	public static final fun redFromArgb (I)I
+	public static final fun whitePointD65 ()[D
+	public static final fun xyzFromArgb (I)[D
+	public static final fun yFromLstar (D)D
+}
+
 public final class dev/teogor/ceres/m3/util/DynamicColors {
 	public static final field INSTANCE Ldev/teogor/ceres/m3/util/DynamicColors;
 	public final fun isDynamicColorAvailable ()Z
 }
 
-public class dev/teogor/ceres/m3/utils/ColorUtils {
-	public static fun alphaFromArgb (I)I
-	public static fun argbFromLab (DDD)I
-	public static fun argbFromLinrgb ([D)I
-	public static fun argbFromLstar (D)I
-	public static fun argbFromRgb (III)I
-	public static fun argbFromXyz (DDD)I
-	public static fun blueFromArgb (I)I
-	public static fun delinearized (D)I
-	public static fun greenFromArgb (I)I
-	public static fun isOpaque (I)Z
-	public static fun labFromArgb (I)[D
-	public static fun linearized (I)D
-	public static fun lstarFromArgb (I)D
-	public static fun redFromArgb (I)I
-	public static fun whitePointD65 ()[D
-	public static fun xyzFromArgb (I)[D
-	public static fun yFromLstar (D)D
-}
-
-public class dev/teogor/ceres/m3/utils/MathUtils {
-	public static fun clampDouble (DDD)D
-	public static fun clampInt (III)I
-	public static fun differenceDegrees (DD)D
-	public static fun lerp (DDD)D
-	public static fun matrixMultiply ([D[[D)[D
-	public static fun rotationDirection (DD)D
-	public static fun sanitizeDegreesDouble (D)D
-	public static fun sanitizeDegreesInt (I)I
-	public static fun signum (D)I
+public final class dev/teogor/ceres/m3/util/MathUtils {
+	public static final field INSTANCE Ldev/teogor/ceres/m3/util/MathUtils;
+	public static final fun clampDouble (DDD)D
+	public static final fun clampInt (III)I
+	public static final fun differenceDegrees (DD)D
+	public static final fun lerp (DDD)D
+	public static final fun matrixMultiply ([D[[D)[D
+	public static final fun rotationDirection (DD)D
+	public static final fun sanitizeDegreesDouble (D)D
+	public static final fun sanitizeDegreesInt (I)I
+	public static final fun signum (D)I
 }
 
 public class dev/teogor/ceres/m3/widgets/bar/Bar : androidx/constraintlayout/widget/ConstraintLayout, dev/teogor/ceres/m3/theme/ThemeHandler {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Teogor All Rights Reserved.
+ * Copyright 2022 teogor (Teodor Grigor) All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package dev.teogor.ceres.m3.snackbar
 
 import android.os.Handler
@@ -60,11 +61,11 @@ internal class SnackbarManager private constructor() {
         // Else, we need to create a new record and queue it
         nextSnackbar = SnackbarRecord(duration, callback)
       }
-      if (currentSnackbar != null
-        && cancelSnackbarLocked(
-          currentSnackbar!!,
-          com.google.android.material.snackbar.Snackbar.Callback.DISMISS_EVENT_CONSECUTIVE
-        )
+      if (currentSnackbar != null &&
+        cancelSnackbarLocked(
+            currentSnackbar!!,
+            com.google.android.material.snackbar.Snackbar.Callback.DISMISS_EVENT_CONSECUTIVE
+          )
       ) {
         // If we currently have a Snackbar, try and cancel it and wait in line
         return

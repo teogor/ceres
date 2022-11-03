@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Teogor All Rights Reserved.
+ * Copyright 2022 teogor (Teodor Grigor) All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,22 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package dev.teogor.ceres.m3.resources
 
 import android.content.Context
-import android.content.res.TypedArray
 import android.content.res.ColorStateList
-import androidx.appcompat.content.res.AppCompatResources
+import android.content.res.TypedArray
+import android.graphics.drawable.Drawable
 import android.os.Build.VERSION
 import android.os.Build.VERSION_CODES
-import androidx.appcompat.widget.TintTypedArray
-import android.graphics.drawable.Drawable
-import com.google.android.material.resources.TextAppearance
 import android.util.TypedValue
 import androidx.annotation.RestrictTo
 import androidx.annotation.StyleRes
 import androidx.annotation.StyleableRes
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.appcompat.widget.TintTypedArray
 import com.google.android.material.R
+import com.google.android.material.resources.TextAppearance
 
 /**
  * Utility methods to resolve resources for components.
@@ -52,7 +53,9 @@ object MaterialResources {
    * can include themeable attributes, regardless of API level.
    */
   fun getColorStateList(
-    context: Context, attributes: TypedArray, @StyleableRes index: Int
+    context: Context,
+    attributes: TypedArray,
+    @StyleableRes index: Int
   ): ColorStateList? {
     if (attributes.hasValue(index)) {
       val resourceId = attributes.getResourceId(index, 0)
@@ -75,7 +78,9 @@ object MaterialResources {
    * resource can include themeable attributes, regardless of API level.
    */
   fun getColorStateList(
-    context: Context, attributes: TintTypedArray, @StyleableRes index: Int
+    context: Context,
+    attributes: TintTypedArray,
+    @StyleableRes index: Int
   ): ColorStateList? {
     if (attributes.hasValue(index)) {
       val resourceId = attributes.getResourceId(index, 0)
@@ -101,7 +106,9 @@ object MaterialResources {
    * on devices where platform support is not available.
    */
   fun getDrawable(
-    context: Context, attributes: TypedArray, @StyleableRes index: Int
+    context: Context,
+    attributes: TypedArray,
+    @StyleableRes index: Int
   ): Drawable? {
     if (attributes.hasValue(index)) {
       val resourceId = attributes.getResourceId(index, 0)
@@ -123,7 +130,9 @@ object MaterialResources {
    * this.
    */
   fun getTextAppearance(
-    context: Context, attributes: TypedArray, @StyleableRes index: Int
+    context: Context,
+    attributes: TypedArray,
+    @StyleableRes index: Int
   ): TextAppearance? {
     if (attributes.hasValue(index)) {
       val resourceId = attributes.getResourceId(index, 0)
@@ -196,7 +205,9 @@ object MaterialResources {
    * and instead offer alternative methods of showing scaled text.
    */
   fun getUnscaledTextSize(
-    context: Context, @StyleRes textAppearance: Int, defValue: Int
+    context: Context,
+    @StyleRes textAppearance: Int,
+    defValue: Int
   ): Int {
     if (textAppearance == 0) {
       return defValue
@@ -217,11 +228,12 @@ object MaterialResources {
       // 14.
       // Scale the raw value using density and round to avoid truncating.
       Math.round(
-        TypedValue.complexToFloat(v.data)
-          * context.resources.displayMetrics.density
+        TypedValue.complexToFloat(v.data) *
+          context.resources.displayMetrics.density
       )
     } else TypedValue.complexToDimensionPixelSize(
-      v.data, context.resources.displayMetrics
+      v.data,
+      context.resources.displayMetrics
     )
 
     // If the resource is not is sp, return with regular resource system scaling.
@@ -248,7 +260,9 @@ object MaterialResources {
    */
   @StyleableRes
   fun getIndexWithValue(
-    attributes: TypedArray, @StyleableRes a: Int, @StyleableRes b: Int
+    attributes: TypedArray,
+    @StyleableRes a: Int,
+    @StyleableRes b: Int
   ): Int {
     return if (attributes.hasValue(a)) {
       a

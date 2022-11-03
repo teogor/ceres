@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Teogor All Rights Reserved.
+ * Copyright 2022 teogor (Teodor Grigor) All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package dev.teogor.ceres.m3.snackbar
 
 import android.animation.TimeInterpolator
@@ -49,7 +50,7 @@ class SnackbarContentLayout @JvmOverloads constructor(
     contentInterpolator = MotionUtils.resolveThemeInterpolator(
       context,
       R.attr.motionEasingEmphasizedInterpolator,
-      FastOutSlowInInterpolator()// AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR
+      FastOutSlowInInterpolator() // AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR
     )
   }
 
@@ -64,7 +65,9 @@ class SnackbarContentLayout @JvmOverloads constructor(
       val originalActionTextColor = actionView.currentTextColor
       val colorSurface = MaterialColors.getColor(this, R.attr.colorSurface)
       val actionTextColor = MaterialColors.layer(
-        colorSurface, originalActionTextColor, actionTextColorAlpha
+        colorSurface,
+        originalActionTextColor,
+        actionTextColorAlpha
       )
       actionView.setTextColor(actionTextColor)
     }
@@ -87,11 +90,13 @@ class SnackbarContentLayout @JvmOverloads constructor(
     val messageLayout = messageView.layout
     val isMultiLine = messageLayout != null && messageLayout.lineCount > 1
     var remeasure = false
-    if (isMultiLine
-      && maxInlineActionWidth > 0 && actionView.measuredWidth > maxInlineActionWidth
+    if (isMultiLine &&
+      maxInlineActionWidth > 0 && actionView.measuredWidth > maxInlineActionWidth
     ) {
       if (updateViewsWithinLayout(
-          VERTICAL, multiLineVPadding, multiLineVPadding - singleLineVPadding
+          VERTICAL,
+          multiLineVPadding,
+          multiLineVPadding - singleLineVPadding
         )
       ) {
         remeasure = true
@@ -108,18 +113,22 @@ class SnackbarContentLayout @JvmOverloads constructor(
   }
 
   private fun updateViewsWithinLayout(
-    orientation: Int, messagePadTop: Int, messagePadBottom: Int
+    orientation: Int,
+    messagePadTop: Int,
+    messagePadBottom: Int
   ): Boolean {
     var changed = false
     if (orientation != getOrientation()) {
       setOrientation(orientation)
       changed = true
     }
-    if (messageView.paddingTop != messagePadTop
-      || messageView.paddingBottom != messagePadBottom
+    if (messageView.paddingTop != messagePadTop ||
+      messageView.paddingBottom != messagePadBottom
     ) {
       updateTopBottomPadding(
-        messageView, messagePadTop, messagePadBottom
+        messageView,
+        messagePadTop,
+        messagePadBottom
       )
       changed = true
     }
@@ -174,7 +183,9 @@ class SnackbarContentLayout @JvmOverloads constructor(
 
   companion object {
     private fun updateTopBottomPadding(
-      view: View, topPadding: Int, bottomPadding: Int
+      view: View,
+      topPadding: Int,
+      bottomPadding: Int
     ) {
       if (ViewCompat.isPaddingRelative(view)) {
         ViewCompat.setPaddingRelative(
@@ -186,7 +197,10 @@ class SnackbarContentLayout @JvmOverloads constructor(
         )
       } else {
         view.setPadding(
-          view.paddingLeft, topPadding, view.paddingRight, bottomPadding
+          view.paddingLeft,
+          topPadding,
+          view.paddingRight,
+          bottomPadding
         )
       }
     }

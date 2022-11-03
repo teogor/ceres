@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Teogor All Rights Reserved.
+ * Copyright 2022 teogor (Teodor Grigor) All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package dev.teogor.ceres.m3.util
 
 import kotlin.math.pow
@@ -35,11 +36,19 @@ object ColorUtils {
   @JvmField
   val XYZ_TO_SRGB = arrayOf(
     doubleArrayOf(
-      3.2413774792388685, -1.5376652402851851, -0.49885366846268053
-    ), doubleArrayOf(
-      -0.9691452513005321, 1.8758853451067872, 0.04156585616912061
-    ), doubleArrayOf(
-      0.05562093689691305, -0.20395524564742123, 1.0571799111220335
+      3.2413774792388685,
+      -1.5376652402851851,
+      -0.49885366846268053
+    ),
+    doubleArrayOf(
+      -0.9691452513005321,
+      1.8758853451067872,
+      0.04156585616912061
+    ),
+    doubleArrayOf(
+      0.05562093689691305,
+      -0.20395524564742123,
+      1.0571799111220335
     )
   )
   @JvmField
