@@ -14,12 +14,17 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.m3
+package dev.teogor.ceres.m3.drawable
 
 import com.google.android.material.shape.ShapeAppearanceModel
 
 class ShapeAppearanceModelM3 : ShapeAppearanceModel() {
 
-  init {
+  /** Builder to create instances of [ShapeAppearanceModelM3]s.  */
+  data class Builder(
+    private var corners: Float
+  ) {
+
+    fun topCorners(colorM3: Float) = apply { this.corners = colorM3 }
   }
 }

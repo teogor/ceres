@@ -31,9 +31,10 @@ import dev.teogor.ceres.extensions.addAlpha
 import dev.teogor.ceres.extensions.blendColors
 import dev.teogor.ceres.extensions.colorStateList
 import dev.teogor.ceres.m3.ColorM3
-import dev.teogor.ceres.m3.RippleDrawableM3
-import dev.teogor.ceres.m3.ShapeAppearanceModelM3
-import dev.teogor.ceres.m3.ShapeDrawableM3
+import dev.teogor.ceres.m3.drawable.RippleDrawableM3
+import dev.teogor.ceres.m3.drawable.ShapeAppearanceModelM3
+import dev.teogor.ceres.m3.drawable.ShapeDrawableM3
+import dev.teogor.ceres.m3.drawable.toBuilder
 import dev.teogor.ceres.m3.elevation.SurfaceLevel
 
 interface ThemeHandler : Logger {

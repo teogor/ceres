@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.m3
+package dev.teogor.ceres.m3.drawable
 
 import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.RippleDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
 import dev.teogor.ceres.extensions.colorStateList
+import dev.teogor.ceres.m3.ColorM3
 import dev.teogor.ceres.m3.theme.ColorScheme
 import dev.teogor.ceres.m3.theme.ThemeM3
 
@@ -30,6 +31,17 @@ class RippleDrawableM3 private constructor(
   mask: Drawable
 ) : RippleDrawable(color, content, mask) {
 
+  internal lateinit var builder: Builder
+
+  private constructor(
+    color: ColorStateList,
+    content: Drawable,
+    mask: Drawable,
+    builder: Builder
+  ) : this(color, content, mask) {
+    this.builder = builder
+  }
+
   /** Builder to create instances of [ShapeDrawableM3]s.  */
   data class Builder(
     private var shapeAppearanceModel: ShapeAppearanceModel,
@@ -37,6 +49,13 @@ class RippleDrawableM3 private constructor(
     private var surfaceTint: Float = 0f,
     private var surfaceTintOverlay: ColorM3 = ColorM3.Primary
   ) {
+
+    internal constructor(builder: Builder) : this(
+      shapeAppearanceModel = builder.shapeAppearanceModel,
+      backgroundColor = builder.backgroundColor,
+      surfaceTint = builder.surfaceTint,
+      surfaceTintOverlay = builder.surfaceTintOverlay
+    )
 
     private fun getSchemeColor(): ColorScheme {
       return ThemeM3.currentColorScheme()
@@ -69,7 +88,8 @@ class RippleDrawableM3 private constructor(
       return RippleDrawableM3(
         color = color.colorStateList,
         content = content,
-        mask = mask
+        mask = mask,
+        builder = this
       )
     }
   }
