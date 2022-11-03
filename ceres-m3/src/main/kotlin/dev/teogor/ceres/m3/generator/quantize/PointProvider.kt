@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Teogor All Rights Reserved.
+ * Copyright 2022 teogor (Teodor Grigor) All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,17 +14,13 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.m3.generator.quantize;
-
-import java.util.Map;
+package dev.teogor.ceres.m3.generator.quantize
 
 /**
- * Represents result of a quantizer run
+ * An interface to allow use of different color spaces by quantizers.
  */
-public final class QuantizerResult {
-  public final Map<Integer, Integer> colorToCount;
-
-  QuantizerResult(Map<Integer, Integer> colorToCount) {
-    this.colorToCount = colorToCount;
-  }
+interface PointProvider {
+  fun fromInt(argb: Int): DoubleArray?
+  fun toInt(point: DoubleArray?): Int
+  fun distance(a: DoubleArray?, b: DoubleArray?): Double
 }
