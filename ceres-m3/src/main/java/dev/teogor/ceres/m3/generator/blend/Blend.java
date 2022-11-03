@@ -18,8 +18,8 @@ package dev.teogor.ceres.m3.generator.blend;
 
 import dev.teogor.ceres.m3.generator.hct.Cam16;
 import dev.teogor.ceres.m3.generator.hct.Hct;
-import dev.teogor.ceres.m3.utils.ColorUtils;
-import dev.teogor.ceres.m3.utils.MathUtils;
+import dev.teogor.ceres.m3.util.ColorUtils;
+import dev.teogor.ceres.m3.util.MathUtils;
 
 /**
  * Functions for blending in HCT and CAM16.

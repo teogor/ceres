@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Teogor All Rights Reserved.
+ * Copyright 2022 teogor (Teodor Grigor) All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,27 +14,27 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.m3.utils;
+package dev.teogor.ceres.m3.util
+
+import kotlin.math.abs
 
 /**
  * Utility methods for mathematical operations.
  */
-public class MathUtils {
-  private MathUtils() {
-  }
-
+object MathUtils {
   /**
    * The signum function.
    *
    * @return 1 if num > 0, -1 if num < 0, and 0 if num = 0
    */
-  public static int signum(double num) {
-    if (num < 0) {
-      return -1;
-    } else if (num == 0) {
-      return 0;
+  @JvmStatic
+  fun signum(num: Double): Int {
+    return if (num < 0) {
+      -1
+    } else if (num == 0.0) {
+      0
     } else {
-      return 1;
+      1
     }
   }
 
@@ -43,8 +43,9 @@ public class MathUtils {
    *
    * @return start if amount = 0 and stop if amount = 1
    */
-  public static double lerp(double start, double stop, double amount) {
-    return (1.0 - amount) * start + amount * stop;
+  @JvmStatic
+  fun lerp(start: Double, stop: Double, amount: Double): Double {
+    return (1.0 - amount) * start + amount * stop
   }
 
   /**
@@ -52,14 +53,14 @@ public class MathUtils {
    *
    * @return input when min <= input <= max, and either min or max otherwise.
    */
-  public static int clampInt(int min, int max, int input) {
+  @JvmStatic
+  fun clampInt(min: Int, max: Int, input: Int): Int {
     if (input < min) {
-      return min;
+      return min
     } else if (input > max) {
-      return max;
+      return max
     }
-
-    return input;
+    return input
   }
 
   /**
@@ -67,14 +68,14 @@ public class MathUtils {
    *
    * @return input when min <= input <= max, and either min or max otherwise.
    */
-  public static double clampDouble(double min, double max, double input) {
+  @JvmStatic
+  fun clampDouble(min: Double, max: Double, input: Double): Double {
     if (input < min) {
-      return min;
+      return min
     } else if (input > max) {
-      return max;
+      return max
     }
-
-    return input;
+    return input
   }
 
   /**
@@ -82,12 +83,14 @@ public class MathUtils {
    *
    * @return a degree measure between 0 (inclusive) and 360 (exclusive).
    */
-  public static int sanitizeDegreesInt(int degrees) {
-    degrees = degrees % 360;
-    if (degrees < 0) {
-      degrees = degrees + 360;
+  @JvmStatic
+  fun sanitizeDegreesInt(degrees: Int): Int {
+    var degreesCopy = degrees
+    degreesCopy %= 360
+    if (degreesCopy < 0) {
+      degreesCopy += 360
     }
-    return degrees;
+    return degreesCopy
   }
 
   /**
@@ -95,18 +98,21 @@ public class MathUtils {
    *
    * @return a degree measure between 0.0 (inclusive) and 360.0 (exclusive).
    */
-  public static double sanitizeDegreesDouble(double degrees) {
-    degrees = degrees % 360.0;
-    if (degrees < 0) {
-      degrees = degrees + 360.0;
+  @JvmStatic
+  fun sanitizeDegreesDouble(degrees: Double): Double {
+    var degreesCopy = degrees
+    degreesCopy %= 360.0
+    if (degreesCopy < 0) {
+      degreesCopy += 360.0
     }
-    return degrees;
+    return degreesCopy
   }
 
   /**
    * Sign of direction change needed to travel from one angle to another.
    *
-   * <p>For angles that are 180 degrees apart from each other, both directions have the same
+   *
+   * For angles that are 180 degrees apart from each other, both directions have the same
    * travel distance, so either direction is shortest. The value 1.0 is returned in this case.
    *
    * @param from The angle travel starts from, in degrees.
@@ -114,25 +120,28 @@ public class MathUtils {
    * @return -1 if decreasing from leads to the shortest travel distance, 1 if increasing from
    * leads to the shortest travel distance.
    */
-  public static double rotationDirection(double from, double to) {
-    double increasingDifference = sanitizeDegreesDouble(to - from);
-    return increasingDifference <= 180.0 ? 1.0 : -1.0;
+  @JvmStatic
+  fun rotationDirection(from: Double, to: Double): Double {
+    val increasingDifference = sanitizeDegreesDouble(to - from)
+    return if (increasingDifference <= 180.0) 1.0 else -1.0
   }
 
   /**
    * Distance of two points on a circle, represented using degrees.
    */
-  public static double differenceDegrees(double a, double b) {
-    return 180.0 - Math.abs(Math.abs(a - b) - 180.0);
+  @JvmStatic
+  fun differenceDegrees(a: Double, b: Double): Double {
+    return 180.0 - abs(abs(a - b) - 180.0)
   }
 
   /**
    * Multiplies a 1x3 row vector with a 3x3 matrix.
    */
-  public static double[] matrixMultiply(double[] row, double[][] matrix) {
-    double a = row[0] * matrix[0][0] + row[1] * matrix[0][1] + row[2] * matrix[0][2];
-    double b = row[0] * matrix[1][0] + row[1] * matrix[1][1] + row[2] * matrix[1][2];
-    double c = row[0] * matrix[2][0] + row[1] * matrix[2][1] + row[2] * matrix[2][2];
-    return new double[]{a, b, c};
+  @JvmStatic
+  fun matrixMultiply(row: DoubleArray, matrix: Array<DoubleArray>): DoubleArray {
+    val a = row[0] * matrix[0][0] + row[1] * matrix[0][1] + row[2] * matrix[0][2]
+    val b = row[0] * matrix[1][0] + row[1] * matrix[1][1] + row[2] * matrix[1][2]
+    val c = row[0] * matrix[2][0] + row[1] * matrix[2][1] + row[2] * matrix[2][2]
+    return doubleArrayOf(a, b, c)
   }
 }

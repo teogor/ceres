@@ -16,7 +16,7 @@
 
 package dev.teogor.ceres.m3.generator.hct;
 
-import dev.teogor.ceres.m3.utils.ColorUtils;
+import dev.teogor.ceres.m3.util.ColorUtils;
 
 /**
  * A color system built using CAM16 hue and chroma, and L* from L*a*b*.

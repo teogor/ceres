@@ -24,8 +24,8 @@ import java.util.List;
 import java.util.Map;
 
 import dev.teogor.ceres.m3.generator.hct.Cam16;
-import dev.teogor.ceres.m3.utils.ColorUtils;
-import dev.teogor.ceres.m3.utils.MathUtils;
+import dev.teogor.ceres.m3.util.ColorUtils;
+import dev.teogor.ceres.m3.util.MathUtils;
 
 /**
  * Given a large set of colors, remove colors that are unsuitable for a UI theme, and rank the rest
