@@ -13,20 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package dev.teogor.ceres.m3.snackbar;
+package dev.teogor.ceres.m3.snackbar
 
 /**
  * Interface that defines the behavior of the main content of a transient bottom bar.
  */
-public interface ContentViewCallback {
+interface ContentViewCallback {
   /**
    * Animates the content of the transient bottom bar in.
    *
    * @param delay    Animation delay.
    * @param duration Animation duration.
    */
-  void animateContentIn(int delay, int duration);
+  fun animateContentIn(delay: Int, duration: Int)
 
   /**
    * Animates the content of the transient bottom bar out.
@@ -34,5 +33,5 @@ public interface ContentViewCallback {
    * @param delay    Animation delay.
    * @param duration Animation duration.
    */
-  void animateContentOut(int delay, int duration);
+  fun animateContentOut(delay: Int, duration: Int)
 }
