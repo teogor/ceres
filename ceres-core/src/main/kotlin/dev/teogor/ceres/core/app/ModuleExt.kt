@@ -14,16 +14,10 @@
  * limitations under the License.
  */
 
+@file:JvmName("ModuleExt")
+
 package dev.teogor.ceres.core.app
 
-import dev.teogor.ceres.core.logger.Logger
-
-open class ModuleProvider : Logger {
-
-  val name: String = this.javaClass.simpleName
-
-  var data: ModuleData? = null
-
-  open fun onCreate() {
-  }
+fun ModuleProvider.applyBuilder(data: ModuleData.Builder) {
+  this.data = data.build()
 }

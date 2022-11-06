@@ -16,14 +16,9 @@
 
 package dev.teogor.ceres.core.app
 
-import dev.teogor.ceres.core.logger.Logger
+open class ModuleData {
 
-open class ModuleProvider : Logger {
-
-  val name: String = this.javaClass.simpleName
-
-  var data: ModuleData? = null
-
-  open fun onCreate() {
+  interface Builder {
+    fun build(): ModuleData
   }
 }
