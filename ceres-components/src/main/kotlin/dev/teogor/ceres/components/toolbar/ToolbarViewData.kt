@@ -36,6 +36,7 @@ class ToolbarViewData(
   val showActionElements = MutableLiveData(false)
   val toolbarType = MutableLiveData(toolbarType)
   val titleText = MutableLiveData(R.string.empty)
+  val isTransparent = MutableLiveData(false)
 
   init {
     this.showToolbar.value = showToolbar
@@ -48,5 +49,9 @@ class ToolbarViewData(
 
   fun setTitleText(@StringRes titleText: Int) {
     this.titleText.value = titleText
+  }
+
+  fun setIsTransparent(isTransparent: Boolean) {
+    this.isTransparent.value = isTransparent
   }
 }

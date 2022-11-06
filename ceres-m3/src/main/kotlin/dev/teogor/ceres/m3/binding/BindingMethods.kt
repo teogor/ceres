@@ -30,10 +30,16 @@ import dev.teogor.ceres.m3.widgets.bar.ToolBar
 class BindingMethods {
 
   companion object {
-    @BindingAdapter("toolbarType")
+    @BindingAdapter("type")
     @JvmStatic
-    fun toolbarType(toolbar: ToolBar, type: ToolbarType) {
+    fun toolbarBindingType(toolbar: ToolBar, type: ToolbarType) {
       toolbar.setType(type)
+    }
+
+    @BindingAdapter("is_transparent")
+    @JvmStatic
+    fun toolbarBindingIsTransparent(toolbar: ToolBar, isTransparent: Boolean) {
+      toolbar.setIsTransparent(isTransparent)
     }
 
     @BindingAdapter("onCheckedChange")

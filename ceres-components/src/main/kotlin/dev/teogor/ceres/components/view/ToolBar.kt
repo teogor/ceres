@@ -14,28 +14,17 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.components.toolbar
+package dev.teogor.ceres.components.view
 
-import androidx.annotation.Keep
+import androidx.annotation.StringRes
+import dev.teogor.ceres.components.toolbar.ToolbarType
+import dev.teogor.ceres.extensions.defaultResId
 
-// todo have this as an interface to pass in the base model
-enum class ToolbarType {
-  @Keep
-  HIDDEN,
+class ToolBar {
 
-  @Keep
-  ROUNDED,
-
-  // todo fixme
-  @Keep
-  COLLAPSABLE,
-
-  @Keep
-  BACK_BUTTON,
-
-  @Keep
-  ACTION,
-
-  @Keep
-  ONLY_LOGO,
+  data class Builder(
+    val type: ToolbarType = ToolbarType.COLLAPSABLE,
+    @StringRes val title: Int = defaultResId,
+    val isTransparent: Boolean = false
+  )
 }

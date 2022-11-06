@@ -26,6 +26,7 @@ import dev.teogor.ceres.components.events.SingleLiveEvent
 import dev.teogor.ceres.components.events.UiEvent
 import dev.teogor.ceres.components.toolbar.ToolbarType
 import dev.teogor.ceres.components.toolbar.ToolbarViewData
+import dev.teogor.ceres.components.view.ToolBar
 
 open class BaseViewModel : ViewModel(), BaseCommon {
 
@@ -58,17 +59,22 @@ open class BaseViewModel : ViewModel(), BaseCommon {
   }
 
   open fun onFragmentCreated() {
+    getToolbarView(type = toolBarBuilder.type).apply {
+      setIsTransparent(toolBarBuilder.isTransparent)
+      setTitleText(toolBarBuilder.title)
+      toolbarViewData.value = this
+    }
   }
 
-  fun setToolbarType(toolbarType: ToolbarType) {
-    val toolbarView = when (toolbarType) {
+  private fun getToolbarView(type: ToolbarType): ToolbarViewData {
+    return when (type) {
       ToolbarType.HIDDEN -> ToolbarViewData(
         showToolbar = false,
         showTitle = false,
         showLogo = false,
         showBackButton = false,
         showActionElements = false,
-        toolbarType = toolbarType
+        toolbarType = type
       )
       ToolbarType.ROUNDED -> ToolbarViewData(
         showToolbar = true,
@@ -76,7 +82,7 @@ open class BaseViewModel : ViewModel(), BaseCommon {
         showLogo = true,
         showBackButton = false,
         showActionElements = false,
-        toolbarType = toolbarType
+        toolbarType = type
       )
       ToolbarType.BACK_BUTTON -> ToolbarViewData(
         showToolbar = true,
@@ -84,7 +90,7 @@ open class BaseViewModel : ViewModel(), BaseCommon {
         showLogo = false,
         showBackButton = true,
         showActionElements = false,
-        toolbarType = toolbarType
+        toolbarType = type
       )
       ToolbarType.ACTION -> ToolbarViewData(
         showToolbar = true,
@@ -92,7 +98,7 @@ open class BaseViewModel : ViewModel(), BaseCommon {
         showLogo = false,
         showBackButton = true,
         showActionElements = true,
-        toolbarType = toolbarType
+        toolbarType = type
       )
       ToolbarType.COLLAPSABLE -> ToolbarViewData(
         showToolbar = true,
@@ -100,16 +106,42 @@ open class BaseViewModel : ViewModel(), BaseCommon {
         showLogo = true,
         showBackButton = false,
         showActionElements = false,
-        toolbarType = toolbarType
+        toolbarType = type
+      )
+      ToolbarType.ONLY_LOGO -> ToolbarViewData(
+        showToolbar = true,
+        showTitle = false,
+        showLogo = true,
+        showBackButton = false,
+        showActionElements = false,
+        toolbarType = type
       )
     }
+  }
+
+  open val toolBarBuilder: ToolBar.Builder
+    get() = ToolBar.Builder()
+
+  @Deprecated(message = "Deprecated due to low performance. Use `toolBarBuilder`")
+  fun setToolbarType(toolbarType: ToolbarType) {
+    val toolbarView = getToolbarView(toolbarType)
     toolbarViewData.value = toolbarView
   }
 
+  @Deprecated(message = "Deprecated due to low performance. Use `toolBarBuilder`")
   fun setToolbarTitle(@StringRes titleStringId: Int) {
-    val toolbarView = toolbarViewData.value!!
-    toolbarView.setTitleText(titleStringId)
-    toolbarViewData.value = toolbarView
+    toolbarViewData.value?.apply {
+      setTitleText(titleStringId)
+      toolbarViewData.value = this
+    }
+  }
+
+  @Deprecated(message = "Deprecated due to low performance. Use `toolBarBuilder`")
+  fun setTransparentToolbar(isTransparent: Boolean) {
+    toolbarViewData.value?.apply {
+      setIsTransparent(isTransparent)
+      toolbarViewData.value = this
+    }
   }
 
   fun showBottomNavigation(showBottomNavigation: Boolean) {
