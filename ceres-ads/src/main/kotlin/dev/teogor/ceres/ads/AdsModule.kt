@@ -21,7 +21,8 @@ import dev.teogor.ceres.ads.startup.AdsStartUp
 import dev.teogor.ceres.core.app.Module
 import dev.teogor.ceres.core.app.ModuleProvider
 import dev.teogor.ceres.core.provider.InitProviderData
-import java.lang.ref.WeakReference
+import dev.teogor.ceres.extensions.asWeakReference
+import dev.teogor.ceres.extensions.safeAs
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -31,16 +32,12 @@ class AdsModule @Inject constructor() : ModuleProvider() {
 
   override fun onCreate() {
     super.onCreate()
+    data.safeAs<AdsModuleData> {
+      AdsStartUp.openAdsWeak = this.ads.asWeakReference()
+    }
+
     InitProviderData.flagActivityClass(
       AdActivity::class
     )
-  }
-
-  fun withAds(appOpenAds: List<Ad>) {
-    val openAdsWeak = mutableListOf<WeakReference<Ad>>()
-    appOpenAds.forEach { ad ->
-      openAdsWeak.add(WeakReference(ad))
-    }
-    AdsStartUp.openAdsWeak = openAdsWeak
   }
 }
