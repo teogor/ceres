@@ -21,23 +21,6 @@ import android.util.AttributeSet
 import android.view.Gravity
 import androidx.appcompat.widget.AppCompatTextView
 
-// <style name="Widget.Material.Button">
-// <item name="background">@drawable/btn_default_material</item>
-// <item name="textAppearance">?attr/textAppearanceButton</item>
-// <item name="minHeight">48dip</item>
-// <item name="minWidth">88dip</item>
-// <item name="stateListAnimator">@anim/button_state_list_anim_material</item>
-// <item name="focusable">true</item>
-// <item name="clickable">true</item>
-// <item name="gravity">center_vertical|center_horizontal</item>
-// </style>
-
-// <item name="textColor">?textColorPrimary</item>
-// <item name="textColorHighlight">?textColorHighlight</item>
-// <item name="textColorHint">?textColorHint</item>
-// <item name="textColorLink">?textColorLink</item>
-// <item name="textSize">16sp</item>
-// <item name="textStyle">normal</item>
 open class Button @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null

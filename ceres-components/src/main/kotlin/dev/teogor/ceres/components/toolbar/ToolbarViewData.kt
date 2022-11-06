@@ -18,6 +18,7 @@ package dev.teogor.ceres.components.toolbar
 
 import androidx.annotation.StringRes
 import androidx.lifecycle.MutableLiveData
+import dev.teogor.ceres.components.R
 
 class ToolbarViewData(
   showToolbar: Boolean,
@@ -34,7 +35,7 @@ class ToolbarViewData(
   val showTitle = MutableLiveData(false)
   val showActionElements = MutableLiveData(false)
   val toolbarType = MutableLiveData(toolbarType)
-  val titleText = MutableLiveData(dev.teogor.ceres.components.R.string.empty)
+  val titleText = MutableLiveData(R.string.empty)
 
   init {
     this.showToolbar.value = showToolbar
