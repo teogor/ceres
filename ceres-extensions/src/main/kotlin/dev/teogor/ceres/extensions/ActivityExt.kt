@@ -16,6 +16,8 @@
 
 package dev.teogor.ceres.extensions
 
+import android.app.Activity
+import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavController
@@ -29,5 +31,25 @@ fun FragmentActivity.findNavController(
     navHostFragment.navController
   } else {
     null
+  }
+}
+
+fun Activity.hasIntentExtras(
+  extrasRun: Bundle.() -> Unit = {}
+) {
+  this.intent.extras?.let {
+    extrasRun(it)
+  }
+}
+
+fun Activity.extrasBoolean(
+  key: String,
+  defaultValue: Boolean = false,
+  extrasRun: Boolean.() -> Unit = {}
+) {
+  this.hasIntentExtras {
+    getBoolean(key, defaultValue).apply {
+      extrasRun()
+    }
   }
 }

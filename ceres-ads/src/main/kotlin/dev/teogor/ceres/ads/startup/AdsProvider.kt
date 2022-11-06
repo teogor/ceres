@@ -21,6 +21,7 @@ import android.app.Application
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration
@@ -30,6 +31,7 @@ import dev.teogor.ceres.ads.utils.Constants
 import dev.teogor.ceres.core.construct.AppData
 import dev.teogor.ceres.core.logger.Logger
 import dev.teogor.ceres.core.util.AppUtils
+import dev.teogor.ceres.extensions.extrasBoolean
 
 /**
  * fixme Interstitials that show when your app is in the background are a
@@ -85,7 +87,14 @@ class AdsProvider constructor(application: Application) :
   }
 
   override fun onActivityStarted(activity: Activity) {
-    showAd()
+    activity.extrasBoolean(
+      key = Constants.FORCE_SHOW_APP_OPEN_AD
+    ) {
+      if (this) {
+        log("Showing AppOpenAd because it's intent was flagged with showAppOpenAd()")
+        showAd()
+      }
+    }
   }
 
   override fun onActivityResumed(activity: Activity) {
@@ -101,6 +110,12 @@ class AdsProvider constructor(application: Application) :
   }
 
   override fun onActivityDestroyed(activity: Activity) {
+  }
+
+  /** LifecycleObserver method that shows the app open ad when the app moves to foreground. */
+  override fun onStart(owner: LifecycleOwner) {
+    super.onStart(owner)
+    showAd()
   }
 
   private fun showAd() {
