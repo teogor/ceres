@@ -51,6 +51,7 @@ import dev.teogor.ceres.core.internal.WindowPreferencesManager
 import dev.teogor.ceres.extensions.dpToPx
 import dev.teogor.ceres.extensions.findNavController
 import dev.teogor.ceres.extensions.hideKeyboard
+import dev.teogor.ceres.extensions.invalidResId
 import java.util.concurrent.TimeUnit
 
 abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
@@ -135,7 +136,7 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
   protected abstract fun getViewModelClass(): Class<VM>
 
   @IdRes
-  open fun getNavController(): Int = -1
+  open fun getNavController(): Int = invalidResId
 
   protected open fun drawEdgeToEdge() {
     // Draw edge-to-edge

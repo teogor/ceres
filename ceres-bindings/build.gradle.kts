@@ -33,6 +33,8 @@ android {
 }
 
 dependencies {
+  implementation(project(":ceres-extensions"))
+
   implementation("com.zeoflow.startup:startup-ktx:${Versions.ZeoFlowStartUp}")
 
   implementation("androidx.core:core-ktx:1.9.0")

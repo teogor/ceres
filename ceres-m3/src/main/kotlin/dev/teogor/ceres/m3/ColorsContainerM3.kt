@@ -21,7 +21,9 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.annotation.ColorInt
 import androidx.core.content.res.ResourcesCompat
+import dev.teogor.ceres.extensions.invalidResId
 import dev.teogor.ceres.extensions.show
+import dev.teogor.ceres.extensions.validFontRes
 import dev.teogor.ceres.m3.databinding.Lm3ColorsContainerBinding
 import dev.teogor.ceres.m3.widgets.colorpicker.converter.setFromColorInt
 import dev.teogor.ceres.m3.widgets.colorpicker.group.PickerGroup
@@ -84,7 +86,7 @@ class ColorsContainerM3 constructor(
       0
     ).apply {
       try {
-        fontId = getResourceId(R.styleable.ColorsContainerM3_android_fontFamily, -1)
+        fontId = getResourceId(R.styleable.ColorsContainerM3_android_fontFamily, invalidResId)
         title = getString(R.styleable.ColorsContainerM3_title)
       } finally {
         recycle()
@@ -92,8 +94,8 @@ class ColorsContainerM3 constructor(
     }
 
     // font family initialization
-    if (fontId != -1) {
-      val typeface = ResourcesCompat.getFont(context, fontId)
+    fontId.validFontRes {
+      val typeface = ResourcesCompat.getFont(context, this)
       binding.textTitle.typeface = typeface
     }
 

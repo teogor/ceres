@@ -17,13 +17,14 @@
 package dev.teogor.ceres.firebase
 
 import dev.teogor.ceres.core.app.ModuleData
+import dev.teogor.ceres.extensions.invalidResId
 
 class FirebaseModuleData private constructor(
   val remoteConfigDefXML: Int
 ) : ModuleData() {
 
   data class FirebaseModuleDataBuilder(
-    private var remoteConfigDefXML: Int = -1
+    private var remoteConfigDefXML: Int = invalidResId
   ) : Builder {
 
     fun remoteConfigDefXML(id: Int) = apply { this.remoteConfigDefXML = id }

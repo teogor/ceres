@@ -22,6 +22,7 @@ import androidx.databinding.BindingAdapter
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 import com.zeoflow.startup.ktx.ApplicationInitializer
+import dev.teogor.ceres.extensions.validStringRes
 
 @BindingAdapterClass
 class MaterialBinding {
@@ -30,8 +31,8 @@ class MaterialBinding {
     @BindingAdapter("errorMessage")
     @JvmStatic
     fun setErrorMessage(view: TextInputLayout, @StringRes errorMessageRes: Int) {
-      if (errorMessageRes != -1) {
-        view.error = ApplicationInitializer.context.getString(errorMessageRes)
+      errorMessageRes.validStringRes {
+        view.error = ApplicationInitializer.context.getString(this)
       }
     }
 

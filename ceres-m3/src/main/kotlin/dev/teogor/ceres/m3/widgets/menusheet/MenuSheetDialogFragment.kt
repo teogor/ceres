@@ -28,6 +28,7 @@ import androidx.annotation.FloatRange
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatDialogFragment
 import dev.teogor.ceres.core.internal.WindowPreferencesManager
+import dev.teogor.ceres.extensions.invalidResId
 
 /**
  * Modal bottom sheet. This is a version of [androidx.fragment.app.DialogFragment] that shows
@@ -159,7 +160,7 @@ open class MenuSheetDialogFragment : AppCompatDialogFragment {
 
   @get:LayoutRes
   open val layoutRes: Int
-    get() = -1
+    get() = invalidResId
 
   open val isFitToContent: Boolean
     get() = true
