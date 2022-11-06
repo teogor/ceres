@@ -39,6 +39,24 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 
+    <dev.teogor.ceres.m3.ButtonM3
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@+id/ad_home"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginHorizontal="20dp"
+      android:layout_marginTop="10dp"
+      android:text="Open Activity"
+      android:fontFamily="@font/font_regular"
+      android:paddingHorizontal="20dp"
+      android:paddingVertical="10dp"
+      android:onClick="@{() -> viewModel.launchActivity()}"
+      app:ripple_enabled="true"
+      app:text_color_m3="onPrimaryContainer"
+      app:background_m3="primaryContainer"
+      app:corner_radius="20dp"/>
+
   </dev.teogor.ceres.m3.widgets.container.FragmentContainer>
 
 </layout>

@@ -16,13 +16,18 @@
 
 package dev.teogor.ceres.presentation.feature.home
 
+import android.content.Intent
 import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.teogor.ceres.R
 import dev.teogor.ceres.ads.formats.AdBinder
 import dev.teogor.ceres.ads.formats.NativeAd
+import dev.teogor.ceres.ads.showAppOpenAd
 import dev.teogor.ceres.components.toolbar.ToolbarType
+import dev.teogor.ceres.core.global.GlobalData
+import dev.teogor.ceres.extensions.launchActivity
 import dev.teogor.ceres.m3.app.BaseViewModelM3
+import dev.teogor.ceres.main.MainActivity
 import dev.teogor.ceres.presentation.ads.HomeNativeAd
 import dev.teogor.ceres.presentation.ads.HomeNativeAdBinder
 import javax.inject.Inject
@@ -45,5 +50,17 @@ class HomeViewModel @Inject constructor(
     setToolbarType(ToolbarType.COLLAPSABLE)
     setToolbarTitle(R.string.app_name)
     showBottomNavigation(true)
+  }
+
+  fun launchActivity() {
+    // finish activity before relaunching it
+    GlobalData.activity.finish()
+    launchActivity(
+      context = GlobalData.context(),
+      activityClass = MainActivity::class,
+      flags = Intent.FLAG_ACTIVITY_NEW_TASK
+    ) {
+      showAppOpenAd()
+    }
   }
 }
