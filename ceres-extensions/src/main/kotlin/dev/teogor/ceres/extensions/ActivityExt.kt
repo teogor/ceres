@@ -27,8 +27,11 @@ fun FragmentActivity.findNavController(
   @IdRes viewId: Int
 ): NavController? {
   return if (viewId.validIdRes) {
-    val navHostFragment = this.supportFragmentManager.findFragmentById(viewId) as NavHostFragment
-    navHostFragment.navController
+    val fragment = this.supportFragmentManager.findFragmentById(viewId)
+    fragment.safeReturn {
+      val navHostFragment = this as NavHostFragment
+      navHostFragment.navController
+    }
   } else {
     null
   }
