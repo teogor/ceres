@@ -30,52 +30,45 @@ import dev.teogor.ceres.core.global.GlobalData
 
 abstract class AppOpenAd : Ad() {
 
-  private var appOpenAd: AppOpenAd? = null
+  override fun useCache() = false
 
   override fun load() {
     super.load()
 
-    if (useCache() && cacheAds.appOpenAd != null) {
-      onListener(AdEvent.LOADED)
-    } else {
-      onListener(AdEvent.IS_LOADING)
+    onListener(AdEvent.IS_LOADING)
 
-      val request = AdRequest.Builder().build()
-      AppOpenAd.load(
-        context,
-        id,
-        request,
-        AppOpenAd.APP_OPEN_AD_ORIENTATION_PORTRAIT,
-        object : AppOpenAd.AppOpenAdLoadCallback() {
-          /**
-           * Called when an app open ad has loaded.
-           *
-           * @param ad the loaded app open ad.
-           */
-          override fun onAdLoaded(ad: AppOpenAd) {
-            appOpenAd = ad
-            if (useCache()) {
-              cacheAds.appOpenAd = ad
-            }
-            Log.d(LOG_TAG, "onAdLoaded.")
-            onListener(AdEvent.LOADED)
-          }
-
-          /**
-           * Called when an app open ad has failed to load.
-           *
-           * @param adError the error.
-           */
-          override fun onAdFailedToLoad(adError: LoadAdError) {
-            Log.d(LOG_TAG, "onAdFailedToLoad: " + adError.message)
-            val error =
-              "domain: ${adError.domain}, code: ${adError.code}, " + "message: ${adError.message}"
-            Log.d(LOG_TAG, "Ad failed to load: $error")
-            onListener(AdEvent.FAILED_TO_LOAD)
-          }
+    val request = AdRequest.Builder().build()
+    AppOpenAd.load(
+      context,
+      id,
+      request,
+      AppOpenAd.APP_OPEN_AD_ORIENTATION_PORTRAIT,
+      object : AppOpenAd.AppOpenAdLoadCallback() {
+        /**
+         * Called when an app open ad has loaded.
+         *
+         * @param ad the loaded app open ad.
+         */
+        override fun onAdLoaded(ad: AppOpenAd) {
+          cacheAds.appOpenAd = ad
+          Log.d(LOG_TAG, "onAdLoaded.")
+          onListener(AdEvent.LOADED)
         }
-      )
-    }
+
+        /**
+         * Called when an app open ad has failed to load.
+         *
+         * @param adError the error.
+         */
+        override fun onAdFailedToLoad(adError: LoadAdError) {
+          Log.d(LOG_TAG, "onAdFailedToLoad: " + adError.message)
+          val error =
+            "domain: ${adError.domain}, code: ${adError.code}, " + "message: ${adError.message}"
+          Log.d(LOG_TAG, "Ad failed to load: $error")
+          onListener(AdEvent.FAILED_TO_LOAD)
+        }
+      }
+    )
   }
 
   override fun show() {
@@ -88,11 +81,7 @@ abstract class AppOpenAd : Ad() {
       Log.d(LOG_TAG, "Another ad is showing.")
       return
     }
-    val ad = if (useCache() && cacheAds.appOpenAd != null) {
-      cacheAds.appOpenAd
-    } else {
-      appOpenAd
-    }
+    val ad = cacheAds.appOpenAd
     if (ad == null) {
       load()
       return
@@ -123,14 +112,12 @@ abstract class AppOpenAd : Ad() {
       override fun onAdDismissedFullScreenContent() {
         // Set the reference to null so isAdAvailable() returns false.
         Log.d(LOG_TAG, "Ad was dismissed.")
-        appOpenAd = null
         onListener(AdEvent.DISMISSED)
       }
 
       /** Called when fullscreen content failed to show. */
       override fun onAdFailedToShowFullScreenContent(adError: AdError) {
         Log.d(LOG_TAG, "Ad failed to show.")
-        appOpenAd = null
         onListener(AdEvent.NOT_COMPLETED)
       }
 

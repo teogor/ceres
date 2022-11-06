@@ -23,5 +23,5 @@ import com.google.android.gms.ads.nativead.NativeAd
 data class CacheAdModel(
   var appOpenAd: AppOpenAd? = null,
   var interstitialAd: InterstitialAd? = null,
-  var nativeAd: NativeAd? = null
+  var nativeAd: NativeAd? = null,
 )
