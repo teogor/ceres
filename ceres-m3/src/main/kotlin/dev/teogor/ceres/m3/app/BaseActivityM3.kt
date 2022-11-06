@@ -24,7 +24,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.ViewDataBinding
 import dev.teogor.ceres.components.app.BaseActivity
 import dev.teogor.ceres.components.events.UiEvent
-import dev.teogor.ceres.extensions.validStringId
+import dev.teogor.ceres.extensions.validStringRes
 import dev.teogor.ceres.m3.R
 import dev.teogor.ceres.m3.SnackbarBetaM3
 import dev.teogor.ceres.m3.annotation.M3
@@ -87,7 +87,7 @@ abstract class BaseActivityM3<B : ViewDataBinding, VM : BaseViewModelM3> :
           .show()
       }
       is UiEventM3.ShowSnackbar -> {
-        val title = if (uiEvent.titleResId.validStringId) {
+        val title = if (uiEvent.titleResId.validStringRes) {
           resources.getString(uiEvent.titleResId)
         } else if (uiEvent.title.isNotEmpty()) {
           uiEvent.title

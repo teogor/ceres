@@ -21,8 +21,10 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.annotation.FontRes
 import androidx.core.content.res.ResourcesCompat
+import dev.teogor.ceres.extensions.defaultResId
 import dev.teogor.ceres.extensions.hide
 import dev.teogor.ceres.extensions.show
+import dev.teogor.ceres.extensions.validFontRes
 import dev.teogor.ceres.m3.databinding.Lm3SwitchComponentBinding
 
 class SwitchComponentM3(
@@ -89,7 +91,7 @@ class SwitchComponentM3(
       0
     ).apply {
       try {
-        fontId = getResourceId(R.styleable.SwitchComponentM3_android_fontFamily, -1)
+        fontId = getResourceId(R.styleable.SwitchComponentM3_android_fontFamily, defaultResId)
         title = getString(R.styleable.SwitchComponentM3_title)
         subtitle = getString(R.styleable.SwitchComponentM3_subtitle)
         hasSwitch = getBoolean(R.styleable.SwitchComponentM3_has_switch, false)
@@ -106,8 +108,8 @@ class SwitchComponentM3(
     initializationCompleted = initialCallbackEnabled
 
     // font family initialization
-    if (fontId != -1) {
-      val typeface = ResourcesCompat.getFont(context, fontId)
+    fontId.validFontRes {
+      val typeface = ResourcesCompat.getFont(context, this)
       binding.textTitle.typeface = typeface
       binding.textSubtitle.typeface = typeface
     }

@@ -97,10 +97,19 @@ public final class dev/teogor/ceres/extensions/MutableLiveDataExtKt {
 }
 
 public final class dev/teogor/ceres/extensions/ResourceExtKt {
-	public static final fun getValidDrawableId (I)Z
-	public static final fun getValidFontId (I)Z
+	public static final field defaultResId I
+	public static final fun getValidDrawableRes (I)Z
+	public static final fun getValidFontRes (I)Z
 	public static final fun getValidIdRes (I)Z
-	public static final fun getValidStringId (I)Z
+	public static final fun getValidStringRes (I)Z
+	public static final fun validDrawableRes (IILkotlin/jvm/functions/Function1;)V
+	public static synthetic fun validDrawableRes$default (IILkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public static final fun validFontRes (IILkotlin/jvm/functions/Function1;)V
+	public static synthetic fun validFontRes$default (IILkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public static final fun validIdRes (IILkotlin/jvm/functions/Function1;)V
+	public static synthetic fun validIdRes$default (IILkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public static final fun validStringRes (IILkotlin/jvm/functions/Function1;)V
+	public static synthetic fun validStringRes$default (IILkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 }
 
 public final class dev/teogor/ceres/extensions/ViewExtKt {

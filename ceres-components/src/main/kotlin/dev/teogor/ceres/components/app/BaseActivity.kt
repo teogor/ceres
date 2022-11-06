@@ -48,6 +48,7 @@ import dev.teogor.ceres.components.events.UiEvent
 import dev.teogor.ceres.components.navigation.NavigationUI
 import dev.teogor.ceres.components.navigation.NavigationViewModel
 import dev.teogor.ceres.core.internal.WindowPreferencesManager
+import dev.teogor.ceres.extensions.defaultResId
 import dev.teogor.ceres.extensions.dpToPx
 import dev.teogor.ceres.extensions.findNavController
 import dev.teogor.ceres.extensions.hideKeyboard
@@ -135,7 +136,7 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
   protected abstract fun getViewModelClass(): Class<VM>
 
   @IdRes
-  open fun getNavController(): Int = -1
+  open fun getNavController(): Int = defaultResId
 
   protected open fun drawEdgeToEdge() {
     // Draw edge-to-edge

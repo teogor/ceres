@@ -32,6 +32,7 @@ import com.google.android.material.drawable.DrawableUtils
 import com.google.android.material.internal.ThemeEnforcement
 import com.google.android.material.internal.ViewUtils
 import com.google.android.material.theme.overlay.MaterialThemeOverlay
+import dev.teogor.ceres.extensions.defaultResId
 import dev.teogor.ceres.m3.theme.ThemeHandler
 import dev.teogor.ceres.m3.theme.ThemeM3.currentColorScheme
 
@@ -84,7 +85,7 @@ class SwitchM3(
     thumbIconDrawable = attributes.getDrawable(R.styleable.MaterialSwitch_thumbIcon)
     thumbIconTintList = attributes.getColorStateList(R.styleable.MaterialSwitch_thumbIconTint)
     thumbIconTintMode = ViewUtils.parseTintMode(
-      attributes.getInt(R.styleable.MaterialSwitch_thumbIconTintMode, -1),
+      attributes.getInt(R.styleable.MaterialSwitch_thumbIconTintMode, defaultResId),
       PorterDuff.Mode.SRC_IN
     )
     trackDecorationDrawable = attributes.getDrawable(
@@ -94,7 +95,7 @@ class SwitchM3(
       R.styleable.MaterialSwitch_trackDecorationTint
     )
     trackDecorationTintMode = ViewUtils.parseTintMode(
-      attributes.getInt(R.styleable.MaterialSwitch_trackDecorationTintMode, -1),
+      attributes.getInt(R.styleable.MaterialSwitch_trackDecorationTintMode, defaultResId),
       PorterDuff.Mode.SRC_IN
     )
     attributes.recycle()

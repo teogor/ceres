@@ -25,11 +25,12 @@ import androidx.annotation.FontRes
 import androidx.annotation.Px
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.setPadding
+import dev.teogor.ceres.extensions.defaultResId
 import dev.teogor.ceres.extensions.dpToPx
 import dev.teogor.ceres.extensions.hide
 import dev.teogor.ceres.extensions.show
-import dev.teogor.ceres.extensions.validDrawableId
-import dev.teogor.ceres.extensions.validFontId
+import dev.teogor.ceres.extensions.validDrawableRes
+import dev.teogor.ceres.extensions.validFontRes
 import dev.teogor.ceres.m3.databinding.Lm3ImageComponentBinding
 
 class ImageComponentM3(
@@ -88,10 +89,10 @@ class ImageComponentM3(
       0
     ).apply {
       try {
-        fontId = getResourceId(R.styleable.ImageComponentM3_android_fontFamily, -1)
+        fontId = getResourceId(R.styleable.ImageComponentM3_android_fontFamily, defaultResId)
         title = getString(R.styleable.ImageComponentM3_title)
         subtitle = getString(R.styleable.ImageComponentM3_subtitle)
-        imageResId = getResourceId(R.styleable.ImageComponentM3_src_image, -1)
+        imageResId = getResourceId(R.styleable.ImageComponentM3_src_image, defaultResId)
         paddingImage = getDimension(
           R.styleable.ImageComponentM3_padding_image,
           10.dpToPx.toFloat()
@@ -102,8 +103,8 @@ class ImageComponentM3(
     }
 
     // font family initialization
-    if (fontId.validFontId) {
-      val typeface = ResourcesCompat.getFont(context, fontId)
+    fontId.validFontRes {
+      val typeface = ResourcesCompat.getFont(context, this)
       binding.textTitle.typeface = typeface
       binding.textSubtitle.typeface = typeface
     }
@@ -112,9 +113,9 @@ class ImageComponentM3(
       onClicked()
     }
 
-    binding.imageM3.show(imageResId.validDrawableId)
-    if (imageResId.validDrawableId) {
-      binding.imageM3.setImageResource(imageResId)
+    binding.imageM3.show(imageResId.validDrawableRes)
+    imageResId.validDrawableRes {
+      binding.imageM3.setImageResource(this)
     }
     binding.imageM3.setPadding(paddingImage)
 
