@@ -14,6 +14,7 @@ plugins {
   id("com.google.firebase.crashlytics")
   id("com.google.firebase.firebase-perf")
   id("com.google.firebase.appdistribution")
+  // hilt
   id("com.google.dagger.hilt.android")
   // safe args
   id("androidx.navigation.safeargs.kotlin")
@@ -87,13 +88,13 @@ android {
 }
 
 dependencies {
-  implementation(project(":ceres-core"))
-  implementation(project(":ceres-firebase"))
-  implementation(project(":ceres-components"))
-  implementation(project(":ceres-extensions"))
-  implementation(project(":ceres-bindings"))
-  implementation(project(":ceres-m3"))
   implementation(project(":ceres-ads"))
+  implementation(project(":ceres-bindings"))
+  implementation(project(":ceres-components"))
+  implementation(project(":ceres-core"))
+  implementation(project(":ceres-extensions"))
+  implementation(project(":ceres-firebase"))
+  implementation(project(":ceres-m3"))
   implementation(project(":ceres-widget"))
   implementation(project(":ceres-wear-os"))
 
