@@ -14,12 +14,14 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.ads.startup
+package dev.teogor.ceres.ads
 
-import dev.teogor.ceres.ads.Ad
 import java.lang.ref.WeakReference
 
-object AdsStartUp {
+internal object AdsData {
+
+  var fullScreenAdIsShowing: Boolean = false
+  var enabled: Boolean = true
   var openAdsWeak: List<WeakReference<Ad>> = listOf()
     set(value) {
       field = value
@@ -27,6 +29,4 @@ object AdsStartUp {
         ad.load()
       }
     }
-
-  var enabled: Boolean = true
 }

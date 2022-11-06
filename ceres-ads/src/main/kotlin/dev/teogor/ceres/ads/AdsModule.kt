@@ -17,7 +17,6 @@
 package dev.teogor.ceres.ads
 
 import com.google.android.gms.ads.AdActivity
-import dev.teogor.ceres.ads.startup.AdsStartUp
 import dev.teogor.ceres.core.app.Module
 import dev.teogor.ceres.core.app.ModuleProvider
 import dev.teogor.ceres.core.provider.InitProviderData
@@ -33,7 +32,7 @@ class AdsModule @Inject constructor() : ModuleProvider() {
   override fun onCreate() {
     super.onCreate()
     data.safeAs<AdsModuleData> {
-      AdsStartUp.openAdsWeak = this.ads.asWeakReference()
+      AdsData.openAdsWeak = this.ads.asWeakReference()
     }
 
     InitProviderData.flagActivityClass(

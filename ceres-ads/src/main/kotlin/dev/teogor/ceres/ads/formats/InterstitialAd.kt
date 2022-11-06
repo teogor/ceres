@@ -24,7 +24,7 @@ import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import dev.teogor.ceres.ads.Ad
 import dev.teogor.ceres.ads.AdEvent
-import dev.teogor.ceres.ads.isAdActivity
+import dev.teogor.ceres.ads.AdsData
 import dev.teogor.ceres.core.global.GlobalData
 
 abstract class InterstitialAd : Ad() {
@@ -66,7 +66,7 @@ abstract class InterstitialAd : Ad() {
     if (!canShow()) {
       return
     }
-    if (GlobalData.activity.isAdActivity()) {
+    if (AdsData.fullScreenAdIsShowing) {
       log("Another ad is showing.")
       return
     }
@@ -80,16 +80,22 @@ abstract class InterstitialAd : Ad() {
       log("The interstitial ad is already showing.")
       return
     }
+
+    log("Will show ad.")
+    AdsData.fullScreenAdIsShowing = true
+
     ad.fullScreenContentCallback = object : FullScreenContentCallback() {
       override fun onAdDismissedFullScreenContent() {
         log("Ad was dismissed.")
         cacheAds.interstitialAd = null
+        AdsData.fullScreenAdIsShowing = false
         onListener(AdEvent.DISMISSED)
       }
 
       override fun onAdFailedToShowFullScreenContent(adError: AdError) {
         log("Ad failed to show.")
         cacheAds.interstitialAd = null
+        AdsData.fullScreenAdIsShowing = false
         onListener(AdEvent.NOT_COMPLETED)
       }
 
