@@ -18,6 +18,8 @@ package dev.teogor.ceres.m3.theme
 
 import android.graphics.Color
 import androidx.annotation.ColorInt
+import dev.teogor.ceres.m3.generator.palettes.CorePalette
+import dev.teogor.ceres.m3.generator.palettes.TonalPalette
 
 @Suppress("MemberVisibilityCanBePrivate", "unused")
 class SchemeM3 private constructor(
@@ -26,14 +28,15 @@ class SchemeM3 private constructor(
   val dynamicColors: Boolean
 ) {
 
-  val corePalette: dev.teogor.ceres.m3.generator.palettes.CorePalette =
-    dev.teogor.ceres.m3.generator.palettes.CorePalette.of(primaryColor)
-  val primaryPalette: dev.teogor.ceres.m3.generator.palettes.TonalPalette = corePalette.a1
-  val secondaryPalette: dev.teogor.ceres.m3.generator.palettes.TonalPalette = corePalette.a2
-  val tertiaryPalette: dev.teogor.ceres.m3.generator.palettes.TonalPalette = corePalette.a3
-  val errorPalette: dev.teogor.ceres.m3.generator.palettes.TonalPalette = corePalette.error
-  val neutralPalette: dev.teogor.ceres.m3.generator.palettes.TonalPalette = corePalette.n1
-  val neutralVariantPalette: dev.teogor.ceres.m3.generator.palettes.TonalPalette = corePalette.n1
+  val corePalette: CorePalette = CorePalette.of(primaryColor)
+  val primaryPalette: TonalPalette = corePalette.a1
+  val secondaryPalette: TonalPalette = corePalette.a2
+  val tertiaryPalette: TonalPalette = corePalette.a3
+  val quaternaryPalette: TonalPalette = corePalette.a4
+  val quinaryPalette: TonalPalette = corePalette.a5
+  val errorPalette: TonalPalette = corePalette.error
+  val neutralPalette: TonalPalette = corePalette.n1
+  val neutralVariantPalette: TonalPalette = corePalette.n1
 
   val lightColorScheme: ColorScheme
   val darkColorScheme: ColorScheme
@@ -54,6 +57,14 @@ class SchemeM3 private constructor(
       onTertiary = tertiaryPalette.tone(100),
       tertiaryContainer = tertiaryPalette.tone(90),
       onTertiaryContainer = tertiaryPalette.tone(10),
+      quaternary = quaternaryPalette.tone(40),
+      onQuaternary = quaternaryPalette.tone(100),
+      quaternaryContainer = quaternaryPalette.tone(90),
+      onQuaternaryContainer = quaternaryPalette.tone(10),
+      quinary = quinaryPalette.tone(40),
+      onQuinary = quinaryPalette.tone(100),
+      quinaryContainer = quinaryPalette.tone(90),
+      onQuinaryContainer = quinaryPalette.tone(10),
       background = neutralPalette.tone(99),
       onBackground = neutralPalette.tone(10),
       surface = neutralPalette.tone(99),
@@ -85,6 +96,14 @@ class SchemeM3 private constructor(
       onTertiary = tertiaryPalette.tone(20),
       tertiaryContainer = tertiaryPalette.tone(30),
       onTertiaryContainer = tertiaryPalette.tone(90),
+      quaternary = quaternaryPalette.tone(80),
+      onQuaternary = quaternaryPalette.tone(20),
+      quaternaryContainer = quaternaryPalette.tone(30),
+      onQuaternaryContainer = quaternaryPalette.tone(90),
+      quinary = quinaryPalette.tone(80),
+      onQuinary = quinaryPalette.tone(20),
+      quinaryContainer = quinaryPalette.tone(30),
+      onQuinaryContainer = quinaryPalette.tone(90),
       background = neutralPalette.tone(10),
       onBackground = neutralPalette.tone(90),
       surface = neutralPalette.tone(10),
@@ -116,6 +135,14 @@ class SchemeM3 private constructor(
       onTertiary = tertiaryPalette.tone(20),
       tertiaryContainer = tertiaryPalette.tone(30),
       onTertiaryContainer = tertiaryPalette.tone(90),
+      quaternary = quaternaryPalette.tone(80),
+      onQuaternary = quaternaryPalette.tone(20),
+      quaternaryContainer = quaternaryPalette.tone(30),
+      onQuaternaryContainer = quaternaryPalette.tone(90),
+      quinary = quinaryPalette.tone(80),
+      onQuinary = quinaryPalette.tone(20),
+      quinaryContainer = quinaryPalette.tone(30),
+      onQuinaryContainer = quinaryPalette.tone(90),
       background = neutralPalette.tone(10),
       onBackground = neutralPalette.tone(90),
       surface = Color.BLACK,

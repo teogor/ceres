@@ -52,6 +52,14 @@ class ShapeDrawableM3 : MaterialShapeDrawable {
       ColorM3.OnTertiary -> getSchemeColor().onTertiary
       ColorM3.TertiaryContainer -> getSchemeColor().tertiaryContainer
       ColorM3.OnTertiaryContainer -> getSchemeColor().onTertiaryContainer
+      ColorM3.Quaternary -> getSchemeColor().quaternary
+      ColorM3.OnQuaternary -> getSchemeColor().onQuaternary
+      ColorM3.QuaternaryContainer -> getSchemeColor().quaternaryContainer
+      ColorM3.OnQuaternaryContainer -> getSchemeColor().onQuaternaryContainer
+      ColorM3.Quinary -> getSchemeColor().quinary
+      ColorM3.OnQuinary -> getSchemeColor().onQuinary
+      ColorM3.QuinaryContainer -> getSchemeColor().quaternaryContainer
+      ColorM3.OnQuinaryContainer -> getSchemeColor().onQuinaryContainer
       ColorM3.Background -> getSchemeColor().background
       ColorM3.OnBackground -> getSchemeColor().onBackground
       ColorM3.Surface -> getSchemeColor().surface

@@ -16,6 +16,7 @@
 
 package dev.teogor.ceres.m3.generator.palettes
 
+import dev.teogor.ceres.extensions.invertColor
 import dev.teogor.ceres.m3.generator.hct.Hct
 
 /**
@@ -26,6 +27,8 @@ class CorePalette private constructor(argb: Int, isContent: Boolean) {
   var a1: TonalPalette
   var a2: TonalPalette
   var a3: TonalPalette
+  var a4: TonalPalette
+  var a5: TonalPalette
   var n1: TonalPalette
   var n2: TonalPalette
   var error: TonalPalette
@@ -38,12 +41,22 @@ class CorePalette private constructor(argb: Int, isContent: Boolean) {
       a1 = TonalPalette.fromHueAndChroma(hue, chroma)
       a2 = TonalPalette.fromHueAndChroma(hue, chroma / 3.0)
       a3 = TonalPalette.fromHueAndChroma(hue + 60.0, chroma / 2.0)
-      n1 = TonalPalette.fromHueAndChroma(hue, Math.min(chroma / 12.0, 4.0))
-      n2 = TonalPalette.fromHueAndChroma(hue, Math.min(chroma / 6.0, 8.0))
+      a4 = TonalPalette.fromHueAndChroma(hue + 60, .1)
+      a5 = TonalPalette.fromHueAndChroma(
+        Hct.fromInt(argb.invertColor()).hue,
+        Hct.fromInt(argb.invertColor()).chroma
+      )
+      n1 = TonalPalette.fromHueAndChroma(hue, (chroma / 12.0).coerceAtMost(4.0))
+      n2 = TonalPalette.fromHueAndChroma(hue, (chroma / 6.0).coerceAtMost(8.0))
     } else {
-      a1 = TonalPalette.fromHueAndChroma(hue, Math.max(48.0, chroma))
+      a1 = TonalPalette.fromHueAndChroma(hue, 48.0.coerceAtLeast(chroma))
       a2 = TonalPalette.fromHueAndChroma(hue, 16.0)
       a3 = TonalPalette.fromHueAndChroma(hue + 60.0, 24.0)
+      a4 = TonalPalette.fromHueAndChroma(hue + 90, 48.0.coerceAtLeast(chroma))
+      a5 = TonalPalette.fromHueAndChroma(
+        Hct.fromInt(argb.invertColor()).hue,
+        Hct.fromInt(argb.invertColor()).chroma
+      )
       n1 = TonalPalette.fromHueAndChroma(hue, 4.0)
       n2 = TonalPalette.fromHueAndChroma(hue, 8.0)
     }

@@ -95,6 +95,14 @@ data class ColorScheme(
   @ColorInt val onTertiary: Int,
   @ColorInt val tertiaryContainer: Int,
   @ColorInt val onTertiaryContainer: Int,
+  @ColorInt val quaternary: Int,
+  @ColorInt val onQuaternary: Int,
+  @ColorInt val quaternaryContainer: Int,
+  @ColorInt val onQuaternaryContainer: Int,
+  @ColorInt val quinary: Int,
+  @ColorInt val onQuinary: Int,
+  @ColorInt val quinaryContainer: Int,
+  @ColorInt val onQuinaryContainer: Int,
   @ColorInt val background: Int,
   @ColorInt val onBackground: Int,
   @ColorInt val surface: Int,
@@ -131,6 +139,14 @@ data class ColorScheme(
       "onTertiary=$onTertiary" +
       "tertiaryContainer=$tertiaryContainer" +
       "onTertiaryContainer=$onTertiaryContainer" +
+      "quaternary=$quaternary" +
+      "onQuaternary=$onQuaternary" +
+      "quaternaryContainer=$quaternaryContainer" +
+      "onQuaternaryContainer=$onQuaternaryContainer" +
+      "quinary=$quinary" +
+      "onQuinary=$onQuinary" +
+      "quinaryContainer=$quinaryContainer" +
+      "onQuinaryContainer=$onQuinaryContainer" +
       "background=$background" +
       "onBackground=$onBackground" +
       "surface=$surface" +

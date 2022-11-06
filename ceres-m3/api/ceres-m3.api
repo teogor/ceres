@@ -98,6 +98,10 @@ public final class dev/teogor/ceres/m3/ColorM3 : java/lang/Enum {
 	public static final field OnPrimary Ldev/teogor/ceres/m3/ColorM3;
 	public static final field OnPrimaryContainer Ldev/teogor/ceres/m3/ColorM3;
 	public static final field OnPrimaryMenu Ldev/teogor/ceres/m3/ColorM3;
+	public static final field OnQuaternary Ldev/teogor/ceres/m3/ColorM3;
+	public static final field OnQuaternaryContainer Ldev/teogor/ceres/m3/ColorM3;
+	public static final field OnQuinary Ldev/teogor/ceres/m3/ColorM3;
+	public static final field OnQuinaryContainer Ldev/teogor/ceres/m3/ColorM3;
 	public static final field OnSecondary Ldev/teogor/ceres/m3/ColorM3;
 	public static final field OnSecondaryContainer Ldev/teogor/ceres/m3/ColorM3;
 	public static final field OnSurface Ldev/teogor/ceres/m3/ColorM3;
@@ -108,6 +112,10 @@ public final class dev/teogor/ceres/m3/ColorM3 : java/lang/Enum {
 	public static final field OutlineVariant Ldev/teogor/ceres/m3/ColorM3;
 	public static final field Primary Ldev/teogor/ceres/m3/ColorM3;
 	public static final field PrimaryContainer Ldev/teogor/ceres/m3/ColorM3;
+	public static final field Quaternary Ldev/teogor/ceres/m3/ColorM3;
+	public static final field QuaternaryContainer Ldev/teogor/ceres/m3/ColorM3;
+	public static final field Quinary Ldev/teogor/ceres/m3/ColorM3;
+	public static final field QuinaryContainer Ldev/teogor/ceres/m3/ColorM3;
 	public static final field Scrim Ldev/teogor/ceres/m3/ColorM3;
 	public static final field Secondary Ldev/teogor/ceres/m3/ColorM3;
 	public static final field SecondaryContainer Ldev/teogor/ceres/m3/ColorM3;
@@ -903,12 +911,16 @@ public final class dev/teogor/ceres/m3/generator/palettes/CorePalette {
 	public final fun getA1 ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
 	public final fun getA2 ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
 	public final fun getA3 ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public final fun getA4 ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public final fun getA5 ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
 	public final fun getError ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
 	public final fun getN1 ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
 	public final fun getN2 ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
 	public final fun setA1 (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
 	public final fun setA2 (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
 	public final fun setA3 (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
+	public final fun setA4 (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
+	public final fun setA5 (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
 	public final fun setError (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
 	public final fun setN1 (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
 	public final fun setN2 (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
@@ -1348,7 +1360,7 @@ public final class dev/teogor/ceres/m3/theme/AppThemeType : java/lang/Enum {
 }
 
 public final class dev/teogor/ceres/m3/theme/ColorScheme {
-	public fun <init> (IIIIIIIIIIIIIIIIIIIIIIIIIIIII)V
+	public fun <init> (IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII)V
 	public final fun component1 ()I
 	public final fun component10 ()I
 	public final fun component11 ()I
@@ -1372,14 +1384,22 @@ public final class dev/teogor/ceres/m3/theme/ColorScheme {
 	public final fun component28 ()I
 	public final fun component29 ()I
 	public final fun component3 ()I
+	public final fun component30 ()I
+	public final fun component31 ()I
+	public final fun component32 ()I
+	public final fun component33 ()I
+	public final fun component34 ()I
+	public final fun component35 ()I
+	public final fun component36 ()I
+	public final fun component37 ()I
 	public final fun component4 ()I
 	public final fun component5 ()I
 	public final fun component6 ()I
 	public final fun component7 ()I
 	public final fun component8 ()I
 	public final fun component9 ()I
-	public final fun copy (IIIIIIIIIIIIIIIIIIIIIIIIIIIII)Ldev/teogor/ceres/m3/theme/ColorScheme;
-	public static synthetic fun copy$default (Ldev/teogor/ceres/m3/theme/ColorScheme;IIIIIIIIIIIIIIIIIIIIIIIIIIIIIILjava/lang/Object;)Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public final fun copy (IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII)Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/m3/theme/ColorScheme;IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIILjava/lang/Object;)Ldev/teogor/ceres/m3/theme/ColorScheme;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getBackground ()I
 	public final fun getError ()I
@@ -1392,6 +1412,10 @@ public final class dev/teogor/ceres/m3/theme/ColorScheme {
 	public final fun getOnErrorContainer ()I
 	public final fun getOnPrimary ()I
 	public final fun getOnPrimaryContainer ()I
+	public final fun getOnQuaternary ()I
+	public final fun getOnQuaternaryContainer ()I
+	public final fun getOnQuinary ()I
+	public final fun getOnQuinaryContainer ()I
 	public final fun getOnSecondary ()I
 	public final fun getOnSecondaryContainer ()I
 	public final fun getOnSurface ()I
@@ -1402,6 +1426,10 @@ public final class dev/teogor/ceres/m3/theme/ColorScheme {
 	public final fun getOutlineVariant ()I
 	public final fun getPrimary ()I
 	public final fun getPrimaryContainer ()I
+	public final fun getQuaternary ()I
+	public final fun getQuaternaryContainer ()I
+	public final fun getQuinary ()I
+	public final fun getQuinaryContainer ()I
 	public final fun getScrim ()I
 	public final fun getSecondary ()I
 	public final fun getSecondaryContainer ()I
@@ -1484,6 +1512,8 @@ public final class dev/teogor/ceres/m3/theme/SchemeM3 {
 	public final fun getNeutralPalette ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
 	public final fun getNeutralVariantPalette ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
 	public final fun getPrimaryPalette ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public final fun getQuaternaryPalette ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
+	public final fun getQuinaryPalette ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
 	public final fun getSecondaryPalette ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
 	public final fun getSeed ()Ljava/lang/String;
 	public final fun getTertiaryPalette ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
