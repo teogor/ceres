@@ -32,6 +32,4 @@ class ApplicationOpenAd @Inject constructor() : AppOpenAd() {
   override fun type() = AdType.APP_OPEN
 
   override fun loadContinuously() = true
-
-  override fun useCache() = false
 }

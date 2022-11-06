@@ -20,21 +20,16 @@ import dev.teogor.ceres.ads.AdType
 import dev.teogor.ceres.ads.annotation.Ad
 import dev.teogor.ceres.ads.formats.InterstitialAd
 import dev.teogor.ceres.ads.utils.Constants
-import dev.teogor.ceres.core.network.Network
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Ad
 @Singleton
-class HomeInterstitialAd @Inject constructor(
-  network: Network
-) : InterstitialAd(network) {
+class HomeInterstitialAd @Inject constructor() : InterstitialAd() {
 
   override fun id() = Constants.TestAdsId.INTERSTITIAL
 
   override fun type() = AdType.INTERSTITIAL
 
   override fun loadContinuously() = false
-
-  override fun useCache() = true
 }

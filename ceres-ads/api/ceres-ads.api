@@ -170,14 +170,14 @@ public abstract class dev/teogor/ceres/ads/formats/AppOpenAd : dev/teogor/ceres/
 	public fun <init> ()V
 	public fun load ()V
 	public fun show ()V
+	public fun useCache ()Z
 }
 
 public abstract class dev/teogor/ceres/ads/formats/InterstitialAd : dev/teogor/ceres/ads/Ad {
 	public fun <init> ()V
-	public fun <init> (Ldev/teogor/ceres/core/network/Network;)V
-	public synthetic fun <init> (Ldev/teogor/ceres/core/network/Network;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun load ()V
 	public fun show ()V
+	public fun useCache ()Z
 }
 
 public abstract class dev/teogor/ceres/ads/formats/NativeAd : dev/teogor/ceres/ads/Ad {
