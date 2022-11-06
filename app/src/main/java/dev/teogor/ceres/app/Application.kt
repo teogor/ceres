@@ -19,10 +19,13 @@ package dev.teogor.ceres.app
 import dagger.hilt.android.HiltAndroidApp
 import dev.teogor.ceres.R
 import dev.teogor.ceres.ads.AdsModule
+import dev.teogor.ceres.ads.AdsModuleData
 import dev.teogor.ceres.core.app.CoreApplication
 import dev.teogor.ceres.core.app.ModuleProvider
+import dev.teogor.ceres.core.app.applyBuilder
 import dev.teogor.ceres.core.network.NetworkModule
 import dev.teogor.ceres.firebase.FirebaseModule
+import dev.teogor.ceres.firebase.FirebaseModuleData
 import dev.teogor.ceres.presentation.ads.ApplicationOpenAd
 import javax.inject.Inject
 
@@ -42,16 +45,32 @@ class Application : CoreApplication() {
   lateinit var applicationOpenAd: ApplicationOpenAd
 
   override fun getModules(): List<ModuleProvider> {
-    adsModule.withAds(
-      listOf(
-        applicationOpenAd
-      )
-    )
-    firebaseModule.remoteConfigDefXML = R.xml.remote_config_defaults
+    // apply data builders
+    configureAdsModule()
+    configureFirebaseModule()
+
     return listOf(
       networkModule,
       adsModule,
       firebaseModule
     )
+  }
+
+  private fun configureAdsModule() {
+    val dataBuilder = AdsModuleData.toBuilder()
+      .appAds(
+        listOf(
+          applicationOpenAd
+        )
+      )
+
+    adsModule.applyBuilder(dataBuilder)
+  }
+
+  private fun configureFirebaseModule() {
+    val dataBuilder = FirebaseModuleData.toBuilder()
+      .remoteConfigDefXML(R.xml.remote_config_defaults)
+
+    firebaseModule.applyBuilder(dataBuilder)
   }
 }

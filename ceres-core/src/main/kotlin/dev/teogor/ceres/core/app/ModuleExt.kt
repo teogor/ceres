@@ -14,29 +14,10 @@
  * limitations under the License.
  */
 
-@file:JvmName("AnyExt")
+@file:JvmName("ModuleExt")
 
-package dev.teogor.ceres.extensions
+package dev.teogor.ceres.core.app
 
-import android.util.Log
-
-fun <Type, ReturnType> Type?.safeReturn(
-  nonNullRun: Type.() -> ReturnType
-): ReturnType? {
-  return if (this == null) {
-    null
-  } else {
-    nonNullRun()
-  }
-}
-
-@Suppress("UNCHECKED_CAST")
-fun <T : Any> Any?.safeAs(
-  runnable: T.() -> Unit
-) {
-  try {
-    runnable(this as T)
-  } catch (e: ClassCastException) {
-    Log.e("[ceres-extensions]", e.stackTraceToString())
-  }
+fun ModuleProvider.applyBuilder(data: ModuleData.Builder) {
+  this.data = data.build()
 }

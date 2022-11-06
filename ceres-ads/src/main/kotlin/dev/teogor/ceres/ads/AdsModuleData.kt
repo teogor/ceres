@@ -14,29 +14,28 @@
  * limitations under the License.
  */
 
-@file:JvmName("AnyExt")
+package dev.teogor.ceres.ads
 
-package dev.teogor.ceres.extensions
+import dev.teogor.ceres.core.app.ModuleData
 
-import android.util.Log
+class AdsModuleData private constructor(
+  val ads: List<Ad>
+) : ModuleData() {
 
-fun <Type, ReturnType> Type?.safeReturn(
-  nonNullRun: Type.() -> ReturnType
-): ReturnType? {
-  return if (this == null) {
-    null
-  } else {
-    nonNullRun()
+  data class AdsModuleDataBuilder(
+    private var ads: List<Ad> = emptyList()
+  ) : Builder {
+
+    fun appAds(ads: List<Ad>) = apply { this.ads = ads }
+
+    override fun build(): AdsModuleData {
+      return AdsModuleData(
+        ads
+      )
+    }
   }
-}
 
-@Suppress("UNCHECKED_CAST")
-fun <T : Any> Any?.safeAs(
-  runnable: T.() -> Unit
-) {
-  try {
-    runnable(this as T)
-  } catch (e: ClassCastException) {
-    Log.e("[ceres-extensions]", e.stackTraceToString())
+  companion object {
+    fun toBuilder() = AdsModuleDataBuilder()
   }
 }

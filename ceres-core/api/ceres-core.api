@@ -46,11 +46,25 @@ public class dev/teogor/ceres/core/app/CoreApplication : android/app/Application
 public abstract interface annotation class dev/teogor/ceres/core/app/Module : java/lang/annotation/Annotation {
 }
 
+public class dev/teogor/ceres/core/app/ModuleData {
+	public fun <init> ()V
+}
+
+public abstract interface class dev/teogor/ceres/core/app/ModuleData$Builder {
+	public abstract fun build ()Ldev/teogor/ceres/core/app/ModuleData;
+}
+
+public final class dev/teogor/ceres/core/app/ModuleExt {
+	public static final fun applyBuilder (Ldev/teogor/ceres/core/app/ModuleProvider;Ldev/teogor/ceres/core/app/ModuleData$Builder;)V
+}
+
 public class dev/teogor/ceres/core/app/ModuleProvider : dev/teogor/ceres/core/logger/Logger {
 	public fun <init> ()V
+	public final fun getData ()Ldev/teogor/ceres/core/app/ModuleData;
 	public final fun getName ()Ljava/lang/String;
 	public fun log (Ljava/lang/String;)V
 	public fun onCreate ()V
+	public final fun setData (Ldev/teogor/ceres/core/app/ModuleData;)V
 }
 
 public final class dev/teogor/ceres/core/construct/AppData {

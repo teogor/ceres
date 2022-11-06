@@ -7,6 +7,7 @@ public final class dev/teogor/ceres/extensions/ActivityExtKt {
 }
 
 public final class dev/teogor/ceres/extensions/AnyExt {
+	public static final fun safeAs (Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)V
 	public static final fun safeReturn (Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 }
 
@@ -78,6 +79,10 @@ public final class dev/teogor/ceres/extensions/DimensionExtKt {
 
 public final class dev/teogor/ceres/extensions/FragmentManagerExtKt {
 	public static final fun getCurrentNavigationFragment (Landroidx/fragment/app/FragmentManager;)Landroidx/fragment/app/Fragment;
+}
+
+public final class dev/teogor/ceres/extensions/ListExt {
+	public static final fun asWeakReference (Ljava/util/List;)Ljava/util/List;
 }
 
 public final class dev/teogor/ceres/extensions/MutableLiveDataExtKt {

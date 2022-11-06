@@ -22,6 +22,8 @@ open class ModuleProvider : Logger {
 
   val name: String = this.javaClass.simpleName
 
+  var data: ModuleData? = null
+
   open fun onCreate() {
   }
 }

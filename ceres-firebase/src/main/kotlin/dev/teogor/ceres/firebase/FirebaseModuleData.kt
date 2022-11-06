@@ -14,29 +14,28 @@
  * limitations under the License.
  */
 
-@file:JvmName("AnyExt")
+package dev.teogor.ceres.firebase
 
-package dev.teogor.ceres.extensions
+import dev.teogor.ceres.core.app.ModuleData
 
-import android.util.Log
+class FirebaseModuleData private constructor(
+  val remoteConfigDefXML: Int
+) : ModuleData() {
 
-fun <Type, ReturnType> Type?.safeReturn(
-  nonNullRun: Type.() -> ReturnType
-): ReturnType? {
-  return if (this == null) {
-    null
-  } else {
-    nonNullRun()
+  data class FirebaseModuleDataBuilder(
+    private var remoteConfigDefXML: Int = -1
+  ) : Builder {
+
+    fun remoteConfigDefXML(id: Int) = apply { this.remoteConfigDefXML = id }
+
+    override fun build(): FirebaseModuleData {
+      return FirebaseModuleData(
+        remoteConfigDefXML
+      )
+    }
   }
-}
 
-@Suppress("UNCHECKED_CAST")
-fun <T : Any> Any?.safeAs(
-  runnable: T.() -> Unit
-) {
-  try {
-    runnable(this as T)
-  } catch (e: ClassCastException) {
-    Log.e("[ceres-extensions]", e.stackTraceToString())
+  companion object {
+    fun toBuilder() = FirebaseModuleDataBuilder()
   }
 }

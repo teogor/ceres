@@ -14,29 +14,12 @@
  * limitations under the License.
  */
 
-@file:JvmName("AnyExt")
+@file:JvmName("ListExt")
 
 package dev.teogor.ceres.extensions
 
-import android.util.Log
+import java.lang.ref.WeakReference
 
-fun <Type, ReturnType> Type?.safeReturn(
-  nonNullRun: Type.() -> ReturnType
-): ReturnType? {
-  return if (this == null) {
-    null
-  } else {
-    nonNullRun()
-  }
-}
-
-@Suppress("UNCHECKED_CAST")
-fun <T : Any> Any?.safeAs(
-  runnable: T.() -> Unit
-) {
-  try {
-    runnable(this as T)
-  } catch (e: ClassCastException) {
-    Log.e("[ceres-extensions]", e.stackTraceToString())
-  }
+fun <T> List<T>.asWeakReference(): List<WeakReference<T>> {
+  return this.map { WeakReference(it) }
 }
