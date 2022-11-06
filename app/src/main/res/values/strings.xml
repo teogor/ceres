@@ -17,6 +17,7 @@
 <resources>
   <string name="app_name">Ceres</string>
 
+  <string name="m3">M3</string>
   <string name="about">About</string>
   <string name="look_and_feel">Look and feel</string>
 
