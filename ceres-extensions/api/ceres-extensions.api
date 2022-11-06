@@ -1,5 +1,9 @@
 public final class dev/teogor/ceres/extensions/ActivityExtKt {
+	public static final fun extrasBoolean (Landroid/app/Activity;Ljava/lang/String;ZLkotlin/jvm/functions/Function1;)V
+	public static synthetic fun extrasBoolean$default (Landroid/app/Activity;Ljava/lang/String;ZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 	public static final fun findNavController (Landroidx/fragment/app/FragmentActivity;I)Landroidx/navigation/NavController;
+	public static final fun hasIntentExtras (Landroid/app/Activity;Lkotlin/jvm/functions/Function1;)V
+	public static synthetic fun hasIntentExtras$default (Landroid/app/Activity;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 }
 
 public final class dev/teogor/ceres/extensions/ApplicationExtKt {

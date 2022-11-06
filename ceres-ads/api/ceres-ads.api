@@ -59,6 +59,11 @@ public final class dev/teogor/ceres/ads/AdView : androidx/appcompat/widget/AppCo
 	public final fun setColor (I)V
 }
 
+public final class dev/teogor/ceres/ads/AdsExt {
+	public static final fun isAdActivity (Landroid/app/Activity;)Z
+	public static final fun showAppOpenAd (Landroid/content/Intent;)V
+}
+
 public final class dev/teogor/ceres/ads/AdsModule : dev/teogor/ceres/core/app/ModuleProvider {
 	public fun <init> ()V
 	public fun onCreate ()V
@@ -207,6 +212,7 @@ public final class dev/teogor/ceres/ads/startup/AdsProvider : android/app/Applic
 	public fun onActivitySaveInstanceState (Landroid/app/Activity;Landroid/os/Bundle;)V
 	public fun onActivityStarted (Landroid/app/Activity;)V
 	public fun onActivityStopped (Landroid/app/Activity;)V
+	public fun onStart (Landroidx/lifecycle/LifecycleOwner;)V
 }
 
 public final class dev/teogor/ceres/ads/startup/AdsStartUp {
@@ -226,6 +232,7 @@ public final class dev/teogor/ceres/ads/startup/ProcessInitializer : com/zeoflow
 
 public final class dev/teogor/ceres/ads/utils/Constants {
 	public static final field AD_ACTIVITY_CLASS Ljava/lang/String;
+	public static final field FORCE_SHOW_APP_OPEN_AD Ljava/lang/String;
 	public static final field INSTANCE Ldev/teogor/ceres/ads/utils/Constants;
 	public static final field LOG_TAG Ljava/lang/String;
 	public static final field NOT_SET Ljava/lang/String;
@@ -241,10 +248,6 @@ public final class dev/teogor/ceres/ads/utils/Constants$TestAdsId {
 	public static final field NATIVE_VIDEO Ljava/lang/String;
 	public static final field REWARDED Ljava/lang/String;
 	public static final field REWARDED_INTERSTITIAL Ljava/lang/String;
-}
-
-public final class dev/teogor/ceres/ads/utils/ExtensionsKt {
-	public static final fun isAdActivity (Landroid/app/Activity;)Z
 }
 
 public final class dev/teogor/ceres/ads/utils/SystemKt {

@@ -23,7 +23,7 @@ import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.appopen.AppOpenAd
 import dev.teogor.ceres.ads.Ad
 import dev.teogor.ceres.ads.AdEvent
-import dev.teogor.ceres.ads.utils.isAdActivity
+import dev.teogor.ceres.ads.isAdActivity
 import dev.teogor.ceres.core.global.GlobalData
 
 abstract class AppOpenAd : Ad() {

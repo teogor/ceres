@@ -14,10 +14,19 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.ads.utils
+@file:JvmName("AdsExt")
+
+package dev.teogor.ceres.ads
 
 import android.app.Activity
+import android.content.Intent
+import dev.teogor.ceres.ads.utils.Constants
+import dev.teogor.ceres.ads.utils.Constants.FORCE_SHOW_APP_OPEN_AD
 
 fun Activity.isAdActivity(): Boolean {
   return this.javaClass.canonicalName == Constants.AD_ACTIVITY_CLASS
+}
+
+fun Intent.showAppOpenAd() {
+  putExtra(FORCE_SHOW_APP_OPEN_AD, true)
 }

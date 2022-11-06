@@ -22,6 +22,8 @@ object Constants {
   const val NOT_SET = "not_set"
   const val AD_ACTIVITY_CLASS = "com.google.android.gms.ads.AdActivity"
 
+  const val FORCE_SHOW_APP_OPEN_AD = "force_show_app_open_ad"
+
   object TestAdsId {
     const val APP_OPEN = "ca-app-pub-3940256099942544/3419835294"
     const val BANNER = "ca-app-pub-3940256099942544/6300978111"

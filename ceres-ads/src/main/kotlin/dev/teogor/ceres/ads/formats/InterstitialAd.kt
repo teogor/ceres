@@ -24,7 +24,7 @@ import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import dev.teogor.ceres.ads.Ad
 import dev.teogor.ceres.ads.AdEvent
-import dev.teogor.ceres.ads.utils.isAdActivity
+import dev.teogor.ceres.ads.isAdActivity
 import dev.teogor.ceres.core.global.GlobalData
 
 abstract class InterstitialAd : Ad() {
