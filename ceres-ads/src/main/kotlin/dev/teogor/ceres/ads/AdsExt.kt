@@ -14,9 +14,12 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.ads.utils
+@file:JvmName("AdsExt")
+
+package dev.teogor.ceres.ads
 
 import android.app.Activity
+import dev.teogor.ceres.ads.utils.Constants
 
 fun Activity.isAdActivity(): Boolean {
   return this.javaClass.canonicalName == Constants.AD_ACTIVITY_CLASS
