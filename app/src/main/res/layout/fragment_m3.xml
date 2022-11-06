@@ -24,7 +24,7 @@
       type="dev.teogor.ceres.presentation.feature.m3.M3ViewModel" />
   </data>
 
-  <dev.teogor.ceres.m3.widgets.container.FragmentContainer
+  <dev.teogor.ceres.m3.FragmentContainer
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:consumeTop="true">
@@ -372,6 +372,6 @@
       app:layout_constraintTop_toBottomOf="@id/quinary"
       app:ripple_enabled="true" />
 
-  </dev.teogor.ceres.m3.widgets.container.FragmentContainer>
+  </dev.teogor.ceres.m3.FragmentContainer>
 
 </layout>

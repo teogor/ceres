@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.m3.widgets.container
+package dev.teogor.ceres.m3
 
 import android.content.Context
 import android.util.AttributeSet
@@ -22,7 +22,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.allViews
-import dev.teogor.ceres.m3.R
 import dev.teogor.ceres.m3.elevation.SurfaceLevel
 import dev.teogor.ceres.m3.theme.IThemeM3
 import dev.teogor.ceres.m3.theme.ThemeHandler

@@ -25,7 +25,7 @@
       type="dev.teogor.ceres.presentation.feature.prefs.theme.ThemePrefsViewModel" />
   </data>
 
-  <dev.teogor.ceres.m3.widgets.container.FragmentContainer
+  <dev.teogor.ceres.m3.FragmentContainer
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:consumeTop="true">
@@ -174,6 +174,6 @@
       app:surface_level="lvl_2"
       app:title="Accent color" />
 
-  </dev.teogor.ceres.m3.widgets.container.FragmentContainer>
+  </dev.teogor.ceres.m3.FragmentContainer>
 
 </layout>

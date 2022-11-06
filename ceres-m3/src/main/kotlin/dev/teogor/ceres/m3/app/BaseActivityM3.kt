@@ -25,6 +25,7 @@ import androidx.databinding.ViewDataBinding
 import dev.teogor.ceres.components.app.BaseActivity
 import dev.teogor.ceres.components.events.UiEvent
 import dev.teogor.ceres.extensions.validStringRes
+import dev.teogor.ceres.m3.FragmentContainer
 import dev.teogor.ceres.m3.R
 import dev.teogor.ceres.m3.SnackbarBetaM3
 import dev.teogor.ceres.m3.annotation.M3
@@ -33,7 +34,6 @@ import dev.teogor.ceres.m3.theme.AppThemeType
 import dev.teogor.ceres.m3.theme.IThemeM3
 import dev.teogor.ceres.m3.theme.JustBlackThemeType
 import dev.teogor.ceres.m3.theme.ThemeM3
-import dev.teogor.ceres.m3.widgets.container.FragmentContainer
 import dev.teogor.ceres.m3.widgets.dialog.DialogChoiceBuilderM3
 
 /**
