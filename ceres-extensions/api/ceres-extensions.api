@@ -7,6 +7,7 @@ public final class dev/teogor/ceres/extensions/ActivityExtKt {
 }
 
 public final class dev/teogor/ceres/extensions/AnyExt {
+	public static final fun safeAs (Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)V
 	public static final fun safeReturn (Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 }
 

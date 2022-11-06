@@ -18,6 +18,8 @@
 
 package dev.teogor.ceres.extensions
 
+import android.util.Log
+
 fun <Type, ReturnType> Type?.safeReturn(
   nonNullRun: Type.() -> ReturnType
 ): ReturnType? {
@@ -25,5 +27,16 @@ fun <Type, ReturnType> Type?.safeReturn(
     null
   } else {
     nonNullRun()
+  }
+}
+
+@Suppress("UNCHECKED_CAST")
+fun <T : Any> Any?.safeAs(
+  runnable: T.() -> Unit
+) {
+  try {
+    runnable(this as T)
+  } catch (e: ClassCastException) {
+    Log.e("[ceres-extensions]", e.stackTraceToString())
   }
 }
