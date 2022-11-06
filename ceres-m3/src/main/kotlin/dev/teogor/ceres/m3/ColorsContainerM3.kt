@@ -21,7 +21,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.annotation.ColorInt
 import androidx.core.content.res.ResourcesCompat
-import dev.teogor.ceres.extensions.invalidResId
+import dev.teogor.ceres.extensions.defaultResId
 import dev.teogor.ceres.extensions.show
 import dev.teogor.ceres.extensions.validFontRes
 import dev.teogor.ceres.m3.databinding.Lm3ColorsContainerBinding
@@ -86,7 +86,7 @@ class ColorsContainerM3 constructor(
       0
     ).apply {
       try {
-        fontId = getResourceId(R.styleable.ColorsContainerM3_android_fontFamily, invalidResId)
+        fontId = getResourceId(R.styleable.ColorsContainerM3_android_fontFamily, defaultResId)
         title = getString(R.styleable.ColorsContainerM3_title)
       } finally {
         recycle()

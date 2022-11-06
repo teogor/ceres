@@ -25,9 +25,9 @@ import androidx.annotation.FontRes
 import androidx.annotation.Px
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.setPadding
+import dev.teogor.ceres.extensions.defaultResId
 import dev.teogor.ceres.extensions.dpToPx
 import dev.teogor.ceres.extensions.hide
-import dev.teogor.ceres.extensions.invalidResId
 import dev.teogor.ceres.extensions.show
 import dev.teogor.ceres.extensions.validDrawableRes
 import dev.teogor.ceres.extensions.validFontRes
@@ -89,10 +89,10 @@ class ImageComponentM3(
       0
     ).apply {
       try {
-        fontId = getResourceId(R.styleable.ImageComponentM3_android_fontFamily, invalidResId)
+        fontId = getResourceId(R.styleable.ImageComponentM3_android_fontFamily, defaultResId)
         title = getString(R.styleable.ImageComponentM3_title)
         subtitle = getString(R.styleable.ImageComponentM3_subtitle)
-        imageResId = getResourceId(R.styleable.ImageComponentM3_src_image, invalidResId)
+        imageResId = getResourceId(R.styleable.ImageComponentM3_src_image, defaultResId)
         paddingImage = getDimension(
           R.styleable.ImageComponentM3_padding_image,
           10.dpToPx.toFloat()

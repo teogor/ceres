@@ -22,7 +22,7 @@ import androidx.annotation.Dimension
 import androidx.annotation.FloatRange
 import androidx.annotation.Px
 import androidx.constraintlayout.widget.ConstraintLayout
-import dev.teogor.ceres.extensions.invalidResId
+import dev.teogor.ceres.extensions.defaultResId
 import dev.teogor.ceres.m3.elevation.SurfaceLevel
 import dev.teogor.ceres.m3.theme.ThemeHandler
 
@@ -63,7 +63,7 @@ open class ContainerBaseM3 constructor(
         ]
         val backgroundM3 = getInt(
           R.styleable.ContainerBaseM3_background_m3,
-          invalidResId
+          defaultResId
         )
         backgroundColorM3 = if (backgroundM3 != -1) {
           ColorM3.values()[backgroundM3]

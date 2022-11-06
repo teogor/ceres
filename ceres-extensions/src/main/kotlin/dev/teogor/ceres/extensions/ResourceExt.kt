@@ -21,22 +21,22 @@ import androidx.annotation.FontRes
 import androidx.annotation.IdRes
 import androidx.annotation.StringRes
 
-const val invalidResId = -1
+const val defaultResId = -1
 
 inline val @receiver:IdRes Int.validIdRes: Boolean
-  get() = this != invalidResId
+  get() = this != defaultResId
 
 inline val @receiver:FontRes Int.validFontRes: Boolean
-  get() = this != invalidResId
+  get() = this != defaultResId
 
 inline val @receiver:DrawableRes Int.validDrawableRes: Boolean
-  get() = this != invalidResId
+  get() = this != defaultResId
 
 inline val @receiver:StringRes Int.validStringRes: Boolean
-  get() = this != invalidResId
+  get() = this != defaultResId
 
 fun @receiver:IdRes Int.validIdRes(
-  invalidId: Int = invalidResId,
+  invalidId: Int = defaultResId,
   runnable: Int.() -> Unit
 ) {
   if (this != invalidId) {
@@ -45,7 +45,7 @@ fun @receiver:IdRes Int.validIdRes(
 }
 
 fun @receiver:FontRes Int.validFontRes(
-  invalidId: Int = invalidResId,
+  invalidId: Int = defaultResId,
   runnable: Int.() -> Unit
 ) {
   if (this != invalidId) {
@@ -54,7 +54,7 @@ fun @receiver:FontRes Int.validFontRes(
 }
 
 fun @receiver:DrawableRes Int.validDrawableRes(
-  invalidId: Int = invalidResId,
+  invalidId: Int = defaultResId,
   runnable: Int.() -> Unit
 ) {
   if (this != invalidId) {
@@ -63,7 +63,7 @@ fun @receiver:DrawableRes Int.validDrawableRes(
 }
 
 fun @receiver:StringRes Int.validStringRes(
-  invalidId: Int = invalidResId,
+  invalidId: Int = defaultResId,
   runnable: Int.() -> Unit
 ) {
   if (this != invalidId) {

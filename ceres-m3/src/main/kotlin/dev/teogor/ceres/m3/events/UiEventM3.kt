@@ -21,7 +21,7 @@ import android.view.View
 import androidx.annotation.StringRes
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import dev.teogor.ceres.components.events.UiEvent
-import dev.teogor.ceres.extensions.invalidResId
+import dev.teogor.ceres.extensions.defaultResId
 
 open class UiEventM3 {
 
@@ -30,7 +30,7 @@ open class UiEventM3 {
   ) : UiEvent()
 
   class ShowSnackbar(
-    @StringRes val titleResId: Int = invalidResId,
+    @StringRes val titleResId: Int = defaultResId,
     val title: String = "",
     @BaseTransientBottomBar.Duration val duration: Int = dev.teogor.ceres.m3.snackbar.Snackbar.LENGTH_SHORT,
     val action: String = "",
