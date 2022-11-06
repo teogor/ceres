@@ -38,6 +38,13 @@ import dev.teogor.ceres.m3.drawable.ShapeDrawableM3
 import dev.teogor.ceres.m3.drawable.toBuilder
 import dev.teogor.ceres.m3.elevation.SurfaceLevel
 
+@Deprecated(
+  message = "Deprecated due to a lot of methods",
+  replaceWith = ReplaceWith(
+    expression = "IThemeM3",
+    imports = ["dev.teogor.ceres.m3.theme.IThemeM3"]
+  )
+)
 interface ThemeHandler : Logger {
 
   fun onThemeChanged() {

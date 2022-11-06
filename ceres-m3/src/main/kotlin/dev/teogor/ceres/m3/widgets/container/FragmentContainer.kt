@@ -24,6 +24,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.allViews
 import dev.teogor.ceres.m3.R
 import dev.teogor.ceres.m3.elevation.SurfaceLevel
+import dev.teogor.ceres.m3.theme.IThemeM3
 import dev.teogor.ceres.m3.theme.ThemeHandler
 
 class FragmentContainer constructor(
@@ -73,9 +74,11 @@ class FragmentContainer constructor(
 
     setBackgroundColor(getBackgroundColorM3(this, SurfaceLevel.Lvl1))
 
-    val themedViews = allViews.filter { view -> view is ThemeHandler }.filter { it != this }
+    val themedViews = allViews.filter { view -> view is IThemeM3 }
+      .filter { it != this }
+      .map { it as IThemeM3 }
     themedViews.forEach { view ->
-      (view as ThemeHandler).onThemeChanged()
+      view.onThemeChanged()
     }
   }
 }

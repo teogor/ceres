@@ -466,41 +466,23 @@ public final class dev/teogor/ceres/m3/TextViewM3 : com/google/android/material/
 public abstract interface annotation class dev/teogor/ceres/m3/annotation/M3 : java/lang/annotation/Annotation {
 }
 
-public abstract class dev/teogor/ceres/m3/app/BaseActivityM3 : dev/teogor/ceres/components/app/BaseActivity, dev/teogor/ceres/m3/theme/ThemeHandler {
+public abstract class dev/teogor/ceres/m3/app/BaseActivityM3 : dev/teogor/ceres/components/app/BaseActivity, dev/teogor/ceres/m3/theme/IThemeM3 {
 	public fun <init> ()V
-	public fun circleDrawable (I)Landroid/graphics/drawable/Drawable;
-	public fun drawable (IZ)Landroid/graphics/drawable/Drawable;
-	public fun getBackgroundColorM3 (Landroid/view/View;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
-	public fun getBackgroundDrawable (FLdev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;ZLdev/teogor/ceres/components/view/Shape;)Landroid/graphics/drawable/Drawable;
 	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
-	public fun getMaterialShapeDrawable (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;FLandroid/view/View;)Ldev/teogor/ceres/m3/drawable/ShapeDrawableM3;
-	public fun getRippleDrawable (Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/RippleDrawable;
 	public fun getSchemeColor ()Ldev/teogor/ceres/m3/theme/ColorScheme;
 	public fun getSnackbarAnchor ()Landroid/view/View;
-	public fun getSurfaceColorM3 (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
 	protected fun onCreate (Landroid/os/Bundle;)V
 	public fun onThemeChanged ()V
 	public fun processUiEvent (Ldev/teogor/ceres/components/events/UiEvent;)V
-	public fun rippleColorStatesList ()Landroid/content/res/ColorStateList;
-	public fun rippleMask (Z)Landroid/graphics/drawable/Drawable;
 	protected fun setupObservers ()V
 	protected fun setupUi ()V
 }
 
-public abstract class dev/teogor/ceres/m3/app/BaseFragmentM3 : dev/teogor/ceres/components/app/BaseFragment, dev/teogor/ceres/m3/theme/ThemeHandler {
+public abstract class dev/teogor/ceres/m3/app/BaseFragmentM3 : dev/teogor/ceres/components/app/BaseFragment, dev/teogor/ceres/m3/theme/IThemeM3 {
 	public fun <init> ()V
-	public fun circleDrawable (I)Landroid/graphics/drawable/Drawable;
-	public fun drawable (IZ)Landroid/graphics/drawable/Drawable;
-	public fun getBackgroundColorM3 (Landroid/view/View;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
-	public fun getBackgroundDrawable (FLdev/teogor/ceres/m3/ColorM3;FLdev/teogor/ceres/m3/ColorM3;ZLdev/teogor/ceres/components/view/Shape;)Landroid/graphics/drawable/Drawable;
 	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
-	public fun getMaterialShapeDrawable (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;FLandroid/view/View;)Ldev/teogor/ceres/m3/drawable/ShapeDrawableM3;
-	public fun getRippleDrawable (Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/RippleDrawable;
 	public fun getSchemeColor ()Ldev/teogor/ceres/m3/theme/ColorScheme;
-	public fun getSurfaceColorM3 (Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
 	public fun onThemeChanged ()V
-	public fun rippleColorStatesList ()Landroid/content/res/ColorStateList;
-	public fun rippleMask (Z)Landroid/graphics/drawable/Drawable;
 }
 
 public abstract class dev/teogor/ceres/m3/app/BaseMenuSheetDialogFragmentM3 : dev/teogor/ceres/m3/widgets/menusheet/MenuSheetDialogFragment {
@@ -1461,6 +1443,23 @@ public final class dev/teogor/ceres/m3/theme/FalseBooleanDefault : com/zeoflow/m
 	public fun <init> ()V
 	public fun value ()Ljava/lang/Boolean;
 	public synthetic fun value ()Ljava/lang/Object;
+}
+
+public abstract interface class dev/teogor/ceres/m3/theme/IThemeM3 : dev/teogor/ceres/core/logger/Logger {
+	public abstract fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
+	public abstract fun getSchemeColor ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public abstract fun onThemeChanged ()V
+}
+
+public final class dev/teogor/ceres/m3/theme/IThemeM3$DefaultImpls {
+	public static fun getColorM3 (Ldev/teogor/ceres/m3/theme/IThemeM3;Ldev/teogor/ceres/m3/ColorM3;)I
+	public static fun getSchemeColor (Ldev/teogor/ceres/m3/theme/IThemeM3;)Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public static fun log (Ldev/teogor/ceres/m3/theme/IThemeM3;Ljava/lang/String;)V
+	public static fun onThemeChanged (Ldev/teogor/ceres/m3/theme/IThemeM3;)V
+}
+
+public final class dev/teogor/ceres/m3/theme/IThemeM3ExtKt {
+	public static final fun backgroundColor (Ldev/teogor/ceres/m3/theme/IThemeM3;Landroid/view/View;Ldev/teogor/ceres/m3/elevation/SurfaceLevel;)I
 }
 
 public final class dev/teogor/ceres/m3/theme/JustBlackThemeDefault : com/zeoflow/memo/common/DefaultType {

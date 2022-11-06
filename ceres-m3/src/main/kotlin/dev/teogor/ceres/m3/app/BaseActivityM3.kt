@@ -30,8 +30,8 @@ import dev.teogor.ceres.m3.SnackbarBetaM3
 import dev.teogor.ceres.m3.annotation.M3
 import dev.teogor.ceres.m3.events.UiEventM3
 import dev.teogor.ceres.m3.theme.AppThemeType
+import dev.teogor.ceres.m3.theme.IThemeM3
 import dev.teogor.ceres.m3.theme.JustBlackThemeType
-import dev.teogor.ceres.m3.theme.ThemeHandler
 import dev.teogor.ceres.m3.theme.ThemeM3
 import dev.teogor.ceres.m3.widgets.container.FragmentContainer
 import dev.teogor.ceres.m3.widgets.dialog.DialogChoiceBuilderM3
@@ -56,7 +56,7 @@ import dev.teogor.ceres.m3.widgets.dialog.DialogChoiceBuilderM3
  */
 @M3
 abstract class BaseActivityM3<B : ViewDataBinding, VM : BaseViewModelM3> :
-  BaseActivity<B, VM>(), ThemeHandler {
+  BaseActivity<B, VM>(), IThemeM3 {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     setupTheme()
