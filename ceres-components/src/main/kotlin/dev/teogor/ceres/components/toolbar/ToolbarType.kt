@@ -35,4 +35,7 @@ enum class ToolbarType {
 
   @Keep
   ACTION,
+
+  @Keep
+  ONLY_LOGO,
 }

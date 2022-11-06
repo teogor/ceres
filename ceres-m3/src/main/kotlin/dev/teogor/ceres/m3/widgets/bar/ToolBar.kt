@@ -57,8 +57,12 @@ class ToolBar constructor(
 
   private var toolbarType = ToolbarType.ROUNDED
   private var statusBar: StatusBar? = null
-  private var interpolatorAnimator = ValueAnimator.ofFloat(0f, 1f)
-  private var isFilled = true
+  private var interpolatorAnimator: ValueAnimator = ValueAnimator.ofFloat(
+    0f,
+    1f
+  )
+  private var isFilled: Boolean = true
+  private var isTransparent: Boolean = false
 
   init {
     init()
@@ -222,7 +226,9 @@ class ToolBar constructor(
     }
   }
 
+  private var colorAnimator: ValueAnimator? = null
   private fun createShapeValueAnimator(colorAnimator: ValueAnimator) {
+    this.colorAnimator = colorAnimator
     colorAnimator.addUpdateListener { animation ->
       val value = animation.animatedValue as Int
       toolbarBackground.fillColor = value.colorStateList
@@ -238,7 +244,7 @@ class ToolBar constructor(
     if (type == ToolbarType.COLLAPSABLE && toolbarType != ToolbarType.COLLAPSABLE) {
       setMargins(true)
       setBackgroundInterpolation(0f)
-      statusBar?.setFilled(false, false)
+      statusBar?.setFilled(isFilled = false, animated = false)
       setBackgroundFilled(false)
     } else if (type == ToolbarType.ROUNDED && toolbarType != ToolbarType.ROUNDED) {
       setMargins(false)
@@ -248,7 +254,12 @@ class ToolBar constructor(
     } else if (type == ToolbarType.BACK_BUTTON && toolbarType != ToolbarType.BACK_BUTTON) {
       setMargins(true)
       setBackgroundInterpolation(0f)
-      statusBar?.setFilled(false, false)
+      statusBar?.setFilled(isFilled = false, animated = false)
+      setBackgroundFilled(false)
+    } else if (type == ToolbarType.ONLY_LOGO && toolbarType != ToolbarType.ONLY_LOGO) {
+      setMargins(true)
+      setBackgroundInterpolation(0f)
+      statusBar?.setFilled(isFilled = false, animated = false)
       setBackgroundFilled(false)
     }
     // fixme toolbar types
@@ -264,6 +275,48 @@ class ToolBar constructor(
       expandToolbar(false)
     }
     toolbarType = type
+  }
+
+  fun setIsTransparent(isTransparent: Boolean) {
+    this.isTransparent = isTransparent
+    if (isTransparent) {
+      colorAnimator?.cancel()
+      if (isFilled) {
+        val colorAnimator = ValueAnimator.ofObject(
+          ArgbEvaluator(),
+          colorSurfaceNormal(),
+          colorTransparent
+        )
+        colorAnimator.duration = animationSpeed
+        createShapeValueAnimator(colorAnimator)
+      } else {
+        val colorAnimator = ValueAnimator.ofObject(
+          ArgbEvaluator(),
+          colorSurfaceFilled(),
+          colorTransparent
+        )
+        colorAnimator.duration = animationSpeed
+        createShapeValueAnimator(colorAnimator)
+      }
+    } else {
+      if (isFilled) {
+        val colorAnimator = ValueAnimator.ofObject(
+          ArgbEvaluator(),
+          colorSurfaceNormal(),
+          colorSurfaceFilled()
+        )
+        colorAnimator.duration = animationSpeed
+        createShapeValueAnimator(colorAnimator)
+      } else {
+        val colorAnimator = ValueAnimator.ofObject(
+          ArgbEvaluator(),
+          colorSurfaceFilled(),
+          colorSurfaceNormal()
+        )
+        colorAnimator.duration = animationSpeed
+        createShapeValueAnimator(colorAnimator)
+      }
+    }
   }
 
   fun setStatusBar(statusBar: StatusBar) {

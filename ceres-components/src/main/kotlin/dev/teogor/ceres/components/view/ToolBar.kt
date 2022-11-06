@@ -16,19 +16,15 @@
 
 package dev.teogor.ceres.components.view
 
-import android.content.Context
-import android.util.AttributeSet
-import android.view.Gravity
-import androidx.appcompat.widget.AppCompatTextView
+import androidx.annotation.StringRes
+import dev.teogor.ceres.components.toolbar.ToolbarType
+import dev.teogor.ceres.extensions.defaultResId
 
-open class Button @JvmOverloads constructor(
-  context: Context,
-  attrs: AttributeSet? = null
-) : AppCompatTextView(context, attrs) {
+class ToolBar {
 
-  init {
-    gravity = Gravity.CENTER
-    isFocusable = true
-    isClickable = true
-  }
+  data class Builder(
+    val type: ToolbarType = ToolbarType.COLLAPSABLE,
+    @StringRes val title: Int = defaultResId,
+    val isTransparent: Boolean = false
+  )
 }

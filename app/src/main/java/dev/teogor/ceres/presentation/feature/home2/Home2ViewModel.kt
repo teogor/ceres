@@ -22,6 +22,7 @@ import dev.teogor.ceres.R
 import dev.teogor.ceres.ads.formats.AdBinder
 import dev.teogor.ceres.ads.formats.NativeAd
 import dev.teogor.ceres.components.toolbar.ToolbarType
+import dev.teogor.ceres.components.view.ToolBar
 import dev.teogor.ceres.m3.app.BaseViewModelM3
 import dev.teogor.ceres.presentation.ads.HomeNativeAd
 import dev.teogor.ceres.presentation.ads.HomeNativeAdBinder
@@ -39,11 +40,15 @@ class Home2ViewModel @Inject constructor(
   val liveHomeAd = MutableLiveData<NativeAd>(homeNativeAd)
   val liveHomeAdBinder = MutableLiveData<AdBinder>(nativeAdBinder)
 
+  override val toolBarBuilder: ToolBar.Builder
+    get() = ToolBar.Builder(
+      type = ToolbarType.COLLAPSABLE,
+      title = R.string.app_name
+    )
+
   override fun onFragmentCreated() {
     super.onFragmentCreated()
 
-    setToolbarType(ToolbarType.COLLAPSABLE)
-    setToolbarTitle(R.string.app_name)
     showBottomNavigation(true)
   }
 }
