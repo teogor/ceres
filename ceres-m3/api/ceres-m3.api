@@ -916,14 +916,6 @@ public final class dev/teogor/ceres/m3/generator/palettes/CorePalette {
 	public final fun getError ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
 	public final fun getN1 ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
 	public final fun getN2 ()Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;
-	public final fun setA1 (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
-	public final fun setA2 (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
-	public final fun setA3 (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
-	public final fun setA4 (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
-	public final fun setA5 (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
-	public final fun setError (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
-	public final fun setN1 (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
-	public final fun setN2 (Ldev/teogor/ceres/m3/generator/palettes/TonalPalette;)V
 }
 
 public final class dev/teogor/ceres/m3/generator/palettes/CorePalette$Companion {

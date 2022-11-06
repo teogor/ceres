@@ -24,14 +24,14 @@ import dev.teogor.ceres.m3.generator.hct.Hct
  * tones are generated, all except one use the same hue as the key color, and all vary in chroma.
  */
 class CorePalette private constructor(argb: Int, isContent: Boolean) {
-  var a1: TonalPalette
-  var a2: TonalPalette
-  var a3: TonalPalette
-  var a4: TonalPalette
-  var a5: TonalPalette
-  var n1: TonalPalette
-  var n2: TonalPalette
-  var error: TonalPalette
+  val a1: TonalPalette
+  val a2: TonalPalette
+  val a3: TonalPalette
+  val a4: TonalPalette
+  val a5: TonalPalette
+  val n1: TonalPalette
+  val n2: TonalPalette
+  val error: TonalPalette
 
   init {
     val hct = Hct.fromInt(argb)
@@ -44,7 +44,7 @@ class CorePalette private constructor(argb: Int, isContent: Boolean) {
       a4 = TonalPalette.fromHueAndChroma(hue + 60, .1)
       a5 = TonalPalette.fromHueAndChroma(
         Hct.fromInt(argb.invertColor()).hue,
-        Hct.fromInt(argb.invertColor()).chroma
+        48.0.coerceAtLeast(chroma)
       )
       n1 = TonalPalette.fromHueAndChroma(hue, (chroma / 12.0).coerceAtMost(4.0))
       n2 = TonalPalette.fromHueAndChroma(hue, (chroma / 6.0).coerceAtMost(8.0))
@@ -55,7 +55,7 @@ class CorePalette private constructor(argb: Int, isContent: Boolean) {
       a4 = TonalPalette.fromHueAndChroma(hue + 90, 48.0.coerceAtLeast(chroma))
       a5 = TonalPalette.fromHueAndChroma(
         Hct.fromInt(argb.invertColor()).hue,
-        Hct.fromInt(argb.invertColor()).chroma
+        48.0.coerceAtLeast(chroma)
       )
       n1 = TonalPalette.fromHueAndChroma(hue, 4.0)
       n2 = TonalPalette.fromHueAndChroma(hue, 8.0)
