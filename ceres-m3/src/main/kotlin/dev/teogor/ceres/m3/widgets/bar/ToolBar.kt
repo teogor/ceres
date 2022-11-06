@@ -32,6 +32,7 @@ import dev.teogor.ceres.core.drawable.ArgbEvaluator
 import dev.teogor.ceres.extensions.colorStateList
 import dev.teogor.ceres.extensions.dpToPx
 import dev.teogor.ceres.m3.R
+import dev.teogor.ceres.m3.extension.applyRippleEnabled
 
 class ToolBar constructor(
   context: Context,
@@ -278,6 +279,7 @@ class ToolBar constructor(
   }
 
   fun setIsTransparent(isTransparent: Boolean) {
+    applyRippleEnabled(!isTransparent)
     this.isTransparent = isTransparent
     if (isTransparent) {
       colorAnimator?.cancel()

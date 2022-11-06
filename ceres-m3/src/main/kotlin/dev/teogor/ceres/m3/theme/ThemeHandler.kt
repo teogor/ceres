@@ -26,6 +26,7 @@ import androidx.annotation.ColorInt
 import androidx.annotation.Dimension
 import com.google.android.material.shape.CornerFamily
 import com.zeoflow.startup.ktx.ApplicationInitializer
+import dev.teogor.ceres.components.view.Shape
 import dev.teogor.ceres.core.logger.Logger
 import dev.teogor.ceres.extensions.addAlpha
 import dev.teogor.ceres.extensions.blendColors
@@ -117,7 +118,8 @@ interface ThemeHandler : Logger {
     backgroundColor: ColorM3,
     surfaceTint: Float = 0f,
     surfaceTintOverlay: ColorM3 = ColorM3.Primary,
-    rippleEnabled: Boolean = false
+    rippleEnabled: Boolean = false,
+    shape: Shape = Shape.Rectangle
   ): Drawable {
     val shapeAppearanceModel = ShapeAppearanceModelM3()
       .toBuilder()

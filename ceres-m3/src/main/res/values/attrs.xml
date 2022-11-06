@@ -269,6 +269,15 @@
     <attr name="color_m3" />
   </declare-styleable>
 
+  <declare-styleable name="DigitsImageM3">
+    <attr name="shape" />
+    <attr name="background_m3" />
+    <attr name="text_color_m3" />
+    <attr name="corner_radius" />
+    <attr name="surface_level" />
+    <attr name="ripple_enabled" />
+  </declare-styleable>
+
   <declare-styleable name="HSLColorPickerSeekBar">
     <attr name="hslMode" format="enum">
       <enum name="hue" value="0" />
