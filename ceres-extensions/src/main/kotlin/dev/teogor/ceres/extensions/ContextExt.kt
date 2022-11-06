@@ -18,6 +18,7 @@ package dev.teogor.ceres.extensions
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.util.DisplayMetrics
@@ -35,6 +36,7 @@ import androidx.core.graphics.red
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewTreeLifecycleOwner
 import kotlin.math.roundToInt
+import kotlin.reflect.KClass
 
 /**
  * Returns the color for the given attribute.
@@ -82,3 +84,27 @@ fun Context.asColor(@ColorRes id: Int): Int {
 }
 
 fun View.findViewTreeLifecycleOwner(): LifecycleOwner? = ViewTreeLifecycleOwner.get(this)
+
+fun Context.launchActivity(
+  activityClass: KClass<*>,
+  flags: Int = 0,
+  intentTransformer: Intent.() -> Unit = {}
+) {
+  this.launchActivity(
+    activityClass = activityClass.java,
+    flags = flags,
+    intentTransformer = intentTransformer
+  )
+}
+
+fun Context.launchActivity(
+  activityClass: Class<*>,
+  flags: Int = 0,
+  intentTransformer: Intent.() -> Unit = {}
+) {
+  val intent = Intent(this, activityClass).apply {
+    addFlags(flags)
+    intentTransformer()
+  }
+  this.startActivity(intent)
+}
