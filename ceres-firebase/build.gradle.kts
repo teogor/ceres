@@ -32,6 +32,7 @@ android {
 
 dependencies {
   implementation(project(":ceres-core"))
+  implementation(project(":ceres-extensions"))
 
   //----------------------------- ZEOFLOW -------------------------------
   implementation("com.zeoflow.startup:startup-ktx:${Versions.ZeoFlowStartUp}")

@@ -16,20 +16,26 @@
 
 package dev.teogor.ceres.firebase
 
-import dev.teogor.ceres.core.app.Module
-import dev.teogor.ceres.core.app.ModuleProvider
-import dev.teogor.ceres.extensions.safeAs
-import javax.inject.Inject
+import dev.teogor.ceres.core.app.ModuleData
 
-@Module
-class FirebaseModule @Inject constructor(
-  private val firebase: Firebase
-) : ModuleProvider() {
+class FirebaseModuleData private constructor(
+  val remoteConfigDefXML: Int
+) : ModuleData() {
 
-  override fun onCreate() {
-    data.safeAs<FirebaseModuleData> {
-      firebase.setupModules(this)
+  data class FirebaseModuleDataBuilder(
+    private var remoteConfigDefXML: Int = -1
+  ) : Builder {
+
+    fun remoteConfigDefXML(id: Int) = apply { this.remoteConfigDefXML = id }
+
+    override fun build(): FirebaseModuleData {
+      return FirebaseModuleData(
+        remoteConfigDefXML
+      )
     }
-    firebase.enableModules()
+  }
+
+  companion object {
+    fun toBuilder() = FirebaseModuleDataBuilder()
   }
 }

@@ -35,14 +35,14 @@ class Firebase @Inject constructor(
   private val appCheck: AppCheck
 ) {
 
-  fun setupModules(remoteConfigDefXML: Int) {
+  fun setupModules(moduleData: FirebaseModuleData) {
     if (!firebaseMemo.signatureChecked) {
       appCheck.validateSignature()
     }
     analytics.initialize()
     crashlytics.initialize()
     performance.initialize()
-    remoteConfig.initialize(remoteConfigDefXML)
+    remoteConfig.initialize(moduleData.remoteConfigDefXML)
   }
 
   fun enableModules() {
