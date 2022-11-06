@@ -23,7 +23,7 @@ import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.appopen.AppOpenAd
 import dev.teogor.ceres.ads.Ad
 import dev.teogor.ceres.ads.AdEvent
-import dev.teogor.ceres.ads.isAdActivity
+import dev.teogor.ceres.ads.AdsData
 import dev.teogor.ceres.core.global.GlobalData
 
 abstract class AppOpenAd : Ad() {
@@ -75,7 +75,7 @@ abstract class AppOpenAd : Ad() {
     if (!canShow()) {
       return
     }
-    if (GlobalData.activity.isAdActivity()) {
+    if (AdsData.fullScreenAdIsShowing) {
       log("Another ad is showing.")
       return
     }
@@ -94,6 +94,7 @@ abstract class AppOpenAd : Ad() {
     }
 
     log("Will show ad.")
+    AdsData.fullScreenAdIsShowing = true
 
     ad.fullScreenContentCallback = object : FullScreenContentCallback() {
       override fun onAdClicked() {
@@ -111,12 +112,16 @@ abstract class AppOpenAd : Ad() {
         // Set the reference to null so isAdAvailable() returns false.
         log("Ad was dismissed.")
         onListener(AdEvent.DISMISSED)
+        AdsData.fullScreenAdIsShowing = false
+        cacheAds.appOpenAd = null
       }
 
       /** Called when fullscreen content failed to show. */
       override fun onAdFailedToShowFullScreenContent(adError: AdError) {
         log("Ad failed to show.")
         onListener(AdEvent.NOT_COMPLETED)
+        AdsData.fullScreenAdIsShowing = false
+        cacheAds.appOpenAd = null
       }
 
       /** Called when fullscreen content is shown. */

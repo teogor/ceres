@@ -27,6 +27,8 @@ import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration
 import com.google.android.gms.ads.initialization.InitializationStatus
 import com.zeoflow.startup.ktx.ApplicationInitializer
+import dev.teogor.ceres.ads.AdsData
+import dev.teogor.ceres.ads.isAdActivity
 import dev.teogor.ceres.ads.utils.Constants
 import dev.teogor.ceres.core.construct.AppData
 import dev.teogor.ceres.core.logger.Logger
@@ -110,6 +112,9 @@ class AdsProvider constructor(application: Application) :
   }
 
   override fun onActivityDestroyed(activity: Activity) {
+    if (activity.isAdActivity()) {
+      AdsData.fullScreenAdIsShowing = false
+    }
   }
 
   /** LifecycleObserver method that shows the app open ad when the app moves to foreground. */
@@ -119,10 +124,10 @@ class AdsProvider constructor(application: Application) :
   }
 
   private fun showAd() {
-    if (!AdsStartUp.enabled) {
+    if (!AdsData.enabled) {
       return
     }
-    AdsStartUp.openAdsWeak.map { weakAd -> weakAd.get()!! }.forEach { ad ->
+    AdsData.openAdsWeak.map { weakAd -> weakAd.get()!! }.forEach { ad ->
       ad.show()
     }
   }
