@@ -16,7 +16,6 @@
 
 package dev.teogor.ceres.ads.formats
 
-import android.util.Log
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
@@ -25,7 +24,6 @@ import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import dev.teogor.ceres.ads.Ad
 import dev.teogor.ceres.ads.AdEvent
-import dev.teogor.ceres.ads.utils.Constants.LOG_TAG
 import dev.teogor.ceres.ads.utils.isAdActivity
 import dev.teogor.ceres.core.global.GlobalData
 
@@ -45,16 +43,16 @@ abstract class InterstitialAd : Ad() {
       adRequest,
       object : InterstitialAdLoadCallback() {
         override fun onAdFailedToLoad(adError: LoadAdError) {
-          Log.d(LOG_TAG, adError.message)
+          log(adError.message)
           cacheAds.interstitialAd = null
           val error =
             "domain: ${adError.domain}, code: ${adError.code}, " + "message: ${adError.message}"
-          Log.d(LOG_TAG, "Ad failed to load: $error")
+          log("Ad failed to load: $error")
           onListener(AdEvent.FAILED_TO_LOAD)
         }
 
         override fun onAdLoaded(interstitialAd: InterstitialAd) {
-          Log.d(LOG_TAG, "Ad was loaded.")
+          log("Ad was loaded.")
           cacheAds.interstitialAd = interstitialAd
           onListener(AdEvent.LOADED)
         }
@@ -69,45 +67,45 @@ abstract class InterstitialAd : Ad() {
       return
     }
     if (GlobalData.activity.isAdActivity()) {
-      Log.d(LOG_TAG, "Another ad is showing.")
+      log("Another ad is showing.")
       return
     }
     val ad = cacheAds.interstitialAd
     if (ad == null) {
-      Log.d(LOG_TAG, "ad was not loaded. requesting to load.")
+      log("ad was not loaded. requesting to load.")
       load()
       return
     }
     if (isShowing) {
-      Log.d(LOG_TAG, "The interstitial ad is already showing.")
+      log("The interstitial ad is already showing.")
       return
     }
     ad.fullScreenContentCallback = object : FullScreenContentCallback() {
       override fun onAdDismissedFullScreenContent() {
-        Log.d(LOG_TAG, "Ad was dismissed.")
+        log("Ad was dismissed.")
         cacheAds.interstitialAd = null
         onListener(AdEvent.DISMISSED)
       }
 
       override fun onAdFailedToShowFullScreenContent(adError: AdError) {
-        Log.d(LOG_TAG, "Ad failed to show.")
+        log("Ad failed to show.")
         cacheAds.interstitialAd = null
         onListener(AdEvent.NOT_COMPLETED)
       }
 
       override fun onAdShowedFullScreenContent() {
-        Log.d(LOG_TAG, "Ad showed fullscreen content.")
+        log("Ad showed fullscreen content.")
         // Called when ad is dismissed.
         onListener(AdEvent.COMPLETED)
       }
 
       override fun onAdClicked() {
-        Log.d(LOG_TAG, "Ad clicked.")
+        log("Ad clicked.")
         onListener(AdEvent.CLICKED)
       }
 
       override fun onAdImpression() {
-        Log.d(LOG_TAG, "Ad shown - impression recognized.")
+        log("Ad shown - impression recognized.")
         onListener(AdEvent.IMPRESSION)
       }
     }

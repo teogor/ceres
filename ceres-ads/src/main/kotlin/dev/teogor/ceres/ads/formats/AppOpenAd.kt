@@ -16,7 +16,6 @@
 
 package dev.teogor.ceres.ads.formats
 
-import android.util.Log
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
@@ -24,7 +23,6 @@ import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.appopen.AppOpenAd
 import dev.teogor.ceres.ads.Ad
 import dev.teogor.ceres.ads.AdEvent
-import dev.teogor.ceres.ads.utils.Constants.LOG_TAG
 import dev.teogor.ceres.ads.utils.isAdActivity
 import dev.teogor.ceres.core.global.GlobalData
 
@@ -51,7 +49,7 @@ abstract class AppOpenAd : Ad() {
          */
         override fun onAdLoaded(ad: AppOpenAd) {
           cacheAds.appOpenAd = ad
-          Log.d(LOG_TAG, "onAdLoaded.")
+          log("onAdLoaded.")
           onListener(AdEvent.LOADED)
         }
 
@@ -61,10 +59,10 @@ abstract class AppOpenAd : Ad() {
          * @param adError the error.
          */
         override fun onAdFailedToLoad(adError: LoadAdError) {
-          Log.d(LOG_TAG, "onAdFailedToLoad: " + adError.message)
+          log("onAdFailedToLoad: " + adError.message)
           val error =
             "domain: ${adError.domain}, code: ${adError.code}, " + "message: ${adError.message}"
-          Log.d(LOG_TAG, "Ad failed to load: $error")
+          log("Ad failed to load: $error")
           onListener(AdEvent.FAILED_TO_LOAD)
         }
       }
@@ -78,7 +76,7 @@ abstract class AppOpenAd : Ad() {
       return
     }
     if (GlobalData.activity.isAdActivity()) {
-      Log.d(LOG_TAG, "Another ad is showing.")
+      log("Another ad is showing.")
       return
     }
     val ad = cacheAds.appOpenAd
@@ -87,43 +85,43 @@ abstract class AppOpenAd : Ad() {
       return
     }
     if (isShowing) {
-      Log.d(LOG_TAG, "The app open ad is already showing.")
+      log("The app open ad is already showing.")
       return
     }
     if (isLoading) {
-      Log.d(LOG_TAG, "The app open ad is loading.")
+      log("The app open ad is loading.")
       return
     }
 
-    Log.d(LOG_TAG, "Will show ad.")
+    log("Will show ad.")
 
     ad.fullScreenContentCallback = object : FullScreenContentCallback() {
       override fun onAdClicked() {
-        Log.d(LOG_TAG, "Ad clicked.")
+        log("Ad clicked.")
         onListener(AdEvent.CLICKED)
       }
 
       override fun onAdImpression() {
-        Log.d(LOG_TAG, "Ad shown - impression recognized.")
+        log("Ad shown - impression recognized.")
         onListener(AdEvent.IMPRESSION)
       }
 
       /** Called when full screen content is dismissed. */
       override fun onAdDismissedFullScreenContent() {
         // Set the reference to null so isAdAvailable() returns false.
-        Log.d(LOG_TAG, "Ad was dismissed.")
+        log("Ad was dismissed.")
         onListener(AdEvent.DISMISSED)
       }
 
       /** Called when fullscreen content failed to show. */
       override fun onAdFailedToShowFullScreenContent(adError: AdError) {
-        Log.d(LOG_TAG, "Ad failed to show.")
+        log("Ad failed to show.")
         onListener(AdEvent.NOT_COMPLETED)
       }
 
       /** Called when fullscreen content is shown. */
       override fun onAdShowedFullScreenContent() {
-        Log.d(LOG_TAG, "Ad showed fullscreen content.")
+        log("Ad showed fullscreen content.")
         // Called when ad is dismissed.
         onListener(AdEvent.COMPLETED)
       }

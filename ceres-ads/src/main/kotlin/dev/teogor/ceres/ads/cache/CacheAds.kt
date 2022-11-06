@@ -18,7 +18,6 @@ package dev.teogor.ceres.ads.cache
 
 import dev.teogor.ceres.ads.CacheAdModel
 import java.lang.ref.WeakReference
-import javax.inject.Inject
 
 class CacheAds {
   private val cacheAdModelFactory = WeakReference(CacheAdModel())
