@@ -1713,10 +1713,8 @@ public final class dev/teogor/ceres/m3/widgets/bar/StatusBar : dev/teogor/ceres/
 public final class dev/teogor/ceres/m3/widgets/bar/ToolBar : dev/teogor/ceres/m3/widgets/bar/Bar {
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
 	public fun onThemeChanged ()V
-	public final fun setData (Ldev/teogor/ceres/components/toolbar/ToolbarType;Z)V
-	public final fun setIsTransparent (Z)V
+	public final fun setData (Ldev/teogor/ceres/components/view/ToolBar$Data;)V
 	public final fun setStatusBar (Ldev/teogor/ceres/m3/widgets/bar/StatusBar;)V
-	public final fun setType (Ldev/teogor/ceres/components/toolbar/ToolbarType;)V
 }
 
 public abstract class dev/teogor/ceres/m3/widgets/colorpicker/alpha/AlphaColorPickerSeekBar : dev/teogor/ceres/m3/widgets/colorpicker/view/picker/ColorSeekBar {

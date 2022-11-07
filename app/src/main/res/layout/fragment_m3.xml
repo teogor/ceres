@@ -27,7 +27,7 @@
   <dev.teogor.ceres.m3.FragmentContainer
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:consumeTop="true">
+    app:consumeTop="false">
 
     <dev.teogor.ceres.m3.ContainerM3
       android:id="@+id/primary"

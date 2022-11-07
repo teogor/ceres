@@ -26,10 +26,6 @@ import javax.inject.Inject
 @HiltViewModel
 class M3ViewModel @Inject constructor() : BaseViewModelM3() {
 
-  /**
-   * UI Binding
-   */
-
   override val toolBarBuilder: ToolBar.Builder
     get() = ToolBar.Builder(
       type = ToolbarType.COLLAPSABLE,

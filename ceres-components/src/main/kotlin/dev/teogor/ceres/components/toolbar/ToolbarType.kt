@@ -38,4 +38,7 @@ enum class ToolbarType {
 
   @Keep
   ONLY_LOGO,
+
+  @Keep
+  NOT_SET,
 }

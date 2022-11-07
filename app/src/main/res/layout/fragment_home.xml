@@ -27,7 +27,8 @@
   <dev.teogor.ceres.m3.FragmentContainer
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:consumeTop="true">
+    android:paddingTop="40dp"
+    app:consumeTop="false">
 
     <dev.teogor.ceres.ads.view.NativeAdView
       android:id="@+id/ad_home"
@@ -43,20 +44,20 @@
       android:id="@+id/btn1"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      app:layout_constraintTop_toBottomOf="@+id/ad_home"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
       android:layout_marginHorizontal="20dp"
       android:layout_marginTop="10dp"
-      android:text="Open Activity"
       android:fontFamily="@font/font_regular"
+      android:onClick="@{() -> viewModel.launchActivity()}"
       android:paddingHorizontal="20dp"
       android:paddingVertical="10dp"
-      android:onClick="@{() -> viewModel.launchActivity()}"
-      app:ripple_enabled="true"
-      app:text_color_m3="onPrimaryContainer"
+      android:text="Open Activity"
       app:background_m3="primaryContainer"
-      app:corner_radius="20dp"/>
+      app:corner_radius="20dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/ad_home"
+      app:ripple_enabled="true"
+      app:text_color_m3="onPrimaryContainer" />
 
     <dev.teogor.ceres.m3.ButtonM3
       android:id="@+id/btn2"

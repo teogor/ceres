@@ -46,7 +46,12 @@ class BindingMethods {
       type: ToolbarType,
       isTransparent: Boolean
     ) {
-      toolbar.setData(type, isTransparent)
+      toolbar.setData(
+        dev.teogor.ceres.components.view.ToolBar.Data(
+          type,
+          isTransparent
+        )
+      )
     }
 
     @BindingAdapter(
