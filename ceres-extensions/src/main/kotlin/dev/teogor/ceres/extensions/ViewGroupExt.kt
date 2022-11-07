@@ -14,15 +14,12 @@
  * limitations under the License.
  */
 
-@file:JvmName("ListExt")
-
 package dev.teogor.ceres.extensions
 
-import java.lang.ref.WeakReference
-import kotlin.random.Random
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 
-fun <T> List<T>.asWeakReference(): List<WeakReference<T>> {
-  return this.map { WeakReference(it) }
+fun ViewGroup.inflate(layoutRes: Int, attachToRoot: Boolean = false): View {
+  return LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)
 }
-
-fun <E> List<E>.randomElement() = this[Random.nextInt(this.size)]
