@@ -27,7 +27,7 @@
   <dev.teogor.ceres.m3.FragmentContainer
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:consumeTop="false">
+    app:consumeTop="true">
 
     <dev.teogor.ceres.ads.view.NativeAdView
       android:id="@+id/ad_home"
