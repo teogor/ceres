@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.binding
+package dev.teogor.ceres.bindings
 
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout

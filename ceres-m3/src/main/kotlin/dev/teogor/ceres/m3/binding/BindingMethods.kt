@@ -18,7 +18,7 @@ package dev.teogor.ceres.m3.binding
 
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.MutableLiveData
-import dev.teogor.ceres.binding.BindingAdapterClass
+import dev.teogor.ceres.bindings.BindingAdapterClass
 import dev.teogor.ceres.components.toolbar.ToolbarType
 import dev.teogor.ceres.extensions.safeCall
 import dev.teogor.ceres.extensions.safeValue

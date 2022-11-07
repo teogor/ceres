@@ -1,47 +1,9 @@
-public abstract interface annotation class dev/teogor/ceres/binding/BindingAdapterClass : java/lang/annotation/Annotation {
-}
-
-public final class dev/teogor/ceres/binding/ConstraintBinding {
-	public static final field Companion Ldev/teogor/ceres/binding/ConstraintBinding$Companion;
-	public fun <init> ()V
-	public static final fun setConstraintDimensionRatio (Landroid/view/View;Ljava/lang/String;)V
-	public static final fun setConstraintHeightPercent (Landroid/view/View;F)V
-}
-
-public final class dev/teogor/ceres/binding/ConstraintBinding$Companion {
-	public final fun setConstraintDimensionRatio (Landroid/view/View;Ljava/lang/String;)V
-	public final fun setConstraintHeightPercent (Landroid/view/View;F)V
-}
-
-public final class dev/teogor/ceres/binding/MaterialBinding {
-	public static final field Companion Ldev/teogor/ceres/binding/MaterialBinding$Companion;
-	public fun <init> ()V
-	public static final fun buttonIcon (Lcom/google/android/material/button/MaterialButton;I)V
-	public static final fun setErrorMessage (Lcom/google/android/material/textfield/TextInputLayout;I)V
-}
-
-public final class dev/teogor/ceres/binding/MaterialBinding$Companion {
-	public final fun buttonIcon (Lcom/google/android/material/button/MaterialButton;I)V
-	public final fun setErrorMessage (Lcom/google/android/material/textfield/TextInputLayout;I)V
-}
-
-public final class dev/teogor/ceres/binding/ViewBinding {
-	public static final field Companion Ldev/teogor/ceres/binding/ViewBinding$Companion;
-	public fun <init> ()V
-	public static final fun showView (Landroid/view/View;Landroidx/lifecycle/MutableLiveData;)V
-	public static final fun showView (Landroid/view/View;Z)V
-	public static final fun viewContent (Landroid/view/View;I)V
-}
-
-public final class dev/teogor/ceres/binding/ViewBinding$Companion {
-	public final fun showView (Landroid/view/View;Landroidx/lifecycle/MutableLiveData;)V
-	public final fun showView (Landroid/view/View;Z)V
-	public final fun viewContent (Landroid/view/View;I)V
-}
-
 public class dev/teogor/ceres/bindings/BR {
 	public static field _all I
 	public fun <init> ()V
+}
+
+public abstract interface annotation class dev/teogor/ceres/bindings/BindingAdapterClass : java/lang/annotation/Annotation {
 }
 
 public final class dev/teogor/ceres/bindings/BuildConfig {
@@ -49,6 +11,18 @@ public final class dev/teogor/ceres/bindings/BuildConfig {
 	public static final field DEBUG Z
 	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
 	public fun <init> ()V
+}
+
+public final class dev/teogor/ceres/bindings/ConstraintBinding {
+	public static final field Companion Ldev/teogor/ceres/bindings/ConstraintBinding$Companion;
+	public fun <init> ()V
+	public static final fun setConstraintDimensionRatio (Landroid/view/View;Ljava/lang/String;)V
+	public static final fun setConstraintHeightPercent (Landroid/view/View;F)V
+}
+
+public final class dev/teogor/ceres/bindings/ConstraintBinding$Companion {
+	public final fun setConstraintDimensionRatio (Landroid/view/View;Ljava/lang/String;)V
+	public final fun setConstraintHeightPercent (Landroid/view/View;F)V
 }
 
 public class dev/teogor/ceres/bindings/DataBinderMapperImpl : androidx/databinding/DataBinderMapper {
@@ -62,5 +36,29 @@ public class dev/teogor/ceres/bindings/DataBinderMapperImpl : androidx/databindi
 
 public class dev/teogor/ceres/bindings/DataBindingTriggerClass {
 	public fun <init> ()V
+}
+
+public final class dev/teogor/ceres/bindings/MaterialBinding {
+	public static final field Companion Ldev/teogor/ceres/bindings/MaterialBinding$Companion;
+	public fun <init> ()V
+	public static final fun buttonIcon (Lcom/google/android/material/button/MaterialButton;I)V
+	public static final fun setErrorMessage (Lcom/google/android/material/textfield/TextInputLayout;I)V
+}
+
+public final class dev/teogor/ceres/bindings/MaterialBinding$Companion {
+	public final fun buttonIcon (Lcom/google/android/material/button/MaterialButton;I)V
+	public final fun setErrorMessage (Lcom/google/android/material/textfield/TextInputLayout;I)V
+}
+
+public final class dev/teogor/ceres/bindings/ViewBinding {
+	public static final field Companion Ldev/teogor/ceres/bindings/ViewBinding$Companion;
+	public fun <init> ()V
+	public static final fun showView (Landroid/view/View;Z)V
+	public static final fun viewContent (Landroid/view/View;I)V
+}
+
+public final class dev/teogor/ceres/bindings/ViewBinding$Companion {
+	public final fun showView (Landroid/view/View;Z)V
+	public final fun viewContent (Landroid/view/View;I)V
 }
 
