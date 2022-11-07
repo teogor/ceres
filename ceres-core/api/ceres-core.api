@@ -92,7 +92,7 @@ public final class dev/teogor/ceres/core/drawable/ArgbEvaluator$Companion {
 	public final fun getInstance ()Ldev/teogor/ceres/core/drawable/ArgbEvaluator;
 }
 
-public final class dev/teogor/ceres/core/global/GlobalData {
+public final class dev/teogor/ceres/core/global/GlobalData : dev/teogor/ceres/core/logger/Logger {
 	public static final field INSTANCE Ldev/teogor/ceres/core/global/GlobalData;
 	public final fun baseContext ()Landroid/content/Context;
 	public final fun context ()Landroid/content/Context;
@@ -101,6 +101,7 @@ public final class dev/teogor/ceres/core/global/GlobalData {
 	public final fun getBaseContext ()Landroid/content/Context;
 	public final fun getContext ()Landroid/content/Context;
 	public final fun getThemedContext ()Landroid/content/Context;
+	public fun log (Ljava/lang/String;)V
 	public final fun setActivity (Landroid/app/Activity;)V
 	public final fun setApp (Landroid/app/Application;)V
 	public final fun themedContext ()Landroid/content/Context;
@@ -307,8 +308,6 @@ public final class dev/teogor/ceres/core/provider/InitProviderData {
 	public final fun flagActivityClass (Ljava/lang/Class;)V
 	public final fun flagActivityClass (Lkotlin/reflect/KClass;)V
 	public final fun flaggedActivity (Landroid/app/Activity;)Z
-	public final fun getActivityName (Landroid/app/Activity;)Ljava/lang/String;
-	public final fun getName (Lkotlin/reflect/KClass;)Ljava/lang/String;
 	public final fun nonFlaggedActivity (Landroid/app/Activity;)Z
 }
 

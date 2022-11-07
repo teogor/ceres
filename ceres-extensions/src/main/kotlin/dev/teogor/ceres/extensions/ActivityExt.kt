@@ -22,6 +22,7 @@ import androidx.annotation.IdRes
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import kotlin.reflect.KClass
 
 fun FragmentActivity.findNavController(
   @IdRes viewId: Int
@@ -56,3 +57,13 @@ fun Activity.extrasBoolean(
     }
   }
 }
+
+val KClass<*>.name: String
+  get() = this.qualifiedName!!
+
+val Activity?.activityName: String
+  get() = if (this == null) {
+    "N/A"
+  } else {
+    this.javaClass.name
+  }

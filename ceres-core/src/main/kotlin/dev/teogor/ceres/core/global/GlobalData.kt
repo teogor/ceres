@@ -19,20 +19,40 @@ package dev.teogor.ceres.core.global
 import android.app.Activity
 import android.app.Application
 import android.content.Context
+import dev.teogor.ceres.core.logger.Logger
+import dev.teogor.ceres.extensions.activityName
 import java.lang.ref.WeakReference
 
-object GlobalData {
+object GlobalData : Logger {
 
   private lateinit var activityWeak: WeakReference<Activity>
+  private lateinit var lastStableActivityWeak: WeakReference<Activity>
 
   private lateinit var appWeak: WeakReference<Application>
 
   var activity: Activity
     set(value) {
+      if (::activityWeak.isInitialized && activityWeak.get() != null) {
+        if (::lastStableActivityWeak.isInitialized && lastStableActivityWeak.get() != null) {
+          if (activityWeak.get() != lastStableActivityWeak.get()) {
+            log("activity ::oldValue -> ${lastStableActivityWeak.get().activityName}, ::newValue -> ${value.activityName}")
+            lastStableActivityWeak = WeakReference(activityWeak.get())
+          }
+        } else {
+          lastStableActivityWeak = WeakReference(activityWeak.get())
+          log("activity ::initialValue -> ${value.activityName}")
+        }
+      }
       activityWeak = WeakReference(value)
     }
     get() {
-      return activityWeak.get()!!
+      val activity = activityWeak.get()
+      if (activity == null) {
+        throw RuntimeException(
+          "activity is `null`. last stable activity is ${lastStableActivityWeak.get().activityName}"
+        )
+      }
+      return activity
     }
 
   var app: Application

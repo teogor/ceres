@@ -17,6 +17,8 @@
 package dev.teogor.ceres.core.provider
 
 import android.app.Activity
+import dev.teogor.ceres.extensions.activityName
+import dev.teogor.ceres.extensions.name
 import kotlin.reflect.KClass
 
 object InitProviderData {
@@ -42,10 +44,4 @@ object InitProviderData {
   fun flaggedActivity(activity: Activity): Boolean {
     return flaggedActivities.contains(activity.activityName)
   }
-
-  val KClass<*>.name: String
-    get() = this.qualifiedName!!
-
-  val Activity.activityName: String
-    get() = this.javaClass.name
 }
