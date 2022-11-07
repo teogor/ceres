@@ -62,40 +62,39 @@
       android:id="@+id/btn2"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      app:layout_constraintTop_toBottomOf="@+id/btn1"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
       android:layout_marginHorizontal="20dp"
       android:layout_marginTop="10dp"
-      android:text="Open Activity"
       android:fontFamily="@font/font_regular"
+      android:onClick="@{() -> viewModel.launchActivity()}"
       android:paddingHorizontal="20dp"
       android:paddingVertical="10dp"
-      android:onClick="@{() -> viewModel.launchActivity()}"
+      android:text="Open Activity"
+      app:background_m3="quinary"
+      app:corner_radius="20dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/btn1"
       app:ripple_enabled="true"
-      app:text_color_m3="quinary"
-      app:background_m3="onQuinary"
-      app:corner_radius="20dp"/>
+      app:text_color_m3="onQuinary" />
 
     <dev.teogor.ceres.m3.ButtonM3
       android:id="@+id/btn3"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      app:layout_constraintTop_toBottomOf="@+id/btn2"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
       android:layout_marginHorizontal="20dp"
       android:layout_marginTop="10dp"
-      android:text="Open Activity"
       android:fontFamily="@font/font_regular"
+      android:onClick="@{() -> viewModel.launchActivity()}"
       android:paddingHorizontal="20dp"
       android:paddingVertical="10dp"
-      android:onClick="@{() -> viewModel.launchActivity()}"
+      android:text="Open Activity"
+      app:background_m3="secondary"
+      app:corner_radius="20dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/btn2"
       app:ripple_enabled="false"
-      app:text_color_m3="secondary"
-      app:background_m3="onSecondary"
-      app:corner_radius="20dp"/>
+      app:text_color_m3="onSecondary" />
 
   </dev.teogor.ceres.m3.FragmentContainer>
-
 </layout>
