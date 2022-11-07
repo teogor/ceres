@@ -17,17 +17,19 @@
 package dev.teogor.ceres.m3
 
 import android.content.Context
-import android.graphics.Color
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
+import dev.teogor.ceres.components.view.Shape
 import dev.teogor.ceres.extensions.colorStateList
+import dev.teogor.ceres.m3.beta.Beta
 import dev.teogor.ceres.m3.elevation.SurfaceLevel
-import dev.teogor.ceres.m3.theme.ThemeHandler
+import dev.teogor.ceres.m3.theme.IThemeM3
+import dev.teogor.ceres.m3.theme.getBackgroundDrawable
 
 class ImageViewM3 constructor(
   context: Context,
   attrs: AttributeSet
-) : AppCompatImageView(context, attrs), ThemeHandler {
+) : AppCompatImageView(context, attrs), IThemeM3 {
 
   private val surfaceLevel: SurfaceLevel
   private var rippleEnabled: Boolean
@@ -69,20 +71,18 @@ class ImageViewM3 constructor(
   override fun onThemeChanged() {
     super.onThemeChanged()
 
-    background = if (rippleEnabled) {
-      getRippleDrawable(
-        content = circleDrawable(
-          if (surfaceLevel == SurfaceLevel.Transparent) {
-            Color.TRANSPARENT
-          } else {
-            getBackgroundColorM3(this, surfaceLevel)
-          }
+    background = getBackgroundDrawable(
+      backgroundDrawable = Beta.BackgroundDrawable(
+        background = Beta.BackgroundData.Transparent,
+        foreground = Beta.BackgroundData(
+          color = ColorM3.Primary,
+          surfaceTintOverlay = ColorM3.Surface,
+          surfaceTint = .2f
         ),
-        mask = rippleMask(true)
+        rippleEnabled = rippleEnabled,
+        shape = Shape.Circle
       )
-    } else {
-      null
-    }
+    )
 
     imageTintList = getColorM3(imageTintColorM3).colorStateList
   }

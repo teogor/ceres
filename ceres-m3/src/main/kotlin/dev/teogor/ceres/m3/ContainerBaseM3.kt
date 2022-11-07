@@ -23,17 +23,23 @@ import androidx.annotation.FloatRange
 import androidx.annotation.Px
 import androidx.constraintlayout.widget.ConstraintLayout
 import dev.teogor.ceres.extensions.defaultResId
+import dev.teogor.ceres.m3.beta.Beta
 import dev.teogor.ceres.m3.elevation.SurfaceLevel
-import dev.teogor.ceres.m3.theme.ThemeHandler
+import dev.teogor.ceres.m3.theme.IThemeM3
+import dev.teogor.ceres.m3.theme.getBackgroundDrawable
 
 open class ContainerBaseM3 constructor(
   context: Context,
   attrs: AttributeSet
-) : ConstraintLayout(context, attrs), ThemeHandler {
+) : ConstraintLayout(context, attrs), IThemeM3 {
 
   val backgroundColorM3: ColorM3
+  val backgroundTintColorM3: ColorM3
+  val backgroundTintOverlay: Float
+
   val surfaceTintOverlay: ColorM3
 
+  @Deprecated(message = "use surfaceTint and surfaceTintOverlay")
   val surfaceLevel: SurfaceLevel
 
   @Px
@@ -70,6 +76,13 @@ open class ContainerBaseM3 constructor(
         } else {
           ColorM3.OnBackground
         }
+        backgroundTintColorM3 = ColorM3.values()[
+          getInt(
+            R.styleable.ContainerBaseM3_background_m3_tint_overlay,
+            0
+          )
+        ]
+        backgroundTintOverlay = getFloat(R.styleable.ContainerBaseM3_background_m3_tint, 0f)
         surfaceTint = getFloat(R.styleable.ContainerBaseM3_surface_tint, 0f)
         surfaceTintOverlay = ColorM3.values()[
           getInt(
@@ -103,25 +116,18 @@ open class ContainerBaseM3 constructor(
   }
 
   private fun defaultTheme() {
-    val materialShapeDrawable = getMaterialShapeDrawable(
-      view = this,
-      surfaceLevel = surfaceLevel,
-      cornerSize = cornerRadius
-    )
-
     if (!customBackground) {
-      background = if (rippleEnabled) {
-        getRippleDrawable(
-          content = materialShapeDrawable,
-          mask = getMaterialShapeDrawable(
-            view = this,
-            surfaceLevel = SurfaceLevel.Lvl0,
-            cornerSize = cornerRadius
-          )
+      background = getBackgroundDrawable(
+        backgroundDrawable = Beta.BackgroundDrawable(
+          cornerSize = cornerRadius,
+          background = Beta.BackgroundData(
+            color = backgroundColorM3,
+            surfaceTintOverlay = backgroundTintColorM3,
+            surfaceTint = backgroundTintOverlay
+          ),
+          rippleEnabled = rippleEnabled
         )
-      } else {
-        materialShapeDrawable
-      }
+      )
     }
   }
 

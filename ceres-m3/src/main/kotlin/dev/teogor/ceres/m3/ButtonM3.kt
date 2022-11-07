@@ -21,18 +21,22 @@ import android.util.AttributeSet
 import androidx.annotation.Dimension
 import androidx.annotation.Px
 import dev.teogor.ceres.components.view.Button
+import dev.teogor.ceres.m3.beta.Beta
 import dev.teogor.ceres.m3.elevation.SurfaceLevel
-import dev.teogor.ceres.m3.theme.ThemeHandler
+import dev.teogor.ceres.m3.theme.IThemeM3
+import dev.teogor.ceres.m3.theme.getBackgroundDrawable
 
 class ButtonM3 @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null
-) : Button(context, attrs), ThemeHandler {
+) : Button(context, attrs), IThemeM3 {
 
   private val surfaceLevel: SurfaceLevel
   private var rippleEnabled: Boolean
 
   private val backgroundColorM3: ColorM3
+  private val backgroundTintColorM3: ColorM3
+  private val backgroundTintOverlay: Float
   private val textColorM3: ColorM3
 
   @Px
@@ -59,6 +63,13 @@ class ButtonM3 @JvmOverloads constructor(
             0
           )
         ]
+        backgroundTintColorM3 = ColorM3.values()[
+          getInt(
+            R.styleable.ButtonM3_background_m3_tint_overlay,
+            0
+          )
+        ]
+        backgroundTintOverlay = getFloat(R.styleable.ButtonM3_background_m3_tint, 0f)
         textColorM3 = ColorM3.values()[
           getInt(
             R.styleable.ButtonM3_text_color_m3,
@@ -84,36 +95,19 @@ class ButtonM3 @JvmOverloads constructor(
 
     setTextColor(getColorM3(colorM3 = textColorM3))
 
-    val materialShapeDrawable = getBackgroundDrawable(
-      cornerSize = cornerRadius,
-      backgroundColor = backgroundColorM3
-    )
-
-    // materialShapeDrawable.fillColor = getColorM3(colorM3 = backgroundColorM3).colorStateList
-    background = if (rippleEnabled) {
-      getRippleDrawable(
-        content = materialShapeDrawable,
-        mask = getBackgroundDrawable(
-          cornerSize = cornerRadius,
-          backgroundColor = backgroundColorM3
-        )
-      )
-    } else {
-      materialShapeDrawable
-    }
-
+    // todo extension for Beta.BackgroundDrawable
+    //  item.asBackgroundDrawable() ???
+    //  conflicts with IThemeM3 ???
     background = getBackgroundDrawable(
-      cornerSize = cornerRadius,
-      backgroundColor = backgroundColorM3,
-      rippleEnabled = rippleEnabled
+      backgroundDrawable = Beta.BackgroundDrawable(
+        cornerSize = cornerRadius,
+        background = Beta.BackgroundData(
+          color = backgroundColorM3,
+          surfaceTintOverlay = backgroundTintColorM3,
+          surfaceTint = backgroundTintOverlay
+        ),
+        rippleEnabled = rippleEnabled
+      )
     )
-
-//        background = getRippleDrawable(
-//            content = materialShapeDrawable,
-//            mask = getBackgroundDrawable(
-//                cornerSize = cornerRadius,
-//                backgroundColor = backgroundColorM3,
-//            ),
-//        )
   }
 }

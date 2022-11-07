@@ -20,13 +20,12 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatRatingBar
 import dev.teogor.ceres.extensions.colorStateList
-import dev.teogor.ceres.m3.theme.ThemeHandler
-import dev.teogor.ceres.m3.theme.ThemeM3
+import dev.teogor.ceres.m3.theme.IThemeM3
 
 class RatingBarM3(
   context: Context,
   attrs: AttributeSet
-) : AppCompatRatingBar(context, attrs), ThemeHandler {
+) : AppCompatRatingBar(context, attrs), IThemeM3 {
 
   private val starsColorM3: ColorM3
 
@@ -57,8 +56,9 @@ class RatingBarM3(
   override fun onThemeChanged() {
     super.onThemeChanged()
 
-    val colorScheme = ThemeM3.currentColorScheme()
     progressTintList = getColorM3(colorM3 = starsColorM3).colorStateList
-    progressBackgroundTintList = colorScheme.secondary.colorStateList
+    colorScheme().apply {
+      progressBackgroundTintList = secondary.colorStateList
+    }
   }
 }

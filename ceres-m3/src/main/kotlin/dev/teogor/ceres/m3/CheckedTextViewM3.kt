@@ -20,11 +20,12 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatCheckedTextView
 import dev.teogor.ceres.extensions.addAlpha
-import dev.teogor.ceres.extensions.colorStateList
-import dev.teogor.ceres.m3.elevation.SurfaceLevel
-import dev.teogor.ceres.m3.theme.ThemeHandler
+import dev.teogor.ceres.m3.beta.Beta
+import dev.teogor.ceres.m3.extension.compoundDrawablesTintList
+import dev.teogor.ceres.m3.theme.IThemeM3
+import dev.teogor.ceres.m3.theme.getBackgroundDrawable
 
-class CheckedTextViewM3 : AppCompatCheckedTextView, ThemeHandler {
+class CheckedTextViewM3 : AppCompatCheckedTextView, IThemeM3 {
 
   constructor(context: Context) : this(context, null)
 
@@ -41,19 +42,14 @@ class CheckedTextViewM3 : AppCompatCheckedTextView, ThemeHandler {
   override fun onThemeChanged() {
     super.onThemeChanged()
 
-    setTextColor(getSchemeColor().onSurface.addAlpha(0.9f))
-    supportCompoundDrawablesTintList = getSchemeColor().primary.colorStateList
+    setTextColor(colorScheme().onSurface.addAlpha(0.9f))
+    compoundDrawablesTintList = colorScheme().primary
 
-    background = getRippleDrawable(
-      content = getMaterialShapeDrawable(
-        SurfaceLevel.Transparent,
-        cornerSize = 0f,
-        this
-      ),
-      mask = getMaterialShapeDrawable(
-        SurfaceLevel.Lvl0,
-        cornerSize = 0f,
-        this
+    background = getBackgroundDrawable(
+      backgroundDrawable = Beta.BackgroundDrawable(
+        cornerSize = 10f,
+        background = Beta.BackgroundData.Transparent,
+        rippleEnabled = true
       )
     )
   }

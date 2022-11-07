@@ -122,10 +122,6 @@ class ImageComponentM3(
     binding.textSubtitle.alpha = .85f
   }
 
-  //region Public Methods :: API Methods
-
-  //endregion
-
   private fun onClicked() {
     onClickedChangeListener?.onClicked()
   }

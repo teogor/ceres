@@ -20,9 +20,9 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.core.content.ContextCompat
 import com.google.android.material.textview.MaterialTextView
-import dev.teogor.ceres.m3.theme.ThemeHandler
+import dev.teogor.ceres.m3.theme.IThemeM3
 
-class ErrorTextViewM3 : MaterialTextView, ThemeHandler {
+class ErrorTextViewM3 : MaterialTextView, IThemeM3 {
 
   constructor(context: Context) : this(context, null)
 
@@ -43,6 +43,8 @@ class ErrorTextViewM3 : MaterialTextView, ThemeHandler {
   override fun onThemeChanged() {
     super.onThemeChanged()
 
-    setTextColor(getSchemeColor().error)
+    colorScheme().apply {
+      setTextColor(error)
+    }
   }
 }

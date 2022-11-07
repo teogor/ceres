@@ -30,6 +30,7 @@ import dev.teogor.ceres.m3.theme.ColorScheme
 import dev.teogor.ceres.m3.theme.SurfaceOverlay
 import dev.teogor.ceres.m3.theme.ThemeM3
 
+@Deprecated(message = "In favour of Beta.ShapeDrawableM3")
 class ShapeDrawableM3 : MaterialShapeDrawable {
 
   private fun getSchemeColor(): ColorScheme {

@@ -18,6 +18,8 @@ package dev.teogor.ceres.m3
 
 import android.content.Context
 import android.util.AttributeSet
+import dev.teogor.ceres.m3.beta.Beta
+import dev.teogor.ceres.m3.theme.getBackgroundDrawable
 
 class ContainerM3 constructor(
   context: Context,
@@ -31,11 +33,15 @@ class ContainerM3 constructor(
     super.onThemeChanged()
 
     background = getBackgroundDrawable(
-      cornerSize = cornerRadius,
-      backgroundColor = backgroundColorM3,
-      surfaceTint = surfaceTint,
-      surfaceTintOverlay = surfaceTintOverlay,
-      rippleEnabled = rippleEnabled
+      backgroundDrawable = Beta.BackgroundDrawable(
+        cornerSize = cornerRadius,
+        background = Beta.BackgroundData(
+          color = backgroundColorM3,
+          surfaceTintOverlay = surfaceTintOverlay,
+          surfaceTint = surfaceTint
+        ),
+        rippleEnabled = rippleEnabled
+      )
     )
   }
 }
