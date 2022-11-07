@@ -18,19 +18,17 @@ package dev.teogor.ceres.m3.widgets.bar
 
 import android.animation.ValueAnimator
 import android.content.Context
-import android.content.res.ColorStateList
+import android.graphics.Color
 import android.util.AttributeSet
 import android.view.View
-import androidx.annotation.FloatRange
 import androidx.annotation.IdRes
 import androidx.constraintlayout.widget.ConstraintSet
-import com.google.android.material.shape.CornerFamily
-import com.google.android.material.shape.MaterialShapeDrawable
-import com.google.android.material.shape.ShapeAppearanceModel
+import androidx.core.animation.doOnEnd
 import dev.teogor.ceres.components.toolbar.ToolbarType
+import dev.teogor.ceres.components.view.*
+import dev.teogor.ceres.components.view.ToolBar
 import dev.teogor.ceres.core.drawable.ArgbEvaluator
-import dev.teogor.ceres.extensions.colorStateList
-import dev.teogor.ceres.extensions.dpToPx
+import dev.teogor.ceres.extensions.*
 import dev.teogor.ceres.m3.R
 import dev.teogor.ceres.m3.extension.applyRippleEnabled
 
@@ -39,16 +37,10 @@ class ToolBar constructor(
   attrs: AttributeSet
 ) : Bar(context, attrs) {
 
-  private val cornersSize = 60.dpToPx.toFloat()
-  private val shapeAppearanceModel = ShapeAppearanceModel()
-    .toBuilder()
-    .setAllCorners(CornerFamily.ROUNDED, cornersSize)
-    .build()
-  private val toolbarBackground = MaterialShapeDrawable(shapeAppearanceModel)
-
   @IdRes
   private val idToolbar = generateViewId()
   private val toolbarView = View(context)
+  private val toolbarBackground = ToolBar.Background()
 
   private val verticalMargin = 8.dpToPx
   private val horizontalMargin = 10.dpToPx
@@ -56,27 +48,24 @@ class ToolBar constructor(
   private val toolbarHeightRounded = toolbarHeight - 2 * verticalMargin
   private val animationSpeed = 400L
 
-  private var toolbarType = ToolbarType.ROUNDED
   private var statusBar: StatusBar? = null
   private var interpolatorAnimator: ValueAnimator = ValueAnimator.ofFloat(
     0f,
     1f
   )
-  private var isFilled: Boolean = true
-  private var isTransparent: Boolean = false
+
+  private var data: ToolBar.Data = ToolBar.Data(
+    type = ToolbarType.NOT_SET,
+    isTransparent = false
+  )
 
   init {
-    init()
-  }
-
-  private fun init() {
     prepareRoot()
     prepareToolbar()
 
-    val constraintSet = ConstraintSet()
-    constraintSet.clone(this)
-    setToolbarConstraints(constraintSet)
-    constraintSet.applyTo(this)
+    applyConstraintSet {
+      setToolbarConstraints(this)
+    }
   }
 
   private fun prepareRoot() {
@@ -88,256 +77,318 @@ class ToolBar constructor(
     toolbarView.id = idToolbar
 
     // set toolbar layout params
-    val layoutParams = LayoutParams(
-      0,
-      toolbarHeightRounded
+    toolbarView.applyConstraintLayoutMargins(
+      verticalMargins = verticalMargin,
+      horizontalMargins = horizontalMargin,
+      height = toolbarHeightRounded,
+      width = 0
     )
-    layoutParams.setMargins(
-      horizontalMargin,
-      verticalMargin,
-      horizontalMargin,
-      verticalMargin
-    )
-    toolbarView.layoutParams = layoutParams
 
-    if (!consumeTop) {
-      // set toolbar background
-      toolbarBackground.fillColor = ColorStateList.valueOf(
-        colorSurfaceFilled()
-      )
-      toolbarView.background = toolbarBackground
-    }
-
-    createShapeValueAnimator()
     // add toolbar
     addView(toolbarView)
   }
 
   private fun setToolbarConstraints(constraintSet: ConstraintSet) {
-    constraintSet.connect(
-      idToolbar,
-      ConstraintSet.START,
-      ConstraintSet.PARENT_ID,
-      ConstraintSet.START
-    )
-    constraintSet.connect(
-      idToolbar,
-      ConstraintSet.TOP,
-      ConstraintSet.PARENT_ID,
-      ConstraintSet.TOP
-    )
-    constraintSet.connect(
-      idToolbar,
-      ConstraintSet.END,
-      ConstraintSet.PARENT_ID,
-      ConstraintSet.END
-    )
-    constraintSet.connect(
-      idToolbar,
-      ConstraintSet.BOTTOM,
-      ConstraintSet.PARENT_ID,
-      ConstraintSet.BOTTOM
-    )
-  }
-
-  private fun expandToolbar(expanded: Boolean) {
-    statusBar?.setFilled(expanded)
-    if (interpolatorAnimator.isRunning) {
-      interpolatorAnimator.reverse()
-    } else {
-      val to = if (expanded) 0f else 1f
-      val from = 1f - to
-      interpolatorAnimator.setFloatValues(from, to)
-      interpolatorAnimator.start()
-    }
-  }
-
-  private fun createShapeValueAnimator() {
-    interpolatorAnimator.duration = animationSpeed
-    interpolatorAnimator.addUpdateListener { animation ->
-      val value = animation.animatedValue as Float
-      setBackgroundInterpolation(value)
-
-      val toolbarLayoutParams = LayoutParams(
-        0,
-        0
-      )
-
-      val horizontalMargin = (horizontalMargin * value).toInt()
-      val verticalMargin = (verticalMargin * value).toInt()
-
-      toolbarLayoutParams.setMargins(
-        horizontalMargin,
-        verticalMargin,
-        horizontalMargin,
-        verticalMargin
-      )
-      toolbarView.layoutParams = toolbarLayoutParams
-
-      val constraintSet = ConstraintSet()
-      constraintSet.clone(this)
-      setToolbarConstraints(constraintSet)
-      constraintSet.applyTo(this)
-    }
-  }
-
-  private fun setMargins(expanded: Boolean) {
-    statusBar?.setFilled(expanded, animated = false)
-    if (interpolatorAnimator.isRunning) {
-      interpolatorAnimator.reverse()
-    } else {
-      val to = if (expanded) 0f else 1f
-      val from = 1f - to
-      interpolatorAnimator.setFloatValues(from, to)
-      interpolatorAnimator.start()
-    }
-  }
-
-  private fun setBackgroundInterpolation(
-    @FloatRange(
-      from = 0.0,
-      to = 1.0,
-      fromInclusive = true
-    ) value: Float
-  ) {
-    toolbarBackground.interpolation = value
-  }
-
-  private fun setBackgroundFilled(isFilled: Boolean) {
-    if (isFilled == this.isFilled) {
-      return
-    }
-    this.isFilled = isFilled
-    if (isFilled) {
-      val colorAnimator = ValueAnimator.ofObject(
-        ArgbEvaluator(),
-        colorSurfaceNormal(),
-        colorSurfaceFilled()
-      )
-      colorAnimator.duration = animationSpeed
-      createShapeValueAnimator(colorAnimator)
-    } else {
-      val colorAnimator = ValueAnimator.ofObject(
-        ArgbEvaluator(),
-        colorSurfaceFilled(),
-        colorSurfaceNormal()
-      )
-      colorAnimator.duration = animationSpeed
-      createShapeValueAnimator(colorAnimator)
-    }
-  }
-
-  private var colorAnimator: ValueAnimator? = null
-  private fun createShapeValueAnimator(colorAnimator: ValueAnimator) {
-    this.colorAnimator = colorAnimator
-    colorAnimator.addUpdateListener { animation ->
-      val value = animation.animatedValue as Int
-      toolbarBackground.fillColor = value.colorStateList
-      toolbarView.background = toolbarBackground
-    }
-    colorAnimator.start()
+    constraintSet.centerInParent(idToolbar)
   }
 
   /**
    * API Methods
    */
-  fun setType(type: ToolbarType) {
-    if (type == ToolbarType.COLLAPSABLE && toolbarType != ToolbarType.COLLAPSABLE) {
-      setMargins(true)
-      setBackgroundInterpolation(0f)
-      statusBar?.setFilled(isFilled = false, animated = false)
-      setBackgroundFilled(false)
-    } else if (type == ToolbarType.ROUNDED && toolbarType != ToolbarType.ROUNDED) {
-      setMargins(false)
-      setBackgroundInterpolation(1f)
-      statusBar?.setFilled(false)
-      setBackgroundFilled(true)
-    } else if (type == ToolbarType.BACK_BUTTON && toolbarType != ToolbarType.BACK_BUTTON) {
-      setMargins(true)
-      setBackgroundInterpolation(0f)
-      statusBar?.setFilled(isFilled = false, animated = false)
-      setBackgroundFilled(false)
-    } else if (type == ToolbarType.ONLY_LOGO && toolbarType != ToolbarType.ONLY_LOGO) {
-      setMargins(true)
-      setBackgroundInterpolation(0f)
-      statusBar?.setFilled(isFilled = false, animated = false)
-      setBackgroundFilled(false)
-    }
-    // fixme toolbar types
-    else if (type == ToolbarType.BACK_BUTTON && toolbarType != ToolbarType.BACK_BUTTON ||
-      type == ToolbarType.ACTION && toolbarType != ToolbarType.ACTION
-    ) {
-      expandToolbar(true)
-    } else if (type != toolbarType && (
-      toolbarType == ToolbarType.BACK_BUTTON ||
-        toolbarType == ToolbarType.ACTION
-      )
-    ) {
-      expandToolbar(false)
-    }
-    toolbarType = type
-  }
-
-  fun setIsTransparent(isTransparent: Boolean) {
-    applyRippleEnabled(!isTransparent)
-    this.isTransparent = isTransparent
-    if (isTransparent) {
-      colorAnimator?.cancel()
-      if (isFilled) {
-        val colorAnimator = ValueAnimator.ofObject(
-          ArgbEvaluator(),
-          colorSurfaceNormal(),
-          colorTransparent
+  fun setData(data: ToolBar.Data) {
+    if (this.data.wasNotSet()) {
+      with(data) {
+        toolbarBackground.applyHidden(
+          if (isTransparent) {
+            Color.TRANSPARENT
+          } else {
+            data.color
+          }
         )
-        colorAnimator.duration = animationSpeed
-        createShapeValueAnimator(colorAnimator)
-      } else {
-        val colorAnimator = ValueAnimator.ofObject(
-          ArgbEvaluator(),
-          colorSurfaceFilled(),
-          colorTransparent
+        toolbarView.applyConstraintLayoutMargins(
+          verticalMargins = verticalMargins,
+          horizontalMargins = horizontalMargins
         )
-        colorAnimator.duration = animationSpeed
-        createShapeValueAnimator(colorAnimator)
+        applyConstraintSet {
+          setToolbarConstraints(this)
+        }
+        toolbarBackground.applyCornerTreatment(cornerSize / toolbarBackground.cornersSize)
       }
     } else {
-      if (isFilled) {
+      applyData(data)
+    }
+    this.data = data
+  }
+
+  private fun applyData(newData: ToolBar.Data) {
+    applyRippleEnabled(newData.rippleEnabled)
+    applyTypeEvent(newData)
+    toolbarBackground.applyOn(toolbarView)
+    val typeChanged = data.typeChanged(newData)
+    if (!typeChanged) {
+      with(data) {
+        toolbarBackground.applyHidden(
+          if (isTransparent) {
+            Color.TRANSPARENT
+          } else {
+            data.color
+          }
+        )
+      }
+      return
+    }
+
+    val transparencyChanged = data.transparencyChanged(newData)
+    val colorChanged = data.colorChanged(newData)
+    val roundedTreatmentChanged = data.roundedTreatmentChanged(newData)
+    val expandedChanged = data.expandedChanged(newData)
+
+    val to = if (expandedChanged) {
+      if (newData.increasingAnimator && !data.increasingAnimator) {
+        0f
+      } else {
+        1f
+      }
+    } else {
+      if (newData.increasingAnimator) {
+        0f
+      } else {
+        1f
+      }
+    }
+    val from = 1f - to
+    interpolatorAnimator.setFloatValues(from, to)
+    interpolatorAnimator.duration = animationSpeed
+
+    interpolatorAnimator.addUpdateListener { animation ->
+      val value = animation.animatedValue as Float
+      if (roundedTreatmentChanged) {
+        toolbarBackground.applyCornerTreatment(value)
+      }
+      if (expandedChanged) {
+        val horizontalMargin = (horizontalMargin * value).toInt()
+        val verticalMargin = (verticalMargin * value).toInt()
+        toolbarView.applyConstraintLayoutMargins(
+          verticalMargins = verticalMargin,
+          horizontalMargins = horizontalMargin
+        )
+        applyConstraintSet {
+          setToolbarConstraints(this)
+        }
+      }
+    }
+    interpolatorAnimator.doOnEnd {
+      interpolatorAnimator.removeAllUpdateListeners()
+      it.removeAllListeners()
+    }
+    interpolatorAnimator.start()
+
+    if (colorChanged) {
+      if (newData.isTransparent) {
         val colorAnimator = ValueAnimator.ofObject(
           ArgbEvaluator(),
-          colorSurfaceNormal(),
-          colorSurfaceFilled()
+          data.color,
+          newData.color
         )
-        colorAnimator.duration = animationSpeed
-        createShapeValueAnimator(colorAnimator)
+        colorAnimator.duration = animationSpeed / 2
+        colorAnimator.addUpdateListener { animation ->
+          val value = animation.animatedValue as Int
+          toolbarBackground.applyHidden(value)
+        }
+        colorAnimator.doOnEnd {
+          colorAnimator.removeAllUpdateListeners()
+          it.removeAllListeners()
+        }
+        colorAnimator.start()
+        val colorAnimatorTransparent = ValueAnimator.ofObject(
+          ArgbEvaluator(),
+          newData.color,
+          Color.TRANSPARENT
+        )
+        colorAnimatorTransparent.duration = animationSpeed / 2
+        colorAnimatorTransparent.addUpdateListener { animation ->
+          val value = animation.animatedValue as Int
+          toolbarBackground.applyHidden(value)
+        }
+        colorAnimatorTransparent.doOnEnd {
+          colorAnimatorTransparent.removeAllUpdateListeners()
+          it.removeAllListeners()
+          toolbarBackground.applyHidden(Color.TRANSPARENT)
+        }
+        colorAnimatorTransparent.startDelay = animationSpeed / 2
+        colorAnimatorTransparent.start()
+      } else if (data.isTransparent) {
+        val colorAnimator = ValueAnimator.ofObject(
+          ArgbEvaluator(),
+          Color.TRANSPARENT,
+          data.color
+        )
+        colorAnimator.duration = animationSpeed / 2
+        colorAnimator.addUpdateListener { animation ->
+          val value = animation.animatedValue as Int
+          toolbarBackground.applyHidden(value)
+        }
+        colorAnimator.doOnEnd {
+          colorAnimator.removeAllUpdateListeners()
+          it.removeAllListeners()
+        }
+        colorAnimator.start()
+        val colorAnimatorTransparent = ValueAnimator.ofObject(
+          ArgbEvaluator(),
+          data.color,
+          newData.color
+        )
+        colorAnimatorTransparent.duration = animationSpeed / 2
+        colorAnimatorTransparent.addUpdateListener { animation ->
+          val value = animation.animatedValue as Int
+          toolbarBackground.applyHidden(value)
+        }
+        colorAnimatorTransparent.doOnEnd {
+          colorAnimatorTransparent.removeAllUpdateListeners()
+          it.removeAllListeners()
+        }
+        colorAnimatorTransparent.startDelay = animationSpeed / 2
+        colorAnimatorTransparent.start()
       } else {
         val colorAnimator = ValueAnimator.ofObject(
           ArgbEvaluator(),
-          colorSurfaceFilled(),
-          colorSurfaceNormal()
+          data.color,
+          newData.color
         )
         colorAnimator.duration = animationSpeed
-        createShapeValueAnimator(colorAnimator)
+        colorAnimator.addUpdateListener { animation ->
+          val value = animation.animatedValue as Int
+          toolbarBackground.applyHidden(value)
+        }
+        colorAnimator.doOnEnd {
+          colorAnimator.removeAllUpdateListeners()
+          it.removeAllListeners()
+        }
+        colorAnimator.start()
       }
     }
   }
 
-  fun setData(type: ToolbarType, isTransparent: Boolean) {
-    setIsTransparent(isTransparent)
-    setType(type)
+  /**
+   * ToolbarType.HIDDEN -> {
+   *   visibility = hidden
+   *   background = transparent
+   * }
+   * ToolbarType.ROUNDED -> {
+   *   visibility = visible
+   *   background = normal
+   * }
+   * ToolbarType.COLLAPSABLE -> {
+   *   visibility = visible
+   *   background = filled on default / normal on scroll
+   * }
+   * ToolbarType.BACK_BUTTON -> {
+   *   visibility = visible
+   *   background = normal
+   * }
+   * ToolbarType.ACTION -> {
+   *   visibility = visible
+   *   background = normal
+   * }
+   * ToolbarType.ONLY_LOGO -> {
+   *   visibility = hidden
+   *   background = transparent
+   * }
+   */
+  private fun applyTypeEvent(newData: ToolBar.Data) {
+    when (newData.type) {
+      ToolbarType.HIDDEN -> {
+        withToolbarHidden(newData)
+        withToolbarRectangle(newData)
+        withToolbarExpanded(newData)
+        setBackgroundColor(colorTransparent)
+      }
+      ToolbarType.ONLY_LOGO -> {
+        withToolbarHidden(newData)
+        withToolbarRectangle(newData)
+        withToolbarExpanded(newData)
+        setBackgroundColor(colorTransparent)
+      }
+      ToolbarType.ROUNDED -> {
+        withToolbarVisible(newData)
+        withToolbarRounded(newData)
+        withToolbarShrinked(newData)
+        setBackgroundColor(colorSurfaceNormal())
+      }
+      ToolbarType.COLLAPSABLE -> {
+        withToolbarVisible(newData, false)
+        withToolbarRectangle(newData)
+        withToolbarExpanded(newData)
+        setBackgroundColor(colorSurfaceNormal())
+      }
+      ToolbarType.BACK_BUTTON -> {
+        withToolbarVisible(newData, false)
+        withToolbarRectangle(newData)
+        withToolbarExpanded(newData)
+        setBackgroundColor(colorSurfaceNormal())
+      }
+      ToolbarType.ACTION -> {
+        withToolbarVisible(newData, false)
+        withToolbarRectangle(newData)
+        withToolbarExpanded(newData)
+        setBackgroundColor(colorSurfaceNormal())
+      }
+      else -> {
+        // shouldn't be here
+        withToolbarVisible(newData, false)
+        withToolbarRectangle(newData)
+        withToolbarExpanded(newData)
+        setBackgroundColor(colorSurfaceNormal())
+      }
+    }
+  }
+
+  private fun withToolbarHidden(newData: ToolBar.Data) {
+    newData.isHidden = true
+    newData.color = colorSurfaceNormal()
+  }
+
+  private fun withToolbarVisible(newData: ToolBar.Data, isFilled: Boolean = true) {
+    newData.isHidden = false
+    newData.color = if (isFilled) {
+      colorSurfaceFilled()
+    } else {
+      colorSurfaceNormal()
+    }
+  }
+
+  private fun withToolbarRectangle(newData: ToolBar.Data) {
+    newData.isRounded = false
+    newData.cornerSize = 0f
+  }
+
+  private fun withToolbarRounded(newData: ToolBar.Data) {
+    newData.isRounded = true
+    newData.cornerSize = toolbarBackground.cornersSize
+  }
+
+  private fun withToolbarExpanded(newData: ToolBar.Data) {
+    newData.isExpanded = true
+    newData.verticalMargins = 0
+    newData.horizontalMargins = 0
+  }
+
+  private fun withToolbarShrinked(newData: ToolBar.Data) {
+    newData.isExpanded = false
+    newData.verticalMargins = verticalMargin
+    newData.horizontalMargins = horizontalMargin
   }
 
   fun setStatusBar(statusBar: StatusBar) {
     this.statusBar = statusBar
   }
 
+  /**
+   * Apply the new color scheme.
+   */
   override fun onThemeChanged() {
     super.onThemeChanged()
 
-    toolbarBackground.fillColor = if (isFilled) {
-      colorSurfaceFilled()
-    } else {
-      colorSurfaceNormal()
-    }.colorStateList
-    toolbarView.background = toolbarBackground
+    setData(data)
   }
 }
