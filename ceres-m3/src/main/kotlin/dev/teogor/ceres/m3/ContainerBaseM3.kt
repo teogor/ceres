@@ -33,11 +33,15 @@ open class ContainerBaseM3 constructor(
   attrs: AttributeSet
 ) : ConstraintLayout(context, attrs), IThemeM3 {
 
+  @FloatRange(from = 0.0, to = 1.0)
+  val backgroundTintOverlay: Float
   val backgroundColorM3: ColorM3
   val backgroundTintColorM3: ColorM3
-  val backgroundTintOverlay: Float
 
-  val surfaceTintOverlay: ColorM3
+  @FloatRange(from = 0.0, to = 1.0)
+  val foregroundTintOverlay: Float
+  val foregroundColorM3: ColorM3
+  val foregroundTintColorM3: ColorM3
 
   @Deprecated(message = "use surfaceTint and surfaceTintOverlay")
   val surfaceLevel: SurfaceLevel
@@ -47,11 +51,6 @@ open class ContainerBaseM3 constructor(
   val cornerRadius: Float
 
   var rippleEnabled: Boolean
-
-  @FloatRange(from = 0.0, to = 1.0)
-  val surfaceTint: Float
-
-  open val customBackground = false
 
   init {
     context.theme.obtainStyledAttributes(
@@ -83,13 +82,18 @@ open class ContainerBaseM3 constructor(
           )
         ]
         backgroundTintOverlay = getFloat(R.styleable.ContainerBaseM3_background_m3_tint, 0f)
-        surfaceTint = getFloat(R.styleable.ContainerBaseM3_surface_tint, 0f)
-        surfaceTintOverlay = ColorM3.values()[
+        foregroundColorM3 = if (backgroundM3 != -1) {
+          ColorM3.values()[backgroundM3]
+        } else {
+          ColorM3.OnBackground
+        }
+        foregroundTintColorM3 = ColorM3.values()[
           getInt(
-            R.styleable.ContainerBaseM3_surface_tint_overlay,
+            R.styleable.ContainerBaseM3_foreground_m3_tint_overlay,
             0
           )
         ]
+        foregroundTintOverlay = getFloat(R.styleable.ContainerBaseM3_foreground_m3_tint, 0f)
         cornerRadius = getDimension(R.styleable.ContainerBaseM3_corner_radius, 0f)
         rippleEnabled = getBoolean(
           R.styleable.ContainerBaseM3_ripple_enabled,
@@ -116,19 +120,17 @@ open class ContainerBaseM3 constructor(
   }
 
   private fun defaultTheme() {
-    if (!customBackground) {
-      background = getBackgroundDrawable(
-        backgroundDrawable = Beta.BackgroundDrawable(
-          cornerSize = cornerRadius,
-          background = Beta.BackgroundData(
-            color = backgroundColorM3,
-            surfaceTintOverlay = backgroundTintColorM3,
-            surfaceTint = backgroundTintOverlay
-          ),
-          rippleEnabled = rippleEnabled
-        )
+    background = getBackgroundDrawable(
+      backgroundDrawable = Beta.BackgroundDrawable(
+        cornerSize = cornerRadius,
+        background = Beta.BackgroundData(
+          color = backgroundColorM3,
+          surfaceTintOverlay = backgroundTintColorM3,
+          surfaceTint = backgroundTintOverlay
+        ),
+        rippleEnabled = rippleEnabled
       )
-    }
+    )
   }
 
   override fun setEnabled(isEnabled: Boolean) {

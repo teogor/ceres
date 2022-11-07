@@ -18,30 +18,8 @@ package dev.teogor.ceres.m3
 
 import android.content.Context
 import android.util.AttributeSet
-import dev.teogor.ceres.m3.beta.Beta
-import dev.teogor.ceres.m3.theme.getBackgroundDrawable
 
 class ContainerM3 constructor(
   context: Context,
   attrs: AttributeSet
-) : ContainerBaseM3(context, attrs) {
-
-  override val customBackground: Boolean
-    get() = true
-
-  override fun onThemeChanged() {
-    super.onThemeChanged()
-
-    background = getBackgroundDrawable(
-      backgroundDrawable = Beta.BackgroundDrawable(
-        cornerSize = cornerRadius,
-        background = Beta.BackgroundData(
-          color = backgroundColorM3,
-          surfaceTintOverlay = surfaceTintOverlay,
-          surfaceTint = surfaceTint
-        ),
-        rippleEnabled = rippleEnabled
-      )
-    )
-  }
-}
+) : ContainerBaseM3(context, attrs)
