@@ -21,6 +21,7 @@ import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.teogor.ceres.R
 import dev.teogor.ceres.components.toolbar.ToolbarType
+import dev.teogor.ceres.components.view.ToolBar
 import dev.teogor.ceres.extensions.asColor
 import dev.teogor.ceres.m3.app.BaseViewModelM3
 import dev.teogor.ceres.m3.events.UiEventM3
@@ -55,11 +56,15 @@ class ThemePrefsViewModel @Inject constructor(
   private lateinit var choicesAppTheme: Array<String>
   private lateinit var choicesJustBlack: Array<String>
 
+  override val toolBarBuilder: ToolBar.Builder
+    get() = ToolBar.Builder(
+      type = ToolbarType.BACK_BUTTON,
+      title = R.string.look_and_feel
+    )
+
   override fun onFragmentCreated() {
     super.onFragmentCreated()
 
-    setToolbarType(ToolbarType.BACK_BUTTON)
-    setToolbarTitle(R.string.look_and_feel)
     showBottomNavigation(false)
 
     choicesAppTheme = resources.getStringArray(R.array.app_theme_array)
