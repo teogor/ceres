@@ -33,8 +33,7 @@ import com.google.android.material.internal.ThemeEnforcement
 import com.google.android.material.internal.ViewUtils
 import com.google.android.material.theme.overlay.MaterialThemeOverlay
 import dev.teogor.ceres.extensions.defaultResId
-import dev.teogor.ceres.m3.theme.ThemeHandler
-import dev.teogor.ceres.m3.theme.ThemeM3.currentColorScheme
+import dev.teogor.ceres.m3.theme.IThemeM3
 
 class SwitchM3(
   var wrapContext: Context,
@@ -45,7 +44,8 @@ class SwitchM3(
   attrs,
   defStyleAttr
 ),
-  ThemeHandler {
+  IThemeM3 {
+
   private var thumbDrawable: Drawable?
   private var thumbIconDrawable: Drawable?
   private var trackDrawable: Drawable?
@@ -109,60 +109,61 @@ class SwitchM3(
   override fun onThemeChanged() {
     super.onThemeChanged()
 
-    val colorScheme = currentColorScheme()
-    val switchThumbTintStates = arrayOf(
-      intArrayOf(-android.R.attr.state_enabled, -android.R.attr.state_checked),
-      intArrayOf(-android.R.attr.state_enabled, android.R.attr.state_checked),
-      intArrayOf(android.R.attr.state_checked, android.R.attr.state_pressed),
-      intArrayOf(android.R.attr.state_checked),
-      intArrayOf(-android.R.attr.state_checked, android.R.attr.state_pressed),
-      intArrayOf()
-    )
-    val switchThumbTintColors = intArrayOf(
-      colorScheme.onSurface,
-      colorScheme.surface,
-      colorScheme.primaryContainer,
-      colorScheme.onPrimary,
-      colorScheme.onSurfaceVariant,
-      colorScheme.outline
-    )
-    val switchTrackTintStates = arrayOf(
-      intArrayOf(-android.R.attr.state_enabled, -android.R.attr.state_checked),
-      intArrayOf(-android.R.attr.state_enabled, android.R.attr.state_checked),
-      intArrayOf(android.R.attr.state_checked),
-      intArrayOf()
-    )
-    // todo track surface-variant color to be based on primary with tone
-    val switchTrackTintColors = intArrayOf(
-      colorScheme.surfaceVariant,
-      colorScheme.onSurface,
-      colorScheme.primary,
-      colorScheme.surfaceVariant
-    )
-    val switchTrackDecorationTintStates = arrayOf(
-      intArrayOf(android.R.attr.state_checked),
-      intArrayOf(-android.R.attr.state_enabled),
-      intArrayOf()
-    )
-    val switchTrackDecorationTintColors = intArrayOf(
-      colorScheme.transparent,
-      colorScheme.onSurface,
-      colorScheme.outline
-    )
+    colorScheme().apply {
+      val switchThumbTintStates = arrayOf(
+        intArrayOf(-android.R.attr.state_enabled, -android.R.attr.state_checked),
+        intArrayOf(-android.R.attr.state_enabled, android.R.attr.state_checked),
+        intArrayOf(android.R.attr.state_checked, android.R.attr.state_pressed),
+        intArrayOf(android.R.attr.state_checked),
+        intArrayOf(-android.R.attr.state_checked, android.R.attr.state_pressed),
+        intArrayOf()
+      )
+      val switchThumbTintColors = intArrayOf(
+        onSurface,
+        surface,
+        primaryContainer,
+        onPrimary,
+        onSurfaceVariant,
+        outline
+      )
+      val switchTrackTintStates = arrayOf(
+        intArrayOf(-android.R.attr.state_enabled, -android.R.attr.state_checked),
+        intArrayOf(-android.R.attr.state_enabled, android.R.attr.state_checked),
+        intArrayOf(android.R.attr.state_checked),
+        intArrayOf()
+      )
+      // todo track surface-variant color to be based on primary with tone
+      val switchTrackTintColors = intArrayOf(
+        surfaceVariant,
+        onSurface,
+        primary,
+        surfaceVariant
+      )
+      val switchTrackDecorationTintStates = arrayOf(
+        intArrayOf(android.R.attr.state_checked),
+        intArrayOf(-android.R.attr.state_enabled),
+        intArrayOf()
+      )
+      val switchTrackDecorationTintColors = intArrayOf(
+        transparent,
+        onSurface,
+        outline
+      )
 
-    // todo add alpha ???
-    //  states created based on mtrl_switch_thumb_icon_tint.xml
-    //  states created based on mtrl_switch_thumb_tint.xml
-    //  states created based on mtrl_switch_track_decoration_tint.xml
-    //  states created based on mtrl_switch_track_tint.xml
-    thumbTintList = ColorStateList(switchThumbTintStates, switchThumbTintColors)
-    trackTintList = ColorStateList(switchTrackTintStates, switchTrackTintColors)
-    trackDecorationTintList =
-      ColorStateList(switchTrackDecorationTintStates, switchTrackDecorationTintColors)
+      // todo add alpha ???
+      //  states created based on mtrl_switch_thumb_icon_tint.xml
+      //  states created based on mtrl_switch_thumb_tint.xml
+      //  states created based on mtrl_switch_track_decoration_tint.xml
+      //  states created based on mtrl_switch_track_tint.xml
+      thumbTintList = ColorStateList(switchThumbTintStates, switchThumbTintColors)
+      trackTintList = ColorStateList(switchTrackTintStates, switchTrackTintColors)
+      trackDecorationTintList =
+        ColorStateList(switchTrackDecorationTintStates, switchTrackDecorationTintColors)
 
-    // todo ripple color is wrong
-    refreshThumbDrawable()
-    refreshTrackDrawable()
+      // todo ripple color is wrong
+      refreshThumbDrawable()
+      refreshTrackDrawable()
+    }
   }
 
   override fun invalidate() {

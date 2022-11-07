@@ -14,20 +14,7 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-  <item
-    android:id="@+id/homeFragment"
-    android:enabled="true"
-    android:icon="@drawable/asld_folder"
-    android:title="Home" />
-  <item
-    android:id="@+id/homeFragment2"
-    android:enabled="true"
-    android:icon="@drawable/navigation_home_state"
-    android:title="Home2" />
-  <item
-    android:id="@+id/m3Fragment"
-    android:enabled="true"
-    android:icon="@drawable/navigation_m3_state"
-    android:title="@string/m3" />
-</menu>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:drawable="@drawable/navigation_m3_state_default" android:state_checked="false" />
+  <item android:drawable="@drawable/navigation_m3_state_checked" android:state_checked="true" />
+</selector>

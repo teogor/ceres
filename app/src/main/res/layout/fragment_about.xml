@@ -24,7 +24,7 @@
       type="dev.teogor.ceres.presentation.feature.about.AboutViewModel" />
   </data>
 
-  <dev.teogor.ceres.m3.widgets.container.FragmentContainer
+  <dev.teogor.ceres.m3.FragmentContainer
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="6dp"
@@ -36,13 +36,13 @@
       android:layout_height="60dp"
       android:layout_marginHorizontal="14dp"
       app:background_m3="secondaryContainer"
+      app:background_m3_tint=".06"
+      app:background_m3_tint_overlay="onSurface"
       app:corner_radius="20dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:ripple_enabled="true"
-      app:surface_tint=".06"
-      app:surface_tint_overlay="onSurface">
+      app:ripple_enabled="true">
 
       <dev.teogor.ceres.m3.TextViewM3
         android:id="@+id/title_application_info"
@@ -60,6 +60,6 @@
 
     </dev.teogor.ceres.m3.ContainerM3>
 
-  </dev.teogor.ceres.m3.widgets.container.FragmentContainer>
+  </dev.teogor.ceres.m3.FragmentContainer>
 
 </layout>

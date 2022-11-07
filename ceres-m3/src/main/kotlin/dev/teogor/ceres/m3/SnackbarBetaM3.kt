@@ -21,8 +21,9 @@ import android.view.View
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import dev.teogor.ceres.core.global.GlobalData
 import dev.teogor.ceres.extensions.colorStateList
+import dev.teogor.ceres.m3.snackbar.Snackbar
+import dev.teogor.ceres.m3.theme.IThemeM3
 import dev.teogor.ceres.m3.theme.SurfaceOverlay
-import dev.teogor.ceres.m3.theme.ThemeHandler
 
 class SnackbarBetaM3 private constructor(
   message: String,
@@ -30,9 +31,9 @@ class SnackbarBetaM3 private constructor(
   listener: View.OnClickListener?,
   duration: Int,
   anchor: View?
-) : ThemeHandler {
+) : IThemeM3 {
 
-  private val snackbar: dev.teogor.ceres.m3.snackbar.Snackbar
+  private val snackbar: Snackbar
 
   init {
     snackbar = buildSnackbar(
@@ -55,9 +56,9 @@ class SnackbarBetaM3 private constructor(
     message: String,
     action: String? = null,
     actionListener: View.OnClickListener? = null,
-    duration: Int = dev.teogor.ceres.m3.snackbar.Snackbar.LENGTH_SHORT
-  ): dev.teogor.ceres.m3.snackbar.Snackbar {
-    val snackBar = dev.teogor.ceres.m3.snackbar.Snackbar.make(
+    duration: Int = Snackbar.LENGTH_SHORT
+  ): Snackbar {
+    val snackBar = Snackbar.make(
       activity.findViewById(android.R.id.content),
       message,
       duration
@@ -74,12 +75,12 @@ class SnackbarBetaM3 private constructor(
     return snackBar
   }
 
-  /** Builder to create instances of [ShapeDrawableM3]s.  */
+  /** Builder to create instances of [SnackbarBetaM3.Builder]s.  */
   data class Builder(
     private var message: String = "",
     private var action: String = "",
     private var listener: View.OnClickListener? = null,
-    private var duration: Int = dev.teogor.ceres.m3.snackbar.Snackbar.LENGTH_SHORT,
+    private var duration: Int = Snackbar.LENGTH_SHORT,
     private var anchor: View? = null
   ) {
 
@@ -117,7 +118,7 @@ class SnackbarBetaM3 private constructor(
   }
 
   companion object {
-    /** Returns a builder for [SnackbarBetaM3]  */
+    /** Returns a builder for [SnackbarBetaM3.Builder]  */
     fun toBuilder(): Builder {
       return Builder()
     }

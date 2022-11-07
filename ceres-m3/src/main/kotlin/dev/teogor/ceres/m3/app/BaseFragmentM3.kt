@@ -19,7 +19,7 @@ package dev.teogor.ceres.m3.app
 import androidx.databinding.ViewDataBinding
 import dev.teogor.ceres.components.app.BaseFragment
 import dev.teogor.ceres.m3.annotation.M3
-import dev.teogor.ceres.m3.theme.ThemeHandler
+import dev.teogor.ceres.m3.theme.IThemeM3
 
 /**
  * MVVM base fragment class that extends [BaseFragment]
@@ -41,4 +41,4 @@ import dev.teogor.ceres.m3.theme.ThemeHandler
  */
 @M3
 abstract class BaseFragmentM3<B : ViewDataBinding, VM : BaseViewModelM3> :
-  BaseFragment<B, VM>(), ThemeHandler
+  BaseFragment<B, VM>(), IThemeM3

@@ -19,10 +19,12 @@ package dev.teogor.ceres.m3
 import android.content.Context
 import android.util.AttributeSet
 import com.google.android.material.textview.MaterialTextView
+import dev.teogor.ceres.m3.beta.Beta
 import dev.teogor.ceres.m3.elevation.SurfaceLevel
-import dev.teogor.ceres.m3.theme.ThemeHandler
+import dev.teogor.ceres.m3.theme.IThemeM3
+import dev.teogor.ceres.m3.theme.getBackgroundDrawable
 
-class TextViewM3 : MaterialTextView, ThemeHandler {
+class TextViewM3 : MaterialTextView, IThemeM3 {
 
   private var surfaceLevel: SurfaceLevel
   private var textColorM3: ColorM3
@@ -94,23 +96,12 @@ class TextViewM3 : MaterialTextView, ThemeHandler {
   }
 
   private fun setBackground() {
-    val materialShapeDrawable = getMaterialShapeDrawable(
-      view = this,
-      surfaceLevel = surfaceLevel,
-      cornerSize = cornerRadius
-    )
-
-    background = if (rippleEnabled) {
-      getRippleDrawable(
-        content = materialShapeDrawable,
-        mask = getMaterialShapeDrawable(
-          view = this,
-          surfaceLevel = SurfaceLevel.Lvl0,
-          cornerSize = cornerRadius
-        )
+    background = getBackgroundDrawable(
+      backgroundDrawable = Beta.BackgroundDrawable(
+        cornerSize = cornerRadius,
+        background = Beta.BackgroundData.Transparent,
+        rippleEnabled = rippleEnabled
       )
-    } else {
-      materialShapeDrawable
-    }
+    )
   }
 }

@@ -63,24 +63,32 @@
     <enum name="onTertiary" value="10" />
     <enum name="tertiaryContainer" value="11" />
     <enum name="onTertiaryContainer" value="12" />
-    <enum name="background" value="13" />
-    <enum name="onBackground" value="14" />
-    <enum name="surface" value="15" />
-    <enum name="onSurface" value="16" />
-    <enum name="surfaceVariant" value="17" />
-    <enum name="onSurfaceVariant" value="18" />
-    <enum name="surfaceTint" value="19" />
-    <enum name="inverseSurface" value="20" />
-    <enum name="inverseOnSurface" value="21" />
-    <enum name="error" value="22" />
-    <enum name="onError" value="23" />
-    <enum name="errorContainer" value="24" />
-    <enum name="onErrorContainer" value="25" />
-    <enum name="outline" value="26" />
-    <enum name="outlineVariant" value="27" />
-    <enum name="scrim" value="28" />
+    <enum name="quaternary" value="13" />
+    <enum name="onQuaternary" value="14" />
+    <enum name="quaternaryContainer" value="15" />
+    <enum name="onQuaternaryContainer" value="16" />
+    <enum name="quinary" value="17" />
+    <enum name="onQuinary" value="18" />
+    <enum name="quinaryContainer" value="19" />
+    <enum name="onQuinaryContainer" value="20" />
+    <enum name="background" value="21" />
+    <enum name="onBackground" value="22" />
+    <enum name="surface" value="23" />
+    <enum name="onSurface" value="24" />
+    <enum name="surfaceVariant" value="25" />
+    <enum name="onSurfaceVariant" value="26" />
+    <enum name="surfaceTint" value="27" />
+    <enum name="inverseSurface" value="28" />
+    <enum name="inverseOnSurface" value="29" />
+    <enum name="error" value="30" />
+    <enum name="onError" value="31" />
+    <enum name="errorContainer" value="32" />
+    <enum name="onErrorContainer" value="33" />
+    <enum name="outline" value="34" />
+    <enum name="outlineVariant" value="35" />
+    <enum name="scrim" value="36" />
 
-    <enum name="onPrimaryMenu" value="29" />
+    <enum name="onPrimaryMenu" value="37" />
   </attr>
   <attr name="background_m3" format="enum">
     <enum name="primary" value="0" />
@@ -96,24 +104,32 @@
     <enum name="onTertiary" value="10" />
     <enum name="tertiaryContainer" value="11" />
     <enum name="onTertiaryContainer" value="12" />
-    <enum name="background" value="13" />
-    <enum name="onBackground" value="14" />
-    <enum name="surface" value="15" />
-    <enum name="onSurface" value="16" />
-    <enum name="surfaceVariant" value="17" />
-    <enum name="onSurfaceVariant" value="18" />
-    <enum name="surfaceTint" value="19" />
-    <enum name="inverseSurface" value="20" />
-    <enum name="inverseOnSurface" value="21" />
-    <enum name="error" value="22" />
-    <enum name="onError" value="23" />
-    <enum name="errorContainer" value="24" />
-    <enum name="onErrorContainer" value="25" />
-    <enum name="outline" value="26" />
-    <enum name="outlineVariant" value="27" />
-    <enum name="scrim" value="28" />
+    <enum name="quaternary" value="13" />
+    <enum name="onQuaternary" value="14" />
+    <enum name="quaternaryContainer" value="15" />
+    <enum name="onQuaternaryContainer" value="16" />
+    <enum name="quinary" value="17" />
+    <enum name="onQuinary" value="18" />
+    <enum name="quinaryContainer" value="19" />
+    <enum name="onQuinaryContainer" value="20" />
+    <enum name="background" value="21" />
+    <enum name="onBackground" value="22" />
+    <enum name="surface" value="23" />
+    <enum name="onSurface" value="24" />
+    <enum name="surfaceVariant" value="25" />
+    <enum name="onSurfaceVariant" value="26" />
+    <enum name="surfaceTint" value="27" />
+    <enum name="inverseSurface" value="28" />
+    <enum name="inverseOnSurface" value="29" />
+    <enum name="error" value="30" />
+    <enum name="onError" value="31" />
+    <enum name="errorContainer" value="32" />
+    <enum name="onErrorContainer" value="33" />
+    <enum name="outline" value="34" />
+    <enum name="outlineVariant" value="35" />
+    <enum name="scrim" value="36" />
 
-    <enum name="onPrimaryMenu" value="29" />
+    <enum name="onPrimaryMenu" value="37" />
   </attr>
   <attr name="text_color_m3" format="enum">
     <enum name="primary" value="0" />
@@ -129,26 +145,34 @@
     <enum name="onTertiary" value="10" />
     <enum name="tertiaryContainer" value="11" />
     <enum name="onTertiaryContainer" value="12" />
-    <enum name="background" value="13" />
-    <enum name="onBackground" value="14" />
-    <enum name="surface" value="15" />
-    <enum name="onSurface" value="16" />
-    <enum name="surfaceVariant" value="17" />
-    <enum name="onSurfaceVariant" value="18" />
-    <enum name="surfaceTint" value="19" />
-    <enum name="inverseSurface" value="20" />
-    <enum name="inverseOnSurface" value="21" />
-    <enum name="error" value="22" />
-    <enum name="onError" value="23" />
-    <enum name="errorContainer" value="24" />
-    <enum name="onErrorContainer" value="25" />
-    <enum name="outline" value="26" />
-    <enum name="outlineVariant" value="27" />
-    <enum name="scrim" value="28" />
+    <enum name="quaternary" value="13" />
+    <enum name="onQuaternary" value="14" />
+    <enum name="quaternaryContainer" value="15" />
+    <enum name="onQuaternaryContainer" value="16" />
+    <enum name="quinary" value="17" />
+    <enum name="onQuinary" value="18" />
+    <enum name="quinaryContainer" value="19" />
+    <enum name="onQuinaryContainer" value="20" />
+    <enum name="background" value="21" />
+    <enum name="onBackground" value="22" />
+    <enum name="surface" value="23" />
+    <enum name="onSurface" value="24" />
+    <enum name="surfaceVariant" value="25" />
+    <enum name="onSurfaceVariant" value="26" />
+    <enum name="surfaceTint" value="27" />
+    <enum name="inverseSurface" value="28" />
+    <enum name="inverseOnSurface" value="29" />
+    <enum name="error" value="30" />
+    <enum name="onError" value="31" />
+    <enum name="errorContainer" value="32" />
+    <enum name="onErrorContainer" value="33" />
+    <enum name="outline" value="34" />
+    <enum name="outlineVariant" value="35" />
+    <enum name="scrim" value="36" />
 
-    <enum name="onPrimaryMenu" value="29" />
+    <enum name="onPrimaryMenu" value="37" />
   </attr>
-  <attr name="surface_tint_overlay" format="enum">
+  <attr name="background_m3_tint_overlay" format="enum">
     <enum name="primary" value="0" />
     <enum name="onPrimary" value="1" />
     <enum name="primaryContainer" value="2" />
@@ -162,24 +186,114 @@
     <enum name="onTertiary" value="10" />
     <enum name="tertiaryContainer" value="11" />
     <enum name="onTertiaryContainer" value="12" />
-    <enum name="background" value="13" />
-    <enum name="onBackground" value="14" />
-    <enum name="surface" value="15" />
-    <enum name="onSurface" value="16" />
-    <enum name="surfaceVariant" value="17" />
-    <enum name="onSurfaceVariant" value="18" />
-    <enum name="surfaceTint" value="19" />
-    <enum name="inverseSurface" value="20" />
-    <enum name="inverseOnSurface" value="21" />
-    <enum name="error" value="22" />
-    <enum name="onError" value="23" />
-    <enum name="errorContainer" value="24" />
-    <enum name="onErrorContainer" value="25" />
-    <enum name="outline" value="26" />
-    <enum name="outlineVariant" value="27" />
-    <enum name="scrim" value="28" />
+    <enum name="quaternary" value="13" />
+    <enum name="onQuaternary" value="14" />
+    <enum name="quaternaryContainer" value="15" />
+    <enum name="onQuaternaryContainer" value="16" />
+    <enum name="quinary" value="17" />
+    <enum name="onQuinary" value="18" />
+    <enum name="quinaryContainer" value="19" />
+    <enum name="onQuinaryContainer" value="20" />
+    <enum name="background" value="21" />
+    <enum name="onBackground" value="22" />
+    <enum name="surface" value="23" />
+    <enum name="onSurface" value="24" />
+    <enum name="surfaceVariant" value="25" />
+    <enum name="onSurfaceVariant" value="26" />
+    <enum name="surfaceTint" value="27" />
+    <enum name="inverseSurface" value="28" />
+    <enum name="inverseOnSurface" value="29" />
+    <enum name="error" value="30" />
+    <enum name="onError" value="31" />
+    <enum name="errorContainer" value="32" />
+    <enum name="onErrorContainer" value="33" />
+    <enum name="outline" value="34" />
+    <enum name="outlineVariant" value="35" />
+    <enum name="scrim" value="36" />
 
-    <enum name="onPrimaryMenu" value="29" />
+    <enum name="onPrimaryMenu" value="37" />
+  </attr>
+  <attr name="foreground_m3" format="enum">
+    <enum name="primary" value="0" />
+    <enum name="onPrimary" value="1" />
+    <enum name="primaryContainer" value="2" />
+    <enum name="onPrimaryContainer" value="3" />
+    <enum name="inversePrimary" value="4" />
+    <enum name="secondary" value="5" />
+    <enum name="onSecondary" value="6" />
+    <enum name="secondaryContainer" value="7" />
+    <enum name="onSecondaryContainer" value="8" />
+    <enum name="tertiary" value="9" />
+    <enum name="onTertiary" value="10" />
+    <enum name="tertiaryContainer" value="11" />
+    <enum name="onTertiaryContainer" value="12" />
+    <enum name="quaternary" value="13" />
+    <enum name="onQuaternary" value="14" />
+    <enum name="quaternaryContainer" value="15" />
+    <enum name="onQuaternaryContainer" value="16" />
+    <enum name="quinary" value="17" />
+    <enum name="onQuinary" value="18" />
+    <enum name="quinaryContainer" value="19" />
+    <enum name="onQuinaryContainer" value="20" />
+    <enum name="background" value="21" />
+    <enum name="onBackground" value="22" />
+    <enum name="surface" value="23" />
+    <enum name="onSurface" value="24" />
+    <enum name="surfaceVariant" value="25" />
+    <enum name="onSurfaceVariant" value="26" />
+    <enum name="surfaceTint" value="27" />
+    <enum name="inverseSurface" value="28" />
+    <enum name="inverseOnSurface" value="29" />
+    <enum name="error" value="30" />
+    <enum name="onError" value="31" />
+    <enum name="errorContainer" value="32" />
+    <enum name="onErrorContainer" value="33" />
+    <enum name="outline" value="34" />
+    <enum name="outlineVariant" value="35" />
+    <enum name="scrim" value="36" />
+
+    <enum name="onPrimaryMenu" value="37" />
+  </attr>
+  <attr name="foreground_m3_tint_overlay" format="enum">
+    <enum name="primary" value="0" />
+    <enum name="onPrimary" value="1" />
+    <enum name="primaryContainer" value="2" />
+    <enum name="onPrimaryContainer" value="3" />
+    <enum name="inversePrimary" value="4" />
+    <enum name="secondary" value="5" />
+    <enum name="onSecondary" value="6" />
+    <enum name="secondaryContainer" value="7" />
+    <enum name="onSecondaryContainer" value="8" />
+    <enum name="tertiary" value="9" />
+    <enum name="onTertiary" value="10" />
+    <enum name="tertiaryContainer" value="11" />
+    <enum name="onTertiaryContainer" value="12" />
+    <enum name="quaternary" value="13" />
+    <enum name="onQuaternary" value="14" />
+    <enum name="quaternaryContainer" value="15" />
+    <enum name="onQuaternaryContainer" value="16" />
+    <enum name="quinary" value="17" />
+    <enum name="onQuinary" value="18" />
+    <enum name="quinaryContainer" value="19" />
+    <enum name="onQuinaryContainer" value="20" />
+    <enum name="background" value="21" />
+    <enum name="onBackground" value="22" />
+    <enum name="surface" value="23" />
+    <enum name="onSurface" value="24" />
+    <enum name="surfaceVariant" value="25" />
+    <enum name="onSurfaceVariant" value="26" />
+    <enum name="surfaceTint" value="27" />
+    <enum name="inverseSurface" value="28" />
+    <enum name="inverseOnSurface" value="29" />
+    <enum name="error" value="30" />
+    <enum name="onError" value="31" />
+    <enum name="errorContainer" value="32" />
+    <enum name="onErrorContainer" value="33" />
+    <enum name="outline" value="34" />
+    <enum name="outlineVariant" value="35" />
+    <enum name="scrim" value="36" />
+
+    <enum name="onPrimaryMenu" value="37" />
   </attr>
 
   <attr name="ripple_enabled" format="boolean" />
@@ -192,7 +306,8 @@
   <attr name="corner_radius" format="dimension" />
   <attr name="src_image" format="reference" />
   <attr name="padding_image" format="reference|dimension" />
-  <attr name="surface_tint" format="float" />
+  <attr name="background_m3_tint" format="float" />
+  <attr name="foreground_m3_tint" format="float" />
 
   <declare-styleable name="Bar">
     <attr name="consumeTop" />
@@ -209,8 +324,11 @@
 
   <declare-styleable name="ContainerBaseM3">
     <attr name="background_m3" />
-    <attr name="surface_tint" />
-    <attr name="surface_tint_overlay" />
+    <attr name="background_m3_tint" />
+    <attr name="background_m3_tint_overlay" />
+    <attr name="foreground_m3" />
+    <attr name="foreground_m3_tint" />
+    <attr name="foreground_m3_tint_overlay" />
     <attr name="corner_radius" />
     <attr name="surface_level" />
     <attr name="ripple_enabled" />
@@ -218,6 +336,8 @@
 
   <declare-styleable name="ButtonM3">
     <attr name="background_m3" />
+    <attr name="background_m3_tint" />
+    <attr name="background_m3_tint_overlay" />
     <attr name="text_color_m3" />
     <attr name="corner_radius" />
     <attr name="surface_level" />

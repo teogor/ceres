@@ -14,18 +14,20 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.m3.drawable
+package dev.teogor.ceres.presentation.feature.m3
 
-import com.google.android.material.shape.ShapeAppearanceModel
+import androidx.databinding.library.baseAdapters.BR
+import dagger.hilt.android.AndroidEntryPoint
+import dev.teogor.ceres.R
+import dev.teogor.ceres.databinding.FragmentM3Binding
+import dev.teogor.ceres.m3.app.BaseFragmentM3
 
-@Deprecated(message = "In favour of Beta.ShapeAppearanceModelM3")
-class ShapeAppearanceModelM3 : ShapeAppearanceModel() {
+@AndroidEntryPoint
+class M3Fragment : BaseFragmentM3<FragmentM3Binding, M3ViewModel>() {
 
-  /** Builder to create instances of [ShapeAppearanceModelM3]s.  */
-  data class Builder(
-    private var corners: Float
-  ) {
+  override fun getContentViewId(): Int = R.layout.fragment_m3
 
-    fun topCorners(colorM3: Float) = apply { this.corners = colorM3 }
-  }
+  override fun getBindingVariable() = BR.viewModel
+
+  override fun getViewModelClass() = M3ViewModel::class.java
 }

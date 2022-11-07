@@ -14,22 +14,22 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.m3.widgets.container
+package dev.teogor.ceres.m3
 
 import android.content.Context
 import android.util.AttributeSet
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.allViews
-import dev.teogor.ceres.m3.R
 import dev.teogor.ceres.m3.elevation.SurfaceLevel
-import dev.teogor.ceres.m3.theme.ThemeHandler
+import dev.teogor.ceres.m3.extension.applyThemeOnChildren
+import dev.teogor.ceres.m3.theme.IThemeM3
+import dev.teogor.ceres.m3.theme.backgroundColor
 
 class FragmentContainer constructor(
   context: Context,
   attrs: AttributeSet
-) : ConstraintLayout(context, attrs), ThemeHandler {
+) : ConstraintLayout(context, attrs), IThemeM3 {
 
   private val toolbarHeight = resources.getDimension(R.dimen.toolbar_height).toInt()
 
@@ -71,11 +71,7 @@ class FragmentContainer constructor(
   override fun onThemeChanged() {
     super.onThemeChanged()
 
-    setBackgroundColor(getBackgroundColorM3(this, SurfaceLevel.Lvl1))
-
-    val themedViews = allViews.filter { view -> view is ThemeHandler }.filter { it != this }
-    themedViews.forEach { view ->
-      (view as ThemeHandler).onThemeChanged()
-    }
+    setBackgroundColor(backgroundColor(this, SurfaceLevel.Lvl1))
+    applyThemeOnChildren()
   }
 }

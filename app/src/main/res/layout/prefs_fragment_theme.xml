@@ -25,7 +25,7 @@
       type="dev.teogor.ceres.presentation.feature.prefs.theme.ThemePrefsViewModel" />
   </data>
 
-  <dev.teogor.ceres.m3.widgets.container.FragmentContainer
+  <dev.teogor.ceres.m3.FragmentContainer
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:consumeTop="true">
@@ -57,7 +57,9 @@
       app:onClicked="@{() -> viewModel.onAppThemeClicked()}"
       app:ripple_enabled="true"
       app:subtitle="@{viewModel.liveTextAppTheme}"
-      app:surface_level="lvl_2"
+      app:background_m3="surface"
+      app:background_m3_tint_overlay="surfaceTint"
+      app:background_m3_tint=".08"
       app:title="App theme"
       tools:subtitle="Follow Theme" />
 
@@ -75,7 +77,9 @@
       app:onClicked="@{() -> viewModel.onJustBlackThemeClicked()}"
       app:ripple_enabled="true"
       app:subtitle="@{viewModel.liveTextJustBlackTheme}"
-      app:surface_level="lvl_2"
+      app:background_m3="surface"
+      app:background_m3_tint_overlay="surfaceTint"
+      app:background_m3_tint=".08"
       app:title="Just Black"
       tools:subtitle="Off" />
 
@@ -116,7 +120,9 @@
       app:onCheckedChange="@{(checked) -> viewModel.onCheckedChanged(checked)}"
       app:ripple_enabled="true"
       app:show="@{viewModel.liveMaterialYouEnabled}"
-      app:surface_level="lvl_2"
+      app:background_m3="surface"
+      app:background_m3_tint_overlay="surfaceTint"
+      app:background_m3_tint=".08"
       app:title="Material You" />
 
     <androidx.constraintlayout.widget.Barrier
@@ -155,7 +161,9 @@
       app:onCheckedChange="@{(checked) -> viewModel.onCheckedDesaturatedColors(checked)}"
       app:ripple_enabled="true"
       app:subtitle="As per Material Design 3 guidelines colors should be desaturated"
-      app:surface_level="lvl_2"
+      app:background_m3="surface"
+      app:background_m3_tint_overlay="surfaceTint"
+      app:background_m3_tint=".08"
       app:title="Desaturated color" />
 
     <dev.teogor.ceres.m3.ColorsContainerM3
@@ -171,9 +179,11 @@
       app:layout_constraintTop_toBottomOf="@+id/container_desaturated_colors_toggle"
       app:onColorPick="@{(color) -> viewModel.onAccentColorPick(color)}"
       app:pickedColor="@{viewModel.liveAccentColor}"
-      app:surface_level="lvl_2"
+      app:background_m3="surface"
+      app:background_m3_tint_overlay="surfaceTint"
+      app:background_m3_tint=".08"
       app:title="Accent color" />
 
-  </dev.teogor.ceres.m3.widgets.container.FragmentContainer>
+  </dev.teogor.ceres.m3.FragmentContainer>
 
 </layout>

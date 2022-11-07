@@ -59,6 +59,30 @@ enum class ColorM3 {
   OnTertiaryContainer,
 
   @Keep
+  Quaternary,
+
+  @Keep
+  OnQuaternary,
+
+  @Keep
+  QuaternaryContainer,
+
+  @Keep
+  OnQuaternaryContainer,
+
+  @Keep
+  Quinary,
+
+  @Keep
+  OnQuinary,
+
+  @Keep
+  QuinaryContainer,
+
+  @Keep
+  OnQuinaryContainer,
+
+  @Keep
   Background,
 
   @Keep

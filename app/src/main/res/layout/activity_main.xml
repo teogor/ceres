@@ -25,7 +25,7 @@
       type="dev.teogor.ceres.main.MainViewModel" />
   </data>
 
-  <dev.teogor.ceres.m3.widgets.container.FragmentContainer
+  <dev.teogor.ceres.m3.FragmentContainer
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -128,7 +128,6 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="10dp"
-        android:background="#FFEB3B"
         android:fontFamily="@font/font_regular"
         android:onClick="@{() -> viewModel.onLogoClicked()}"
         android:text="MEUSER"
@@ -152,5 +151,5 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:menu="@menu/bottom_navigation_menu" />
 
-  </dev.teogor.ceres.m3.widgets.container.FragmentContainer>
+  </dev.teogor.ceres.m3.FragmentContainer>
 </layout>

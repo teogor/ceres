@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.m3.drawable
+@file:JvmName("CheckedTextViewM3")
 
-import com.google.android.material.shape.ShapeAppearanceModel
+package dev.teogor.ceres.m3.extension
 
-@Deprecated(message = "In favour of Beta.ShapeAppearanceModelM3")
-class ShapeAppearanceModelM3 : ShapeAppearanceModel() {
+import android.annotation.SuppressLint
+import android.graphics.Color
+import dev.teogor.ceres.extensions.colorStateList
+import dev.teogor.ceres.m3.CheckedTextViewM3
 
-  /** Builder to create instances of [ShapeAppearanceModelM3]s.  */
-  data class Builder(
-    private var corners: Float
-  ) {
-
-    fun topCorners(colorM3: Float) = apply { this.corners = colorM3 }
+inline var CheckedTextViewM3.compoundDrawablesTintList: Int
+  get() = Color.TRANSPARENT
+  @SuppressLint("RestrictedApi")
+  set(value) {
+    supportCompoundDrawablesTintList = value.colorStateList
   }
-}

@@ -22,20 +22,4 @@ import android.util.AttributeSet
 class ContainerM3 constructor(
   context: Context,
   attrs: AttributeSet
-) : ContainerBaseM3(context, attrs) {
-
-  override val customBackground: Boolean
-    get() = true
-
-  override fun onThemeChanged() {
-    super.onThemeChanged()
-
-    background = getBackgroundDrawable(
-      cornerSize = cornerRadius,
-      backgroundColor = backgroundColorM3,
-      surfaceTint = surfaceTint,
-      surfaceTintOverlay = surfaceTintOverlay,
-      rippleEnabled = rippleEnabled
-    )
-  }
-}
+) : ContainerBaseM3(context, attrs)

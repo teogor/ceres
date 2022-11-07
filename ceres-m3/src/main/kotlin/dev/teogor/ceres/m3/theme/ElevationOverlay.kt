@@ -159,7 +159,7 @@ class ElevationOverlay(
     val overlayAlphaFraction = calculateOverlayAlphaFraction(elevation)
     val backgroundAlpha = Color.alpha(backgroundColor)
     val backgroundColorOpaque = ColorUtils.setAlphaComponent(backgroundColor, 255)
-    var overlayColorOpaque = MaterialColors.layer(
+    val overlayColorOpaque = MaterialColors.layer(
       backgroundColorOpaque,
       themeElevationOverlayColor,
       overlayAlphaFraction

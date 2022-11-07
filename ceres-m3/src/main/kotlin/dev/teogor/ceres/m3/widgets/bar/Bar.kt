@@ -23,21 +23,22 @@ import androidx.annotation.ColorInt
 import androidx.constraintlayout.widget.ConstraintLayout
 import dev.teogor.ceres.m3.R
 import dev.teogor.ceres.m3.elevation.SurfaceLevel
-import dev.teogor.ceres.m3.theme.ThemeHandler
+import dev.teogor.ceres.m3.theme.IThemeM3
+import dev.teogor.ceres.m3.theme.backgroundColor
 
 open class Bar constructor(
   context: Context,
   attrs: AttributeSet
-) : ConstraintLayout(context, attrs), ThemeHandler {
+) : ConstraintLayout(context, attrs), IThemeM3 {
 
   @ColorInt
   internal val colorTransparent = Color.TRANSPARENT
 
   @ColorInt
-  internal fun colorSurfaceNormal() = getBackgroundColorM3(this, SurfaceLevel.Lvl1)
+  internal fun colorSurfaceNormal() = backgroundColor(this, SurfaceLevel.Lvl1)
 
   @ColorInt
-  internal fun colorSurfaceFilled() = getBackgroundColorM3(this, SurfaceLevel.Lvl3)
+  internal fun colorSurfaceFilled() = backgroundColor(this, SurfaceLevel.Lvl3)
 
   internal val consumeTop: Boolean
 

@@ -23,8 +23,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import dev.teogor.ceres.extensions.blendColors
 import dev.teogor.ceres.extensions.colorStateList
 import dev.teogor.ceres.m3.elevation.SurfaceLevel
+import dev.teogor.ceres.m3.theme.IThemeM3
 import dev.teogor.ceres.m3.theme.SurfaceOverlay
-import dev.teogor.ceres.m3.theme.ThemeHandler
 import dev.teogor.ceres.m3.widgets.extension.setItemColors
 
 class BottomNavigationViewM3 @JvmOverloads constructor(
@@ -32,7 +32,7 @@ class BottomNavigationViewM3 @JvmOverloads constructor(
   attrs: AttributeSet? = null,
   defStyleAttr: Int = R.attr.bottomNavigationStyle,
   defStyleRes: Int = R.style.Widget_Design_BottomNavigationView
-) : BottomNavigationView(context, attrs, defStyleAttr, defStyleRes), ThemeHandler {
+) : BottomNavigationView(context, attrs, defStyleAttr, defStyleRes), IThemeM3 {
 
   init {
     if (!isInEditMode) {
@@ -44,19 +44,19 @@ class BottomNavigationViewM3 @JvmOverloads constructor(
     super.onThemeChanged()
 
     val normalColor = blendColors(
-      getSchemeColor().secondary,
-      getSchemeColor().onBackground,
+      colorScheme().secondary,
+      colorScheme().onBackground,
       0.9f
     )
-    val selectedColor = getSchemeColor().secondary
+    val selectedColor = colorScheme().secondary
     setItemColors(normalColor, selectedColor)
     setBackgroundColor(
       SurfaceOverlay(
-        themeOverlayColor = getSchemeColor().surface,
-        themeSurfaceColor = getSchemeColor().surfaceTint
+        themeOverlayColor = colorScheme().surface,
+        themeSurfaceColor = colorScheme().surfaceTint
       ).forSurface(SurfaceLevel.Lvl3)
     )
-    itemRippleColor = getSchemeColor().secondaryContainer.colorStateList
-    itemActiveIndicatorColor = getSchemeColor().secondaryContainer.colorStateList
+    itemRippleColor = colorScheme().secondaryContainer.colorStateList
+    itemActiveIndicatorColor = colorScheme().secondaryContainer.colorStateList
   }
 }

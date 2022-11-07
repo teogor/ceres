@@ -22,13 +22,15 @@ import androidx.annotation.Dimension
 import androidx.annotation.Px
 import dev.teogor.ceres.components.view.DigitsImage
 import dev.teogor.ceres.components.view.Shape
+import dev.teogor.ceres.m3.beta.Beta
 import dev.teogor.ceres.m3.extension.applyRippleEnabled
-import dev.teogor.ceres.m3.theme.ThemeHandler
+import dev.teogor.ceres.m3.theme.IThemeM3
+import dev.teogor.ceres.m3.theme.getBackgroundDrawable
 
 open class DigitsImageM3 @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null
-) : DigitsImage(context, attrs), ThemeHandler {
+) : DigitsImage(context, attrs), IThemeM3 {
 
   private var shape: Shape
 
@@ -86,10 +88,14 @@ open class DigitsImageM3 @JvmOverloads constructor(
     setTextColor(getColorM3(colorM3 = textColorM3))
     // stroke / strokeSize
     background = getBackgroundDrawable(
-      shape = shape,
-      cornerSize = cornerRadius,
-      backgroundColor = backgroundColorM3,
-      rippleEnabled = rippleEnabled
+      backgroundDrawable = Beta.BackgroundDrawable(
+        cornerSize = cornerRadius,
+        background = Beta.BackgroundData(
+          color = backgroundColorM3
+        ),
+        rippleEnabled = rippleEnabled,
+        shape = shape
+      )
     )
   }
 }

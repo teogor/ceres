@@ -25,6 +25,7 @@ import dev.teogor.ceres.m3.ColorM3
 import dev.teogor.ceres.m3.theme.ColorScheme
 import dev.teogor.ceres.m3.theme.ThemeM3
 
+@Deprecated(message = "In favour of Beta.RippleDrawable")
 class RippleDrawableM3 private constructor(
   color: ColorStateList,
   content: Drawable,
