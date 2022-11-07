@@ -40,7 +40,7 @@ open class BaseViewModel : ViewModel(), BaseCommon {
       showLogo = true,
       showBackButton = false,
       showActionElements = false,
-      toolbarType = ToolbarType.ROUNDED
+      toolbarType = ToolbarType.NOT_SET
     )
   )
   val showBottomNavigation = MutableLiveData(true)
@@ -109,6 +109,14 @@ open class BaseViewModel : ViewModel(), BaseCommon {
         toolbarType = type
       )
       ToolbarType.ONLY_LOGO -> ToolbarViewData(
+        showToolbar = true,
+        showTitle = false,
+        showLogo = true,
+        showBackButton = false,
+        showActionElements = false,
+        toolbarType = type
+      )
+      ToolbarType.NOT_SET -> ToolbarViewData(
         showToolbar = true,
         showTitle = false,
         showLogo = true,
