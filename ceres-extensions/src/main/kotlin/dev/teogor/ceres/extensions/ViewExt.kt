@@ -17,6 +17,7 @@
 package dev.teogor.ceres.extensions
 
 import android.view.View
+import androidx.constraintlayout.widget.ConstraintLayout
 
 fun View.show(isVisible: Boolean) {
   this.visibility = if (isVisible) {
@@ -31,6 +32,33 @@ fun View.hide(isHidden: Boolean) {
     View.GONE
   } else {
     View.VISIBLE
+  }
+}
+
+fun View.applyConstraintLayoutMargins(
+  verticalMargins: Int,
+  horizontalMargins: Int,
+  width: Int = 0,
+  height: Int = 0
+) {
+  val layoutParams = ConstraintLayout.LayoutParams(
+    width,
+    height
+  )
+  layoutParams.setMargins(
+    horizontalMargins,
+    verticalMargins,
+    horizontalMargins,
+    verticalMargins
+  )
+  applyParams(layoutParams)
+}
+
+fun View.applyParams(
+  params: ConstraintLayout.LayoutParams
+) {
+  apply {
+    layoutParams = params
   }
 }
 
