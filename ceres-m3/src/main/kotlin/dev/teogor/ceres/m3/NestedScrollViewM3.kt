@@ -18,70 +18,42 @@ package dev.teogor.ceres.m3
 
 import android.content.Context
 import android.util.AttributeSet
-import androidx.annotation.Dimension
-import androidx.annotation.Px
-import dev.teogor.ceres.components.view.Button
+import androidx.core.widget.NestedScrollView
 import dev.teogor.ceres.m3.beta.Beta
-import dev.teogor.ceres.m3.elevation.SurfaceLevel
 import dev.teogor.ceres.m3.theme.IThemeM3
 import dev.teogor.ceres.m3.theme.getBackgroundDrawable
 
-class ButtonM3 @JvmOverloads constructor(
+class NestedScrollViewM3 constructor(
   context: Context,
-  attrs: AttributeSet? = null
-) : Button(context, attrs), IThemeM3 {
-
-  private val surfaceLevel: SurfaceLevel
-  private var rippleEnabled: Boolean
+  attrs: AttributeSet
+) : NestedScrollView(context, attrs), IThemeM3 {
 
   private val backgroundColorM3: ColorM3
   private val backgroundTintColorM3: ColorM3
   private val backgroundTintOverlay: Float
 
-  private val textColorM3: ColorM3
-
-  @Px
-  @Dimension
-  val cornerRadius: Float
-
   init {
+
     context.theme.obtainStyledAttributes(
       attrs,
-      R.styleable.ButtonM3,
+      R.styleable.NestedScrollViewM3,
       0,
       0
     ).apply {
       try {
-        surfaceLevel = SurfaceLevel.values()[
-          getInt(
-            R.styleable.ButtonM3_surface_level,
-            0
-          )
-        ]
         backgroundColorM3 = ColorM3.values()[
           getInt(
-            R.styleable.ButtonM3_background_m3,
+            R.styleable.NestedScrollViewM3_background_m3,
             0
           )
         ]
         backgroundTintColorM3 = ColorM3.values()[
           getInt(
-            R.styleable.ButtonM3_background_m3_tint_overlay,
+            R.styleable.NestedScrollViewM3_background_m3_tint_overlay,
             0
           )
         ]
-        backgroundTintOverlay = getFloat(R.styleable.ButtonM3_background_m3_tint, 0f)
-        textColorM3 = ColorM3.values()[
-          getInt(
-            R.styleable.ButtonM3_text_color_m3,
-            0
-          )
-        ]
-        rippleEnabled = getBoolean(
-          R.styleable.ButtonM3_ripple_enabled,
-          false
-        )
-        cornerRadius = getDimension(R.styleable.ButtonM3_corner_radius, 0f)
+        backgroundTintOverlay = getFloat(R.styleable.NestedScrollViewM3_background_m3_tint, 0f)
       } finally {
         recycle()
       }
@@ -94,20 +66,13 @@ class ButtonM3 @JvmOverloads constructor(
   override fun onThemeChanged() {
     super.onThemeChanged()
 
-    setTextColor(getColorM3(colorM3 = textColorM3))
-
-    // todo extension for Beta.BackgroundDrawable
-    //  item.asBackgroundDrawable() ???
-    //  conflicts with IThemeM3 ???
     background = getBackgroundDrawable(
       backgroundDrawable = Beta.BackgroundDrawable(
-        cornerSize = cornerRadius,
         background = Beta.BackgroundData(
           color = backgroundColorM3,
           surfaceTintOverlay = backgroundTintColorM3,
           surfaceTint = backgroundTintOverlay
-        ),
-        rippleEnabled = rippleEnabled
+        )
       )
     )
   }

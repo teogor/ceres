@@ -344,6 +344,18 @@
     <attr name="ripple_enabled" />
   </declare-styleable>
 
+  <declare-styleable name="ScrollViewM3">
+    <attr name="background_m3" />
+    <attr name="background_m3_tint" />
+    <attr name="background_m3_tint_overlay" />
+  </declare-styleable>
+
+  <declare-styleable name="NestedScrollViewM3">
+    <attr name="background_m3" />
+    <attr name="background_m3_tint" />
+    <attr name="background_m3_tint_overlay" />
+  </declare-styleable>
+
   <declare-styleable name="SwitchComponentM3">
     <attr name="android:fontFamily" />
     <attr name="title" />

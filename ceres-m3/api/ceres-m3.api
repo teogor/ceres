@@ -255,7 +255,23 @@ public final class dev/teogor/ceres/m3/MaterialDividerItemDecoration : androidx/
 public final class dev/teogor/ceres/m3/MaterialDividerItemDecoration$Companion {
 }
 
+public final class dev/teogor/ceres/m3/NestedScrollViewM3 : androidx/core/widget/NestedScrollView, dev/teogor/ceres/m3/theme/IThemeM3 {
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun colorScheme ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
+	public fun log (Ljava/lang/String;)V
+	public fun onThemeChanged ()V
+}
+
 public final class dev/teogor/ceres/m3/RatingBarM3 : androidx/appcompat/widget/AppCompatRatingBar, dev/teogor/ceres/m3/theme/IThemeM3 {
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun colorScheme ()Ldev/teogor/ceres/m3/theme/ColorScheme;
+	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
+	public fun log (Ljava/lang/String;)V
+	public fun onThemeChanged ()V
+}
+
+public final class dev/teogor/ceres/m3/ScrollViewM3 : android/widget/ScrollView, dev/teogor/ceres/m3/theme/IThemeM3 {
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
 	public fun colorScheme ()Ldev/teogor/ceres/m3/theme/ColorScheme;
 	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
