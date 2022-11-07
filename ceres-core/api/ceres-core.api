@@ -98,6 +98,9 @@ public final class dev/teogor/ceres/core/global/GlobalData {
 	public final fun context ()Landroid/content/Context;
 	public final fun getActivity ()Landroid/app/Activity;
 	public final fun getApp ()Landroid/app/Application;
+	public final fun getBaseContext ()Landroid/content/Context;
+	public final fun getContext ()Landroid/content/Context;
+	public final fun getThemedContext ()Landroid/content/Context;
 	public final fun setActivity (Landroid/app/Activity;)V
 	public final fun setApp (Landroid/app/Application;)V
 	public final fun themedContext ()Landroid/content/Context;

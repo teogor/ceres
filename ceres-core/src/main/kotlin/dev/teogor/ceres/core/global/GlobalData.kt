@@ -43,23 +43,52 @@ object GlobalData {
       return appWeak.get()!!
     }
 
-  fun context(): Context = getContextImpl()
+  val context: Context
+    get() {
+      return Impl.getContextImpl()
+    }
 
-  fun themedContext(): Context = getThemedContextImpl()
+  val themedContext: Context
+    get() {
+      return Impl.getThemedContextImpl()
+    }
 
-  fun baseContext(): Context = getBaseContextImpl()
+  val baseContext: Context
+    get() {
+      return Impl.getBaseContextImpl()
+    }
 
-  private fun getContextImpl(): Context {
-    return app
-  }
+  @Deprecated(
+    message = "deprecated in favour of `context`",
+    replaceWith = ReplaceWith("GlobalData.context")
+  )
+  fun context(): Context = Impl.getContextImpl()
 
-  private fun getThemedContextImpl(): Context {
-    val currentActivity = activity
-    val rootView = currentActivity.window.decorView.rootView
-    return rootView.context
-  }
+  @Deprecated(
+    message = "deprecated in favour of `themedContext`",
+    replaceWith = ReplaceWith("GlobalData.themedContext")
+  )
+  fun themedContext(): Context = Impl.getThemedContextImpl()
 
-  private fun getBaseContextImpl(): Context {
-    return activity.baseContext
+  @Deprecated(
+    message = "deprecated in favour of `baseContext`",
+    replaceWith = ReplaceWith("GlobalData.baseContext")
+  )
+  fun baseContext(): Context = Impl.getBaseContextImpl()
+
+  internal object Impl {
+    internal fun getContextImpl(): Context {
+      return app
+    }
+
+    internal fun getThemedContextImpl(): Context {
+      val currentActivity = activity
+      val rootView = currentActivity.window.decorView.rootView
+      return rootView.context
+    }
+
+    internal fun getBaseContextImpl(): Context {
+      return activity.baseContext
+    }
   }
 }

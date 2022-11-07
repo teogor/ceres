@@ -62,7 +62,7 @@ class HomeViewModel @Inject constructor(
     // finish activity before relaunching it
     GlobalData.activity.finish()
     launchActivity(
-      context = GlobalData.context(),
+      context = GlobalData.context,
       activityClass = MainActivity::class,
       flags = Intent.FLAG_ACTIVITY_NEW_TASK
     ) {

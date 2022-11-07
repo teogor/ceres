@@ -46,14 +46,14 @@ class SurfaceColors(private val level: SurfaceLevel) {
 
   private fun getColorImpl(): Int {
     return getColorForElevationLegacy(
-      themedContext(),
+      themedContext,
       getElevationDimension(level)
     )
   }
 
   @Dimension
   private fun getElevationDimension(level: SurfaceLevel): Float {
-    return context().resources.getDimension(
+    return context.resources.getDimension(
       getElevationDimensionRes(level)
     )
   }
