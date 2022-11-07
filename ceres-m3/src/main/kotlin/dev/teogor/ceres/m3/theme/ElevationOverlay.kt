@@ -209,7 +209,7 @@ class ElevationOverlay(
 
   @Dimension
   private fun getElevationDimension(level: SurfaceLevel): Float {
-    return GlobalData.context().resources.getDimension(
+    return GlobalData.context.resources.getDimension(
       getElevationDimensionRes(level)
     )
   }
