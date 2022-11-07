@@ -20,7 +20,7 @@ import androidx.databinding.BindingAdapter
 import dev.teogor.ceres.ads.formats.AdBinder
 import dev.teogor.ceres.ads.formats.NativeAd
 import dev.teogor.ceres.ads.view.NativeAdView
-import dev.teogor.ceres.binding.BindingAdapterClass
+import dev.teogor.ceres.bindings.BindingAdapterClass
 
 @BindingAdapterClass
 class BindingMethods {

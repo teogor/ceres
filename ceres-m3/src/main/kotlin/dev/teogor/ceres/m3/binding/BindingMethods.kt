@@ -18,8 +18,10 @@ package dev.teogor.ceres.m3.binding
 
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.MutableLiveData
-import dev.teogor.ceres.binding.BindingAdapterClass
+import dev.teogor.ceres.bindings.BindingAdapterClass
 import dev.teogor.ceres.components.toolbar.ToolbarType
+import dev.teogor.ceres.extensions.safeCall
+import dev.teogor.ceres.extensions.safeValue
 import dev.teogor.ceres.m3.ColorsContainerM3
 import dev.teogor.ceres.m3.ImageComponentM3
 import dev.teogor.ceres.m3.SwitchComponentM3
@@ -30,88 +32,94 @@ import dev.teogor.ceres.m3.widgets.bar.ToolBar
 class BindingMethods {
 
   companion object {
-    @BindingAdapter("type")
-    @JvmStatic
-    fun toolbarBindingType(toolbar: ToolBar, type: ToolbarType) {
-      toolbar.setType(type)
-    }
 
-    @BindingAdapter("is_transparent")
+    @BindingAdapter(
+      value = [
+        "type",
+        "is_transparent"
+      ],
+      requireAll = true
+    )
     @JvmStatic
-    fun toolbarBindingIsTransparent(toolbar: ToolBar, isTransparent: Boolean) {
-      toolbar.setIsTransparent(isTransparent)
-    }
-
-    @BindingAdapter("onCheckedChange")
-    @JvmStatic
-    fun onContentElementCheck(
-      componentM3: SwitchComponentM3,
-      onCheckedChangeListener: SwitchComponentM3.OnCheckedChangeListener
+    fun bindingToolBar(
+      toolbar: ToolBar,
+      type: ToolbarType,
+      isTransparent: Boolean
     ) {
-      componentM3.onCheckedChangeListener = onCheckedChangeListener
+      toolbar.setData(type, isTransparent)
     }
 
-    @BindingAdapter("onClicked")
+    @BindingAdapter(
+      value = [
+        "onCheckedChange",
+        "onClicked",
+        "title",
+        "subtitle",
+        "checked"
+      ],
+      requireAll = false
+    )
     @JvmStatic
-    fun onContentElementClick(
-      componentM3: SwitchComponentM3,
-      onClickedChangeListener: SwitchComponentM3.OnClickedChangeListener
+    fun bindingSwitchComponent(
+      switchComponent: SwitchComponentM3,
+      onChecked: SwitchComponentM3.OnCheckedChangeListener?,
+      onClicked: SwitchComponentM3.OnClickedChangeListener?,
+      title: MutableLiveData<String>?,
+      subtitle: MutableLiveData<String>?,
+      checked: MutableLiveData<Boolean>?
     ) {
-      componentM3.onClickedChangeListener = onClickedChangeListener
+      onChecked.safeCall {
+        switchComponent.onCheckedChangeListener = this
+      }
+      onClicked.safeCall {
+        switchComponent.onClickedChangeListener = this
+      }
+      title.safeCall {
+        switchComponent.title = safeValue
+      }
+      subtitle.safeCall {
+        switchComponent.subtitle = safeValue
+      }
+      checked.safeCall {
+        switchComponent.switchChecked = safeValue
+      }
     }
 
-    @BindingAdapter("subtitle")
+    @BindingAdapter(
+      value = [
+        "onColorPick",
+        "pickedColor"
+      ],
+      requireAll = false
+    )
     @JvmStatic
-    fun onContentElementSubtitle(
-      componentM3: SwitchComponentM3,
-      liveData: MutableLiveData<String>
+    fun bindingColorsContainerM3(
+      colorsContainer: ColorsContainerM3,
+      onColorPick: ColorsContainerM3.OnColorPickListener?,
+      color: MutableLiveData<Int>?
     ) {
-      componentM3.subtitle = liveData.value
+      onColorPick.safeCall {
+        colorsContainer.onColorPickListener = this
+      }
+      color.safeCall {
+        colorsContainer.color = safeValue
+      }
     }
 
-    @BindingAdapter("title")
+    @BindingAdapter(
+      value = [
+        "onClicked"
+      ],
+      requireAll = false
+    )
     @JvmStatic
-    fun onContentElementTitle(
-      componentM3: SwitchComponentM3,
-      liveData: MutableLiveData<String>
+    fun bindingImageComponentM3(
+      imageComponent: ImageComponentM3,
+      onClicked: ImageComponentM3.OnClickedChangeListener?
     ) {
-      componentM3.title = liveData.value
-    }
-
-    @BindingAdapter("checked")
-    @JvmStatic
-    fun onContentElementChecked(
-      componentM3: SwitchComponentM3,
-      liveData: MutableLiveData<Boolean>
-    ) {
-      componentM3.switchChecked = liveData.value!!
-    }
-
-    @BindingAdapter("onColorPick")
-    @JvmStatic
-    fun onContentElementChecked(
-      colorsContainerM3: ColorsContainerM3,
-      listener: ColorsContainerM3.OnColorPickListener
-    ) {
-      colorsContainerM3.onColorPickListener = listener
-    }
-
-    @BindingAdapter("pickedColor")
-    @JvmStatic
-    fun onContentElementChecked(
-      colorsContainerM3: ColorsContainerM3,
-      liveData: MutableLiveData<Int>
-    ) {
-      colorsContainerM3.color = liveData.value!!.toInt()
-    }
-
-    @BindingAdapter("onClicked")
-    @JvmStatic
-    fun onContentElementClick(
-      componentM3: ImageComponentM3,
-      onClickedChangeListener: ImageComponentM3.OnClickedChangeListener
-    ) {
-      componentM3.onClickedChangeListener = onClickedChangeListener
+      onClicked.safeCall {
+        imageComponent.onClickedChangeListener = this
+      }
     }
   }
 }

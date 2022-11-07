@@ -321,6 +321,11 @@ class ToolBar constructor(
     }
   }
 
+  fun setData(type: ToolbarType, isTransparent: Boolean) {
+    setIsTransparent(isTransparent)
+    setType(type)
+  }
+
   fun setStatusBar(statusBar: StatusBar) {
     this.statusBar = statusBar
   }

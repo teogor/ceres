@@ -20,6 +20,14 @@ package dev.teogor.ceres.extensions
 
 import android.util.Log
 
+fun <Type> Type?.safeCall(
+  nonNullRun: Type.() -> Unit
+) {
+  this?.apply {
+    nonNullRun()
+  }
+}
+
 fun <Type, ReturnType> Type?.safeReturn(
   nonNullRun: Type.() -> ReturnType
 ): ReturnType? {

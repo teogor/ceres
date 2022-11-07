@@ -16,37 +16,26 @@
 
 package dev.teogor.ceres.extensions
 
-import androidx.annotation.StringRes
 import androidx.lifecycle.MutableLiveData
 
-fun MutableLiveData<String>.asText(): String {
-  return this.value!!
-}
-
-fun MutableLiveData<String>.asInt(): Int {
-  return this.value!!.toInt()
-}
-
-fun MutableLiveData<String>.asLong(): Long {
-  return this.value!!.toLong()
-}
-
-fun MutableLiveData<String>.isEmpty(): Boolean {
-  return this.value!!.isEmpty()
-}
-
 fun MutableLiveData<Boolean>.activate() {
-  this.value = true
+  apply {
+    value = true
+  }
 }
 
 fun MutableLiveData<Boolean>.deactivate() {
-  this.value = false
+  apply {
+    value = false
+  }
 }
 
-fun MutableLiveData<Int>.emptyIdRes() {
-  this.value = -1
-}
+val <Type> MutableLiveData<Type>.asValue
+  get() = this.value
 
-fun MutableLiveData<Int>.stringIdRes(@StringRes resId: Int) {
-  this.value = resId
+val <Type> MutableLiveData<Type>.safeValue
+  get() = this.value!!
+
+fun MutableLiveData<Int>.emptyRes() {
+  this.value = defaultResId
 }

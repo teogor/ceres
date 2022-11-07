@@ -14,12 +14,11 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.binding
+package dev.teogor.ceres.bindings
 
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.databinding.BindingAdapter
-import androidx.lifecycle.MutableLiveData
 import com.zeoflow.startup.ktx.ApplicationInitializer
 
 @BindingAdapterClass
@@ -40,19 +39,6 @@ class ViewBinding {
     @JvmStatic
     fun showView(view: View, isVisible: Boolean) {
       if (isVisible) {
-        view.visibility = View.VISIBLE
-      } else {
-        view.visibility = View.GONE
-      }
-    }
-
-    @BindingAdapter("show")
-    @JvmStatic
-    fun showView(
-      view: View,
-      liveData: MutableLiveData<Boolean>
-    ) {
-      if (liveData.value!!) {
         view.visibility = View.VISIBLE
       } else {
         view.visibility = View.GONE

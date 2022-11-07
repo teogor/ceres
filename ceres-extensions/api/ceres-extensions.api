@@ -10,6 +10,7 @@ public final class dev/teogor/ceres/extensions/ActivityExtKt {
 
 public final class dev/teogor/ceres/extensions/AnyExt {
 	public static final fun safeAs (Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)V
+	public static final fun safeCall (Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)V
 	public static final fun safeReturn (Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 }
 
@@ -93,13 +94,10 @@ public final class dev/teogor/ceres/extensions/ListExt {
 
 public final class dev/teogor/ceres/extensions/MutableLiveDataExtKt {
 	public static final fun activate (Landroidx/lifecycle/MutableLiveData;)V
-	public static final fun asInt (Landroidx/lifecycle/MutableLiveData;)I
-	public static final fun asLong (Landroidx/lifecycle/MutableLiveData;)J
-	public static final fun asText (Landroidx/lifecycle/MutableLiveData;)Ljava/lang/String;
 	public static final fun deactivate (Landroidx/lifecycle/MutableLiveData;)V
-	public static final fun emptyIdRes (Landroidx/lifecycle/MutableLiveData;)V
-	public static final fun isEmpty (Landroidx/lifecycle/MutableLiveData;)Z
-	public static final fun stringIdRes (Landroidx/lifecycle/MutableLiveData;I)V
+	public static final fun emptyRes (Landroidx/lifecycle/MutableLiveData;)V
+	public static final fun getAsValue (Landroidx/lifecycle/MutableLiveData;)Ljava/lang/Object;
+	public static final fun getSafeValue (Landroidx/lifecycle/MutableLiveData;)Ljava/lang/Object;
 }
 
 public final class dev/teogor/ceres/extensions/ResourceExtKt {
