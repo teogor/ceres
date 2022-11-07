@@ -524,29 +524,17 @@ public final class dev/teogor/ceres/m3/beta/BetaKt {
 public final class dev/teogor/ceres/m3/binding/BindingMethods {
 	public static final field Companion Ldev/teogor/ceres/m3/binding/BindingMethods$Companion;
 	public fun <init> ()V
-	public static final fun onContentElementCheck (Ldev/teogor/ceres/m3/SwitchComponentM3;Ldev/teogor/ceres/m3/SwitchComponentM3$OnCheckedChangeListener;)V
-	public static final fun onContentElementChecked (Ldev/teogor/ceres/m3/ColorsContainerM3;Landroidx/lifecycle/MutableLiveData;)V
-	public static final fun onContentElementChecked (Ldev/teogor/ceres/m3/ColorsContainerM3;Ldev/teogor/ceres/m3/ColorsContainerM3$OnColorPickListener;)V
-	public static final fun onContentElementChecked (Ldev/teogor/ceres/m3/SwitchComponentM3;Landroidx/lifecycle/MutableLiveData;)V
-	public static final fun onContentElementClick (Ldev/teogor/ceres/m3/ImageComponentM3;Ldev/teogor/ceres/m3/ImageComponentM3$OnClickedChangeListener;)V
-	public static final fun onContentElementClick (Ldev/teogor/ceres/m3/SwitchComponentM3;Ldev/teogor/ceres/m3/SwitchComponentM3$OnClickedChangeListener;)V
-	public static final fun onContentElementSubtitle (Ldev/teogor/ceres/m3/SwitchComponentM3;Landroidx/lifecycle/MutableLiveData;)V
-	public static final fun onContentElementTitle (Ldev/teogor/ceres/m3/SwitchComponentM3;Landroidx/lifecycle/MutableLiveData;)V
-	public static final fun toolbarBindingIsTransparent (Ldev/teogor/ceres/m3/widgets/bar/ToolBar;Z)V
-	public static final fun toolbarBindingType (Ldev/teogor/ceres/m3/widgets/bar/ToolBar;Ldev/teogor/ceres/components/toolbar/ToolbarType;)V
+	public static final fun bindingColorsContainerM3 (Ldev/teogor/ceres/m3/ColorsContainerM3;Ldev/teogor/ceres/m3/ColorsContainerM3$OnColorPickListener;Landroidx/lifecycle/MutableLiveData;)V
+	public static final fun bindingImageComponentM3 (Ldev/teogor/ceres/m3/ImageComponentM3;Ldev/teogor/ceres/m3/ImageComponentM3$OnClickedChangeListener;)V
+	public static final fun bindingSwitchComponent (Ldev/teogor/ceres/m3/SwitchComponentM3;Ldev/teogor/ceres/m3/SwitchComponentM3$OnCheckedChangeListener;Ldev/teogor/ceres/m3/SwitchComponentM3$OnClickedChangeListener;Landroidx/lifecycle/MutableLiveData;Landroidx/lifecycle/MutableLiveData;Landroidx/lifecycle/MutableLiveData;)V
+	public static final fun bindingToolBar (Ldev/teogor/ceres/m3/widgets/bar/ToolBar;Ldev/teogor/ceres/components/toolbar/ToolbarType;Z)V
 }
 
 public final class dev/teogor/ceres/m3/binding/BindingMethods$Companion {
-	public final fun onContentElementCheck (Ldev/teogor/ceres/m3/SwitchComponentM3;Ldev/teogor/ceres/m3/SwitchComponentM3$OnCheckedChangeListener;)V
-	public final fun onContentElementChecked (Ldev/teogor/ceres/m3/ColorsContainerM3;Landroidx/lifecycle/MutableLiveData;)V
-	public final fun onContentElementChecked (Ldev/teogor/ceres/m3/ColorsContainerM3;Ldev/teogor/ceres/m3/ColorsContainerM3$OnColorPickListener;)V
-	public final fun onContentElementChecked (Ldev/teogor/ceres/m3/SwitchComponentM3;Landroidx/lifecycle/MutableLiveData;)V
-	public final fun onContentElementClick (Ldev/teogor/ceres/m3/ImageComponentM3;Ldev/teogor/ceres/m3/ImageComponentM3$OnClickedChangeListener;)V
-	public final fun onContentElementClick (Ldev/teogor/ceres/m3/SwitchComponentM3;Ldev/teogor/ceres/m3/SwitchComponentM3$OnClickedChangeListener;)V
-	public final fun onContentElementSubtitle (Ldev/teogor/ceres/m3/SwitchComponentM3;Landroidx/lifecycle/MutableLiveData;)V
-	public final fun onContentElementTitle (Ldev/teogor/ceres/m3/SwitchComponentM3;Landroidx/lifecycle/MutableLiveData;)V
-	public final fun toolbarBindingIsTransparent (Ldev/teogor/ceres/m3/widgets/bar/ToolBar;Z)V
-	public final fun toolbarBindingType (Ldev/teogor/ceres/m3/widgets/bar/ToolBar;Ldev/teogor/ceres/components/toolbar/ToolbarType;)V
+	public final fun bindingColorsContainerM3 (Ldev/teogor/ceres/m3/ColorsContainerM3;Ldev/teogor/ceres/m3/ColorsContainerM3$OnColorPickListener;Landroidx/lifecycle/MutableLiveData;)V
+	public final fun bindingImageComponentM3 (Ldev/teogor/ceres/m3/ImageComponentM3;Ldev/teogor/ceres/m3/ImageComponentM3$OnClickedChangeListener;)V
+	public final fun bindingSwitchComponent (Ldev/teogor/ceres/m3/SwitchComponentM3;Ldev/teogor/ceres/m3/SwitchComponentM3$OnCheckedChangeListener;Ldev/teogor/ceres/m3/SwitchComponentM3$OnClickedChangeListener;Landroidx/lifecycle/MutableLiveData;Landroidx/lifecycle/MutableLiveData;Landroidx/lifecycle/MutableLiveData;)V
+	public final fun bindingToolBar (Ldev/teogor/ceres/m3/widgets/bar/ToolBar;Ldev/teogor/ceres/components/toolbar/ToolbarType;Z)V
 }
 
 public final class dev/teogor/ceres/m3/databinding/DesignMenuSheetDialogBinding : androidx/viewbinding/ViewBinding {
@@ -1709,6 +1697,7 @@ public final class dev/teogor/ceres/m3/widgets/bar/StatusBar : dev/teogor/ceres/
 public final class dev/teogor/ceres/m3/widgets/bar/ToolBar : dev/teogor/ceres/m3/widgets/bar/Bar {
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
 	public fun onThemeChanged ()V
+	public final fun setData (Ldev/teogor/ceres/components/toolbar/ToolbarType;Z)V
 	public final fun setIsTransparent (Z)V
 	public final fun setStatusBar (Ldev/teogor/ceres/m3/widgets/bar/StatusBar;)V
 	public final fun setType (Ldev/teogor/ceres/components/toolbar/ToolbarType;)V
