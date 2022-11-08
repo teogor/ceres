@@ -20,6 +20,7 @@ import android.content.Intent
 import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.teogor.ceres.R
+import dev.teogor.ceres.ads.disableFirstAppOpenAd
 import dev.teogor.ceres.ads.formats.AdBinder
 import dev.teogor.ceres.ads.formats.NativeAd
 import dev.teogor.ceres.ads.showAppOpenAd
@@ -68,5 +69,9 @@ class HomeViewModel @Inject constructor(
     ) {
       showAppOpenAd()
     }
+  }
+
+  fun disableAppOpenAd() {
+    disableFirstAppOpenAd()
   }
 }

@@ -30,3 +30,9 @@ fun Activity.isAdActivity(): Boolean {
 fun Intent.showAppOpenAd() {
   putExtra(FORCE_SHOW_APP_OPEN_AD, true)
 }
+
+fun disableFirstAppOpenAd(disabled: Boolean = true) {
+  AdsData.disableFirstAppOpenAd = disabled
+}
+
+val disabledFirstAppOpenAd: Boolean = AdsData.disableFirstAppOpenAd

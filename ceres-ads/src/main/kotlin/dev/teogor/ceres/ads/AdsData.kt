@@ -19,8 +19,20 @@ package dev.teogor.ceres.ads
 import java.lang.ref.WeakReference
 
 internal object AdsData {
-
   var fullScreenAdIsShowing: Boolean = false
-  var enabled: Boolean = true
+
+  @Deprecated(
+    "variable is ambiguous",
+    replaceWith = ReplaceWith(
+      expression = "disableFirstAppOpenAd"
+    )
+  )
+  var enabled: Boolean
+    set(value) {
+      disableFirstAppOpenAd = value
+    }
+    get() = disableFirstAppOpenAd
+  var disableFirstAppOpenAd: Boolean = false
+
   var openAdsWeak: List<WeakReference<Ad>> = listOf()
 }
