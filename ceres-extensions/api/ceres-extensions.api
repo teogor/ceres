@@ -147,6 +147,10 @@ public final class dev/teogor/ceres/extensions/ViewModelExt {
 	public static synthetic fun launchActivity$default (Landroidx/lifecycle/ViewModel;Landroid/content/Context;Lkotlin/reflect/KClass;ILkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 }
 
+public final class dev/teogor/ceres/extensions/WeakReferenceExt {
+	public static final fun safeEach (Ljava/util/List;Lkotlin/jvm/functions/Function1;)V
+}
+
 public final class dev/teogor/ceres/extensions/WindowExtKt {
 	public static final fun setNavigationBarTransparentCompat (Landroid/view/Window;Landroid/content/Context;F)V
 	public static synthetic fun setNavigationBarTransparentCompat$default (Landroid/view/Window;Landroid/content/Context;FILjava/lang/Object;)V

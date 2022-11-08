@@ -14,13 +14,18 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.ads
+@file:JvmName("WeakReferenceExt")
+
+package dev.teogor.ceres.extensions
 
 import java.lang.ref.WeakReference
 
-internal object AdsData {
-
-  var fullScreenAdIsShowing: Boolean = false
-  var enabled: Boolean = true
-  var openAdsWeak: List<WeakReference<Ad>> = listOf()
+fun <T> List<WeakReference<T>>.safeEach(
+  forEach: T.() -> Unit
+) {
+  this.forEach {
+    it.get()?.let { weak ->
+      forEach(weak)
+    }
+  }
 }

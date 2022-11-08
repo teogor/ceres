@@ -7,7 +7,7 @@ public abstract class dev/teogor/ceres/ads/Ad : dev/teogor/ceres/ads/AdId, dev/t
 	protected final fun isLoading ()Z
 	public final fun isReady ()Z
 	protected final fun isShowing ()Z
-	public fun load ()V
+	public fun load ()Z
 	public abstract fun loadContinuously ()Z
 	public fun log (Ljava/lang/String;)V
 	public final fun onListener (Ldev/teogor/ceres/ads/AdEvent;)V
@@ -196,14 +196,14 @@ public abstract class dev/teogor/ceres/ads/formats/AdBinder {
 
 public abstract class dev/teogor/ceres/ads/formats/AppOpenAd : dev/teogor/ceres/ads/Ad {
 	public fun <init> ()V
-	public fun load ()V
+	public fun load ()Z
 	public fun show ()V
 	public fun useCache ()Z
 }
 
 public abstract class dev/teogor/ceres/ads/formats/InterstitialAd : dev/teogor/ceres/ads/Ad {
 	public fun <init> ()V
-	public fun load ()V
+	public fun load ()Z
 	public fun show ()V
 	public fun useCache ()Z
 }
@@ -221,7 +221,7 @@ public abstract class dev/teogor/ceres/ads/formats/NativeAd : dev/teogor/ceres/a
 	public final fun getNetwork ()Ldev/teogor/ceres/core/network/Network;
 	public fun getRefreshInterval ()J
 	public final fun isFailedAd ()Z
-	public fun load ()V
+	public fun load ()Z
 	public final fun setBinder (Ldev/teogor/ceres/ads/formats/AdBinder;)V
 }
 

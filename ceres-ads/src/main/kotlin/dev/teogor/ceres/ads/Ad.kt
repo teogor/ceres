@@ -17,11 +17,9 @@
 package dev.teogor.ceres.ads
 
 import android.content.Context
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.zeoflow.startup.ktx.ApplicationInitializer
 import dev.teogor.ceres.ads.cache.CacheAds
-import dev.teogor.ceres.ads.utils.Constants
 import dev.teogor.ceres.ads.utils.isNetworkAvailable
 import dev.teogor.ceres.core.logger.Logger
 
@@ -40,15 +38,19 @@ abstract class Ad : AdId(), Logger {
 
   val context: Context = ApplicationInitializer.context
 
-  open fun load() {
+  open fun load(): Boolean {
+    if (isLoading) {
+      return false
+    }
     isLoading = true
+    return true
   }
 
   open fun show() {
   }
 
   fun onListener(event: AdEvent) {
-    Log.d(Constants.LOG_TAG, "onListener::$event")
+    log("onListener::$event")
     when (event) {
       AdEvent.FAILED_TO_LOAD -> {
         isLoading = false

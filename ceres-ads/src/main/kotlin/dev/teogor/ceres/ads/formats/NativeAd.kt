@@ -68,11 +68,10 @@ abstract class NativeAd(
 
   lateinit var binder: AdBinder
 
-  override fun load() {
-    if (isLoading) {
-      return
+  override fun load(): Boolean {
+    if (!super.load()) {
+      return false
     }
-    super.load()
 
     onListener(AdEvent.IS_LOADING)
 
@@ -131,6 +130,8 @@ abstract class NativeAd(
     } else if (maxNumberOfAds > 1) {
       adLoader.loadAds(AdRequest.Builder().build(), maxNumberOfAds)
     }
+
+    return true
   }
 
   private fun populateAd(nativeAd: NativeAd) {
