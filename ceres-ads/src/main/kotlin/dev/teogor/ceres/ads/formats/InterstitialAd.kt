@@ -31,8 +31,10 @@ abstract class InterstitialAd : Ad() {
 
   override fun useCache() = false
 
-  override fun load() {
-    super.load()
+  override fun load(): Boolean {
+    if (!super.load()) {
+      return false
+    }
 
     onListener(AdEvent.IS_LOADING)
 
@@ -58,6 +60,8 @@ abstract class InterstitialAd : Ad() {
         }
       }
     )
+
+    return true
   }
 
   override fun show() {

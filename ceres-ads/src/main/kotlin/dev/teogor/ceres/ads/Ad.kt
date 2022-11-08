@@ -40,8 +40,12 @@ abstract class Ad : AdId(), Logger {
 
   val context: Context = ApplicationInitializer.context
 
-  open fun load() {
+  open fun load(): Boolean {
+    if (isLoading) {
+      return false
+    }
     isLoading = true
+    return true
   }
 
   open fun show() {
