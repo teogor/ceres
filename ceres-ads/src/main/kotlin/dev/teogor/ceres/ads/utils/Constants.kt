@@ -18,6 +18,7 @@ package dev.teogor.ceres.ads.utils
 
 object Constants {
 
+  @Deprecated("use Logger.log()")
   const val LOG_TAG = "AdsModule"
   const val NOT_SET = "not_set"
   const val AD_ACTIVITY_CLASS = "com.google.android.gms.ads.AdActivity"
