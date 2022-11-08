@@ -135,7 +135,6 @@ abstract class AppOpenAd : Ad() {
         onListener(AdEvent.COMPLETED)
       }
     }
-    ad.setImmersiveMode(true)
     ad.show(GlobalData.activity)
   }
 }

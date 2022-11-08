@@ -99,12 +99,6 @@ public final class dev/teogor/ceres/extensions/ListExt {
 	public static final fun randomElement (Ljava/util/List;)Ljava/lang/Object;
 }
 
-public final class dev/teogor/ceres/extensions/LogExt {
-	public static final fun dLog (Ljava/lang/Object;Ljava/lang/String;)V
-	public static final fun eLog (Ljava/lang/Object;Ljava/lang/String;)V
-	public static final fun log (Ljava/lang/Object;Ljava/lang/String;)V
-}
-
 public final class dev/teogor/ceres/extensions/MutableLiveDataExtKt {
 	public static final fun activate (Landroidx/lifecycle/MutableLiveData;)V
 	public static final fun deactivate (Landroidx/lifecycle/MutableLiveData;)V

@@ -33,7 +33,6 @@ import dev.teogor.ceres.ads.utils.Constants
 import dev.teogor.ceres.core.construct.AppData
 import dev.teogor.ceres.core.logger.Logger
 import dev.teogor.ceres.core.util.AppUtils
-import dev.teogor.ceres.extensions.activityName
 import dev.teogor.ceres.extensions.extrasBoolean
 
 /**
@@ -57,7 +56,6 @@ class AdsProvider constructor(application: Application) :
   }
 
   override fun onActivityCreated(activity: Activity, bundle: Bundle?) {
-    log("activityData: ${activity.activityName} --destroyed:${activity.isDestroyed} --adsInitialized:$adsInitialized")
     initAds()
   }
 
@@ -102,34 +100,18 @@ class AdsProvider constructor(application: Application) :
   }
 
   override fun onActivityResumed(activity: Activity) {
-    if (activity.isAdActivity()) {
-      log("onActivityResumed::${activity.activityName} ${activity.isDestroyed}")
-
-    }
   }
 
   override fun onActivityPaused(activity: Activity) {
-    if (activity.isAdActivity()) {
-      log("onActivityPaused::${activity.activityName}")
-    }
   }
 
   override fun onActivityStopped(activity: Activity) {
-    if (activity.isAdActivity()) {
-      log("onActivityStopped::${activity.activityName}")
-    }
   }
 
   override fun onActivitySaveInstanceState(activity: Activity, bundle: Bundle) {
-    if (activity.isAdActivity()) {
-      log("onActivitySaveInstanceState::${activity.activityName}")
-    }
   }
 
   override fun onActivityDestroyed(activity: Activity) {
-    if (activity.isAdActivity()) {
-      log("onActivityDestroyed::${activity.activityName}")
-    }
     if (activity.isAdActivity()) {
       AdsData.fullScreenAdIsShowing = false
     }

@@ -16,7 +16,7 @@
 
 package dev.teogor.ceres.core.logger
 
-import dev.teogor.ceres.extensions.dLog
+import android.util.Log
 
 interface Logger {
 
@@ -30,11 +30,7 @@ interface Logger {
    *
    * @param content The content you would like logged.
    */
-  @Deprecated(
-    message = "deprecated due to duplication",
-    replaceWith = ReplaceWith("dLog(content)", "dev.teogor.ceres.extensions.dLog")
-  )
   fun log(content: String) {
-    dLog(content)
+    Log.d("[${this.javaClass.simpleName}]", content)
   }
 }
