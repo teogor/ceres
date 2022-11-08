@@ -30,4 +30,10 @@ class HomeFragment : BaseFragmentM3<FragmentHomeBinding, HomeViewModel>() {
   override fun getBindingVariable() = BR.viewModel
 
   override fun getViewModelClass() = HomeViewModel::class.java
+
+  override fun onRefresh() {
+    super.onRefresh()
+
+    binding.root.scrollToTop()
+  }
 }
