@@ -27,8 +27,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.navigation.fragment.findNavController
+import dev.teogor.ceres.components.ScrollableFragmentRoot
 import dev.teogor.ceres.components.events.UiEvent
 import dev.teogor.ceres.components.navigation.NavigationViewModel
+import dev.teogor.ceres.components.scrollEvent
+import dev.teogor.ceres.extensions.safeAs
 
 abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(), BaseCommon {
 
@@ -65,6 +68,15 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
 
+    binding.root.safeAs<ScrollableFragmentRoot> {
+      scrollEvent {
+        if (it == ScrollableFragmentRoot.Event.TopReached) {
+          viewModel.setToolbarFilled(false)
+        } else if (it == ScrollableFragmentRoot.Event.TopLeft) {
+          viewModel.setToolbarFilled(true)
+        }
+      }
+    }
     binding.lifecycleOwner = this
     binding.setVariable(getBindingVariable(), viewModel)
 

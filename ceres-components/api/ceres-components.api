@@ -23,6 +23,39 @@ public class dev/teogor/ceres/components/DataBindingTriggerClass {
 	public fun <init> ()V
 }
 
+public final class dev/teogor/ceres/components/ScrollableFragmentRoot : android/widget/ScrollView, dev/teogor/ceres/core/logger/Logger {
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public final fun getBottomStableEvent ()Ldev/teogor/ceres/components/ScrollableFragmentRoot$Event;
+	public final fun getTopStableEvent ()Ldev/teogor/ceres/components/ScrollableFragmentRoot$Event;
+	public fun log (Ljava/lang/String;)V
+	public final fun scrollToTop ()V
+	public final fun setBottomStableEvent (Ldev/teogor/ceres/components/ScrollableFragmentRoot$Event;)V
+	public final fun setEventListener (Ldev/teogor/ceres/components/ScrollableFragmentRoot$OnScroll;)V
+	public final fun setTopStableEvent (Ldev/teogor/ceres/components/ScrollableFragmentRoot$Event;)V
+}
+
+public final class dev/teogor/ceres/components/ScrollableFragmentRoot$Event : java/lang/Enum {
+	public static final field BottomLeft Ldev/teogor/ceres/components/ScrollableFragmentRoot$Event;
+	public static final field BottomReached Ldev/teogor/ceres/components/ScrollableFragmentRoot$Event;
+	public static final field NotSet Ldev/teogor/ceres/components/ScrollableFragmentRoot$Event;
+	public static final field TopLeft Ldev/teogor/ceres/components/ScrollableFragmentRoot$Event;
+	public static final field TopReached Ldev/teogor/ceres/components/ScrollableFragmentRoot$Event;
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/components/ScrollableFragmentRoot$Event;
+	public static fun values ()[Ldev/teogor/ceres/components/ScrollableFragmentRoot$Event;
+}
+
+public abstract interface class dev/teogor/ceres/components/ScrollableFragmentRoot$OnScroll {
+	public abstract fun onScrollEvent (Ldev/teogor/ceres/components/ScrollableFragmentRoot$Event;)V
+}
+
+public final class dev/teogor/ceres/components/ScrollableFragmentRoot$OnScroll$DefaultImpls {
+	public static fun onScrollEvent (Ldev/teogor/ceres/components/ScrollableFragmentRoot$OnScroll;Ldev/teogor/ceres/components/ScrollableFragmentRoot$Event;)V
+}
+
+public final class dev/teogor/ceres/components/ScrollableFragmentRootKt {
+	public static final fun scrollEvent (Ldev/teogor/ceres/components/ScrollableFragmentRoot;Lkotlin/jvm/functions/Function1;)V
+}
+
 public abstract interface annotation class dev/teogor/ceres/components/annotation/ColorString : java/lang/annotation/Annotation {
 }
 
