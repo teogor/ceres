@@ -34,6 +34,7 @@ import dev.teogor.ceres.core.construct.AppData
 import dev.teogor.ceres.core.logger.Logger
 import dev.teogor.ceres.core.util.AppUtils
 import dev.teogor.ceres.extensions.extrasBoolean
+import dev.teogor.ceres.extensions.safeEach
 
 /**
  * fixme Interstitials that show when your app is in the background are a
@@ -66,6 +67,9 @@ class AdsProvider constructor(application: Application) :
     adsInitialized = true
     initializeModule()
     addTestDevice()
+    AdsData.openAdsWeak.safeEach {
+      load()
+    }
   }
 
   private fun initializeModule() {

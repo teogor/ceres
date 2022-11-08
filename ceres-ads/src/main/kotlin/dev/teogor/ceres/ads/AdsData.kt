@@ -23,10 +23,4 @@ internal object AdsData {
   var fullScreenAdIsShowing: Boolean = false
   var enabled: Boolean = true
   var openAdsWeak: List<WeakReference<Ad>> = listOf()
-    set(value) {
-      field = value
-      value.map { weakAd -> weakAd.get()!! }.forEach { ad ->
-        ad.load()
-      }
-    }
 }
