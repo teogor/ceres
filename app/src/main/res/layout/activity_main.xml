@@ -61,7 +61,8 @@
       app:layout_constraintTop_toBottomOf="@+id/status_bar"
       app:show="@{viewModel.toolbarViewData.showToolbar}"
       app:type="@{viewModel.toolbarViewData.toolbarType}"
-      app:is_transparent="@{viewModel.toolbarViewData.isTransparent}">
+      app:is_transparent="@{viewModel.toolbarViewData.isTransparent}"
+      app:is_filled="@{viewModel.toolbarViewData.isFilled}">
 
       <dev.teogor.ceres.m3.ImageViewM3
         android:id="@+id/back_button"

@@ -16,6 +16,7 @@
 
 package dev.teogor.ceres.m3.binding
 
+import android.util.Log
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.MutableLiveData
 import dev.teogor.ceres.bindings.BindingAdapterClass
@@ -36,7 +37,8 @@ class BindingMethods {
     @BindingAdapter(
       value = [
         "type",
-        "is_transparent"
+        "is_transparent",
+        "is_filled"
       ],
       requireAll = true
     )
@@ -44,14 +46,17 @@ class BindingMethods {
     fun bindingToolBar(
       toolbar: ToolBar,
       type: ToolbarType,
-      isTransparent: Boolean
+      isTransparent: Boolean,
+      isFilled: Boolean
     ) {
       toolbar.setData(
         dev.teogor.ceres.components.view.ToolBar.Data(
           type,
-          isTransparent
+          isTransparent,
+          isFilled
         )
       )
+      Log.d("BindingMethods", "is_filled $isFilled")
     }
 
     @BindingAdapter(

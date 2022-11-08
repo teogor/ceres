@@ -47,7 +47,8 @@ class ToolBar {
 
   data class Data(
     val type: ToolbarType,
-    val isTransparent: Boolean
+    val isTransparent: Boolean,
+    val isFilled: Boolean
   ) {
     val rippleEnabled: Boolean = !isTransparent
 

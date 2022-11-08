@@ -130,6 +130,12 @@ open class BaseViewModel : ViewModel(), BaseCommon {
   open val toolBarBuilder: ToolBar.Builder
     get() = ToolBar.Builder()
 
+  fun setToolbarFilled(isFilled: Boolean) {
+    val s = toolbarViewData.value!!
+    s.setIsFilled(isFilled)
+    toolbarViewData.value = s
+  }
+
   @Deprecated(message = "Deprecated due to low performance. Use `toolBarBuilder`")
   fun setToolbarType(toolbarType: ToolbarType) {
     val toolbarView = getToolbarView(toolbarType)

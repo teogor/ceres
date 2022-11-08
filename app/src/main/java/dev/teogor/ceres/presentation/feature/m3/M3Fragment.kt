@@ -30,4 +30,10 @@ class M3Fragment : BaseFragmentM3<FragmentM3Binding, M3ViewModel>() {
   override fun getBindingVariable() = BR.viewModel
 
   override fun getViewModelClass() = M3ViewModel::class.java
+
+  override fun onRefresh() {
+    super.onRefresh()
+
+    binding.root.scrollToTop()
+  }
 }

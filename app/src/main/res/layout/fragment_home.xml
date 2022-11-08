@@ -24,78 +24,91 @@
       type="dev.teogor.ceres.presentation.feature.home.HomeViewModel" />
   </data>
 
-  <dev.teogor.ceres.m3.FragmentContainer
+  <dev.teogor.ceres.components.ScrollableFragmentRoot
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="40dp"
-    app:consumeTop="false">
+    android:scrollbars="none">
 
-    <dev.teogor.ceres.ads.view.NativeAdView
-      android:id="@+id/ad_home"
-      android:layout_width="@dimen/constraint.layout.fit.screen"
-      android:layout_height="wrap_content"
-      app:ad="@{viewModel.liveHomeAd}"
-      app:binder="@{viewModel.liveHomeAdBinder}"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+    <dev.teogor.ceres.m3.FragmentContainer
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:paddingTop="40dp"
+      app:consumeTop="false">
 
-    <dev.teogor.ceres.m3.ButtonM3
-      android:id="@+id/btn1"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginHorizontal="20dp"
-      android:layout_marginTop="10dp"
-      android:fontFamily="@font/font_regular"
-      android:onClick="@{() -> viewModel.launchActivity()}"
-      android:paddingHorizontal="20dp"
-      android:paddingVertical="10dp"
-      android:text="Open Activity"
-      app:background_m3="primaryContainer"
-      app:corner_radius="20dp"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/ad_home"
-      app:ripple_enabled="true"
-      app:text_color_m3="onPrimaryContainer" />
+      <dev.teogor.ceres.ads.view.NativeAdView
+        android:id="@+id/ad_home"
+        android:layout_width="@dimen/constraint.layout.fit.screen"
+        android:layout_height="wrap_content"
+        app:ad="@{viewModel.liveHomeAd}"
+        app:binder="@{viewModel.liveHomeAdBinder}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <dev.teogor.ceres.m3.ButtonM3
-      android:id="@+id/btn2"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginHorizontal="20dp"
-      android:layout_marginTop="10dp"
-      android:fontFamily="@font/font_regular"
-      android:onClick="@{() -> viewModel.launchActivity()}"
-      android:paddingHorizontal="20dp"
-      android:paddingVertical="10dp"
-      android:text="Open Activity"
-      app:background_m3="quinary"
-      app:corner_radius="20dp"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/btn1"
-      app:ripple_enabled="true"
-      app:text_color_m3="onQuinary" />
+      <dev.teogor.ceres.m3.ButtonM3
+        android:id="@+id/btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/font_regular"
+        android:onClick="@{() -> viewModel.launchActivity()}"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:text="Open Activity"
+        app:background_m3="primaryContainer"
+        app:corner_radius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ad_home"
+        app:ripple_enabled="true"
+        app:text_color_m3="onPrimaryContainer" />
 
-    <dev.teogor.ceres.m3.ButtonM3
-      android:id="@+id/btn3"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginHorizontal="20dp"
-      android:layout_marginTop="10dp"
-      android:fontFamily="@font/font_regular"
-      android:onClick="@{() -> viewModel.launchActivity()}"
-      android:paddingHorizontal="20dp"
-      android:paddingVertical="10dp"
-      android:text="Open Activity"
-      app:background_m3="secondary"
-      app:corner_radius="20dp"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/btn2"
-      app:ripple_enabled="false"
-      app:text_color_m3="onSecondary" />
+      <dev.teogor.ceres.m3.ButtonM3
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/font_regular"
+        android:onClick="@{() -> viewModel.launchActivity()}"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:text="Open Activity"
+        app:background_m3="quinary"
+        app:corner_radius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn1"
+        app:ripple_enabled="true"
+        app:text_color_m3="onQuinary" />
 
-  </dev.teogor.ceres.m3.FragmentContainer>
+      <dev.teogor.ceres.m3.ButtonM3
+        android:id="@+id/btn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/font_regular"
+        android:onClick="@{() -> viewModel.launchActivity()}"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:text="Open Activity"
+        app:background_m3="secondary"
+        app:corner_radius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn2"
+        app:ripple_enabled="false"
+        app:text_color_m3="onSecondary" />
+
+      <View
+        android:layout_width="match_parent"
+        android:layout_height="2000dp"
+        app:layout_constraintTop_toBottomOf="@+id/btn3"
+        android:background="#673AB7"/>
+
+    </dev.teogor.ceres.m3.FragmentContainer>
+  </dev.teogor.ceres.components.ScrollableFragmentRoot>
 </layout>
