@@ -200,12 +200,13 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
    * to transparent and will be restored after the animation is finished.
    */
   private fun setSplashScreenExitAnimation(splashScreen: SplashScreen?) {
+    val root = window.decorView.rootView
     val setNavbarScrim = {
       // Make sure navigation bar is on bottom before we modify it
-      ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
+      ViewCompat.setOnApplyWindowInsetsListener(root) { _, insets ->
         insets
       }
-      ViewCompat.requestApplyInsets(binding.root)
+      ViewCompat.requestApplyInsets(root)
     }
 
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S && splashScreen != null) {
@@ -223,7 +224,7 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
           duration = splashExitAnimDuration
           addUpdateListener { va ->
             val value = va.animatedValue as Float
-            binding.root.translationY = value * 16.dpToPx
+            root.translationY = value * 16.dpToPx
           }
         }
 
