@@ -543,14 +543,14 @@ public final class dev/teogor/ceres/m3/binding/BindingMethods {
 	public static final fun bindingColorsContainerM3 (Ldev/teogor/ceres/m3/ColorsContainerM3;Ldev/teogor/ceres/m3/ColorsContainerM3$OnColorPickListener;Landroidx/lifecycle/MutableLiveData;)V
 	public static final fun bindingImageComponentM3 (Ldev/teogor/ceres/m3/ImageComponentM3;Ldev/teogor/ceres/m3/ImageComponentM3$OnClickedChangeListener;)V
 	public static final fun bindingSwitchComponent (Ldev/teogor/ceres/m3/SwitchComponentM3;Ldev/teogor/ceres/m3/SwitchComponentM3$OnCheckedChangeListener;Ldev/teogor/ceres/m3/SwitchComponentM3$OnClickedChangeListener;Landroidx/lifecycle/MutableLiveData;Landroidx/lifecycle/MutableLiveData;Landroidx/lifecycle/MutableLiveData;)V
-	public static final fun bindingToolBar (Ldev/teogor/ceres/m3/widgets/bar/ToolBar;Ldev/teogor/ceres/components/toolbar/ToolbarType;Z)V
+	public static final fun bindingToolBar (Ldev/teogor/ceres/m3/widgets/bar/ToolBar;Ldev/teogor/ceres/components/toolbar/ToolbarType;ZZ)V
 }
 
 public final class dev/teogor/ceres/m3/binding/BindingMethods$Companion {
 	public final fun bindingColorsContainerM3 (Ldev/teogor/ceres/m3/ColorsContainerM3;Ldev/teogor/ceres/m3/ColorsContainerM3$OnColorPickListener;Landroidx/lifecycle/MutableLiveData;)V
 	public final fun bindingImageComponentM3 (Ldev/teogor/ceres/m3/ImageComponentM3;Ldev/teogor/ceres/m3/ImageComponentM3$OnClickedChangeListener;)V
 	public final fun bindingSwitchComponent (Ldev/teogor/ceres/m3/SwitchComponentM3;Ldev/teogor/ceres/m3/SwitchComponentM3$OnCheckedChangeListener;Ldev/teogor/ceres/m3/SwitchComponentM3$OnClickedChangeListener;Landroidx/lifecycle/MutableLiveData;Landroidx/lifecycle/MutableLiveData;Landroidx/lifecycle/MutableLiveData;)V
-	public final fun bindingToolBar (Ldev/teogor/ceres/m3/widgets/bar/ToolBar;Ldev/teogor/ceres/components/toolbar/ToolbarType;Z)V
+	public final fun bindingToolBar (Ldev/teogor/ceres/m3/widgets/bar/ToolBar;Ldev/teogor/ceres/components/toolbar/ToolbarType;ZZ)V
 }
 
 public final class dev/teogor/ceres/m3/databinding/DesignMenuSheetDialogBinding : androidx/viewbinding/ViewBinding {
@@ -1708,6 +1708,7 @@ public final class dev/teogor/ceres/m3/widgets/bar/StatusBar : dev/teogor/ceres/
 	public fun onThemeChanged ()V
 	public final fun setFilled (ZZ)V
 	public static synthetic fun setFilled$default (Ldev/teogor/ceres/m3/widgets/bar/StatusBar;ZZILjava/lang/Object;)V
+	public final fun setFilledColor (I)V
 }
 
 public final class dev/teogor/ceres/m3/widgets/bar/ToolBar : dev/teogor/ceres/m3/widgets/bar/Bar {

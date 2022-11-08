@@ -56,7 +56,8 @@ class ToolBar constructor(
 
   private var data: ToolBar.Data = ToolBar.Data(
     type = ToolbarType.NOT_SET,
-    isTransparent = false
+    isTransparent = false,
+    isFilled = false
   )
 
   init {
@@ -126,12 +127,23 @@ class ToolBar constructor(
     toolbarBackground.applyOn(toolbarView)
     val typeChanged = data.typeChanged(newData)
     if (!typeChanged) {
-      with(data) {
+      with(newData) {
         toolbarBackground.applyHidden(
           if (isTransparent) {
             Color.TRANSPARENT
           } else {
-            data.color
+            if (isFilled) {
+              colorSurfaceFilled()
+            } else {
+              colorSurfaceNormal()
+            }
+          }
+        )
+        statusBar?.setFilledColor(
+          if (isFilled && !isTransparent) {
+            colorSurfaceFilled()
+          } else {
+            colorSurfaceNormal()
           }
         )
       }

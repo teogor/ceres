@@ -56,6 +56,10 @@ class StatusBar constructor(
     }
   }
 
+  fun setFilledColor(color: Int) {
+    setBackgroundColor(color)
+  }
+
   fun setFilled(isFilled: Boolean, animated: Boolean = true) {
     if (isFilled == this.isFilled) {
       return
