@@ -16,8 +16,12 @@
 
 package dev.teogor.ceres.core.logger
 
-import android.util.Log
+import dev.teogor.ceres.extensions.dLog
 
+@Deprecated(
+  message = "deprecated due to duplication",
+  replaceWith = ReplaceWith("log(content)", "dev.teogor.ceres.extensions.log")
+)
 interface Logger {
 
   /**
@@ -30,7 +34,11 @@ interface Logger {
    *
    * @param content The content you would like logged.
    */
+  @Deprecated(
+    message = "deprecated due to duplication",
+    replaceWith = ReplaceWith("dLog(content)", "dev.teogor.ceres.extensions.dLog")
+  )
   fun log(content: String) {
-    Log.d("[${this.javaClass.simpleName}]", content)
+    dLog(content)
   }
 }

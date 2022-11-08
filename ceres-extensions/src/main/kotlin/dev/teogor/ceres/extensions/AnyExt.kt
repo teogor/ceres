@@ -18,8 +18,6 @@
 
 package dev.teogor.ceres.extensions
 
-import android.util.Log
-
 fun <Type> Type?.safeCall(
   nonNullRun: Type.() -> Unit
 ) {
@@ -44,7 +42,7 @@ fun <T : Any> Any?.safeAs(
 ) {
   try {
     runnable(this as T)
-  } catch (e: ClassCastException) {
-    Log.e("[ceres-extensions]", e.stackTraceToString())
+  } catch (_: ClassCastException) {
+    // empty
   }
 }
