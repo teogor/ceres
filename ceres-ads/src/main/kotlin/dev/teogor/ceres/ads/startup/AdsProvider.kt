@@ -128,7 +128,8 @@ class AdsProvider constructor(application: Application) :
   }
 
   private fun showAd() {
-    if (!AdsData.enabled) {
+    if (AdsData.disableFirstAppOpenAd) {
+      AdsData.disableFirstAppOpenAd = false
       return
     }
     AdsData.openAdsWeak.map { weakAd -> weakAd.get()!! }.forEach { ad ->

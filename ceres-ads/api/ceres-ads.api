@@ -60,7 +60,9 @@ public final class dev/teogor/ceres/ads/AdView : androidx/appcompat/widget/AppCo
 }
 
 public final class dev/teogor/ceres/ads/AdsExt {
+	public static final fun getDisableFirstAppOpenAd ()Z
 	public static final fun isAdActivity (Landroid/app/Activity;)Z
+	public static final fun setDisableFirstAppOpenAd (Z)V
 	public static final fun showAppOpenAd (Landroid/content/Intent;)V
 }
 
