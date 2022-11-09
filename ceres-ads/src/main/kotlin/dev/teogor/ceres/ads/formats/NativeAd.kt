@@ -38,6 +38,7 @@ import com.google.android.gms.ads.nativead.NativeAdOptions
 import com.google.android.gms.ads.nativead.NativeAdView
 import dev.teogor.ceres.ads.Ad
 import dev.teogor.ceres.ads.AdEvent
+import dev.teogor.ceres.ads.AdType
 import dev.teogor.ceres.core.network.Network
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -47,14 +48,17 @@ abstract class NativeAd(
   val network: Network
 ) : Ad() {
 
+  override fun type() = AdType.NATIVE
+
   //region API
-  open val maxNumberOfAds: Int = 1
+  open val configurator: Configurator = Configurator()
 
-  open val failedToLoadCallAfter: Int = 3
-
-  open val failedToLoadWaitTime: Long = TimeUnit.MINUTES.toMillis(30)
-
-  open val refreshInterval: Long = TimeUnit.SECONDS.toMillis(45)
+  data class Configurator(
+    val maxNumberOfAds: Int = 1,
+    val failedToLoadCallAfter: Int = 1,
+    val failedToLoadWaitTime: Long = TimeUnit.MINUTES.toMillis(30),
+    val refreshInterval: Long = TimeUnit.SECONDS.toMillis(45)
+  )
 
   @NativeAdOptions.AdChoicesPlacement
   open val adChoicesPlacement: Int = NativeAdOptions.ADCHOICES_TOP_RIGHT
@@ -125,10 +129,10 @@ abstract class NativeAd(
     )
       .build()
 
-    if (maxNumberOfAds == 1) {
+    if (configurator.maxNumberOfAds == 1) {
       adLoader.loadAd(AdRequest.Builder().build())
-    } else if (maxNumberOfAds > 1) {
-      adLoader.loadAds(AdRequest.Builder().build(), maxNumberOfAds)
+    } else if (configurator.maxNumberOfAds > 1) {
+      adLoader.loadAds(AdRequest.Builder().build(), configurator.maxNumberOfAds)
     }
 
     return true
@@ -295,12 +299,12 @@ abstract class NativeAd(
         isFailedAdCopy = isFailedAd()
         var currentMillisS = if (isFailedAdCopy) {
           if (failedToLoadMillis == 0L) {
-            failedToLoadMillis = failedToLoadWaitTime
+            failedToLoadMillis = configurator.failedToLoadWaitTime
           }
           failedToLoadMillis
         } else {
           if (currentMillis == 0L) {
-            currentMillis = refreshInterval
+            currentMillis = configurator.refreshInterval
           }
           currentMillis
         }
@@ -325,5 +329,5 @@ abstract class NativeAd(
     }
   }
 
-  fun isFailedAd(): Boolean = failedToLoad >= failedToLoadCallAfter
+  fun isFailedAd(): Boolean = failedToLoad >= configurator.failedToLoadCallAfter
 }

@@ -39,9 +39,11 @@ class HomeNativeAd @Inject constructor(
 
   override fun useCache() = true
 
-  override val failedToLoadCallAfter = 2
-
-  override val failedToLoadWaitTime = TimeUnit.MINUTES.toMillis(30)
-
-  override val refreshInterval = TimeUnit.SECONDS.toMillis(45)
+  override val configurator: Configurator
+    get() = Configurator(
+      maxNumberOfAds = 1,
+      failedToLoadCallAfter = 2,
+      failedToLoadWaitTime = TimeUnit.MINUTES.toMillis(30),
+      refreshInterval = TimeUnit.SECONDS.toMillis(45)
+    )
 }
