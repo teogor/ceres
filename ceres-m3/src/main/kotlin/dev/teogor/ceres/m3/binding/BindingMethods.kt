@@ -16,7 +16,6 @@
 
 package dev.teogor.ceres.m3.binding
 
-import android.util.Log
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.MutableLiveData
 import dev.teogor.ceres.bindings.BindingAdapterClass
@@ -56,7 +55,6 @@ class BindingMethods {
           isFilled
         )
       )
-      Log.d("BindingMethods", "is_filled $isFilled")
     }
 
     @BindingAdapter(
