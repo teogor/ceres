@@ -24,6 +24,7 @@ import dev.teogor.ceres.ads.disableFirstAppOpenAd
 import dev.teogor.ceres.ads.formats.AdBinder
 import dev.teogor.ceres.ads.formats.NativeAd
 import dev.teogor.ceres.ads.showAppOpenAd
+import dev.teogor.ceres.components.system.InsetsConfigurator
 import dev.teogor.ceres.components.toolbar.ToolbarType
 import dev.teogor.ceres.components.view.ToolBar
 import dev.teogor.ceres.core.global.GlobalData
@@ -51,6 +52,12 @@ class HomeViewModel @Inject constructor(
       type = ToolbarType.ONLY_LOGO,
       title = R.string.app_name,
       isTransparent = true
+    )
+
+  override val insets: InsetsConfigurator
+    get() = InsetsConfigurator(
+      bottomInsets = InsetsConfigurator.BottomInsets.BottomBar,
+      topInsets = InsetsConfigurator.TopInsets.StatusBar
     )
 
   override fun onFragmentCreated() {

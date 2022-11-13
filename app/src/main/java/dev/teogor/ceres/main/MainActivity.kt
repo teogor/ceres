@@ -38,6 +38,13 @@ class MainActivity : BaseActivityM3<ActivityMainBinding, MainViewModel>() {
 
   override val splashExitAnimDuration: Long = 1000
 
+  override val insetsViews: InsetsViews
+    get() = InsetsViews(
+      navController = binding.navController,
+      bottomNavigation = binding.bottomNavigation,
+      toolBar = binding.toolBar
+    )
+
   override fun drawEdgeToEdge() {
     super.drawEdgeToEdge()
 
