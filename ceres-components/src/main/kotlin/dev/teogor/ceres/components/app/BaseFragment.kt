@@ -30,7 +30,6 @@ import androidx.navigation.fragment.findNavController
 import dev.teogor.ceres.components.ScrollableFragmentRoot
 import dev.teogor.ceres.components.events.UiEvent
 import dev.teogor.ceres.components.navigation.NavigationViewModel
-import dev.teogor.ceres.components.scrollEvent
 import dev.teogor.ceres.extensions.safeAs
 
 abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(), BaseCommon {
@@ -69,10 +68,10 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(
     super.onViewCreated(view, savedInstanceState)
 
     binding.root.safeAs<ScrollableFragmentRoot> {
-      scrollEvent {
-        if (it == ScrollableFragmentRoot.Event.TopReached) {
+      setListener { event ->
+        if (event == ScrollableFragmentRoot.Event.TopReached) {
           viewModel.setToolbarFilled(false)
-        } else if (it == ScrollableFragmentRoot.Event.TopLeft) {
+        } else if (event == ScrollableFragmentRoot.Event.TopLeft) {
           viewModel.setToolbarFilled(true)
         }
       }

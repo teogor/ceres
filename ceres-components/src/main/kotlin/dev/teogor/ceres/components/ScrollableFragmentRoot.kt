@@ -26,14 +26,13 @@ class ScrollableFragmentRoot constructor(
   attrs: AttributeSet
 ) : ScrollView(context, attrs), Logger {
 
-  private var onScroll: OnScroll? = null
-
   fun scrollToTop() {
     smoothScrollTo(0, 0)
   }
 
-  var topStableEvent: Event = Event.NotSet
-  var bottomStableEvent: Event = Event.NotSet
+  private var topStableEvent: Event = Event.NotSet
+  private var bottomStableEvent: Event = Event.NotSet
+  private var callback: OnScrollEventListener? = null
 
   override fun onScrollChanged(l: Int, t: Int, oldl: Int, oldt: Int) {
     super.onScrollChanged(l, t, oldl, oldt)
@@ -41,8 +40,8 @@ class ScrollableFragmentRoot constructor(
     requestEvent()
   }
 
-  fun setEventListener(onScroll: OnScroll) {
-    this.onScroll = onScroll
+  fun setListener(onScroll: OnScrollEventListener) {
+    this.callback = onScroll
     requestEvent()
   }
 
@@ -53,7 +52,7 @@ class ScrollableFragmentRoot constructor(
       Event.TopReached
     }
     if (topStableEvent != topEvent) {
-      onScroll?.onScrollEvent(topEvent)
+      callback?.invoke(topEvent)
       topStableEvent = topEvent
     }
     val bottomEvent = if (canScrollVertically(1)) {
@@ -62,13 +61,9 @@ class ScrollableFragmentRoot constructor(
       Event.BottomReached
     }
     if (bottomStableEvent != bottomEvent) {
-      onScroll?.onScrollEvent(bottomEvent)
+      callback?.invoke(bottomEvent)
       bottomStableEvent = bottomEvent
     }
-  }
-
-  interface OnScroll {
-    fun onScrollEvent(type: Event) = Unit
   }
 
   enum class Event {
@@ -78,14 +73,4 @@ class ScrollableFragmentRoot constructor(
     BottomReached,
     BottomLeft
   }
-}
-
-inline fun ScrollableFragmentRoot.scrollEvent(
-  crossinline continuation: (ScrollableFragmentRoot.Event) -> Unit
-) {
-  setEventListener(object : ScrollableFragmentRoot.OnScroll {
-    override fun onScrollEvent(type: ScrollableFragmentRoot.Event) {
-      continuation(type)
-    }
-  })
 }
