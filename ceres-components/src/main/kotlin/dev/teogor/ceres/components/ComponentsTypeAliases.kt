@@ -14,4 +14,8 @@
  * limitations under the License.
  */
 
+@file:JvmName("ComponentsTypeAliases")
+
 package dev.teogor.ceres.components
+
+typealias OnScrollEventListener = (event: ScrollableFragmentRoot.Event) -> Unit
