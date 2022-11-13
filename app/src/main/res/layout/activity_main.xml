@@ -15,8 +15,7 @@
     limitations under the License.
 -->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools">
+  xmlns:app="http://schemas.android.com/apk/res-auto">
 
   <data>
 
@@ -43,10 +42,12 @@
 
     <dev.teogor.ceres.m3.widgets.bar.BarGroup
       android:id="@+id/top_bar_group"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_width="@dimen/constraint.layout.fit.screen"
+      android:layout_height="0dp"
       app:constraint_referenced_ids="status_bar,tool_bar"
-      tools:ignore="MissingConstraints" />
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
 
     <dev.teogor.ceres.m3.widgets.bar.StatusBar
       android:id="@+id/status_bar"
@@ -58,11 +59,11 @@
       android:id="@+id/tool_bar"
       android:layout_width="match_parent"
       android:layout_height="@dimen/toolbar_height"
+      app:is_filled="@{viewModel.toolbarViewData.isFilled}"
+      app:is_transparent="@{viewModel.toolbarViewData.isTransparent}"
       app:layout_constraintTop_toBottomOf="@+id/status_bar"
       app:show="@{viewModel.toolbarViewData.showToolbar}"
-      app:type="@{viewModel.toolbarViewData.toolbarType}"
-      app:is_transparent="@{viewModel.toolbarViewData.isTransparent}"
-      app:is_filled="@{viewModel.toolbarViewData.isFilled}">
+      app:type="@{viewModel.toolbarViewData.toolbarType}">
 
       <dev.teogor.ceres.m3.ImageViewM3
         android:id="@+id/back_button"
@@ -126,13 +127,12 @@
 
       <dev.teogor.ceres.m3.DigitsImageM3
         android:id="@+id/toolbar_logo"
-        app:corner_radius="200dp"
         android:layout_width="38dp"
         android:layout_height="38dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/font_regular"
         android:onClick="@{() -> viewModel.onLogoClicked()}"
-        android:text="MEUSER"
+        android:text="ME"
         app:background_m3="secondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

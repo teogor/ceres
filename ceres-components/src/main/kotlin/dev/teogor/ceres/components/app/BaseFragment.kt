@@ -115,6 +115,9 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(
     viewModel.onThemeChanged.observe(viewLifecycleOwner) {
       (activity as? BaseActivity<*, *>)?.viewModel?.onThemeChanged?.value = it
     }
+    viewModel.insetsStream.observe(viewLifecycleOwner) {
+      (activity as? BaseActivity<*, *>)?.viewModel?.insetsStream?.value = it
+    }
   }
 
   override fun onDestroyView() {

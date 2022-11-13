@@ -18,6 +18,7 @@ package dev.teogor.ceres.presentation.feature.m3
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.teogor.ceres.R
+import dev.teogor.ceres.components.system.InsetsConfigurator
 import dev.teogor.ceres.components.toolbar.ToolbarType
 import dev.teogor.ceres.components.view.ToolBar
 import dev.teogor.ceres.m3.app.BaseViewModelM3
@@ -30,6 +31,12 @@ class M3ViewModel @Inject constructor() : BaseViewModelM3() {
     get() = ToolBar.Builder(
       type = ToolbarType.COLLAPSABLE,
       title = R.string.m3
+    )
+
+  override val insets: InsetsConfigurator
+    get() = InsetsConfigurator(
+      bottomInsets = InsetsConfigurator.BottomInsets.BottomBar,
+      topInsets = InsetsConfigurator.TopInsets.ToolBar
     )
 
   override fun onFragmentCreated() {

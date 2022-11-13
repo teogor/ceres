@@ -24,6 +24,7 @@ import androidx.navigation.NavDirections
 import com.zeoflow.startup.ktx.ApplicationInitializer
 import dev.teogor.ceres.components.events.SingleLiveEvent
 import dev.teogor.ceres.components.events.UiEvent
+import dev.teogor.ceres.components.system.InsetsConfigurator
 import dev.teogor.ceres.components.toolbar.ToolbarType
 import dev.teogor.ceres.components.toolbar.ToolbarViewData
 import dev.teogor.ceres.components.view.ToolBar
@@ -52,8 +53,11 @@ open class BaseViewModel : ViewModel(), BaseCommon {
   val onBackPressed: SingleLiveEvent<Boolean> = SingleLiveEvent()
   val onThemeChanged: SingleLiveEvent<Boolean> = SingleLiveEvent()
   val uiEventStream: SingleLiveEvent<UiEvent> = SingleLiveEvent()
+  val insetsStream: SingleLiveEvent<InsetsConfigurator> = SingleLiveEvent()
 
   val resources: Resources = ApplicationInitializer.context.resources
+
+  open val insets: InsetsConfigurator = InsetsConfigurator()
 
   open fun onActivityCreated() {
   }
@@ -64,6 +68,7 @@ open class BaseViewModel : ViewModel(), BaseCommon {
       setTitleText(toolBarBuilder.title)
       toolbarViewData.value = this
     }
+    insetsStream.value = insets
   }
 
   private fun getToolbarView(type: ToolbarType): ToolbarViewData {

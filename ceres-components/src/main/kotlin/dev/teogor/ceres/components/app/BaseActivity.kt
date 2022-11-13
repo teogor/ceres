@@ -33,6 +33,8 @@ import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.doOnLayout
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
@@ -47,11 +49,13 @@ import com.google.android.material.transition.platform.MaterialContainerTransfor
 import dev.teogor.ceres.components.events.UiEvent
 import dev.teogor.ceres.components.navigation.NavigationUI
 import dev.teogor.ceres.components.navigation.NavigationViewModel
+import dev.teogor.ceres.components.system.InsetsConfigurator
 import dev.teogor.ceres.core.internal.WindowPreferencesManager
 import dev.teogor.ceres.extensions.defaultResId
 import dev.teogor.ceres.extensions.dpToPx
 import dev.teogor.ceres.extensions.findNavController
 import dev.teogor.ceres.extensions.hideKeyboard
+import dev.teogor.ceres.extensions.safeCall
 import java.util.concurrent.TimeUnit
 
 abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
@@ -88,6 +92,17 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
     // analytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW, bundle)
   }
 
+  open val insetsViews: InsetsViews = InsetsViews()
+
+  private var lastInsets: InsetsConfigurator = InsetsConfigurator()
+  private var navigationBarHeight: Int = 0
+  private var bottomNavHeight: Int = 0
+  private var floatingButtonHeight: Int = 0
+  private var toolBarHeight: Int = 0
+  private var statusBarHeight: Int = 0
+  private var navControllerBottomPadding: Int = 0
+  private var navControllerTopPadding: Int = 0
+
   override fun onCreate(savedInstanceState: Bundle?) {
     // Prevent splash screen showing up on configuration changes
     val splashScreen = if (savedInstanceState == null) installSplashScreen() else null
@@ -119,6 +134,37 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
       navController.addOnDestinationChangedListener(listener)
     }
 
+    ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
+      val navBars = insets.getInsets(WindowInsetsCompat.Type.navigationBars())
+      val statusBars = insets.getInsets(WindowInsetsCompat.Type.statusBars())
+      if (navBars.bottom != navigationBarHeight || statusBars.top != statusBarHeight) {
+        navigationBarHeight = navBars.bottom
+        // todo fixme without /2 the status bar height is doubled
+        statusBarHeight = statusBars.top / 2
+        processInsets(lastInsets)
+      }
+
+      insets
+    }
+    binding.root.doOnLayout {
+      with(insetsViews) {
+        navController.safeCall {
+          navControllerBottomPadding = paddingBottom
+          navControllerTopPadding = paddingTop
+        }
+        toolBar.safeCall {
+          toolBarHeight = height
+        }
+        bottomNavigation.safeCall {
+          bottomNavHeight = height
+        }
+        floatingButton.safeCall {
+          floatingButtonHeight = height
+        }
+      }
+
+      processInsets(lastInsets)
+    }
     setupUi()
     setupObservers()
 
@@ -126,6 +172,7 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
     viewModel.navigate.observe(this) { direction -> findNavController()?.navigate(direction) }
     viewModel.onBackPressed.observe(this) { findNavController()?.popBackStack() }
     viewModel.uiEventStream.observe(this) { uiEvent -> processUiEvent(uiEvent) }
+    viewModel.insetsStream.observe(this) { insets -> processInsets(insets) }
   }
 
   @LayoutRes
@@ -173,6 +220,51 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
 
       is UiEvent.StartIntent -> {
         uiEvent.intentType.call()
+      }
+    }
+  }
+
+  private fun processInsets(insets: InsetsConfigurator) {
+    lastInsets = insets
+    with(insets) {
+      val bottom = when (bottomInsets) {
+        InsetsConfigurator.BottomInsets.None -> {
+          navControllerBottomPadding
+        }
+        InsetsConfigurator.BottomInsets.NavigationBar -> {
+          navControllerBottomPadding + navigationBarHeight
+        }
+        InsetsConfigurator.BottomInsets.BottomBar -> {
+          navControllerBottomPadding + bottomNavHeight
+        }
+        InsetsConfigurator.BottomInsets.FloatingButton -> {
+          navControllerBottomPadding + bottomNavHeight + floatingButtonHeight
+        }
+      }
+      val top = when (topInsets) {
+        InsetsConfigurator.TopInsets.None -> {
+          navControllerTopPadding
+        }
+        InsetsConfigurator.TopInsets.StatusBar -> {
+          navControllerTopPadding + statusBarHeight
+        }
+        InsetsConfigurator.TopInsets.ToolBar -> {
+          navControllerTopPadding + statusBarHeight + toolBarHeight
+        }
+      }
+      setPadding(bottom, top)
+    }
+  }
+
+  private fun setPadding(bottom: Int, top: Int) {
+    with(insetsViews) {
+      navController.safeCall {
+        setPadding(
+          paddingLeft,
+          top,
+          paddingRight,
+          bottom
+        )
       }
     }
   }
@@ -271,4 +363,11 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
       navController
     )
   }
+
+  data class InsetsViews(
+    val navController: View? = null,
+    val bottomNavigation: View? = null,
+    val floatingButton: View? = null,
+    val toolBar: View? = null
+  )
 }
