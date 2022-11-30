@@ -79,7 +79,7 @@ fun IThemeM3.getBackgroundDrawable(
 fun ColorM3.inverse(): ColorM3 {
   return when (this) {
     ColorM3.Primary -> ColorM3.OnPrimary
-    ColorM3.OnPrimary -> ColorM3.OnPrimary
+    ColorM3.OnPrimary -> ColorM3.Primary
     ColorM3.PrimaryContainer -> ColorM3.OnPrimaryContainer
     ColorM3.OnPrimaryContainer -> ColorM3.PrimaryContainer
     ColorM3.InversePrimary -> ColorM3.Primary
