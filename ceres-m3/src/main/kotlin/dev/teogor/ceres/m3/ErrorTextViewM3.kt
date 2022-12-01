@@ -22,7 +22,7 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.textview.MaterialTextView
 import dev.teogor.ceres.m3.theme.IThemeM3
 
-class ErrorTextViewM3 : MaterialTextView, IThemeM3 {
+open class ErrorTextViewM3 : MaterialTextView, IThemeM3 {
 
   constructor(context: Context) : this(context, null)
 
@@ -34,7 +34,7 @@ class ErrorTextViewM3 : MaterialTextView, IThemeM3 {
     defStyleAttr
   ) {
     if (!isInEditMode) {
-      onThemeChanged()
+      applyTheme()
     } else {
       setTextColor(ContextCompat.getColor(context, R.color.error))
     }
@@ -42,7 +42,10 @@ class ErrorTextViewM3 : MaterialTextView, IThemeM3 {
 
   override fun onThemeChanged() {
     super.onThemeChanged()
+    applyTheme()
+  }
 
+  private fun applyTheme() {
     colorScheme().apply {
       setTextColor(error)
     }

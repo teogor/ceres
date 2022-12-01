@@ -25,6 +25,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import dev.teogor.ceres.extensions.defaultResId
 import dev.teogor.ceres.m3.beta.Beta
 import dev.teogor.ceres.m3.elevation.SurfaceLevel
+import dev.teogor.ceres.m3.extension.applyRippleEnabled
 import dev.teogor.ceres.m3.theme.IThemeM3
 import dev.teogor.ceres.m3.theme.getBackgroundDrawable
 
@@ -104,22 +105,17 @@ open class ContainerBaseM3 constructor(
       }
     }
     if (!isInEditMode) {
-      // todo fixme
-      onThemeChanged()
+      applyTheme()
     }
-    if (rippleEnabled) {
-      isClickable = true
-      isFocusable = true
-    }
+    applyRippleEnabled(enabled = rippleEnabled)
   }
 
   override fun onThemeChanged() {
     super.onThemeChanged()
-
-    defaultTheme()
+    applyTheme()
   }
 
-  private fun defaultTheme() {
+  private fun applyTheme() {
     background = getBackgroundDrawable(
       backgroundDrawable = Beta.BackgroundDrawable(
         cornerSize = cornerRadius,

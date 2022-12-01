@@ -27,7 +27,7 @@ import dev.teogor.ceres.m3.theme.IThemeM3
 import dev.teogor.ceres.m3.theme.SurfaceOverlay
 import dev.teogor.ceres.m3.widgets.extension.setItemColors
 
-class BottomNavigationViewM3 @JvmOverloads constructor(
+open class BottomNavigationViewM3 @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   defStyleAttr: Int = R.attr.bottomNavigationStyle,
@@ -36,13 +36,16 @@ class BottomNavigationViewM3 @JvmOverloads constructor(
 
   init {
     if (!isInEditMode) {
-      onThemeChanged()
+      applyTheme()
     }
   }
 
   override fun onThemeChanged() {
     super.onThemeChanged()
+    applyTheme()
+  }
 
+  private fun applyTheme() {
     val normalColor = blendColors(
       colorScheme().secondary,
       colorScheme().onBackground,

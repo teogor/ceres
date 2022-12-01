@@ -79,12 +79,18 @@ open class DigitsImageM3 @JvmOverloads constructor(
       }
     }
 
+    if (!isInEditMode) {
+      applyTheme()
+    }
     applyRippleEnabled(enabled = rippleEnabled)
   }
 
   override fun onThemeChanged() {
     super.onThemeChanged()
+    applyTheme()
+  }
 
+  private fun applyTheme() {
     setTextColor(getColorM3(colorM3 = textColorM3))
     // stroke / strokeSize
     background = getBackgroundDrawable(

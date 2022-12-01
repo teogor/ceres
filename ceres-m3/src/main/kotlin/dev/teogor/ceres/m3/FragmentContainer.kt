@@ -26,7 +26,7 @@ import dev.teogor.ceres.m3.extension.applyThemeOnChildren
 import dev.teogor.ceres.m3.theme.IThemeM3
 import dev.teogor.ceres.m3.theme.backgroundColor
 
-class FragmentContainer constructor(
+open class FragmentContainer constructor(
   context: Context,
   attrs: AttributeSet
 ) : ConstraintLayout(context, attrs), IThemeM3 {
@@ -53,8 +53,23 @@ class FragmentContainer constructor(
         recycle()
       }
     }
+    applyConsumeTop()
+    applyTheme()
+  }
+
+  override fun onThemeChanged() {
+    super.onThemeChanged()
+    applyTheme()
+  }
+
+  private fun applyTheme() {
+    setBackgroundColor(backgroundColor(this, SurfaceLevel.Lvl1))
+    applyThemeOnChildren()
+  }
+
+  private fun applyConsumeTop() {
     if (consumeTop) {
-      ViewCompat.setOnApplyWindowInsetsListener(this) { _, insets ->
+      ViewCompat.setOnApplyWindowInsetsListener(this@FragmentContainer) { _, insets ->
         val statusBarSize = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
         setPadding(
           paddingLeft,
@@ -65,13 +80,5 @@ class FragmentContainer constructor(
         insets
       }
     }
-    onThemeChanged()
-  }
-
-  override fun onThemeChanged() {
-    super.onThemeChanged()
-
-    setBackgroundColor(backgroundColor(this, SurfaceLevel.Lvl1))
-    applyThemeOnChildren()
   }
 }

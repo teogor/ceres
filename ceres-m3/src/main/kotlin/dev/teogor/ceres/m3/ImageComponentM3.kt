@@ -33,7 +33,7 @@ import dev.teogor.ceres.extensions.validDrawableRes
 import dev.teogor.ceres.extensions.validFontRes
 import dev.teogor.ceres.m3.databinding.Lm3ImageComponentBinding
 
-class ImageComponentM3(
+open class ImageComponentM3(
   context: Context,
   attrs: AttributeSet
 ) : ContainerBaseM3(context, attrs) {
@@ -75,11 +75,7 @@ class ImageComponentM3(
 
   init {
     // layout binding
-    binding = Lm3ImageComponentBinding.inflate(
-      LayoutInflater.from(context),
-      this,
-      true
-    )
+    binding = bindLayout()
 
     // attrs initialization
     context.theme.obtainStyledAttributes(
@@ -109,9 +105,7 @@ class ImageComponentM3(
       binding.textSubtitle.typeface = typeface
     }
 
-    setOnClickListener {
-      onClicked()
-    }
+    initOnClickListener()
 
     binding.imageM3.show(imageResId.validDrawableRes)
     imageResId.validDrawableRes {
@@ -120,6 +114,18 @@ class ImageComponentM3(
     binding.imageM3.setPadding(paddingImage)
 
     binding.textSubtitle.alpha = .85f
+  }
+
+  private fun bindLayout() = Lm3ImageComponentBinding.inflate(
+    LayoutInflater.from(context),
+    this@ImageComponentM3,
+    true
+  )
+
+  private fun initOnClickListener() {
+    setOnClickListener {
+      onClicked()
+    }
   }
 
   private fun onClicked() {

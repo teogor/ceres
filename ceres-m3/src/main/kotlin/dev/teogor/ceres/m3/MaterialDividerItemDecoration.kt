@@ -48,7 +48,7 @@ import com.google.android.material.resources.MaterialResources
  * recyclerView.addItemDecoration(dividerItemDecoration);
 </pre> *
  */
-class MaterialDividerItemDecoration(
+open class MaterialDividerItemDecoration(
   context: Context,
   attrs: AttributeSet?,
   defStyleAttr: Int = R.attr.materialDividerStyle,

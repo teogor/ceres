@@ -23,7 +23,7 @@ import dev.teogor.ceres.m3.beta.Beta
 import dev.teogor.ceres.m3.theme.IThemeM3
 import dev.teogor.ceres.m3.theme.getBackgroundDrawable
 
-class NestedScrollViewM3 constructor(
+open class NestedScrollViewM3 constructor(
   context: Context,
   attrs: AttributeSet
 ) : NestedScrollView(context, attrs), IThemeM3 {
@@ -59,13 +59,16 @@ class NestedScrollViewM3 constructor(
       }
     }
     if (!isInEditMode) {
-      onThemeChanged()
+      applyTheme()
     }
   }
 
   override fun onThemeChanged() {
     super.onThemeChanged()
+    applyTheme()
+  }
 
+  private fun applyTheme() {
     background = getBackgroundDrawable(
       backgroundDrawable = Beta.BackgroundDrawable(
         background = Beta.BackgroundData(

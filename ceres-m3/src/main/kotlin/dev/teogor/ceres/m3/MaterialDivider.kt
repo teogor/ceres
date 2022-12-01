@@ -41,7 +41,7 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay
  * in a layout file. Make sure to set `android:layout_height="wrap_content"` to ensure that
  * the correct thickness is set for the divider.
  */
-class MaterialDivider @JvmOverloads constructor(
+open class MaterialDivider @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   defStyleAttr: Int = R.attr.materialDividerStyle
@@ -50,7 +50,8 @@ class MaterialDivider @JvmOverloads constructor(
   attrs,
   defStyleAttr
 ) {
-  private val dividerDrawable: MaterialShapeDrawable
+
+  private val dividerDrawable: MaterialShapeDrawable = MaterialShapeDrawable()
   private var thickness: Int
 
   /**
@@ -109,7 +110,6 @@ class MaterialDivider @JvmOverloads constructor(
   var dividerInsetEnd: Int
 
   init {
-    dividerDrawable = MaterialShapeDrawable()
     val attributes = ThemeEnforcement.obtainStyledAttributes(
       context,
       attrs,
