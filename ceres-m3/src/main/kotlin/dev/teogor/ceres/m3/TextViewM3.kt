@@ -59,10 +59,18 @@ class TextViewM3 : MaterialTextView, IThemeM3 {
             0
           )
         ]
-        rippleEnabled = getBoolean(
+
+        val rippleEnabledAttr = getBoolean(
           R.styleable.TextViewM3_ripple_enabled,
-          false
+          isClickable
         )
+        rippleEnabled = if (isClickable && !rippleEnabledAttr) {
+          false
+        } else if (isClickable) {
+          true
+        } else {
+          rippleEnabledAttr
+        }
         cornerRadius = getDimension(R.styleable.TextViewM3_corner_radius, 0f)
       } finally {
         recycle()

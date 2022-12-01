@@ -69,10 +69,17 @@ open class DigitsImageM3 @JvmOverloads constructor(
             0
           )
         ]
-        rippleEnabled = getBoolean(
+        val rippleEnabledAttr = getBoolean(
           R.styleable.DigitsImageM3_ripple_enabled,
-          false
+          isClickable
         )
+        rippleEnabled = if (isClickable && !rippleEnabledAttr) {
+          false
+        } else if (isClickable) {
+          true
+        } else {
+          rippleEnabledAttr
+        }
         cornerRadius = getDimension(R.styleable.DigitsImageM3_corner_radius, 0f)
       } finally {
         recycle()
