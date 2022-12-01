@@ -77,10 +77,18 @@ class ButtonM3 @JvmOverloads constructor(
             0
           )
         ]
-        rippleEnabled = getBoolean(
+        val rippleEnabledAttr = getBoolean(
           R.styleable.ButtonM3_ripple_enabled,
-          false
+          isClickable
         )
+        rippleEnabled = if (isClickable && !rippleEnabledAttr) {
+          false
+        } else if (isClickable) {
+          true
+        } else {
+          rippleEnabledAttr
+        }
+
         cornerRadius = getDimension(R.styleable.ButtonM3_corner_radius, 0f)
       } finally {
         recycle()
