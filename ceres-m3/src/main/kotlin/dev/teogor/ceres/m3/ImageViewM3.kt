@@ -55,18 +55,10 @@ class ImageViewM3 constructor(
             0
           )
         ]
-
-        val rippleEnabledAttr = getBoolean(
+        rippleEnabled = getBoolean(
           R.styleable.ImageViewM3_ripple_enabled,
-          isClickable
-        )
-        rippleEnabled = if (isClickable && !rippleEnabledAttr) {
           false
-        } else if (isClickable) {
-          true
-        } else {
-          rippleEnabledAttr
-        }
+        )
       } finally {
         recycle()
       }

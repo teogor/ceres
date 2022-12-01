@@ -95,18 +95,10 @@ open class ContainerBaseM3 constructor(
         ]
         foregroundTintOverlay = getFloat(R.styleable.ContainerBaseM3_foreground_m3_tint, 0f)
         cornerRadius = getDimension(R.styleable.ContainerBaseM3_corner_radius, 0f)
-
-        val rippleEnabledAttr = getBoolean(
+        rippleEnabled = getBoolean(
           R.styleable.ContainerBaseM3_ripple_enabled,
-          isClickable
-        )
-        rippleEnabled = if (isClickable && !rippleEnabledAttr) {
           false
-        } else if (isClickable) {
-          true
-        } else {
-          rippleEnabledAttr
-        }
+        )
       } finally {
         recycle()
       }
