@@ -18,7 +18,7 @@ public class dev/teogor/ceres/m3/BR {
 	public fun <init> ()V
 }
 
-public final class dev/teogor/ceres/m3/BottomNavigationViewM3 : com/google/android/material/bottomnavigation/BottomNavigationView, dev/teogor/ceres/m3/theme/IThemeM3 {
+public class dev/teogor/ceres/m3/BottomNavigationViewM3 : com/google/android/material/bottomnavigation/BottomNavigationView, dev/teogor/ceres/m3/theme/IThemeM3 {
 	public fun <init> (Landroid/content/Context;)V
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -37,7 +37,7 @@ public final class dev/teogor/ceres/m3/BuildConfig {
 	public fun <init> ()V
 }
 
-public final class dev/teogor/ceres/m3/ButtonM3 : dev/teogor/ceres/components/view/Button, dev/teogor/ceres/m3/theme/IThemeM3 {
+public class dev/teogor/ceres/m3/ButtonM3 : dev/teogor/ceres/components/view/Button, dev/teogor/ceres/m3/theme/IThemeM3 {
 	public fun <init> (Landroid/content/Context;)V
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
 	public synthetic fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -48,7 +48,7 @@ public final class dev/teogor/ceres/m3/ButtonM3 : dev/teogor/ceres/components/vi
 	public fun onThemeChanged ()V
 }
 
-public final class dev/teogor/ceres/m3/CheckedTextViewM3 : androidx/appcompat/widget/AppCompatCheckedTextView, dev/teogor/ceres/m3/theme/IThemeM3 {
+public class dev/teogor/ceres/m3/CheckedTextViewM3 : androidx/appcompat/widget/AppCompatCheckedTextView, dev/teogor/ceres/m3/theme/IThemeM3 {
 	public fun <init> (Landroid/content/Context;)V
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -101,7 +101,7 @@ public final class dev/teogor/ceres/m3/ColorM3 : java/lang/Enum {
 	public static fun values ()[Ldev/teogor/ceres/m3/ColorM3;
 }
 
-public final class dev/teogor/ceres/m3/ColorsContainerM3 : dev/teogor/ceres/m3/ContainerBaseM3 {
+public class dev/teogor/ceres/m3/ColorsContainerM3 : dev/teogor/ceres/m3/ContainerBaseM3 {
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
 	public final fun getColor ()I
 	public final fun getOnColorPickListener ()Ldev/teogor/ceres/m3/ColorsContainerM3$OnColorPickListener;
@@ -135,7 +135,7 @@ public class dev/teogor/ceres/m3/ContainerBaseM3 : androidx/constraintlayout/wid
 	public final fun setRippleEnabled (Z)V
 }
 
-public final class dev/teogor/ceres/m3/ContainerM3 : dev/teogor/ceres/m3/ContainerBaseM3 {
+public class dev/teogor/ceres/m3/ContainerM3 : dev/teogor/ceres/m3/ContainerBaseM3 {
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
 }
 
@@ -163,7 +163,7 @@ public class dev/teogor/ceres/m3/DigitsImageM3 : dev/teogor/ceres/components/vie
 	public fun onThemeChanged ()V
 }
 
-public final class dev/teogor/ceres/m3/ErrorTextViewM3 : com/google/android/material/textview/MaterialTextView, dev/teogor/ceres/m3/theme/IThemeM3 {
+public class dev/teogor/ceres/m3/ErrorTextViewM3 : com/google/android/material/textview/MaterialTextView, dev/teogor/ceres/m3/theme/IThemeM3 {
 	public fun <init> (Landroid/content/Context;)V
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -173,7 +173,7 @@ public final class dev/teogor/ceres/m3/ErrorTextViewM3 : com/google/android/mate
 	public fun onThemeChanged ()V
 }
 
-public final class dev/teogor/ceres/m3/FragmentContainer : androidx/constraintlayout/widget/ConstraintLayout, dev/teogor/ceres/m3/theme/IThemeM3 {
+public class dev/teogor/ceres/m3/FragmentContainer : androidx/constraintlayout/widget/ConstraintLayout, dev/teogor/ceres/m3/theme/IThemeM3 {
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
 	public fun colorScheme ()Ldev/teogor/ceres/m3/theme/ColorScheme;
 	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
@@ -181,7 +181,7 @@ public final class dev/teogor/ceres/m3/FragmentContainer : androidx/constraintla
 	public fun onThemeChanged ()V
 }
 
-public final class dev/teogor/ceres/m3/ImageComponentM3 : dev/teogor/ceres/m3/ContainerBaseM3 {
+public class dev/teogor/ceres/m3/ImageComponentM3 : dev/teogor/ceres/m3/ContainerBaseM3 {
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
 	public final fun getOnClickedChangeListener ()Ldev/teogor/ceres/m3/ImageComponentM3$OnClickedChangeListener;
 	public final fun getSubtitle ()Ljava/lang/String;
@@ -195,7 +195,7 @@ public abstract interface class dev/teogor/ceres/m3/ImageComponentM3$OnClickedCh
 	public abstract fun onClicked ()V
 }
 
-public final class dev/teogor/ceres/m3/ImageViewM3 : androidx/appcompat/widget/AppCompatImageView, dev/teogor/ceres/m3/theme/IThemeM3 {
+public class dev/teogor/ceres/m3/ImageViewM3 : androidx/appcompat/widget/AppCompatImageView, dev/teogor/ceres/m3/theme/IThemeM3 {
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
 	public fun colorScheme ()Ldev/teogor/ceres/m3/theme/ColorScheme;
 	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
@@ -203,7 +203,7 @@ public final class dev/teogor/ceres/m3/ImageViewM3 : androidx/appcompat/widget/A
 	public fun onThemeChanged ()V
 }
 
-public final class dev/teogor/ceres/m3/MaterialDivider : android/view/View {
+public class dev/teogor/ceres/m3/MaterialDivider : android/view/View {
 	public static final field Companion Ldev/teogor/ceres/m3/MaterialDivider$Companion;
 	public fun <init> (Landroid/content/Context;)V
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -213,6 +213,8 @@ public final class dev/teogor/ceres/m3/MaterialDivider : android/view/View {
 	public final fun getDividerInsetEnd ()I
 	public final fun getDividerInsetStart ()I
 	public final fun getDividerThickness ()I
+	protected fun onDraw (Landroid/graphics/Canvas;)V
+	protected fun onMeasure (II)V
 	public final fun setDividerColor (I)V
 	public final fun setDividerColorResource (I)V
 	public final fun setDividerInsetEnd (I)V
@@ -226,7 +228,7 @@ public final class dev/teogor/ceres/m3/MaterialDivider : android/view/View {
 public final class dev/teogor/ceres/m3/MaterialDivider$Companion {
 }
 
-public final class dev/teogor/ceres/m3/MaterialDividerItemDecoration : androidx/recyclerview/widget/RecyclerView$ItemDecoration {
+public class dev/teogor/ceres/m3/MaterialDividerItemDecoration : androidx/recyclerview/widget/RecyclerView$ItemDecoration {
 	public static final field Companion Ldev/teogor/ceres/m3/MaterialDividerItemDecoration$Companion;
 	public static final field HORIZONTAL I
 	public static final field VERTICAL I
@@ -255,7 +257,7 @@ public final class dev/teogor/ceres/m3/MaterialDividerItemDecoration : androidx/
 public final class dev/teogor/ceres/m3/MaterialDividerItemDecoration$Companion {
 }
 
-public final class dev/teogor/ceres/m3/NestedScrollViewM3 : androidx/core/widget/NestedScrollView, dev/teogor/ceres/m3/theme/IThemeM3 {
+public class dev/teogor/ceres/m3/NestedScrollViewM3 : androidx/core/widget/NestedScrollView, dev/teogor/ceres/m3/theme/IThemeM3 {
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
 	public fun colorScheme ()Ldev/teogor/ceres/m3/theme/ColorScheme;
 	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
@@ -263,7 +265,7 @@ public final class dev/teogor/ceres/m3/NestedScrollViewM3 : androidx/core/widget
 	public fun onThemeChanged ()V
 }
 
-public final class dev/teogor/ceres/m3/RatingBarM3 : androidx/appcompat/widget/AppCompatRatingBar, dev/teogor/ceres/m3/theme/IThemeM3 {
+public class dev/teogor/ceres/m3/RatingBarM3 : androidx/appcompat/widget/AppCompatRatingBar, dev/teogor/ceres/m3/theme/IThemeM3 {
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
 	public fun colorScheme ()Ldev/teogor/ceres/m3/theme/ColorScheme;
 	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
@@ -271,7 +273,7 @@ public final class dev/teogor/ceres/m3/RatingBarM3 : androidx/appcompat/widget/A
 	public fun onThemeChanged ()V
 }
 
-public final class dev/teogor/ceres/m3/ScrollViewM3 : android/widget/ScrollView, dev/teogor/ceres/m3/theme/IThemeM3 {
+public class dev/teogor/ceres/m3/ScrollViewM3 : android/widget/ScrollView, dev/teogor/ceres/m3/theme/IThemeM3 {
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
 	public fun colorScheme ()Ldev/teogor/ceres/m3/theme/ColorScheme;
 	public fun getColorM3 (Ldev/teogor/ceres/m3/ColorM3;)I
@@ -279,7 +281,7 @@ public final class dev/teogor/ceres/m3/ScrollViewM3 : android/widget/ScrollView,
 	public fun onThemeChanged ()V
 }
 
-public final class dev/teogor/ceres/m3/SnackbarBetaM3 : dev/teogor/ceres/m3/theme/IThemeM3 {
+public class dev/teogor/ceres/m3/SnackbarBetaM3 : dev/teogor/ceres/m3/theme/IThemeM3 {
 	public static final field Companion Ldev/teogor/ceres/m3/SnackbarBetaM3$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Landroid/view/View$OnClickListener;ILandroid/view/View;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun colorScheme ()Ldev/teogor/ceres/m3/theme/ColorScheme;
@@ -310,7 +312,7 @@ public final class dev/teogor/ceres/m3/SnackbarBetaM3$Companion {
 	public final fun toBuilder ()Ldev/teogor/ceres/m3/SnackbarBetaM3$Builder;
 }
 
-public final class dev/teogor/ceres/m3/SwitchComponentM3 : dev/teogor/ceres/m3/ContainerBaseM3 {
+public class dev/teogor/ceres/m3/SwitchComponentM3 : dev/teogor/ceres/m3/ContainerBaseM3 {
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
 	public final fun getOnCheckedChangeListener ()Ldev/teogor/ceres/m3/SwitchComponentM3$OnCheckedChangeListener;
 	public final fun getOnClickedChangeListener ()Ldev/teogor/ceres/m3/SwitchComponentM3$OnClickedChangeListener;
@@ -334,7 +336,7 @@ public abstract interface class dev/teogor/ceres/m3/SwitchComponentM3$OnClickedC
 	public abstract fun onClicked ()V
 }
 
-public final class dev/teogor/ceres/m3/SwitchM3 : androidx/appcompat/widget/SwitchCompat, dev/teogor/ceres/m3/theme/IThemeM3 {
+public class dev/teogor/ceres/m3/SwitchM3 : androidx/appcompat/widget/SwitchCompat, dev/teogor/ceres/m3/theme/IThemeM3 {
 	public static final field Companion Ldev/teogor/ceres/m3/SwitchM3$Companion;
 	public fun <init> (Landroid/content/Context;)V
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -355,6 +357,7 @@ public final class dev/teogor/ceres/m3/SwitchM3 : androidx/appcompat/widget/Swit
 	public final fun getWrapContext ()Landroid/content/Context;
 	public fun invalidate ()V
 	public fun log (Ljava/lang/String;)V
+	protected fun onCreateDrawableState (I)[I
 	public fun onThemeChanged ()V
 	public fun setThumbDrawable (Landroid/graphics/drawable/Drawable;)V
 	public final fun setThumbIconDrawable (Landroid/graphics/drawable/Drawable;)V
@@ -376,7 +379,7 @@ public final class dev/teogor/ceres/m3/SwitchM3 : androidx/appcompat/widget/Swit
 public final class dev/teogor/ceres/m3/SwitchM3$Companion {
 }
 
-public final class dev/teogor/ceres/m3/TextViewM3 : com/google/android/material/textview/MaterialTextView, dev/teogor/ceres/m3/theme/IThemeM3 {
+public class dev/teogor/ceres/m3/TextViewM3 : com/google/android/material/textview/MaterialTextView, dev/teogor/ceres/m3/theme/IThemeM3 {
 	public fun <init> (Landroid/content/Context;)V
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
 	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;I)V

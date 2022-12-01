@@ -27,7 +27,7 @@ import dev.teogor.ceres.extensions.show
 import dev.teogor.ceres.extensions.validFontRes
 import dev.teogor.ceres.m3.databinding.Lm3SwitchComponentBinding
 
-class SwitchComponentM3(
+open class SwitchComponentM3(
   context: Context,
   attrs: AttributeSet
 ) : ContainerBaseM3(context, attrs) {
@@ -77,11 +77,7 @@ class SwitchComponentM3(
 
   init {
     // layout binding
-    binding = Lm3SwitchComponentBinding.inflate(
-      LayoutInflater.from(context),
-      this,
-      true
-    )
+    binding = bindLayout()
 
     // attrs initialization
     context.theme.obtainStyledAttributes(
@@ -118,9 +114,7 @@ class SwitchComponentM3(
     binding.switchM3.setOnCheckedChangeListener { _, isChecked ->
       onCheckedToggled(isChecked)
     }
-    setOnClickListener {
-      onClicked()
-    }
+    initOnClickListener()
 
     binding.textSubtitle.alpha = .85f
 
@@ -128,6 +122,18 @@ class SwitchComponentM3(
     setSwitch()
     showSwitch(hasSwitch)
     initializationCompleted = true
+  }
+
+  private fun bindLayout() = Lm3SwitchComponentBinding.inflate(
+    LayoutInflater.from(context),
+    this@SwitchComponentM3,
+    true
+  )
+
+  private fun initOnClickListener() {
+    setOnClickListener {
+      onClicked()
+    }
   }
 
   //region Public Methods :: API Methods

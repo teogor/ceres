@@ -26,7 +26,7 @@ import dev.teogor.ceres.m3.elevation.SurfaceLevel
 import dev.teogor.ceres.m3.theme.IThemeM3
 import dev.teogor.ceres.m3.theme.getBackgroundDrawable
 
-class ButtonM3 @JvmOverloads constructor(
+open class ButtonM3 @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null
 ) : Button(context, attrs), IThemeM3 {
@@ -95,13 +95,16 @@ class ButtonM3 @JvmOverloads constructor(
       }
     }
     if (!isInEditMode) {
-      onThemeChanged()
+      applyTheme()
     }
   }
 
   override fun onThemeChanged() {
     super.onThemeChanged()
+    applyTheme()
+  }
 
+  private fun applyTheme() {
     setTextColor(getColorM3(colorM3 = textColorM3))
 
     // todo extension for Beta.BackgroundDrawable

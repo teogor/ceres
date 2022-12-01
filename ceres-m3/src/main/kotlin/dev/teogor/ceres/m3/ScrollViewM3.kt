@@ -23,7 +23,7 @@ import dev.teogor.ceres.m3.beta.Beta
 import dev.teogor.ceres.m3.theme.IThemeM3
 import dev.teogor.ceres.m3.theme.getBackgroundDrawable
 
-class ScrollViewM3 constructor(
+open class ScrollViewM3 constructor(
   context: Context,
   attrs: AttributeSet
 ) : ScrollView(context, attrs), IThemeM3 {
@@ -33,7 +33,6 @@ class ScrollViewM3 constructor(
   private val backgroundTintOverlay: Float
 
   init {
-
     context.theme.obtainStyledAttributes(
       attrs,
       R.styleable.ScrollViewM3,
@@ -59,13 +58,16 @@ class ScrollViewM3 constructor(
       }
     }
     if (!isInEditMode) {
-      onThemeChanged()
+      applyTheme()
     }
   }
 
   override fun onThemeChanged() {
     super.onThemeChanged()
+    applyTheme()
+  }
 
+  private fun applyTheme() {
     background = getBackgroundDrawable(
       backgroundDrawable = Beta.BackgroundDrawable(
         background = Beta.BackgroundData(

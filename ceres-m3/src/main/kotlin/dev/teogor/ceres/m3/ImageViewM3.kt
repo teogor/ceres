@@ -26,7 +26,7 @@ import dev.teogor.ceres.m3.elevation.SurfaceLevel
 import dev.teogor.ceres.m3.theme.IThemeM3
 import dev.teogor.ceres.m3.theme.getBackgroundDrawable
 
-class ImageViewM3 constructor(
+open class ImageViewM3 constructor(
   context: Context,
   attrs: AttributeSet
 ) : AppCompatImageView(context, attrs), IThemeM3 {
@@ -64,13 +64,16 @@ class ImageViewM3 constructor(
       }
     }
     if (!isInEditMode) {
-      onThemeChanged()
+      applyTheme()
     }
   }
 
   override fun onThemeChanged() {
     super.onThemeChanged()
+    applyTheme()
+  }
 
+  private fun applyTheme() {
     background = getBackgroundDrawable(
       backgroundDrawable = Beta.BackgroundDrawable(
         background = Beta.BackgroundData.Transparent,

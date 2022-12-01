@@ -25,7 +25,7 @@ import dev.teogor.ceres.m3.snackbar.Snackbar
 import dev.teogor.ceres.m3.theme.IThemeM3
 import dev.teogor.ceres.m3.theme.SurfaceOverlay
 
-class SnackbarBetaM3 private constructor(
+open class SnackbarBetaM3 private constructor(
   message: String,
   action: String,
   listener: View.OnClickListener?,

@@ -25,7 +25,7 @@ import dev.teogor.ceres.m3.extension.compoundDrawablesTintList
 import dev.teogor.ceres.m3.theme.IThemeM3
 import dev.teogor.ceres.m3.theme.getBackgroundDrawable
 
-class CheckedTextViewM3 : AppCompatCheckedTextView, IThemeM3 {
+open class CheckedTextViewM3 : AppCompatCheckedTextView, IThemeM3 {
 
   constructor(context: Context) : this(context, null)
 
@@ -35,13 +35,20 @@ class CheckedTextViewM3 : AppCompatCheckedTextView, IThemeM3 {
     context,
     attrs,
     defStyleAttr
-  ) {
-    onThemeChanged()
+  )
+
+  init {
+    if (!isInEditMode) {
+      applyTheme()
+    }
   }
 
   override fun onThemeChanged() {
     super.onThemeChanged()
+    applyTheme()
+  }
 
+  private fun applyTheme() {
     setTextColor(colorScheme().onSurface.addAlpha(0.9f))
     compoundDrawablesTintList = colorScheme().primary
 

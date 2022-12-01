@@ -35,7 +35,7 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay
 import dev.teogor.ceres.extensions.defaultResId
 import dev.teogor.ceres.m3.theme.IThemeM3
 
-class SwitchM3(
+open class SwitchM3(
   var wrapContext: Context,
   attrs: AttributeSet?,
   defStyleAttr: Int
@@ -102,13 +102,16 @@ class SwitchM3(
     setEnforceSwitchWidth(false)
 
     if (!isInEditMode) {
-      onThemeChanged()
+      applyTheme()
     }
   }
 
   override fun onThemeChanged() {
     super.onThemeChanged()
+    applyTheme()
+  }
 
+  private fun applyTheme() {
     colorScheme().apply {
       val switchThumbTintStates = arrayOf(
         intArrayOf(-android.R.attr.state_enabled, -android.R.attr.state_checked),

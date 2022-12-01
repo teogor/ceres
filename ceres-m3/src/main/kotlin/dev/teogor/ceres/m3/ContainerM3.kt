@@ -19,7 +19,7 @@ package dev.teogor.ceres.m3
 import android.content.Context
 import android.util.AttributeSet
 
-class ContainerM3 constructor(
+open class ContainerM3 constructor(
   context: Context,
   attrs: AttributeSet
 ) : ContainerBaseM3(context, attrs)

@@ -32,7 +32,7 @@ import dev.teogor.ceres.m3.widgets.colorpicker.model.IntegerHSLColor
 import dev.teogor.ceres.m3.widgets.colorpicker.view.picker.ColorSeekBar
 import dev.teogor.ceres.m3.widgets.colorpicker.view.picker.OnIntegerHSLColorPickListener
 
-class ColorsContainerM3 constructor(
+open class ColorsContainerM3 constructor(
   context: Context,
   attrs: AttributeSet
 ) : ContainerBaseM3(context, attrs) {
@@ -72,11 +72,7 @@ class ColorsContainerM3 constructor(
 
   init {
     // layout binding
-    binding = Lm3ColorsContainerBinding.inflate(
-      LayoutInflater.from(context),
-      this,
-      true
-    )
+    binding = bindLayout()
 
     // attrs initialization
     context.theme.obtainStyledAttributes(
@@ -115,6 +111,12 @@ class ColorsContainerM3 constructor(
       }
     })
   }
+
+  private fun bindLayout() = Lm3ColorsContainerBinding.inflate(
+    LayoutInflater.from(context),
+    this@ColorsContainerM3,
+    true
+  )
 
   override fun setEnabled(isEnabled: Boolean) {
     super.setEnabled(isEnabled)
