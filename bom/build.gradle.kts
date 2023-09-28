@@ -36,6 +36,7 @@ afterEvaluate {
   collectBomConstraints()
 
   val ceresLibrary = project.extensions.getByType(CeresLibraryExtension::class.java)
+  ceresLibrary.name = "Ceres BoM"
   mavenPublishing {
     publishToMavenCentral(SonatypeHost.S01)
     signAllPublications()

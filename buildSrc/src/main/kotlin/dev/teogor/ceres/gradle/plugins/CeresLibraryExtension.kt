@@ -7,6 +7,7 @@ open class CeresLibraryExtension {
   var artifactId: String? = null
   var version: String? = null
   var name: String? = null
+  var deprecated: Boolean = false
 
   private fun MavenPom.info() {
     name.set(

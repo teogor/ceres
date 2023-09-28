@@ -53,27 +53,6 @@ class CeresModulePlugin : Plugin<Project> {
             }
           }
         }
-        if (!isBomModule) {
-          val rootProjectDir = project.rootDir
-          project.tasks.create("generateCeresDocs") {
-            doLast {
-              val fileName = "module-$artifactIdPrefix.md"
-
-              val docsDir = File(rootProjectDir, "docs")
-              docsDir.mkdirs()
-
-              val outputFile = File(docsDir, fileName)
-              outputFile.writeText(
-                generateMarkdownContent(
-                  subprojects.toList(),
-                  group = "dev.teogor.ceres",
-                  artifactIdPrefix = artifactIdPrefix,
-                  version = ceresModuleExtension.version!!,
-                ),
-              )
-            }
-          }
-        }
 
         prepareWorkflow(
           outputFile = rootProject.file(".github/workflows/publish-$name.yml"),
@@ -130,37 +109,6 @@ class CeresModulePlugin : Plugin<Project> {
     """.trimIndent()
 
     Files.write(outputFile.toPath(), workflowContent.toByteArray())
-  }
-
-  private fun generateMarkdownContent(
-    componentModules: List<Project>,
-    group: String,
-    artifactIdPrefix: String,
-    version: String,
-  ): String {
-    val markdownBuilder = StringBuilder()
-    markdownBuilder.appendLine("# ${capitalizeAndReplace(artifactIdPrefix)} Modules")
-    markdownBuilder.appendLine("")
-    componentModules.forEach { module ->
-      val moduleNameCapitalized = capitalizeAndReplace(module.name)
-      markdownBuilder.appendLine("## $moduleNameCapitalized Module")
-      markdownBuilder.appendLine("- **Description:** This module provides `${module.name}` functionality.")
-      markdownBuilder.appendLine(
-        "- **Source Code:** [View Source](..${
-          module.path.replace(
-            ":",
-            "/",
-          )
-        })",
-      )
-      markdownBuilder.appendLine("")
-      markdownBuilder.appendLine("### Implementation")
-      markdownBuilder.appendLine("```kotlin")
-      markdownBuilder.appendLine("implementation(\"$group:${artifactIdPrefix}-${module.name}:$version\")")
-      markdownBuilder.appendLine("```")
-      markdownBuilder.appendLine("")
-    }
-    return markdownBuilder.toString()
   }
 
   private fun capitalizeAndReplace(input: String): String {
