@@ -18,16 +18,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
   `kotlin-dsl`
-  id("com.gradle.plugin-publish") version "1.1.0"
   alias(libs.plugins.vanniktech.maven)
-}
-
-repositories {
-  mavenLocal()
-  maven(url = "https://maven.google.com/")
-  mavenCentral()
-  maven(url = "https://storage.googleapis.com/android-ci/mvn/")
-  maven(url = "https://plugins.gradle.org/m2/")
+  kotlin("plugin.serialization") version "1.6.0"
 }
 
 java {
@@ -45,6 +37,7 @@ tasks.withType<KotlinCompile>().configureEach {
 
 dependencies {
   api(gradleApi())
+  implementation(libs.kotlinx.serialization.json)
 }
 
 gradlePlugin {

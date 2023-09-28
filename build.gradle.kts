@@ -82,15 +82,13 @@ subprojects {
   }
 }
 
-
 fun Project.addDokka(
   enabled: Boolean,
 ) {
-  if(!enabled) {
+  if (!enabled) {
     return
   }
   tasks.dokkaHtmlMultiModule.configure {
-    println("rootDir=$rootDir.")
     outputDirectory.set(rootDir.resolve("docs/dokka"))
   }
 
@@ -99,11 +97,9 @@ fun Project.addDokka(
       ":app",
     )
     if (parent == rootProject) {
-      if(!excludeModules.contains(path)) {
-        println("applying dokka for ?? $path")
+      if (!excludeModules.contains(path)) {
         apply(plugin = "org.jetbrains.dokka")
         subprojects {
-          println("applying dokka for submodule ?? $path")
           apply(plugin = "org.jetbrains.dokka")
         }
 
@@ -168,3 +164,6 @@ apiValidation {
   validationDisabled = false
 }
 
+tasks.register<DependencyInfoGenerator>("generateDependenciesDocs") {
+  generateBomMapping()
+}
