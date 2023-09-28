@@ -20,10 +20,10 @@ object Version {
   private const val majorVersion = 1
   private const val minorVersion = 0
   private const val patchVersion = 0
-  private const val preReleaseVersion = 2
+  private const val preReleaseVersion = 1
   const val code = 1
 
-  val flags = Flags.BETA
+  val flags = Flags.ALPHA
   val name = VersionImplementation.versionNameImpl()
   val snapshotName = VersionImplementation.snapshotVersionNameImpl()
 
