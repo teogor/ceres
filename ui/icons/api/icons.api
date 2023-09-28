@@ -1,0 +1,25 @@
+public final class dev/teogor/ceres/ui/icons/CeresIcons {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/ui/icons/CeresIcons;
+	public final fun getAccountCircle ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun getAdd ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun getArrowBack ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun getArrowDropDown ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun getArrowDropUp ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun getCheck ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun getClose ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun getExpandLess ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun getFullscreen ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun getGrid3x3 ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun getMoreVert ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun getPerson ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun getPlayArrow ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun getSearch ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun getSettings ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun getShortText ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun getTag ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun getViewDay ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun getVolumeOff ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun getVolumeUp ()Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+

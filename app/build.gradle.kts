@@ -1,140 +1,145 @@
-import dev.teogor.ceres.Configuration
-import dev.teogor.ceres.Versions
+/*
+ * Copyright 2023 teogor (Teodor Grigor)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+import dev.teogor.ceres.CeresBuildType
+import dev.teogor.ceres.Version
 
 plugins {
-  // android
-  id("com.android.application")
-  // kotlin
-  id("kotlin-android")
-  id("kotlin-kapt")
-  id("kotlin-parcelize")
-  // google services
-  id("com.google.gms.google-services")
-  // firebase suite
-  id("com.google.firebase.crashlytics")
-  id("com.google.firebase.firebase-perf")
-  id("com.google.firebase.appdistribution")
-  // hilt
-  id("com.google.dagger.hilt.android")
-  // safe args
-  id("androidx.navigation.safeargs.kotlin")
+  id("dev.teogor.ceres.android.application")
+  id("dev.teogor.ceres.android.application.compose")
+  id("dev.teogor.ceres.android.application.jacoco")
+  id("dev.teogor.ceres.android.application.firebase")
+  id("dev.teogor.ceres.android.hilt")
+  id("kotlinx-serialization")
+  id("jacoco")
+
+  // Feature :: About
+  alias(libs.plugins.about.libraries) apply true
 }
 
 android {
-  namespace = "${Configuration.baseNamespace}"
-  compileSdk = Configuration.compileSdk
-
+  namespace = "dev.teogor.ceres"
   defaultConfig {
-    applicationId = "${Configuration.baseNamespace}"
-    minSdk = Configuration.minSdk
-    targetSdk = Configuration.targetSdk
-    versionCode = Configuration.versionCode
-    versionName = Configuration.versionName
+    applicationId = "dev.teogor.ceres"
+    versionCode = Version.code
+    versionName = Version.name
 
-    multiDexEnabled = true
-  }
-
-  buildTypes {
-    release {
-      isDebuggable = false
-      isMinifyEnabled = true
-      isShrinkResources = true
-      proguardFiles(
-        getDefaultProguardFile("proguard-android-optimize.txt"),
-        "proguard-rules.pro"
-      )
-
-      resValue(
-        "string",
-        "GMS_APPLICATION_ID",
-        "\"ca-app-pub-3940256099942544~3347511713\""
-      )
+    // Custom test runner to set up Hilt dependency graph
+    testInstrumentationRunner = "dev.teogor.ceres.core.testing.CeresTestRunner"
+    vectorDrawables {
+      useSupportLibrary = true
     }
-
-    debug {
-      isDebuggable = true
-      versionNameSuffix = " [debug]"
-      applicationIdSuffix = ".dev"
-
-      resValue(
-        "string",
-        "GMS_APPLICATION_ID",
-        "\"ca-app-pub-3940256099942544~3347511713\""
-      )
-    }
-  }
-
-  compileOptions {
-    sourceCompatibility = Configuration.javaVersion
-    targetCompatibility = Configuration.javaVersion
-  }
-  kotlinOptions {
-    jvmTarget = Configuration.jvmTarget
   }
 
   buildFeatures {
-    dataBinding = true
-    viewBinding = true
+    resValues = true
   }
 
-  lint {
-    abortOnError = false
-    checkReleaseBuilds = false
+  buildTypes {
+    debug {
+      applicationIdSuffix = CeresBuildType.DEBUG.applicationIdSuffix
+
+      resValue("string", "app_name", "Ceres (Debug)")
+    }
+    val release by getting {
+      isMinifyEnabled = true
+      applicationIdSuffix = CeresBuildType.RELEASE.applicationIdSuffix
+      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+
+      // To publish on the Play store a private signing key is required, but to allow anyone
+      // who clones the code to sign and run the release variant, use the debug signing key.
+      // TODO: Abstract the signing configuration to a separate file to avoid hardcoding this.
+      signingConfig = signingConfigs.getByName("debug")
+
+      resValue("string", "app_name", "Ceres")
+    }
+    create("benchmark") {
+      // Enable all the optimizations from release build through initWith(release).
+      initWith(release)
+      matchingFallbacks.add("release")
+      // Debug key signing is available to everyone.
+      signingConfig = signingConfigs.getByName("debug")
+      // Only use benchmark proguard rules
+      proguardFiles("benchmark-rules.pro")
+      isMinifyEnabled = true
+      applicationIdSuffix = CeresBuildType.BENCHMARK.applicationIdSuffix
+    }
   }
 
-  kapt {
-    correctErrorTypes = true
+  packaging {
+    resources {
+      excludes.add("/META-INF/{AL2.0,LGPL2.1}")
+    }
+  }
+  testOptions {
+    unitTests {
+      isIncludeAndroidResources = true
+    }
   }
 }
 
 dependencies {
-  implementation(project(":ceres-ads"))
-  implementation(project(":ceres-bindings"))
-  implementation(project(":ceres-components"))
-  implementation(project(":ceres-core"))
-  implementation(project(":ceres-extensions"))
-  implementation(project(":ceres-firebase"))
-  implementation(project(":ceres-m3"))
-  implementation(project(":ceres-widget"))
-  implementation(project(":ceres-wear-os"))
+  // application configuration
+  implementation(project(":framework:core"))
 
-  //----------------------------- ZEOFLOW -------------------------------
-  implementation("com.zeoflow.startup:startup-ktx:${Versions.ZeoFlowStartUp}")
-  implementation("com.zeoflow.memo:memo:${Versions.ZeoFlowMemo}")
-  implementation("com.zeoflow.memo:memo-runtime:${Versions.ZeoFlowMemo}")
-  kapt("com.zeoflow.memo:memo-compiler-ktx:${Versions.ZeoFlowMemo}")
-  //---------------------------------------------------------------------
+  // screen builder
+  implementation(project(":screen:builder"))
+  implementation(project(":screen:core"))
 
-  //----------------------------- DEFAULT -------------------------------
-  implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-  implementation("androidx.appcompat:appcompat:1.5.1")
-  implementation("androidx.core:core-ktx:1.9.0")
-  implementation("androidx.fragment:fragment-ktx:${Versions.AndroidXFragment}")
-  implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidXNavigation}")
-  implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidXNavigation}")
-  implementation("androidx.multidex:multidex:2.0.1")
-  implementation("com.google.android.material:material:${Versions.GoogleMaterial}")
-  //---------------------------------------------------------------------
+  // default screens
+  implementation(project(":screen:ui"))
 
-  //--------------------------- PLAY SERVICES ---------------------------
-  implementation("com.google.android.gms:play-services-base:18.1.0")
-  implementation("com.google.android.gms:play-services-ads:21.3.0")
-  implementation("com.google.android.gms:play-services-gcm:17.0.0")
-  implementation("com.google.android.gms:play-services-analytics:18.0.2")
-  implementation("com.google.android.ump:user-messaging-platform:2.0.0")
-  implementation("com.google.android.play:core:1.10.3")
-  //---------------------------------------------------------------------
+  // theme config
+  implementation(project(":ui:theme"))
 
-  //----------------------------- FIREBASE ------------------------------
-  implementation(platform("com.google.firebase:firebase-bom:31.0.1"))
-  //---------------------------------------------------------------------
+  // monetisation
+  implementation(project(":monetisation:admob"))
+  implementation(project(":monetisation:messaging"))
 
-  //------------------------------ DAGGER -------------------------------
-  implementation("com.google.dagger:hilt-android:${Versions.DaggerHilt}")
-  kapt("com.google.dagger:hilt-compiler:${Versions.DaggerHilt}")
-  //---------------------------------------------------------------------
+  implementation(libs.kotlinx.serialization.json)
+  implementation(libs.kotlinx.serialization.protobuf)
 
-  implementation("dev.chrisbanes.insetter:insetter:0.6.1")
+  implementation(libs.androidx.activity.compose)
+  implementation(libs.androidx.appcompat)
+  implementation(libs.androidx.core.ktx)
+  implementation(libs.androidx.core.splashscreen)
+  implementation(libs.androidx.compose.runtime)
+  implementation(libs.androidx.lifecycle.runtimeCompose)
+  implementation(libs.androidx.compose.runtime.tracing)
+  implementation(libs.androidx.compose.material3.windowSizeClass)
+  implementation(libs.androidx.hilt.navigation.compose)
+  implementation(libs.androidx.navigation.compose)
+  implementation(libs.androidx.window.manager)
+  implementation(libs.androidx.profileinstaller)
 
-  debugImplementation("com.squareup.leakcanary:leakcanary-android:2.9.1")
+  implementation(libs.ui)
+  implementation(libs.ui.graphics)
+  implementation(libs.ui.tooling.preview)
+  implementation(libs.androidx.compose.material3)
+
+  // Feature :: About
+  implementation(libs.about.libraries.core)
+  // used for toImmutableList
+  implementation(libs.kotlinx.collections)
+}
+
+// androidx.test is forcing JUnit, 4.12. This forces it to use 4.13
+configurations.configureEach {
+  resolutionStrategy {
+    force(libs.junit4)
+    // Temporary workaround for https://issuetracker.google.com/174733673
+    force("org.objenesis:objenesis:2.6")
+  }
 }

@@ -1,0 +1,20 @@
+public final class dev/teogor/ceres/ui/compose/ToolbarKt {
+	public static final fun ToolbarBackground-uFdPcIQ (Landroidx/compose/ui/Modifier;FLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun UpdateToolbarAlpha (FLandroidx/compose/runtime/Composer;I)V
+}
+
+public final class dev/teogor/ceres/ui/compose/ToolbarState : androidx/lifecycle/ViewModel {
+	public static final field $stable I
+	public fun <init> ()V
+	public final fun getElevation ()Landroidx/compose/runtime/State;
+	public final fun getToolbarAlpha ()Landroidx/compose/runtime/State;
+	public final fun getToolbarColor ()Landroidx/compose/runtime/State;
+	public final fun updateElevation-0680j_4 (F)V
+	public final fun updateToolbarAlpha (F)V
+	public final fun updateToolbarColor-8_81llA (J)V
+}
+
+public final class dev/teogor/ceres/ui/compose/ToolbarStateKt {
+	public static final fun getLocalToolbarState ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+

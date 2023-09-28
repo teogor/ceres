@@ -1,0 +1,5 @@
+public final class dev/teogor/ceres/navigation/events/AnalyticsExtensionsKt {
+	public static final fun TrackScreenViewEvent (Ljava/lang/String;Ldev/teogor/ceres/firebase/analytics/AnalyticsHelper;Landroidx/compose/runtime/Composer;II)V
+	public static final fun logScreenView (Ldev/teogor/ceres/firebase/analytics/AnalyticsHelper;Ljava/lang/String;)V
+}
+

@@ -1,37 +1,72 @@
 pluginManagement {
-  plugins {
-    id("com.android.application") version "7.3.1" apply false
-    id("com.android.library") version "7.3.1" apply false
-    id("org.jetbrains.kotlin.android") version "1.6.21" apply false
-    id("org.jetbrains.kotlin.jvm") version "1.6.21" apply false
-    id("org.jetbrains.dokka") version "1.7.20"
-  }
-  repositories {
-    gradlePluginPortal()
-    google()
-    mavenCentral()
-  }
+    includeBuild("plugin/")
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
 }
-
+@Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
-  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-  repositories {
-    maven("https://jitpack.io")
-    google()
-    mavenCentral()
-  }
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
 }
 
 rootProject.name = "Ceres"
 
+// App
 include(":app")
 
-include(":ceres-core")
-include(":ceres-components")
-include(":ceres-m3")
-include(":ceres-ads")
-include(":ceres-extensions")
-include(":ceres-bindings")
-include(":ceres-firebase")
-include(":ceres-widget")
-include(":ceres-wear-os")
+// BOM
+include(":bom")
+
+// Navigation
+include(":navigation:common")
+include(":navigation:core")
+include(":navigation:events")
+include(":navigation:screen")
+include(":navigation:ui")
+
+// Firebase
+include(":firebase:analytics")
+include(":firebase:crashlytics")
+include(":firebase:remote-config")
+
+// Backup
+include(":backup:core")
+include(":backup:ui")
+
+// Data
+include(":data:compose")
+include(":data:database")
+include(":data:datastore")
+
+// UI
+include(":ui:compose")
+include(":ui:designsystem")
+include(":ui:foundation")
+include(":ui:icons")
+include(":ui:spectrum")
+include(":ui:theme")
+
+// Core
+include(":core:runtime")
+include(":core:network")
+include(":core:notifications")
+include(":core:startup")
+
+// Framework
+include(":framework:core")
+include(":framework:ui")
+
+// Screen
+include(":screen:core")
+include(":screen:builder")
+include(":screen:ui")
+
+// Monetisation
+include(":monetisation:admob")
+include(":monetisation:messaging")

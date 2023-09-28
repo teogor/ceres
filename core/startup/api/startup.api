@@ -1,0 +1,19 @@
+public final class dev/teogor/ceres/core/startup/ApplicationContextProvider {
+	public static final field INSTANCE Ldev/teogor/ceres/core/startup/ApplicationContextProvider;
+	public final fun getContext ()Landroid/content/Context;
+}
+
+public abstract interface annotation class dev/teogor/ceres/core/startup/InitializerModule : java/lang/annotation/Annotation {
+}
+
+public final class dev/teogor/ceres/core/startup/StartupInitProvider {
+	public fun <init> (Landroid/app/Application;)V
+}
+
+public final class dev/teogor/ceres/core/startup/StartupProvider : androidx/startup/Initializer {
+	public fun <init> ()V
+	public fun create (Landroid/content/Context;)Ldev/teogor/ceres/core/startup/StartupInitProvider;
+	public synthetic fun create (Landroid/content/Context;)Ljava/lang/Object;
+	public fun dependencies ()Ljava/util/List;
+}
+

@@ -1,0 +1,73 @@
+public final class dev/teogor/ceres/monetisation/messaging/ConsentManager {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/monetisation/messaging/ConsentManager;
+	public final fun getActivity ()Landroid/app/Activity;
+	public final fun getState ()Landroidx/compose/runtime/MutableState;
+	public final fun initialiseConsentForm (Landroid/app/Activity;)V
+	public final fun loadAndShowConsentFormIfRequired ()V
+	public final fun resetConsent ()V
+	public final fun setActivity (Landroid/app/Activity;)V
+}
+
+public abstract class dev/teogor/ceres/monetisation/messaging/ConsentResult {
+	public static final field $stable I
+}
+
+public final class dev/teogor/ceres/monetisation/messaging/ConsentResult$ConsentFormAcquired : dev/teogor/ceres/monetisation/messaging/ConsentResult {
+	public static final field $stable I
+	public fun <init> (ZLcom/google/android/ump/ConsentInformation$PrivacyOptionsRequirementStatus;Z)V
+	public final fun component1 ()Z
+	public final fun component2 ()Lcom/google/android/ump/ConsentInformation$PrivacyOptionsRequirementStatus;
+	public final fun component3 ()Z
+	public final fun copy (ZLcom/google/android/ump/ConsentInformation$PrivacyOptionsRequirementStatus;Z)Ldev/teogor/ceres/monetisation/messaging/ConsentResult$ConsentFormAcquired;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/monetisation/messaging/ConsentResult$ConsentFormAcquired;ZLcom/google/android/ump/ConsentInformation$PrivacyOptionsRequirementStatus;ZILjava/lang/Object;)Ldev/teogor/ceres/monetisation/messaging/ConsentResult$ConsentFormAcquired;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCanRequestAds ()Z
+	public final fun getFormAvailable ()Z
+	public final fun getRequirementStatus ()Lcom/google/android/ump/ConsentInformation$PrivacyOptionsRequirementStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/monetisation/messaging/ConsentResult$ConsentFormDismissed : dev/teogor/ceres/monetisation/messaging/ConsentResult {
+	public static final field $stable I
+	public fun <init> (ZLcom/google/android/ump/ConsentInformation$PrivacyOptionsRequirementStatus;Lcom/google/android/ump/FormError;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Lcom/google/android/ump/ConsentInformation$PrivacyOptionsRequirementStatus;
+	public final fun component3 ()Lcom/google/android/ump/FormError;
+	public final fun copy (ZLcom/google/android/ump/ConsentInformation$PrivacyOptionsRequirementStatus;Lcom/google/android/ump/FormError;)Ldev/teogor/ceres/monetisation/messaging/ConsentResult$ConsentFormDismissed;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/monetisation/messaging/ConsentResult$ConsentFormDismissed;ZLcom/google/android/ump/ConsentInformation$PrivacyOptionsRequirementStatus;Lcom/google/android/ump/FormError;ILjava/lang/Object;)Ldev/teogor/ceres/monetisation/messaging/ConsentResult$ConsentFormDismissed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCanRequestAds ()Z
+	public final fun getFormError ()Lcom/google/android/ump/FormError;
+	public final fun getRequirementStatus ()Lcom/google/android/ump/ConsentInformation$PrivacyOptionsRequirementStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/monetisation/messaging/ConsentResult$Undefined : dev/teogor/ceres/monetisation/messaging/ConsentResult {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/monetisation/messaging/ConsentResult$Undefined;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/monetisation/messaging/MessagingManager {
+	public static final field $stable I
+	public static final field Companion Ldev/teogor/ceres/monetisation/messaging/MessagingManager$Companion;
+	public fun <init> ()V
+}
+
+public final class dev/teogor/ceres/monetisation/messaging/MessagingManager$Companion {
+	public final fun initialize (Landroid/content/Context;)V
+}
+
+public final class dev/teogor/ceres/monetisation/messaging/MessagingManagerInitializer : androidx/startup/Initializer {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun create (Landroid/content/Context;)Ljava/lang/Object;
+	public fun create (Landroid/content/Context;)V
+	public fun dependencies ()Ljava/util/List;
+}
+
