@@ -1,0 +1,371 @@
+public final class dev/teogor/ceres/ui/spectrum/blend/Blend {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/ui/spectrum/blend/Blend;
+	public final fun cam16Ucs (IID)I
+	public final fun harmonize (II)I
+	public final fun hctHue (IID)I
+}
+
+public final class dev/teogor/ceres/ui/spectrum/hct/Cam16 {
+	public static final field $stable I
+	public static final field Companion Ldev/teogor/ceres/ui/spectrum/hct/Cam16$Companion;
+	public static final field XYZ_TO_CAM16RGB [[D
+	public synthetic fun <init> (DDDDDDDDDLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun distance (Ldev/teogor/ceres/ui/spectrum/hct/Cam16;)D
+	public static final fun fromInt (I)Ldev/teogor/ceres/ui/spectrum/hct/Cam16;
+	public final fun getAstar ()D
+	public final fun getBstar ()D
+	public final fun getChroma ()D
+	public final fun getHue ()D
+	public final fun getJ ()D
+	public final fun getJstar ()D
+	public final fun getM ()D
+	public final fun getQ ()D
+	public final fun getS ()D
+	public final fun toInt ()I
+	public final fun viewed (Ldev/teogor/ceres/ui/spectrum/hct/ViewingConditions;)I
+}
+
+public final class dev/teogor/ceres/ui/spectrum/hct/Cam16$Companion {
+	public final fun fromInt (I)Ldev/teogor/ceres/ui/spectrum/hct/Cam16;
+	public final fun fromIntInViewingConditions (ILdev/teogor/ceres/ui/spectrum/hct/ViewingConditions;)Ldev/teogor/ceres/ui/spectrum/hct/Cam16;
+	public final fun fromJch (DDD)Ldev/teogor/ceres/ui/spectrum/hct/Cam16;
+	public final fun fromUcs (DDD)Ldev/teogor/ceres/ui/spectrum/hct/Cam16;
+	public final fun fromUcsInViewingConditions (DDDLdev/teogor/ceres/ui/spectrum/hct/ViewingConditions;)Ldev/teogor/ceres/ui/spectrum/hct/Cam16;
+	public final fun getCAM16RGB_TO_XYZ ()[[D
+}
+
+public final class dev/teogor/ceres/ui/spectrum/hct/Hct {
+	public static final field $stable I
+	public static final field Companion Ldev/teogor/ceres/ui/spectrum/hct/Hct$Companion;
+	public synthetic fun <init> (ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getChroma ()D
+	public final fun getHue ()D
+	public final fun getTone ()D
+	public final fun setChroma (D)V
+	public final fun setHue (D)V
+	public final fun setTone (D)V
+	public final fun toInt ()I
+}
+
+public final class dev/teogor/ceres/ui/spectrum/hct/Hct$Companion {
+	public final fun from (DDD)Ldev/teogor/ceres/ui/spectrum/hct/Hct;
+	public final fun fromInt (I)Ldev/teogor/ceres/ui/spectrum/hct/Hct;
+}
+
+public final class dev/teogor/ceres/ui/spectrum/hct/HctSolver {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/ui/spectrum/hct/HctSolver;
+	public final fun areInCyclicOrder (DDD)Z
+	public final fun bisectToLimit (DD)[D
+	public final fun bisectToSegment (DD)[[D
+	public final fun chromaticAdaptation (D)D
+	public final fun criticalPlaneAbove (D)I
+	public final fun criticalPlaneBelow (D)I
+	public final fun findResultByJ (DDD)I
+	public final fun getCRITICAL_PLANES ()[D
+	public final fun getLINRGB_FROM_SCALED_DISCOUNT ()[[D
+	public final fun getSCALED_DISCOUNT_FROM_LINRGB ()[[D
+	public final fun getY_FROM_LINRGB ()[D
+	public final fun hueOf ([D)D
+	public final fun intercept (DDD)D
+	public final fun inverseChromaticAdaptation (D)D
+	public final fun isBounded (D)Z
+	public final fun lerpPoint ([DD[D)[D
+	public final fun midpoint ([D[D)[D
+	public final fun nthVertex (DI)[D
+	public final fun sanitizeRadians (D)D
+	public final fun setCoordinate ([DD[DI)[D
+	public final fun solveToCam (DDD)Ldev/teogor/ceres/ui/spectrum/hct/Cam16;
+	public static final fun solveToInt (DDD)I
+	public final fun trueDelinearized (D)D
+}
+
+public final class dev/teogor/ceres/ui/spectrum/hct/ViewingConditions {
+	public static final field $stable I
+	public static final field Companion Ldev/teogor/ceres/ui/spectrum/hct/ViewingConditions$Companion;
+	public synthetic fun <init> (DDDDDD[DDDDLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getAw ()D
+	public final fun getC ()D
+	public final fun getFl ()D
+	public final fun getFlRoot ()D
+	public final fun getN ()D
+	public final fun getNbb ()D
+	public final fun getNc ()D
+	public final fun getNcb ()D
+	public final fun getRgbD ()[D
+	public final fun getZ ()D
+}
+
+public final class dev/teogor/ceres/ui/spectrum/hct/ViewingConditions$Companion {
+	public final fun getDEFAULT ()Ldev/teogor/ceres/ui/spectrum/hct/ViewingConditions;
+	public final fun make ([DDDDZ)Ldev/teogor/ceres/ui/spectrum/hct/ViewingConditions;
+}
+
+public final class dev/teogor/ceres/ui/spectrum/model/ColorInfo {
+	public static final field $stable I
+	public static final field Companion Ldev/teogor/ceres/ui/spectrum/model/ColorInfo$Companion;
+	public fun <init> (Ldev/teogor/ceres/ui/spectrum/hct/Hct;DD)V
+	public synthetic fun <init> (Ldev/teogor/ceres/ui/spectrum/hct/Hct;DDILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ldev/teogor/ceres/ui/spectrum/hct/Hct;
+	public final fun component2 ()D
+	public final fun component3 ()D
+	public final fun copy (Ldev/teogor/ceres/ui/spectrum/hct/Hct;DD)Ldev/teogor/ceres/ui/spectrum/model/ColorInfo;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/ui/spectrum/model/ColorInfo;Ldev/teogor/ceres/ui/spectrum/hct/Hct;DDILjava/lang/Object;)Ldev/teogor/ceres/ui/spectrum/model/ColorInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChroma ()D
+	public final fun getColorInt ()I
+	public final fun getHct ()Ldev/teogor/ceres/ui/spectrum/hct/Hct;
+	public final fun getHue ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/ui/spectrum/model/ColorInfo$Companion {
+	public final fun from-8_81llA (J)Ldev/teogor/ceres/ui/spectrum/model/ColorInfo;
+}
+
+public final class dev/teogor/ceres/ui/spectrum/palettes/CorePalette {
+	public static final field $stable I
+	public static final field Companion Ldev/teogor/ceres/ui/spectrum/palettes/CorePalette$Companion;
+	public synthetic fun <init> (JJJZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getA1 ()Ldev/teogor/ceres/ui/spectrum/palettes/TonalPalette;
+	public final fun getA2 ()Ldev/teogor/ceres/ui/spectrum/palettes/TonalPalette;
+	public final fun getA3 ()Ldev/teogor/ceres/ui/spectrum/palettes/TonalPalette;
+	public final fun getA4 ()Ldev/teogor/ceres/ui/spectrum/palettes/TonalPalette;
+	public final fun getA5 ()Ldev/teogor/ceres/ui/spectrum/palettes/TonalPalette;
+	public final fun getError ()Ldev/teogor/ceres/ui/spectrum/palettes/TonalPalette;
+	public final fun getN1 ()Ldev/teogor/ceres/ui/spectrum/palettes/TonalPalette;
+	public final fun getN2 ()Ldev/teogor/ceres/ui/spectrum/palettes/TonalPalette;
+	public final fun getSuccess ()Ldev/teogor/ceres/ui/spectrum/palettes/TonalPalette;
+	public final fun getWarning ()Ldev/teogor/ceres/ui/spectrum/palettes/TonalPalette;
+}
+
+public final class dev/teogor/ceres/ui/spectrum/palettes/CorePalette$Companion {
+	public final fun contentOf-8_81llA (J)Ldev/teogor/ceres/ui/spectrum/palettes/CorePalette;
+	public final fun of-ysEtTa8 (JJJ)Ldev/teogor/ceres/ui/spectrum/palettes/CorePalette;
+	public static synthetic fun of-ysEtTa8$default (Ldev/teogor/ceres/ui/spectrum/palettes/CorePalette$Companion;JJJILjava/lang/Object;)Ldev/teogor/ceres/ui/spectrum/palettes/CorePalette;
+}
+
+public final class dev/teogor/ceres/ui/spectrum/palettes/TonalPalette {
+	public static final field $stable I
+	public static final field Companion Ldev/teogor/ceres/ui/spectrum/palettes/TonalPalette$Companion;
+	public synthetic fun <init> (DDLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getCache ()Ljava/util/Map;
+	public final fun getChroma ()D
+	public final fun getHue ()D
+	public final fun setCache (Ljava/util/Map;)V
+	public final fun setChroma (D)V
+	public final fun setHue (D)V
+	public final fun tone-vNxB06k (I)J
+}
+
+public final class dev/teogor/ceres/ui/spectrum/palettes/TonalPalette$Companion {
+	public final fun fromHueAndChroma (DD)Ldev/teogor/ceres/ui/spectrum/palettes/TonalPalette;
+	public final fun fromInt (I)Ldev/teogor/ceres/ui/spectrum/palettes/TonalPalette;
+}
+
+public abstract interface class dev/teogor/ceres/ui/spectrum/quantize/PointProvider {
+	public abstract fun distance ([D[D)D
+	public abstract fun fromInt (I)[D
+	public abstract fun toInt ([D)I
+}
+
+public final class dev/teogor/ceres/ui/spectrum/quantize/PointProviderLab : dev/teogor/ceres/ui/spectrum/quantize/PointProvider {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun distance ([D[D)D
+	public fun fromInt (I)[D
+	public fun toInt ([D)I
+}
+
+public final class dev/teogor/ceres/ui/spectrum/quantize/QuantizerCelebi {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerCelebi;
+	public final fun quantize ([II)Ljava/util/Map;
+}
+
+public final class dev/teogor/ceres/ui/spectrum/quantize/QuantizerMap : dev/teogor/ceres/ui/spectrum/quantize/Quantizer {
+	public static final field $stable I
+	public fun <init> ()V
+	public final fun getColorToCount ()Ljava/util/Map;
+	public fun quantize ([II)Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerResult;
+	public final fun setColorToCount (Ljava/util/Map;)V
+}
+
+public final class dev/teogor/ceres/ui/spectrum/quantize/QuantizerResult {
+	public static final field $stable I
+	public final fun getColorToCount ()Ljava/util/Map;
+}
+
+public final class dev/teogor/ceres/ui/spectrum/quantize/QuantizerWsmeans {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWsmeans;
+	public final fun quantize ([I[II)Ljava/util/Map;
+}
+
+public final class dev/teogor/ceres/ui/spectrum/quantize/QuantizerWu : dev/teogor/ceres/ui/spectrum/quantize/Quantizer {
+	public static final field $stable I
+	public static final field Companion Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Companion;
+	public field cubes [Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Box;
+	public field moments [D
+	public field momentsB [I
+	public field momentsG [I
+	public field momentsR [I
+	public field weights [I
+	public fun <init> ()V
+	public final fun constructHistogram (Ljava/util/Map;)V
+	public final fun createBoxes (I)Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$CreateBoxesResult;
+	public final fun createMoments ()V
+	public final fun createResult (I)Ljava/util/List;
+	public final fun cut (Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Box;Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Box;)Z
+	public final fun getCubes ()[Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Box;
+	public final fun getMoments ()[D
+	public final fun getMomentsB ()[I
+	public final fun getMomentsG ()[I
+	public final fun getMomentsR ()[I
+	public final fun getWeights ()[I
+	public final fun maximize (Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Box;Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Direction;IIIIII)Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$MaximizeResult;
+	public fun quantize ([II)Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerResult;
+	public final fun setCubes ([Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Box;)V
+	public final fun setMoments ([D)V
+	public final fun setMomentsB ([I)V
+	public final fun setMomentsG ([I)V
+	public final fun setMomentsR ([I)V
+	public final fun setWeights ([I)V
+	public final fun variance (Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Box;)D
+}
+
+public final class dev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Box {
+	public static final field $stable I
+	public fun <init> ()V
+	public final fun getB0 ()I
+	public final fun getB1 ()I
+	public final fun getG0 ()I
+	public final fun getG1 ()I
+	public final fun getR0 ()I
+	public final fun getR1 ()I
+	public final fun getVol ()I
+	public final fun setB0 (I)V
+	public final fun setB1 (I)V
+	public final fun setG0 (I)V
+	public final fun setG1 (I)V
+	public final fun setR0 (I)V
+	public final fun setR1 (I)V
+	public final fun setVol (I)V
+}
+
+public final class dev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Companion {
+	public final fun bottom (Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Box;Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Direction;[I)I
+	public final fun getIndex (III)I
+	public final fun top (Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Box;Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Direction;I[I)I
+	public final fun volume (Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Box;[I)I
+}
+
+public final class dev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$CreateBoxesResult {
+	public static final field $stable I
+	public final fun getRequestedCount ()I
+	public final fun getResultCount ()I
+	public final fun setRequestedCount (I)V
+	public final fun setResultCount (I)V
+}
+
+public final class dev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Direction : java/lang/Enum {
+	public static final field BLUE Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Direction;
+	public static final field GREEN Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Direction;
+	public static final field RED Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Direction;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Direction;
+	public static fun values ()[Ldev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$Direction;
+}
+
+public final class dev/teogor/ceres/ui/spectrum/quantize/QuantizerWu$MaximizeResult {
+	public static final field $stable I
+	public final fun getCutLocation ()I
+	public final fun getMaximum ()D
+	public final fun setCutLocation (I)V
+	public final fun setMaximum (D)V
+}
+
+public final class dev/teogor/ceres/ui/spectrum/score/Score {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/ui/spectrum/score/Score;
+	public final fun score (Ljava/util/Map;)Ljava/util/List;
+}
+
+public final class dev/teogor/ceres/ui/spectrum/util/ColorExtKt {
+	public static final fun addAlpha (IF)I
+	public static final fun adjustAlpha (IF)I
+	public static final fun blendColors (IIF)I
+	public static final fun darkenColor (IF)I
+	public static synthetic fun darkenColor$default (IFILjava/lang/Object;)I
+	public static final fun desaturateColor (IF)I
+	public static final fun getColorDarkness (I)D
+	public static final fun getColorStateList (I)Landroid/content/res/ColorStateList;
+	public static final fun getContrastColor (I)I
+	public static final fun getDifference (II)D
+	public static final fun getInverseColor (I)I
+	public static final fun getMixedColor (II)I
+	public static final fun getReadableColorDark (II)I
+	public static final fun getReadableColorLight (II)I
+	public static final fun getReadableText (III)I
+	public static synthetic fun getReadableText$default (IIIILjava/lang/Object;)I
+	public static final fun invertColor (I)I
+	public static final fun isColorLight (I)Z
+	public static final fun isColorSaturated (I)Z
+	public static final fun lightenColor (IF)I
+	public static synthetic fun lightenColor$default (IFILjava/lang/Object;)I
+	public static final fun randomColor (F)I
+	public static synthetic fun randomColor$default (FILjava/lang/Object;)I
+	public static final fun shiftColor (IF)I
+	public static final fun stripAlpha (I)I
+}
+
+public final class dev/teogor/ceres/ui/spectrum/util/ColorUtils {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/ui/spectrum/util/ColorUtils;
+	public static final field SRGB_TO_XYZ [[D
+	public static final field WHITE_POINT_D65 [D
+	public static final field XYZ_TO_SRGB [[D
+	public static final fun alphaFromArgb (I)I
+	public static final fun argbFromLab (DDD)I
+	public static final fun argbFromLinrgb ([D)I
+	public static final fun argbFromLstar (D)I
+	public static final fun argbFromRgb (III)I
+	public static final fun argbFromXyz (DDD)I
+	public static final fun blueFromArgb (I)I
+	public static final fun delinearized (D)I
+	public static final fun greenFromArgb (I)I
+	public final fun isOpaque (I)Z
+	public static final fun labF (D)D
+	public static final fun labFromArgb (I)[D
+	public static final fun labInvf (D)D
+	public static final fun linearized (I)D
+	public static final fun lstarFromArgb (I)D
+	public static final fun redFromArgb (I)I
+	public static final fun whitePointD65 ()[D
+	public static final fun xyzFromArgb (I)[D
+	public static final fun yFromLstar (D)D
+}
+
+public final class dev/teogor/ceres/ui/spectrum/util/MathUtils {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/ui/spectrum/util/MathUtils;
+	public static final fun clampDouble (DDD)D
+	public static final fun clampInt (III)I
+	public static final fun differenceDegrees (DD)D
+	public static final fun lerp (DDD)D
+	public static final fun matrixMultiply ([D[[D)[D
+	public static final fun rotationDirection (DD)D
+	public static final fun sanitizeDegreesDouble (D)D
+	public static final fun sanitizeDegreesInt (I)I
+	public static final fun signum (D)I
+}
+
+public final class dev/teogor/ceres/ui/spectrum/utilities/ColorExtensionKt {
+	public static final fun asColor (Ljava/lang/String;)J
+	public static final fun asHexColor-8_81llA (J)Ljava/lang/String;
+	public static final fun asIntColor (Ljava/lang/String;)I
+	public static final fun asIntColor-8_81llA (J)I
+}
+

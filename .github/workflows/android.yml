@@ -1,10 +1,11 @@
 name: Android CI
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  
+#  push:
+#    branches: [ main ]
+#  pull_request:
+#    branches: [ main ]
 
 jobs:
   lint:
@@ -13,12 +14,16 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
-      - name: Set up JDK
-        uses: actions/setup-java@v1
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3.5.1
         with:
-          java-version: 11
+          distribution: 'zulu'
+          java-version: 17
+
       - name: Make gradlew executable
         run: chmod +x ./gradlew
+
       - name: spotless
         run: ./gradlew spotlessCheck
 
@@ -28,25 +33,34 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
-      - name: Set up JDK
-        uses: actions/setup-java@v1
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3.5.1
         with:
-          java-version: 11
+          distribution: 'zulu'
+          java-version: 17
+
       - name: Make gradlew executable
         run: chmod +x ./gradlew
+
       - name: API check
         run: ./gradlew apiCheck
 
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: set up JDK
-        uses: actions/setup-java@v1
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3.5.1
         with:
-          java-version: 11
+          distribution: 'zulu'
+          java-version: 17
+
       - name: Make gradlew executable
         run: chmod +x ./gradlew
+
       - name: Cache Gradle and wrapper
         uses: actions/cache@v2
         with:
@@ -56,7 +70,9 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
+
       - name: Make Gradle executable
         run: chmod +x ./gradlew
+
       - name: Build with Gradle
         run: ./gradlew build

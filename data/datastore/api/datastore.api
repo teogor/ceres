@@ -1,0 +1,130 @@
+public final class dev/teogor/ceres/data/datastore/common/DataStoreManager {
+	public static final field INSTANCE Ldev/teogor/ceres/data/datastore/common/DataStoreManager;
+	public final fun getDataStoreMap ()Ljava/util/Map;
+}
+
+public class dev/teogor/ceres/data/datastore/common/PreferenceDatastore {
+	public fun <init> (Landroid/content/Context;Ljava/lang/String;)V
+	public final fun getDataStore ()Landroidx/datastore/core/DataStore;
+	public fun getFlow (Landroidx/datastore/preferences/core/Preferences$Key;I)Lkotlinx/coroutines/flow/Flow;
+	public fun getFlow (Landroidx/datastore/preferences/core/Preferences$Key;J)Lkotlinx/coroutines/flow/Flow;
+	public fun getFlow (Landroidx/datastore/preferences/core/Preferences$Key;Ljava/lang/Object;Ljava/lang/reflect/Type;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/flow/Flow;
+	public fun getFlow (Landroidx/datastore/preferences/core/Preferences$Key;Ljava/lang/String;)Lkotlinx/coroutines/flow/Flow;
+	public fun getFlow (Landroidx/datastore/preferences/core/Preferences$Key;Z)Lkotlinx/coroutines/flow/Flow;
+	public static synthetic fun getFlow$default (Ldev/teogor/ceres/data/datastore/common/PreferenceDatastore;Landroidx/datastore/preferences/core/Preferences$Key;Ljava/lang/Object;Ljava/lang/reflect/Type;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
+	public fun getter (Landroidx/datastore/preferences/core/Preferences$Key;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getter (Landroidx/datastore/preferences/core/Preferences$Key;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getter (Landroidx/datastore/preferences/core/Preferences$Key;Ljava/lang/Object;Ljava/lang/reflect/Type;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getter (Landroidx/datastore/preferences/core/Preferences$Key;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getter (Landroidx/datastore/preferences/core/Preferences$Key;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun getter$default (Ldev/teogor/ceres/data/datastore/common/PreferenceDatastore;Landroidx/datastore/preferences/core/Preferences$Key;Ljava/lang/Object;Ljava/lang/reflect/Type;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public fun setter (Landroidx/datastore/preferences/core/Preferences$Key;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun setter (Landroidx/datastore/preferences/core/Preferences$Key;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun setter (Landroidx/datastore/preferences/core/Preferences$Key;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun setter (Landroidx/datastore/preferences/core/Preferences$Key;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun setter (Landroidx/datastore/preferences/core/Preferences$Key;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class dev/teogor/ceres/data/datastore/common/PreferenceDatastoreKt {
+	public static final fun launch (Ldev/teogor/ceres/data/datastore/common/PreferenceDatastore;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/Job;
+}
+
+public final class dev/teogor/ceres/data/datastore/common/UserID {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ldev/teogor/ceres/data/datastore/common/UserID;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/data/datastore/common/UserID;Ljava/lang/String;ILjava/lang/Object;)Ldev/teogor/ceres/data/datastore/common/UserID;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun generate ()Ljava/lang/String;
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isEmpty ()Z
+	public final fun setValue (Ljava/lang/String;)V
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/data/datastore/common/UserIDKt {
+	public static final fun getFormattedValueInRows (Ldev/teogor/ceres/data/datastore/common/UserID;)Ljava/lang/String;
+	public static final fun getPrivacyFormattedValue (Ldev/teogor/ceres/data/datastore/common/UserID;I)Ljava/lang/String;
+	public static synthetic fun getPrivacyFormattedValue$default (Ldev/teogor/ceres/data/datastore/common/UserID;IILjava/lang/Object;)Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/data/datastore/defaults/AppTheme : java/lang/Enum {
+	public static final field ClearlyWhite Ldev/teogor/ceres/data/datastore/defaults/AppTheme;
+	public static final field FollowSystem Ldev/teogor/ceres/data/datastore/defaults/AppTheme;
+	public static final field KindaDark Ldev/teogor/ceres/data/datastore/defaults/AppTheme;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/data/datastore/defaults/AppTheme;
+	public static fun values ()[Ldev/teogor/ceres/data/datastore/defaults/AppTheme;
+}
+
+public final class dev/teogor/ceres/data/datastore/defaults/CeresPreferences : dev/teogor/ceres/data/datastore/common/PreferenceDatastore {
+	public fun <init> (Landroid/content/Context;Ljava/lang/String;)V
+	public final fun getAppTheme ()Ldev/teogor/ceres/data/datastore/defaults/AppTheme;
+	public final fun getAppThemeFlow ()Lkotlinx/coroutines/flow/Flow;
+	public final fun getAppThemeFromInt (I)Ldev/teogor/ceres/data/datastore/defaults/AppTheme;
+	public final fun getCoverImage ()Ljava/lang/String;
+	public final fun getDisableAndroidTheme ()Z
+	public final fun getDisableAndroidThemeFlow ()Lkotlinx/coroutines/flow/Flow;
+	public final fun getDisableDesaturatedColor ()Z
+	public final fun getDisableDynamicTheming ()Z
+	public final fun getDisableDynamicThemingFlow ()Lkotlinx/coroutines/flow/Flow;
+	public final fun getDisableSoundFeedback ()Z
+	public final fun getDisableSoundFeedbackFlow ()Lkotlinx/coroutines/flow/Flow;
+	public final fun getDisableVibrationFeedback ()Z
+	public final fun getDisableVibrationFeedbackFlow ()Lkotlinx/coroutines/flow/Flow;
+	public final fun getIntFromAppTheme (Ldev/teogor/ceres/data/datastore/defaults/AppTheme;)I
+	public final fun getIntFromJustBlackTheme (Ldev/teogor/ceres/data/datastore/defaults/JustBlackTheme;)I
+	public final fun getJustBlack ()Ldev/teogor/ceres/data/datastore/defaults/JustBlackTheme;
+	public final fun getJustBlackThemeFlow ()Lkotlinx/coroutines/flow/Flow;
+	public final fun getJustBlackThemeFromInt (I)Ldev/teogor/ceres/data/datastore/defaults/JustBlackTheme;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getNameFlow ()Lkotlinx/coroutines/flow/Flow;
+	public final fun getOnboardingComplete ()Z
+	public final fun getProfileImage ()Ljava/lang/String;
+	public final fun getProfileImageFlow ()Lkotlinx/coroutines/flow/Flow;
+	public final fun getThemeSeed ()Ljava/lang/String;
+	public final fun getThemeSeedFlow ()Lkotlinx/coroutines/flow/Flow;
+	public final fun getUserId ()Ldev/teogor/ceres/data/datastore/common/UserID;
+	public final fun setAppTheme (Ldev/teogor/ceres/data/datastore/defaults/AppTheme;)V
+	public final fun setCoverImage (Ljava/lang/String;)V
+	public final fun setDisableAndroidTheme (Z)V
+	public final fun setDisableDesaturatedColor (Z)V
+	public final fun setDisableDynamicTheming (Z)V
+	public final fun setDisableSoundFeedback (Z)V
+	public final fun setDisableVibrationFeedback (Z)V
+	public final fun setJustBlack (Ldev/teogor/ceres/data/datastore/defaults/JustBlackTheme;)V
+	public final fun setName (Ljava/lang/String;)V
+	public final fun setOnboardingComplete (Z)V
+	public final fun setProfileImage (Ljava/lang/String;)V
+	public final fun setThemeSeed (Ljava/lang/String;)V
+	public final fun setUserId (Ldev/teogor/ceres/data/datastore/common/UserID;)V
+}
+
+public final class dev/teogor/ceres/data/datastore/defaults/CeresPreferencesKt {
+	public static final fun ceresPreferences (Landroid/content/Context;)Ldev/teogor/ceres/data/datastore/defaults/CeresPreferences;
+	public static synthetic fun ceresPreferences$default (Landroid/content/Context;ILjava/lang/Object;)Ldev/teogor/ceres/data/datastore/defaults/CeresPreferences;
+}
+
+public final class dev/teogor/ceres/data/datastore/defaults/CeresPreferencesTypes {
+	public static final field INSTANCE Ldev/teogor/ceres/data/datastore/defaults/CeresPreferencesTypes;
+	public final fun getUserIdType ()Ljava/lang/reflect/Type;
+}
+
+public final class dev/teogor/ceres/data/datastore/defaults/JustBlackTheme : java/lang/Enum {
+	public static final field AlwaysOn Ldev/teogor/ceres/data/datastore/defaults/JustBlackTheme;
+	public static final field FollowSystem Ldev/teogor/ceres/data/datastore/defaults/JustBlackTheme;
+	public static final field Off Ldev/teogor/ceres/data/datastore/defaults/JustBlackTheme;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/data/datastore/defaults/JustBlackTheme;
+	public static fun values ()[Ldev/teogor/ceres/data/datastore/defaults/JustBlackTheme;
+}
+
+public final class dev/teogor/ceres/data/datastore/defaults/ThemeConfig {
+	public static final field INSTANCE Ldev/teogor/ceres/data/datastore/defaults/ThemeConfig;
+	public final fun getSeedHex ()Ljava/lang/String;
+	public final fun setSeedHex (Ljava/lang/String;)V
+}
+

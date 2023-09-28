@@ -1,0 +1,156 @@
+public final class dev/teogor/ceres/firebase/crashlytics/CrashInfoLegacy {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;JLjava/lang/Throwable;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public final fun component3 ()Ljava/lang/Throwable;
+	public final fun copy (Ljava/lang/String;JLjava/lang/Throwable;)Ldev/teogor/ceres/firebase/crashlytics/CrashInfoLegacy;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/firebase/crashlytics/CrashInfoLegacy;Ljava/lang/String;JLjava/lang/Throwable;ILjava/lang/Object;)Ldev/teogor/ceres/firebase/crashlytics/CrashInfoLegacy;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStackTrace ()[Ljava/lang/StackTraceElement;
+	public final fun getThreadId ()J
+	public final fun getThreadName ()Ljava/lang/String;
+	public final fun getThrowable ()Ljava/lang/Throwable;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/firebase/crashlytics/CrashlyticsEvent {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsEvent;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsEvent;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getExtras ()Ljava/util/List;
+	public final fun getType ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/firebase/crashlytics/CrashlyticsEvent$Param {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsEvent$Param;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsEvent$Param;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsEvent$Param;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getKey ()Ljava/lang/String;
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/firebase/crashlytics/CrashlyticsEvent$ParamKeys {
+	public static final field $stable I
+	public static final field Companion Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsEvent$ParamKeys$Companion;
+	public static final field SCREEN_NAME Ljava/lang/String;
+	public fun <init> ()V
+}
+
+public final class dev/teogor/ceres/firebase/crashlytics/CrashlyticsEvent$ParamKeys$Companion {
+}
+
+public final class dev/teogor/ceres/firebase/crashlytics/CrashlyticsEvent$Types {
+	public static final field $stable I
+	public static final field Companion Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsEvent$Types$Companion;
+	public static final field SCREEN_VIEW Ljava/lang/String;
+	public fun <init> ()V
+}
+
+public final class dev/teogor/ceres/firebase/crashlytics/CrashlyticsEvent$Types$Companion {
+}
+
+public abstract interface class dev/teogor/ceres/firebase/crashlytics/CrashlyticsHelper {
+	public abstract fun SetCrash (Ldev/teogor/ceres/firebase/crashlytics/CrashInfoLegacy;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun getCrashInfoLegacy ()Ldev/teogor/ceres/firebase/crashlytics/CrashInfoLegacy;
+	public abstract fun logEvent (Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsEvent;)V
+	public abstract fun setCrashInfoLegacy (Ldev/teogor/ceres/firebase/crashlytics/CrashInfoLegacy;)V
+}
+
+public final class dev/teogor/ceres/firebase/crashlytics/CrashlyticsManagerInitializer : androidx/startup/Initializer {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun create (Landroid/content/Context;)Ljava/lang/Object;
+	public fun create (Landroid/content/Context;)V
+	public fun dependencies ()Ljava/util/List;
+}
+
+public final class dev/teogor/ceres/firebase/crashlytics/CrashlyticsManagerKt {
+	public static final fun crashlyticsLog (Ljava/lang/String;)V
+	public static final fun recordException (Ljava/lang/Exception;)V
+}
+
+public abstract class dev/teogor/ceres/firebase/crashlytics/CrashlyticsModule {
+	public static final field $stable I
+	public static final field Companion Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsModule$Companion;
+	public fun <init> ()V
+	public abstract fun bindsCrashlyticsHelper (Ldev/teogor/ceres/firebase/crashlytics/FirebaseCrashlyticsHelper;)Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsHelper;
+}
+
+public final class dev/teogor/ceres/firebase/crashlytics/CrashlyticsModule$Companion {
+	public final fun provideFirebaseCrashlytics ()Lcom/google/firebase/crashlytics/FirebaseCrashlytics;
+}
+
+public final class dev/teogor/ceres/firebase/crashlytics/CrashlyticsModule_Companion_ProvideFirebaseCrashlyticsFactory : dagger/internal/Factory {
+	public fun <init> ()V
+	public static fun create ()Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsModule_Companion_ProvideFirebaseCrashlyticsFactory;
+	public fun get ()Lcom/google/firebase/crashlytics/FirebaseCrashlytics;
+	public synthetic fun get ()Ljava/lang/Object;
+	public static fun provideFirebaseCrashlytics ()Lcom/google/firebase/crashlytics/FirebaseCrashlytics;
+}
+
+public final class dev/teogor/ceres/firebase/crashlytics/FirebaseCrashlyticsHelper : dev/teogor/ceres/firebase/crashlytics/CrashlyticsHelper {
+	public static final field $stable I
+	public fun <init> (Lcom/google/firebase/crashlytics/FirebaseCrashlytics;)V
+	public fun SetCrash (Ldev/teogor/ceres/firebase/crashlytics/CrashInfoLegacy;Landroidx/compose/runtime/Composer;I)V
+	public fun getCrashInfoLegacy ()Ldev/teogor/ceres/firebase/crashlytics/CrashInfoLegacy;
+	public fun logEvent (Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsEvent;)V
+	public fun setCrashInfoLegacy (Ldev/teogor/ceres/firebase/crashlytics/CrashInfoLegacy;)V
+}
+
+public final class dev/teogor/ceres/firebase/crashlytics/FirebaseCrashlyticsHelper_Factory : dagger/internal/Factory {
+	public fun <init> (Ljavax/inject/Provider;)V
+	public static fun create (Ljavax/inject/Provider;)Ldev/teogor/ceres/firebase/crashlytics/FirebaseCrashlyticsHelper_Factory;
+	public fun get ()Ldev/teogor/ceres/firebase/crashlytics/FirebaseCrashlyticsHelper;
+	public synthetic fun get ()Ljava/lang/Object;
+	public static fun newInstance (Lcom/google/firebase/crashlytics/FirebaseCrashlytics;)Ldev/teogor/ceres/firebase/crashlytics/FirebaseCrashlyticsHelper;
+}
+
+public final class dev/teogor/ceres/firebase/crashlytics/NoOpCrashlyticsHelper : dev/teogor/ceres/firebase/crashlytics/CrashlyticsHelper {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun SetCrash (Ldev/teogor/ceres/firebase/crashlytics/CrashInfoLegacy;Landroidx/compose/runtime/Composer;I)V
+	public fun getCrashInfoLegacy ()Ldev/teogor/ceres/firebase/crashlytics/CrashInfoLegacy;
+	public fun logEvent (Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsEvent;)V
+	public fun setCrashInfoLegacy (Ldev/teogor/ceres/firebase/crashlytics/CrashInfoLegacy;)V
+}
+
+public final class dev/teogor/ceres/firebase/crashlytics/StubCrashlyticsHelper : dev/teogor/ceres/firebase/crashlytics/CrashlyticsHelper {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun SetCrash (Ldev/teogor/ceres/firebase/crashlytics/CrashInfoLegacy;Landroidx/compose/runtime/Composer;I)V
+	public fun getCrashInfoLegacy ()Ldev/teogor/ceres/firebase/crashlytics/CrashInfoLegacy;
+	public fun logEvent (Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsEvent;)V
+	public fun setCrashInfoLegacy (Ldev/teogor/ceres/firebase/crashlytics/CrashInfoLegacy;)V
+}
+
+public final class dev/teogor/ceres/firebase/crashlytics/StubCrashlyticsHelper_Factory : dagger/internal/Factory {
+	public fun <init> ()V
+	public static fun create ()Ldev/teogor/ceres/firebase/crashlytics/StubCrashlyticsHelper_Factory;
+	public fun get ()Ldev/teogor/ceres/firebase/crashlytics/StubCrashlyticsHelper;
+	public synthetic fun get ()Ljava/lang/Object;
+	public static fun newInstance ()Ldev/teogor/ceres/firebase/crashlytics/StubCrashlyticsHelper;
+}
+
+public final class dev/teogor/ceres/firebase/crashlytics/UiHelpersKt {
+	public static final fun getLocalCrashlyticsHelper ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public class hilt_aggregated_deps/_dev_teogor_ceres_firebase_crashlytics_CrashlyticsModule {
+	public fun <init> ()V
+}
+

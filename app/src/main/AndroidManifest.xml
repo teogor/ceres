@@ -1,81 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Copyright 2022 teogor (Teodor Grigor) All Rights Reserved.
+     Copyright 2023 teogor (Teodor Grigor)
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
 
-        http://www.apache.org/licenses/LICENSE-2.0
+          http://www.apache.org/licenses/LICENSE-2.0
 
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools">
 
-  <!-- STORAGE -->
-  <uses-permission
-    android:name="android.permission.READ_EXTERNAL_STORAGE"
-    tools:node="remove" />
-  <uses-permission
-    android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-    android:maxSdkVersion="28"
-    tools:node="remove" />
-  <uses-permission
-    android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
-    tools:ignore="ScopedStorage"
-    tools:node="remove" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.INTERNET" />
 
   <application
-    android:name=".app.Application"
+    android:name="dev.teogor.ceres.Application"
     android:allowBackup="true"
     android:dataExtractionRules="@xml/data_extraction_rules"
-    android:extractNativeLibs="true"
     android:fullBackupContent="@xml/backup_rules"
     android:icon="@mipmap/ic_launcher"
-    android:killAfterRestore="false"
     android:label="@string/app_name"
-    android:requestLegacyExternalStorage="true"
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
-    android:theme="@style/Theme.ceres"
-    tools:replace="android:allowBackup"
-    tools:targetApi="s">
+    android:theme="@style/Theme.Ceres.Splash"
+    tools:targetApi="31">
+    <profileable android:shell="true" tools:targetApi="q" />
 
     <meta-data
       android:name="com.google.android.gms.ads.APPLICATION_ID"
-      android:value="@string/GMS_APPLICATION_ID" />
+      android:value="@string/admob_application_id" />
 
     <activity
-      android:name=".main.MainActivity"
-      android:exported="true"
-      android:theme="@style/Theme.ceres.SplashScreen">
+      android:name="dev.teogor.ceres.MainActivity"
+      android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
-
-      <meta-data
-        android:name="android.app.lib_name"
-        android:value="" />
-    </activity>
-
-    <receiver
-      android:name=".presentation.widget.demo.DemoWidget"
-      android:exported="false">
+      <!-- this is needed for apps like whatsapp, it doesn't provide extension, so you can't add path  -->
       <intent-filter>
-        <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+        <action android:name="android.intent.action.VIEW" />
+
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <category android:name="android.intent.category.OPENABLE" />
+
+        <data
+          android:mimeType="application/octet-stream"
+          android:scheme="content" />
       </intent-filter>
 
-      <meta-data
-        android:name="android.appwidget.provider"
-        android:resource="@xml/demo_widget_info" />
-    </receiver>
+      <!--      &lt;!&ndash; this is needed for apps like explorer &ndash;&gt;-->
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <category android:name="android.intent.category.OPENABLE" />
+
+        <data android:pathPattern=".*\\.ceres\\.gtv" />
+        <data
+          android:host="*"
+          android:mimeType="*/*"
+          android:scheme="content" />
+      </intent-filter>
+    </activity>
   </application>
 
 </manifest>
