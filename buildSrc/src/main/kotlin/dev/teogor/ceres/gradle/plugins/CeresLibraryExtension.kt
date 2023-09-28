@@ -3,7 +3,7 @@ package dev.teogor.ceres.gradle.plugins
 import org.gradle.api.publish.maven.MavenPom
 
 open class CeresLibraryExtension {
-  val groupId: String = "dev.teogor.ceres.beta.launch.test"
+  val groupId: String = "dev.teogor.ceres"
   var artifactId: String? = null
   var version: String? = null
   var name: String? = null
@@ -23,7 +23,7 @@ open class CeresLibraryExtension {
       },
     )
     description.set(
-      "Modern Android development with Hilt, Coroutines, Flow, JetPack(ViewModel) based on MVVM architecture.",
+      "Streamline Android Development with Compose, Hilt, Coroutines, and Flow Integration.",
     )
     inceptionYear.set("2022")
     url.set("https://github.com/teogor/ceres/")
