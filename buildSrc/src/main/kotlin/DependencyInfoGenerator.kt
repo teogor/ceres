@@ -10,6 +10,7 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
+import org.gradle.kotlin.dsl.provideDelegate
 
 @Serializable
 data class LibraryInfo(
@@ -99,9 +100,75 @@ open class DependencyInfoGenerator : DefaultTask() {
   fun generateOutputFile() {
     writeModulesDocs()
     libraries.bom()?.let {
+      writeCeresLibrariesCatalog()
       writeBomVersions()
       writeBomMapping()
       writeBomVariants()
+    }
+  }
+
+  private fun writeCeresLibrariesCatalog() {
+    val ceresLibsCatalogContent = buildString {
+      appendLine("## Libraries Implementation Version Catalog")
+      appendLine()
+      appendLine("This catalog provides the implementation details of Ceres libraries, including Build of Materials (BoM) and individual libraries, in TOML format.")
+      appendLine()
+      appendLine("```toml")
+      appendLine("# Ceres BoM")
+      libraries
+        .filter { it.isBom }
+        .forEach { library ->
+          appendLine(
+            "${
+              library.name.lowercase().replace(" ", "-")
+            } = { group = \"${library.groupId}\", name = \"${library.artifactId}\", version.ref = \"ceres-bom\" }",
+          )
+        }
+
+      appendLine("# Ceres Libraries")
+      libraries
+        .filter { !it.isBom }
+        .forEach { library ->
+          appendLine(
+            "${
+              library.name.lowercase().replace(" ", "-")
+            } = { group = \"${library.groupId}\", name = \"${library.artifactId}\" }",
+          )
+        }
+      appendLine("```")
+      appendLine()
+      appendLine("## Libraries Implementation build.gradle.kts File")
+      appendLine()
+      appendLine("This section presents the implementation dependencies for Ceres libraries in a Kotlin build.gradle.kts file format.")
+      appendLine()
+      appendLine("```kotlin")
+      appendLine("dependencies {")
+      appendLine("  // Ceres BoM")
+      libraries
+        .filter { it.isBom }
+        .forEach { library ->
+          appendLine(
+            "  implementation(platform(libs.${library.name.lowercase().replace(" ", ".")}))",
+          )
+        }
+
+      appendLine("  // Ceres Libraries")
+      libraries
+        .filter { !it.isBom }
+        .forEach { library ->
+          appendLine(
+            "  implementation(libs.${library.name.lowercase().replace(" ", ".").replace("-", ".")})",
+          )
+        }
+      appendLine("}")
+      appendLine("```")
+      appendLine()
+    }
+    val filePath = "ceres-version-catalog.md"
+    File("$docsFolder\\$filePath").bufferedWriter().use { writer ->
+      writer.apply {
+        write(ceresLibsCatalogContent)
+      }
     }
   }
 
@@ -127,13 +194,16 @@ open class DependencyInfoGenerator : DefaultTask() {
           content.appendLine("| $emoji | [${library.name}](${library.localPath}) | [${library.coordinates}]($link) |")
         }
         content.appendLine()
-        content.appendLine("""
+        content.appendLine(
+          """
           By referring to the [BoM documentation](/docs/bom/versions.md), you can learn how to integrate the BoM into your project and benefit from this hassle-free approach to library version management. It's a powerful tool for staying up-to-date with the latest Ceres library versions and seamlessly integrating them into your projects.
-        """.trimIndent())
+        """.trimIndent(),
+        )
         content.appendLine()
         content.appendLine()
         for (library in libraries) {
-          content.appendLine("""
+          content.appendLine(
+            """
             ### Implementation ${library.name}
 
             To use ${library.name} in your Android project, add the following dependency to your module-level Gradle file (usually `app/build.gradle.kts`):
@@ -147,7 +217,8 @@ open class DependencyInfoGenerator : DefaultTask() {
             - **Group ID:** `${library.groupId}`
             - **Artifact ID:** `${library.artifactId}`
             - **Version:** `${library.version}` (not required when using [BoM](/docs/bom/versions.md))
-          """.trimIndent())
+          """.trimIndent(),
+          )
           content.appendLine()
         }
         content.appendLine()
