@@ -19,6 +19,7 @@ package dev.teogor.ceres.screen.builder.compose
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -147,13 +148,15 @@ fun SimpleView(
   subtitleColor: ColorSchemeKeyTokens? = null,
   icon: ImageVector? = null,
   clickable: (() -> Unit)? = null,
+  enabled: Boolean = clickable != null,
+  columnContent: (@Composable ColumnScope.() -> Unit)? = null,
   content: (@Composable () -> Unit)? = null,
 ) {
   val hasFilledIconUI = UiOptions.uiTypes == UiTypes.Filled
   Column(
     modifier = Modifier
       .fillMaxWidth()
-      .clickable {
+      .clickable(enabled = enabled) {
         clickable?.invoke()
       },
   ) {
@@ -229,6 +232,8 @@ fun SimpleView(
             color = subtitleTextColor,
           )
         }
+
+        columnContent?.invoke(this)
       }
     }
     content?.invoke()

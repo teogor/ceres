@@ -30,6 +30,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -45,6 +46,7 @@ import dev.teogor.ceres.ui.designsystem.Text
 import dev.teogor.ceres.ui.foundation.clickable
 import dev.teogor.ceres.ui.theme.MaterialTheme
 import dev.teogor.ceres.ui.theme.toColor
+import dev.teogor.ceres.ui.theme.tokens.ColorSchemeKeyTokens
 
 @Composable
 fun AdvancedView(
@@ -157,6 +159,97 @@ fun AdvancedView(
       }
 
       customView?.invoke()
+    }
+  }
+}
+
+@Composable
+fun SwitchView(
+  title: String,
+  subtitle: String? = null,
+  subtitleColor: ColorSchemeKeyTokens? = null,
+  icon: ImageVector? = null,
+  switchToggled: Boolean,
+  onSwitchToggled: ((Boolean) -> Unit)? = null,
+) {
+  var isSwitchToggled by remember(switchToggled) {
+    mutableStateOf(switchToggled)
+  }
+  LaunchedEffect(switchToggled, isSwitchToggled) {
+    if (isSwitchToggled != switchToggled) {
+      onSwitchToggled?.invoke(isSwitchToggled)
+    }
+  }
+  Row(
+    modifier = Modifier
+      .fillMaxWidth()
+      .clickable(
+        enabled = true,
+      ) {
+        // todo add vertical divider like Samsung switch option
+        isSwitchToggled = !isSwitchToggled
+      }
+      .padding(
+        top = verticalPadding,
+        bottom = verticalPadding,
+        start = horizontalPadding,
+        end = horizontalPadding,
+      ),
+  ) {
+    icon?.let {
+      Icon(
+        imageVector = it,
+        contentDescription = title,
+        modifier = Modifier
+          .padding(top = 10.dp)
+          .size(iconSize),
+        tint = MaterialTheme.colorScheme.secondary,
+      )
+    }
+    Column(
+      modifier = Modifier.padding(
+        start = if (icon != null) {
+          horizontalPadding
+        } else {
+          horizontalNoIconPadding
+        },
+      ),
+    ) {
+      Row(
+        modifier = Modifier.fillMaxWidth(),
+      ) {
+        Column(
+          modifier = Modifier.weight(1f),
+        ) {
+          Text(
+            text = title,
+            fontSize = 15.sp,
+            textAlign = TextAlign.Start,
+            color = MaterialTheme.colorScheme.onSurface,
+          )
+          subtitle?.let { subtitle ->
+            val subtitleTextColor = subtitleColor?.toColor() ?: MaterialTheme.colorScheme.onSurface
+            Text(
+              modifier = Modifier.padding(
+                top = 1.dp,
+                end = endPadding,
+              ),
+              text = subtitle,
+              fontSize = 13.sp,
+              lineHeight = 16.sp,
+              textAlign = TextAlign.Start,
+              color = subtitleTextColor,
+            )
+          }
+        }
+
+        Switch(
+          checked = isSwitchToggled,
+          onCheckedChange = {
+            isSwitchToggled = !isSwitchToggled
+          },
+        )
+      }
     }
   }
 }
