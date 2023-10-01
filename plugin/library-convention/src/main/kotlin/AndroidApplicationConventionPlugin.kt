@@ -19,6 +19,7 @@ import com.android.build.api.variant.ApplicationAndroidComponentsExtension
 import dev.teogor.ceres.configureGradleManagedDevices
 import dev.teogor.ceres.configureKotlinAndroid
 import dev.teogor.ceres.configurePrintApksTask
+import dev.teogor.ceres.utils.getIntProperty
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -33,7 +34,10 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
 
       extensions.configure<ApplicationExtension> {
         configureKotlinAndroid(this)
-        defaultConfig.targetSdk = 34
+        defaultConfig.targetSdk = getIntProperty(
+          key = "ceres.buildfeatures.sdk.target",
+          defaultValue = 34,
+        )
         configureGradleManagedDevices(this)
       }
       extensions.configure<ApplicationAndroidComponentsExtension> {

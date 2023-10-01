@@ -17,6 +17,8 @@
 package dev.teogor.ceres
 
 import com.android.build.api.dsl.CommonExtension
+import dev.teogor.ceres.utils.getBooleanProperty
+import dev.teogor.ceres.utils.getIntProperty
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
@@ -32,11 +34,18 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 internal fun Project.configureKotlinAndroid(
   commonExtension: CommonExtension<*, *, *, *, *>,
 ) {
+
   commonExtension.apply {
-    compileSdk = 34
+    compileSdk = getIntProperty(
+      key = "ceres.buildfeatures.sdk.compile",
+      defaultValue = 34,
+    )
 
     defaultConfig {
-      minSdk = 21
+      minSdk = getIntProperty(
+        key = "ceres.buildfeatures.sdk.min",
+        defaultValue = 21,
+      )
     }
 
     compileOptions {
@@ -44,7 +53,11 @@ internal fun Project.configureKotlinAndroid(
       // https://developer.android.com/studio/write/java11-minimal-support-table
       sourceCompatibility = JavaVersion.VERSION_11
       targetCompatibility = JavaVersion.VERSION_11
-      isCoreLibraryDesugaringEnabled = true
+
+      isCoreLibraryDesugaringEnabled = getBooleanProperty(
+        key = "ceres.buildfeatures.desugaring.enabled",
+        defaultValue = true,
+      )
     }
   }
 
@@ -69,6 +82,12 @@ internal fun Project.configureKotlinAndroid(
   val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
   dependencies {
-    add("coreLibraryDesugaring", libs.findLibrary("android.desugarJdkLibs").get())
+    if (getBooleanProperty(
+        key = "ceres.buildfeatures.desugaring.enabled",
+        defaultValue = true,
+      )
+    ) {
+      add("coreLibraryDesugaring", libs.findLibrary("android.desugarJdkLibs").get())
+    }
   }
 }
