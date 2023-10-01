@@ -21,6 +21,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -32,6 +33,8 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.skydoves.landscapist.ImageOptions
 import com.skydoves.landscapist.glide.GlideImage
+import dev.teogor.ceres.R
+import dev.teogor.ceres.core.foundation.extensions.createMediaPlayer
 import dev.teogor.ceres.framework.core.app.BaseActions
 import dev.teogor.ceres.framework.core.app.setScreenInfo
 import dev.teogor.ceres.framework.core.compositions.LocalNetworkConnectivity
@@ -106,6 +109,16 @@ internal fun HomeRoute(
   }
 
   val networkConnectivity = LocalNetworkConnectivity.current
+
+  val switchOff = createMediaPlayer(R.raw.button_switch_off)
+  LaunchedEffect(switchOff) {
+    switchOff.start()
+  }
+
+  val switchOn = createMediaPlayer(R.raw.button_switch_on)
+  LaunchedEffect(switchOn) {
+    switchOn.start()
+  }
 
   if (canRequestAds) {
     HomeScreen(
