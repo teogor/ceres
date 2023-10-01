@@ -21,8 +21,10 @@ import android.net.Uri
 import android.provider.Settings
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.OpenInNew
@@ -33,8 +35,11 @@ import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.PermDeviceInformation
 import androidx.compose.material.icons.filled.Source
 import androidx.compose.material.icons.filled.Verified
+import androidx.compose.material3.Icon
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.teogor.ceres.core.runtime.AppMetadataManager
@@ -45,12 +50,14 @@ import dev.teogor.ceres.screen.builder.compose.UiOptions
 import dev.teogor.ceres.screen.builder.compose.UiTypes
 import dev.teogor.ceres.screen.builder.compose.addExtraPadding
 import dev.teogor.ceres.screen.builder.horizontalPadding
+import dev.teogor.ceres.screen.builder.iconSize
 import dev.teogor.ceres.screen.builder.verticalPadding
 import dev.teogor.ceres.screen.core.scope.ScreenListScope
 import dev.teogor.ceres.screen.ui.components.HeaderSurface
 import dev.teogor.ceres.ui.designsystem.Surface
 import dev.teogor.ceres.ui.designsystem.Text
 import dev.teogor.ceres.ui.foundation.graphics.Icon
+import dev.teogor.ceres.ui.theme.MaterialTheme
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
@@ -90,11 +97,14 @@ fun ScreenListScope.aboutAppVersion() = item {
 }
 
 fun ScreenListScope.aboutCeresFramework() = item {
+  val uriHandler = LocalUriHandler.current
   SimpleView(
     title = "Ceres Framework version",
     subtitle = AppMetadataManager.ceresFrameworkVersion,
     icon = Icons.Default.PermDeviceInformation,
-    enabled = true,
+    clickable = {
+      uriHandler.openUri("https://github.com/teogor/ceres")
+    },
   ) {
     val hasFilledIconUI = UiOptions.uiTypes == UiTypes.Filled
     Surface(
@@ -113,11 +123,24 @@ fun ScreenListScope.aboutCeresFramework() = item {
       shape = RoundedCornerShape(16.dp),
       tonalElevation = 10.dp,
     ) {
-      Text(
-        text = "This app is built using the \uD83E\uDE90 Ceres Framework",
-        fontSize = 12.sp,
-        lineHeight = 14.sp,
-      )
+      Row(
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+      ) {
+        Text(
+          text = "This app is built using the \uD83E\uDE90 Ceres Framework",
+          fontSize = 12.sp,
+          lineHeight = 14.sp,
+          modifier = Modifier.weight(1f),
+        )
+        Icon(
+          imageVector = Icons.AutoMirrored.Filled.OpenInNew,
+          contentDescription = "open github link",
+          modifier = Modifier
+            .size(iconSize),
+          tint = MaterialTheme.colorScheme.secondary,
+        )
+      }
     }
   }
 }
