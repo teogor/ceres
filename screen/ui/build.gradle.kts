@@ -17,9 +17,6 @@ plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
-
-  // Feature :: About
-  alias(libs.plugins.about.libraries) apply true
 }
 
 android {
