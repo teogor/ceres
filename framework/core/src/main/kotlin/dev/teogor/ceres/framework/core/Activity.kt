@@ -16,6 +16,7 @@
 
 package dev.teogor.ceres.framework.core
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -37,6 +38,10 @@ import androidx.compose.runtime.setValue
 import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.metrics.performance.JankStats
+import dev.teogor.ceres.core.foundation.audioManagerUtils
+import dev.teogor.ceres.core.foundation.compositions.LocalAudioManager
+import dev.teogor.ceres.core.foundation.compositions.LocalMediaPlayer
+import dev.teogor.ceres.core.foundation.mediaPlayerUtils
 import dev.teogor.ceres.core.network.NetworkMonitor
 import dev.teogor.ceres.data.compose.rememberPreference
 import dev.teogor.ceres.data.datastore.defaults.AppTheme
@@ -102,6 +107,10 @@ open class Activity : ComponentActivity() {
     enableEdgeToEdge()
 
     handleSplashScreen(splashScreen)
+
+    val context = this as Context
+    val audioManagerUtils = context.audioManagerUtils()
+    val mediaPlayerUtils = context.mediaPlayerUtils()
 
     setContent {
       val darkTheme = isSystemInDarkTheme()
@@ -195,6 +204,10 @@ open class Activity : ComponentActivity() {
           LocalNavigationParameters provides navigationParameters,
           LocalAnalyticsHelper provides analyticsHelper,
           LocalCrashlyticsHelper provides crashlyticsHelper,
+
+          // Ceres Core Foundation - Composition Provider
+          LocalAudioManager provides audioManagerUtils,
+          LocalMediaPlayer provides mediaPlayerUtils,
         ) {
           val menuConfig = MenuConfig().apply { buildMenu() }
           val menuConfigHeader =
