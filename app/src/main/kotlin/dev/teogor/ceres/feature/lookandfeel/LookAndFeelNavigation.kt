@@ -14,32 +14,16 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.lib.settings
+package dev.teogor.ceres.feature.lookandfeel
 
-import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
 import dev.teogor.ceres.framework.core.app.BaseActions
-import dev.teogor.ceres.navigation.core.ScreenRoute
-import dev.teogor.ceres.navigation.core.screenNav
+import dev.teogor.ceres.screen.ui.lookandfeel.lookAndFeelScreenNav
 
-const val settingsNavigationRoute = "settings_route"
-
-object SettingsScreenRoute : ScreenRoute {
-  override val route: String = settingsNavigationRoute
-}
-
-fun NavGraphBuilder.settingsScreenNav(
+fun NavGraphBuilder.lookAndFeelScreenNav(
   baseActions: BaseActions,
-) = settingsScreenNav {
-  SettingsRoute(
+) = lookAndFeelScreenNav {
+  LookAndFeelRoute(
     baseActions = baseActions,
   )
-}
-
-inline fun NavGraphBuilder.settingsScreenNav(
-  crossinline block: @Composable () -> Unit,
-) = screenNav(
-  route = settingsNavigationRoute,
-) {
-  block()
 }
