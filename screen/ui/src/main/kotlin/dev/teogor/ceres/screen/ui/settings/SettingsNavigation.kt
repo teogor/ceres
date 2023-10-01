@@ -14,26 +14,23 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.lib.settings
+package dev.teogor.ceres.screen.ui.settings
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
-import dev.teogor.ceres.framework.core.app.BaseActions
 import dev.teogor.ceres.navigation.core.ScreenRoute
 import dev.teogor.ceres.navigation.core.screenNav
+
+fun NavGraphBuilder.settingsGraphNav(
+  settingsScreenNav: NavGraphBuilder.() -> Unit,
+) {
+  settingsScreenNav()
+}
 
 const val settingsNavigationRoute = "settings_route"
 
 object SettingsScreenRoute : ScreenRoute {
   override val route: String = settingsNavigationRoute
-}
-
-fun NavGraphBuilder.settingsScreenNav(
-  baseActions: BaseActions,
-) = settingsScreenNav {
-  SettingsRoute(
-    baseActions = baseActions,
-  )
 }
 
 inline fun NavGraphBuilder.settingsScreenNav(

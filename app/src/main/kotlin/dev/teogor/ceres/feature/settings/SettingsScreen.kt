@@ -14,14 +14,10 @@
  * limitations under the License.
  */
 
-package com.zeoowl.chess.clock.ceres.feature.settings
+package dev.teogor.ceres.feature.settings
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Style
 import androidx.compose.runtime.Composable
-import com.zeoowl.chess.clock.ceres.feature.lookfeel.LookAndFeelScreenRoute
 import dev.teogor.ceres.framework.core.app.BaseActions
-import dev.teogor.ceres.framework.core.app.navigateTo
 import dev.teogor.ceres.framework.core.app.setScreenInfo
 import dev.teogor.ceres.framework.core.screen.floatingButton
 import dev.teogor.ceres.framework.core.screen.isStatusBarVisible
@@ -31,10 +27,13 @@ import dev.teogor.ceres.framework.core.screen.showNavBar
 import dev.teogor.ceres.framework.core.screen.showSettingsButton
 import dev.teogor.ceres.framework.core.screen.toolbarTitle
 import dev.teogor.ceres.framework.core.screen.toolbarTokens
-import dev.teogor.ceres.navigation.core.ScreenRoute
-import dev.teogor.ceres.screen.builder.compose.LazyColumnLayout
-import dev.teogor.ceres.screen.builder.header
-import dev.teogor.ceres.screen.builder.simpleView
+import dev.teogor.ceres.navigation.core.utilities.toScreenName
+import dev.teogor.ceres.screen.core.layout.LazyColumnLayoutBase
+import dev.teogor.ceres.screen.ui.settings.SettingsScreenRoute
+import dev.teogor.ceres.screen.ui.settings.settingsBackup
+import dev.teogor.ceres.screen.ui.settings.settingsHeaderSystem
+import dev.teogor.ceres.screen.ui.settings.settingsHeaderUI
+import dev.teogor.ceres.screen.ui.settings.settingsLookAndFeel
 
 @Composable
 internal fun SettingsRoute(
@@ -66,31 +65,18 @@ internal fun SettingsRoute(
     }
   }
 
-  SettingsLayout(
-    navigateTo = { destination ->
-      baseActions.navigateTo(destination)
-    },
-    developerModeEnabled = false,
-  )
+  SettingsLayout()
 }
 
 @Composable
-private fun SettingsLayout(
-  navigateTo: (ScreenRoute) -> Unit,
-  developerModeEnabled: Boolean,
-) = LazyColumnLayout(
-  screenName = SettingsScreenRoute,
+private fun SettingsLayout() = LazyColumnLayoutBase(
+  screenName = SettingsScreenRoute.toScreenName(),
 ) {
-  header {
-    "UI"
-  }
+  settingsHeaderUI()
 
-  simpleView(
-    title = "Look & Feel",
-    subtitle = "Design & color options",
-    icon = Icons.Default.Style,
-    clickable = {
-      navigateTo(LookAndFeelScreenRoute)
-    },
-  )
+  settingsLookAndFeel()
+
+  settingsBackup()
+
+  settingsHeaderSystem()
 }

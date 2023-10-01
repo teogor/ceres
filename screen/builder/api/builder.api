@@ -84,6 +84,7 @@ public final class dev/teogor/ceres/screen/builder/SubcategoryConfig : dev/teogo
 
 public final class dev/teogor/ceres/screen/builder/compose/AdvancedViewKt {
 	public static final fun AdvancedView (Ldev/teogor/ceres/screen/builder/model/AdvancedViewBuilder;Landroidx/compose/runtime/Composer;I)V
+	public static final fun SwitchView (Ljava/lang/String;Ljava/lang/String;Ldev/teogor/ceres/ui/theme/tokens/ColorSchemeKeyTokens;Landroidx/compose/ui/graphics/vector/ImageVector;ZLkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class dev/teogor/ceres/screen/builder/compose/CustomViewKt {
@@ -101,7 +102,7 @@ public final class dev/teogor/ceres/screen/builder/compose/LazyColumnLayoutKt {
 
 public final class dev/teogor/ceres/screen/builder/compose/SimpleViewKt {
 	public static final fun SimpleView (Ldev/teogor/ceres/screen/builder/model/SimpleViewBuilder;Landroidx/compose/runtime/Composer;I)V
-	public static final fun SimpleView (Ljava/lang/String;Ljava/lang/String;Ldev/teogor/ceres/ui/theme/tokens/ColorSchemeKeyTokens;Landroidx/compose/ui/graphics/vector/ImageVector;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun SimpleView (Ljava/lang/String;Ljava/lang/String;Ldev/teogor/ceres/ui/theme/tokens/ColorSchemeKeyTokens;Landroidx/compose/ui/graphics/vector/ImageVector;Lkotlin/jvm/functions/Function0;ZLkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun addExtraPadding (Z)F
 }
 

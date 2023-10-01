@@ -22,13 +22,15 @@ import androidx.compose.ui.Modifier
 import dev.teogor.ceres.feature.about.aboutScreenNav
 import dev.teogor.ceres.feature.home.homeNavigationRoute
 import dev.teogor.ceres.feature.home.homeScreenNav
+import dev.teogor.ceres.feature.lookandfeel.lookAndFeelScreenNav
+import dev.teogor.ceres.feature.settings.settingsScreenNav
 import dev.teogor.ceres.framework.core.app.BaseActions
 import dev.teogor.ceres.framework.core.app.CeresAppState
 import dev.teogor.ceres.framework.core.model.NavGraphOptions
-import dev.teogor.ceres.lib.lookfeel.lookAndFeelScreenNav
-import dev.teogor.ceres.lib.settings.settingsScreenNav
 import dev.teogor.ceres.navigation.core.NavHost
 import dev.teogor.ceres.screen.ui.about.aboutGraphNav
+import dev.teogor.ceres.screen.ui.settings.settingsGraphNav
+import dev.teogor.ceres.screen.ui.userprefs.userPreferencesScreenNav
 
 /**
  * Composable function that applies a [NavHost] to the UI with specified
@@ -68,9 +70,13 @@ private fun NavHost(
   ) {
     homeScreenNav(baseActions)
 
-    settingsScreenNav(baseActions)
+    userPreferencesScreenNav(baseActions)
 
-    lookAndFeelScreenNav(baseActions)
+    settingsGraphNav {
+      settingsScreenNav(baseActions)
+
+      lookAndFeelScreenNav(baseActions)
+    }
 
     aboutGraphNav(baseActions) {
       aboutScreenNav(baseActions)

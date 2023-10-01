@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.zeoowl.chess.clock.ceres.feature.lookfeel
+package dev.teogor.ceres.screen.ui.userprefs
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
@@ -22,24 +22,24 @@ import dev.teogor.ceres.framework.core.app.BaseActions
 import dev.teogor.ceres.navigation.core.ScreenRoute
 import dev.teogor.ceres.navigation.core.screenNav
 
-const val lookAndFeelNavigationRoute = "settings_look_and_feel_route"
+const val userPreferencesNavigationRoute = "user_preferences_route"
 
-object LookAndFeelScreenRoute : ScreenRoute {
-  override val route: String = lookAndFeelNavigationRoute
+object UserPreferencesScreenRoute : ScreenRoute {
+  override val route: String = userPreferencesNavigationRoute
 }
 
-fun NavGraphBuilder.lookAndFeelScreenNav(
+fun NavGraphBuilder.userPreferencesScreenNav(
   baseActions: BaseActions,
-) = lookAndFeelScreenNav {
-  LookAndFeelRoute(
+) = userPreferencesScreenNav {
+  UserPrefRoute(
     baseActions = baseActions,
   )
 }
 
-inline fun NavGraphBuilder.lookAndFeelScreenNav(
+inline fun NavGraphBuilder.userPreferencesScreenNav(
   crossinline block: @Composable () -> Unit,
 ) = screenNav(
-  route = lookAndFeelNavigationRoute,
+  route = userPreferencesNavigationRoute,
 ) {
   block()
 }

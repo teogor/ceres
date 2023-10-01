@@ -1,50 +1,3 @@
-public final class com/zeoowl/chess/clock/ceres/feature/lookfeel/LookAndFeelScreenRoute : dev/teogor/ceres/navigation/core/ScreenRoute {
-	public static final field $stable I
-	public static final field INSTANCE Lcom/zeoowl/chess/clock/ceres/feature/lookfeel/LookAndFeelScreenRoute;
-	public fun getRoute ()Ljava/lang/String;
-}
-
-public final class com/zeoowl/chess/clock/ceres/feature/lookfeel/LookFeelNavigationKt {
-	public static final field lookAndFeelNavigationRoute Ljava/lang/String;
-	public static final fun lookAndFeelScreenNav (Landroidx/navigation/NavGraphBuilder;Ldev/teogor/ceres/framework/core/app/BaseActions;)V
-	public static final fun lookAndFeelScreenNav (Landroidx/navigation/NavGraphBuilder;Lkotlin/jvm/functions/Function2;)V
-}
-
-public final class com/zeoowl/chess/clock/ceres/feature/settings/SettingsNavigationKt {
-	public static final field settingsNavigationRoute Ljava/lang/String;
-	public static final fun settingsScreenNav (Landroidx/navigation/NavGraphBuilder;Ldev/teogor/ceres/framework/core/app/BaseActions;)V
-	public static final fun settingsScreenNav (Landroidx/navigation/NavGraphBuilder;Lkotlin/jvm/functions/Function2;)V
-}
-
-public final class com/zeoowl/chess/clock/ceres/feature/settings/SettingsScreenRoute : dev/teogor/ceres/navigation/core/ScreenRoute {
-	public static final field $stable I
-	public static final field INSTANCE Lcom/zeoowl/chess/clock/ceres/feature/settings/SettingsScreenRoute;
-	public fun getRoute ()Ljava/lang/String;
-}
-
-public final class com/zeoowl/chess/clock/ceres/feature/userprefs/ComposableSingletons$UserScreenKt {
-	public static final field INSTANCE Lcom/zeoowl/chess/clock/ceres/feature/userprefs/ComposableSingletons$UserScreenKt;
-	public static field lambda-1 Lkotlin/jvm/functions/Function2;
-	public fun <init> ()V
-	public final fun getLambda-1$ui_release ()Lkotlin/jvm/functions/Function2;
-}
-
-public final class com/zeoowl/chess/clock/ceres/feature/userprefs/UserPrefsNavigationKt {
-	public static final field userPrefsNavigationRoute Ljava/lang/String;
-	public static final fun userPrefsScreenNav (Landroidx/navigation/NavGraphBuilder;Ldev/teogor/ceres/framework/core/app/BaseActions;)V
-	public static final fun userPrefsScreenNav (Landroidx/navigation/NavGraphBuilder;Lkotlin/jvm/functions/Function2;)V
-}
-
-public final class com/zeoowl/chess/clock/ceres/feature/userprefs/UserPrefsScreenRoute : dev/teogor/ceres/navigation/core/ScreenRoute {
-	public static final field $stable I
-	public static final field INSTANCE Lcom/zeoowl/chess/clock/ceres/feature/userprefs/UserPrefsScreenRoute;
-	public fun getRoute ()Ljava/lang/String;
-}
-
-public final class com/zeoowl/chess/clock/ceres/feature/userprefs/UserScreenKt {
-	public static final fun UserPrefScreen (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;I)V
-}
-
 public final class dev/teogor/ceres/screen/ui/about/AboutComponentsKt {
 	public static final fun aboutApkSignature (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun aboutAppVersion (Landroidx/compose/foundation/lazy/LazyListScope;)V
@@ -182,98 +135,103 @@ public final class dev/teogor/ceres/screen/ui/components/HeaderSurfaceKt {
 	public static final fun HeaderSurfaceSwitch (Ljava/lang/String;ZLkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;I)V
 }
 
-public final class dev/teogor/ceres/screen/ui/legacy/about/AboutLibrariesScreenRoute : dev/teogor/ceres/navigation/core/ScreenRoute {
-	public static final field $stable I
-	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/legacy/about/AboutLibrariesScreenRoute;
-	public fun getRoute ()Ljava/lang/String;
-}
-
-public final class dev/teogor/ceres/screen/ui/legacy/about/AboutNavigationKt {
-	public static final field aboutLibrariesNavigationRoute Ljava/lang/String;
-	public static final field aboutNavigationRoute Ljava/lang/String;
-	public static final fun aboutGraphNav (Landroidx/navigation/NavGraphBuilder;Ldev/teogor/ceres/framework/core/app/BaseActions;)V
-	public static final fun aboutLibrariesScreenNav (Landroidx/navigation/NavGraphBuilder;Ldev/teogor/ceres/framework/core/app/BaseActions;)V
-	public static final fun aboutLibrariesScreenNav (Landroidx/navigation/NavGraphBuilder;Lkotlin/jvm/functions/Function2;)V
-	public static final fun aboutScreenNav (Landroidx/navigation/NavGraphBuilder;Ldev/teogor/ceres/framework/core/app/BaseActions;)V
-	public static final fun aboutScreenNav (Landroidx/navigation/NavGraphBuilder;Lkotlin/jvm/functions/Function2;)V
-}
-
-public final class dev/teogor/ceres/screen/ui/legacy/about/AboutScreenRoute : dev/teogor/ceres/navigation/core/ScreenRoute {
-	public static final field $stable I
-	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/legacy/about/AboutScreenRoute;
-	public fun getRoute ()Ljava/lang/String;
-}
-
-public final class dev/teogor/ceres/screen/ui/legacy/about/ComposableSingletons$AboutScreenKt {
-	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/legacy/about/ComposableSingletons$AboutScreenKt;
-	public static field lambda-1 Lkotlin/jvm/functions/Function2;
-	public static field lambda-2 Lkotlin/jvm/functions/Function2;
-	public fun <init> ()V
-	public final fun getLambda-1$ui_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda-2$ui_release ()Lkotlin/jvm/functions/Function2;
-}
-
-public final class dev/teogor/ceres/screen/ui/legacy/about/libraries/AboutLibrariesScreenKt {
-	public static final fun AboutLibrariesScreen (Landroidx/compose/runtime/Composer;I)V
-}
-
-public final class dev/teogor/ceres/screen/ui/legacy/about/libraries/ComposableSingletons$LibrariesComponentsKt {
-	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/legacy/about/libraries/ComposableSingletons$LibrariesComponentsKt;
+public final class dev/teogor/ceres/screen/ui/lookandfeel/ComposableSingletons$LookAndFeelComponentsKt {
+	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/lookandfeel/ComposableSingletons$LookAndFeelComponentsKt;
 	public static field lambda-1 Lkotlin/jvm/functions/Function3;
-	public static field lambda-2 Lkotlin/jvm/functions/Function2;
+	public static field lambda-2 Lkotlin/jvm/functions/Function3;
+	public static field lambda-3 Lkotlin/jvm/functions/Function3;
+	public static field lambda-4 Lkotlin/jvm/functions/Function2;
+	public static field lambda-5 Lkotlin/jvm/functions/Function3;
+	public static field lambda-6 Lkotlin/jvm/functions/Function3;
+	public static field lambda-7 Lkotlin/jvm/functions/Function3;
+	public static field lambda-8 Lkotlin/jvm/functions/Function3;
+	public static field lambda-9 Lkotlin/jvm/functions/Function3;
 	public fun <init> ()V
 	public final fun getLambda-1$ui_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda-2$ui_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-2$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-3$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-4$ui_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-5$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-6$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-7$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-8$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-9$ui_release ()Lkotlin/jvm/functions/Function3;
 }
 
-public final class dev/teogor/ceres/screen/ui/legacy/about/libraries/LibrariesComponentsKt {
-	public static final fun HtmlText-FNF3uiM (Ljava/lang/String;Landroidx/compose/ui/Modifier;JLandroidx/compose/runtime/Composer;II)V
-	public static final fun Libraries-XFD2ZOI (Lkotlinx/collections/immutable/ImmutableList;Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/layout/PaddingValues;ZZZLdev/teogor/ceres/screen/ui/legacy/about/libraries/LibraryColors;Ldev/teogor/ceres/screen/ui/legacy/about/libraries/LibraryPadding;Landroidx/compose/foundation/layout/PaddingValues;FLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;III)V
-	public static final fun LibrariesContainer-XFD2ZOI (Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/layout/PaddingValues;Lkotlin/jvm/functions/Function1;ZZZLdev/teogor/ceres/screen/ui/legacy/about/libraries/LibraryColors;Ldev/teogor/ceres/screen/ui/legacy/about/libraries/LibraryPadding;Landroidx/compose/foundation/layout/PaddingValues;FLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;III)V
-	public static final fun LicenseDialog-yRmH2ew (Lcom/mikepenz/aboutlibraries/entity/Library;Ldev/teogor/ceres/screen/ui/legacy/about/libraries/LibraryColors;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;II)V
+public final class dev/teogor/ceres/screen/ui/lookandfeel/LookAndFeelComponentsKt {
+	public static final fun lookAndFeelAppTheme (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun lookAndFeelColorTheme (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun lookAndFeelDynamicTheming (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun lookAndFeelHeaderAppearance (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun lookAndFeelHeaderFeedback (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun lookAndFeelJustBlack (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun lookAndFeelSoundFeedback (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun lookAndFeelVibrationFeedback (Landroidx/compose/foundation/lazy/LazyListScope;)V
 }
 
-public abstract interface class dev/teogor/ceres/screen/ui/legacy/about/libraries/LibraryColors {
-	public abstract fun getBackgroundColor-0d7_KjU ()J
-	public abstract fun getBadgeBackgroundColor-0d7_KjU ()J
-	public abstract fun getBadgeContentColor-0d7_KjU ()J
-	public abstract fun getContentColor-0d7_KjU ()J
+public final class dev/teogor/ceres/screen/ui/lookandfeel/LookAndFeelNavigationKt {
+	public static final field lookAndFeelNavigationRoute Ljava/lang/String;
+	public static final fun lookAndFeelScreenNav (Landroidx/navigation/NavGraphBuilder;Lkotlin/jvm/functions/Function2;)V
 }
 
-public final class dev/teogor/ceres/screen/ui/legacy/about/libraries/LibraryDefaults {
+public final class dev/teogor/ceres/screen/ui/lookandfeel/LookAndFeelScreenRoute : dev/teogor/ceres/navigation/core/ScreenRoute {
 	public static final field $stable I
-	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/legacy/about/libraries/LibraryDefaults;
-	public final fun getContentPadding ()Landroidx/compose/foundation/layout/PaddingValues;
-	public final fun libraryColors-ro_MJ88 (JJJJLandroidx/compose/runtime/Composer;II)Ldev/teogor/ceres/screen/ui/legacy/about/libraries/LibraryColors;
-	public final fun libraryPadding (Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/runtime/Composer;II)Ldev/teogor/ceres/screen/ui/legacy/about/libraries/LibraryPadding;
+	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/lookandfeel/LookAndFeelScreenRoute;
+	public fun getRoute ()Ljava/lang/String;
 }
 
-public abstract interface class dev/teogor/ceres/screen/ui/legacy/about/libraries/LibraryPadding {
-	public abstract fun getBadgeContentPadding ()Landroidx/compose/foundation/layout/PaddingValues;
-	public abstract fun getBadgePadding ()Landroidx/compose/foundation/layout/PaddingValues;
-	public abstract fun getNamePadding ()Landroidx/compose/foundation/layout/PaddingValues;
-	public abstract fun getVersionPadding ()Landroidx/compose/foundation/layout/PaddingValues;
+public final class dev/teogor/ceres/screen/ui/settings/ComposableSingletons$SettingsComponentsKt {
+	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/settings/ComposableSingletons$SettingsComponentsKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function3;
+	public static field lambda-2 Lkotlin/jvm/functions/Function3;
+	public static field lambda-3 Lkotlin/jvm/functions/Function3;
+	public static field lambda-4 Lkotlin/jvm/functions/Function3;
+	public fun <init> ()V
+	public final fun getLambda-1$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-2$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-3$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-4$ui_release ()Lkotlin/jvm/functions/Function3;
 }
 
-public final class dev/teogor/ceres/screen/ui/legacy/about/libraries/util/ExtensionsKt {
-	public static final fun getAuthor (Lcom/mikepenz/aboutlibraries/entity/Library;)Ljava/lang/String;
-	public static final fun getHtmlReadyLicenseContent (Lcom/mikepenz/aboutlibraries/entity/License;)Ljava/lang/String;
-	public static final fun getStable (Lcom/mikepenz/aboutlibraries/entity/Library;)Lcom/mikepenz/aboutlibraries/entity/Library;
-	public static final fun getStable (Ljava/util/List;)Lkotlinx/collections/immutable/ImmutableList;
-	public static final fun getStrippedLicenseContent (Lcom/mikepenz/aboutlibraries/entity/License;)Ljava/lang/String;
+public final class dev/teogor/ceres/screen/ui/settings/SettingsComponentsKt {
+	public static final fun settingsBackup (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun settingsHeaderSystem (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun settingsHeaderUI (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun settingsLookAndFeel (Landroidx/compose/foundation/lazy/LazyListScope;)V
 }
 
-public final class dev/teogor/ceres/screen/ui/legacy/about/libraries/util/StableLibrary {
-	public static final synthetic fun box-impl (Lcom/mikepenz/aboutlibraries/entity/Library;)Ldev/teogor/ceres/screen/ui/legacy/about/libraries/util/StableLibrary;
-	public static fun constructor-impl (Lcom/mikepenz/aboutlibraries/entity/Library;)Lcom/mikepenz/aboutlibraries/entity/Library;
-	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Lcom/mikepenz/aboutlibraries/entity/Library;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Lcom/mikepenz/aboutlibraries/entity/Library;Lcom/mikepenz/aboutlibraries/entity/Library;)Z
-	public final fun getLibrary ()Lcom/mikepenz/aboutlibraries/entity/Library;
-	public fun hashCode ()I
-	public static fun hashCode-impl (Lcom/mikepenz/aboutlibraries/entity/Library;)I
-	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Lcom/mikepenz/aboutlibraries/entity/Library;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Lcom/mikepenz/aboutlibraries/entity/Library;
+public final class dev/teogor/ceres/screen/ui/settings/SettingsNavigationKt {
+	public static final field settingsNavigationRoute Ljava/lang/String;
+	public static final fun settingsGraphNav (Landroidx/navigation/NavGraphBuilder;Lkotlin/jvm/functions/Function1;)V
+	public static final fun settingsScreenNav (Landroidx/navigation/NavGraphBuilder;Lkotlin/jvm/functions/Function2;)V
+}
+
+public final class dev/teogor/ceres/screen/ui/settings/SettingsScreenRoute : dev/teogor/ceres/navigation/core/ScreenRoute {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/settings/SettingsScreenRoute;
+	public fun getRoute ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/screen/ui/userprefs/ComposableSingletons$UserPrefsScreenKt {
+	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/userprefs/ComposableSingletons$UserPrefsScreenKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function2;
+	public fun <init> ()V
+	public final fun getLambda-1$ui_release ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class dev/teogor/ceres/screen/ui/userprefs/UserPreferencesScreenRoute : dev/teogor/ceres/navigation/core/ScreenRoute {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/userprefs/UserPreferencesScreenRoute;
+	public fun getRoute ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/screen/ui/userprefs/UserPrefsNaviagtionKt {
+	public static final field userPreferencesNavigationRoute Ljava/lang/String;
+	public static final fun userPreferencesScreenNav (Landroidx/navigation/NavGraphBuilder;Ldev/teogor/ceres/framework/core/app/BaseActions;)V
+	public static final fun userPreferencesScreenNav (Landroidx/navigation/NavGraphBuilder;Lkotlin/jvm/functions/Function2;)V
+}
+
+public final class dev/teogor/ceres/screen/ui/userprefs/UserPrefsScreenKt {
+	public static final fun UserPrefScreen (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;I)V
 }
 

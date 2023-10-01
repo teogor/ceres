@@ -35,10 +35,11 @@ import dev.teogor.ceres.framework.core.menu.menuTop
 import dev.teogor.ceres.framework.core.menu.menuUserData
 import dev.teogor.ceres.framework.core.menu.menuUserId
 import dev.teogor.ceres.framework.core.model.MenuConfig
-import dev.teogor.ceres.lib.settings.SettingsScreenRoute
 import dev.teogor.ceres.navigation.core.LocalNavigationParameters
 import dev.teogor.ceres.navigation.core.ScreenRoute
 import dev.teogor.ceres.screen.ui.about.AboutScreenRoute
+import dev.teogor.ceres.screen.ui.settings.SettingsScreenRoute
+import dev.teogor.ceres.screen.ui.userprefs.UserPreferencesScreenRoute
 
 /**
  * Applies the menu configuration to this [MenuConfig].
@@ -68,7 +69,11 @@ fun MenuConfig.applyMenuConfig() = apply {
       // Menu header
       menuTop {
         // Ceres built-in user details
-        menuUserData()
+        menuUserData(
+          clickable = {
+            UserPreferencesScreenRoute.navigateTo()
+          },
+        )
 
         // Use menu divider to add a divider
         menuDivider()

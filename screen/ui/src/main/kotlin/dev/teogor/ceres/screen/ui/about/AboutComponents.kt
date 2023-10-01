@@ -94,6 +94,7 @@ fun ScreenListScope.aboutCeresFramework() = item {
     title = "Ceres Framework version",
     subtitle = AppMetadataManager.ceresFrameworkVersion,
     icon = Icons.Default.PermDeviceInformation,
+    enabled = true,
   ) {
     val hasFilledIconUI = UiOptions.uiTypes == UiTypes.Filled
     Surface(

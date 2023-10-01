@@ -56,8 +56,6 @@ import dev.teogor.ceres.monetisation.messaging.ConsentResult
 import dev.teogor.ceres.navigation.core.utilities.toScreenName
 import dev.teogor.ceres.screen.builder.compose.HeaderView
 import dev.teogor.ceres.screen.builder.compose.SimpleView
-import dev.teogor.ceres.screen.builder.model.HeaderViewBuilder
-import dev.teogor.ceres.screen.builder.model.SimpleViewBuilder
 import dev.teogor.ceres.screen.core.layout.ColumnLayoutBase
 import dev.teogor.ceres.ui.designsystem.Text
 import dev.teogor.ceres.ui.theme.MaterialTheme
@@ -127,19 +125,17 @@ private fun HomeScreen(
   hasScrollbarBackground = false,
   screenName = HomeScreenConfig.toScreenName(),
 ) {
-  HeaderView(HeaderViewBuilder("Ad Settings"))
+  HeaderView(title = "Ad Settings")
 
   SimpleView(
-    SimpleViewBuilder(
-      title = "Reset Advertising Choices",
-      subtitle = "Reset your advertising choices to manage your options.",
-      clickable = {
-        ConsentManager.resetConsent()
-      },
-    ),
+    title = "Reset Advertising Choices",
+    subtitle = "Reset your advertising choices to manage your options.",
+    clickable = {
+      ConsentManager.resetConsent()
+    },
   )
 
-  HeaderView(HeaderViewBuilder("Ads Demo"))
+  HeaderView(title = "Ads Demo")
 
   // customView {
   //   dev.teogor.ceres.monetisation.admob.beta.formats.ui.AdmobBanner(
@@ -149,30 +145,24 @@ private fun HomeScreen(
   // }
 
   SimpleView(
-    SimpleViewBuilder(
-      title = "Show Interstitial" + if (isOffline) " (Off)" else "",
-      clickable = {
-        homeVM.homeInterstitialAd.show()
-      },
-    ),
+    title = "Show Interstitial" + if (isOffline) " (Off)" else "",
+    clickable = {
+      homeVM.homeInterstitialAd.show()
+    },
   )
 
   SimpleView(
-    SimpleViewBuilder(
-      title = "Show Rewarded Interstitial" + if (isOffline) " (Off)" else "",
-      clickable = {
-        homeVM.homeRewardedInterstitialAd.show()
-      },
-    ),
+    title = "Show Rewarded Interstitial" + if (isOffline) " (Off)" else "",
+    clickable = {
+      homeVM.homeRewardedInterstitialAd.show()
+    },
   )
 
   SimpleView(
-    SimpleViewBuilder(
-      title = "Show Rewarded" + if (isOffline) " (Off)" else "",
-      clickable = {
-        homeVM.homeRewardedAd.show()
-      },
-    ),
+    title = "Show Rewarded" + if (isOffline) " (Off)" else "",
+    clickable = {
+      homeVM.homeRewardedAd.show()
+    },
   )
 
   val adId = DemoAdUnitIds.NATIVE

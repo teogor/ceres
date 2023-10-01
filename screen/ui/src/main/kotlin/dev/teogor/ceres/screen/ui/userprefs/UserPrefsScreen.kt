@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.zeoowl.chess.clock.ceres.feature.userprefs
+package dev.teogor.ceres.screen.ui.userprefs
 
 import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
 import androidx.compose.foundation.background
@@ -50,6 +50,7 @@ import dev.teogor.ceres.framework.core.screen.showBackButton
 import dev.teogor.ceres.framework.core.screen.showNavBar
 import dev.teogor.ceres.framework.core.screen.toolbarTitle
 import dev.teogor.ceres.framework.core.screen.toolbarTokens
+import dev.teogor.ceres.navigation.core.utilities.toScreenName
 import dev.teogor.ceres.screen.core.layout.ColumnLayoutBase
 import dev.teogor.ceres.ui.designsystem.OutlinedTextField
 import dev.teogor.ceres.ui.designsystem.Text
@@ -119,7 +120,10 @@ internal fun UserPrefRoute(
 fun UserPrefScreen(
   name: String,
   onNameEdit: (String) -> Unit,
-) = ColumnLayoutBase() {
+) = ColumnLayoutBase(
+  hasScrollbar = false,
+  screenName = UserPreferencesScreenRoute.toScreenName(),
+) {
   OutlinedTextField(
     value = name,
     onValueChange = { onNameEdit(it) },

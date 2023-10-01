@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.screen.ui.legacy.about.libraries
+package dev.teogor.ceres.feature.lookandfeel
 
 import androidx.compose.runtime.Composable
 import dev.teogor.ceres.framework.core.app.BaseActions
@@ -27,9 +27,20 @@ import dev.teogor.ceres.framework.core.screen.showNavBar
 import dev.teogor.ceres.framework.core.screen.showSettingsButton
 import dev.teogor.ceres.framework.core.screen.toolbarTitle
 import dev.teogor.ceres.framework.core.screen.toolbarTokens
+import dev.teogor.ceres.navigation.core.utilities.toScreenName
+import dev.teogor.ceres.screen.core.layout.LazyColumnLayoutBase
+import dev.teogor.ceres.screen.ui.lookandfeel.LookAndFeelScreenRoute
+import dev.teogor.ceres.screen.ui.lookandfeel.lookAndFeelAppTheme
+import dev.teogor.ceres.screen.ui.lookandfeel.lookAndFeelColorTheme
+import dev.teogor.ceres.screen.ui.lookandfeel.lookAndFeelDynamicTheming
+import dev.teogor.ceres.screen.ui.lookandfeel.lookAndFeelHeaderAppearance
+import dev.teogor.ceres.screen.ui.lookandfeel.lookAndFeelHeaderFeedback
+import dev.teogor.ceres.screen.ui.lookandfeel.lookAndFeelJustBlack
+import dev.teogor.ceres.screen.ui.lookandfeel.lookAndFeelSoundFeedback
+import dev.teogor.ceres.screen.ui.lookandfeel.lookAndFeelVibrationFeedback
 
 @Composable
-internal fun AboutLibrariesRoute(
+internal fun LookAndFeelRoute(
   baseActions: BaseActions,
 ) {
   baseActions.setScreenInfo {
@@ -41,7 +52,7 @@ internal fun AboutLibrariesRoute(
     }
     toolbarTokens {
       toolbarTitle {
-        "Open Source Licenses"
+        "Look & Feel"
       }
       showSettingsButton {
         false
@@ -58,8 +69,26 @@ internal fun AboutLibrariesRoute(
     }
   }
 
-  AboutLibrariesScreen()
+  LookAndFeelLayout()
 }
 
 @Composable
-fun AboutLibrariesScreen() = LibrariesContainer()
+private fun LookAndFeelLayout() = LazyColumnLayoutBase(
+  screenName = LookAndFeelScreenRoute.toScreenName(),
+) {
+  lookAndFeelHeaderAppearance()
+
+  lookAndFeelAppTheme()
+
+  lookAndFeelDynamicTheming()
+
+  lookAndFeelColorTheme()
+
+  lookAndFeelJustBlack()
+
+  lookAndFeelHeaderFeedback()
+
+  lookAndFeelSoundFeedback()
+
+  lookAndFeelVibrationFeedback()
+}
