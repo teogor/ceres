@@ -16,7 +16,6 @@
 
 package dev.teogor.ceres.ui.foundation
 
-import android.content.Context
 import android.media.AudioManager
 import androidx.compose.foundation.Indication
 import androidx.compose.foundation.LocalIndication
@@ -33,6 +32,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.debugInspectorInfo
 import androidx.compose.ui.platform.inspectable
 import androidx.compose.ui.semantics.Role
+import dev.teogor.ceres.core.foundation.HapticEffect
+import dev.teogor.ceres.core.foundation.audioManagerUtils
+import dev.teogor.ceres.core.foundation.vibratorUtils
 import dev.teogor.ceres.ui.foundation.config.FeedbackConfig
 
 fun Modifier.clickable(
@@ -51,12 +53,11 @@ fun Modifier.clickable(
       onClick()
 
       if (!FeedbackConfig.disableAudioFeedback) {
-        (context.getSystemService(Context.AUDIO_SERVICE) as AudioManager)
-          .playSoundEffect(effectType)
+        context.audioManagerUtils().playSoundEffect(effectType)
       }
 
       if (!FeedbackConfig.disableVibrationFeedback) {
-        context.vibrate(
+        context.vibratorUtils().vibrate(
           milliseconds = FeedbackConfig.vibrationFeedbackIntensity,
           effect = HapticEffect.DEFAULT_AMPLITUDE,
         )
@@ -85,12 +86,11 @@ fun Modifier.clickable(
       onClick()
 
       if (!FeedbackConfig.disableAudioFeedback) {
-        (context.getSystemService(Context.AUDIO_SERVICE) as AudioManager)
-          .playSoundEffect(effectType)
+        context.audioManagerUtils().playSoundEffect(effectType)
       }
 
       if (!FeedbackConfig.disableVibrationFeedback) {
-        context.vibrate(
+        context.vibratorUtils().vibrate(
           milliseconds = FeedbackConfig.vibrationFeedbackIntensity,
           effect = HapticEffect.DEFAULT_AMPLITUDE,
         )
