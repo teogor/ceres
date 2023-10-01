@@ -14,32 +14,29 @@
  * limitations under the License.
  */
 
-package com.zeoowl.chess.clock.ceres.feature.userprefs
+package dev.teogor.ceres.screen.ui.settings
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
-import dev.teogor.ceres.framework.core.app.BaseActions
 import dev.teogor.ceres.navigation.core.ScreenRoute
 import dev.teogor.ceres.navigation.core.screenNav
 
-const val userPrefsNavigationRoute = "user_preferences_route"
-
-object UserPrefsScreenRoute : ScreenRoute {
-  override val route: String = userPrefsNavigationRoute
+fun NavGraphBuilder.settingsGraphNav(
+  settingsScreenNav: NavGraphBuilder.() -> Unit,
+) {
+  settingsScreenNav()
 }
 
-fun NavGraphBuilder.userPrefsScreenNav(
-  baseActions: BaseActions,
-) = userPrefsScreenNav {
-  UserPrefRoute(
-    baseActions = baseActions,
-  )
+const val settingsNavigationRoute = "settings_route"
+
+object SettingsScreenRoute : ScreenRoute {
+  override val route: String = settingsNavigationRoute
 }
 
-inline fun NavGraphBuilder.userPrefsScreenNav(
+inline fun NavGraphBuilder.settingsScreenNav(
   crossinline block: @Composable () -> Unit,
 ) = screenNav(
-  route = userPrefsNavigationRoute,
+  route = settingsNavigationRoute,
 ) {
   block()
 }
