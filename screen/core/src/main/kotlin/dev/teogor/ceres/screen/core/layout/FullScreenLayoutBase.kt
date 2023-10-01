@@ -31,13 +31,18 @@ import dev.teogor.ceres.ui.theme.MaterialTheme
 fun FullScreenLayoutBase(
   screenName: String? = null,
   backgroundColor: Color = MaterialTheme.colorScheme.background,
+  hasStatusBar: Boolean = false,
   content: @Composable BoxScope.() -> Unit,
 ) {
   Box(
     modifier = Modifier
       .fillMaxSize()
       .background(color = backgroundColor)
-      .statusBarsPadding(),
+      .apply {
+        if (hasStatusBar) {
+          statusBarsPadding()
+        }
+      },
     content = content,
   )
 
