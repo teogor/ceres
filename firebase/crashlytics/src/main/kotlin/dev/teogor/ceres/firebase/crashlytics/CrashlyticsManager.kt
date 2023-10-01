@@ -30,6 +30,7 @@ import com.google.firebase.crashlytics.CustomKeysAndValues.Builder
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.crashlytics.ktx.crashlytics
 import com.google.firebase.ktx.Firebase
+import dev.teogor.ceres.core.foundation.packageManagerUtils
 import java.util.Locale
 
 internal class CrashlyticsManager(context: Context) {
@@ -212,14 +213,12 @@ private fun Builder.packageInstaller(context: Context) {
 }
 
 private fun Builder.app(context: Context) {
-  val packageManager = context.packageManager
-  val packageName = context.packageName
+  val packageManagerUtils = context.packageManagerUtils()
+  val packageManager = packageManagerUtils.packageManager
+  val packageName = packageManagerUtils.packageName
+  val packageSignatures = packageManagerUtils.packageSignatures
 
-  val packageInfoSignatures = packageManager.getPackageInfo(
-    packageName,
-    PackageManager.GET_SIGNATURES,
-  )
-  val signatures = packageInfoSignatures.signatures.joinToString(", ") { signature ->
+  val signatures = packageSignatures.apkContentsSigners.joinToString(", ") { signature ->
     signature.toCharsString()
   }
   putString("app_signatures", signatures)

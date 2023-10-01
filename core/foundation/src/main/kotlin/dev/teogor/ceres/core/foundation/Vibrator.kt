@@ -16,7 +16,7 @@
 
 @file:SuppressLint("ObsoleteSdkInt")
 
-package dev.teogor.ceres.ui.foundation
+package dev.teogor.ceres.core.foundation
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -26,10 +26,9 @@ import android.os.Vibrator
 import android.os.VibratorManager
 import androidx.annotation.DoNotInline
 import androidx.annotation.RequiresApi
+import dev.teogor.ceres.core.foundation.utils.getSystemService
 
 private var Impl: VibratorImpl? = null
-
-// todo create a module that handles these kind of stuff and is standalone
 
 private fun getImpl() = Impl ?: if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
   VibratorApi31()
@@ -41,19 +40,11 @@ private fun getImpl() = Impl ?: if (Build.VERSION.SDK_INT >= Build.VERSION_CODES
   VibratorBase()
 }.also { Impl = it }
 
-fun Context.getVibrator(): Vibrator {
-  return getImpl().getVibrator(context = this)
+fun Context.vibratorUtils(): VibratorUtils {
+  return VibratorUtils(this, getImpl())
 }
 
-fun Context.vibrate(
-  milliseconds: Long,
-  effect: HapticEffect = HapticEffect.DEFAULT_AMPLITUDE,
-) {
-  val vibrator = getVibrator()
-  getImpl().vibrate(vibrator, milliseconds, effect)
-}
-
-private interface VibratorImpl {
+interface VibratorImpl {
   @DoNotInline
   fun getVibrator(
     context: Context,
@@ -136,19 +127,21 @@ private class VibratorApi31 : VibratorImpl {
   }
 }
 
-@RequiresApi(api = Build.VERSION_CODES.M)
-inline fun <reified T : Any> Context.getSystemService(): T =
-  getSystemService(this, T::class.java)
-
-@RequiresApi(api = Build.VERSION_CODES.M)
-fun <T> getSystemService(context: Context, serviceClass: Class<T>): T {
-  return context.getSystemService(serviceClass)
-}
-
 enum class HapticEffect(val value: Int) {
   DEFAULT_AMPLITUDE(-1),
   EFFECT_CLICK(0),
   EFFECT_DOUBLE_CLICK(1),
   EFFECT_HEAVY_CLICK(5),
   EFFECT_TICK(2),
+}
+
+class VibratorUtils(
+  context: Context,
+  private val vibratorImpl: VibratorImpl,
+) {
+  val vibrator = vibratorImpl.getVibrator(context)
+
+  fun vibrate(milliseconds: Long, effect: HapticEffect = HapticEffect.DEFAULT_AMPLITUDE) {
+    vibratorImpl.vibrate(vibrator, milliseconds, effect)
+  }
 }

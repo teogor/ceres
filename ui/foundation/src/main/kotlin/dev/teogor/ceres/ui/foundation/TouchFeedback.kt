@@ -18,6 +18,9 @@ package dev.teogor.ceres.ui.foundation
 
 import android.content.Context
 import android.media.AudioManager
+import dev.teogor.ceres.core.foundation.HapticEffect
+import dev.teogor.ceres.core.foundation.audioManagerUtils
+import dev.teogor.ceres.core.foundation.vibratorUtils
 import dev.teogor.ceres.core.startup.ApplicationContextProvider
 import dev.teogor.ceres.ui.foundation.config.FeedbackConfig
 
@@ -26,12 +29,11 @@ fun (() -> Unit).withTouchFeedback(
   effectType: Int = AudioManager.FX_KEY_CLICK,
 ): () -> Unit = {
   if (!FeedbackConfig.disableAudioFeedback) {
-    (context.getSystemService(Context.AUDIO_SERVICE) as AudioManager)
-      .playSoundEffect(effectType)
+    context.audioManagerUtils().playSoundEffect(effectType)
   }
 
   if (!FeedbackConfig.disableVibrationFeedback) {
-    context.vibrate(
+    context.vibratorUtils().vibrate(
       milliseconds = FeedbackConfig.vibrationFeedbackIntensity,
       effect = HapticEffect.DEFAULT_AMPLITUDE,
     )
@@ -45,12 +47,11 @@ fun applyTouchFeedback(
   effectType: Int = AudioManager.FX_KEY_CLICK,
 ) {
   if (!FeedbackConfig.disableAudioFeedback) {
-    (context.getSystemService(Context.AUDIO_SERVICE) as AudioManager)
-      .playSoundEffect(effectType)
+    context.audioManagerUtils().playSoundEffect(effectType)
   }
 
   if (!FeedbackConfig.disableVibrationFeedback) {
-    context.vibrate(
+    context.vibratorUtils().vibrate(
       milliseconds = FeedbackConfig.vibrationFeedbackIntensity,
       effect = HapticEffect.DEFAULT_AMPLITUDE,
     )

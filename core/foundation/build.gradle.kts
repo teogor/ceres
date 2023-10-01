@@ -21,22 +21,17 @@ plugins {
 }
 
 android {
-  namespace = "dev.teogor.ceres.firebase.crashlytics"
+  namespace = "dev.teogor.ceres.core.foundation"
   defaultConfig {
     consumerProguardFiles("consumer-proguard-rules.pro")
   }
 }
 
 dependencies {
-  implementation(project(":core:foundation"))
-
-  implementation(libs.firebase.crashlytics)
-  implementation(platform(libs.firebase.bom))
-
-  implementation(libs.startup.runtime)
-  implementation(libs.androidx.compose.runtime)
+  api(libs.androidx.annotation)
+  api(libs.androidx.compose.runtime)
 }
 
 ceresLibrary {
-  name = "Ceres Firebase Crashlytics"
+  name = "Ceres Core Foundation"
 }

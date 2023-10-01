@@ -13,24 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-plugins {
-  id("dev.teogor.ceres.android.library")
-  id("dev.teogor.ceres.android.library.jacoco")
-  id("dev.teogor.ceres.android.library.config")
-}
 
-android {
-  namespace = "dev.teogor.ceres.core.android.config"
-  defaultConfig {
-    consumerProguardFiles("consumer-proguard-rules.pro")
-  }
-}
+package dev.teogor.ceres.core.foundation
 
-dependencies {
-  api(project(":core:startup"))
-  api(project(":core:foundation"))
-}
-
-ceresLibrary {
-  name = "Ceres Core Runtime"
+object FoundationGlobal {
+  val networkMonitor = NetworkMonitor(
+    isOffline = true,
+  )
 }

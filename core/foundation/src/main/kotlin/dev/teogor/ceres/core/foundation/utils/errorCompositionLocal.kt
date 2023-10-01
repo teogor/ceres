@@ -13,24 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-plugins {
-  id("dev.teogor.ceres.android.library")
-  id("dev.teogor.ceres.android.library.jacoco")
-  id("dev.teogor.ceres.android.library.config")
-}
 
-android {
-  namespace = "dev.teogor.ceres.core.android.config"
-  defaultConfig {
-    consumerProguardFiles("consumer-proguard-rules.pro")
-  }
-}
+package dev.teogor.ceres.core.foundation.utils
 
-dependencies {
-  api(project(":core:startup"))
-  api(project(":core:foundation"))
-}
+fun errorCompositionLocal(provider: String): Nothing {
+  error(
+    """
+      No $provider instance found. Please provide a $provider at the composition root.
 
-ceresLibrary {
-  name = "Ceres Core Runtime"
+      ```kotlin
+      CompositionLocalProvider(
+          $provider provides ${provider[0].lowercase()}${provider.substring(1)}
+      ) {
+          // Your Composable content here
+      }
+      ```
+    """.trimIndent(),
+  )
 }

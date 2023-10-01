@@ -13,24 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-plugins {
-  id("dev.teogor.ceres.android.library")
-  id("dev.teogor.ceres.android.library.jacoco")
-  id("dev.teogor.ceres.android.library.config")
-}
 
-android {
-  namespace = "dev.teogor.ceres.core.android.config"
-  defaultConfig {
-    consumerProguardFiles("consumer-proguard-rules.pro")
-  }
-}
+@file:SuppressLint("ObsoleteSdkInt")
 
-dependencies {
-  api(project(":core:startup"))
-  api(project(":core:foundation"))
-}
+package dev.teogor.ceres.core.foundation.utils
 
-ceresLibrary {
-  name = "Ceres Core Runtime"
+import android.annotation.SuppressLint
+import android.content.Context
+import android.os.Build
+import androidx.annotation.RequiresApi
+
+@RequiresApi(api = Build.VERSION_CODES.M)
+inline fun <reified T : Any> Context.getSystemService(): T =
+  getSystemService(this, T::class.java)
+
+@RequiresApi(api = Build.VERSION_CODES.M)
+fun <T> getSystemService(context: Context, serviceClass: Class<T>): T {
+  return context.getSystemService(serviceClass)
 }

@@ -1,0 +1,293 @@
+public abstract interface class dev/teogor/ceres/core/foundation/AudioManagerImpl {
+	public abstract fun getAudioManager (Landroid/content/Context;)Landroid/media/AudioManager;
+}
+
+public final class dev/teogor/ceres/core/foundation/AudioManagerKt {
+	public static final fun audioManagerUtils (Landroid/content/Context;)Ldev/teogor/ceres/core/foundation/AudioManagerUtils;
+}
+
+public final class dev/teogor/ceres/core/foundation/AudioManagerUtils {
+	public static final field $stable I
+	public fun <init> (Landroid/content/Context;Ldev/teogor/ceres/core/foundation/AudioManagerImpl;)V
+	public final fun getAudioManager ()Landroid/media/AudioManager;
+	public final fun playSoundEffect (I)V
+	public final fun playSoundEffect (IF)V
+}
+
+public final class dev/teogor/ceres/core/foundation/BatteryApi21 : dev/teogor/ceres/core/foundation/BatteryImpl {
+	public static final field $stable I
+	public fun <init> (Landroid/content/Context;)V
+	public fun getBatteryLevel ()I
+	public fun getBatteryManager ()Landroid/os/BatteryManager;
+	public fun getPowerManager ()Landroid/os/PowerManager;
+	public fun isCharging ()Z
+}
+
+public final class dev/teogor/ceres/core/foundation/BatteryApi23 : dev/teogor/ceres/core/foundation/BatteryImpl {
+	public static final field $stable I
+	public fun <init> (Landroid/content/Context;)V
+	public fun getBatteryLevel ()I
+	public fun getBatteryManager ()Landroid/os/BatteryManager;
+	public fun getPowerManager ()Landroid/os/PowerManager;
+	public fun isCharging ()Z
+}
+
+public final class dev/teogor/ceres/core/foundation/BatteryBase : dev/teogor/ceres/core/foundation/BatteryImpl {
+	public static final field $stable I
+	public fun <init> (Landroid/content/Context;)V
+	public fun getBatteryLevel ()I
+	public fun getBatteryManager ()Landroid/os/BatteryManager;
+	public fun getPowerManager ()Landroid/os/PowerManager;
+	public fun isCharging ()Z
+}
+
+public abstract interface class dev/teogor/ceres/core/foundation/BatteryImpl {
+	public abstract fun getBatteryLevel ()I
+	public abstract fun getBatteryManager ()Landroid/os/BatteryManager;
+	public abstract fun getPowerManager ()Landroid/os/PowerManager;
+	public abstract fun isCharging ()Z
+}
+
+public final class dev/teogor/ceres/core/foundation/BatteryKt {
+	public static final fun batteryUtils (Landroid/content/Context;)Ldev/teogor/ceres/core/foundation/BatteryUtils;
+}
+
+public final class dev/teogor/ceres/core/foundation/BatteryUtils {
+	public static final field $stable I
+	public fun <init> (Ldev/teogor/ceres/core/foundation/BatteryImpl;)V
+	public final fun getBatteryLevel ()I
+	public final fun isCharging ()Z
+}
+
+public final class dev/teogor/ceres/core/foundation/FoundationGlobal {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/core/foundation/FoundationGlobal;
+	public final fun getNetworkMonitor ()Ldev/teogor/ceres/core/foundation/NetworkMonitor;
+}
+
+public final class dev/teogor/ceres/core/foundation/HapticEffect : java/lang/Enum {
+	public static final field DEFAULT_AMPLITUDE Ldev/teogor/ceres/core/foundation/HapticEffect;
+	public static final field EFFECT_CLICK Ldev/teogor/ceres/core/foundation/HapticEffect;
+	public static final field EFFECT_DOUBLE_CLICK Ldev/teogor/ceres/core/foundation/HapticEffect;
+	public static final field EFFECT_HEAVY_CLICK Ldev/teogor/ceres/core/foundation/HapticEffect;
+	public static final field EFFECT_TICK Ldev/teogor/ceres/core/foundation/HapticEffect;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/core/foundation/HapticEffect;
+	public static fun values ()[Ldev/teogor/ceres/core/foundation/HapticEffect;
+}
+
+public abstract interface class dev/teogor/ceres/core/foundation/MediaPlayerImpl {
+	public abstract fun create (Landroid/content/Context;I)Landroid/media/MediaPlayer;
+	public abstract fun create (Landroid/content/Context;ILandroid/media/AudioAttributes;I)Landroid/media/MediaPlayer;
+	public abstract fun create (Landroid/content/Context;Landroid/net/Uri;)Landroid/media/MediaPlayer;
+	public abstract fun create (Landroid/content/Context;Landroid/net/Uri;Landroid/view/SurfaceHolder;)Landroid/media/MediaPlayer;
+	public abstract fun create (Landroid/content/Context;Landroid/net/Uri;Landroid/view/SurfaceHolder;Landroid/media/AudioAttributes;I)Landroid/media/MediaPlayer;
+	public abstract fun getMediaPlayer (Landroid/content/Context;)Landroid/media/MediaPlayer;
+}
+
+public final class dev/teogor/ceres/core/foundation/MediaPlayerKt {
+	public static final fun mediaPlayerUtils (Landroid/content/Context;)Ldev/teogor/ceres/core/foundation/MediaPlayerUtils;
+}
+
+public final class dev/teogor/ceres/core/foundation/MediaPlayerUtils {
+	public static final field $stable I
+	public fun <init> (Landroid/content/Context;Ldev/teogor/ceres/core/foundation/MediaPlayerImpl;)V
+	public final fun create (I)Landroid/media/MediaPlayer;
+	public final fun create (ILandroid/media/AudioAttributes;I)Landroid/media/MediaPlayer;
+	public final fun create (Landroid/net/Uri;)Landroid/media/MediaPlayer;
+	public final fun create (Landroid/net/Uri;Landroid/view/SurfaceHolder;)Landroid/media/MediaPlayer;
+	public final fun create (Landroid/net/Uri;Landroid/view/SurfaceHolder;Landroid/media/AudioAttributes;I)Landroid/media/MediaPlayer;
+}
+
+public final class dev/teogor/ceres/core/foundation/NetworkConnectivityApi23 : dev/teogor/ceres/core/foundation/NetworkConnectivityImpl {
+	public static final field $stable I
+	public fun <init> (Landroid/content/Context;)V
+	public fun isOnline ()Lkotlinx/coroutines/flow/Flow;
+}
+
+public final class dev/teogor/ceres/core/foundation/NetworkConnectivityBase : dev/teogor/ceres/core/foundation/NetworkConnectivityImpl {
+	public static final field $stable I
+	public fun <init> (Landroid/content/Context;)V
+	public fun isOnline ()Lkotlinx/coroutines/flow/Flow;
+}
+
+public abstract interface class dev/teogor/ceres/core/foundation/NetworkConnectivityImpl {
+	public abstract fun isOnline ()Lkotlinx/coroutines/flow/Flow;
+}
+
+public final class dev/teogor/ceres/core/foundation/NetworkConnectivityUtils {
+	public static final field $stable I
+	public fun <init> (Ldev/teogor/ceres/core/foundation/NetworkConnectivityImpl;)V
+	public final fun isOnline ()Lkotlinx/coroutines/flow/Flow;
+}
+
+public final class dev/teogor/ceres/core/foundation/NetworkMonitor {
+	public static final field $stable I
+	public fun <init> (Z)V
+	public final fun component1 ()Z
+	public final fun copy (Z)Ldev/teogor/ceres/core/foundation/NetworkMonitor;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/core/foundation/NetworkMonitor;ZILjava/lang/Object;)Ldev/teogor/ceres/core/foundation/NetworkMonitor;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public final fun isOffline ()Z
+	public final fun setOffline (Z)V
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/core/foundation/NetworkMonitorKt {
+	public static final fun networkConnectivityUtils (Landroid/content/Context;)Ldev/teogor/ceres/core/foundation/NetworkConnectivityUtils;
+}
+
+public final class dev/teogor/ceres/core/foundation/PackageManagerApi21 : dev/teogor/ceres/core/foundation/PackageManagerImpl {
+	public static final field $stable I
+	public fun <init> (Landroid/content/Context;)V
+	public fun getPackageInfo (Ljava/lang/Number;)Landroid/content/pm/PackageInfo;
+	public fun getPackageManager ()Landroid/content/pm/PackageManager;
+	public fun getPackageName ()Ljava/lang/String;
+	public fun getPackageSignatures ()Ldev/teogor/ceres/core/foundation/SigningInfo;
+	public fun getVersionCode ()J
+	public fun getVersionName ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/core/foundation/PackageManagerApi28 : dev/teogor/ceres/core/foundation/PackageManagerImpl {
+	public static final field $stable I
+	public fun <init> (Landroid/content/Context;)V
+	public fun getPackageInfo (Ljava/lang/Number;)Landroid/content/pm/PackageInfo;
+	public fun getPackageManager ()Landroid/content/pm/PackageManager;
+	public fun getPackageName ()Ljava/lang/String;
+	public fun getPackageSignatures ()Ldev/teogor/ceres/core/foundation/SigningInfo;
+	public fun getVersionCode ()J
+	public fun getVersionName ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/core/foundation/PackageManagerApi33 : dev/teogor/ceres/core/foundation/PackageManagerImpl {
+	public static final field $stable I
+	public fun <init> (Landroid/content/Context;)V
+	public fun getPackageInfo (Ljava/lang/Number;)Landroid/content/pm/PackageInfo;
+	public fun getPackageManager ()Landroid/content/pm/PackageManager;
+	public fun getPackageName ()Ljava/lang/String;
+	public fun getPackageSignatures ()Ldev/teogor/ceres/core/foundation/SigningInfo;
+	public fun getVersionCode ()J
+	public fun getVersionName ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/core/foundation/PackageManagerBase : dev/teogor/ceres/core/foundation/PackageManagerImpl {
+	public static final field $stable I
+	public fun <init> (Landroid/content/Context;)V
+	public fun getPackageInfo (Ljava/lang/Number;)Landroid/content/pm/PackageInfo;
+	public fun getPackageManager ()Landroid/content/pm/PackageManager;
+	public fun getPackageName ()Ljava/lang/String;
+	public fun getPackageSignatures ()Ldev/teogor/ceres/core/foundation/SigningInfo;
+	public fun getVersionCode ()J
+	public fun getVersionName ()Ljava/lang/String;
+}
+
+public abstract interface class dev/teogor/ceres/core/foundation/PackageManagerImpl {
+	public abstract fun getPackageInfo (Ljava/lang/Number;)Landroid/content/pm/PackageInfo;
+	public abstract fun getPackageManager ()Landroid/content/pm/PackageManager;
+	public abstract fun getPackageName ()Ljava/lang/String;
+	public abstract fun getPackageSignatures ()Ldev/teogor/ceres/core/foundation/SigningInfo;
+	public abstract fun getVersionCode ()J
+	public abstract fun getVersionName ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/core/foundation/PackageManagerImpl$DefaultImpls {
+	public static synthetic fun getPackageInfo$default (Ldev/teogor/ceres/core/foundation/PackageManagerImpl;Ljava/lang/Number;ILjava/lang/Object;)Landroid/content/pm/PackageInfo;
+}
+
+public final class dev/teogor/ceres/core/foundation/PackageManagerKt {
+	public static final fun packageManagerUtils (Landroid/content/Context;)Ldev/teogor/ceres/core/foundation/PackageManagerUtils;
+}
+
+public final class dev/teogor/ceres/core/foundation/PackageManagerUtils {
+	public static final field $stable I
+	public fun <init> (Ldev/teogor/ceres/core/foundation/PackageManagerImpl;)V
+	public final fun getPackageInfo ()Landroid/content/pm/PackageInfo;
+	public final fun getPackageInfo (I)Landroid/content/pm/PackageInfo;
+	public final fun getPackageManager ()Landroid/content/pm/PackageManager;
+	public final fun getPackageName ()Ljava/lang/String;
+	public final fun getPackageSignatures ()Ldev/teogor/ceres/core/foundation/SigningInfo;
+	public final fun getVersionCode ()J
+	public final fun getVersionName ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/core/foundation/SigningInfo {
+	public static final field $stable I
+	public fun <init> (ZZLjava/util/List;Ljava/util/List;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Z
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/util/List;
+	public final fun copy (ZZLjava/util/List;Ljava/util/List;)Ldev/teogor/ceres/core/foundation/SigningInfo;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/core/foundation/SigningInfo;ZZLjava/util/List;Ljava/util/List;ILjava/lang/Object;)Ldev/teogor/ceres/core/foundation/SigningInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getApkContentsSigners ()Ljava/util/List;
+	public final fun getHasMultipleSigners ()Z
+	public final fun getHasPastSigningCertificates ()Z
+	public final fun getSigningCertificateHistory ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class dev/teogor/ceres/core/foundation/VibratorImpl {
+	public abstract fun getVibrator (Landroid/content/Context;)Landroid/os/Vibrator;
+	public abstract fun vibrate (Landroid/os/Vibrator;JLdev/teogor/ceres/core/foundation/HapticEffect;)V
+}
+
+public final class dev/teogor/ceres/core/foundation/VibratorKt {
+	public static final fun vibratorUtils (Landroid/content/Context;)Ldev/teogor/ceres/core/foundation/VibratorUtils;
+}
+
+public final class dev/teogor/ceres/core/foundation/VibratorUtils {
+	public static final field $stable I
+	public fun <init> (Landroid/content/Context;Ldev/teogor/ceres/core/foundation/VibratorImpl;)V
+	public final fun getVibrator ()Landroid/os/Vibrator;
+	public final fun vibrate (JLdev/teogor/ceres/core/foundation/HapticEffect;)V
+	public static synthetic fun vibrate$default (Ldev/teogor/ceres/core/foundation/VibratorUtils;JLdev/teogor/ceres/core/foundation/HapticEffect;ILjava/lang/Object;)V
+}
+
+public final class dev/teogor/ceres/core/foundation/compositions/LocalAudioManagerKt {
+	public static final fun getLocalAudioManager ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class dev/teogor/ceres/core/foundation/compositions/LocalBatteryKt {
+	public static final fun getLocalBattery ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class dev/teogor/ceres/core/foundation/compositions/LocalMediaPlayerKt {
+	public static final fun getLocalMediaPlayer ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class dev/teogor/ceres/core/foundation/compositions/LocalNetworkMonitorKt {
+	public static final fun getLocalNetworkMonitor ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class dev/teogor/ceres/core/foundation/compositions/LocalPackageManagerKt {
+	public static final fun getLocalPackageManager ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class dev/teogor/ceres/core/foundation/compositions/LocalVibratorKt {
+	public static final fun getLocalVibrator ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public abstract interface class dev/teogor/ceres/core/foundation/di/CoreFoundationModule {
+}
+
+public final class dev/teogor/ceres/core/foundation/extensions/MediaPlayerExtKt {
+	public static final fun createMediaPlayer (ILandroid/media/AudioAttributes;ILandroidx/compose/runtime/Composer;II)Landroid/media/MediaPlayer;
+	public static final fun createMediaPlayer (Landroid/net/Uri;Landroid/view/SurfaceHolder;Landroid/media/AudioAttributes;ILandroidx/compose/runtime/Composer;II)Landroid/media/MediaPlayer;
+}
+
+public final class dev/teogor/ceres/core/foundation/utils/ErrorCompositionLocalKt {
+	public static final fun errorCompositionLocal (Ljava/lang/String;)Ljava/lang/Void;
+}
+
+public final class dev/teogor/ceres/core/foundation/utils/SystemServiceKt {
+	public static final fun getSystemService (Landroid/content/Context;Ljava/lang/Class;)Ljava/lang/Object;
+}
+
+public class hilt_aggregated_deps/_dev_teogor_ceres_core_foundation_di_CoreFoundationModule {
+	public fun <init> ()V
+}
+

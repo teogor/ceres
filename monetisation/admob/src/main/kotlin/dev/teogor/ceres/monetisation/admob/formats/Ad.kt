@@ -18,7 +18,7 @@ package dev.teogor.ceres.monetisation.admob.formats
 
 import android.content.Context
 import androidx.compose.runtime.mutableStateOf
-import dev.teogor.ceres.core.network.NetworkMonitorGlobal
+import dev.teogor.ceres.core.foundation.FoundationGlobal
 import dev.teogor.ceres.core.startup.ApplicationContextProvider
 import dev.teogor.ceres.monetisation.admob.Logger
 
@@ -31,7 +31,7 @@ abstract class Ad(
 
   abstract fun useCache(): Boolean
 
-  fun isNetworkAvailable() = !NetworkMonitorGlobal.isOffline
+  fun isNetworkAvailable() = !FoundationGlobal.networkMonitor.isOffline
 
   protected var isLoading = false
   protected var isShowing = false

@@ -31,6 +31,7 @@ android {
 
 dependencies {
   api(project(":core:startup"))
+  api(project(":core:foundation"))
 
   api(libs.androidx.compose.foundation)
   api(libs.androidx.compose.material)

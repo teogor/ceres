@@ -27,6 +27,7 @@ android {
 }
 
 dependencies {
+  implementation(project(":core:foundation"))
   implementation(libs.kotlinx.coroutines.android)
 }
 

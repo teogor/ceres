@@ -53,6 +53,7 @@ include(":ui:spectrum")
 include(":ui:theme")
 
 // Core
+include(":core:foundation")
 include(":core:runtime")
 include(":core:network")
 include(":core:notifications")

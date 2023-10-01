@@ -14,8 +14,12 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.core.network
+package dev.teogor.ceres.core.foundation.compositions
 
-object NetworkMonitorGlobal {
-  var isOffline: Boolean = true
+import androidx.compose.runtime.staticCompositionLocalOf
+import dev.teogor.ceres.core.foundation.PackageManagerUtils
+import dev.teogor.ceres.core.foundation.utils.errorCompositionLocal
+
+val LocalPackageManager = staticCompositionLocalOf<PackageManagerUtils> {
+  errorCompositionLocal("PackageManagerUtils")
 }
