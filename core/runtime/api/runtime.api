@@ -21,7 +21,7 @@ public final class dev/teogor/ceres/core/runtime/AppMetadataManager {
 	public final fun getPackageManager ()Landroid/content/pm/PackageManager;
 	public final fun getPackageName ()Ljava/lang/String;
 	public final fun getSanitizedPackageName ()Ljava/lang/String;
-	public final fun getVersionCode ()I
+	public final fun getVersionCode ()J
 	public final fun getVersionName ()Ljava/lang/String;
 	public final fun getZoneOffset ()Ljava/time/ZoneOffset;
 	public final fun isDebuggable ()Z

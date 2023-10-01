@@ -18,12 +18,9 @@ package dev.teogor.ceres.core.runtime
 
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
-import android.os.Build
-import android.os.Build.VERSION
-import android.os.Build.VERSION_CODES
 import android.util.Base64
 import dev.teogor.ceres.core.android.config.BuildConfig
-import dev.teogor.ceres.core.runtime.AppMetadataManager.AppMetadataManagerImpl.getPackageInfoCompat
+import dev.teogor.ceres.core.foundation.packageManagerUtils
 import dev.teogor.ceres.core.startup.ApplicationContextProvider
 import java.io.File
 import java.io.FileInputStream
@@ -55,21 +52,16 @@ object AppMetadataManager {
     }
 
   val packageManager: PackageManager
-    get() = ApplicationContextProvider.context.packageManager
+    get() = ApplicationContextProvider.context.packageManagerUtils().packageManager
 
   val packageInfo: PackageInfo
-    get() = packageManager.getPackageInfoCompat(packageName)
+    get() = ApplicationContextProvider.context.packageManagerUtils().packageInfo
 
   val versionName: String
-    get() = packageInfo.versionName
+    get() = ApplicationContextProvider.context.packageManagerUtils().versionName
 
-  val versionCode: Int
-    get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-      packageInfo.longVersionCode.toInt()
-    } else {
-      @Suppress("DEPRECATION")
-      packageInfo.versionCode
-    }
+  val versionCode: Long
+    get() = ApplicationContextProvider.context.packageManagerUtils().versionCode
 
   val zoneOffset = ZoneId.systemDefault().rules.getOffset(LocalDateTime.now())
   val buildDateTime = LocalDateTime.ofEpochSecond(
@@ -110,16 +102,4 @@ object AppMetadataManager {
       }
       return null
     }
-
-  private object AppMetadataManagerImpl {
-    fun PackageManager.getPackageInfoCompat(
-      packageName: String,
-      flags: Int = 0,
-    ): PackageInfo = if (VERSION.SDK_INT >= VERSION_CODES.TIRAMISU) {
-      getPackageInfo(packageName, PackageManager.PackageInfoFlags.of(flags.toLong()))
-    } else {
-      // @Suppress("DEPRECATION")
-      getPackageInfo(packageName, flags)
-    }
-  }
 }

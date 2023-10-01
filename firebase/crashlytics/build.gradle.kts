@@ -28,6 +28,8 @@ android {
 }
 
 dependencies {
+  implementation(project(":core:foundation"))
+
   implementation(libs.firebase.crashlytics)
   implementation(platform(libs.firebase.bom))
 

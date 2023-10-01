@@ -28,6 +28,7 @@ android {
 
 dependencies {
   api(project(":core:startup"))
+  api(project(":core:foundation"))
 }
 
 ceresLibrary {
