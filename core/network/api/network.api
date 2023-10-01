@@ -15,12 +15,6 @@ public abstract interface class dev/teogor/ceres/core/network/NetworkMonitor {
 	public abstract fun isOnline ()Lkotlinx/coroutines/flow/Flow;
 }
 
-public final class dev/teogor/ceres/core/network/NetworkMonitorGlobal {
-	public static final field INSTANCE Ldev/teogor/ceres/core/network/NetworkMonitorGlobal;
-	public final fun isOffline ()Z
-	public final fun setOffline (Z)V
-}
-
 public abstract interface class dev/teogor/ceres/core/network/di/NetworkModule {
 	public abstract fun bindsNetworkMonitor (Ldev/teogor/ceres/core/network/ConnectivityManagerNetworkMonitor;)Ldev/teogor/ceres/core/network/NetworkMonitor;
 }

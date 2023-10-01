@@ -34,7 +34,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
+import dev.teogor.ceres.core.foundation.networkConnectivityUtils
 import dev.teogor.ceres.core.network.NetworkMonitor
+import dev.teogor.ceres.core.startup.ApplicationContextProvider
 import dev.teogor.ceres.framework.core.screen.ScreenInfo
 import dev.teogor.ceres.framework.core.screen.rememberScreenInfo
 import dev.teogor.ceres.navigation.core.isRouteInBackStack
@@ -104,7 +106,8 @@ class CeresAppState(
   val shouldShowNavRail: Boolean
     get() = !shouldShowBottomBar
 
-  val isOffline = networkMonitor.isOnline
+  val isOffline = ApplicationContextProvider.context.networkConnectivityUtils()
+    .isOnline
     .map(Boolean::not)
     .stateIn(
       scope = coroutineScope,
