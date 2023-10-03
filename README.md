@@ -9,21 +9,47 @@
 [![Profile](https://source.teogor.dev/badges/teogor-github.svg)](https://github.com/teogor)
 [![Portfolio](https://source.teogor.dev/badges/teogor-dev.svg)](https://teogor.dev)
 
-### Gradle
+## Implementation
 
-Add the dependency below to your **module**'s `build.*` file.
-- for `build.gradle`
-```gradle
-dependencies {
-  implementation platform("dev.teogor.ceres:bom:1.0.0-alpha01")
-}
-```
-- for `build.gradle.kts`
+To streamline the implementation of Ceres libraries, use the following Gradle setup with the BoM (Bill of Materials) for version management.
+
+1. Add the BoM for Ceres in your **module**'s `build.gradle` or `build.gradle.kts` file:
+
 ```kotlin
 dependencies {
   implementation(platform("dev.teogor.ceres:bom:1.0.0-alpha01"))
 }
 ```
+
+2. Then, include the specific Ceres libraries you need as dependencies:
+
+```kotlin
+dependencies {
+  // Ceres BoM
+  implementation(platform("dev.teogor.ceres:bom:1.0.0-alpha01"))
+
+  // Include individual Ceres libraries here as needed
+  implementation("dev.teogor.ceres:backup-core")
+  implementation("dev.teogor.ceres:core-foundation")
+  implementation("dev.teogor.ceres:firebase-analytics")
+  // ... Add more libraries here
+}
+```
+
+This setup simplifies library version management and ensures compatibility among the Ceres libraries in your project. The BoM (Bill of Materials) achieves this by centralizing version management, significantly reducing compatibility issues, and streamlining the entire dependency management process. Customize the dependencies based on your project's requirements by including only the necessary Ceres libraries.
+
+### Ceres BoM (Bill of Materials)
+
+The BOM (Bill of Materials) is the central hub for managing library versions within the Ceres project.
+It enables you to effortlessly keep track of the latest versions of key components and dependencies.
+
+For more implementation options and detailed information, refer to the [Ceres BoM (Bill of Materials) documentation](docs/bom/versions.md).
+
+### BoM Versions (Bill of Materials)
+
+For a list of the latest BOM (Bill of Materials) versions, including release notes and release dates, please refer to the [Ceres Version Catalog](/docs/ceres-version-catalog.md). This catalog provides comprehensive information about Ceres libraries and BOM versions in TOML format.
+
+Explore further to access the full catalog and detailed implementation information.
 
 > **Note**: This library has more modules, so include only the ones that you want to use.
 
