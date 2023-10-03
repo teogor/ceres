@@ -26,7 +26,7 @@ plugins {
 ceresModule {
   setModuleCoordinates(
     artifactIdPrefix = "bom",
-    version = "1.0.0-alpha01",
+    version = "1.0.0-alpha02",
   )
 
   setIsBomModule()

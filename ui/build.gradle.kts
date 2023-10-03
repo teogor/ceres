@@ -24,7 +24,7 @@ plugins {
 ceresModule {
   setModuleCoordinates(
     artifactIdPrefix = "ui",
-    version = "1.0.0-alpha01",
+    version = "1.0.0-alpha02",
   )
 }
 

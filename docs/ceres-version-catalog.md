@@ -8,6 +8,7 @@ ceres-bom = { group = "dev.teogor.ceres", name = "bom", version.ref = "ceres-bom
 # Ceres Libraries
 ceres-backup-core = { group = "dev.teogor.ceres", name = "backup-core" }
 ceres-backup-ui = { group = "dev.teogor.ceres", name = "backup-ui" }
+ceres-core-foundation = { group = "dev.teogor.ceres", name = "core-foundation" }
 ceres-core-network = { group = "dev.teogor.ceres", name = "core-network" }
 ceres-core-notifications = { group = "dev.teogor.ceres", name = "core-notifications" }
 ceres-core-runtime = { group = "dev.teogor.ceres", name = "core-runtime" }
@@ -49,6 +50,7 @@ dependencies {
   // Ceres Libraries
   implementation(libs.ceres.backup.core)
   implementation(libs.ceres.backup.ui)
+  implementation(libs.ceres.core.foundation)
   implementation(libs.ceres.core.network)
   implementation(libs.ceres.core.notifications)
   implementation(libs.ceres.core.runtime)
