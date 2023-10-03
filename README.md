@@ -1,6 +1,6 @@
 # Ceres
 
-🪐 Streamline Android Development with Compose, Hilt, Coroutines, and Flow Integration.
+🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.
 
 ## Overview
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -8,6 +8,28 @@
 [![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
 [![Profile](https://source.teogor.dev/badges/teogor-github.svg)](https://github.com/teogor)
 [![Portfolio](https://source.teogor.dev/badges/teogor-dev.svg)](https://teogor.dev)
+
+## Introduction
+
+In the ever-evolving world of Android development, staying up-to-date with the latest tools and technologies is essential to building cutting-edge apps. This is where Ceres comes into play.
+
+Ceres is more than just a library; it's a comprehensive solution that simplifies your Android development journey. It empowers you to leverage the full potential of Jetpack Compose for crafting beautiful and responsive user interfaces. With built-in support for Hilt, you can effortlessly manage your app's dependency injection, making your codebase clean and maintainable.
+
+Say goodbye to callback hell and embrace the power of Coroutines and Flow for asynchronous programming. Ceres makes it easy to handle complex data flows and asynchronous operations, ensuring that your app is responsive and delightful to use.
+
+## Key Features
+
+- **Jetpack Compose Integration:** Harness the power of Jetpack Compose to build modern, declarative UIs effortlessly.
+
+- **Hilt Dependency Injection:** Manage your app's dependencies with Hilt for cleaner and more maintainable code.
+
+- **Coroutines and Flow:** Simplify asynchronous programming with Coroutines and Flow, making your app more responsive.
+
+- **Modular and Extensible:** Ceres is designed with modularity in mind, allowing you to include only the components you need.
+
+- **Comprehensive Documentation:** Access detailed documentation and guides to kickstart your development journey with Ceres.
+
+With Ceres, you can accelerate your Android app development, create delightful user experiences, and stay ahead in the competitive world of Android development.
 
 ## Implementation
 
