@@ -25,7 +25,26 @@ dependencies {
 }
 ```
 
-> **Note**: This library has more modules therefore include only the ones that you want to use.
+> **Note**: This library has more modules, so include only the ones that you want to use.
+
+## Documentation
+
+Explore the comprehensive documentation for Ceres to get started:
+
+- [Read the Full Documentation](docs/index.md)
+- [Versions](docs/bom/versions.md)
+- [Library Versions Catalog](docs/ceres-version-catalog.md)
+
+> Explore the documentation for more details on each module:
+> - [Backup](docs/ceres-module-backup.md)
+> - [Core](docs/ceres-module-core.md)
+> - [Data](docs/ceres-module-data.md)
+> - [Firebase](docs/ceres-module-firebase.md)
+> - [Framework](docs/ceres-module-framework.md)
+> - [Monetisation](docs/ceres-module-monetisation.md)
+> - [Navigation](docs/ceres-module-navigation.md)
+> - [Screen](docs/ceres-module-screen.md)
+> - [UI](docs/ceres-module-ui.md)
 
 ## Find this repository useful? :heart:
 Support it by joining __[stargazers](https://github.com/teogor/ceres/stargazers)__ for this repository. :star: <br>
