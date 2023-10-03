@@ -5,12 +5,12 @@ It enables you to effortlessly keep track of the latest versions of key componen
 
 ### Latest Version
 
-Here is how to declare dependencies using the latest version `1.0.0-alpha01`:
+Here is how to declare dependencies using the latest version `1.0.0-alpha02`:
 
 ```kt
 dependencies {
   // Import the BoM for the Ceres platform using the latest version
-  implementation(platform("dev.teogor.ceres:bom:1.0.0-alpha01"))
+  implementation(platform("dev.teogor.ceres:bom:1.0.0-alpha02"))
 }
 ```
 
@@ -20,6 +20,7 @@ Below is a list of the latest versions of the BOM:
 
 | Version | Release Notes | Release Date |
 | ------- | ------------- | ------------ |
+| 1.0.0-alpha02 | [changelog 🔗](/docs/bom/1.0.0-alpha02/bom-version-1.0.0-alpha02.md) | 02 Oct 2023 |
 | 1.0.0-alpha01 | [changelog 🔗](/docs/bom/1.0.0-alpha01/bom-version-1.0.0-alpha01.md) | 28 Sept 2023 |
 
 The **Bill of Materials (BoM)** serves as a cornerstone for maintaining synchronization among various libraries and components in your project. By centralizing version management, it significantly reduces compatibility issues and streamlines the entire dependency management process.
