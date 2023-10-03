@@ -1,3 +1,4 @@
+import com.google.gson.Gson
 import dev.teogor.ceres.gradle.plugins.CeresLibraryExtension
 import java.io.File
 import java.time.Instant
@@ -95,6 +96,15 @@ open class DependencyInfoGenerator : DefaultTask() {
   private val alphaEmoji = "\uD83E\uDDEA"
   private val betaEmoji = "\uD83D\uDEE0\uFE0F"
   private val deprecatedEmoji = "\uD83D\uDEA7"
+
+  private val previousBomVersion by lazy {
+    val bomInfoList = getBomVersions()
+    if(bomInfoList.isNotEmpty()){
+      bomInfoList[1]
+    } else {
+      null
+    }
+  }
 
   @TaskAction
   fun generateOutputFile() {
@@ -235,10 +245,7 @@ open class DependencyInfoGenerator : DefaultTask() {
 
   @OptIn(ExperimentalSerializationApi::class)
   private fun writeBomVersions() {
-    val filePath = "versions.json"
-    val bomVersionsFile = File("$bomResFolder\\$filePath")
-
-    val bomInfoList = getBomVersions(bomVersionsFile)
+    val bomInfoList = getBomVersions().toMutableList()
     val hasVersion = bomInfoList.any { it.version == bomLibrary.version }
     if (!hasVersion) {
       val currentUtcTime = Instant.now().atZone(ZoneOffset.UTC)
@@ -255,8 +262,9 @@ open class DependencyInfoGenerator : DefaultTask() {
     }
     val jsonString = json.encodeToString(bomInfoList)
 
+    val filePath = "versions.json"
+    val bomVersionsFile = File("$bomResFolder\\$filePath")
     bomVersionsFile.writeText(jsonString)
-
 
     writeBomVersionsMd(
       bomInfoList = bomInfoList,
@@ -325,12 +333,15 @@ open class DependencyInfoGenerator : DefaultTask() {
     }
   }
 
-  private fun getBomVersions(bomVersionsFile: File): MutableList<BomInfo> {
+  private fun getBomVersions(): List<BomInfo> {
+    val filePath = "versions.json"
+    val bomVersionsFile = File("$bomResFolder\\$filePath")
     return if (bomVersionsFile.exists()) {
       val jsonString = bomVersionsFile.readText()
-      Json.decodeFromString(jsonString)
+      val bomInfoList = Json.decodeFromString<List<BomInfo>>(jsonString)
+      bomInfoList.sortedByDescending { it.date }
     } else {
-      mutableListOf()
+      emptyList()
     }
   }
 
@@ -378,6 +389,16 @@ open class DependencyInfoGenerator : DefaultTask() {
         appendLine()
         appendLine("| Status | Service or Product | Gradle dependency | Latest version |")
         appendLine("| ------ | ------------------ | ----------------- | -------------- |")
+
+        println("Previous BoM ${previousBomVersion?.version} released on ${previousBomVersion?.dateFormatted}")
+        val previousBomDependencies = if (previousBomVersion != null) {
+          getDependenciesByVersion(previousBomVersion!!.version)
+        } else {
+          emptyList()
+        }
+        previousBomDependencies.forEach {
+          println("$it")
+        }
         libraries
           .filter { !it.isBom }
           .forEach { library ->
@@ -387,7 +408,21 @@ open class DependencyInfoGenerator : DefaultTask() {
               library.deprecated -> deprecatedEmoji
               else -> ""
             }
-            appendLine("| $emoji | [${library.name}](${library.localPath}) | ${library.gradleDependency}  | ${library.version} |")
+            val previousVersionData = previousBomDependencies.firstOrNull {
+              it.artifactId == library.artifactId
+            }
+            val previousVersion = previousVersionData?.version ?: "N/A"
+            val versionData = if (previousVersionData?.version != null) {
+              val previousVersionDataD = previousVersionData.version
+              if (previousVersionDataD != library.version) {
+                "$previousVersionDataD -> ${library.version}"
+              } else {
+                library.version
+              }
+            } else {
+              library.version
+            }
+            appendLine("| $emoji | [${library.name}](${library.localPath}) | ${library.gradleDependency} | ${library.version} |")
           }
         appendLine()
         appendLine(
@@ -421,6 +456,25 @@ open class DependencyInfoGenerator : DefaultTask() {
     val jsonString = json.encodeToString(libraryInfoList)
 
     bomMappingFile.writeText(jsonString)
+  }
+
+  private fun getDependenciesByVersion(version: String): List<LibraryInfo> {
+    val filePath = "dependencies-$version.json"
+    val bomMappingFile = File("$bomResFolder\\$version\\$filePath")
+
+    if (!bomMappingFile.exists()) {
+      return emptyList()
+    }
+
+    return try {
+      val jsonString = bomMappingFile.readText()
+      val gson = Gson()
+      val libraryInfoList = gson.fromJson(jsonString, Array<LibraryInfo>::class.java)
+      println("libraryInfoList::${libraryInfoList.toList().size}")
+      return libraryInfoList.toList()
+    } catch (e: Exception) {
+      emptyList()
+    }
   }
 
   fun generateBomMapping() {

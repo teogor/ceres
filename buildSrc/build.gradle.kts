@@ -38,6 +38,7 @@ tasks.withType<KotlinCompile>().configureEach {
 dependencies {
   api(gradleApi())
   implementation(libs.kotlinx.serialization.json)
+  implementation(libs.gson)
 }
 
 gradlePlugin {
