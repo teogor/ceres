@@ -53,6 +53,9 @@ import dev.teogor.ceres.firebase.crashlytics.LocalCrashlyticsHelper
 import dev.teogor.ceres.framework.core.app.CeresApp
 import dev.teogor.ceres.framework.core.model.MenuConfig
 import dev.teogor.ceres.framework.core.model.NavGraphOptions
+import dev.teogor.ceres.monetisation.ads.AdsControlProvider
+import dev.teogor.ceres.monetisation.ads.ExperimentalAdsControlApi
+import dev.teogor.ceres.monetisation.ads.LocalAdsControl
 import dev.teogor.ceres.navigation.core.LocalNavigationParameters
 import dev.teogor.ceres.navigation.core.NavigationParameters
 import dev.teogor.ceres.navigation.core.ScreenRoute
@@ -96,7 +99,7 @@ open class Activity : ComponentActivity() {
   /**
    *
    */
-  @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+  @OptIn(ExperimentalMaterial3WindowSizeClassApi::class, ExperimentalAdsControlApi::class)
   override fun onCreate(savedInstanceState: Bundle?) {
     val splashScreen = installSplashScreen()
     super.onCreate(savedInstanceState)
@@ -111,6 +114,7 @@ open class Activity : ComponentActivity() {
     val context = this as Context
     val audioManagerUtils = context.audioManagerUtils()
     val mediaPlayerUtils = context.mediaPlayerUtils()
+    val adsControl = AdsControlProvider.adsControl
 
     setContent {
       val darkTheme = isSystemInDarkTheme()
@@ -208,6 +212,9 @@ open class Activity : ComponentActivity() {
           // Ceres Core Foundation - Composition Provider
           LocalAudioManager provides audioManagerUtils,
           LocalMediaPlayer provides mediaPlayerUtils,
+
+          // Ceres Monetisation
+          LocalAdsControl provides adsControl,
         ) {
           val menuConfig = MenuConfig().apply { buildMenu() }
           val menuConfigHeader =
