@@ -25,6 +25,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import dev.teogor.ceres.navigation.events.TrackScreenViewEvent
+import dev.teogor.ceres.ui.foundation.applyIf
 import dev.teogor.ceres.ui.theme.MaterialTheme
 
 @Composable
@@ -38,10 +39,8 @@ fun FullScreenLayoutBase(
     modifier = Modifier
       .fillMaxSize()
       .background(color = backgroundColor)
-      .apply {
-        if (hasStatusBar) {
-          statusBarsPadding()
-        }
+      .applyIf(hasStatusBar) {
+        Modifier.statusBarsPadding()
       },
     content = content,
   )
