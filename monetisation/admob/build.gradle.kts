@@ -35,6 +35,7 @@ dependencies {
 
   implementation("io.github.farimarwat:admobnative-compose:1.2")
 
+  api(project(":monetisation:ads"))
   implementation(project(":core:runtime"))
   implementation(project(":core:network"))
   implementation(project(":ui:designsystem"))

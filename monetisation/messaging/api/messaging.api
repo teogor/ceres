@@ -71,3 +71,7 @@ public final class dev/teogor/ceres/monetisation/messaging/MessagingManagerIniti
 	public fun dependencies ()Ljava/util/List;
 }
 
+public final class dev/teogor/ceres/monetisation/messaging/utils/ExtensionsKt {
+	public static final fun toConsentRequirementStatus (Lcom/google/android/ump/ConsentInformation$PrivacyOptionsRequirementStatus;)Ldev/teogor/ceres/monetisation/ads/model/ConsentRequirementStatus;
+}
+

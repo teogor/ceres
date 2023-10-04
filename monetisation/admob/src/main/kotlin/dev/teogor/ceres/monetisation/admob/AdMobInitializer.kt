@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+@file:OptIn(ExperimentalAdsControlApi::class)
+
 package dev.teogor.ceres.monetisation.admob
 
 import android.annotation.SuppressLint
@@ -23,6 +25,9 @@ import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration
 import dev.teogor.ceres.core.network.ConnectivityManagerNetworkMonitor
 import dev.teogor.ceres.core.runtime.AppMetadataManager
+import dev.teogor.ceres.monetisation.ads.AdsControl
+import dev.teogor.ceres.monetisation.ads.AdsControlProvider
+import dev.teogor.ceres.monetisation.ads.ExperimentalAdsControlApi
 import java.io.UnsupportedEncodingException
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
@@ -42,7 +47,15 @@ object AdMobInitializer {
     return md5(androidId)?.uppercase() ?: ""
   }
 
+  fun configureAdsControl(adsControl: AdsControl) {
+    AdsControlProvider.initialize(adsControl)
+  }
+
+  private val adsControl: AdsControl
+    get() = AdsControlProvider.adsControl
+
   fun initialize(context: Context) {
+    adsControl.canRequestAds.value = true
     MobileAds.initialize(context) {
       val configuration = RequestConfiguration.Builder().apply {
         if (AppMetadataManager.isDebuggable) {

@@ -8,6 +8,7 @@ public final class dev/teogor/ceres/monetisation/admob/AdMob {
 public final class dev/teogor/ceres/monetisation/admob/AdMobInitializer {
 	public static final field $stable I
 	public static final field INSTANCE Ldev/teogor/ceres/monetisation/admob/AdMobInitializer;
+	public final fun configureAdsControl (Ldev/teogor/ceres/monetisation/ads/AdsControl;)V
 	public final fun getHashedAdvertisingId (Landroid/content/Context;)Ljava/lang/String;
 	public final fun initialize (Landroid/content/Context;)V
 }
