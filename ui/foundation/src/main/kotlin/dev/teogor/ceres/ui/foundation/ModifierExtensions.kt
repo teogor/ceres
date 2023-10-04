@@ -23,6 +23,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.material.ripple.rememberRipple
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
@@ -134,5 +135,14 @@ fun Modifier.sideClickable(
       val isLeft = offset.x < centerX
       onClick(isLeft)
     }
+  }
+}
+
+@Composable
+fun Modifier.applyIf(condition: Boolean, block: @Composable Modifier.() -> Modifier): Modifier {
+  return if (condition) {
+    this
+  } else {
+    this.block()
   }
 }
