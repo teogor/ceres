@@ -38,7 +38,6 @@ public abstract class dev/teogor/ceres/ui/foundation/graphics/Icon {
 
 public final class dev/teogor/ceres/ui/foundation/graphics/Icon$DrawableResourceIcon : dev/teogor/ceres/ui/foundation/graphics/Icon {
 	public static final field $stable I
-	public fun <init> (I)V
 	public final fun component1 ()I
 	public final fun copy (I)Ldev/teogor/ceres/ui/foundation/graphics/Icon$DrawableResourceIcon;
 	public static synthetic fun copy$default (Ldev/teogor/ceres/ui/foundation/graphics/Icon$DrawableResourceIcon;IILjava/lang/Object;)Ldev/teogor/ceres/ui/foundation/graphics/Icon$DrawableResourceIcon;
@@ -50,7 +49,6 @@ public final class dev/teogor/ceres/ui/foundation/graphics/Icon$DrawableResource
 
 public final class dev/teogor/ceres/ui/foundation/graphics/Icon$ImageVectorIcon : dev/teogor/ceres/ui/foundation/graphics/Icon {
 	public static final field $stable I
-	public fun <init> (Landroidx/compose/ui/graphics/vector/ImageVector;)V
 	public final fun component1 ()Landroidx/compose/ui/graphics/vector/ImageVector;
 	public final fun copy (Landroidx/compose/ui/graphics/vector/ImageVector;)Ldev/teogor/ceres/ui/foundation/graphics/Icon$ImageVectorIcon;
 	public static synthetic fun copy$default (Ldev/teogor/ceres/ui/foundation/graphics/Icon$ImageVectorIcon;Landroidx/compose/ui/graphics/vector/ImageVector;ILjava/lang/Object;)Ldev/teogor/ceres/ui/foundation/graphics/Icon$ImageVectorIcon;
@@ -58,6 +56,11 @@ public final class dev/teogor/ceres/ui/foundation/graphics/Icon$ImageVectorIcon 
 	public final fun getImageVector ()Landroidx/compose/ui/graphics/vector/ImageVector;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/ui/foundation/graphics/IconKt {
+	public static final fun asDrawableResourceIcon (I)Ldev/teogor/ceres/ui/foundation/graphics/Icon$DrawableResourceIcon;
+	public static final fun asImageVectorIcon (Landroidx/compose/ui/graphics/vector/ImageVector;)Ldev/teogor/ceres/ui/foundation/graphics/Icon$ImageVectorIcon;
 }
 
 public final class dev/teogor/ceres/ui/foundation/lib/common/ComposableSingletons$EmptyComposableKt {

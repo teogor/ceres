@@ -56,7 +56,7 @@ import dev.teogor.ceres.screen.core.scope.ScreenListScope
 import dev.teogor.ceres.screen.ui.components.HeaderSurface
 import dev.teogor.ceres.ui.designsystem.Surface
 import dev.teogor.ceres.ui.designsystem.Text
-import dev.teogor.ceres.ui.foundation.graphics.Icon
+import dev.teogor.ceres.ui.foundation.graphics.asImageVectorIcon
 import dev.teogor.ceres.ui.theme.MaterialTheme
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
@@ -69,9 +69,7 @@ fun ScreenListScope.aboutOpenAppInfo() = item {
 
   HeaderSurface(
     title = "App Info",
-    icon = Icon.ImageVectorIcon(
-      Icons.AutoMirrored.Default.OpenInNew,
-    ),
+    icon = Icons.AutoMirrored.Default.OpenInNew.asImageVectorIcon(),
     clickable = {
       val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
       val packageName = context.packageName

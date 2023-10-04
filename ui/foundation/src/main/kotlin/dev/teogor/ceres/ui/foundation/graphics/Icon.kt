@@ -23,6 +23,41 @@ import androidx.compose.ui.graphics.vector.ImageVector
  * A sealed class to make dealing with [ImageVector] and [DrawableRes] icons easier.
  */
 sealed class Icon {
-  data class ImageVectorIcon(val imageVector: ImageVector) : Icon()
-  data class DrawableResourceIcon(@DrawableRes val id: Int) : Icon()
+  data class ImageVectorIcon internal constructor(
+    val imageVector: ImageVector,
+  ) : Icon()
+
+  data class DrawableResourceIcon internal constructor(
+    @DrawableRes val id: Int,
+  ) : Icon()
+}
+
+/**
+ * Extension function to create an Icon using ImageVector.
+ *
+ * Example usage:
+ * ```kotlin
+ * val imageVectorIcon = Icons.Filled.Wallpaper.asImageVectorIcon()
+ * ```
+ *
+ * @receiver The ImageVector you want to use as an Icon.
+ * @return An ImageVectorIcon.
+ */
+fun ImageVector.asImageVectorIcon(): Icon.ImageVectorIcon {
+  return Icon.ImageVectorIcon(this)
+}
+
+/**
+ * Extension function to create an Icon using a DrawableRes.
+ *
+ * Example usage:
+ * ```kotlin
+ * val drawableResIcon = R.drawable.ceres_logo.asDrawableResourceIcon()
+ * ```
+ *
+ * @receiver The DrawableRes identifier you want to use as an Icon.
+ * @return A DrawableResourceIcon.
+ */
+fun Int.asDrawableResourceIcon(): Icon.DrawableResourceIcon {
+  return Icon.DrawableResourceIcon(this)
 }
