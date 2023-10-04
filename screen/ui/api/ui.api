@@ -180,6 +180,217 @@ public final class dev/teogor/ceres/screen/ui/lookandfeel/LookAndFeelScreenRoute
 	public fun getRoute ()Ljava/lang/String;
 }
 
+public final class dev/teogor/ceres/screen/ui/onboarding/AdChoicesRoute : dev/teogor/ceres/navigation/core/ScreenRoute {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/onboarding/AdChoicesRoute;
+	public fun getRoute ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/screen/ui/onboarding/IntroRoute : dev/teogor/ceres/navigation/core/ScreenRoute {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/onboarding/IntroRoute;
+	public fun getRoute ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/screen/ui/onboarding/LegalRoute : dev/teogor/ceres/navigation/core/ScreenRoute {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/onboarding/LegalRoute;
+	public fun getRoute ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/screen/ui/onboarding/OnboardingNavigationKt {
+	public static final fun onboardingNavPath (Landroidx/navigation/NavGraphBuilder;Ldev/teogor/ceres/framework/core/app/BaseActions;Ldev/teogor/ceres/screen/ui/onboarding/OnboardingScreenData;Ldev/teogor/ceres/navigation/core/ScreenRoute;Ljava/util/List;)V
+	public static synthetic fun onboardingNavPath$default (Landroidx/navigation/NavGraphBuilder;Ldev/teogor/ceres/framework/core/app/BaseActions;Ldev/teogor/ceres/screen/ui/onboarding/OnboardingScreenData;Ldev/teogor/ceres/navigation/core/ScreenRoute;Ljava/util/List;ILjava/lang/Object;)V
+}
+
+public final class dev/teogor/ceres/screen/ui/onboarding/OnboardingRoute : dev/teogor/ceres/navigation/core/ScreenRoute {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/onboarding/OnboardingRoute;
+	public fun getRoute ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/screen/ui/onboarding/OnboardingScreenData {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun areAllPermissionsGranted ()Z
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Ldev/teogor/ceres/screen/ui/onboarding/OnboardingScreenData;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/screen/ui/onboarding/OnboardingScreenData;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Ldev/teogor/ceres/screen/ui/onboarding/OnboardingScreenData;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAppName ()Ljava/lang/String;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getPermissionCategories ()Ljava/util/List;
+	public final fun getPrivacyPolicyLink ()Ljava/lang/String;
+	public final fun getSupportEmail ()Ljava/lang/String;
+	public final fun getTermsOfServiceLink ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/screen/ui/onboarding/Permission {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Z
+	public final fun component5 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;)Ldev/teogor/ceres/screen/ui/onboarding/Permission;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/screen/ui/onboarding/Permission;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ILjava/lang/Object;)Ldev/teogor/ceres/screen/ui/onboarding/Permission;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getManifestPermission ()Ljava/lang/String;
+	public final fun getPermissionRequired ()Z
+	public final fun getRationaleContent ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isGranted ()Z
+	public final fun setGranted (Z)V
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/screen/ui/onboarding/PermissionCategory {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Ldev/teogor/ceres/screen/ui/onboarding/PermissionCategory;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/screen/ui/onboarding/PermissionCategory;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Ldev/teogor/ceres/screen/ui/onboarding/PermissionCategory;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getName ()Ljava/lang/String;
+	public final fun getPermissions ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/screen/ui/onboarding/PermissionRoute : dev/teogor/ceres/navigation/core/ScreenRoute {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/onboarding/PermissionRoute;
+	public fun getRoute ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/screen/ui/onboarding/model/OnboardingScreen : java/lang/Enum {
+	public static final field AD_CHOICES Ldev/teogor/ceres/screen/ui/onboarding/model/OnboardingScreen;
+	public static final field INTRO Ldev/teogor/ceres/screen/ui/onboarding/model/OnboardingScreen;
+	public static final field LEGAL Ldev/teogor/ceres/screen/ui/onboarding/model/OnboardingScreen;
+	public static final field PERMISSION Ldev/teogor/ceres/screen/ui/onboarding/model/OnboardingScreen;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/screen/ui/onboarding/model/OnboardingScreen;
+	public static fun values ()[Ldev/teogor/ceres/screen/ui/onboarding/model/OnboardingScreen;
+}
+
+public final class dev/teogor/ceres/screen/ui/onboarding/screens/AdChoicesScreenKt {
+	public static final fun AdChoicesScreen (Landroidx/compose/foundation/layout/BoxScope;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)V
+}
+
+public final class dev/teogor/ceres/screen/ui/onboarding/screens/ComposableSingletons$AdChoicesScreenKt {
+	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/onboarding/screens/ComposableSingletons$AdChoicesScreenKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function3;
+	public static field lambda-2 Lkotlin/jvm/functions/Function3;
+	public static field lambda-3 Lkotlin/jvm/functions/Function3;
+	public fun <init> ()V
+	public final fun getLambda-1$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-2$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-3$ui_release ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class dev/teogor/ceres/screen/ui/onboarding/screens/ComposableSingletons$IntroScreenKt {
+	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/onboarding/screens/ComposableSingletons$IntroScreenKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function3;
+	public fun <init> ()V
+	public final fun getLambda-1$ui_release ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class dev/teogor/ceres/screen/ui/onboarding/screens/ComposableSingletons$LegalScreenKt {
+	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/onboarding/screens/ComposableSingletons$LegalScreenKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function3;
+	public static field lambda-10 Lkotlin/jvm/functions/Function3;
+	public static field lambda-11 Lkotlin/jvm/functions/Function3;
+	public static field lambda-12 Lkotlin/jvm/functions/Function3;
+	public static field lambda-2 Lkotlin/jvm/functions/Function3;
+	public static field lambda-3 Lkotlin/jvm/functions/Function3;
+	public static field lambda-4 Lkotlin/jvm/functions/Function3;
+	public static field lambda-5 Lkotlin/jvm/functions/Function3;
+	public static field lambda-6 Lkotlin/jvm/functions/Function3;
+	public static field lambda-7 Lkotlin/jvm/functions/Function3;
+	public static field lambda-8 Lkotlin/jvm/functions/Function3;
+	public static field lambda-9 Lkotlin/jvm/functions/Function3;
+	public fun <init> ()V
+	public final fun getLambda-1$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-10$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-11$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-12$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-2$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-3$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-4$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-5$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-6$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-7$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-8$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-9$ui_release ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class dev/teogor/ceres/screen/ui/onboarding/screens/ComposableSingletons$PermissionScreenKt {
+	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/onboarding/screens/ComposableSingletons$PermissionScreenKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function3;
+	public static field lambda-2 Lkotlin/jvm/functions/Function3;
+	public static field lambda-3 Lkotlin/jvm/functions/Function3;
+	public static field lambda-4 Lkotlin/jvm/functions/Function3;
+	public static field lambda-5 Lkotlin/jvm/functions/Function3;
+	public static field lambda-6 Lkotlin/jvm/functions/Function3;
+	public static field lambda-7 Lkotlin/jvm/functions/Function3;
+	public static field lambda-8 Lkotlin/jvm/functions/Function3;
+	public fun <init> ()V
+	public final fun getLambda-1$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-2$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-3$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-4$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-5$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-6$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-7$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-8$ui_release ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class dev/teogor/ceres/screen/ui/onboarding/screens/IntroScreenKt {
+	public static final fun IntroScreen (Landroidx/compose/foundation/layout/BoxScope;Ldev/teogor/ceres/screen/ui/onboarding/OnboardingScreenData;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)V
+}
+
+public final class dev/teogor/ceres/screen/ui/onboarding/screens/LegalScreenKt {
+	public static final fun LegalScreen (Landroidx/compose/foundation/layout/BoxScope;Ldev/teogor/ceres/screen/ui/onboarding/OnboardingScreenData;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)V
+	public static final fun divider (Landroidx/compose/foundation/lazy/LazyListScope;Landroidx/compose/ui/Modifier;)V
+	public static synthetic fun divider$default (Landroidx/compose/foundation/lazy/LazyListScope;Landroidx/compose/ui/Modifier;ILjava/lang/Object;)V
+	public static final fun header (Landroidx/compose/foundation/lazy/LazyListScope;Ljava/lang/String;Landroidx/compose/ui/Modifier;)V
+	public static synthetic fun header$default (Landroidx/compose/foundation/lazy/LazyListScope;Ljava/lang/String;Landroidx/compose/ui/Modifier;ILjava/lang/Object;)V
+	public static final fun legalTitle (Landroidx/compose/foundation/lazy/LazyListScope;)V
+}
+
+public final class dev/teogor/ceres/screen/ui/onboarding/screens/PermissionScreenKt {
+	public static final fun PermissionScreen (Landroidx/compose/foundation/layout/BoxScope;Ldev/teogor/ceres/screen/ui/onboarding/OnboardingScreenData;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)V
+	public static final fun hasPermissions (Landroid/content/Context;Ljava/lang/String;)Z
+	public static final fun permission (Landroidx/compose/foundation/lazy/LazyListScope;Ldev/teogor/ceres/screen/ui/onboarding/Permission;Lkotlin/jvm/functions/Function0;)V
+}
+
+public final class dev/teogor/ceres/screen/ui/onboarding/screens/PrivacyPolicy : dev/teogor/ceres/ui/designsystem/ClickableElement {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/onboarding/screens/PrivacyPolicy;
+}
+
+public final class dev/teogor/ceres/screen/ui/onboarding/screens/TermsOfService : dev/teogor/ceres/ui/designsystem/ClickableElement {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/onboarding/screens/TermsOfService;
+}
+
 public final class dev/teogor/ceres/screen/ui/settings/ComposableSingletons$SettingsComponentsKt {
 	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/settings/ComposableSingletons$SettingsComponentsKt;
 	public static field lambda-1 Lkotlin/jvm/functions/Function3;

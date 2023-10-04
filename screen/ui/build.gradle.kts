@@ -41,6 +41,9 @@ dependencies {
   implementation(libs.about.libraries.core)
   // used for toImmutableList
   implementation(libs.kotlinx.collections)
+
+  // TODO move to :core:$module
+  implementation(libs.accompanist.permissions)
 }
 
 ceresLibrary {
