@@ -35,6 +35,8 @@ dependencies {
 
   implementation("io.github.farimarwat:admobnative-compose:1.2")
 
+  implementation(libs.androidx.lifecycle.process)
+
   api(project(":monetisation:ads"))
   implementation(project(":core:runtime"))
   implementation(project(":core:network"))

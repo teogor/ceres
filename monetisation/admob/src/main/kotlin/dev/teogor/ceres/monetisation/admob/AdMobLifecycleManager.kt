@@ -20,6 +20,9 @@ import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.os.Bundle
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ProcessLifecycleOwner
 import com.google.android.gms.ads.AdActivity
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
@@ -27,12 +30,19 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+/**
+ * Manages the current activity and handles the display of App Open Ads.
+ *
+ * @param context The application context.
+ */
 @OptIn(DelicateCoroutinesApi::class)
-internal class CurrentActivityManager(
+internal class AdMobLifecycleManager(
   context: Context,
-) {
+) : DefaultLifecycleObserver {
+
   init {
     if (context is Application) {
+      ProcessLifecycleOwner.get().lifecycle.addObserver(this)
       context.registerActivityLifecycleCallbacks(
         object : Application.ActivityLifecycleCallbacks {
           override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
@@ -47,15 +57,6 @@ internal class CurrentActivityManager(
           override fun onActivityResumed(activity: Activity) {
             // Your initialization code when an activity is resumed
             CurrentActivityHolder.activity = activity
-
-            // Show app open ad if available
-            GlobalScope.launch(Dispatchers.Main) {
-              delay(300)
-
-              if (!CurrentActivityHolder.previousActivityWasAd) {
-                AdMob.getAppOpenAd()?.show()
-              }
-            }
           }
 
           override fun onActivityPaused(activity: Activity) {
@@ -76,6 +77,19 @@ internal class CurrentActivityManager(
           }
         },
       )
+    }
+  }
+  override fun onStart(owner: LifecycleOwner) {
+    showAppOpenAd()
+  }
+
+  private fun showAppOpenAd() {
+    GlobalScope.launch(Dispatchers.Main) {
+      delay(300)
+
+      if (!CurrentActivityHolder.previousActivityWasAd) {
+        AdMob.getAppOpenAd()?.show()
+      }
     }
   }
 }
