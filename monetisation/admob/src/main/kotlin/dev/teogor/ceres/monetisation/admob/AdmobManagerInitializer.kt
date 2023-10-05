@@ -47,7 +47,7 @@ class AdmobManagerInitializer : Initializer<Unit> {
       )
       AdMobInitializer.initialize(context)
     }
-    CurrentActivityManager(context)
+    AdMobLifecycleManager(context)
   }
 
   override fun dependencies() = emptyList<Class<out Initializer<*>?>>()
