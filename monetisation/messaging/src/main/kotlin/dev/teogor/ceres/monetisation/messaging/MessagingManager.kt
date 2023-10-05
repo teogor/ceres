@@ -38,7 +38,7 @@ class MessagingManager {
           },
           resetConsent = {
             ConsentManager.resetConsent()
-          }
+          },
         ),
       )
 
