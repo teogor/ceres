@@ -55,17 +55,36 @@ object ConsentManager {
       }
     }
 
+  private val isConsentFormShown = AtomicBoolean(false)
+
+  private fun showConsentForm() {
+    isConsentFormShown.set(true)
+  }
+
+  private fun onConsentFormDismissedOrFailed() {
+    isConsentFormShown.set(false)
+  }
+
+  private fun isConsentFormAlreadyShown(): Boolean {
+    return isConsentFormShown.get()
+  }
+
   @OptIn(ExperimentalAdsControlApi::class)
   private val adsControl: AdsControl
     get() = AdsControlProvider.adsControl
 
   @OptIn(ExperimentalAdsControlApi::class)
   fun loadAndShowConsentFormIfRequired() {
+    if (isConsentFormAlreadyShown()) {
+      return
+    }
     activity?.let {
+      showConsentForm()
       adsControl.consentStatus.value = ConsentStatus.CONSENT_FORM_DISPLAYED
       UserMessagingPlatform.loadAndShowConsentFormIfRequired(
         it,
       ) { formError ->
+        onConsentFormDismissedOrFailed()
         adsControl.canRequestAds.value = consentInformation.canRequestAds()
         adsControl.consentStatus.value = ConsentStatus.CONSENT_FORM_DISMISSED
         state.value = ConsentResult.ConsentFormDismissed(
