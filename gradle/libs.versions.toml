@@ -1,7 +1,7 @@
 [versions]
 apiValidator = "0.13.2"
 aboutLibraries = "10.8.3"
-accompanist = "0.33.1-alpha"
+accompanist = "0.33.2-alpha"
 androidDesugarJdkLibs = "2.0.3"
 androidGradlePlugin = "8.1.1"
 androidxActivity = "1.8.0-rc01"
@@ -73,6 +73,7 @@ vanniktechMavenPlugin = "0.25.3"
 [libraries]
 about-libraries-core = { group = "com.mikepenz", name = "aboutlibraries-core", version.ref = "aboutLibraries" }
 accompanist-testharness = { group = "com.google.accompanist", name = "accompanist-testharness", version.ref = "accompanist" }
+accompanist-permissions = { group = "com.google.accompanist", name = "accompanist-permissions", version.ref = "accompanist" }
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivity" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppCompat" }
