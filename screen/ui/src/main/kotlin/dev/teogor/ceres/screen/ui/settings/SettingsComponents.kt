@@ -17,6 +17,7 @@
 package dev.teogor.ceres.screen.ui.settings
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.PrivacyTip
 import androidx.compose.material.icons.filled.SettingsBackupRestore
 import androidx.compose.material.icons.filled.Style
 import dev.teogor.ceres.navigation.core.LocalNavigationParameters
@@ -24,6 +25,7 @@ import dev.teogor.ceres.screen.builder.compose.HeaderView
 import dev.teogor.ceres.screen.builder.compose.SimpleView
 import dev.teogor.ceres.screen.core.scope.ScreenListScope
 import dev.teogor.ceres.screen.ui.lookandfeel.LookAndFeelScreenRoute
+import dev.teogor.ceres.screen.ui.privacy.PrivacyOptionsRoute
 
 fun ScreenListScope.settingsHeaderUI() = item {
   HeaderView(
@@ -57,5 +59,23 @@ fun ScreenListScope.settingsBackup() = item {
 fun ScreenListScope.settingsHeaderSystem() = item {
   HeaderView(
     title = "System",
+  )
+}
+
+fun ScreenListScope.settingsHeaderDataPrivacy() = item {
+  HeaderView(
+    title = "Data & Privacy",
+  )
+}
+
+fun ScreenListScope.settingsPrivacyOptions() = item {
+  val navigation = LocalNavigationParameters.current
+  SimpleView(
+    title = "Privacy Options",
+    subtitle = "Manage your data and privacy preferences",
+    icon = Icons.Default.PrivacyTip,
+    clickable = {
+      navigation.screenRoute = PrivacyOptionsRoute
+    },
   )
 }
