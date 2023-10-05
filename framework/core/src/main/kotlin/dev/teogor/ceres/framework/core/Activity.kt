@@ -59,7 +59,7 @@ import dev.teogor.ceres.monetisation.ads.LocalAdsControl
 import dev.teogor.ceres.navigation.core.LocalNavigationParameters
 import dev.teogor.ceres.navigation.core.NavigationParameters
 import dev.teogor.ceres.navigation.core.ScreenRoute
-import dev.teogor.ceres.navigation.core.menu.TopLevelDestination
+import dev.teogor.ceres.navigation.core.models.NavigationItem
 import dev.teogor.ceres.ui.foundation.config.FeedbackConfig
 import dev.teogor.ceres.ui.theme.core.Theme
 import javax.inject.Inject
@@ -86,7 +86,7 @@ open class Activity : ComponentActivity() {
   @Inject
   lateinit var crashlyticsHelper: CrashlyticsHelper
 
-  open val topLevelDestinations: List<TopLevelDestination> = emptyList()
+  open val navigationItems: List<NavigationItem> = emptyList()
 
   open fun handleUriVariants(uri: Uri): ScreenRoute? = null
 
@@ -225,7 +225,7 @@ open class Activity : ComponentActivity() {
           CeresApp(
             windowSizeClass = calculateWindowSizeClass(this),
             networkMonitor = networkMonitor,
-            topLevelDestinations = topLevelDestinations,
+            navigationItems = navigationItems,
             menuSheetContent = menuConfigContent,
             headerContent = menuConfigHeader,
           ) { windowSizeClass, ceresAppState, baseActions, padding ->

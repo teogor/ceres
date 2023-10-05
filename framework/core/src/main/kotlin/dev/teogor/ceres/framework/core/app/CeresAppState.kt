@@ -40,7 +40,7 @@ import dev.teogor.ceres.core.startup.ApplicationContextProvider
 import dev.teogor.ceres.framework.core.screen.ScreenInfo
 import dev.teogor.ceres.framework.core.screen.rememberScreenInfo
 import dev.teogor.ceres.navigation.core.isRouteInBackStack
-import dev.teogor.ceres.navigation.core.menu.TopLevelDestination
+import dev.teogor.ceres.navigation.core.models.NavigationItem
 import dev.teogor.ceres.ui.foundation.lib.tools.TrackDisposableJank
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.SharingStarted
@@ -54,7 +54,7 @@ fun rememberCeresAppState(
   coroutineScope: CoroutineScope = rememberCoroutineScope(),
   navController: NavHostController = rememberNavController(),
   screenInfo: ScreenInfo = rememberScreenInfo(),
-  topLevelDestinations: List<TopLevelDestination>,
+  navigationItems: List<NavigationItem>,
 ): CeresAppState {
   NavigationTrackingSideEffect(navController)
   return remember(
@@ -63,7 +63,7 @@ fun rememberCeresAppState(
     windowSizeClass,
     screenInfo,
     networkMonitor,
-    topLevelDestinations,
+    navigationItems,
   ) {
     CeresAppState(
       navController,
@@ -71,7 +71,7 @@ fun rememberCeresAppState(
       windowSizeClass,
       screenInfo,
       networkMonitor,
-      topLevelDestinations,
+      navigationItems,
     )
   }
 }
@@ -83,7 +83,7 @@ class CeresAppState(
   val windowSizeClass: WindowSizeClass,
   val screenInfo: ScreenInfo,
   networkMonitor: NetworkMonitor,
-  topLevelDestinations: List<TopLevelDestination>,
+  navigationItems: List<NavigationItem>,
 ) {
   val currentDestination: NavDestination?
     @Composable get() = navController.currentBackStackEntryAsState().value?.destination
@@ -119,18 +119,18 @@ class CeresAppState(
    * Map of top level destinations to be used in the TopBar, BottomBar and NavRail. The key is the
    * route.
    */
-  val topLevelDestinations: List<TopLevelDestination> = topLevelDestinations
+  val navigationItems: List<NavigationItem> = navigationItems
 
   /**
    * UI logic for navigating to a top level destination in the app. Top level destinations have
    * only one copy of the destination of the back stack, and save and restore state whenever you
    * navigate to and from it.
    *
-   * @param topLevelDestination: The destination the app needs to navigate to.
+   * @param navigationItem: The destination the app needs to navigate to.
    */
-  fun navigateToTopLevelDestination(topLevelDestination: TopLevelDestination) {
-    trace("Navigation: ${topLevelDestination.titleText.lowercase()}") {
-      topLevelDestination.screenRoute?.let { destination ->
+  fun navigateToNavigationItem(navigationItem: NavigationItem) {
+    trace("Navigation: ${navigationItem.titleText.lowercase()}") {
+      navigationItem.screenRoute.let { destination ->
         val isExisting = navController.isRouteInBackStack(destination.route)
         // todo let users decide
         val enableSingleInstance = true
@@ -155,13 +155,13 @@ class CeresAppState(
           }
 
           // Navigate to the destination with the specified navigation options
-          when (topLevelDestination) {
-            in topLevelDestinations -> navController.navigate(
+          when (navigationItem) {
+            in navigationItems -> navController.navigate(
               destination.route,
               topLevelNavOptions,
             )
 
-            else -> Log.e("AppState", "Invalid TopLevelDestination: $topLevelDestination")
+            else -> Log.e("AppState", "Invalid NavigationItem: $navigationItem")
           }
         }
       }
