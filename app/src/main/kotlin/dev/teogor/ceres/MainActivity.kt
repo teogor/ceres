@@ -23,7 +23,7 @@ import dev.teogor.ceres.framework.core.model.MenuConfig
 import dev.teogor.ceres.framework.core.model.NavGraphOptions
 import dev.teogor.ceres.menu.applyMenuConfig
 import dev.teogor.ceres.navigation.ApplyNavHost
-import dev.teogor.ceres.navigation.core.menu.TopLevelDestination
+import dev.teogor.ceres.navigation.core.models.NavigationItem
 
 /**
  * The main activity of the Ceres application.
@@ -36,10 +36,10 @@ class MainActivity : Activity() {
   /**
    * Gets the list of top-level destinations based on the current screen.
    *
-   * @return A list of [TopLevelDestination] for the current screen.
+   * @return A list of [NavigationItem] for the current screen.
    */
-  override val topLevelDestinations: List<TopLevelDestination>
-    get() = super.topLevelDestinations
+  override val navigationItems: List<NavigationItem>
+    get() = super.navigationItems
 
   /**
    * Builds and applies the navigation graph for the Ceres application using [NavGraphOptions].

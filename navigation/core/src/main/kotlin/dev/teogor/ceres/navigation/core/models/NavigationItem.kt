@@ -14,19 +14,22 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.navigation.core.menu
+package dev.teogor.ceres.navigation.core.models
 
 import dev.teogor.ceres.navigation.core.ScreenRoute
 import dev.teogor.ceres.ui.foundation.graphics.Icon
 
-@Deprecated(
-  "Use NavigationItem instead",
-  ReplaceWith(
-    "NavigationItem",
-    "dev.teogor.ceres.navigation.core.models.NavigationItem",
-  ),
-)
-open class TopLevelDestination(
+/**
+ * Represents a navigation item used in a bottom navigation bar, tab bar, or similar UI components.
+ * This class encapsulates the properties needed to define a navigation item.
+ *
+ * @param selectedIcon The icon to display when this item is selected.
+ * @param unselectedIcon The icon to display when this item is not selected.
+ * @param titleText The text to display as the title or label for this item.
+ * @param iconText The text to display as the icon's label (defaults to [titleText]).
+ * @param screenRoute The route to the screen that is visible when this item is active.
+ */
+open class NavigationItem(
   val selectedIcon: Icon,
   val unselectedIcon: Icon,
   val titleText: String,
