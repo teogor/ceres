@@ -27,6 +27,7 @@ import dev.teogor.ceres.screen.ui.onboarding.onboardingNavPath
 @OptIn(ExperimentalOnboardingScreenApi::class)
 fun NavGraphBuilder.onboardingScreenNav(
   baseActions: BaseActions,
+  adsConsentOnly: Boolean,
 ) = onboardingNavPath(
   baseActions = baseActions,
   onboardingData = OnboardingScreenData(
@@ -36,9 +37,15 @@ fun NavGraphBuilder.onboardingScreenNav(
     termsOfServiceLink = "https://terms.teogor.dev",
   ),
   endRoute = HomeScreenConfig,
-  screens = listOf(
-    OnboardingScreen.INTRO,
-    OnboardingScreen.LEGAL,
-    OnboardingScreen.AD_CHOICES,
-  ),
+  screens = if (adsConsentOnly) {
+    listOf(
+      OnboardingScreen.AD_CHOICES,
+    )
+  } else {
+    listOf(
+      OnboardingScreen.INTRO,
+      OnboardingScreen.LEGAL,
+      OnboardingScreen.AD_CHOICES,
+    )
+  },
 )

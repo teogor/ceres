@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-@file:OptIn(ExperimentalAdsControlApi::class)
-
 package dev.teogor.ceres.monetisation.messaging
 
 import android.app.Activity
@@ -57,9 +55,11 @@ object ConsentManager {
       }
     }
 
+  @OptIn(ExperimentalAdsControlApi::class)
   private val adsControl: AdsControl
     get() = AdsControlProvider.adsControl
 
+  @OptIn(ExperimentalAdsControlApi::class)
   fun loadAndShowConsentFormIfRequired() {
     activity?.let {
       adsControl.consentStatus.value = ConsentStatus.CONSENT_FORM_DISPLAYED
@@ -77,6 +77,7 @@ object ConsentManager {
     }
   }
 
+  @OptIn(ExperimentalAdsControlApi::class)
   fun resetConsent() {
     if (!::consentInformation.isInitialized) {
       return
@@ -88,6 +89,7 @@ object ConsentManager {
     }
   }
 
+  @OptIn(ExperimentalAdsControlApi::class)
   fun initialiseConsentForm(
     activity: Activity,
   ) {
@@ -128,6 +130,7 @@ object ConsentManager {
     }
   }
 
+  @OptIn(ExperimentalAdsControlApi::class)
   private fun onConsentInfoUpdateSuccess(
     activity: Activity,
   ) {

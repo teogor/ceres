@@ -18,6 +18,8 @@ package dev.teogor.ceres.navigation
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import dev.teogor.ceres.data.datastore.defaults.ceresPreferences
 import dev.teogor.ceres.feature.about.aboutScreenNav
@@ -29,6 +31,8 @@ import dev.teogor.ceres.feature.settings.settingsScreenNav
 import dev.teogor.ceres.framework.core.app.BaseActions
 import dev.teogor.ceres.framework.core.app.CeresAppState
 import dev.teogor.ceres.framework.core.model.NavGraphOptions
+import dev.teogor.ceres.monetisation.ads.ExperimentalAdsControlApi
+import dev.teogor.ceres.monetisation.ads.LocalAdsControl
 import dev.teogor.ceres.navigation.core.NavHost
 import dev.teogor.ceres.screen.ui.about.aboutGraphNav
 import dev.teogor.ceres.screen.ui.api.ExperimentalOnboardingScreenApi
@@ -59,7 +63,7 @@ fun NavGraphOptions.ApplyNavHost() = NavHost(
  * @param appState The Ceres app state.
  * @param baseActions The base actions for navigation.
  */
-@OptIn(ExperimentalOnboardingScreenApi::class)
+@OptIn(ExperimentalOnboardingScreenApi::class, ExperimentalAdsControlApi::class)
 @Composable
 private fun NavHost(
   modifier: Modifier = Modifier,
@@ -67,7 +71,9 @@ private fun NavHost(
   baseActions: BaseActions,
 ) {
   val onboardingCompleted = ceresPreferences().onboardingComplete
-  val startDestination = if (onboardingCompleted) {
+  val adsControl = LocalAdsControl.current
+  val canRequestAds by remember { adsControl.canRequestAds }
+  val startDestination = if (onboardingCompleted && canRequestAds) {
     HomeScreenConfig
   } else {
     OnboardingRoute
@@ -78,7 +84,10 @@ private fun NavHost(
     modifier = modifier,
     startDestination = startDestination,
   ) {
-    onboardingScreenNav(baseActions)
+    onboardingScreenNav(
+      baseActions = baseActions,
+      adsConsentOnly = !canRequestAds && onboardingCompleted,
+    )
 
     homeScreenNav(baseActions)
 

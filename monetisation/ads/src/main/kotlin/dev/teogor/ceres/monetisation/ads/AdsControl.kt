@@ -77,28 +77,34 @@ fun HandleAdsConsent(
   onAdsConsentRejected: () -> Unit,
 ) {
   val adsControl = LocalAdsControl.current
-  val shouldShowConsentDialog = remember { adsControl.shouldShowConsentDialog }
   val canRequestAds by remember { adsControl.canRequestAds }
-  val state by remember { adsControl.consentStatus }
+  val consentStatus by remember { adsControl.consentStatus }
+  val shouldShowConsentDialog = remember(canRequestAds, consentStatus) {
+    adsControl.shouldShowConsentDialog
+  }
+
   // TODO: Implement the missing functionality in ConsentManager (Issue #126)
   //  - temporary workaround
   var isConsentVisible by rememberSaveable { mutableStateOf(false) }
 
-  LaunchedEffect(shouldShowConsentDialog, canRequestAds, state) {
+  LaunchedEffect(shouldShowConsentDialog, canRequestAds, consentStatus) {
     if (canRequestAds) {
       onAdsConsentGranted()
-      if (state == ConsentStatus.CONSENT_FORM_DISMISSED) {
+      if (consentStatus == ConsentStatus.CONSENT_FORM_DISMISSED) {
         isConsentVisible = false
       }
-    } else if (state == ConsentStatus.CONSENT_FORM_ERROR) {
-      adsControl.showConsent()
-    } else if (shouldShowConsentDialog && !isConsentVisible) {
-      adsControl.showConsent()
-      isConsentVisible = true
     } else {
-      if (state == ConsentStatus.CONSENT_FORM_DISMISSED) {
-        onAdsConsentRejected()
-        isConsentVisible = false
+      if (consentStatus == ConsentStatus.CONSENT_FORM_ERROR) {
+        // TODO: Implement network error handling logic
+        adsControl.showConsent()
+      } else if (shouldShowConsentDialog && !isConsentVisible) {
+        adsControl.showConsent()
+        isConsentVisible = true
+      } else {
+        if (consentStatus == ConsentStatus.CONSENT_FORM_DISMISSED) {
+          onAdsConsentRejected()
+          isConsentVisible = false
+        }
       }
     }
   }
