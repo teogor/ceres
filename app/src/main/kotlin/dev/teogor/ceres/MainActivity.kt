@@ -17,6 +17,7 @@
 package dev.teogor.ceres
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ProvidedValue
 import dagger.hilt.android.AndroidEntryPoint
 import dev.teogor.ceres.framework.core.Activity
 import dev.teogor.ceres.framework.core.model.MenuConfig
@@ -59,4 +60,14 @@ class MainActivity : Activity() {
    */
   @Composable
   override fun MenuConfig.buildMenu() = applyMenuConfig()
+
+  /**
+   * Provides a list of [ProvidedValue] instances that can be used to initialize CompositionLocal values.
+   *
+   * @return A list of [ProvidedValue] instances.
+   */
+  @Composable
+  override fun compositionProviders(): List<ProvidedValue<*>> {
+    return listOf()
+  }
 }
