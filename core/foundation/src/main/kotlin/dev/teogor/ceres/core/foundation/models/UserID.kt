@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.data.datastore.common
+package dev.teogor.ceres.core.foundation.models
 
 import java.util.UUID
 import java.util.regex.Pattern

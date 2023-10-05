@@ -34,8 +34,8 @@ import com.skydoves.landscapist.ImageOptions
 import com.skydoves.landscapist.components.rememberImageComponent
 import com.skydoves.landscapist.glide.GlideImage
 import com.skydoves.landscapist.placeholder.thumbnail.ThumbnailPlugin
+import dev.teogor.ceres.core.foundation.models.getPrivacyFormattedValue
 import dev.teogor.ceres.data.compose.rememberPreference
-import dev.teogor.ceres.data.datastore.common.getPrivacyFormattedValue
 import dev.teogor.ceres.data.datastore.defaults.ceresPreferences
 import dev.teogor.ceres.ui.designsystem.Text
 import dev.teogor.ceres.ui.theme.MaterialTheme

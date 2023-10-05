@@ -50,6 +50,7 @@ protobuf {
 
 dependencies {
   api(project(":core:startup"))
+  api(project(":core:foundation"))
 
   api(libs.androidx.dataStore.preferences)
   api(libs.androidx.dataStore.core)

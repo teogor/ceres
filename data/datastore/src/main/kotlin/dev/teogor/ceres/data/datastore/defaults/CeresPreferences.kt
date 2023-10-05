@@ -23,10 +23,10 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.google.gson.reflect.TypeToken
+import dev.teogor.ceres.core.foundation.models.UserID
 import dev.teogor.ceres.core.startup.ApplicationContextProvider
 import dev.teogor.ceres.data.datastore.common.DataStoreManager
 import dev.teogor.ceres.data.datastore.common.PreferenceDatastore
-import dev.teogor.ceres.data.datastore.common.UserID
 import dev.teogor.ceres.data.datastore.defaults.AppTheme.FollowSystem
 import dev.teogor.ceres.data.datastore.defaults.JustBlackTheme.Off
 import kotlinx.coroutines.flow.firstOrNull

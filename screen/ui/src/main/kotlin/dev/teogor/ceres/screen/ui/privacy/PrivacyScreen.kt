@@ -43,9 +43,9 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import dev.teogor.ceres.core.foundation.models.UserID
+import dev.teogor.ceres.core.foundation.models.getPrivacyFormattedValue
 import dev.teogor.ceres.core.foundation.ui.platform.LocalApplicationDetails
-import dev.teogor.ceres.data.datastore.common.UserID
-import dev.teogor.ceres.data.datastore.common.getPrivacyFormattedValue
 import dev.teogor.ceres.data.datastore.defaults.ceresPreferences
 import dev.teogor.ceres.screen.builder.compose.HeaderView
 import dev.teogor.ceres.screen.builder.compose.SimpleView
