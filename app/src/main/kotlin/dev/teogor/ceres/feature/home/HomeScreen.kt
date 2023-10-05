@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-@file:OptIn(ExperimentalAdsControlApi::class)
-
 package dev.teogor.ceres.feature.home
 
 import androidx.compose.foundation.background
@@ -37,6 +35,7 @@ import com.skydoves.landscapist.ImageOptions
 import com.skydoves.landscapist.glide.GlideImage
 import dev.teogor.ceres.R
 import dev.teogor.ceres.core.foundation.extensions.createMediaPlayer
+import dev.teogor.ceres.data.datastore.defaults.ceresPreferences
 import dev.teogor.ceres.framework.core.app.BaseActions
 import dev.teogor.ceres.framework.core.app.setScreenInfo
 import dev.teogor.ceres.framework.core.compositions.LocalNetworkConnectivity
@@ -58,13 +57,15 @@ import dev.teogor.ceres.monetisation.admob.formats.nativead.createHeadlineView
 import dev.teogor.ceres.monetisation.admob.formats.nativead.createIconView
 import dev.teogor.ceres.monetisation.ads.ExperimentalAdsControlApi
 import dev.teogor.ceres.monetisation.ads.LocalAdsControl
-import dev.teogor.ceres.monetisation.ads.shouldShowConsentDialog
 import dev.teogor.ceres.monetisation.messaging.ConsentManager
 import dev.teogor.ceres.monetisation.messaging.ConsentResult
+import dev.teogor.ceres.navigation.core.LocalNavigationParameters
 import dev.teogor.ceres.navigation.core.utilities.toScreenName
 import dev.teogor.ceres.screen.builder.compose.HeaderView
 import dev.teogor.ceres.screen.builder.compose.SimpleView
 import dev.teogor.ceres.screen.core.layout.ColumnLayoutBase
+import dev.teogor.ceres.screen.ui.api.ExperimentalOnboardingScreenApi
+import dev.teogor.ceres.screen.ui.onboarding.OnboardingRoute
 import dev.teogor.ceres.ui.designsystem.Text
 import dev.teogor.ceres.ui.theme.MaterialTheme
 
@@ -125,19 +126,28 @@ internal fun HomeRoute(
     switchOn.start()
   }
 
-  val adsControl = LocalAdsControl.current
-  LaunchedEffect(adsControl.shouldShowConsentDialog) {
-    if (adsControl.shouldShowConsentDialog) {
-      ConsentManager.loadAndShowConsentFormIfRequired()
-    }
-  }
-
   HomeScreen(
     homeVM,
     isOffline = networkConnectivity.isOffline,
   )
 }
 
+@OptIn(ExperimentalOnboardingScreenApi::class)
+@Composable
+fun handleOnboardingReset(): () -> Unit {
+  val navigationParameters = LocalNavigationParameters.current
+
+  val resetOnboarding: () -> Unit = {
+    val ceresPreferences = ceresPreferences()
+    ceresPreferences.onboardingComplete = false
+    ConsentManager.resetConsent()
+    navigationParameters.screenRoute = OnboardingRoute
+  }
+
+  return resetOnboarding
+}
+
+@OptIn(ExperimentalAdsControlApi::class)
 @Composable
 private fun HomeScreen(
   homeVM: HomeViewModel,
@@ -153,6 +163,14 @@ private fun HomeScreen(
     subtitle = "Reset your advertising choices to manage your options.",
     clickable = {
       ConsentManager.resetConsent()
+    },
+  )
+
+  val handleOnboardingReset = handleOnboardingReset()
+  SimpleView(
+    title = "Reset Onboarding",
+    clickable = {
+      handleOnboardingReset()
     },
   )
 
