@@ -20,13 +20,23 @@ import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.os.Bundle
+import dev.teogor.ceres.monetisation.admob.AdMobInitializer
+import dev.teogor.ceres.monetisation.ads.AndroidAdsControl
+import dev.teogor.ceres.monetisation.ads.ExperimentalAdsControlApi
 import java.util.concurrent.atomic.AtomicBoolean
 
 class MessagingManager {
   companion object {
     private var isMobileAdsInitializeCalled = AtomicBoolean(false)
 
+    @OptIn(ExperimentalAdsControlApi::class)
     fun initialize(context: Context) {
+      AdMobInitializer.configureAdsControl(
+        AndroidAdsControl().apply {
+          canRequestAds.value = true
+        },
+      )
+
       if (context is Application) {
         context.registerActivityLifecycleCallbacks(
           object : Application.ActivityLifecycleCallbacks {

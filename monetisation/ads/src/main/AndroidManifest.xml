@@ -17,17 +17,26 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools">
 
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+
   <application>
+    <!--  The flag below optimizes the MobileAds.initialize() initialization call  -->
     <meta-data
-      android:name="dev.teogor.ceres.monetisation.admob.flag.MANUAL_ADS_SETUP"
-      android:value="true" />
+      android:name="com.google.android.gms.ads.flag.OPTIMIZE_INITIALIZATION"
+      android:value="true"/>
+
+    <!--  The flag below optimizes ad load calls for all ad formats  -->
+    <meta-data
+      android:name="com.google.android.gms.ads.flag.OPTIMIZE_AD_LOADING"
+      android:value="true"/>
 
     <provider
       android:name="androidx.startup.InitializationProvider"
       android:authorities="${applicationId}.androidx-startup"
       android:exported="false"
       tools:node="merge">
-      <meta-data android:name="dev.teogor.ceres.monetisation.messaging.MessagingManagerInitializer"
+      <meta-data android:name="dev.teogor.ceres.monetisation.admob.AdmobManagerInitializer"
         android:value="androidx.startup" />
     </provider>
   </application>

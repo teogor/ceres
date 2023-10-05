@@ -47,6 +47,8 @@ dependencies {
   api(project(":firebase:analytics"))
   api(project(":firebase:crashlytics"))
 
+  api(project(":monetisation:ads"))
+
   implementation(libs.androidx.activity.compose)
   implementation(libs.androidx.lifecycle.runtimeCompose)
   implementation(libs.androidx.core.splashscreen)

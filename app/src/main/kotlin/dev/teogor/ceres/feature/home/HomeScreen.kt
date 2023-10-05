@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+@file:OptIn(ExperimentalAdsControlApi::class)
+
 package dev.teogor.ceres.feature.home
 
 import androidx.compose.foundation.background
@@ -54,6 +56,9 @@ import dev.teogor.ceres.monetisation.admob.formats.nativead.createBodyView
 import dev.teogor.ceres.monetisation.admob.formats.nativead.createCallToActionView
 import dev.teogor.ceres.monetisation.admob.formats.nativead.createHeadlineView
 import dev.teogor.ceres.monetisation.admob.formats.nativead.createIconView
+import dev.teogor.ceres.monetisation.ads.ExperimentalAdsControlApi
+import dev.teogor.ceres.monetisation.ads.LocalAdsControl
+import dev.teogor.ceres.monetisation.ads.shouldShowConsentDialog
 import dev.teogor.ceres.monetisation.messaging.ConsentManager
 import dev.teogor.ceres.monetisation.messaging.ConsentResult
 import dev.teogor.ceres.navigation.core.utilities.toScreenName
@@ -120,14 +125,17 @@ internal fun HomeRoute(
     switchOn.start()
   }
 
-  if (canRequestAds) {
-    HomeScreen(
-      homeVM,
-      isOffline = networkConnectivity.isOffline,
-    )
-  } else {
-    ConsentManager.loadAndShowConsentFormIfRequired()
+  val adsControl = LocalAdsControl.current
+  LaunchedEffect(adsControl.shouldShowConsentDialog) {
+    if (adsControl.shouldShowConsentDialog) {
+      ConsentManager.loadAndShowConsentFormIfRequired()
+    }
   }
+
+  HomeScreen(
+    homeVM,
+    isOffline = networkConnectivity.isOffline,
+  )
 }
 
 @Composable
@@ -145,6 +153,31 @@ private fun HomeScreen(
     subtitle = "Reset your advertising choices to manage your options.",
     clickable = {
       ConsentManager.resetConsent()
+    },
+  )
+
+  HeaderView(title = "Ads Control")
+
+  val adsControl = LocalAdsControl.current
+  val canRequestAds by remember { adsControl.canRequestAds }
+  SimpleView(
+    title = "Can Request Ads",
+    subtitle = "$canRequestAds",
+    clickable = {
+    },
+  )
+  val consentStatus by remember { adsControl.consentStatus }
+  SimpleView(
+    title = "Consent Status",
+    subtitle = consentStatus.name,
+    clickable = {
+    },
+  )
+  val consentRequirementStatus by remember { adsControl.consentRequirementStatus }
+  SimpleView(
+    title = "Consent Requirement Status",
+    subtitle = consentRequirementStatus.name,
+    clickable = {
     },
   )
 

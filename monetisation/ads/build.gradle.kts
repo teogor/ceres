@@ -21,25 +21,13 @@ plugins {
 }
 
 android {
-  namespace = "dev.teogor.ceres.monetisation.admob"
+  namespace = "dev.teogor.ceres.monetisation.ads"
   defaultConfig {
     consumerProguardFiles("consumer-proguard-rules.pro")
-  }
-  buildFeatures {
-    viewBinding = true
   }
 }
 
 dependencies {
-  api("com.google.android.gms:play-services-ads:22.4.0")
-
-  implementation("io.github.farimarwat:admobnative-compose:1.2")
-
-  api(project(":monetisation:ads"))
-  implementation(project(":core:runtime"))
-  implementation(project(":core:network"))
-  implementation(project(":ui:designsystem"))
-
   implementation(libs.androidx.compose.foundation)
   implementation(libs.androidx.compose.runtime)
   implementation(libs.androidx.compose.ui.viewbinding)
@@ -47,5 +35,5 @@ dependencies {
 }
 
 ceresLibrary {
-  name = "Ceres Monetisation AdMob"
+  name = "Ceres Monetisation Ads"
 }

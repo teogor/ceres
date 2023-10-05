@@ -20,8 +20,38 @@ rootProject.name = "Ceres"
 // App
 include(":app")
 
-// BOM
+// BoM
 include(":bom")
+
+// Backup
+include(":backup:core")
+include(":backup:ui")
+
+// Core
+include(":core:foundation")
+include(":core:network")
+include(":core:notifications")
+include(":core:runtime")
+include(":core:startup")
+
+// Data
+include(":data:compose")
+include(":data:database")
+include(":data:datastore")
+
+// Firebase
+include(":firebase:analytics")
+include(":firebase:crashlytics")
+include(":firebase:remote-config")
+
+// Framework
+include(":framework:core")
+include(":framework:ui")
+
+// Monetisation
+include(":monetisation:admob")
+include(":monetisation:ads")
+include(":monetisation:messaging")
 
 // Navigation
 include(":navigation:common")
@@ -30,19 +60,10 @@ include(":navigation:events")
 include(":navigation:screen")
 include(":navigation:ui")
 
-// Firebase
-include(":firebase:analytics")
-include(":firebase:crashlytics")
-include(":firebase:remote-config")
-
-// Backup
-include(":backup:core")
-include(":backup:ui")
-
-// Data
-include(":data:compose")
-include(":data:database")
-include(":data:datastore")
+// Screen
+include(":screen:builder")
+include(":screen:core")
+include(":screen:ui")
 
 // UI
 include(":ui:compose")
@@ -51,23 +72,3 @@ include(":ui:foundation")
 include(":ui:icons")
 include(":ui:spectrum")
 include(":ui:theme")
-
-// Core
-include(":core:foundation")
-include(":core:runtime")
-include(":core:network")
-include(":core:notifications")
-include(":core:startup")
-
-// Framework
-include(":framework:core")
-include(":framework:ui")
-
-// Screen
-include(":screen:core")
-include(":screen:builder")
-include(":screen:ui")
-
-// Monetisation
-include(":monetisation:admob")
-include(":monetisation:messaging")

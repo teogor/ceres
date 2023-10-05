@@ -14,11 +14,15 @@
  * limitations under the License.
  */
 
+@file:OptIn(ExperimentalAdsControlApi::class)
+
 package dev.teogor.ceres.monetisation.admob
 
 import android.content.Context
 import android.content.pm.PackageManager
 import androidx.startup.Initializer
+import dev.teogor.ceres.monetisation.ads.AndroidAdsControl
+import dev.teogor.ceres.monetisation.ads.ExperimentalAdsControlApi
 
 /**
  * Initializes [AdmobManagerInitializer] using `androidx.startup`.
@@ -36,6 +40,11 @@ class AdmobManagerInitializer : Initializer<Unit> {
     ) ?: false
 
     if (!manualAdsSetup) {
+      AdMobInitializer.configureAdsControl(
+        AndroidAdsControl().apply {
+          canRequestAds.value = true
+        },
+      )
       AdMobInitializer.initialize(context)
     }
     CurrentActivityManager(context)

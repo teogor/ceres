@@ -19,15 +19,35 @@ package dev.teogor.ceres.monetisation.messaging
 import com.google.android.ump.ConsentInformation.PrivacyOptionsRequirementStatus
 import com.google.android.ump.FormError
 
+@Deprecated(
+  message = "Use the Ads Control API in the 'dev.teogor.ceres.monetisation.ads' package for better control over ads.",
+  replaceWith = ReplaceWith(expression = "AdsControl"),
+  level = DeprecationLevel.WARNING, // Or your preferred deprecation level
+)
 sealed class ConsentResult {
+  @Deprecated(
+    message = "Use the Ads Control API in the 'dev.teogor.ceres.monetisation.ads' package for better control over ads.",
+    replaceWith = ReplaceWith(expression = "AdsControl"),
+    level = DeprecationLevel.WARNING, // Or your preferred deprecation level
+  )
   data object Undefined : ConsentResult()
 
+  @Deprecated(
+    message = "Use the Ads Control API in the 'dev.teogor.ceres.monetisation.ads' package for better control over ads.",
+    replaceWith = ReplaceWith(expression = "AdsControl"),
+    level = DeprecationLevel.WARNING, // Or your preferred deprecation level
+  )
   data class ConsentFormAcquired(
     val canRequestAds: Boolean,
     val requirementStatus: PrivacyOptionsRequirementStatus,
     val formAvailable: Boolean,
   ) : ConsentResult()
 
+  @Deprecated(
+    message = "Use the Ads Control API in the 'dev.teogor.ceres.monetisation.ads' package for better control over ads.",
+    replaceWith = ReplaceWith(expression = "AdsControl"),
+    level = DeprecationLevel.WARNING, // Or your preferred deprecation level
+  )
   data class ConsentFormDismissed(
     val canRequestAds: Boolean,
     val requirementStatus: PrivacyOptionsRequirementStatus,
