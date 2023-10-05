@@ -17,6 +17,7 @@ public final class dev/teogor/ceres/monetisation/ads/AdsControlProvider {
 	public static final field $stable I
 	public static final field INSTANCE Ldev/teogor/ceres/monetisation/ads/AdsControlProvider;
 	public static field adsControl Ldev/teogor/ceres/monetisation/ads/AdsControl;
+	public final fun canRequestAds ()Z
 	public final fun getAdsControl ()Ldev/teogor/ceres/monetisation/ads/AdsControl;
 	public final fun initialize (Ldev/teogor/ceres/monetisation/ads/AdsControl;)V
 	public final fun setAdsControl (Ldev/teogor/ceres/monetisation/ads/AdsControl;)V

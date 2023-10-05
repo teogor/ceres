@@ -21,6 +21,7 @@ import androidx.compose.runtime.mutableStateOf
 import dev.teogor.ceres.core.foundation.FoundationGlobal
 import dev.teogor.ceres.core.startup.ApplicationContextProvider
 import dev.teogor.ceres.monetisation.admob.Logger
+import dev.teogor.ceres.monetisation.ads.AdsControlProvider
 
 abstract class Ad(
   loadAtInitialisation: Boolean = false,
@@ -31,7 +32,13 @@ abstract class Ad(
 
   abstract fun useCache(): Boolean
 
-  fun isNetworkAvailable() = !FoundationGlobal.networkMonitor.isOffline
+  open fun isNetworkAvailable(): Boolean {
+    return !FoundationGlobal.networkMonitor.isOffline
+  }
+
+  open fun canRequestAds(): Boolean {
+    return AdsControlProvider.canRequestAds()
+  }
 
   protected var isLoading = false
   protected var isShowing = false
@@ -131,7 +138,7 @@ abstract class Ad(
     adEvent.value = event
   }
 
-  fun canShow() = isNetworkAvailable()
+  fun canShow() = isNetworkAvailable() && canRequestAds()
 
   fun isAdLoaded() = adEvent.value == AdEvent.AdLoaded
 

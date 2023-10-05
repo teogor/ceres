@@ -25,4 +25,11 @@ object AdsControlProvider {
   fun initialize(adsControl: AdsControl) {
     this.adsControl = adsControl
   }
+
+  fun canRequestAds(): Boolean {
+    if (!::adsControl.isInitialized) {
+      return false
+    }
+    return adsControl.canRequestAds.value
+  }
 }
