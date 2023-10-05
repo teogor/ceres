@@ -41,6 +41,7 @@ data class AndroidAdsControl(
     ConsentRequirementStatus.UNKNOWN,
   ),
   val showConsent: (() -> Unit)? = null,
+  val resetConsent: (() -> Unit)? = null,
 ) : AdsControl {
 
   override fun showConsent() {
@@ -49,8 +50,16 @@ data class AndroidAdsControl(
     }
     showConsent.invoke()
   }
+
+  override fun resetConsent() {
+    requireNotNull(resetConsent) {
+      "The 'showConsent' function must be provided when creating an instance of AndroidAdsControl."
+    }
+    resetConsent.invoke()
+  }
 }
 
+@OptIn(ExperimentalAdsControlApi::class)
 val LocalAdsControl = compositionLocalOf<AdsControl> {
   error("No AdsControl provided")
 }
@@ -62,6 +71,8 @@ interface AdsControl {
   val consentRequirementStatus: MutableState<ConsentRequirementStatus>
 
   fun showConsent()
+
+  fun resetConsent()
 }
 
 val AdsControl.shouldShowConsentDialog: Boolean
