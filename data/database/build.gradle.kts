@@ -16,6 +16,8 @@
 plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.jacoco")
+  id("dev.teogor.ceres.android.hilt")
+  id("dev.teogor.ceres.android.room")
 }
 
 android {
