@@ -31,6 +31,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.ProvidedValue
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -215,6 +216,8 @@ open class Activity : ComponentActivity() {
 
           // Ceres Monetisation
           LocalAdsControl provides adsControl,
+
+          *compositionProviders().toTypedArray(),
         ) {
           val menuConfig = MenuConfig().apply { buildMenu() }
           val menuConfigHeader =
@@ -242,6 +245,14 @@ open class Activity : ComponentActivity() {
 
     handleIntent(intent)
   }
+
+  /**
+   * Provides a list of [ProvidedValue] instances that can be used to initialize CompositionLocal values.
+   *
+   * @return A list of [ProvidedValue] instances.
+   */
+  @Composable
+  open fun compositionProviders(): List<ProvidedValue<*>> = emptyList()
 
   private fun handleSplashScreen(splashScreen: SplashScreen) {
     // Keep the splash screen on-screen until the UI state is loaded. This condition is

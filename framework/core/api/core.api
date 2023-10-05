@@ -7,6 +7,7 @@ public class dev/teogor/ceres/framework/core/Activity : androidx/activity/Compon
 	public fun <init> ()V
 	public fun BuildNavGraph (Ldev/teogor/ceres/framework/core/model/NavGraphOptions;Landroidx/compose/runtime/Composer;I)V
 	public fun buildMenu (Ldev/teogor/ceres/framework/core/model/MenuConfig;Landroidx/compose/runtime/Composer;I)Ldev/teogor/ceres/framework/core/model/MenuConfig;
+	public fun compositionProviders (Landroidx/compose/runtime/Composer;I)Ljava/util/List;
 	public final fun getAnalyticsHelper ()Ldev/teogor/ceres/firebase/analytics/AnalyticsHelper;
 	public final fun getCrashlyticsHelper ()Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsHelper;
 	public final fun getLazyStats ()Ldagger/Lazy;
