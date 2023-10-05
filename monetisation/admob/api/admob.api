@@ -59,6 +59,7 @@ public abstract class dev/teogor/ceres/monetisation/admob/formats/Ad : dev/teogo
 	public fun <init> ()V
 	public fun <init> (Z)V
 	public synthetic fun <init> (ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun canRequestAds ()Z
 	public final fun canShow ()Z
 	public final fun getAdEvent ()Landroidx/compose/runtime/MutableState;
 	public fun getConcurrentAdLoadLimit ()I
@@ -66,7 +67,7 @@ public abstract class dev/teogor/ceres/monetisation/admob/formats/Ad : dev/teogo
 	public fun getTag ()Ljava/lang/String;
 	public final fun isAdLoaded ()Z
 	protected final fun isLoading ()Z
-	public final fun isNetworkAvailable ()Z
+	public fun isNetworkAvailable ()Z
 	public final fun isReady ()Z
 	protected final fun isShowing ()Z
 	public fun load ()Z

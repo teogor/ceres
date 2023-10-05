@@ -26,6 +26,7 @@ import com.google.android.ump.ConsentInformation
 import com.google.android.ump.ConsentRequestParameters
 import com.google.android.ump.UserMessagingPlatform
 import dev.teogor.ceres.core.runtime.AppMetadataManager
+import dev.teogor.ceres.monetisation.admob.AdMob
 import dev.teogor.ceres.monetisation.admob.AdMobInitializer
 import dev.teogor.ceres.monetisation.admob.AdMobInitializer.getHashedAdvertisingId
 import dev.teogor.ceres.monetisation.ads.AdsControl
@@ -146,6 +147,8 @@ object ConsentManager {
     adsControl.canRequestAds.value = consentInformation.canRequestAds()
     if (consentInformation.canRequestAds()) {
       initializeMobileAdsSdk(activity)
+
+      attemptToReloadAppOpenAd()
     }
   }
 
@@ -162,6 +165,7 @@ object ConsentManager {
       // Consent has been gathered or not required
       if (consentInformation.canRequestAds()) {
         initializeMobileAdsSdk(activity)
+        attemptToReloadAppOpenAd()
       }
 
       state.value = ConsentResult.ConsentFormAcquired(
@@ -187,5 +191,13 @@ object ConsentManager {
 
     // Initialize the Google Mobile Ads SDK.
     AdMobInitializer.initialize(context)
+  }
+
+  private fun attemptToReloadAppOpenAd() {
+    AdMob.getAppOpenAd()?.let { appOpenAd ->
+      if (!appOpenAd.isAdLoaded()) {
+        appOpenAd.load()
+      }
+    }
   }
 }
