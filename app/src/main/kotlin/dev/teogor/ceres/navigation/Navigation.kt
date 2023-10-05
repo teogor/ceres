@@ -19,16 +19,20 @@ package dev.teogor.ceres.navigation
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import dev.teogor.ceres.data.datastore.defaults.ceresPreferences
 import dev.teogor.ceres.feature.about.aboutScreenNav
-import dev.teogor.ceres.feature.home.homeNavigationRoute
+import dev.teogor.ceres.feature.home.HomeScreenConfig
 import dev.teogor.ceres.feature.home.homeScreenNav
 import dev.teogor.ceres.feature.lookandfeel.lookAndFeelScreenNav
+import dev.teogor.ceres.feature.onboarding.onboardingScreenNav
 import dev.teogor.ceres.feature.settings.settingsScreenNav
 import dev.teogor.ceres.framework.core.app.BaseActions
 import dev.teogor.ceres.framework.core.app.CeresAppState
 import dev.teogor.ceres.framework.core.model.NavGraphOptions
 import dev.teogor.ceres.navigation.core.NavHost
 import dev.teogor.ceres.screen.ui.about.aboutGraphNav
+import dev.teogor.ceres.screen.ui.api.ExperimentalOnboardingScreenApi
+import dev.teogor.ceres.screen.ui.onboarding.OnboardingRoute
 import dev.teogor.ceres.screen.ui.settings.settingsGraphNav
 import dev.teogor.ceres.screen.ui.userprefs.userPreferencesScreenNav
 
@@ -52,22 +56,30 @@ fun NavGraphOptions.ApplyNavHost() = NavHost(
  * Composable function for defining a [NavHost] with customizable parameters.
  *
  * @param modifier The modifier for the [NavHost].
- * @param startDestination The start destination route.
  * @param appState The Ceres app state.
  * @param baseActions The base actions for navigation.
  */
+@OptIn(ExperimentalOnboardingScreenApi::class)
 @Composable
 private fun NavHost(
   modifier: Modifier = Modifier,
-  startDestination: String = homeNavigationRoute,
   appState: CeresAppState,
   baseActions: BaseActions,
 ) {
+  val onboardingCompleted = ceresPreferences().onboardingComplete
+  val startDestination = if (onboardingCompleted) {
+    HomeScreenConfig
+  } else {
+    OnboardingRoute
+  }.route
+
   NavHost(
     navController = appState.navController,
     modifier = modifier,
     startDestination = startDestination,
   ) {
+    onboardingScreenNav(baseActions)
+
     homeScreenNav(baseActions)
 
     userPreferencesScreenNav(baseActions)

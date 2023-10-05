@@ -32,9 +32,11 @@ class MessagingManager {
     @OptIn(ExperimentalAdsControlApi::class)
     fun initialize(context: Context) {
       AdMobInitializer.configureAdsControl(
-        AndroidAdsControl().apply {
-          canRequestAds.value = true
-        },
+        AndroidAdsControl(
+          showConsent = {
+            ConsentManager.loadAndShowConsentFormIfRequired()
+          },
+        ),
       )
 
       if (context is Application) {

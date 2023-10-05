@@ -18,9 +18,15 @@
 
 package dev.teogor.ceres.monetisation.ads
 
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import dev.teogor.ceres.monetisation.ads.model.ConsentRequirementStatus
 import dev.teogor.ceres.monetisation.ads.model.ConsentStatus
 
@@ -34,7 +40,16 @@ data class AndroidAdsControl(
   override val consentRequirementStatus: MutableState<ConsentRequirementStatus> = mutableStateOf(
     ConsentRequirementStatus.UNKNOWN,
   ),
-) : AdsControl
+  val showConsent: (() -> Unit)? = null,
+) : AdsControl {
+
+  override fun showConsent() {
+    requireNotNull(showConsent) {
+      "The 'showConsent' function must be provided when creating an instance of AndroidAdsControl."
+    }
+    showConsent.invoke()
+  }
+}
 
 val LocalAdsControl = compositionLocalOf<AdsControl> {
   error("No AdsControl provided")
@@ -45,7 +60,46 @@ interface AdsControl {
   val canRequestAds: MutableState<Boolean>
   val consentStatus: MutableState<ConsentStatus>
   val consentRequirementStatus: MutableState<ConsentRequirementStatus>
+
+  fun showConsent()
 }
 
 val AdsControl.shouldShowConsentDialog: Boolean
   get() = !canRequestAds.value && consentStatus.value == ConsentStatus.CONSENT_FORM_ACQUIRED
+
+val AdsControl.consentIsShowing: Boolean
+  get() = consentStatus.value == ConsentStatus.CONSENT_FORM_DISPLAYED
+
+@OptIn(ExperimentalAdsControlApi::class)
+@Composable
+fun HandleAdsConsent(
+  onAdsConsentGranted: () -> Unit,
+  onAdsConsentRejected: () -> Unit,
+) {
+  val adsControl = LocalAdsControl.current
+  val shouldShowConsentDialog = remember { adsControl.shouldShowConsentDialog }
+  val canRequestAds by remember { adsControl.canRequestAds }
+  val state by remember { adsControl.consentStatus }
+  // TODO: Implement the missing functionality in ConsentManager (Issue #126)
+  //  - temporary workaround
+  var isConsentVisible by rememberSaveable { mutableStateOf(false) }
+
+  LaunchedEffect(shouldShowConsentDialog, canRequestAds, state) {
+    if (canRequestAds) {
+      onAdsConsentGranted()
+      if (state == ConsentStatus.CONSENT_FORM_DISMISSED) {
+        isConsentVisible = false
+      }
+    } else if (state == ConsentStatus.CONSENT_FORM_ERROR) {
+      adsControl.showConsent()
+    } else if (shouldShowConsentDialog && !isConsentVisible) {
+      adsControl.showConsent()
+      isConsentVisible = true
+    } else {
+      if (state == ConsentStatus.CONSENT_FORM_DISMISSED) {
+        onAdsConsentRejected()
+        isConsentVisible = false
+      }
+    }
+  }
+}

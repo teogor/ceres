@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.screen.ui.onboarding.model
+package dev.teogor.ceres.screen.ui.api
 
-enum class OnboardingScreen {
-  INTRO,
-  LEGAL,
-  PERMISSION,
-  AD_CHOICES,
-}
+@RequiresOptIn(
+  message = "The Onboarding Screen API is currently experimental and may be subject to changes in future releases. Use with caution.",
+)
+@Retention(AnnotationRetention.BINARY)
+annotation class ExperimentalOnboardingScreenApi

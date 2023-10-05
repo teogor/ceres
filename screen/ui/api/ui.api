@@ -129,6 +129,9 @@ public final class dev/teogor/ceres/screen/ui/about/libraries/util/StableLibrary
 	public final synthetic fun unbox-impl ()Lcom/mikepenz/aboutlibraries/entity/Library;
 }
 
+public abstract interface annotation class dev/teogor/ceres/screen/ui/api/ExperimentalOnboardingScreenApi : java/lang/annotation/Annotation {
+}
+
 public final class dev/teogor/ceres/screen/ui/components/HeaderSurfaceKt {
 	public static final fun HeaderSurface (Ljava/lang/String;Ldev/teogor/ceres/ui/foundation/graphics/Icon;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)V
 	public static final fun HeaderSurfaceBase (Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/layout/PaddingValues;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
