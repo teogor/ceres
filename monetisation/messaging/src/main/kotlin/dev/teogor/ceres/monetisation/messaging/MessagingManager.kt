@@ -36,6 +36,9 @@ class MessagingManager {
           showConsent = {
             ConsentManager.loadAndShowConsentFormIfRequired()
           },
+          resetConsent = {
+            ConsentManager.resetConsent()
+          },
         ),
       )
 

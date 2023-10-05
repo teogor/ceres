@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.feature.settings
+package dev.teogor.ceres.feature.privacy
 
 import androidx.compose.runtime.Composable
 import dev.teogor.ceres.framework.core.app.BaseActions
@@ -29,14 +29,19 @@ import dev.teogor.ceres.framework.core.screen.toolbarTitle
 import dev.teogor.ceres.framework.core.screen.toolbarTokens
 import dev.teogor.ceres.navigation.core.utilities.toScreenName
 import dev.teogor.ceres.screen.core.layout.LazyColumnLayoutBase
-import dev.teogor.ceres.screen.ui.settings.SettingsScreenRoute
-import dev.teogor.ceres.screen.ui.settings.settingsHeaderDataPrivacy
-import dev.teogor.ceres.screen.ui.settings.settingsHeaderUI
-import dev.teogor.ceres.screen.ui.settings.settingsLookAndFeel
-import dev.teogor.ceres.screen.ui.settings.settingsPrivacyOptions
+import dev.teogor.ceres.screen.ui.privacy.PrivacyOptionsRoute
+import dev.teogor.ceres.screen.ui.privacy.legalAgreementsHeader
+import dev.teogor.ceres.screen.ui.privacy.policyAppLicensePolicy
+import dev.teogor.ceres.screen.ui.privacy.policyCopyrightPolicy
+import dev.teogor.ceres.screen.ui.privacy.privacyOptionsHeader
+import dev.teogor.ceres.screen.ui.privacy.privacyPolicyOption
+import dev.teogor.ceres.screen.ui.privacy.privacyResetOnboarding
+import dev.teogor.ceres.screen.ui.privacy.privacyUserId
+import dev.teogor.ceres.screen.ui.privacy.resetAdsConsentOption
+import dev.teogor.ceres.screen.ui.privacy.termsOfServiceOption
 
 @Composable
-internal fun SettingsRoute(
+internal fun PrivacyOptionsRoute(
   baseActions: BaseActions,
 ) {
   baseActions.setScreenInfo {
@@ -48,7 +53,7 @@ internal fun SettingsRoute(
     }
     toolbarTokens {
       toolbarTitle {
-        "Settings"
+        "Privacy Options"
       }
       showSettingsButton {
         false
@@ -65,22 +70,30 @@ internal fun SettingsRoute(
     }
   }
 
-  SettingsLayout()
+  PrivacyOptionsLayout()
 }
 
 @Composable
-private fun SettingsLayout() = LazyColumnLayoutBase(
-  screenName = SettingsScreenRoute.toScreenName(),
+private fun PrivacyOptionsLayout() = LazyColumnLayoutBase(
+  screenName = PrivacyOptionsRoute.toScreenName(),
 ) {
-  settingsHeaderUI()
+  privacyOptionsHeader()
 
-  settingsLookAndFeel()
+  resetAdsConsentOption()
 
-  // settingsBackup()
+  privacyUserId()
 
-  // settingsHeaderSystem()
+  privacyResetOnboarding()
 
-  settingsHeaderDataPrivacy()
+  legalAgreementsHeader()
 
-  settingsPrivacyOptions()
+  privacyPolicyOption()
+
+  termsOfServiceOption()
+
+  policyCopyrightPolicy()
+
+  // policyRefundPolicy()
+
+  policyAppLicensePolicy()
 }

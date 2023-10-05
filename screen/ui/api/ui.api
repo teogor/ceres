@@ -394,24 +394,94 @@ public final class dev/teogor/ceres/screen/ui/onboarding/screens/TermsOfService 
 	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/onboarding/screens/TermsOfService;
 }
 
+public final class dev/teogor/ceres/screen/ui/privacy/ComposableSingletons$PrivacyScreenKt {
+	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/privacy/ComposableSingletons$PrivacyScreenKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function3;
+	public static field lambda-10 Lkotlin/jvm/functions/Function3;
+	public static field lambda-11 Lkotlin/jvm/functions/Function2;
+	public static field lambda-12 Lkotlin/jvm/functions/Function3;
+	public static field lambda-13 Lkotlin/jvm/functions/Function3;
+	public static field lambda-14 Lkotlin/jvm/functions/Function3;
+	public static field lambda-15 Lkotlin/jvm/functions/Function3;
+	public static field lambda-16 Lkotlin/jvm/functions/Function3;
+	public static field lambda-17 Lkotlin/jvm/functions/Function3;
+	public static field lambda-18 Lkotlin/jvm/functions/Function3;
+	public static field lambda-2 Lkotlin/jvm/functions/Function3;
+	public static field lambda-3 Lkotlin/jvm/functions/Function3;
+	public static field lambda-4 Lkotlin/jvm/functions/Function2;
+	public static field lambda-5 Lkotlin/jvm/functions/Function2;
+	public static field lambda-6 Lkotlin/jvm/functions/Function3;
+	public static field lambda-7 Lkotlin/jvm/functions/Function3;
+	public static field lambda-8 Lkotlin/jvm/functions/Function3;
+	public static field lambda-9 Lkotlin/jvm/functions/Function3;
+	public fun <init> ()V
+	public final fun getLambda-1$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-10$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-11$ui_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-12$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-13$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-14$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-15$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-16$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-17$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-18$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-2$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-3$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-4$ui_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-5$ui_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-6$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-7$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-8$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-9$ui_release ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class dev/teogor/ceres/screen/ui/privacy/PrivacyNavigationKt {
+	public static final fun privacyOptionsNavPath (Landroidx/navigation/NavGraphBuilder;Lkotlin/jvm/functions/Function2;)V
+}
+
+public final class dev/teogor/ceres/screen/ui/privacy/PrivacyOptionsRoute : dev/teogor/ceres/navigation/core/ScreenRoute {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/privacy/PrivacyOptionsRoute;
+	public fun getRoute ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/screen/ui/privacy/PrivacyScreenKt {
+	public static final fun legalAgreementsHeader (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun policyAppLicensePolicy (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun policyCopyrightPolicy (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun policyRefundPolicy (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun privacyOptionsHeader (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun privacyPolicyOption (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun privacyResetOnboarding (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun privacyUserId (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun resetAdsConsentOption (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun termsOfServiceOption (Landroidx/compose/foundation/lazy/LazyListScope;)V
+}
+
 public final class dev/teogor/ceres/screen/ui/settings/ComposableSingletons$SettingsComponentsKt {
 	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/settings/ComposableSingletons$SettingsComponentsKt;
 	public static field lambda-1 Lkotlin/jvm/functions/Function3;
 	public static field lambda-2 Lkotlin/jvm/functions/Function3;
 	public static field lambda-3 Lkotlin/jvm/functions/Function3;
 	public static field lambda-4 Lkotlin/jvm/functions/Function3;
+	public static field lambda-5 Lkotlin/jvm/functions/Function3;
+	public static field lambda-6 Lkotlin/jvm/functions/Function3;
 	public fun <init> ()V
 	public final fun getLambda-1$ui_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-2$ui_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-3$ui_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-4$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-5$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-6$ui_release ()Lkotlin/jvm/functions/Function3;
 }
 
 public final class dev/teogor/ceres/screen/ui/settings/SettingsComponentsKt {
 	public static final fun settingsBackup (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun settingsHeaderDataPrivacy (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun settingsHeaderSystem (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun settingsHeaderUI (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun settingsLookAndFeel (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun settingsPrivacyOptions (Landroidx/compose/foundation/lazy/LazyListScope;)V
 }
 
 public final class dev/teogor/ceres/screen/ui/settings/SettingsNavigationKt {
@@ -447,5 +517,10 @@ public final class dev/teogor/ceres/screen/ui/userprefs/UserPrefsNaviagtionKt {
 
 public final class dev/teogor/ceres/screen/ui/userprefs/UserPrefsScreenKt {
 	public static final fun UserPrefScreen (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;I)V
+}
+
+public final class dev/teogor/ceres/screen/ui/utils/InvokersKt {
+	public static final fun resetConsentHandler (Landroidx/compose/runtime/Composer;I)Lkotlin/jvm/functions/Function0;
+	public static final fun resetOnboardingHandler (Landroidx/compose/runtime/Composer;I)Lkotlin/jvm/functions/Function0;
 }
 

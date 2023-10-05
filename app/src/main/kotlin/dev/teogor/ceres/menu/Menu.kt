@@ -25,6 +25,7 @@ import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import dev.teogor.ceres.core.foundation.ui.platform.LocalApplicationDetails
 import dev.teogor.ceres.framework.core.menu.MenuTitle
 import dev.teogor.ceres.framework.core.menu.menu
 import dev.teogor.ceres.framework.core.menu.menuContent
@@ -49,6 +50,7 @@ import dev.teogor.ceres.screen.ui.userprefs.UserPreferencesScreenRoute
 @Composable
 fun MenuConfig.applyMenuConfig() = apply {
   val navigationParameters = LocalNavigationParameters.current
+  val applicationDetails = LocalApplicationDetails.current
 
   // Extension function to navigate to a screen route
   fun ScreenRoute.navigateTo() {
@@ -58,7 +60,7 @@ fun MenuConfig.applyMenuConfig() = apply {
   // Set the header content
   headerContent = {
     MenuTitle(
-      title = "Ceres",
+      title = applicationDetails.appName ?: "",
     )
   }
 

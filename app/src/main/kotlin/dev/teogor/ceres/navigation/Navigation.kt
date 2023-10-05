@@ -27,6 +27,7 @@ import dev.teogor.ceres.feature.home.HomeScreenConfig
 import dev.teogor.ceres.feature.home.homeScreenNav
 import dev.teogor.ceres.feature.lookandfeel.lookAndFeelScreenNav
 import dev.teogor.ceres.feature.onboarding.onboardingScreenNav
+import dev.teogor.ceres.feature.privacy.privacyOptionsNavPath
 import dev.teogor.ceres.feature.settings.settingsScreenNav
 import dev.teogor.ceres.framework.core.app.BaseActions
 import dev.teogor.ceres.framework.core.app.CeresAppState
@@ -97,6 +98,8 @@ private fun NavHost(
       settingsScreenNav(baseActions)
 
       lookAndFeelScreenNav(baseActions)
+
+      privacyOptionsNavPath(baseActions)
     }
 
     aboutGraphNav(baseActions) {

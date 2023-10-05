@@ -56,9 +56,7 @@ import dev.teogor.ceres.monetisation.admob.formats.nativead.createCallToActionVi
 import dev.teogor.ceres.monetisation.admob.formats.nativead.createHeadlineView
 import dev.teogor.ceres.monetisation.admob.formats.nativead.createIconView
 import dev.teogor.ceres.monetisation.ads.ExperimentalAdsControlApi
-import dev.teogor.ceres.monetisation.ads.LocalAdsControl
 import dev.teogor.ceres.monetisation.messaging.ConsentManager
-import dev.teogor.ceres.monetisation.messaging.ConsentResult
 import dev.teogor.ceres.navigation.core.LocalNavigationParameters
 import dev.teogor.ceres.navigation.core.utilities.toScreenName
 import dev.teogor.ceres.screen.builder.compose.HeaderView
@@ -75,15 +73,6 @@ internal fun HomeRoute(
   baseActions: BaseActions,
   homeVM: HomeViewModel = hiltViewModel(),
 ) {
-  val state by remember { ConsentManager.state }
-  val canRequestAds: Boolean = remember(state) {
-    when (val consentResult = state) {
-      is ConsentResult.ConsentFormAcquired -> consentResult.canRequestAds
-      is ConsentResult.ConsentFormDismissed -> consentResult.canRequestAds
-      else -> false
-    }
-  }
-
   baseActions.setScreenInfo {
     showNavBar {
       true
@@ -156,49 +145,6 @@ private fun HomeScreen(
   hasScrollbarBackground = false,
   screenName = HomeScreenConfig.toScreenName(),
 ) {
-  HeaderView(title = "Ad Settings")
-
-  SimpleView(
-    title = "Reset Advertising Choices",
-    subtitle = "Reset your advertising choices to manage your options.",
-    clickable = {
-      ConsentManager.resetConsent()
-    },
-  )
-
-  val handleOnboardingReset = handleOnboardingReset()
-  SimpleView(
-    title = "Reset Onboarding",
-    clickable = {
-      handleOnboardingReset()
-    },
-  )
-
-  HeaderView(title = "Ads Control")
-
-  val adsControl = LocalAdsControl.current
-  val canRequestAds by remember { adsControl.canRequestAds }
-  SimpleView(
-    title = "Can Request Ads",
-    subtitle = "$canRequestAds",
-    clickable = {
-    },
-  )
-  val consentStatus by remember { adsControl.consentStatus }
-  SimpleView(
-    title = "Consent Status",
-    subtitle = consentStatus.name,
-    clickable = {
-    },
-  )
-  val consentRequirementStatus by remember { adsControl.consentRequirementStatus }
-  SimpleView(
-    title = "Consent Requirement Status",
-    subtitle = consentRequirementStatus.name,
-    clickable = {
-    },
-  )
-
   HeaderView(title = "Ads Demo")
 
   // customView {

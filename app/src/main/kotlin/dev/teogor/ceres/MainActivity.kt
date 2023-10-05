@@ -19,6 +19,8 @@ package dev.teogor.ceres
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ProvidedValue
 import dagger.hilt.android.AndroidEntryPoint
+import dev.teogor.ceres.core.foundation.ui.platform.DefaultApplicationDetails
+import dev.teogor.ceres.core.foundation.ui.platform.LocalApplicationDetails
 import dev.teogor.ceres.framework.core.Activity
 import dev.teogor.ceres.framework.core.model.MenuConfig
 import dev.teogor.ceres.framework.core.model.NavGraphOptions
@@ -68,6 +70,14 @@ class MainActivity : Activity() {
    */
   @Composable
   override fun compositionProviders(): List<ProvidedValue<*>> {
-    return listOf()
+    return listOf(
+      LocalApplicationDetails provides DefaultApplicationDetails(
+        appName = "Ceres",
+        privacyEmail = "privacy@zeoowl.com",
+        supportEmail = "support@zeoowl.com",
+        privacyLink = "https://privacy.zeoowl.com",
+        termsLink = "https://terms.zeoowl.com",
+      ),
+    )
   }
 }
