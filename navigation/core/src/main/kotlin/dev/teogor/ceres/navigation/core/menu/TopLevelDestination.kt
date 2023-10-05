@@ -22,7 +22,7 @@ import dev.teogor.ceres.ui.foundation.graphics.Icon
 open class TopLevelDestination(
   val selectedIcon: Icon,
   val unselectedIcon: Icon,
-  val iconText: String,
   val titleText: String,
-  val screenRoute: ScreenRoute? = null,
+  val iconText: String = titleText,
+  val screenRoute: ScreenRoute,
 )
