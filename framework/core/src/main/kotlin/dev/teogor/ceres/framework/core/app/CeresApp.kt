@@ -495,7 +495,7 @@ private fun CeresNavRail(
             )
           }
         },
-        label = { Text(destination.iconText) },
+        label = { Text(destination.titleText) },
       )
     }
   }
