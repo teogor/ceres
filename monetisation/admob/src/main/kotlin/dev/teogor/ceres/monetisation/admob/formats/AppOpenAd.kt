@@ -22,12 +22,15 @@ import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.appopen.AppOpenAd
 import dev.teogor.ceres.monetisation.admob.CurrentActivityHolder
+import java.util.Date
 
 abstract class AppOpenAd : Ad() {
 
   final override fun type() = AdType.AppOpen
 
   override fun useCache() = false
+
+  private var loadTime: Long = 0
 
   override fun load(): Boolean {
     if (!super.load()) {
@@ -54,6 +57,7 @@ abstract class AppOpenAd : Ad() {
             ad = CacheAdModel.AppOpen(ad),
           )
           onListener(AdEvent.AdLoaded)
+          loadTime = Date().time
         }
 
         /**
@@ -89,6 +93,15 @@ abstract class AppOpenAd : Ad() {
       load()
       return
     }
+
+    if (!wasLoadTimeLessThanNHoursAgo(4)) {
+      log("Loading the app open ad because the previously loaded ad has expired.")
+      load()
+      return
+    } else {
+      log("App open ad is still valid; no need to reload.")
+    }
+
     val appOpenAd = (ad as CacheAdModel.AppOpen).ad
     if (isShowing) {
       log("The app open ad is already showing.")
@@ -137,5 +150,11 @@ abstract class AppOpenAd : Ad() {
     }
     appOpenAd.setImmersiveMode(true)
     CurrentActivityHolder.activity?.let { appOpenAd.show(it) }
+  }
+
+  private fun wasLoadTimeLessThanNHoursAgo(numHours: Long): Boolean {
+    val dateDifference: Long = Date().time - loadTime
+    val numMilliSecondsPerHour: Long = 3600000
+    return dateDifference < numMilliSecondsPerHour * numHours
   }
 }
