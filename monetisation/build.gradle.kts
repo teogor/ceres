@@ -24,7 +24,7 @@ plugins {
 ceresModule {
   setModuleCoordinates(
     artifactIdPrefix = "monetisation",
-    version = "1.0.0-alpha02",
+    version = "1.0.0-alpha03",
   )
 }
 
