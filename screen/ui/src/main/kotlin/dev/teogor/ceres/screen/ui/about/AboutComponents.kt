@@ -94,11 +94,13 @@ fun ScreenListScope.aboutAppVersion() = item {
   )
 }
 
-fun ScreenListScope.aboutCeresFramework() = item {
+fun ScreenListScope.aboutCeresFramework(
+  ceresVersion: String = AppMetadataManager.ceresFrameworkVersion,
+) = item {
   val uriHandler = LocalUriHandler.current
   SimpleView(
     title = "Ceres Framework version",
-    subtitle = AppMetadataManager.ceresFrameworkVersion,
+    subtitle = ceresVersion,
     icon = Icons.Default.PermDeviceInformation,
     clickable = {
       uriHandler.openUri("https://github.com/teogor/ceres")

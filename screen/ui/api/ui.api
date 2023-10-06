@@ -3,7 +3,8 @@ public final class dev/teogor/ceres/screen/ui/about/AboutComponentsKt {
 	public static final fun aboutAppVersion (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun aboutBuildDate (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun aboutBuildHash (Landroidx/compose/foundation/lazy/LazyListScope;)V
-	public static final fun aboutCeresFramework (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun aboutCeresFramework (Landroidx/compose/foundation/lazy/LazyListScope;Ljava/lang/String;)V
+	public static synthetic fun aboutCeresFramework$default (Landroidx/compose/foundation/lazy/LazyListScope;Ljava/lang/String;ILjava/lang/Object;)V
 	public static final fun aboutHeaderAboutUs (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun aboutHeaderLicenses (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun aboutHeaderSecurityPatch (Landroidx/compose/foundation/lazy/LazyListScope;)V
@@ -40,7 +41,6 @@ public final class dev/teogor/ceres/screen/ui/about/ComposableSingletons$AboutCo
 	public static field lambda-10 Lkotlin/jvm/functions/Function3;
 	public static field lambda-11 Lkotlin/jvm/functions/Function3;
 	public static field lambda-12 Lkotlin/jvm/functions/Function3;
-	public static field lambda-13 Lkotlin/jvm/functions/Function3;
 	public static field lambda-2 Lkotlin/jvm/functions/Function3;
 	public static field lambda-3 Lkotlin/jvm/functions/Function3;
 	public static field lambda-4 Lkotlin/jvm/functions/Function2;
@@ -54,7 +54,6 @@ public final class dev/teogor/ceres/screen/ui/about/ComposableSingletons$AboutCo
 	public final fun getLambda-10$ui_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-11$ui_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-12$ui_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda-13$ui_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-2$ui_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-3$ui_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-4$ui_release ()Lkotlin/jvm/functions/Function2;
