@@ -1,0 +1,9 @@
+public final class dev/teogor/ceres/core/common/KeepScreenOnKt {
+	public static final fun KeepScreenOn (Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class dev/teogor/ceres/core/common/utils/ContextUtilsKt {
+	public static final fun getActivity (Landroid/content/Context;)Landroid/app/Activity;
+	public static final fun getActivity (Landroidx/compose/runtime/Composer;I)Landroid/app/Activity;
+}
+
