@@ -39,7 +39,7 @@ To streamline the implementation of Ceres libraries, use the following Gradle se
 
 ```kotlin
 dependencies {
-  implementation(platform("dev.teogor.ceres:bom:1.0.0-alpha02"))
+  implementation(platform("dev.teogor.ceres:bom:1.0.0-alpha03"))
 }
 ```
 
@@ -48,7 +48,7 @@ dependencies {
 ```kotlin
 dependencies {
   // Ceres BoM
-  implementation(platform("dev.teogor.ceres:bom:1.0.0-alpha02"))
+  implementation(platform("dev.teogor.ceres:bom:1.0.0-alpha03"))
 
   // Include individual Ceres libraries here as needed
   implementation("dev.teogor.ceres:backup-core")

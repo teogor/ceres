@@ -5,12 +5,12 @@ It enables you to effortlessly keep track of the latest versions of key componen
 
 ### Latest Version
 
-Here is how to declare dependencies using the latest version `1.0.0-alpha02`:
+Here is how to declare dependencies using the latest version `1.0.0-alpha03`:
 
 ```kt
 dependencies {
   // Import the BoM for the Ceres platform using the latest version
-  implementation(platform("dev.teogor.ceres:bom:1.0.0-alpha02"))
+  implementation(platform("dev.teogor.ceres:bom:1.0.0-alpha03"))
 }
 ```
 
@@ -20,6 +20,7 @@ Below is a list of the latest versions of the BOM:
 
 | Version | Release Notes | Release Date |
 | ------- | ------------- | ------------ |
+| 1.0.0-alpha03 | [changelog 🔗](/docs/bom/1.0.0-alpha03/bom-version-1.0.0-alpha03.md) | 06 Oct 2023 |
 | 1.0.0-alpha02 | [changelog 🔗](/docs/bom/1.0.0-alpha02/bom-version-1.0.0-alpha02.md) | 02 Oct 2023 |
 | 1.0.0-alpha01 | [changelog 🔗](/docs/bom/1.0.0-alpha01/bom-version-1.0.0-alpha01.md) | 28 Sept 2023 |
 

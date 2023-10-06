@@ -8,6 +8,7 @@ ceres-bom = { group = "dev.teogor.ceres", name = "bom", version.ref = "ceres-bom
 # Ceres Libraries
 ceres-backup-core = { group = "dev.teogor.ceres", name = "backup-core" }
 ceres-backup-ui = { group = "dev.teogor.ceres", name = "backup-ui" }
+ceres-core-common = { group = "dev.teogor.ceres", name = "core-common" }
 ceres-core-foundation = { group = "dev.teogor.ceres", name = "core-foundation" }
 ceres-core-network = { group = "dev.teogor.ceres", name = "core-network" }
 ceres-core-notifications = { group = "dev.teogor.ceres", name = "core-notifications" }
@@ -22,6 +23,7 @@ ceres-firebase-remote-config = { group = "dev.teogor.ceres", name = "firebase-re
 ceres-framework-core = { group = "dev.teogor.ceres", name = "framework-core" }
 ceres-framework-ui = { group = "dev.teogor.ceres", name = "framework-ui" }
 ceres-monetisation-admob = { group = "dev.teogor.ceres", name = "monetisation-admob" }
+ceres-monetisation-ads = { group = "dev.teogor.ceres", name = "monetisation-ads" }
 ceres-monetisation-messaging = { group = "dev.teogor.ceres", name = "monetisation-messaging" }
 ceres-navigation-common = { group = "dev.teogor.ceres", name = "navigation-common" }
 ceres-navigation-core = { group = "dev.teogor.ceres", name = "navigation-core" }
@@ -50,6 +52,7 @@ dependencies {
   // Ceres Libraries
   implementation(libs.ceres.backup.core)
   implementation(libs.ceres.backup.ui)
+  implementation(libs.ceres.core.common)
   implementation(libs.ceres.core.foundation)
   implementation(libs.ceres.core.network)
   implementation(libs.ceres.core.notifications)
@@ -64,6 +67,7 @@ dependencies {
   implementation(libs.ceres.framework.core)
   implementation(libs.ceres.framework.ui)
   implementation(libs.ceres.monetisation.admob)
+  implementation(libs.ceres.monetisation.ads)
   implementation(libs.ceres.monetisation.messaging)
   implementation(libs.ceres.navigation.common)
   implementation(libs.ceres.navigation.core)
