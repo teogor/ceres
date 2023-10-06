@@ -1,0 +1,5 @@
+public final class dev/teogor/ceres/core/common/utils/ContextUtilsKt {
+	public static final fun getActivity (Landroid/content/Context;)Landroid/app/Activity;
+	public static final fun getActivity (Landroidx/compose/runtime/Composer;I)Landroid/app/Activity;
+}
+
