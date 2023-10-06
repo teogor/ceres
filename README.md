@@ -5,7 +5,7 @@
 ## Overview
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Maven Central](https://img.shields.io/maven-central/v/dev.teogor.ceres/bom.svg?label=Maven%20Central)](https://central.sonatype.com/search?q=g%3Adev.teogor.ceres+a%3Abom&smo=true)
-[![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=24)
+[![API](https://img.shields.io/badge/API-24%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=24)
 [![Profile](https://source.teogor.dev/badges/teogor-github.svg)](https://github.com/teogor)
 [![Portfolio](https://source.teogor.dev/badges/teogor-dev.svg)](https://teogor.dev)
 
@@ -39,7 +39,7 @@ To streamline the implementation of Ceres libraries, use the following Gradle se
 
 ```kotlin
 dependencies {
-  implementation(platform("dev.teogor.ceres:bom:1.0.0-alpha02"))
+  implementation(platform("dev.teogor.ceres:bom:1.0.0-alpha03"))
 }
 ```
 
@@ -48,7 +48,7 @@ dependencies {
 ```kotlin
 dependencies {
   // Ceres BoM
-  implementation(platform("dev.teogor.ceres:bom:1.0.0-alpha02"))
+  implementation(platform("dev.teogor.ceres:bom:1.0.0-alpha03"))
 
   // Include individual Ceres libraries here as needed
   implementation("dev.teogor.ceres:backup-core")

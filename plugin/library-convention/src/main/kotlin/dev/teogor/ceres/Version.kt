@@ -20,7 +20,7 @@ object Version {
   private const val majorVersion = 1
   private const val minorVersion = 0
   private const val patchVersion = 0
-  private const val preReleaseVersion = 2
+  private const val preReleaseVersion = 3
   const val code = 1
 
   val flags = Flags.ALPHA

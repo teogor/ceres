@@ -266,13 +266,13 @@ open class DependencyInfoGenerator : DefaultTask() {
     val bomVersionsFile = File("$bomResFolder\\$filePath")
     bomVersionsFile.writeText(jsonString)
 
-    writeBomVersionsMd(
-      bomInfoList = bomInfoList,
-    )
+    // TODO better flow
+    writeBomVersionsMd()
   }
 
-  private fun writeBomVersionsMd(bomInfoList: List<BomInfo>) {
+  private fun writeBomVersionsMd() {
     val content = StringBuilder()
+    val bomInfoList = getBomVersions()
 
     content.appendLine("## Ceres BoM (Bill of Materials)")
     content.appendLine()
