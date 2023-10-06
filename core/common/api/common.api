@@ -7,3 +7,10 @@ public final class dev/teogor/ceres/core/common/utils/ContextUtilsKt {
 	public static final fun getActivity (Landroidx/compose/runtime/Composer;I)Landroid/app/Activity;
 }
 
+public final class dev/teogor/ceres/core/common/utils/LifecycleUtilsKt {
+	public static final fun ObserveActivityLifecycle (Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;II)V
+	public static final fun ObserveApplicationLifecycle (Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;II)V
+	public static final fun ObserveComposableLifecycle (Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;II)V
+	public static final fun OnLifecycleEvent (Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+}
+

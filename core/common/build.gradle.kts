@@ -28,6 +28,7 @@ android {
 
 dependencies {
   api(libs.androidx.annotation)
+  api(libs.androidx.lifecycle.common)
   api(libs.androidx.compose.runtime)
   api(libs.androidx.compose.ui.tooling)
 }
