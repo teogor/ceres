@@ -28,6 +28,7 @@ include(":backup:core")
 include(":backup:ui")
 
 // Core
+include(":core:common")
 include(":core:foundation")
 include(":core:network")
 include(":core:notifications")
