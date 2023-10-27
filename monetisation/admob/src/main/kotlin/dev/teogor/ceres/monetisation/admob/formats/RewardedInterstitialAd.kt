@@ -58,7 +58,7 @@ abstract class RewardedInterstitialAd(
           log("Ad was loaded.")
           AdCache.cacheAd(
             adId = id,
-            ad = CacheAdModel.RewardedInterstitial(ad, Date().time),
+            ad = CachedAd.RewardedInterstitial(ad, Date().time),
           )
           onListener(AdEvent.AdLoaded)
         }
@@ -84,7 +84,7 @@ abstract class RewardedInterstitialAd(
       load()
       return
     }
-    val rewardedInterstitialAd = (ad as CacheAdModel.RewardedInterstitial).ad
+    val rewardedInterstitialAd = (ad as CachedAd.RewardedInterstitial).ad
     if (isShowing) {
       log("The rewarded interstitial ad is already showing.")
       return

@@ -27,7 +27,7 @@ import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAd
  *
  * @property loadTime The time when the ad was loaded.
  */
-sealed class CacheAdModel(
+sealed class CachedAd(
   open val loadTime: Long,
 ) {
   /**
@@ -39,7 +39,7 @@ sealed class CacheAdModel(
   data class AppOpen(
     val ad: AppOpenAd,
     override val loadTime: Long,
-  ) : CacheAdModel(loadTime)
+  ) : CachedAd(loadTime)
 
   /**
    * Data class representing a cached Interstitial ad.
@@ -50,7 +50,7 @@ sealed class CacheAdModel(
   data class Interstitial(
     val ad: InterstitialAd,
     override val loadTime: Long,
-  ) : CacheAdModel(loadTime)
+  ) : CachedAd(loadTime)
 
   /**
    * Data class representing a cached Rewarded Interstitial ad.
@@ -61,7 +61,7 @@ sealed class CacheAdModel(
   data class RewardedInterstitial(
     val ad: RewardedInterstitialAd,
     override val loadTime: Long,
-  ) : CacheAdModel(loadTime)
+  ) : CachedAd(loadTime)
 
   /**
    * Data class representing a cached Rewarded ad.
@@ -72,7 +72,7 @@ sealed class CacheAdModel(
   data class Rewarded(
     val ad: RewardedAd,
     override val loadTime: Long,
-  ) : CacheAdModel(loadTime)
+  ) : CachedAd(loadTime)
 
   /**
    * Data class representing a cached Native ad.
@@ -83,5 +83,5 @@ sealed class CacheAdModel(
   data class Native(
     val ad: NativeAd,
     override val loadTime: Long,
-  ) : CacheAdModel(loadTime)
+  ) : CachedAd(loadTime)
 }

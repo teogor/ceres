@@ -53,7 +53,7 @@ abstract class AppOpenAd : Ad() {
           log("onAdLoaded.")
           AdCache.cacheAd(
             adId = id,
-            ad = CacheAdModel.AppOpen(ad, Date().time),
+            ad = CachedAd.AppOpen(ad, Date().time),
           )
           onListener(AdEvent.AdLoaded)
         }
@@ -92,12 +92,11 @@ abstract class AppOpenAd : Ad() {
       return
     }
 
-    val appOpenAd = (ad as CacheAdModel.AppOpen).ad
+    val appOpenAd = (ad as CachedAd.AppOpen).ad
+
     if (!wasLoadTimeLessThanNHoursAgo(ad.loadTime, 4)) {
       reloadExpiredAd()
       return
-    } else {
-      log("App open ad is still valid; no need to reload.")
     }
 
     if (isShowing) {
