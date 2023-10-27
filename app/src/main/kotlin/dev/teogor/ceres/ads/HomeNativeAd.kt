@@ -43,7 +43,7 @@ import com.google.android.gms.ads.nativead.NativeAd
 import com.skydoves.landscapist.ImageOptions
 import com.skydoves.landscapist.glide.GlideImage
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.teogor.ceres.framework.core.compositions.LocalNetworkConnectivity
+import dev.teogor.ceres.core.foundation.compositions.LocalNetworkMonitor
 import dev.teogor.ceres.monetisation.admob.DemoAdUnitIds
 import dev.teogor.ceres.monetisation.admob.annotations.AdProperty
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAd
@@ -150,9 +150,9 @@ class HomeNativeAdBeta : NativeAdManager() {
   override fun IsOnline(
     displayAd: @Composable () -> Unit,
   ) {
-    val networkConnectivity = LocalNetworkConnectivity.current
+    val networkMonitor = LocalNetworkMonitor.current
     val isOffline by remember {
-      derivedStateOf { networkConnectivity.isOffline }
+      derivedStateOf { networkMonitor.isOffline }
     }
     if (!isOffline) {
       displayAd()

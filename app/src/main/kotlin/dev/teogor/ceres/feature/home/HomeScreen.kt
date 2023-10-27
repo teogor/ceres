@@ -21,11 +21,11 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
 import dev.teogor.ceres.R
 import dev.teogor.ceres.ads.HomeNativeAdBeta
+import dev.teogor.ceres.core.foundation.compositions.LocalNetworkMonitor
 import dev.teogor.ceres.core.foundation.extensions.createMediaPlayer
 import dev.teogor.ceres.data.datastore.defaults.ceresPreferences
 import dev.teogor.ceres.framework.core.app.BaseActions
 import dev.teogor.ceres.framework.core.app.setScreenInfo
-import dev.teogor.ceres.framework.core.compositions.LocalNetworkConnectivity
 import dev.teogor.ceres.framework.core.screen.floatingButton
 import dev.teogor.ceres.framework.core.screen.isStatusBarVisible
 import dev.teogor.ceres.framework.core.screen.isVisible
@@ -80,7 +80,7 @@ internal fun HomeRoute(
     }
   }
 
-  val networkConnectivity = LocalNetworkConnectivity.current
+  val networkMonitor = LocalNetworkMonitor.current
 
   val switchOff = createMediaPlayer(R.raw.button_switch_off)
   LaunchedEffect(switchOff) {
@@ -94,7 +94,7 @@ internal fun HomeRoute(
 
   HomeScreen(
     homeVM,
-    isOffline = networkConnectivity.isOffline,
+    isOffline = networkMonitor.isOffline,
   )
 }
 

@@ -73,10 +73,9 @@ import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavOptions
 import dev.teogor.ceres.core.foundation.FoundationGlobal
-import dev.teogor.ceres.core.network.NetworkMonitor
+import dev.teogor.ceres.core.foundation.NetworkMonitorUtility
+import dev.teogor.ceres.core.foundation.compositions.LocalNetworkMonitor
 import dev.teogor.ceres.data.datastore.defaults.ceresPreferences
-import dev.teogor.ceres.framework.core.compositions.LocalNetworkConnectivity
-import dev.teogor.ceres.framework.core.compositions.NetworkConnectivity
 import dev.teogor.ceres.navigation.core.LocalNavigationParameters
 import dev.teogor.ceres.navigation.core.lib.common.BottomSheetState
 import dev.teogor.ceres.navigation.core.lib.common.LocalBottomSheetVM
@@ -116,7 +115,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun CeresApp(
   windowSizeClass: WindowSizeClass,
-  networkMonitor: NetworkMonitor,
+  networkMonitor: NetworkMonitorUtility,
   navigationItems: List<NavigationItem> = listOf(),
   appState: CeresAppState = rememberCeresAppState(
     networkMonitor = networkMonitor,
@@ -142,12 +141,12 @@ fun CeresApp(
   // todo VMs
   val bottomSheetVM: BottomSheetState = viewModel()
   val toolbarState: ToolbarState = viewModel()
-  val networkConnectivity = NetworkConnectivity()
+  val networkMonitor = dev.teogor.ceres.core.foundation.NetworkMonitor()
 
   CompositionLocalProvider(
     LocalBottomSheetVM provides bottomSheetVM,
     LocalToolbarState provides toolbarState,
-    LocalNetworkConnectivity provides networkConnectivity,
+    LocalNetworkMonitor provides networkMonitor,
   ) {
     CeresBackground(
       modifier = Modifier.fillMaxSize(),
@@ -156,7 +155,7 @@ fun CeresApp(
 
       LaunchedEffect(isOffline) {
         FoundationGlobal.networkMonitor.isOffline = isOffline
-        networkConnectivity.isOffline = isOffline
+        networkMonitor.isOffline = isOffline
       }
 
       val menuSheetState = rememberModalBottomSheetState(Hidden)
