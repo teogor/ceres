@@ -486,6 +486,30 @@ public final class dev/teogor/ceres/ui/designsystem/ViewToggleKt {
 	public static final fun CeresViewToggleButton (ZLkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;ZLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 }
 
+public final class dev/teogor/ceres/ui/designsystem/core/ColorTheme {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/ui/designsystem/core/ColorTheme;
+	public final fun lightDarkColor-6vV8vXo (JJLandroidx/compose/runtime/Composer;I)J
+	public final fun tone-EGaQkGg (JIILandroidx/compose/runtime/Composer;I)J
+}
+
+public final class dev/teogor/ceres/ui/designsystem/core/ColorUtils {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/ui/designsystem/core/ColorUtils;
+	public final fun blend-2_19RoU (JJF)J
+	public static synthetic fun blend-2_19RoU$default (Ldev/teogor/ceres/ui/designsystem/core/ColorUtils;JJFILjava/lang/Object;)J
+	public final fun calculateContrastRatio--OWjLjI (JJ)D
+	public final fun darken-5vOe2sY (JF)J
+	public static synthetic fun darken-5vOe2sY$default (Ldev/teogor/ceres/ui/designsystem/core/ColorUtils;JFILjava/lang/Object;)J
+	public final fun getBrightness-8_81llA (J)F
+	public final fun harmonizeWithPrimary-EGaQkGg (JFLandroidx/compose/runtime/Composer;II)J
+	public final fun invert-l2rxGTc (J)J
+	public final fun lighten-5vOe2sY (JF)J
+	public static synthetic fun lighten-5vOe2sY$default (Ldev/teogor/ceres/ui/designsystem/core/ColorUtils;JFILjava/lang/Object;)J
+	public final fun toColor-vNxB06k (I)J
+	public final fun toGrayscale-l2rxGTc (J)J
+}
+
 public final class dev/teogor/ceres/ui/designsystem/modalsheet/BottomSheetDialogKt {
 	public static final fun BottomSheetDialog (Lkotlin/jvm/functions/Function0;Ldev/teogor/ceres/ui/designsystem/modalsheet/BottomSheetDialogProperties;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun BottomSheetDialogLayout (Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
