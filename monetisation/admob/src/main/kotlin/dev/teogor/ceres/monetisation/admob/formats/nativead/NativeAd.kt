@@ -25,23 +25,22 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidViewBinding
-import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdView
 import dev.teogor.ceres.monetisation.admob.databinding.AdmobNativeBinding
 import dev.teogor.ceres.monetisation.admob.formats.AdEvent
 
 @Composable
-fun NativeAd(
+fun <T : NativeAdViewModel> NativeAd(
+  viewModel: T,
   modifier: Modifier = Modifier,
   nativeAdConfig: NativeAdConfig,
   adContent: @Composable (NativeAdConfig) -> Unit,
-  nativeAd: NativeAd?,
   config: AdLoaderConfig,
   refreshIntervalMillis: Long = 30000L,
   onAdEvent: (AdEvent) -> Unit = {},
-  onAdLoaded: (NativeAd) -> Unit = {},
   onAdFillStatusChange: (Boolean) -> Unit = {},
 ) {
+  val nativeAd by remember { viewModel.nativeAd }
   var adView by remember {
     mutableStateOf<NativeAdView?>(null)
   }
@@ -53,7 +52,9 @@ fun NativeAd(
   val adLoader = rememberAdLoader(
     config = config,
     onAdEvent = onAdEvent,
-    onNativeAd = onAdLoaded,
+    onNativeAd = {
+      viewModel.setNativeAd(it)
+    },
   )
 
   RefreshableNativeAd(
@@ -93,40 +94,40 @@ fun NativeAd(
       isAdFillEmpty = true
     } else {
       isAdFillEmpty = false
-      nativeAd.body?.let { body ->
+      nativeAd!!.body?.let { body ->
         nativeAdConfig.bodyView?.setValue(body)
       }
-      nativeAd.advertiser?.let { advertiser ->
+      nativeAd!!.advertiser?.let { advertiser ->
         nativeAdConfig.advertiserView?.setValue(advertiser)
       }
-      nativeAd.adChoicesInfo?.let { adChoices ->
+      nativeAd!!.adChoicesInfo?.let { adChoices ->
         nativeAdConfig.adChoicesView?.setValue(adChoices)
       }
-      nativeAd.headline?.let { headline ->
+      nativeAd!!.headline?.let { headline ->
         nativeAdConfig.headlineView?.setValue(headline)
       }
-      nativeAd.callToAction?.let { callToAction ->
+      nativeAd!!.callToAction?.let { callToAction ->
         nativeAdConfig.callToActionView?.setValue(callToAction)
       }
-      nativeAd.icon?.let { icon ->
+      nativeAd!!.icon?.let { icon ->
         nativeAdConfig.iconView?.setValue(icon)
       }
-      nativeAd.images.let { image ->
+      nativeAd!!.images.let { image ->
         nativeAdConfig.imageView?.setValue(image)
       }
-      nativeAd.mediaContent?.let { media ->
+      nativeAd!!.mediaContent?.let { media ->
         nativeAdConfig.mediaView?.setValue(media)
       }
-      nativeAd.price?.let { price ->
+      nativeAd!!.price?.let { price ->
         nativeAdConfig.priceView?.setValue(price)
       }
-      nativeAd.starRating?.let { starRating ->
+      nativeAd!!.starRating?.let { starRating ->
         nativeAdConfig.starRatingView?.setValue(starRating)
       }
-      nativeAd.store?.let { store ->
+      nativeAd!!.store?.let { store ->
         nativeAdConfig.storeView?.setValue(store)
       }
-      adView?.setNativeAd(nativeAd)
+      adView?.setNativeAd(nativeAd!!)
     }
   }
 }

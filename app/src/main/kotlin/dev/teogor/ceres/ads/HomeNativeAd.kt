@@ -39,6 +39,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -62,6 +63,7 @@ import dev.teogor.ceres.monetisation.admob.formats.nativead.createHeadlineView
 import dev.teogor.ceres.monetisation.admob.formats.nativead.createIconView
 import dev.teogor.ceres.monetisation.admob.formats.nativead.createStarRatingView
 import dev.teogor.ceres.monetisation.admob.formats.nativead.defaultAdLoaderConfig
+import dev.teogor.ceres.monetisation.admob.models.AdChoicesPlacement
 import dev.teogor.ceres.ui.designsystem.RatingBar
 import dev.teogor.ceres.ui.designsystem.Text
 import dev.teogor.ceres.ui.designsystem.core.ColorUtils.blend
@@ -81,30 +83,24 @@ class HomeNativeAdVM @Inject constructor(
 ) : NativeAdViewModel(homeNativeAdData)
 
 @Composable
-fun HomeNativeAd(
-  homeNativeAdVM: HomeNativeAdVM = hiltViewModel(),
-) {
+fun HomeNativeAd() {
   val networkConnectivity = LocalNetworkConnectivity.current
   val isOffline by remember {
     derivedStateOf { networkConnectivity.isOffline }
   }
   val adId = DemoAdUnitIds.NATIVE
-  val nativeAd by remember { homeNativeAdVM.nativeAd }
   if (!isOffline) {
     var isAdFillEmpty by remember { mutableStateOf(true) }
-    NativeAd(
+    NativeAd<HomeNativeAdVM>(
+      viewModel = hiltViewModel(),
       modifier = Modifier.background(
         color = MaterialTheme.colorScheme.primaryContainer,
         shape = RoundedCornerShape(20.dp),
       ),
       nativeAdConfig = homeNativeAdConfig(),
       adContent = { HomeNativeAdUI(it, isAdFillEmpty) },
-      nativeAd = nativeAd,
       config = defaultAdLoaderConfig(adId),
       refreshIntervalMillis = 30_000L,
-      onAdLoaded = {
-        homeNativeAdVM.setNativeAd(it)
-      },
       onAdFillStatusChange = { isAdFillEmpty = it },
     )
   }
