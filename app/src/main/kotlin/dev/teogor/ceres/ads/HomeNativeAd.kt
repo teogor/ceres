@@ -26,13 +26,17 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
@@ -60,6 +64,7 @@ import dev.teogor.ceres.monetisation.admob.formats.nativead.createStarRatingView
 import dev.teogor.ceres.monetisation.admob.formats.nativead.defaultAdLoaderConfig
 import dev.teogor.ceres.ui.designsystem.RatingBar
 import dev.teogor.ceres.ui.designsystem.Text
+import dev.teogor.ceres.ui.designsystem.core.ColorUtils.blend
 import dev.teogor.ceres.ui.theme.MaterialTheme
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -86,19 +91,21 @@ fun HomeNativeAd(
   val adId = DemoAdUnitIds.NATIVE
   val nativeAd by remember { homeNativeAdVM.nativeAd }
   if (!isOffline) {
+    var isAdFillEmpty by remember { mutableStateOf(true) }
     NativeAd(
       modifier = Modifier.background(
         color = MaterialTheme.colorScheme.primaryContainer,
         shape = RoundedCornerShape(20.dp),
       ),
       nativeAdConfig = homeNativeAdConfig(),
-      adContent = { HomeNativeAdUI(it) },
+      adContent = { HomeNativeAdUI(it, isAdFillEmpty) },
       nativeAd = nativeAd,
       config = defaultAdLoaderConfig(adId),
       refreshIntervalMillis = 30_000L,
       onAdLoaded = {
         homeNativeAdVM.setNativeAd(it)
       },
+      onAdFillStatusChange = { isAdFillEmpty = it },
     )
   }
 }
@@ -175,6 +182,7 @@ fun homeNativeAdConfig() = NativeAdConfig.Builder()
 @Composable
 fun HomeNativeAdUI(
   nativeAdConfig: NativeAdConfig,
+  isAdFillEmpty: Boolean,
 ) {
   val advertiserView = nativeAdConfig.advertiserView
   val adChoicesView = nativeAdConfig.adChoicesView
@@ -191,6 +199,7 @@ fun HomeNativeAdUI(
   Box {
     Column(
       modifier = Modifier
+        .alpha(if (isAdFillEmpty) 0f else 1f)
         .fillMaxWidth()
         .padding(vertical = 10.dp, horizontal = 6.dp),
     ) {
@@ -241,19 +250,34 @@ fun HomeNativeAdUI(
       }
     }
 
-    Text(
-      text = "AD",
-      fontSize = 10.sp,
-      lineHeight = 10.sp,
-      color = MaterialTheme.colorScheme.onSecondaryContainer,
-      modifier = Modifier
-        .align(Alignment.BottomEnd)
-        .background(
-          color = MaterialTheme.colorScheme.secondaryContainer,
-          shape = CircleShape,
-        )
-        .padding(horizontal = 8.dp, vertical = 8.dp)
-        .padding(end = 2.dp, bottom = 2.dp),
-    )
+    if (isAdFillEmpty) {
+      LinearProgressIndicator(
+        modifier = Modifier
+          .align(Alignment.Center)
+          .padding(horizontal = 20.dp)
+          .fillMaxWidth()
+          .clip(RoundedCornerShape(50)),
+        color = MaterialTheme.colorScheme.primary,
+        trackColor = MaterialTheme.colorScheme.onPrimaryContainer.blend(
+          MaterialTheme.colorScheme.background,
+          fraction = .6f,
+        ),
+      )
+    } else {
+      Text(
+        text = "AD",
+        fontSize = 10.sp,
+        lineHeight = 10.sp,
+        color = MaterialTheme.colorScheme.onSecondaryContainer,
+        modifier = Modifier
+          .align(Alignment.BottomEnd)
+          .background(
+            color = MaterialTheme.colorScheme.secondaryContainer,
+            shape = CircleShape,
+          )
+          .padding(horizontal = 8.dp, vertical = 8.dp)
+          .padding(end = 2.dp, bottom = 2.dp),
+      )
+    }
   }
 }

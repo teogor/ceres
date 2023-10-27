@@ -21,6 +21,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidViewBinding
@@ -39,9 +40,14 @@ fun NativeAd(
   refreshIntervalMillis: Long = 30000L,
   onAdEvent: (AdEvent) -> Unit = {},
   onAdLoaded: (NativeAd) -> Unit = {},
+  onAdFillStatusChange: (Boolean) -> Unit = {},
 ) {
   var adView by remember {
     mutableStateOf<NativeAdView?>(null)
+  }
+  var isAdFillEmpty by rememberSaveable { mutableStateOf(true) }
+  LaunchedEffect(isAdFillEmpty) {
+    onAdFillStatusChange(isAdFillEmpty)
   }
 
   val adLoader = rememberAdLoader(
@@ -83,7 +89,10 @@ fun NativeAd(
   }
 
   LaunchedEffect(nativeAd) {
-    nativeAd?.let { nativeAd ->
+    if (nativeAd == null) {
+      isAdFillEmpty = true
+    } else {
+      isAdFillEmpty = false
       nativeAd.body?.let { body ->
         nativeAdConfig.bodyView?.setValue(body)
       }
