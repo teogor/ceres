@@ -1,0 +1,27 @@
+public abstract class dev/teogor/ceres/core/analytics/AnalyticsEvent {
+	public static final field $stable I
+}
+
+public final class dev/teogor/ceres/core/analytics/AnalyticsEvent$ScreenView : dev/teogor/ceres/core/analytics/AnalyticsEvent {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ldev/teogor/ceres/core/analytics/AnalyticsEvent$ScreenView;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/core/analytics/AnalyticsEvent$ScreenView;Ljava/lang/String;ILjava/lang/Object;)Ldev/teogor/ceres/core/analytics/AnalyticsEvent$ScreenView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class dev/teogor/ceres/core/analytics/AnalyticsHelper {
+	public abstract fun logEvent (Ldev/teogor/ceres/core/analytics/AnalyticsEvent;)V
+}
+
+public final class dev/teogor/ceres/core/analytics/AnalyticsHelperKt {
+	public static final fun getLocalAnalyticsHelper ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public abstract interface annotation class dev/teogor/ceres/core/analytics/ExperimentalAnalyticsApi : java/lang/annotation/Annotation {
+}
+
