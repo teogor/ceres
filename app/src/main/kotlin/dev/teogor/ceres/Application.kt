@@ -21,6 +21,12 @@ import dev.teogor.ceres.ads.ApplicationOpenAd
 import dev.teogor.ceres.framework.core.Application
 import dev.teogor.ceres.framework.core.model.ThemeBuilder
 import dev.teogor.ceres.monetisation.admob.AdMob
+import dev.teogor.ceres.monetisation.ads.extensions.setForChildrenApp
+import dev.teogor.ceres.monetisation.ads.extensions.setForEveryoneApp
+import dev.teogor.ceres.monetisation.ads.extensions.setForFamilies
+import dev.teogor.ceres.monetisation.ads.model.AdContentRating
+import dev.teogor.ceres.monetisation.ads.model.TagForChildDirectedTreatment
+import dev.teogor.ceres.monetisation.ads.model.TagForUnderAgeOfConsent
 import dev.teogor.ceres.theme.configureTheme
 import javax.inject.Inject
 
@@ -44,6 +50,16 @@ class Application : Application() {
 
   override fun onCreate() {
     super.onCreate()
+
+    AdMob.configureAdRequest {
+      maxAdContentRating = AdContentRating.UNSPECIFIED
+      tagForChildDirectedTreatment = TagForChildDirectedTreatment.UNSPECIFIED
+      tagForUnderAgeOfConsent = TagForUnderAgeOfConsent.UNSPECIFIED
+
+      setForFamilies()
+      setForChildrenApp()
+      setForEveryoneApp()
+    }
 
     AdMob.setApplicationOpenAd(applicationOpenAd)
   }

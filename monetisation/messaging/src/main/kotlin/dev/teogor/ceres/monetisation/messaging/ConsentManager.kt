@@ -28,7 +28,7 @@ import com.google.android.ump.UserMessagingPlatform
 import dev.teogor.ceres.core.runtime.AppMetadataManager
 import dev.teogor.ceres.monetisation.admob.AdMob
 import dev.teogor.ceres.monetisation.admob.AdMobInitializer
-import dev.teogor.ceres.monetisation.admob.AdMobInitializer.getHashedAdvertisingId
+import dev.teogor.ceres.monetisation.admob.getHashedAdvertisingId
 import dev.teogor.ceres.monetisation.ads.AdsControl
 import dev.teogor.ceres.monetisation.ads.AdsControlProvider
 import dev.teogor.ceres.monetisation.ads.ExperimentalAdsControlApi

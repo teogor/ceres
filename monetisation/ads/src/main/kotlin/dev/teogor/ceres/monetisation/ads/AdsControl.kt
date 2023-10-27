@@ -27,6 +27,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import dev.teogor.ceres.monetisation.ads.model.AdRequestOptions
 import dev.teogor.ceres.monetisation.ads.model.ConsentRequirementStatus
 import dev.teogor.ceres.monetisation.ads.model.ConsentStatus
 
@@ -40,6 +41,10 @@ data class AndroidAdsControl(
   override val consentRequirementStatus: MutableState<ConsentRequirementStatus> = mutableStateOf(
     ConsentRequirementStatus.UNKNOWN,
   ),
+  override val adRequestOptions: MutableState<AdRequestOptions> = mutableStateOf(
+    AdRequestOptions(),
+  ),
+
   val showConsent: (() -> Unit)? = null,
   val resetConsent: (() -> Unit)? = null,
 ) : AdsControl {
@@ -69,6 +74,7 @@ interface AdsControl {
   val canRequestAds: MutableState<Boolean>
   val consentStatus: MutableState<ConsentStatus>
   val consentRequirementStatus: MutableState<ConsentRequirementStatus>
+  val adRequestOptions: MutableState<AdRequestOptions>
 
   fun showConsent()
 
