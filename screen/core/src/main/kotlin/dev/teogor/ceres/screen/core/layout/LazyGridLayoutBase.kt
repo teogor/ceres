@@ -23,7 +23,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import dev.teogor.ceres.navigation.events.TrackScreenViewEvent
+import dev.teogor.ceres.core.analytics.composables.TrackScreenViewEvent
 import dev.teogor.ceres.screen.core.attachScrollState
 import dev.teogor.ceres.screen.core.scope.ScreenGridScope
 import dev.teogor.ceres.ui.designsystem.scrollbar.LazyGridScrollbar

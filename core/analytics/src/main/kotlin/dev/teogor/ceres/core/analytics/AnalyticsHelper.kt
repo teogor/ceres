@@ -18,31 +18,13 @@ package dev.teogor.ceres.core.analytics
 
 import androidx.compose.runtime.compositionLocalOf
 
-@ExperimentalAnalyticsApi
+@OptIn(ExperimentalAnalyticsApi::class)
+val analyticsProvider = AnalyticsProvider()
+
 interface AnalyticsHelper {
-  @ExperimentalAnalyticsApi
   fun logEvent(analyticsEvent: AnalyticsEvent)
 }
 
-@ExperimentalAnalyticsApi
 val LocalAnalyticsHelper = compositionLocalOf<AnalyticsHelper> {
-  errorCompositionLocal()
-}
-
-private fun errorCompositionLocal(
-  provider: String = "AnalyticsHelper",
-): Nothing {
-  error(
-    """
-      No $provider instance found. Please provide a $provider at the composition root.
-
-      ```kotlin
-      CompositionLocalProvider(
-          $provider provides ${provider[0].lowercase()}${provider.substring(1)}
-      ) {
-          // Your Composable content here
-      }
-      ```
-    """.trimIndent(),
-  )
+  DefaultAnalyticsHelper()
 }

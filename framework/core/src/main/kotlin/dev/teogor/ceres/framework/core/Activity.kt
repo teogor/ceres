@@ -49,8 +49,6 @@ import dev.teogor.ceres.core.foundation.mediaPlayerUtils
 import dev.teogor.ceres.data.compose.rememberPreference
 import dev.teogor.ceres.data.datastore.defaults.AppTheme
 import dev.teogor.ceres.data.datastore.defaults.ceresPreferences
-import dev.teogor.ceres.firebase.analytics.AnalyticsHelper
-import dev.teogor.ceres.firebase.analytics.LocalAnalyticsHelper
 import dev.teogor.ceres.firebase.crashlytics.CrashlyticsHelper
 import dev.teogor.ceres.firebase.crashlytics.LocalCrashlyticsHelper
 import dev.teogor.ceres.framework.core.app.CeresApp
@@ -82,9 +80,6 @@ open class Activity : ComponentActivity() {
    */
   @Inject
   lateinit var lazyStats: dagger.Lazy<JankStats>
-
-  @Inject
-  lateinit var analyticsHelper: AnalyticsHelper
 
   @Inject
   lateinit var crashlyticsHelper: CrashlyticsHelper
@@ -210,7 +205,7 @@ open class Activity : ComponentActivity() {
       ) {
         CompositionLocalProvider(
           LocalNavigationParameters provides navigationParameters,
-          LocalAnalyticsHelper provides analyticsHelper,
+          // LocalAnalyticsHelper provides analyticsHelper,
           LocalCrashlyticsHelper provides crashlyticsHelper,
 
           // Ceres Core Foundation - Composition Provider
@@ -218,7 +213,7 @@ open class Activity : ComponentActivity() {
           LocalMediaPlayer provides mediaPlayerUtils,
           LocalResources provides resources,
 
-          // Ceres Monetisation
+          // Ceres Monetization
           LocalAdsControl provides adsControl,
 
           *compositionProviders().toTypedArray(),
