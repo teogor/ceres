@@ -27,7 +27,7 @@ import dev.teogor.ceres.monetisation.admob.formats.AdEvent
 
 @Composable
 fun rememberAdLoader(
-  config: AdLoaderConfig = AdLoaderConfig(""),
+  config: AdLoaderConfig,
   onAdEvent: (AdEvent) -> Unit = {},
   onNativeAd: (NativeAd) -> Unit,
 ): AdLoader {

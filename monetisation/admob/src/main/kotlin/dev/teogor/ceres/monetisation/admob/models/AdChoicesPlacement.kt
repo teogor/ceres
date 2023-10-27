@@ -14,20 +14,11 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.feature.home
+package dev.teogor.ceres.monetisation.admob.models
 
-import androidx.lifecycle.ViewModel
-import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.teogor.ceres.ads.HomeBannerAd
-import dev.teogor.ceres.ads.HomeInterstitialAd
-import dev.teogor.ceres.ads.HomeRewardedAd
-import dev.teogor.ceres.ads.HomeRewardedInterstitialAd
-import javax.inject.Inject
-
-@HiltViewModel
-class HomeViewModel @Inject constructor(
-  val homeInterstitialAd: HomeInterstitialAd,
-  val homeRewardedInterstitialAd: HomeRewardedInterstitialAd,
-  val homeRewardedAd: HomeRewardedAd,
-  val homeBannerAd: HomeBannerAd,
-) : ViewModel()
+enum class AdChoicesPlacement(val value: Int) {
+  TOP_LEFT(0),
+  TOP_RIGHT(1),
+  BOTTOM_RIGHT(2),
+  BOTTOM_LEFT(3),
+}

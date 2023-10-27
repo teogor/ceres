@@ -33,9 +33,9 @@ import dev.teogor.ceres.monetisation.admob.formats.AdEvent
 fun NativeAd(
   modifier: Modifier = Modifier,
   nativeAdConfig: NativeAdConfig,
-  adContent: @Composable () -> Unit,
+  adContent: @Composable (NativeAdConfig) -> Unit,
   nativeAd: NativeAd?,
-  config: AdLoaderConfig = AdLoaderConfig(""),
+  config: AdLoaderConfig,
   refreshIntervalMillis: Long = 30000L,
   onAdEvent: (AdEvent) -> Unit = {},
   onAdLoaded: (NativeAd) -> Unit = {},
@@ -76,7 +76,9 @@ fun NativeAd(
 
         adview.adChoicesView
       }
-      composeView.setContent(adContent)
+      composeView.setContent {
+        adContent(nativeAdConfig)
+      }
     }
   }
 

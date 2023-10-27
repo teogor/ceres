@@ -16,19 +16,16 @@
 
 package dev.teogor.ceres.feature.home
 
-import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import dev.teogor.ceres.R
-import dev.teogor.ceres.ads.HomeNativeAdUI
-import dev.teogor.ceres.ads.homeNativeAdConfig
+import dev.teogor.ceres.ads.HomeNativeAd
 import dev.teogor.ceres.core.foundation.extensions.createMediaPlayer
 import dev.teogor.ceres.data.datastore.defaults.ceresPreferences
 import dev.teogor.ceres.framework.core.app.BaseActions
@@ -41,9 +38,6 @@ import dev.teogor.ceres.framework.core.screen.showNavBar
 import dev.teogor.ceres.framework.core.screen.showSettingsButton
 import dev.teogor.ceres.framework.core.screen.toolbarTitle
 import dev.teogor.ceres.framework.core.screen.toolbarTokens
-import dev.teogor.ceres.monetisation.admob.DemoAdUnitIds
-import dev.teogor.ceres.monetisation.admob.formats.nativead.AdLoaderConfig
-import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAd
 import dev.teogor.ceres.monetisation.ads.ExperimentalAdsControlApi
 import dev.teogor.ceres.monetisation.messaging.ConsentManager
 import dev.teogor.ceres.navigation.core.LocalNavigationParameters
@@ -53,7 +47,7 @@ import dev.teogor.ceres.screen.builder.compose.SimpleView
 import dev.teogor.ceres.screen.core.layout.ColumnLayoutBase
 import dev.teogor.ceres.screen.ui.api.ExperimentalOnboardingScreenApi
 import dev.teogor.ceres.screen.ui.onboarding.OnboardingRoute
-import dev.teogor.ceres.ui.theme.MaterialTheme
+import dev.teogor.ceres.ui.designsystem.Surface
 
 // todo better way to configure this. perhaps use kotlin builder syntax
 @Composable
@@ -163,31 +157,15 @@ private fun HomeScreen(
     },
   )
 
-  val adId = DemoAdUnitIds.NATIVE
-  val nativeAd by remember {
-    homeVM.nativeAd
-  }
-  if (!isOffline) {
-    val nativeAdConfig = homeNativeAdConfig()
-
-    NativeAd(
-      modifier = Modifier
-        .padding(horizontal = 10.dp)
-        .background(
-          color = MaterialTheme.colorScheme.primaryContainer,
-          shape = RoundedCornerShape(20.dp),
-        )
-        .padding(horizontal = 6.dp, vertical = 10.dp),
-      nativeAdConfig = nativeAdConfig,
-      adContent = {
-        HomeNativeAdUI(nativeAdConfig)
-      },
-      nativeAd = nativeAd,
-      config = AdLoaderConfig(adId),
-      refreshIntervalMillis = 30000L,
-      onAdLoaded = {
-        homeVM.setNativeAd(it)
-      },
-    )
+  Surface(
+    modifier = Modifier
+      .padding(horizontal = 10.dp)
+      .padding(vertical = 10.dp)
+      .fillMaxWidth(),
+    shape = RoundedCornerShape(20.dp),
+    tonalElevation = 6.dp,
+    shadowElevation = 4.dp,
+  ) {
+    HomeNativeAd()
   }
 }

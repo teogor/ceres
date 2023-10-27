@@ -48,7 +48,6 @@ import dev.teogor.ceres.monetisation.admob.DemoAdUnitIds
 import dev.teogor.ceres.monetisation.admob.annotations.AdOptions
 import dev.teogor.ceres.monetisation.admob.annotations.AdProperty
 import dev.teogor.ceres.monetisation.admob.annotations.AdUI
-import dev.teogor.ceres.monetisation.admob.formats.nativead.AdLoaderConfig
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAd
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAdConfig
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAdData
@@ -58,11 +57,23 @@ import dev.teogor.ceres.monetisation.admob.formats.nativead.createCallToActionVi
 import dev.teogor.ceres.monetisation.admob.formats.nativead.createHeadlineView
 import dev.teogor.ceres.monetisation.admob.formats.nativead.createIconView
 import dev.teogor.ceres.monetisation.admob.formats.nativead.createStarRatingView
+import dev.teogor.ceres.monetisation.admob.formats.nativead.defaultAdLoaderConfig
 import dev.teogor.ceres.ui.designsystem.RatingBar
 import dev.teogor.ceres.ui.designsystem.Text
 import dev.teogor.ceres.ui.theme.MaterialTheme
 import javax.inject.Inject
 import javax.inject.Singleton
+
+@AdProperty
+@Singleton
+data class HomeNativeAdData @Inject constructor(
+  override val nativeAd: MutableState<NativeAd?>,
+) : NativeAdData(nativeAd)
+
+@HiltViewModel
+class HomeNativeAdVM @Inject constructor(
+  homeNativeAdData: HomeNativeAdData,
+) : NativeAdViewModel(homeNativeAdData)
 
 @Composable
 fun HomeNativeAd(
@@ -75,19 +86,15 @@ fun HomeNativeAd(
   val adId = DemoAdUnitIds.NATIVE
   val nativeAd by remember { homeNativeAdVM.nativeAd }
   if (!isOffline) {
-    val nativeAdConfig = homeNativeAdConfig()
-
     NativeAd(
       modifier = Modifier.background(
         color = MaterialTheme.colorScheme.primaryContainer,
         shape = RoundedCornerShape(20.dp),
       ),
-      nativeAdConfig = nativeAdConfig,
-      adContent = {
-        HomeNativeAdUI(nativeAdConfig)
-      },
+      nativeAdConfig = homeNativeAdConfig(),
+      adContent = { HomeNativeAdUI(it) },
       nativeAd = nativeAd,
-      config = AdLoaderConfig(adId),
+      config = defaultAdLoaderConfig(adId),
       refreshIntervalMillis = 30_000L,
       onAdLoaded = {
         homeNativeAdVM.setNativeAd(it)
@@ -95,17 +102,6 @@ fun HomeNativeAd(
     )
   }
 }
-
-@AdProperty
-@Singleton
-data class HomeNativeAdData @Inject constructor(
-  override val nativeAd: MutableState<NativeAd?>,
-) : NativeAdData(nativeAd)
-
-@HiltViewModel
-class HomeNativeAdVM @Inject constructor(
-  homeNativeAdData: HomeNativeAdData,
-) : NativeAdViewModel(homeNativeAdData)
 
 @AdOptions
 @Composable
