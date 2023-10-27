@@ -39,7 +39,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -63,7 +62,7 @@ import dev.teogor.ceres.monetisation.admob.formats.nativead.createHeadlineView
 import dev.teogor.ceres.monetisation.admob.formats.nativead.createIconView
 import dev.teogor.ceres.monetisation.admob.formats.nativead.createStarRatingView
 import dev.teogor.ceres.monetisation.admob.formats.nativead.defaultAdLoaderConfig
-import dev.teogor.ceres.monetisation.admob.models.AdChoicesPlacement
+import dev.teogor.ceres.monetisation.admob.formats.nativead.nativeAdBackground
 import dev.teogor.ceres.ui.designsystem.RatingBar
 import dev.teogor.ceres.ui.designsystem.Text
 import dev.teogor.ceres.ui.designsystem.core.ColorUtils.blend
@@ -92,16 +91,26 @@ fun HomeNativeAd() {
   if (!isOffline) {
     var isAdFillEmpty by remember { mutableStateOf(true) }
     NativeAd<HomeNativeAdVM>(
+      modifier = Modifier
+        .padding(
+          horizontal = 10.dp,
+          vertical = 10.dp,
+        )
+        .fillMaxWidth(),
       viewModel = hiltViewModel(),
-      modifier = Modifier.background(
-        color = MaterialTheme.colorScheme.primaryContainer,
-        shape = RoundedCornerShape(20.dp),
-      ),
       nativeAdConfig = homeNativeAdConfig(),
       adContent = { HomeNativeAdUI(it, isAdFillEmpty) },
       config = defaultAdLoaderConfig(adId),
       refreshIntervalMillis = 30_000L,
       onAdFillStatusChange = { isAdFillEmpty = it },
+      onRetrieveBackground = {
+        nativeAdBackground(
+          color = MaterialTheme.colorScheme.tertiaryContainer,
+          adChoicesPlacement = it,
+          cornerSize = 20.dp,
+          shadowElevation = 2.dp,
+        )
+      },
     )
   }
 }
@@ -254,7 +263,7 @@ fun HomeNativeAdUI(
           .fillMaxWidth()
           .clip(RoundedCornerShape(50)),
         color = MaterialTheme.colorScheme.primary,
-        trackColor = MaterialTheme.colorScheme.onPrimaryContainer.blend(
+        trackColor = MaterialTheme.colorScheme.onTertiaryContainer.blend(
           MaterialTheme.colorScheme.background,
           fraction = .6f,
         ),
@@ -264,11 +273,11 @@ fun HomeNativeAdUI(
         text = "AD",
         fontSize = 10.sp,
         lineHeight = 10.sp,
-        color = MaterialTheme.colorScheme.onSecondaryContainer,
+        color = MaterialTheme.colorScheme.onTertiary,
         modifier = Modifier
           .align(Alignment.BottomEnd)
           .background(
-            color = MaterialTheme.colorScheme.secondaryContainer,
+            color = MaterialTheme.colorScheme.tertiary,
             shape = CircleShape,
           )
           .padding(horizontal = 8.dp, vertical = 8.dp)

@@ -28,6 +28,7 @@ import androidx.compose.ui.viewinterop.AndroidViewBinding
 import com.google.android.gms.ads.nativead.NativeAdView
 import dev.teogor.ceres.monetisation.admob.databinding.AdmobNativeBinding
 import dev.teogor.ceres.monetisation.admob.formats.AdEvent
+import dev.teogor.ceres.monetisation.admob.models.AdChoicesPlacement
 
 @Composable
 fun <T : NativeAdViewModel> NativeAd(
@@ -39,6 +40,7 @@ fun <T : NativeAdViewModel> NativeAd(
   refreshIntervalMillis: Long = 30000L,
   onAdEvent: (AdEvent) -> Unit = {},
   onAdFillStatusChange: (Boolean) -> Unit = {},
+  onRetrieveBackground: @Composable (AdChoicesPlacement) -> Modifier = { Modifier },
 ) {
   val nativeAd by remember { viewModel.nativeAd }
   var adView by remember {
@@ -63,9 +65,10 @@ fun <T : NativeAdViewModel> NativeAd(
     refreshIntervalMillis = refreshIntervalMillis,
   )
 
+  val backgroundModifier = onRetrieveBackground(config.adChoicesPlacement)
   AndroidViewBinding(
     factory = AdmobNativeBinding::inflate,
-    modifier = modifier,
+    modifier = modifier.then(backgroundModifier),
   ) {
     if (adView == null) {
       adView = root.also { adview ->

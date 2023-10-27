@@ -16,13 +16,8 @@
 
 package dev.teogor.ceres.feature.home
 
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import dev.teogor.ceres.R
 import dev.teogor.ceres.ads.HomeNativeAd
@@ -47,7 +42,6 @@ import dev.teogor.ceres.screen.builder.compose.SimpleView
 import dev.teogor.ceres.screen.core.layout.ColumnLayoutBase
 import dev.teogor.ceres.screen.ui.api.ExperimentalOnboardingScreenApi
 import dev.teogor.ceres.screen.ui.onboarding.OnboardingRoute
-import dev.teogor.ceres.ui.designsystem.Surface
 
 // todo better way to configure this. perhaps use kotlin builder syntax
 @Composable
@@ -157,15 +151,5 @@ private fun HomeScreen(
     },
   )
 
-  Surface(
-    modifier = Modifier
-      .padding(horizontal = 10.dp)
-      .padding(vertical = 10.dp)
-      .fillMaxWidth(),
-    shape = RoundedCornerShape(20.dp),
-    tonalElevation = 6.dp,
-    shadowElevation = 4.dp,
-  ) {
-    HomeNativeAd()
-  }
+  HomeNativeAd()
 }

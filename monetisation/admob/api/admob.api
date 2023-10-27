@@ -540,7 +540,13 @@ public final class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAd
 }
 
 public final class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdKt {
-	public static final fun NativeAd (Ldev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdViewModel;Landroidx/compose/ui/Modifier;Ldev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdConfig;Lkotlin/jvm/functions/Function3;Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig;JLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
+	public static final fun NativeAd (Ldev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdViewModel;Landroidx/compose/ui/Modifier;Ldev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdConfig;Lkotlin/jvm/functions/Function3;Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig;JLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdModifiersKt {
+	public static final fun nativeAdBackground-36lltbM (JFFLdev/teogor/ceres/monetisation/admob/models/AdChoicesPlacement;Landroidx/compose/runtime/Composer;II)Landroidx/compose/ui/Modifier;
+	public static final fun nativeAdRoundedCornerShape-3ABfNKs (Ldev/teogor/ceres/monetisation/admob/models/AdChoicesPlacement;F)Landroidx/compose/foundation/shape/RoundedCornerShape;
+	public static synthetic fun nativeAdRoundedCornerShape-3ABfNKs$default (Ldev/teogor/ceres/monetisation/admob/models/AdChoicesPlacement;FILjava/lang/Object;)Landroidx/compose/foundation/shape/RoundedCornerShape;
 }
 
 public abstract class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdViewModel : androidx/lifecycle/ViewModel {
