@@ -53,6 +53,15 @@ public final class dev/teogor/ceres/monetisation/ads/AndroidAdsControl : dev/teo
 public abstract interface annotation class dev/teogor/ceres/monetisation/ads/ExperimentalAdsControlApi : java/lang/annotation/Annotation {
 }
 
+public final class dev/teogor/ceres/monetisation/ads/extensions/AdRequestOptionsExtensionsKt {
+	public static final fun setForAdults (Ldev/teogor/ceres/monetisation/ads/model/AdRequestOptions;)V
+	public static final fun setForChildrenApp (Ldev/teogor/ceres/monetisation/ads/model/AdRequestOptions;)V
+	public static final fun setForEveryoneApp (Ldev/teogor/ceres/monetisation/ads/model/AdRequestOptions;)V
+	public static final fun setForFamilies (Ldev/teogor/ceres/monetisation/ads/model/AdRequestOptions;ZZ)V
+	public static synthetic fun setForFamilies$default (Ldev/teogor/ceres/monetisation/ads/model/AdRequestOptions;ZZILjava/lang/Object;)V
+	public static final fun setForTeens (Ldev/teogor/ceres/monetisation/ads/model/AdRequestOptions;)V
+}
+
 public final class dev/teogor/ceres/monetisation/ads/model/AdContentRating : java/lang/Enum {
 	public static final field G Ldev/teogor/ceres/monetisation/ads/model/AdContentRating;
 	public static final field MA Ldev/teogor/ceres/monetisation/ads/model/AdContentRating;
