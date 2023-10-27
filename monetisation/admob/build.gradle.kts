@@ -39,7 +39,7 @@ dependencies {
 
   api(project(":monetisation:ads"))
   implementation(project(":core:runtime"))
-  implementation(project(":core:network"))
+  implementation(project(":core:foundation"))
   implementation(project(":ui:designsystem"))
 
   implementation(libs.androidx.compose.foundation)

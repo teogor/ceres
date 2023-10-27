@@ -59,6 +59,20 @@ public final class dev/teogor/ceres/core/foundation/BatteryUtils {
 	public final fun isCharging ()Z
 }
 
+public final class dev/teogor/ceres/core/foundation/ConnectivityManagerNetworkMonitor : dev/teogor/ceres/core/foundation/NetworkMonitorUtility {
+	public static final field $stable I
+	public fun <init> (Landroid/content/Context;)V
+	public fun isOnline ()Lkotlinx/coroutines/flow/Flow;
+}
+
+public final class dev/teogor/ceres/core/foundation/ConnectivityManagerNetworkMonitor_Factory : dagger/internal/Factory {
+	public fun <init> (Ljavax/inject/Provider;)V
+	public static fun create (Ljavax/inject/Provider;)Ldev/teogor/ceres/core/foundation/ConnectivityManagerNetworkMonitor_Factory;
+	public fun get ()Ldev/teogor/ceres/core/foundation/ConnectivityManagerNetworkMonitor;
+	public synthetic fun get ()Ljava/lang/Object;
+	public static fun newInstance (Landroid/content/Context;)Ldev/teogor/ceres/core/foundation/ConnectivityManagerNetworkMonitor;
+}
+
 public final class dev/teogor/ceres/core/foundation/FoundationGlobal {
 	public static final field $stable I
 	public static final field INSTANCE Ldev/teogor/ceres/core/foundation/FoundationGlobal;
@@ -122,21 +136,23 @@ public final class dev/teogor/ceres/core/foundation/NetworkConnectivityUtils {
 	public final fun isOnline ()Lkotlinx/coroutines/flow/Flow;
 }
 
+public abstract interface class dev/teogor/ceres/core/foundation/NetworkModule {
+	public abstract fun bindsNetworkMonitor (Ldev/teogor/ceres/core/foundation/ConnectivityManagerNetworkMonitor;)Ldev/teogor/ceres/core/foundation/NetworkMonitorUtility;
+}
+
 public final class dev/teogor/ceres/core/foundation/NetworkMonitor {
 	public static final field $stable I
-	public fun <init> (Z)V
-	public final fun component1 ()Z
-	public final fun copy (Z)Ldev/teogor/ceres/core/foundation/NetworkMonitor;
-	public static synthetic fun copy$default (Ldev/teogor/ceres/core/foundation/NetworkMonitor;ZILjava/lang/Object;)Ldev/teogor/ceres/core/foundation/NetworkMonitor;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
+	public fun <init> ()V
 	public final fun isOffline ()Z
 	public final fun setOffline (Z)V
-	public fun toString ()Ljava/lang/String;
 }
 
 public final class dev/teogor/ceres/core/foundation/NetworkMonitorKt {
 	public static final fun networkConnectivityUtils (Landroid/content/Context;)Ldev/teogor/ceres/core/foundation/NetworkConnectivityUtils;
+}
+
+public abstract interface class dev/teogor/ceres/core/foundation/NetworkMonitorUtility {
+	public abstract fun isOnline ()Lkotlinx/coroutines/flow/Flow;
 }
 
 public final class dev/teogor/ceres/core/foundation/PackageManagerApi21 : dev/teogor/ceres/core/foundation/PackageManagerImpl {
@@ -342,6 +358,10 @@ public final class dev/teogor/ceres/core/foundation/utils/ErrorCompositionLocalK
 
 public final class dev/teogor/ceres/core/foundation/utils/SystemServiceKt {
 	public static final fun getSystemService (Landroid/content/Context;Ljava/lang/Class;)Ljava/lang/Object;
+}
+
+public class hilt_aggregated_deps/_dev_teogor_ceres_core_foundation_NetworkModule {
+	public fun <init> ()V
 }
 
 public class hilt_aggregated_deps/_dev_teogor_ceres_core_foundation_di_CoreFoundationModule {

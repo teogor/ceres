@@ -23,7 +23,6 @@ import android.content.Context
 import android.provider.Settings
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration
-import dev.teogor.ceres.core.network.ConnectivityManagerNetworkMonitor
 import dev.teogor.ceres.core.runtime.AppMetadataManager
 import dev.teogor.ceres.monetisation.ads.AdsControl
 import dev.teogor.ceres.monetisation.ads.AdsControlProvider
@@ -34,8 +33,6 @@ import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
 object AdMobInitializer {
-
-  private var connectivityManager: ConnectivityManagerNetworkMonitor? = null
 
   fun configureAdsControl(adsControl: AdsControl) {
     AdsControlProvider.initialize(adsControl)

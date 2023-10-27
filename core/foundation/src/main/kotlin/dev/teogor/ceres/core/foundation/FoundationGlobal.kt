@@ -17,7 +17,5 @@
 package dev.teogor.ceres.core.foundation
 
 object FoundationGlobal {
-  val networkMonitor = NetworkMonitor(
-    isOffline = true,
-  )
+  val networkMonitor = NetworkMonitor()
 }

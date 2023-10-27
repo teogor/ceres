@@ -39,11 +39,11 @@ import androidx.compose.runtime.setValue
 import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.metrics.performance.JankStats
+import dev.teogor.ceres.core.foundation.NetworkMonitorUtility
 import dev.teogor.ceres.core.foundation.audioManagerUtils
 import dev.teogor.ceres.core.foundation.compositions.LocalAudioManager
 import dev.teogor.ceres.core.foundation.compositions.LocalMediaPlayer
 import dev.teogor.ceres.core.foundation.mediaPlayerUtils
-import dev.teogor.ceres.core.network.NetworkMonitor
 import dev.teogor.ceres.data.compose.rememberPreference
 import dev.teogor.ceres.data.datastore.defaults.AppTheme
 import dev.teogor.ceres.data.datastore.defaults.ceresPreferences
@@ -73,7 +73,7 @@ open class Activity : ComponentActivity() {
    * API
    */
   @Inject
-  lateinit var networkMonitor: NetworkMonitor
+  lateinit var networkMonitor: NetworkMonitorUtility
 
   /**
    * Lazily inject [JankStats], which is used to track jank throughout the app.

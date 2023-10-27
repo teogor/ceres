@@ -31,7 +31,6 @@ android {
 dependencies {
   api(project(":core:common"))
   api(project(":core:foundation"))
-  api(project(":core:network"))
   api(project(":core:runtime"))
 
   api(project(":data:compose"))

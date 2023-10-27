@@ -28,11 +28,20 @@ import android.net.NetworkRequest
 import android.os.Build
 import android.os.Build.VERSION_CODES
 import androidx.annotation.RequiresApi
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import dagger.Binds
+import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import dev.teogor.ceres.core.foundation.utils.getSystemService
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.conflate
+import javax.inject.Inject
 
 private var Impl: NetworkConnectivityImpl? = null
 
@@ -139,9 +148,33 @@ class NetworkConnectivityApi23(private val context: Context) : NetworkConnectivi
   }
 }
 
-data class NetworkMonitor(
-  var isOffline: Boolean,
-)
+@Module
+@InstallIn(SingletonComponent::class)
+interface NetworkModule {
+  @Binds
+  fun bindsNetworkMonitor(
+    networkMonitor: ConnectivityManagerNetworkMonitor,
+  ): NetworkMonitorUtility
+}
+
+class ConnectivityManagerNetworkMonitor @Inject constructor(
+  @ApplicationContext private val context: Context,
+) : NetworkMonitorUtility {
+  override val isOnline = context
+    .networkConnectivityUtils()
+    .isOnline
+}
+
+/**
+ * Utility for reporting app connectivity status
+ */
+interface NetworkMonitorUtility {
+  val isOnline: Flow<Boolean>
+}
+
+class NetworkMonitor {
+  var isOffline: Boolean by mutableStateOf(false)
+}
 
 class NetworkConnectivityUtils(
   private val networkConnectivityImpl: NetworkConnectivityImpl,

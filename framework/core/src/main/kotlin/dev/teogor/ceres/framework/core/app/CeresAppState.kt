@@ -34,8 +34,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
+import dev.teogor.ceres.core.foundation.NetworkMonitorUtility
 import dev.teogor.ceres.core.foundation.networkConnectivityUtils
-import dev.teogor.ceres.core.network.NetworkMonitor
 import dev.teogor.ceres.core.startup.ApplicationContextProvider
 import dev.teogor.ceres.framework.core.screen.ScreenInfo
 import dev.teogor.ceres.framework.core.screen.rememberScreenInfo
@@ -50,7 +50,7 @@ import kotlinx.coroutines.flow.stateIn
 @Composable
 fun rememberCeresAppState(
   windowSizeClass: WindowSizeClass,
-  networkMonitor: NetworkMonitor,
+  networkMonitor: NetworkMonitorUtility,
   coroutineScope: CoroutineScope = rememberCoroutineScope(),
   navController: NavHostController = rememberNavController(),
   screenInfo: ScreenInfo = rememberScreenInfo(),
@@ -82,7 +82,7 @@ class CeresAppState(
   val coroutineScope: CoroutineScope,
   val windowSizeClass: WindowSizeClass,
   val screenInfo: ScreenInfo,
-  networkMonitor: NetworkMonitor,
+  networkMonitor: NetworkMonitorUtility,
   navigationItems: List<NavigationItem>,
 ) {
   val currentDestination: NavDestination?

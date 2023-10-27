@@ -27,7 +27,6 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -43,7 +42,6 @@ import com.google.android.gms.ads.nativead.NativeAd
 import com.skydoves.landscapist.ImageOptions
 import com.skydoves.landscapist.glide.GlideImage
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.teogor.ceres.framework.core.compositions.LocalNetworkConnectivity
 import dev.teogor.ceres.monetisation.admob.DemoAdUnitIds
 import dev.teogor.ceres.monetisation.admob.annotations.AdProperty
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAd
@@ -145,19 +143,6 @@ class HomeNativeAdBeta : NativeAdManager() {
       },
     )
     .build()
-
-  @Composable
-  override fun IsOnline(
-    displayAd: @Composable () -> Unit,
-  ) {
-    val networkConnectivity = LocalNetworkConnectivity.current
-    val isOffline by remember {
-      derivedStateOf { networkConnectivity.isOffline }
-    }
-    if (!isOffline) {
-      displayAd()
-    }
-  }
 
   @Composable
   override fun Display() {
