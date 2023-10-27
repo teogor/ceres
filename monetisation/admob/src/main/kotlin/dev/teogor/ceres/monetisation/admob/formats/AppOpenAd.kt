@@ -23,14 +23,13 @@ import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.appopen.AppOpenAd
 import dev.teogor.ceres.monetisation.admob.CurrentActivityHolder
 import java.util.Date
+import java.util.concurrent.TimeUnit
 
 abstract class AppOpenAd : Ad() {
 
   final override fun type() = AdType.AppOpen
 
   override fun useCache() = false
-
-  private var loadTime: Long = 0
 
   override fun load(): Boolean {
     if (!super.load()) {
@@ -54,10 +53,9 @@ abstract class AppOpenAd : Ad() {
           log("onAdLoaded.")
           AdCache.cacheAd(
             adId = id,
-            ad = CacheAdModel.AppOpen(ad),
+            ad = CachedAd.AppOpen(ad, Date().time),
           )
           onListener(AdEvent.AdLoaded)
-          loadTime = Date().time
         }
 
         /**
@@ -94,15 +92,13 @@ abstract class AppOpenAd : Ad() {
       return
     }
 
-    if (!wasLoadTimeLessThanNHoursAgo(4)) {
-      log("Loading the app open ad because the previously loaded ad has expired.")
-      load()
+    val appOpenAd = (ad as CachedAd.AppOpen).ad
+
+    if (!wasLoadTimeLessThanNHoursAgo(ad.loadTime, 4)) {
+      reloadExpiredAd()
       return
-    } else {
-      log("App open ad is still valid; no need to reload.")
     }
 
-    val appOpenAd = (ad as CacheAdModel.AppOpen).ad
     if (isShowing) {
       log("The app open ad is already showing.")
       return
@@ -152,9 +148,12 @@ abstract class AppOpenAd : Ad() {
     CurrentActivityHolder.activity?.let { appOpenAd.show(it) }
   }
 
-  private fun wasLoadTimeLessThanNHoursAgo(numHours: Long): Boolean {
-    val dateDifference: Long = Date().time - loadTime
-    val numMilliSecondsPerHour: Long = 3600000
-    return dateDifference < numMilliSecondsPerHour * numHours
+  private fun wasLoadTimeLessThanNHoursAgo(
+    adLoadTime: Long,
+    hoursThreshold: Long,
+  ): Boolean {
+    val dateDifference: Long = Date().time - adLoadTime
+    val numMillisecondsPerHour: Long = TimeUnit.HOURS.toMillis(1)
+    return dateDifference < numMillisecondsPerHour * hoursThreshold
   }
 }

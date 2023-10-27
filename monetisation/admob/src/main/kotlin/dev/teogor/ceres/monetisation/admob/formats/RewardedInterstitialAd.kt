@@ -23,6 +23,7 @@ import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAd
 import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAdLoadCallback
 import dev.teogor.ceres.monetisation.admob.CurrentActivityHolder
+import java.util.Date
 
 abstract class RewardedInterstitialAd(
   loadAtInitialisation: Boolean = false,
@@ -57,7 +58,7 @@ abstract class RewardedInterstitialAd(
           log("Ad was loaded.")
           AdCache.cacheAd(
             adId = id,
-            ad = CacheAdModel.RewardedInterstitial(ad),
+            ad = CachedAd.RewardedInterstitial(ad, Date().time),
           )
           onListener(AdEvent.AdLoaded)
         }
@@ -83,7 +84,7 @@ abstract class RewardedInterstitialAd(
       load()
       return
     }
-    val rewardedInterstitialAd = (ad as CacheAdModel.RewardedInterstitial).ad
+    val rewardedInterstitialAd = (ad as CachedAd.RewardedInterstitial).ad
     if (isShowing) {
       log("The rewarded interstitial ad is already showing.")
       return

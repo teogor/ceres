@@ -33,3 +33,29 @@ enum class AdType {
 
   fun type(): AdType = this
 }
+
+/**
+ * Converts an AdType to a user-friendly name with an optional prefix and suffix.
+ *
+ * @param prefix The prefix to add to the friendly name.
+ * @param suffix The suffix to add to the friendly name.
+ * @return The user-friendly name of the AdType.
+ */
+fun AdType.toFriendlyName(
+  prefix: String = "",
+  suffix: String = "",
+): String {
+  return this.name
+    .split(Regex("(?=[A-Z])"))
+    .joinToString(" ") {
+      it.replaceFirstChar { char ->
+        if (char.isLowerCase()) {
+          char.titlecase()
+        } else {
+          char.toString()
+        }
+      }
+    }
+    .trim()
+    .let { "$prefix$it$suffix" }
+}

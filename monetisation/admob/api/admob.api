@@ -80,6 +80,7 @@ public abstract class dev/teogor/ceres/monetisation/admob/formats/Ad : dev/teogo
 	public abstract fun loadContinuously ()Z
 	public fun log (Ljava/lang/String;)V
 	public final fun onListener (Ldev/teogor/ceres/monetisation/admob/formats/AdEvent;)V
+	public fun reloadExpiredAd ()V
 	protected final fun setLoading (Z)V
 	protected final fun setShowing (Z)V
 	public fun show ()V
@@ -89,8 +90,8 @@ public abstract class dev/teogor/ceres/monetisation/admob/formats/Ad : dev/teogo
 public final class dev/teogor/ceres/monetisation/admob/formats/AdCache {
 	public static final field $stable I
 	public static final field INSTANCE Ldev/teogor/ceres/monetisation/admob/formats/AdCache;
-	public final fun cacheAd (Ljava/lang/String;Ldev/teogor/ceres/monetisation/admob/formats/CacheAdModel;)V
-	public final fun getAd (Ljava/lang/String;)Ldev/teogor/ceres/monetisation/admob/formats/CacheAdModel;
+	public final fun cacheAd (Ljava/lang/String;Ldev/teogor/ceres/monetisation/admob/formats/CachedAd;)V
+	public final fun getAd (Ljava/lang/String;)Ldev/teogor/ceres/monetisation/admob/formats/CachedAd;
 	public final fun getAdCount (Ljava/lang/String;)I
 	public final fun getAds (Ljava/lang/String;I)Ljava/util/List;
 	public final fun removeAd (Ljava/lang/String;)V
@@ -213,6 +214,11 @@ public final class dev/teogor/ceres/monetisation/admob/formats/AdType : java/lan
 	public static fun values ()[Ldev/teogor/ceres/monetisation/admob/formats/AdType;
 }
 
+public final class dev/teogor/ceres/monetisation/admob/formats/AdTypeKt {
+	public static final fun toFriendlyName (Ldev/teogor/ceres/monetisation/admob/formats/AdType;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+	public static synthetic fun toFriendlyName$default (Ldev/teogor/ceres/monetisation/admob/formats/AdType;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
+}
+
 public abstract class dev/teogor/ceres/monetisation/admob/formats/AppOpenAd : dev/teogor/ceres/monetisation/admob/formats/Ad {
 	public static final field $stable I
 	public fun <init> ()V
@@ -234,66 +240,78 @@ public abstract class dev/teogor/ceres/monetisation/admob/formats/BannerAd : dev
 	public fun useCache ()Z
 }
 
-public abstract class dev/teogor/ceres/monetisation/admob/formats/CacheAdModel {
+public abstract class dev/teogor/ceres/monetisation/admob/formats/CachedAd {
 	public static final field $stable I
+	public synthetic fun <init> (JLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getLoadTime ()J
 }
 
-public final class dev/teogor/ceres/monetisation/admob/formats/CacheAdModel$AppOpen : dev/teogor/ceres/monetisation/admob/formats/CacheAdModel {
+public final class dev/teogor/ceres/monetisation/admob/formats/CachedAd$AppOpen : dev/teogor/ceres/monetisation/admob/formats/CachedAd {
 	public static final field $stable I
-	public fun <init> (Lcom/google/android/gms/ads/appopen/AppOpenAd;)V
+	public fun <init> (Lcom/google/android/gms/ads/appopen/AppOpenAd;J)V
 	public final fun component1 ()Lcom/google/android/gms/ads/appopen/AppOpenAd;
-	public final fun copy (Lcom/google/android/gms/ads/appopen/AppOpenAd;)Ldev/teogor/ceres/monetisation/admob/formats/CacheAdModel$AppOpen;
-	public static synthetic fun copy$default (Ldev/teogor/ceres/monetisation/admob/formats/CacheAdModel$AppOpen;Lcom/google/android/gms/ads/appopen/AppOpenAd;ILjava/lang/Object;)Ldev/teogor/ceres/monetisation/admob/formats/CacheAdModel$AppOpen;
+	public final fun component2 ()J
+	public final fun copy (Lcom/google/android/gms/ads/appopen/AppOpenAd;J)Ldev/teogor/ceres/monetisation/admob/formats/CachedAd$AppOpen;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/monetisation/admob/formats/CachedAd$AppOpen;Lcom/google/android/gms/ads/appopen/AppOpenAd;JILjava/lang/Object;)Ldev/teogor/ceres/monetisation/admob/formats/CachedAd$AppOpen;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAd ()Lcom/google/android/gms/ads/appopen/AppOpenAd;
+	public fun getLoadTime ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class dev/teogor/ceres/monetisation/admob/formats/CacheAdModel$Interstitial : dev/teogor/ceres/monetisation/admob/formats/CacheAdModel {
+public final class dev/teogor/ceres/monetisation/admob/formats/CachedAd$Interstitial : dev/teogor/ceres/monetisation/admob/formats/CachedAd {
 	public static final field $stable I
-	public fun <init> (Lcom/google/android/gms/ads/interstitial/InterstitialAd;)V
+	public fun <init> (Lcom/google/android/gms/ads/interstitial/InterstitialAd;J)V
 	public final fun component1 ()Lcom/google/android/gms/ads/interstitial/InterstitialAd;
-	public final fun copy (Lcom/google/android/gms/ads/interstitial/InterstitialAd;)Ldev/teogor/ceres/monetisation/admob/formats/CacheAdModel$Interstitial;
-	public static synthetic fun copy$default (Ldev/teogor/ceres/monetisation/admob/formats/CacheAdModel$Interstitial;Lcom/google/android/gms/ads/interstitial/InterstitialAd;ILjava/lang/Object;)Ldev/teogor/ceres/monetisation/admob/formats/CacheAdModel$Interstitial;
+	public final fun component2 ()J
+	public final fun copy (Lcom/google/android/gms/ads/interstitial/InterstitialAd;J)Ldev/teogor/ceres/monetisation/admob/formats/CachedAd$Interstitial;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/monetisation/admob/formats/CachedAd$Interstitial;Lcom/google/android/gms/ads/interstitial/InterstitialAd;JILjava/lang/Object;)Ldev/teogor/ceres/monetisation/admob/formats/CachedAd$Interstitial;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAd ()Lcom/google/android/gms/ads/interstitial/InterstitialAd;
+	public fun getLoadTime ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class dev/teogor/ceres/monetisation/admob/formats/CacheAdModel$Native : dev/teogor/ceres/monetisation/admob/formats/CacheAdModel {
+public final class dev/teogor/ceres/monetisation/admob/formats/CachedAd$Native : dev/teogor/ceres/monetisation/admob/formats/CachedAd {
 	public static final field $stable I
-	public fun <init> (Lcom/google/android/gms/ads/nativead/NativeAd;)V
+	public fun <init> (Lcom/google/android/gms/ads/nativead/NativeAd;J)V
 	public final fun component1 ()Lcom/google/android/gms/ads/nativead/NativeAd;
-	public final fun copy (Lcom/google/android/gms/ads/nativead/NativeAd;)Ldev/teogor/ceres/monetisation/admob/formats/CacheAdModel$Native;
-	public static synthetic fun copy$default (Ldev/teogor/ceres/monetisation/admob/formats/CacheAdModel$Native;Lcom/google/android/gms/ads/nativead/NativeAd;ILjava/lang/Object;)Ldev/teogor/ceres/monetisation/admob/formats/CacheAdModel$Native;
+	public final fun component2 ()J
+	public final fun copy (Lcom/google/android/gms/ads/nativead/NativeAd;J)Ldev/teogor/ceres/monetisation/admob/formats/CachedAd$Native;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/monetisation/admob/formats/CachedAd$Native;Lcom/google/android/gms/ads/nativead/NativeAd;JILjava/lang/Object;)Ldev/teogor/ceres/monetisation/admob/formats/CachedAd$Native;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAd ()Lcom/google/android/gms/ads/nativead/NativeAd;
+	public fun getLoadTime ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class dev/teogor/ceres/monetisation/admob/formats/CacheAdModel$Rewarded : dev/teogor/ceres/monetisation/admob/formats/CacheAdModel {
+public final class dev/teogor/ceres/monetisation/admob/formats/CachedAd$Rewarded : dev/teogor/ceres/monetisation/admob/formats/CachedAd {
 	public static final field $stable I
-	public fun <init> (Lcom/google/android/gms/ads/rewarded/RewardedAd;)V
+	public fun <init> (Lcom/google/android/gms/ads/rewarded/RewardedAd;J)V
 	public final fun component1 ()Lcom/google/android/gms/ads/rewarded/RewardedAd;
-	public final fun copy (Lcom/google/android/gms/ads/rewarded/RewardedAd;)Ldev/teogor/ceres/monetisation/admob/formats/CacheAdModel$Rewarded;
-	public static synthetic fun copy$default (Ldev/teogor/ceres/monetisation/admob/formats/CacheAdModel$Rewarded;Lcom/google/android/gms/ads/rewarded/RewardedAd;ILjava/lang/Object;)Ldev/teogor/ceres/monetisation/admob/formats/CacheAdModel$Rewarded;
+	public final fun component2 ()J
+	public final fun copy (Lcom/google/android/gms/ads/rewarded/RewardedAd;J)Ldev/teogor/ceres/monetisation/admob/formats/CachedAd$Rewarded;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/monetisation/admob/formats/CachedAd$Rewarded;Lcom/google/android/gms/ads/rewarded/RewardedAd;JILjava/lang/Object;)Ldev/teogor/ceres/monetisation/admob/formats/CachedAd$Rewarded;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAd ()Lcom/google/android/gms/ads/rewarded/RewardedAd;
+	public fun getLoadTime ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class dev/teogor/ceres/monetisation/admob/formats/CacheAdModel$RewardedInterstitial : dev/teogor/ceres/monetisation/admob/formats/CacheAdModel {
+public final class dev/teogor/ceres/monetisation/admob/formats/CachedAd$RewardedInterstitial : dev/teogor/ceres/monetisation/admob/formats/CachedAd {
 	public static final field $stable I
-	public fun <init> (Lcom/google/android/gms/ads/rewardedinterstitial/RewardedInterstitialAd;)V
+	public fun <init> (Lcom/google/android/gms/ads/rewardedinterstitial/RewardedInterstitialAd;J)V
 	public final fun component1 ()Lcom/google/android/gms/ads/rewardedinterstitial/RewardedInterstitialAd;
-	public final fun copy (Lcom/google/android/gms/ads/rewardedinterstitial/RewardedInterstitialAd;)Ldev/teogor/ceres/monetisation/admob/formats/CacheAdModel$RewardedInterstitial;
-	public static synthetic fun copy$default (Ldev/teogor/ceres/monetisation/admob/formats/CacheAdModel$RewardedInterstitial;Lcom/google/android/gms/ads/rewardedinterstitial/RewardedInterstitialAd;ILjava/lang/Object;)Ldev/teogor/ceres/monetisation/admob/formats/CacheAdModel$RewardedInterstitial;
+	public final fun component2 ()J
+	public final fun copy (Lcom/google/android/gms/ads/rewardedinterstitial/RewardedInterstitialAd;J)Ldev/teogor/ceres/monetisation/admob/formats/CachedAd$RewardedInterstitial;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/monetisation/admob/formats/CachedAd$RewardedInterstitial;Lcom/google/android/gms/ads/rewardedinterstitial/RewardedInterstitialAd;JILjava/lang/Object;)Ldev/teogor/ceres/monetisation/admob/formats/CachedAd$RewardedInterstitial;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAd ()Lcom/google/android/gms/ads/rewardedinterstitial/RewardedInterstitialAd;
+	public fun getLoadTime ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }

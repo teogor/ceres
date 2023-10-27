@@ -17,11 +17,11 @@
 package dev.teogor.ceres.monetisation.admob.formats
 
 object AdCache {
-  private val adCache: MutableMap<String, MutableList<CacheAdModel>> = mutableMapOf()
+  private val cachedAds: MutableMap<String, MutableList<CachedAd>> = mutableMapOf()
 
   @Synchronized
-  fun cacheAd(adId: String, ad: CacheAdModel) {
-    adCache.getOrPut(adId) {
+  fun cacheAd(adId: String, ad: CachedAd) {
+    cachedAds.getOrPut(adId) {
       mutableListOf()
     }.apply {
       add(ad)
@@ -29,27 +29,27 @@ object AdCache {
   }
 
   @Synchronized
-  fun getAd(adId: String): CacheAdModel? {
-    return adCache[adId]?.firstOrNull()
+  fun getAd(adId: String): CachedAd? {
+    return cachedAds[adId]?.firstOrNull()
   }
 
   @Synchronized
-  fun getAds(adId: String, count: Int): List<CacheAdModel> {
-    return adCache[adId]?.take(count) ?: emptyList()
+  fun getAds(adId: String, count: Int): List<CachedAd> {
+    return cachedAds[adId]?.take(count) ?: emptyList()
   }
 
   @Synchronized
   fun removeAd(adId: String) {
-    adCache[adId]?.let { adList ->
+    cachedAds[adId]?.let { adList ->
       if (adList.isNotEmpty()) {
         adList.removeAt(0)
       }
       if (adList.isEmpty()) {
-        adCache.remove(adId)
+        cachedAds.remove(adId)
       }
     }
   }
 
   @Synchronized
-  fun getAdCount(adId: String) = adCache[adId]?.size ?: 0
+  fun getAdCount(adId: String) = cachedAds[adId]?.size ?: 0
 }
