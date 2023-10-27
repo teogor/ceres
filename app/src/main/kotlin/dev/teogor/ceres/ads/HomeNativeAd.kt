@@ -45,13 +45,12 @@ import com.skydoves.landscapist.glide.GlideImage
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.teogor.ceres.framework.core.compositions.LocalNetworkConnectivity
 import dev.teogor.ceres.monetisation.admob.DemoAdUnitIds
-import dev.teogor.ceres.monetisation.admob.annotations.AdOptions
 import dev.teogor.ceres.monetisation.admob.annotations.AdProperty
-import dev.teogor.ceres.monetisation.admob.annotations.AdUI
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAd
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAdConfig
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAdContainer
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAdData
+import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAdManager
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAdViewModel
 import dev.teogor.ceres.monetisation.admob.formats.nativead.RenderContent
 import dev.teogor.ceres.monetisation.admob.formats.nativead.createBodyView
@@ -79,151 +78,160 @@ class HomeNativeAdVM @Inject constructor(
   homeNativeAdData: HomeNativeAdData,
 ) : NativeAdViewModel(homeNativeAdData)
 
-@Composable
-fun HomeNativeAd() {
-  val networkConnectivity = LocalNetworkConnectivity.current
-  val isOffline by remember {
-    derivedStateOf { networkConnectivity.isOffline }
-  }
-  val adId = DemoAdUnitIds.NATIVE
-  if (!isOffline) {
-    var isAdFillEmpty by remember { mutableStateOf(true) }
-    NativeAd<HomeNativeAdVM>(
-      modifier = Modifier
-        .padding(
-          horizontal = 10.dp,
-          vertical = 10.dp,
-        )
-        .fillMaxWidth(),
-      viewModel = hiltViewModel(),
-      nativeAdConfig = homeNativeAdConfig(),
-      adContent = { it.HomeNativeAdUI(isAdFillEmpty) },
-      config = defaultAdLoaderConfig(adId),
-      refreshIntervalMillis = 30_000L,
-      onAdFillStatusChange = { isAdFillEmpty = it },
-      onRetrieveBackground = {
-        nativeAdBackground(
-          color = MaterialTheme.colorScheme.tertiaryContainer,
-          adChoicesPlacement = it,
-          cornerSize = 20.dp,
-          shadowElevation = 2.dp,
+class HomeNativeAdBeta : NativeAdManager() {
+  @Composable
+  override fun config() = NativeAdConfig.Builder()
+    .headlineView(
+      createHeadlineView {
+        Text(
+          text = if (it.length > 25) it.take(25) else it,
+          color = MaterialTheme.colorScheme.onPrimaryContainer,
+          fontSize = 18.sp,
+          lineHeight = 20.sp,
         )
       },
     )
-  }
-}
-
-@AdOptions
-@Composable
-fun homeNativeAdConfig() = NativeAdConfig.Builder()
-  .headlineView(
-    createHeadlineView {
-      Text(
-        text = if (it.length > 25) it.take(25) else it,
-        color = MaterialTheme.colorScheme.onPrimaryContainer,
-        fontSize = 18.sp,
-        lineHeight = 20.sp,
-      )
-    },
-  )
-  .bodyView(
-    createBodyView {
-      Text(
-        text = if (it.length > 90) it.take(90) else it,
-        color = MaterialTheme.colorScheme.onPrimaryContainer,
-        fontSize = 10.sp,
-        lineHeight = 12.sp,
-      )
-    },
-  )
-  .starRatingView(
-    createStarRatingView {
-      RatingBar(
-        rating = it,
-        starSize = 18.dp,
-      )
-    },
-  )
-  .callToActionView(
-    createCallToActionView {
-      Text(
-        text = it,
-        color = MaterialTheme.colorScheme.onPrimary,
-        fontSize = 12.sp,
-        modifier = Modifier
-          .padding(top = 4.dp)
-          .background(
-            color = MaterialTheme.colorScheme.primary,
-            shape = ButtonDefaults.shape,
-          )
-          .padding(horizontal = 24.dp, vertical = 8.dp),
-      )
-    },
-  )
-  .iconView(
-    createIconView {
-      GlideImage(
-        modifier = Modifier
-          .size(50.dp)
-          .background(
-            color = MaterialTheme.colorScheme.background.copy(alpha = .2f),
-            shape = RoundedCornerShape(10.dp),
-          )
-          .clip(RoundedCornerShape(10.dp))
-          .padding(6.dp),
-        imageModel = { it.uri },
-        imageOptions = ImageOptions(
-          contentScale = ContentScale.Crop,
-          alignment = Alignment.Center,
-        ),
-      )
-    },
-  )
-  .build()
-
-@AdUI
-@Composable
-fun NativeAdConfig.HomeNativeAdUI(
-  isAdFillEmpty: Boolean,
-) {
-  NativeAdContainer(
-    modifier = Modifier
-      .fillMaxWidth()
-      .padding(vertical = 10.dp, horizontal = 6.dp),
-    isAdFillEmpty = isAdFillEmpty,
-    showDefaultAdText = true,
-    adTextAlignment = Alignment.BottomEnd,
-    loadingOverlay = {
-      LinearProgressIndicator(
-        modifier = Modifier
-          .align(Alignment.Center)
-          .padding(horizontal = 20.dp)
-          .fillMaxWidth()
-          .clip(RoundedCornerShape(50)),
-        color = MaterialTheme.colorScheme.primary,
-        trackColor = MaterialTheme.colorScheme.onTertiaryContainer.blend(
-          MaterialTheme.colorScheme.background,
-          fraction = .6f,
-        ),
-      )
-    },
-  ) {
-    Row(
-      verticalAlignment = Alignment.CenterVertically,
-    ) {
-      iconView.RenderContent(
-        modifier = Modifier.align(Alignment.Top),
-      )
-      Column(
-        modifier = Modifier.padding(start = 6.dp),
-      ) {
-        headlineView.RenderContent()
-        starRatingView.RenderContent()
-        bodyView.RenderContent()
-      }
-    }
-    callToActionView.RenderContent(
-      modifier = Modifier.align(Alignment.CenterHorizontally),
+    .bodyView(
+      createBodyView {
+        Text(
+          text = if (it.length > 90) it.take(90) else it,
+          color = MaterialTheme.colorScheme.onPrimaryContainer,
+          fontSize = 10.sp,
+          lineHeight = 12.sp,
+        )
+      },
     )
+    .starRatingView(
+      createStarRatingView {
+        RatingBar(
+          rating = it,
+          starSize = 18.dp,
+        )
+      },
+    )
+    .callToActionView(
+      createCallToActionView {
+        Text(
+          text = it,
+          color = MaterialTheme.colorScheme.onPrimary,
+          fontSize = 12.sp,
+          modifier = Modifier
+            .padding(top = 4.dp)
+            .background(
+              color = MaterialTheme.colorScheme.primary,
+              shape = ButtonDefaults.shape,
+            )
+            .padding(horizontal = 24.dp, vertical = 8.dp),
+        )
+      },
+    )
+    .iconView(
+      createIconView {
+        GlideImage(
+          modifier = Modifier
+            .size(50.dp)
+            .background(
+              color = MaterialTheme.colorScheme.background.copy(alpha = .2f),
+              shape = RoundedCornerShape(10.dp),
+            )
+            .clip(RoundedCornerShape(10.dp))
+            .padding(6.dp),
+          imageModel = { it.uri },
+          imageOptions = ImageOptions(
+            contentScale = ContentScale.Crop,
+            alignment = Alignment.Center,
+          ),
+        )
+      },
+    )
+    .build()
+
+  @Composable
+  override fun IsOnline(
+    displayAd: @Composable () -> Unit,
+  ) {
+    val networkConnectivity = LocalNetworkConnectivity.current
+    val isOffline by remember {
+      derivedStateOf { networkConnectivity.isOffline }
+    }
+    if (!isOffline) {
+      displayAd()
+    }
+  }
+
+  @Composable
+  override fun Display() {
+    IsOnline {
+      val adId = DemoAdUnitIds.NATIVE
+      var isAdFillEmpty by remember { mutableStateOf(true) }
+      NativeAd<HomeNativeAdVM>(
+        modifier = Modifier
+          .padding(
+            horizontal = 10.dp,
+            vertical = 10.dp,
+          )
+          .fillMaxWidth(),
+        viewModel = hiltViewModel(),
+        nativeAdConfig = config(),
+        adContent = { it.UI(isAdFillEmpty) },
+        config = defaultAdLoaderConfig(adId),
+        refreshIntervalMillis = 30_000L,
+        onAdFillStatusChange = { isAdFillEmpty = it },
+        onRetrieveBackground = {
+          nativeAdBackground(
+            color = MaterialTheme.colorScheme.tertiaryContainer,
+            adChoicesPlacement = it,
+            cornerSize = 20.dp,
+            shadowElevation = 2.dp,
+          )
+        },
+      )
+    }
+  }
+
+  @Composable
+  override fun NativeAdConfig.UI(
+    isAdFillEmpty: Boolean,
+  ) {
+    NativeAdContainer(
+      modifier = Modifier
+        .fillMaxWidth()
+        .padding(vertical = 10.dp, horizontal = 6.dp),
+      isAdFillEmpty = isAdFillEmpty,
+      showDefaultAdText = true,
+      adTextAlignment = Alignment.BottomEnd,
+      loadingOverlay = {
+        LinearProgressIndicator(
+          modifier = Modifier
+            .align(Alignment.Center)
+            .padding(horizontal = 20.dp)
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(50)),
+          color = MaterialTheme.colorScheme.primary,
+          trackColor = MaterialTheme.colorScheme.onTertiaryContainer.blend(
+            MaterialTheme.colorScheme.background,
+            fraction = .6f,
+          ),
+        )
+      },
+    ) {
+      Row(
+        verticalAlignment = Alignment.CenterVertically,
+      ) {
+        iconView.RenderContent(
+          modifier = Modifier.align(Alignment.Top),
+        )
+        Column(
+          modifier = Modifier.padding(start = 6.dp),
+        ) {
+          headlineView.RenderContent()
+          starRatingView.RenderContent()
+          bodyView.RenderContent()
+        }
+      }
+      callToActionView.RenderContent(
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+      )
+    }
   }
 }

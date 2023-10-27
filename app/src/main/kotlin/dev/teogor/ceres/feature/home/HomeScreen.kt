@@ -20,7 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
 import dev.teogor.ceres.R
-import dev.teogor.ceres.ads.HomeNativeAd
+import dev.teogor.ceres.ads.HomeNativeAdBeta
 import dev.teogor.ceres.core.foundation.extensions.createMediaPlayer
 import dev.teogor.ceres.data.datastore.defaults.ceresPreferences
 import dev.teogor.ceres.framework.core.app.BaseActions
@@ -33,6 +33,7 @@ import dev.teogor.ceres.framework.core.screen.showNavBar
 import dev.teogor.ceres.framework.core.screen.showSettingsButton
 import dev.teogor.ceres.framework.core.screen.toolbarTitle
 import dev.teogor.ceres.framework.core.screen.toolbarTokens
+import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAd
 import dev.teogor.ceres.monetisation.ads.ExperimentalAdsControlApi
 import dev.teogor.ceres.monetisation.messaging.ConsentManager
 import dev.teogor.ceres.navigation.core.LocalNavigationParameters
@@ -151,5 +152,5 @@ private fun HomeScreen(
     },
   )
 
-  HomeNativeAd()
+  NativeAd<HomeNativeAdBeta>()
 }
