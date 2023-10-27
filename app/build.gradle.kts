@@ -22,11 +22,16 @@ plugins {
   id("dev.teogor.ceres.android.application.jacoco")
   id("dev.teogor.ceres.android.application.firebase")
   id("dev.teogor.ceres.android.hilt")
+  id("dev.teogor.ceres.android.room")
   id("kotlinx-serialization")
   id("jacoco")
 
   // Feature :: About
   alias(libs.plugins.about.libraries) apply true
+}
+
+roomOptions {
+  enableSchemaProvider = true
 }
 
 android {
