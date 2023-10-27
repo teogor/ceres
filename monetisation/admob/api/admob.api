@@ -80,6 +80,7 @@ public abstract class dev/teogor/ceres/monetisation/admob/formats/Ad : dev/teogo
 	public abstract fun loadContinuously ()Z
 	public fun log (Ljava/lang/String;)V
 	public final fun onListener (Ldev/teogor/ceres/monetisation/admob/formats/AdEvent;)V
+	public fun reloadExpiredAd ()V
 	protected final fun setLoading (Z)V
 	protected final fun setShowing (Z)V
 	public fun show ()V
@@ -211,6 +212,11 @@ public final class dev/teogor/ceres/monetisation/admob/formats/AdType : java/lan
 	public final fun type ()Ldev/teogor/ceres/monetisation/admob/formats/AdType;
 	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/monetisation/admob/formats/AdType;
 	public static fun values ()[Ldev/teogor/ceres/monetisation/admob/formats/AdType;
+}
+
+public final class dev/teogor/ceres/monetisation/admob/formats/AdTypeKt {
+	public static final fun toFriendlyName (Ldev/teogor/ceres/monetisation/admob/formats/AdType;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+	public static synthetic fun toFriendlyName$default (Ldev/teogor/ceres/monetisation/admob/formats/AdType;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
 }
 
 public abstract class dev/teogor/ceres/monetisation/admob/formats/AppOpenAd : dev/teogor/ceres/monetisation/admob/formats/Ad {

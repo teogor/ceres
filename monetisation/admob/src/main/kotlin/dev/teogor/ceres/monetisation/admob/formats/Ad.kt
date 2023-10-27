@@ -75,6 +75,14 @@ abstract class Ad(
 
   open fun show() = Unit
 
+  open fun reloadExpiredAd() {
+    val adTypeName = type().toFriendlyName(suffix = " Ad")
+    log("Loading a new $adTypeName to replace the expired ad.")
+    AdCache.removeAd(id)
+
+    load()
+  }
+
   fun onListener(event: AdEvent) {
     log("onListener::$event")
     when (event) {

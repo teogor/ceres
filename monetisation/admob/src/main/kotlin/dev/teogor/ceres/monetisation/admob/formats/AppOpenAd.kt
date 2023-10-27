@@ -23,6 +23,7 @@ import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.appopen.AppOpenAd
 import dev.teogor.ceres.monetisation.admob.CurrentActivityHolder
 import java.util.Date
+import java.util.concurrent.TimeUnit
 
 abstract class AppOpenAd : Ad() {
 
@@ -95,8 +96,7 @@ abstract class AppOpenAd : Ad() {
     }
 
     if (!wasLoadTimeLessThanNHoursAgo(4)) {
-      log("Loading the app open ad because the previously loaded ad has expired.")
-      load()
+      reloadExpiredAd()
       return
     } else {
       log("App open ad is still valid; no need to reload.")
@@ -154,7 +154,7 @@ abstract class AppOpenAd : Ad() {
 
   private fun wasLoadTimeLessThanNHoursAgo(numHours: Long): Boolean {
     val dateDifference: Long = Date().time - loadTime
-    val numMilliSecondsPerHour: Long = 3600000
+    val numMilliSecondsPerHour: Long = TimeUnit.HOURS.toMillis(1)
     return dateDifference < numMilliSecondsPerHour * numHours
   }
 }
