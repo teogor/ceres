@@ -23,6 +23,7 @@ import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import dev.teogor.ceres.monetisation.admob.CurrentActivityHolder
+import java.util.Date
 
 abstract class InterstitialAd(
   loadAtInitialisation: Boolean = false,
@@ -57,7 +58,7 @@ abstract class InterstitialAd(
           log("Ad was loaded.")
           AdCache.cacheAd(
             adId = id,
-            ad = CacheAdModel.Interstitial(ad),
+            ad = CacheAdModel.Interstitial(ad, Date().time),
           )
           onListener(AdEvent.AdLoaded)
         }

@@ -31,8 +31,6 @@ abstract class AppOpenAd : Ad() {
 
   override fun useCache() = false
 
-  private var loadTime: Long = 0
-
   override fun load(): Boolean {
     if (!super.load()) {
       return false
@@ -55,10 +53,9 @@ abstract class AppOpenAd : Ad() {
           log("onAdLoaded.")
           AdCache.cacheAd(
             adId = id,
-            ad = CacheAdModel.AppOpen(ad),
+            ad = CacheAdModel.AppOpen(ad, Date().time),
           )
           onListener(AdEvent.AdLoaded)
-          loadTime = Date().time
         }
 
         /**
@@ -95,14 +92,14 @@ abstract class AppOpenAd : Ad() {
       return
     }
 
-    if (!wasLoadTimeLessThanNHoursAgo(4)) {
+    val appOpenAd = (ad as CacheAdModel.AppOpen).ad
+    if (!wasLoadTimeLessThanNHoursAgo(ad.loadTime, 4)) {
       reloadExpiredAd()
       return
     } else {
       log("App open ad is still valid; no need to reload.")
     }
 
-    val appOpenAd = (ad as CacheAdModel.AppOpen).ad
     if (isShowing) {
       log("The app open ad is already showing.")
       return
@@ -152,9 +149,12 @@ abstract class AppOpenAd : Ad() {
     CurrentActivityHolder.activity?.let { appOpenAd.show(it) }
   }
 
-  private fun wasLoadTimeLessThanNHoursAgo(numHours: Long): Boolean {
-    val dateDifference: Long = Date().time - loadTime
-    val numMilliSecondsPerHour: Long = TimeUnit.HOURS.toMillis(1)
-    return dateDifference < numMilliSecondsPerHour * numHours
+  private fun wasLoadTimeLessThanNHoursAgo(
+    adLoadTime: Long,
+    hoursThreshold: Long,
+  ): Boolean {
+    val dateDifference: Long = Date().time - adLoadTime
+    val numMillisecondsPerHour: Long = TimeUnit.HOURS.toMillis(1)
+    return dateDifference < numMillisecondsPerHour * hoursThreshold
   }
 }

@@ -28,7 +28,8 @@ enum class AdType {
   Native,
   NativeVideo,
   Rewarded,
-  Unspecified;
+  Unspecified,
+  ;
 
   fun type(): AdType = this
 }

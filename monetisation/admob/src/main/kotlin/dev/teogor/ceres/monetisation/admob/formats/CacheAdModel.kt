@@ -22,10 +22,66 @@ import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAd
 
-sealed class CacheAdModel {
-  data class AppOpen(val ad: AppOpenAd) : CacheAdModel()
-  data class Interstitial(val ad: InterstitialAd) : CacheAdModel()
-  data class RewardedInterstitial(val ad: RewardedInterstitialAd) : CacheAdModel()
-  data class Rewarded(val ad: RewardedAd) : CacheAdModel()
-  data class Native(val ad: NativeAd) : CacheAdModel()
+/**
+ * Sealed class representing cached ad models with a load time.
+ *
+ * @property loadTime The time when the ad was loaded.
+ */
+sealed class CacheAdModel(
+  open val loadTime: Long,
+) {
+  /**
+   * Data class representing a cached App Open ad.
+   *
+   * @property ad The App Open ad instance.
+   * @property loadTime The time when the ad was loaded.
+   */
+  data class AppOpen(
+    val ad: AppOpenAd,
+    override val loadTime: Long,
+  ) : CacheAdModel(loadTime)
+
+  /**
+   * Data class representing a cached Interstitial ad.
+   *
+   * @property ad The Interstitial ad instance.
+   * @property loadTime The time when the ad was loaded.
+   */
+  data class Interstitial(
+    val ad: InterstitialAd,
+    override val loadTime: Long,
+  ) : CacheAdModel(loadTime)
+
+  /**
+   * Data class representing a cached Rewarded Interstitial ad.
+   *
+   * @property ad The Rewarded Interstitial ad instance.
+   * @property loadTime The time when the ad was loaded.
+   */
+  data class RewardedInterstitial(
+    val ad: RewardedInterstitialAd,
+    override val loadTime: Long,
+  ) : CacheAdModel(loadTime)
+
+  /**
+   * Data class representing a cached Rewarded ad.
+   *
+   * @property ad The Rewarded ad instance.
+   * @property loadTime The time when the ad was loaded.
+   */
+  data class Rewarded(
+    val ad: RewardedAd,
+    override val loadTime: Long,
+  ) : CacheAdModel(loadTime)
+
+  /**
+   * Data class representing a cached Native ad.
+   *
+   * @property ad The Native ad instance.
+   * @property loadTime The time when the ad was loaded.
+   */
+  data class Native(
+    val ad: NativeAd,
+    override val loadTime: Long,
+  ) : CacheAdModel(loadTime)
 }
