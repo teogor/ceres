@@ -14,24 +14,20 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.feature.home
+package dev.teogor.ceres.monetisation.admob.formats.nativead
 
 import androidx.lifecycle.ViewModel
-import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.teogor.ceres.ads.HomeBannerAd
-import dev.teogor.ceres.ads.HomeInterstitialAd
-import dev.teogor.ceres.ads.HomeNativeAdBeta
-import dev.teogor.ceres.ads.HomeRewardedAd
-import dev.teogor.ceres.ads.HomeRewardedInterstitialAd
-import javax.inject.Inject
+import com.google.android.gms.ads.nativead.NativeAd
+import dev.teogor.ceres.monetisation.admob.annotations.AdField
 
-@HiltViewModel
-class HomeViewModel @Inject constructor(
-  val homeInterstitialAd: HomeInterstitialAd,
-  val homeRewardedInterstitialAd: HomeRewardedInterstitialAd,
-  val homeRewardedAd: HomeRewardedAd,
-  val homeBannerAd: HomeBannerAd,
+abstract class NativeAdViewModel(
+  private val nativeAdData: NativeAdData,
 ) : ViewModel() {
+  @AdField
+  val nativeAd = nativeAdData.nativeAdData
 
-  val homeNativeAd = HomeNativeAdBeta()
+  @AdField
+  fun setNativeAd(ad: NativeAd) {
+    nativeAdData.setNativeAd(ad)
+  }
 }

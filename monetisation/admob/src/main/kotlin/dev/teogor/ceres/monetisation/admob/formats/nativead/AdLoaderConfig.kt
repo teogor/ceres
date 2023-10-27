@@ -18,23 +18,92 @@ package dev.teogor.ceres.monetisation.admob.formats.nativead
 
 import com.google.android.gms.ads.VideoOptions
 import com.google.android.gms.ads.nativead.NativeAdOptions
+import dev.teogor.ceres.monetisation.admob.models.AdChoicesPlacement
+import dev.teogor.ceres.monetisation.admob.models.NativeMediaAspectRatio
 
-data class AdLoaderConfig(
+class AdLoaderConfig internal constructor(
   val adId: String,
-  val adChoicesPlacement: Int = NativeAdOptions.ADCHOICES_TOP_RIGHT,
-  val mediaAspectRatio: Int = NativeAdOptions.NATIVE_MEDIA_ASPECT_RATIO_PORTRAIT,
-  val requestCustomMuteThisAd: Boolean = false,
-  val requestMultipleImages: Boolean = false,
-  val returnUrlsForImageAssets: Boolean = false,
-  val clickToExpandRequested: Boolean = true,
-  val customControlsRequested: Boolean = false,
-  val startMuted: Boolean = false,
+  val adChoicesPlacement: AdChoicesPlacement,
+  val mediaAspectRatio: NativeMediaAspectRatio,
+  val requestCustomMuteThisAd: Boolean,
+  val requestMultipleImages: Boolean,
+  val returnUrlsForImageAssets: Boolean,
+  clickToExpandRequested: Boolean,
+  customControlsRequested: Boolean,
+  startMuted: Boolean,
 ) {
   val videoOptions = VideoOptions.Builder()
     .setClickToExpandRequested(clickToExpandRequested)
     .setCustomControlsRequested(customControlsRequested)
     .setStartMuted(startMuted)
     .build()
+
+  // Nested builder class
+  data class Builder(
+    private var adId: String = "",
+    private var adChoicesPlacement: AdChoicesPlacement = AdChoicesPlacement.TOP_RIGHT,
+    private var mediaAspectRatio: NativeMediaAspectRatio = NativeMediaAspectRatio.PORTRAIT,
+    private var requestCustomMuteThisAd: Boolean = false,
+    private var requestMultipleImages: Boolean = false,
+    private var returnUrlsForImageAssets: Boolean = false,
+    private var clickToExpandRequested: Boolean = true,
+    private var customControlsRequested: Boolean = false,
+    private var startMuted: Boolean = false,
+  ) {
+
+    fun adId(adId: String) = apply {
+      if (adId.isEmpty()) {
+        throw IllegalArgumentException("`adId` cannot be empty.")
+      }
+      this.adId = adId
+    }
+
+    fun adChoicesPlacement(adChoicesPlacement: AdChoicesPlacement) = apply {
+      this.adChoicesPlacement = adChoicesPlacement
+    }
+
+    fun mediaAspectRatio(mediaAspectRatio: NativeMediaAspectRatio) = apply {
+      this.mediaAspectRatio = mediaAspectRatio
+    }
+
+    fun requestCustomMuteThisAd(requestCustomMuteThisAd: Boolean) = apply {
+      this.requestCustomMuteThisAd = requestCustomMuteThisAd
+    }
+
+    fun requestMultipleImages(requestMultipleImages: Boolean) = apply {
+      this.requestMultipleImages = requestMultipleImages
+    }
+
+    fun returnUrlsForImageAssets(returnUrlsForImageAssets: Boolean) = apply {
+      this.returnUrlsForImageAssets = returnUrlsForImageAssets
+    }
+
+    fun clickToExpandRequested(clickToExpandRequested: Boolean) = apply {
+      this.clickToExpandRequested = clickToExpandRequested
+    }
+
+    fun customControlsRequested(customControlsRequested: Boolean) = apply {
+      this.customControlsRequested = customControlsRequested
+    }
+
+    fun startMuted(startMuted: Boolean) = apply {
+      this.startMuted = startMuted
+    }
+
+    fun build(): AdLoaderConfig {
+      return AdLoaderConfig(
+        adId,
+        adChoicesPlacement,
+        mediaAspectRatio,
+        requestCustomMuteThisAd,
+        requestMultipleImages,
+        returnUrlsForImageAssets,
+        clickToExpandRequested,
+        customControlsRequested,
+        startMuted,
+      )
+    }
+  }
 }
 
 fun AdLoaderConfig.toNativeAdOptions() = NativeAdOptions.Builder()
@@ -44,4 +113,24 @@ fun AdLoaderConfig.toNativeAdOptions() = NativeAdOptions.Builder()
   .setRequestMultipleImages(requestMultipleImages)
   .setReturnUrlsForImageAssets(returnUrlsForImageAssets)
   .setVideoOptions(videoOptions)
+  // TODO enableCustomClickGestureDirection
+  //  .enableCustomClickGestureDirection()
+  .build()
+
+fun NativeAdOptions.Builder.setAdChoicesPlacement(
+  adChoicesPlacement: AdChoicesPlacement,
+): NativeAdOptions.Builder {
+  return setAdChoicesPlacement(adChoicesPlacement.value)
+}
+
+fun NativeAdOptions.Builder.setMediaAspectRatio(
+  mediaAspectRatio: NativeMediaAspectRatio,
+): NativeAdOptions.Builder {
+  return setMediaAspectRatio(mediaAspectRatio.value)
+}
+
+fun defaultAdLoaderConfig(
+  adId: String,
+) = AdLoaderConfig.Builder()
+  .adId(adId)
   .build()

@@ -16,24 +16,11 @@
 
 package dev.teogor.ceres.feature.home
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.skydoves.landscapist.ImageOptions
-import com.skydoves.landscapist.glide.GlideImage
 import dev.teogor.ceres.R
+import dev.teogor.ceres.ads.HomeNativeAdBeta
 import dev.teogor.ceres.core.foundation.extensions.createMediaPlayer
 import dev.teogor.ceres.data.datastore.defaults.ceresPreferences
 import dev.teogor.ceres.framework.core.app.BaseActions
@@ -46,15 +33,7 @@ import dev.teogor.ceres.framework.core.screen.showNavBar
 import dev.teogor.ceres.framework.core.screen.showSettingsButton
 import dev.teogor.ceres.framework.core.screen.toolbarTitle
 import dev.teogor.ceres.framework.core.screen.toolbarTokens
-import dev.teogor.ceres.monetisation.admob.DemoAdUnitIds
-import dev.teogor.ceres.monetisation.admob.formats.nativead.AdLoaderConfig
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAd
-import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAdConfig
-import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAdUi
-import dev.teogor.ceres.monetisation.admob.formats.nativead.createBodyView
-import dev.teogor.ceres.monetisation.admob.formats.nativead.createCallToActionView
-import dev.teogor.ceres.monetisation.admob.formats.nativead.createHeadlineView
-import dev.teogor.ceres.monetisation.admob.formats.nativead.createIconView
 import dev.teogor.ceres.monetisation.ads.ExperimentalAdsControlApi
 import dev.teogor.ceres.monetisation.messaging.ConsentManager
 import dev.teogor.ceres.navigation.core.LocalNavigationParameters
@@ -64,8 +43,6 @@ import dev.teogor.ceres.screen.builder.compose.SimpleView
 import dev.teogor.ceres.screen.core.layout.ColumnLayoutBase
 import dev.teogor.ceres.screen.ui.api.ExperimentalOnboardingScreenApi
 import dev.teogor.ceres.screen.ui.onboarding.OnboardingRoute
-import dev.teogor.ceres.ui.designsystem.Text
-import dev.teogor.ceres.ui.theme.MaterialTheme
 
 // todo better way to configure this. perhaps use kotlin builder syntax
 @Composable
@@ -175,82 +152,5 @@ private fun HomeScreen(
     },
   )
 
-  val adId = DemoAdUnitIds.NATIVE
-  val nativeAd by remember {
-    homeVM.nativeAd
-  }
-  if (!isOffline) {
-    val nativeAdConfig = nativeAdConfig()
-
-    NativeAd(
-      modifier = Modifier
-        .padding(horizontal = 10.dp)
-        .background(
-          color = MaterialTheme.colorScheme.primaryContainer,
-          shape = RoundedCornerShape(20.dp),
-        )
-        .padding(horizontal = 6.dp, vertical = 10.dp),
-      nativeAdConfig = nativeAdConfig,
-      adContent = {
-        NativeAdUi(nativeAdConfig)
-      },
-      nativeAd = nativeAd,
-      config = AdLoaderConfig(adId),
-      refreshIntervalMillis = 30000L,
-      onAdLoaded = {
-        homeVM.setNativeAd(it)
-      },
-    )
-  }
+  NativeAd<HomeNativeAdBeta>()
 }
-
-@Composable
-fun nativeAdConfig() = NativeAdConfig.Builder()
-  .headlineView(
-    createHeadlineView {
-      Text(
-        text = it,
-        color = MaterialTheme.colorScheme.onPrimaryContainer,
-        fontSize = 18.sp,
-      )
-    },
-  )
-  .bodyView(
-    createBodyView {
-      Text(
-        text = it,
-        color = MaterialTheme.colorScheme.onPrimaryContainer,
-        fontSize = 10.sp,
-        maxLines = 1,
-      )
-    },
-  )
-  .callToActionView(
-    createCallToActionView {
-      Text(
-        text = it,
-        color = MaterialTheme.colorScheme.onPrimary,
-        fontSize = 12.sp,
-      )
-    },
-  )
-  .iconView(
-    createIconView {
-      GlideImage(
-        modifier = Modifier
-          .size(50.dp)
-          .background(
-            color = MaterialTheme.colorScheme.background.copy(alpha = .2f),
-            shape = RoundedCornerShape(10.dp),
-          )
-          .clip(RoundedCornerShape(10.dp))
-          .padding(6.dp),
-        imageModel = { it.uri }, // loading a network image using an URL.
-        imageOptions = ImageOptions(
-          contentScale = ContentScale.Crop,
-          alignment = Alignment.Center,
-        ),
-      )
-    },
-  )
-  .build()

@@ -50,6 +50,18 @@ public final class dev/teogor/ceres/monetisation/admob/Logger$DefaultImpls {
 	public static fun log (Ldev/teogor/ceres/monetisation/admob/Logger;Ljava/lang/String;)V
 }
 
+public abstract interface annotation class dev/teogor/ceres/monetisation/admob/annotations/AdField : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class dev/teogor/ceres/monetisation/admob/annotations/AdOptions : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class dev/teogor/ceres/monetisation/admob/annotations/AdProperty : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class dev/teogor/ceres/monetisation/admob/annotations/AdUI : java/lang/annotation/Annotation {
+}
+
 public final class dev/teogor/ceres/monetisation/admob/databinding/AdmobNativeBinding : androidx/viewbinding/ViewBinding {
 	public final field composeView Landroidx/compose/ui/platform/ComposeView;
 	public final field parentNative Lcom/google/android/gms/ads/nativead/NativeAdView;
@@ -384,40 +396,53 @@ public final class dev/teogor/ceres/monetisation/admob/formats/nativead/AdCompon
 
 public final class dev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig {
 	public static final field $stable I
-	public fun <init> (Ljava/lang/String;IIZZZZZZ)V
-	public synthetic fun <init> (Ljava/lang/String;IIZZZZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()I
-	public final fun component3 ()I
-	public final fun component4 ()Z
-	public final fun component5 ()Z
-	public final fun component6 ()Z
-	public final fun component7 ()Z
-	public final fun component8 ()Z
-	public final fun component9 ()Z
-	public final fun copy (Ljava/lang/String;IIZZZZZZ)Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig;
-	public static synthetic fun copy$default (Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig;Ljava/lang/String;IIZZZZZZILjava/lang/Object;)Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAdChoicesPlacement ()I
+	public final fun getAdChoicesPlacement ()Ldev/teogor/ceres/monetisation/admob/models/AdChoicesPlacement;
 	public final fun getAdId ()Ljava/lang/String;
-	public final fun getClickToExpandRequested ()Z
-	public final fun getCustomControlsRequested ()Z
-	public final fun getMediaAspectRatio ()I
+	public final fun getMediaAspectRatio ()Ldev/teogor/ceres/monetisation/admob/models/NativeMediaAspectRatio;
 	public final fun getRequestCustomMuteThisAd ()Z
 	public final fun getRequestMultipleImages ()Z
 	public final fun getReturnUrlsForImageAssets ()Z
-	public final fun getStartMuted ()Z
 	public final fun getVideoOptions ()Lcom/google/android/gms/ads/VideoOptions;
+}
+
+public final class dev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig$Builder {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ldev/teogor/ceres/monetisation/admob/models/AdChoicesPlacement;Ldev/teogor/ceres/monetisation/admob/models/NativeMediaAspectRatio;ZZZZZZ)V
+	public synthetic fun <init> (Ljava/lang/String;Ldev/teogor/ceres/monetisation/admob/models/AdChoicesPlacement;Ldev/teogor/ceres/monetisation/admob/models/NativeMediaAspectRatio;ZZZZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun adChoicesPlacement (Ldev/teogor/ceres/monetisation/admob/models/AdChoicesPlacement;)Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig$Builder;
+	public final fun adId (Ljava/lang/String;)Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig$Builder;
+	public final fun build ()Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig;
+	public final fun clickToExpandRequested (Z)Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig$Builder;
+	public final fun copy (Ljava/lang/String;Ldev/teogor/ceres/monetisation/admob/models/AdChoicesPlacement;Ldev/teogor/ceres/monetisation/admob/models/NativeMediaAspectRatio;ZZZZZZ)Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig$Builder;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig$Builder;Ljava/lang/String;Ldev/teogor/ceres/monetisation/admob/models/AdChoicesPlacement;Ldev/teogor/ceres/monetisation/admob/models/NativeMediaAspectRatio;ZZZZZZILjava/lang/Object;)Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig$Builder;
+	public final fun customControlsRequested (Z)Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig$Builder;
+	public fun equals (Ljava/lang/Object;)Z
 	public fun hashCode ()I
+	public final fun mediaAspectRatio (Ldev/teogor/ceres/monetisation/admob/models/NativeMediaAspectRatio;)Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig$Builder;
+	public final fun requestCustomMuteThisAd (Z)Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig$Builder;
+	public final fun requestMultipleImages (Z)Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig$Builder;
+	public final fun returnUrlsForImageAssets (Z)Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig$Builder;
+	public final fun startMuted (Z)Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig$Builder;
 	public fun toString ()Ljava/lang/String;
 }
 
 public final class dev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfigKt {
+	public static final fun defaultAdLoaderConfig (Ljava/lang/String;)Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig;
+	public static final fun setAdChoicesPlacement (Lcom/google/android/gms/ads/nativead/NativeAdOptions$Builder;Ldev/teogor/ceres/monetisation/admob/models/AdChoicesPlacement;)Lcom/google/android/gms/ads/nativead/NativeAdOptions$Builder;
+	public static final fun setMediaAspectRatio (Lcom/google/android/gms/ads/nativead/NativeAdOptions$Builder;Ldev/teogor/ceres/monetisation/admob/models/NativeMediaAspectRatio;)Lcom/google/android/gms/ads/nativead/NativeAdOptions$Builder;
 	public static final fun toNativeAdOptions (Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig;)Lcom/google/android/gms/ads/nativead/NativeAdOptions;
 }
 
 public final class dev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderKt {
 	public static final fun rememberAdLoader (Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)Lcom/google/android/gms/ads/AdLoader;
+}
+
+public final class dev/teogor/ceres/monetisation/admob/formats/nativead/ComposableSingletons$NativeAdContainerKt {
+	public static final field INSTANCE Ldev/teogor/ceres/monetisation/admob/formats/nativead/ComposableSingletons$NativeAdContainerKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function3;
+	public fun <init> ()V
+	public final fun getLambda-1$admob_release ()Lkotlin/jvm/functions/Function3;
 }
 
 public final class dev/teogor/ceres/monetisation/admob/formats/nativead/MediaContentImpl : com/google/android/gms/ads/MediaContent {
@@ -437,6 +462,7 @@ public final class dev/teogor/ceres/monetisation/admob/formats/nativead/MediaCon
 }
 
 public final class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdComponentKt {
+	public static final fun RenderContent (Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdComponent;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
 	public static final fun createAdChoicesView (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdComponent;
 	public static final fun createAdComponent (Ljava/lang/Object;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdComponent;
 	public static final fun createAdvertiserView (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdComponent;
@@ -510,12 +536,45 @@ public final class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAd
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdKt {
-	public static final fun NativeAd (Landroidx/compose/ui/Modifier;Ldev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdConfig;Lkotlin/jvm/functions/Function2;Lcom/google/android/gms/ads/nativead/NativeAd;Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig;JLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
+public final class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdContainerKt {
+	public static final fun NativeAdContainer (Landroidx/compose/ui/Modifier;ZLkotlin/jvm/functions/Function3;ZLandroidx/compose/ui/Alignment;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdUiKt {
-	public static final fun NativeAdUi (Ldev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdConfig;Landroidx/compose/runtime/Composer;I)V
+public abstract class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdData {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/runtime/MutableState;)V
+	public fun getNativeAd ()Landroidx/compose/runtime/MutableState;
+	public final fun getNativeAdData ()Landroidx/compose/runtime/State;
+}
+
+public final class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdDataKt {
+	public static final fun setNativeAd (Ldev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdData;Lcom/google/android/gms/ads/nativead/NativeAd;)V
+}
+
+public final class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdKt {
+	public static final fun NativeAd (Ldev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdViewModel;Landroidx/compose/ui/Modifier;Ldev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdConfig;Lkotlin/jvm/functions/Function3;Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig;JLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public abstract class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdManager {
+	public static final field $stable I
+	public fun <init> ()V
+	public abstract fun Display (Landroidx/compose/runtime/Composer;I)V
+	public fun IsOnline (Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun UI (Ldev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdConfig;ZLandroidx/compose/runtime/Composer;I)V
+	public abstract fun config (Landroidx/compose/runtime/Composer;I)Ldev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdConfig;
+}
+
+public final class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdModifiersKt {
+	public static final fun nativeAdBackground-36lltbM (JFFLdev/teogor/ceres/monetisation/admob/models/AdChoicesPlacement;Landroidx/compose/runtime/Composer;II)Landroidx/compose/ui/Modifier;
+	public static final fun nativeAdRoundedCornerShape-3ABfNKs (Ldev/teogor/ceres/monetisation/admob/models/AdChoicesPlacement;F)Landroidx/compose/foundation/shape/RoundedCornerShape;
+	public static synthetic fun nativeAdRoundedCornerShape-3ABfNKs$default (Ldev/teogor/ceres/monetisation/admob/models/AdChoicesPlacement;FILjava/lang/Object;)Landroidx/compose/foundation/shape/RoundedCornerShape;
+}
+
+public abstract class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdViewModel : androidx/lifecycle/ViewModel {
+	public static final field $stable I
+	public fun <init> (Ldev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdData;)V
+	public final fun getNativeAd ()Landroidx/compose/runtime/State;
+	public final fun setNativeAd (Lcom/google/android/gms/ads/nativead/NativeAd;)V
 }
 
 public final class dev/teogor/ceres/monetisation/admob/formats/nativead/RefreshableNativeAdKt {
@@ -524,5 +583,39 @@ public final class dev/teogor/ceres/monetisation/admob/formats/nativead/Refresha
 
 public final class dev/teogor/ceres/monetisation/admob/formats/ui/AdmobBannerKt {
 	public static final fun AdmobBanner (Landroidx/compose/ui/Modifier;Ldev/teogor/ceres/monetisation/admob/formats/BannerAd;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class dev/teogor/ceres/monetisation/admob/models/AdChoicesPlacement : java/lang/Enum {
+	public static final field BOTTOM_LEFT Ldev/teogor/ceres/monetisation/admob/models/AdChoicesPlacement;
+	public static final field BOTTOM_RIGHT Ldev/teogor/ceres/monetisation/admob/models/AdChoicesPlacement;
+	public static final field TOP_LEFT Ldev/teogor/ceres/monetisation/admob/models/AdChoicesPlacement;
+	public static final field TOP_RIGHT Ldev/teogor/ceres/monetisation/admob/models/AdChoicesPlacement;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/monetisation/admob/models/AdChoicesPlacement;
+	public static fun values ()[Ldev/teogor/ceres/monetisation/admob/models/AdChoicesPlacement;
+}
+
+public final class dev/teogor/ceres/monetisation/admob/models/NativeMediaAspectRatio : java/lang/Enum {
+	public static final field ANY Ldev/teogor/ceres/monetisation/admob/models/NativeMediaAspectRatio;
+	public static final field LANDSCAPE Ldev/teogor/ceres/monetisation/admob/models/NativeMediaAspectRatio;
+	public static final field PORTRAIT Ldev/teogor/ceres/monetisation/admob/models/NativeMediaAspectRatio;
+	public static final field SQUARE Ldev/teogor/ceres/monetisation/admob/models/NativeMediaAspectRatio;
+	public static final field UNKNOWN Ldev/teogor/ceres/monetisation/admob/models/NativeMediaAspectRatio;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/monetisation/admob/models/NativeMediaAspectRatio;
+	public static fun values ()[Ldev/teogor/ceres/monetisation/admob/models/NativeMediaAspectRatio;
+}
+
+public final class dev/teogor/ceres/monetisation/admob/models/SwipeGestureDirection : java/lang/Enum {
+	public static final field DOWN Ldev/teogor/ceres/monetisation/admob/models/SwipeGestureDirection;
+	public static final field LEFT Ldev/teogor/ceres/monetisation/admob/models/SwipeGestureDirection;
+	public static final field RIGHT Ldev/teogor/ceres/monetisation/admob/models/SwipeGestureDirection;
+	public static final field UP Ldev/teogor/ceres/monetisation/admob/models/SwipeGestureDirection;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/monetisation/admob/models/SwipeGestureDirection;
+	public static fun values ()[Ldev/teogor/ceres/monetisation/admob/models/SwipeGestureDirection;
 }
 

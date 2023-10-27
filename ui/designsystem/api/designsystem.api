@@ -399,6 +399,10 @@ public final class dev/teogor/ceres/ui/designsystem/ParsableTextKt {
 	public static final fun ParsableText (Ljava/lang/String;Ljava/util/List;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
 }
 
+public final class dev/teogor/ceres/ui/designsystem/RatingBarKt {
+	public static final fun RatingBar-q9LK7_k (Landroidx/compose/ui/Modifier;DIJFLandroidx/compose/runtime/Composer;II)V
+}
+
 public final class dev/teogor/ceres/ui/designsystem/SegmentedButtonsKt {
 	public static final fun SegmentedButtons (Ljava/util/List;ILkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
 }
