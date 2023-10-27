@@ -17,13 +17,11 @@
 package dev.teogor.ceres.ads
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.LinearProgressIndicator
@@ -36,7 +34,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
@@ -53,6 +50,7 @@ import dev.teogor.ceres.monetisation.admob.annotations.AdProperty
 import dev.teogor.ceres.monetisation.admob.annotations.AdUI
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAd
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAdConfig
+import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAdContainer
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAdData
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAdViewModel
 import dev.teogor.ceres.monetisation.admob.formats.nativead.RenderContent
@@ -201,33 +199,14 @@ fun HomeNativeAdUI(
   val starRatingView = nativeAdConfig.starRatingView
   val storeView = nativeAdConfig.storeView
 
-  Box {
-    Column(
-      modifier = Modifier
-        .alpha(if (isAdFillEmpty) 0f else 1f)
-        .fillMaxWidth()
-        .padding(vertical = 10.dp, horizontal = 6.dp),
-    ) {
-      Row(
-        verticalAlignment = Alignment.CenterVertically,
-      ) {
-        iconView.RenderContent(
-          modifier = Modifier.align(Alignment.Top),
-        )
-        Column(
-          modifier = Modifier.padding(start = 6.dp),
-        ) {
-          headlineView.RenderContent()
-          starRatingView.RenderContent()
-          bodyView.RenderContent()
-        }
-      }
-      callToActionView.RenderContent(
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-      )
-    }
-
-    if (isAdFillEmpty) {
+  NativeAdContainer(
+    modifier = Modifier
+      .fillMaxWidth()
+      .padding(vertical = 10.dp, horizontal = 6.dp),
+    isAdFillEmpty = isAdFillEmpty,
+    showDefaultAdText = true,
+    adTextAlignment = Alignment.BottomEnd,
+    loadingOverlay = {
       LinearProgressIndicator(
         modifier = Modifier
           .align(Alignment.Center)
@@ -240,21 +219,24 @@ fun HomeNativeAdUI(
           fraction = .6f,
         ),
       )
-    } else {
-      Text(
-        text = "AD",
-        fontSize = 10.sp,
-        lineHeight = 10.sp,
-        color = MaterialTheme.colorScheme.onTertiary,
-        modifier = Modifier
-          .align(Alignment.BottomEnd)
-          .background(
-            color = MaterialTheme.colorScheme.tertiary,
-            shape = CircleShape,
-          )
-          .padding(horizontal = 8.dp, vertical = 8.dp)
-          .padding(end = 2.dp, bottom = 2.dp),
+    },
+  ) {
+    Row(
+      verticalAlignment = Alignment.CenterVertically,
+    ) {
+      iconView.RenderContent(
+        modifier = Modifier.align(Alignment.Top),
       )
+      Column(
+        modifier = Modifier.padding(start = 6.dp),
+      ) {
+        headlineView.RenderContent()
+        starRatingView.RenderContent()
+        bodyView.RenderContent()
+      }
     }
+    callToActionView.RenderContent(
+      modifier = Modifier.align(Alignment.CenterHorizontally),
+    )
   }
 }

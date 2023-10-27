@@ -438,6 +438,13 @@ public final class dev/teogor/ceres/monetisation/admob/formats/nativead/AdLoader
 	public static final fun rememberAdLoader (Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)Lcom/google/android/gms/ads/AdLoader;
 }
 
+public final class dev/teogor/ceres/monetisation/admob/formats/nativead/ComposableSingletons$NativeAdContainerKt {
+	public static final field INSTANCE Ldev/teogor/ceres/monetisation/admob/formats/nativead/ComposableSingletons$NativeAdContainerKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function3;
+	public fun <init> ()V
+	public final fun getLambda-1$admob_release ()Lkotlin/jvm/functions/Function3;
+}
+
 public final class dev/teogor/ceres/monetisation/admob/formats/nativead/MediaContentImpl : com/google/android/gms/ads/MediaContent {
 	public static final field $stable I
 	public fun <init> ()V
@@ -527,6 +534,10 @@ public final class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAd
 	public final fun starRatingView (Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdComponent;)Ldev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdConfig$Builder;
 	public final fun storeView (Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdComponent;)Ldev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdConfig$Builder;
 	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdContainerKt {
+	public static final fun NativeAdContainer (Landroidx/compose/ui/Modifier;ZLkotlin/jvm/functions/Function3;ZLandroidx/compose/ui/Alignment;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 }
 
 public abstract class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdData {
