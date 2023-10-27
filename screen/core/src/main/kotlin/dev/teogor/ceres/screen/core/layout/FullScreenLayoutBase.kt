@@ -26,12 +26,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import dev.teogor.ceres.navigation.events.TrackScreenViewEvent
 import dev.teogor.ceres.ui.foundation.applyIf
-import dev.teogor.ceres.ui.theme.MaterialTheme
 
 @Composable
 fun FullScreenLayoutBase(
   screenName: String? = null,
-  backgroundColor: Color = MaterialTheme.colorScheme.background,
+  backgroundColor: Color = Color.Unspecified,
   hasStatusBar: Boolean = false,
   content: @Composable BoxScope.() -> Unit,
 ) {
