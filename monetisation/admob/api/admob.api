@@ -1,6 +1,7 @@
 public final class dev/teogor/ceres/monetisation/admob/AdMob {
 	public static final field $stable I
 	public static final field INSTANCE Ldev/teogor/ceres/monetisation/admob/AdMob;
+	public final fun configureAdRequest (Lkotlin/jvm/functions/Function1;)V
 	public final fun getAppOpenAd ()Ldev/teogor/ceres/monetisation/admob/formats/AppOpenAd;
 	public final fun setApplicationOpenAd (Ldev/teogor/ceres/monetisation/admob/formats/AppOpenAd;)V
 }
@@ -9,8 +10,13 @@ public final class dev/teogor/ceres/monetisation/admob/AdMobInitializer {
 	public static final field $stable I
 	public static final field INSTANCE Ldev/teogor/ceres/monetisation/admob/AdMobInitializer;
 	public final fun configureAdsControl (Ldev/teogor/ceres/monetisation/ads/AdsControl;)V
-	public final fun getHashedAdvertisingId (Landroid/content/Context;)Ljava/lang/String;
 	public final fun initialize (Landroid/content/Context;)V
+}
+
+public final class dev/teogor/ceres/monetisation/admob/AdMobInitializerKt {
+	public static final fun getHashedAdvertisingId (Landroid/content/Context;)Ljava/lang/String;
+	public static final fun getRequestConfiguration (Ldev/teogor/ceres/monetisation/ads/model/AdRequestOptions;Lkotlin/jvm/functions/Function1;)Lcom/google/android/gms/ads/RequestConfiguration;
+	public static synthetic fun getRequestConfiguration$default (Ldev/teogor/ceres/monetisation/ads/model/AdRequestOptions;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/google/android/gms/ads/RequestConfiguration;
 }
 
 public final class dev/teogor/ceres/monetisation/admob/AdmobManagerInitializer : androidx/startup/Initializer {

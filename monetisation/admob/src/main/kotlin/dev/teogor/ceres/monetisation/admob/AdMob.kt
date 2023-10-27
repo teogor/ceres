@@ -16,7 +16,10 @@
 
 package dev.teogor.ceres.monetisation.admob
 
+import com.google.android.gms.ads.MobileAds
 import dev.teogor.ceres.monetisation.admob.formats.AppOpenAd
+import dev.teogor.ceres.monetisation.ads.ExperimentalAdsControlApi
+import dev.teogor.ceres.monetisation.ads.model.AdRequestOptions
 import java.lang.ref.WeakReference
 
 object AdMob {
@@ -29,4 +32,12 @@ object AdMob {
   }
 
   fun getAppOpenAd() = weakRefAppOpenAd.get()
+
+  @OptIn(ExperimentalAdsControlApi::class)
+  fun configureAdRequest(
+    block: AdRequestOptions.() -> Unit,
+  ) {
+    val adRequestOptions = AdMobInitializer.adsControl.adRequestOptions.value.apply(block)
+    MobileAds.setRequestConfiguration(getRequestConfiguration(adRequestOptions))
+  }
 }
