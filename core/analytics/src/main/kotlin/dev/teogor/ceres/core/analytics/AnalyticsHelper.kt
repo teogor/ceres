@@ -14,21 +14,17 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.firebase.analytics
+package dev.teogor.ceres.core.analytics
 
-import android.util.Log
-import javax.inject.Inject
-import javax.inject.Singleton
+import androidx.compose.runtime.compositionLocalOf
 
-private const val TAG = "StubAnalyticsHelper"
+@OptIn(ExperimentalAnalyticsApi::class)
+val analyticsProvider = AnalyticsProvider()
 
-/**
- * An implementation of AnalyticsHelper just writes the events to logcat. Used in builds where no
- * analytics events should be sent to a backend.
- */
-@Singleton
-class StubAnalyticsHelper @Inject constructor() : AnalyticsHelper {
-  override fun logEvent(event: AnalyticsEvent) {
-    Log.d(TAG, "Received analytics event: $event")
-  }
+interface AnalyticsHelper {
+  fun logEvent(analyticsEvent: AnalyticsEvent)
+}
+
+val LocalAnalyticsHelper = compositionLocalOf<AnalyticsHelper> {
+  DefaultAnalyticsHelper()
 }

@@ -13,25 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-plugins {
-  id("dev.teogor.ceres.android.library")
-  id("dev.teogor.ceres.android.library.jacoco")
-  id("dev.teogor.ceres.android.hilt")
-}
 
-android {
-  namespace = "dev.teogor.ceres.core.network"
-  defaultConfig {
-    consumerProguardFiles("consumer-proguard-rules.pro")
-  }
-}
+package dev.teogor.ceres.core.analytics
 
-dependencies {
-  implementation(project(":core:foundation"))
-  implementation(libs.kotlinx.coroutines.android)
-}
-
-ceresLibrary {
-  name = "Ceres Core Network"
-  deprecated = true
-}
+@RequiresOptIn(message = "Analytics is experimental. The API may be changed in the future.")
+@Retention(AnnotationRetention.BINARY)
+annotation class ExperimentalAnalyticsApi

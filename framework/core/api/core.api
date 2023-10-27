@@ -1,6 +1,5 @@
 public class dev/teogor/ceres/framework/core/Activity : androidx/activity/ComponentActivity {
 	public static final field $stable I
-	public field analyticsHelper Ldev/teogor/ceres/firebase/analytics/AnalyticsHelper;
 	public field crashlyticsHelper Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsHelper;
 	public field lazyStats Ldagger/Lazy;
 	public field networkMonitor Ldev/teogor/ceres/core/foundation/NetworkMonitorUtility;
@@ -8,7 +7,6 @@ public class dev/teogor/ceres/framework/core/Activity : androidx/activity/Compon
 	public fun BuildNavGraph (Ldev/teogor/ceres/framework/core/model/NavGraphOptions;Landroidx/compose/runtime/Composer;I)V
 	public fun buildMenu (Ldev/teogor/ceres/framework/core/model/MenuConfig;Landroidx/compose/runtime/Composer;I)Ldev/teogor/ceres/framework/core/model/MenuConfig;
 	public fun compositionProviders (Landroidx/compose/runtime/Composer;I)Ljava/util/List;
-	public final fun getAnalyticsHelper ()Ldev/teogor/ceres/firebase/analytics/AnalyticsHelper;
 	public final fun getCrashlyticsHelper ()Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsHelper;
 	public final fun getLazyStats ()Ldagger/Lazy;
 	public fun getNavigationItems ()Ljava/util/List;
@@ -19,7 +17,6 @@ public class dev/teogor/ceres/framework/core/Activity : androidx/activity/Compon
 	protected fun onNewIntent (Landroid/content/Intent;)V
 	protected fun onPause ()V
 	protected fun onResume ()V
-	public final fun setAnalyticsHelper (Ldev/teogor/ceres/firebase/analytics/AnalyticsHelper;)V
 	public final fun setCrashlyticsHelper (Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsHelper;)V
 	public fun setKeepOnScreenCondition ()Z
 	public final fun setLazyStats (Ldagger/Lazy;)V
@@ -28,9 +25,8 @@ public class dev/teogor/ceres/framework/core/Activity : androidx/activity/Compon
 }
 
 public final class dev/teogor/ceres/framework/core/Activity_MembersInjector : dagger/MembersInjector {
-	public fun <init> (Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-	public static fun create (Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Ldagger/MembersInjector;
-	public static fun injectAnalyticsHelper (Ldev/teogor/ceres/framework/core/Activity;Ldev/teogor/ceres/firebase/analytics/AnalyticsHelper;)V
+	public fun <init> (Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+	public static fun create (Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Ldagger/MembersInjector;
 	public static fun injectCrashlyticsHelper (Ldev/teogor/ceres/framework/core/Activity;Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsHelper;)V
 	public static fun injectLazyStats (Ldev/teogor/ceres/framework/core/Activity;Ldagger/Lazy;)V
 	public fun injectMembers (Ldev/teogor/ceres/framework/core/Activity;)V

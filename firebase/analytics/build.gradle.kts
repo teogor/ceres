@@ -28,6 +28,9 @@ android {
 }
 
 dependencies {
+  api(project(mapOf("path" to ":core:analytics")))
+  api(project(mapOf("path" to ":data:datastore")))
+
   implementation(platform(libs.firebase.bom))
   implementation(libs.firebase.analytics)
 

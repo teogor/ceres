@@ -19,23 +19,35 @@ package dev.teogor.ceres.firebase.analytics
 import android.content.Context
 import androidx.startup.Initializer
 import com.google.firebase.analytics.FirebaseAnalytics
+import dev.teogor.ceres.core.analytics.ExperimentalAnalyticsApi
+import dev.teogor.ceres.core.analytics.analyticsProvider
+import dev.teogor.ceres.core.analytics.plusAssign
+import dev.teogor.ceres.data.datastore.common.launch
+import dev.teogor.ceres.data.datastore.defaults.ceresPreferences
 
 /**
  * Initializes [FirebaseAnalytics] using `androidx.startup`.
  */
 class AnalyticsManagerInitializer : Initializer<Unit> {
+  @OptIn(ExperimentalAnalyticsApi::class)
   override fun create(context: Context) {
     val firebaseAnalytics = FirebaseAnalytics.getInstance(context)
-    // todo handle this into base activity
-    // val ceresPreferences = ceresPreferences(context)
-    // // Get the user ID value
-    // ceresPreferences.launch {
-    //   val userId = ceresPreferences.userId
-    //   firebaseAnalytics.setUserId(userId.value)
-    // }
+    analyticsProvider += FirebaseAnalyticsHelper(firebaseAnalytics)
+    // todo handle this into base activity or via a provider
+    //  because this way we can not provide a custom userId
+    val ceresPreferences = ceresPreferences(context)
+    // Get the user ID value
+    ceresPreferences.launch {
+      val userId = ceresPreferences.userId
+      firebaseAnalytics.setUserId(userId.value)
+    }
   }
 
   override fun dependencies(): List<Class<out Initializer<*>?>> {
     return emptyList()
   }
+}
+
+fun text() {
+  FirebaseAnalytics.Param.SCREEN_CLASS
 }

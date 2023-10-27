@@ -14,19 +14,18 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.firebase.analytics
+package dev.teogor.ceres.core.analytics
 
-import androidx.compose.runtime.staticCompositionLocalOf
+import android.util.Log
 
-// todo move this somewhere in base
-//  like module firebase-base-helpers
-//   ... ceres modules include that
-//   analytics/crashlytics depends on that
+private const val TAG = "StubAnalyticsHelper"
+
 /**
- * Global key used to obtain access to the AnalyticsHelper through a CompositionLocal.
+ * An implementation of AnalyticsHelper just writes the events to logcat.
+ * Used in builds where no analytics events should be sent to a backend.
  */
-val LocalAnalyticsHelper = staticCompositionLocalOf<AnalyticsHelper> {
-  // Provide a default AnalyticsHelper which does nothing. This is so that tests and previews
-  // do not have to provide one. For real app builds provide a different implementation.
-  NoOpAnalyticsHelper()
+class StubAnalyticsHelper : AnalyticsHelper {
+  override fun logEvent(analyticsEvent: AnalyticsEvent) {
+    Log.d(TAG, "Received analytics event: $analyticsEvent")
+  }
 }

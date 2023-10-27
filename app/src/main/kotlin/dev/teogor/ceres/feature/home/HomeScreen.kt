@@ -34,7 +34,6 @@ import dev.teogor.ceres.framework.core.screen.showSettingsButton
 import dev.teogor.ceres.framework.core.screen.toolbarTitle
 import dev.teogor.ceres.framework.core.screen.toolbarTokens
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAd
-import dev.teogor.ceres.monetisation.ads.ExperimentalAdsControlApi
 import dev.teogor.ceres.monetisation.messaging.ConsentManager
 import dev.teogor.ceres.navigation.core.LocalNavigationParameters
 import dev.teogor.ceres.navigation.core.utilities.toScreenName
@@ -113,7 +112,6 @@ fun handleOnboardingReset(): () -> Unit {
   return resetOnboarding
 }
 
-@OptIn(ExperimentalAdsControlApi::class)
 @Composable
 private fun HomeScreen(
   homeVM: HomeViewModel,

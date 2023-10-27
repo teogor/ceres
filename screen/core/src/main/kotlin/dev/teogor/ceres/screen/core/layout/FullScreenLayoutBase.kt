@@ -24,7 +24,7 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import dev.teogor.ceres.navigation.events.TrackScreenViewEvent
+import dev.teogor.ceres.core.analytics.composables.TrackScreenViewEvent
 import dev.teogor.ceres.ui.foundation.applyIf
 
 @Composable

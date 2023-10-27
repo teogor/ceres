@@ -14,32 +14,13 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.navigation.events
+package dev.teogor.ceres.core.analytics.composables
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
-import dev.teogor.ceres.firebase.analytics.AnalyticsEvent
-import dev.teogor.ceres.firebase.analytics.AnalyticsEvent.Param
-import dev.teogor.ceres.firebase.analytics.AnalyticsEvent.ParamKeys
-import dev.teogor.ceres.firebase.analytics.AnalyticsEvent.Types
-import dev.teogor.ceres.firebase.analytics.AnalyticsHelper
-import dev.teogor.ceres.firebase.analytics.LocalAnalyticsHelper
-
-// todo moved to ui named analytics extensions
-
-/**
- * Classes and functions associated with analytics events for the UI.
- */
-fun AnalyticsHelper.logScreenView(screenName: String) {
-  logEvent(
-    AnalyticsEvent(
-      type = Types.SCREEN_VIEW,
-      extras = listOf(
-        Param(ParamKeys.SCREEN_NAME, screenName),
-      ),
-    ),
-  )
-}
+import dev.teogor.ceres.core.analytics.AnalyticsEvent
+import dev.teogor.ceres.core.analytics.AnalyticsHelper
+import dev.teogor.ceres.core.analytics.LocalAnalyticsHelper
 
 /**
  * A side-effect which records a screen view event.
@@ -47,8 +28,9 @@ fun AnalyticsHelper.logScreenView(screenName: String) {
 @Composable
 fun TrackScreenViewEvent(
   screenName: String,
+  screenClass: String = "",
   analyticsHelper: AnalyticsHelper = LocalAnalyticsHelper.current,
 ) = DisposableEffect(Unit) {
-  analyticsHelper.logScreenView(screenName)
+  analyticsHelper.logEvent(AnalyticsEvent.ScreenView(screenName, screenClass))
   onDispose {}
 }

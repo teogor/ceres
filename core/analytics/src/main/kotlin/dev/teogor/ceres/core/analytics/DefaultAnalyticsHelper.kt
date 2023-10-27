@@ -14,12 +14,16 @@
  * limitations under the License.
  */
 
-package dev.teogor.ceres.firebase.analytics
+package dev.teogor.ceres.core.analytics
 
-/**
- * Interface for logging analytics events. See `FirebaseAnalyticsHelper` and
- * `StubAnalyticsHelper` for implementations.
- */
-interface AnalyticsHelper {
-  fun logEvent(event: AnalyticsEvent)
+class DefaultAnalyticsHelper : AnalyticsHelper {
+
+  @ExperimentalAnalyticsApi
+  override fun logEvent(
+    analyticsEvent: AnalyticsEvent,
+  ) {
+    analyticsProvider.analyticsHelpers.forEach {
+      it.logEvent(analyticsEvent)
+    }
+  }
 }

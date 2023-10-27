@@ -16,26 +16,68 @@
 
 package dev.teogor.ceres.firebase.analytics
 
+import android.os.Bundle
 import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.analytics.ktx.logEvent
-import javax.inject.Inject
+import dev.teogor.ceres.core.analytics.AnalyticsEvent
+import dev.teogor.ceres.core.analytics.AnalyticsHelper
+import dev.teogor.ceres.core.analytics.ExperimentalAnalyticsApi
+import dev.teogor.ceres.core.analytics.Types
+import dev.teogor.ceres.core.analytics.toLowercaseString
 
-/**
- * Implementation of `AnalyticsHelper` which logs events to a Firebase backend.
- */
-class FirebaseAnalyticsHelper @Inject constructor(
+@ExperimentalAnalyticsApi
+class FirebaseAnalyticsHelper(
   private val firebaseAnalytics: FirebaseAnalytics,
 ) : AnalyticsHelper {
 
-  override fun logEvent(event: AnalyticsEvent) {
-    firebaseAnalytics.logEvent(event.type) {
-      for (extra in event.extras) {
-        // Truncate parameter keys and values according to firebase maximum length values.
+  @ExperimentalAnalyticsApi
+  override fun logEvent(analyticsEvent: AnalyticsEvent) {
+    firebaseAnalytics.logEvent(
+      analyticsEvent.type,
+    ) {
+      analyticsEvent.params.forEach { extra ->
         param(
-          key = extra.key.take(40),
+          key = extra.key.toLowercaseString().take(40),
           value = extra.value.take(100),
         )
       }
     }
+  }
+}
+
+inline fun FirebaseAnalytics.logEvent(
+  type: Types,
+  crossinline block: ParametersBuilder.() -> Unit,
+) {
+  logEvent(
+    type.toLowercaseString(),
+    ParametersBuilder().apply(block).build(),
+  )
+}
+
+class ParametersBuilder {
+  private val bundle = Bundle()
+
+  fun param(key: String, value: String) {
+    bundle.putString(key, value)
+  }
+
+  fun param(key: String, value: Double) {
+    bundle.putDouble(key, value)
+  }
+
+  fun param(key: String, value: Long) {
+    bundle.putLong(key, value)
+  }
+
+  fun param(key: String, value: Bundle) {
+    bundle.putBundle(key, value)
+  }
+
+  fun param(key: String, value: Array<Bundle>) {
+    bundle.putParcelableArray(key, value)
+  }
+
+  fun build(): Bundle {
+    return bundle
   }
 }

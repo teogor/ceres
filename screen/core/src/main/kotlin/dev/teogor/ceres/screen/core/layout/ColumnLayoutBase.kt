@@ -26,7 +26,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import dev.teogor.ceres.navigation.events.TrackScreenViewEvent
+import dev.teogor.ceres.core.analytics.composables.TrackScreenViewEvent
 import dev.teogor.ceres.screen.core.attachScrollState
 import dev.teogor.ceres.screen.core.scope.ScreenColumnScope
 import dev.teogor.ceres.ui.designsystem.scrollbar.ColumnScrollbar

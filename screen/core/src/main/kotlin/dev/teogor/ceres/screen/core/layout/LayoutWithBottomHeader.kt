@@ -27,7 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
-import dev.teogor.ceres.navigation.events.TrackScreenViewEvent
+import dev.teogor.ceres.core.analytics.composables.TrackScreenViewEvent
 import dev.teogor.ceres.screen.core.attachScrollState
 import dev.teogor.ceres.screen.core.scope.ScreenListScope
 import dev.teogor.ceres.ui.designsystem.CeresBackground

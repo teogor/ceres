@@ -1,0 +1,97 @@
+public abstract class dev/teogor/ceres/core/analytics/AnalyticsEvent {
+	public static final field $stable I
+	public abstract fun getParams ()Ljava/util/List;
+	public abstract fun getType ()Ldev/teogor/ceres/core/analytics/Types;
+}
+
+public final class dev/teogor/ceres/core/analytics/AnalyticsEvent$ScreenView : dev/teogor/ceres/core/analytics/AnalyticsEvent {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Ldev/teogor/ceres/core/analytics/AnalyticsEvent$ScreenView;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/core/analytics/AnalyticsEvent$ScreenView;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ldev/teogor/ceres/core/analytics/AnalyticsEvent$ScreenView;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getParams ()Ljava/util/List;
+	public final fun getScreenClass ()Ljava/lang/String;
+	public final fun getScreenName ()Ljava/lang/String;
+	public fun getType ()Ldev/teogor/ceres/core/analytics/Types;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/core/analytics/AnalyticsEventKt {
+	public static final fun toLowercaseString (Ldev/teogor/ceres/core/analytics/ParamKeys;)Ljava/lang/String;
+	public static final fun toLowercaseString (Ldev/teogor/ceres/core/analytics/Types;)Ljava/lang/String;
+}
+
+public abstract interface class dev/teogor/ceres/core/analytics/AnalyticsHelper {
+	public abstract fun logEvent (Ldev/teogor/ceres/core/analytics/AnalyticsEvent;)V
+}
+
+public final class dev/teogor/ceres/core/analytics/AnalyticsHelperKt {
+	public static final fun getAnalyticsProvider ()Ldev/teogor/ceres/core/analytics/AnalyticsProvider;
+	public static final fun getLocalAnalyticsHelper ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public class dev/teogor/ceres/core/analytics/AnalyticsProvider {
+	public static final field $stable I
+	public fun <init> ()V
+	public final fun addAnalyticsHelper (Ldev/teogor/ceres/core/analytics/AnalyticsHelper;)Ldev/teogor/ceres/core/analytics/AnalyticsHelper;
+	public final fun getAnalyticsHelper (Ljava/lang/Class;)Ldev/teogor/ceres/core/analytics/AnalyticsHelper;
+	public final fun getAnalyticsHelpers ()Ljava/util/List;
+}
+
+public final class dev/teogor/ceres/core/analytics/AnalyticsProviderKt {
+	public static final fun get (Ldev/teogor/ceres/core/analytics/AnalyticsProvider;Lkotlin/reflect/KClass;)Ldev/teogor/ceres/core/analytics/AnalyticsHelper;
+	public static final fun plusAssign (Ldev/teogor/ceres/core/analytics/AnalyticsProvider;Ldev/teogor/ceres/core/analytics/AnalyticsHelper;)V
+}
+
+public final class dev/teogor/ceres/core/analytics/DefaultAnalyticsHelper : dev/teogor/ceres/core/analytics/AnalyticsHelper {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun logEvent (Ldev/teogor/ceres/core/analytics/AnalyticsEvent;)V
+}
+
+public abstract interface annotation class dev/teogor/ceres/core/analytics/ExperimentalAnalyticsApi : java/lang/annotation/Annotation {
+}
+
+public final class dev/teogor/ceres/core/analytics/Param {
+	public static final field $stable I
+	public fun <init> (Ldev/teogor/ceres/core/analytics/ParamKeys;Ljava/lang/String;)V
+	public final fun component1 ()Ldev/teogor/ceres/core/analytics/ParamKeys;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ldev/teogor/ceres/core/analytics/ParamKeys;Ljava/lang/String;)Ldev/teogor/ceres/core/analytics/Param;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/core/analytics/Param;Ldev/teogor/ceres/core/analytics/ParamKeys;Ljava/lang/String;ILjava/lang/Object;)Ldev/teogor/ceres/core/analytics/Param;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getKey ()Ldev/teogor/ceres/core/analytics/ParamKeys;
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/core/analytics/ParamKeys : java/lang/Enum {
+	public static final field SCREEN_CLASS Ldev/teogor/ceres/core/analytics/ParamKeys;
+	public static final field SCREEN_NAME Ldev/teogor/ceres/core/analytics/ParamKeys;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/core/analytics/ParamKeys;
+	public static fun values ()[Ldev/teogor/ceres/core/analytics/ParamKeys;
+}
+
+public final class dev/teogor/ceres/core/analytics/StubAnalyticsHelper : dev/teogor/ceres/core/analytics/AnalyticsHelper {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun logEvent (Ldev/teogor/ceres/core/analytics/AnalyticsEvent;)V
+}
+
+public final class dev/teogor/ceres/core/analytics/Types : java/lang/Enum {
+	public static final field SCREEN_VIEW Ldev/teogor/ceres/core/analytics/Types;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/core/analytics/Types;
+	public static fun values ()[Ldev/teogor/ceres/core/analytics/Types;
+}
+
+public final class dev/teogor/ceres/core/analytics/composables/UiEventsKt {
+	public static final fun TrackScreenViewEvent (Ljava/lang/String;Ljava/lang/String;Ldev/teogor/ceres/core/analytics/AnalyticsHelper;Landroidx/compose/runtime/Composer;II)V
+}
+

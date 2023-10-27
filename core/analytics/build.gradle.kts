@@ -13,12 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+plugins {
+  id("dev.teogor.ceres.android.library")
+  id("dev.teogor.ceres.android.library.compose")
+  id("dev.teogor.ceres.android.library.jacoco")
+}
 
-package dev.teogor.ceres.firebase.analytics
+android {
+  namespace = "dev.teogor.ceres.core.analytics"
+  defaultConfig {
+    consumerProguardFiles("consumer-proguard-rules.pro")
+  }
+}
 
-/**
- * Implementation of AnalyticsHelper which does nothing. Useful for tests and previews.
- */
-class NoOpAnalyticsHelper : AnalyticsHelper {
-  override fun logEvent(event: AnalyticsEvent) = Unit
+dependencies {
+  api(libs.androidx.annotation)
+  api(libs.androidx.compose.runtime)
+  api(libs.androidx.compose.ui.tooling)
+}
+
+ceresLibrary {
+  name = "Ceres Core Analytics"
 }
