@@ -97,7 +97,7 @@ fun HomeNativeAd() {
         .fillMaxWidth(),
       viewModel = hiltViewModel(),
       nativeAdConfig = homeNativeAdConfig(),
-      adContent = { HomeNativeAdUI(it, isAdFillEmpty) },
+      adContent = { it.HomeNativeAdUI(isAdFillEmpty) },
       config = defaultAdLoaderConfig(adId),
       refreshIntervalMillis = 30_000L,
       onAdFillStatusChange = { isAdFillEmpty = it },
@@ -183,22 +183,9 @@ fun homeNativeAdConfig() = NativeAdConfig.Builder()
 
 @AdUI
 @Composable
-fun HomeNativeAdUI(
-  nativeAdConfig: NativeAdConfig,
+fun NativeAdConfig.HomeNativeAdUI(
   isAdFillEmpty: Boolean,
 ) {
-  val advertiserView = nativeAdConfig.advertiserView
-  val adChoicesView = nativeAdConfig.adChoicesView
-  val headlineView = nativeAdConfig.headlineView
-  val bodyView = nativeAdConfig.bodyView
-  val callToActionView = nativeAdConfig.callToActionView
-  val iconView = nativeAdConfig.iconView
-  val imageView = nativeAdConfig.imageView
-  val mediaView = nativeAdConfig.mediaView
-  val priceView = nativeAdConfig.priceView
-  val starRatingView = nativeAdConfig.starRatingView
-  val storeView = nativeAdConfig.storeView
-
   NativeAdContainer(
     modifier = Modifier
       .fillMaxWidth()
