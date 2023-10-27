@@ -73,6 +73,44 @@ public final class dev/teogor/ceres/core/foundation/ConnectivityManagerNetworkMo
 	public static fun newInstance (Landroid/content/Context;)Ldev/teogor/ceres/core/foundation/ConnectivityManagerNetworkMonitor;
 }
 
+public final class dev/teogor/ceres/core/foundation/DefaultResources : dev/teogor/ceres/core/foundation/Resources {
+	public static final field $stable I
+	public fun <init> (Landroid/content/res/Resources;)V
+	public fun getAnimation (I)Landroid/content/res/XmlResourceParser;
+	public fun getBoolean (I)Z
+	public fun getColor (I)I
+	public fun getDimension (I)F
+	public fun getDimensionPixelOffset (I)I
+	public fun getDimensionPixelSize (I)I
+	public fun getFloat (I)F
+	public fun getFraction (III)F
+	public fun getIdentifier (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+	public fun getIntArray (I)[I
+	public fun getInteger (I)I
+	public fun getLayout (I)Landroid/content/res/XmlResourceParser;
+	public fun getQuantityString (II)Ljava/lang/String;
+	public fun getQuantityString (II[Ljava/lang/Object;)Ljava/lang/String;
+	public fun getQuantityText (II)Ljava/lang/CharSequence;
+	public fun getResourceEntryName (I)Ljava/lang/String;
+	public fun getResourceName (I)Ljava/lang/String;
+	public fun getResourcePackageName (I)Ljava/lang/String;
+	public fun getResourceTypeName (I)Ljava/lang/String;
+	public fun getString (I)Ljava/lang/String;
+	public fun getString (I[Ljava/lang/Object;)Ljava/lang/String;
+	public fun getStringArray (I)[Ljava/lang/String;
+	public fun getText (I)Ljava/lang/CharSequence;
+	public fun getText (ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
+	public fun getTextArray (I)[Ljava/lang/CharSequence;
+	public fun getValue (ILandroid/util/TypedValue;Z)V
+	public fun getValue (Ljava/lang/String;Landroid/util/TypedValue;Z)V
+	public fun getValueForDensity (IILandroid/util/TypedValue;Z)V
+	public fun getXml (I)Landroid/content/res/XmlResourceParser;
+	public fun obtainTypedArray (I)Landroid/content/res/TypedArray;
+	public fun openRawResource (I)Ljava/io/InputStream;
+	public fun openRawResource (ILandroid/util/TypedValue;)Ljava/io/InputStream;
+	public fun openRawResourceFd (I)Landroid/content/res/AssetFileDescriptor;
+}
+
 public final class dev/teogor/ceres/core/foundation/FoundationGlobal {
 	public static final field $stable I
 	public static final field INSTANCE Ldev/teogor/ceres/core/foundation/FoundationGlobal;
@@ -228,6 +266,42 @@ public final class dev/teogor/ceres/core/foundation/PackageManagerUtils {
 	public final fun getVersionName ()Ljava/lang/String;
 }
 
+public abstract interface class dev/teogor/ceres/core/foundation/Resources {
+	public abstract fun getAnimation (I)Landroid/content/res/XmlResourceParser;
+	public abstract fun getBoolean (I)Z
+	public abstract fun getColor (I)I
+	public abstract fun getDimension (I)F
+	public abstract fun getDimensionPixelOffset (I)I
+	public abstract fun getDimensionPixelSize (I)I
+	public abstract fun getFloat (I)F
+	public abstract fun getFraction (III)F
+	public abstract fun getIdentifier (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+	public abstract fun getIntArray (I)[I
+	public abstract fun getInteger (I)I
+	public abstract fun getLayout (I)Landroid/content/res/XmlResourceParser;
+	public abstract fun getQuantityString (II)Ljava/lang/String;
+	public abstract fun getQuantityString (II[Ljava/lang/Object;)Ljava/lang/String;
+	public abstract fun getQuantityText (II)Ljava/lang/CharSequence;
+	public abstract fun getResourceEntryName (I)Ljava/lang/String;
+	public abstract fun getResourceName (I)Ljava/lang/String;
+	public abstract fun getResourcePackageName (I)Ljava/lang/String;
+	public abstract fun getResourceTypeName (I)Ljava/lang/String;
+	public abstract fun getString (I)Ljava/lang/String;
+	public abstract fun getString (I[Ljava/lang/Object;)Ljava/lang/String;
+	public abstract fun getStringArray (I)[Ljava/lang/String;
+	public abstract fun getText (I)Ljava/lang/CharSequence;
+	public abstract fun getText (ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
+	public abstract fun getTextArray (I)[Ljava/lang/CharSequence;
+	public abstract fun getValue (ILandroid/util/TypedValue;Z)V
+	public abstract fun getValue (Ljava/lang/String;Landroid/util/TypedValue;Z)V
+	public abstract fun getValueForDensity (IILandroid/util/TypedValue;Z)V
+	public abstract fun getXml (I)Landroid/content/res/XmlResourceParser;
+	public abstract fun obtainTypedArray (I)Landroid/content/res/TypedArray;
+	public abstract fun openRawResource (I)Ljava/io/InputStream;
+	public abstract fun openRawResource (ILandroid/util/TypedValue;)Ljava/io/InputStream;
+	public abstract fun openRawResourceFd (I)Landroid/content/res/AssetFileDescriptor;
+}
+
 public final class dev/teogor/ceres/core/foundation/SigningInfo {
 	public static final field $stable I
 	public fun <init> (ZZLjava/util/List;Ljava/util/List;)V
@@ -281,6 +355,43 @@ public final class dev/teogor/ceres/core/foundation/compositions/LocalNetworkMon
 
 public final class dev/teogor/ceres/core/foundation/compositions/LocalPackageManagerKt {
 	public static final fun getLocalPackageManager ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class dev/teogor/ceres/core/foundation/compositions/LocalResouresKt {
+	public static final fun ValueForDensityResource (IILandroid/util/TypedValue;ZLandroidx/compose/runtime/Composer;I)V
+	public static final fun ValueResource (ILandroid/util/TypedValue;ZLandroidx/compose/runtime/Composer;I)V
+	public static final fun ValueResource (Ljava/lang/String;Landroid/util/TypedValue;ZLandroidx/compose/runtime/Composer;I)V
+	public static final fun animationResource (ILandroidx/compose/runtime/Composer;I)Landroid/content/res/XmlResourceParser;
+	public static final fun booleanResource (ILandroidx/compose/runtime/Composer;I)Z
+	public static final fun colorResource (ILandroidx/compose/runtime/Composer;I)I
+	public static final fun dimensionPixelOffsetResource (ILandroidx/compose/runtime/Composer;I)I
+	public static final fun dimensionPixelSizeResource (ILandroidx/compose/runtime/Composer;I)I
+	public static final fun dimensionResource (ILandroidx/compose/runtime/Composer;I)F
+	public static final fun floatResource (ILandroidx/compose/runtime/Composer;I)F
+	public static final fun fractionResource (IIILandroidx/compose/runtime/Composer;I)F
+	public static final fun getLocalResources ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+	public static final fun identifierResource (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroidx/compose/runtime/Composer;I)I
+	public static final fun intArrayResource (ILandroidx/compose/runtime/Composer;I)[I
+	public static final fun integerResource (ILandroidx/compose/runtime/Composer;I)I
+	public static final fun layoutResource (ILandroidx/compose/runtime/Composer;I)Landroid/content/res/XmlResourceParser;
+	public static final fun quantityStringResource (IILandroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public static final fun quantityStringResource (II[Ljava/lang/Object;Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public static final fun quantityTextResource (IILandroidx/compose/runtime/Composer;I)Ljava/lang/CharSequence;
+	public static final fun rawResource (ILandroid/util/TypedValue;Landroidx/compose/runtime/Composer;I)Ljava/io/InputStream;
+	public static final fun rawResource (ILandroidx/compose/runtime/Composer;I)Ljava/io/InputStream;
+	public static final fun rawResourceFd (ILandroidx/compose/runtime/Composer;I)Landroid/content/res/AssetFileDescriptor;
+	public static final fun resourceEntryNameResource (ILandroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public static final fun resourceNameResource (ILandroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public static final fun resourcePackageNameResource (ILandroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public static final fun resourceTypeNameResource (ILandroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public static final fun stringArrayResource (ILandroidx/compose/runtime/Composer;I)[Ljava/lang/String;
+	public static final fun stringResource (ILandroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public static final fun stringResource (I[Ljava/lang/Object;Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public static final fun textArrayResource (ILandroidx/compose/runtime/Composer;I)[Ljava/lang/CharSequence;
+	public static final fun textResource (ILandroidx/compose/runtime/Composer;I)Ljava/lang/CharSequence;
+	public static final fun textResource (ILjava/lang/CharSequence;Landroidx/compose/runtime/Composer;I)Ljava/lang/CharSequence;
+	public static final fun typedArrayResource (ILandroidx/compose/runtime/Composer;I)Landroid/content/res/TypedArray;
+	public static final fun xmlResource (ILandroidx/compose/runtime/Composer;I)Landroid/content/res/XmlResourceParser;
 }
 
 public final class dev/teogor/ceres/core/foundation/compositions/LocalVibratorKt {

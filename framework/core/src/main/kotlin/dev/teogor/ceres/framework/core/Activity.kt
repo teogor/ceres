@@ -39,10 +39,12 @@ import androidx.compose.runtime.setValue
 import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.metrics.performance.JankStats
+import dev.teogor.ceres.core.foundation.DefaultResources
 import dev.teogor.ceres.core.foundation.NetworkMonitorUtility
 import dev.teogor.ceres.core.foundation.audioManagerUtils
 import dev.teogor.ceres.core.foundation.compositions.LocalAudioManager
 import dev.teogor.ceres.core.foundation.compositions.LocalMediaPlayer
+import dev.teogor.ceres.core.foundation.compositions.LocalResources
 import dev.teogor.ceres.core.foundation.mediaPlayerUtils
 import dev.teogor.ceres.data.compose.rememberPreference
 import dev.teogor.ceres.data.datastore.defaults.AppTheme
@@ -115,6 +117,7 @@ open class Activity : ComponentActivity() {
     val context = this as Context
     val audioManagerUtils = context.audioManagerUtils()
     val mediaPlayerUtils = context.mediaPlayerUtils()
+    val resources = DefaultResources(resources)
     val adsControl = AdsControlProvider.adsControl
 
     setContent {
@@ -213,6 +216,7 @@ open class Activity : ComponentActivity() {
           // Ceres Core Foundation - Composition Provider
           LocalAudioManager provides audioManagerUtils,
           LocalMediaPlayer provides mediaPlayerUtils,
+          LocalResources provides resources,
 
           // Ceres Monetisation
           LocalAdsControl provides adsControl,
