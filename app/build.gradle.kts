@@ -51,7 +51,7 @@ android {
     debug {
       applicationIdSuffix = CeresBuildType.DEBUG.applicationIdSuffix
 
-      resValue("string", "app_name", "Ceres (Debug)")
+      resValue("string", "app_name", "❉ Ceres")
     }
     val release by getting {
       isMinifyEnabled = true
