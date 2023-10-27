@@ -41,7 +41,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.viewinterop.AndroidView
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.android.gms.ads.nativead.NativeAd
 import com.skydoves.landscapist.ImageOptions
@@ -56,6 +55,7 @@ import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAd
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAdConfig
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAdData
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAdViewModel
+import dev.teogor.ceres.monetisation.admob.formats.nativead.RenderContent
 import dev.teogor.ceres.monetisation.admob.formats.nativead.createBodyView
 import dev.teogor.ceres.monetisation.admob.formats.nativead.createCallToActionView
 import dev.teogor.ceres.monetisation.admob.formats.nativead.createHeadlineView
@@ -211,48 +211,20 @@ fun HomeNativeAdUI(
       Row(
         verticalAlignment = Alignment.CenterVertically,
       ) {
-        iconView?.let { iconView ->
-          AndroidView(
-            factory = {
-              iconView.composeView
-            },
-            modifier = Modifier.align(Alignment.Top),
-          )
-        }
+        iconView.RenderContent(
+          modifier = Modifier.align(Alignment.Top),
+        )
         Column(
           modifier = Modifier.padding(start = 6.dp),
         ) {
-          headlineView?.let { headlineView ->
-            AndroidView(
-              factory = {
-                headlineView.composeView
-              },
-            )
-          }
-          starRatingView?.let { starRatingView ->
-            AndroidView(
-              factory = {
-                starRatingView.composeView
-              },
-            )
-          }
-          bodyView?.let { bodyView ->
-            AndroidView(
-              factory = {
-                bodyView.composeView
-              },
-            )
-          }
+          headlineView.RenderContent()
+          starRatingView.RenderContent()
+          bodyView.RenderContent()
         }
       }
-      callToActionView?.let { callToActionView ->
-        AndroidView(
-          factory = {
-            callToActionView.composeView
-          },
-          modifier = Modifier.align(Alignment.CenterHorizontally),
-        )
-      }
+      callToActionView.RenderContent(
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+      )
     }
 
     if (isAdFillEmpty) {

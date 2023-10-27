@@ -455,6 +455,7 @@ public final class dev/teogor/ceres/monetisation/admob/formats/nativead/MediaCon
 }
 
 public final class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdComponentKt {
+	public static final fun RenderContent (Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdComponent;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
 	public static final fun createAdChoicesView (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdComponent;
 	public static final fun createAdComponent (Ljava/lang/Object;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdComponent;
 	public static final fun createAdvertiserView (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdComponent;
