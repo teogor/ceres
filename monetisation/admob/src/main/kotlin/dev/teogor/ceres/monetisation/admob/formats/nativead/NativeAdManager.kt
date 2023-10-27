@@ -17,7 +17,10 @@
 package dev.teogor.ceres.monetisation.admob.formats.nativead
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import dev.teogor.ceres.core.foundation.compositions.LocalNetworkMonitor
 
 /**
  * Abstract class representing a Native Ad Manager.
@@ -55,8 +58,13 @@ abstract class NativeAdManager {
   open fun IsOnline(
     displayAd: @Composable () -> Unit,
   ) {
-    // TODO connectivity flow
-    displayAd()
+    val networkMonitor = LocalNetworkMonitor.current
+    val isOffline by remember {
+      derivedStateOf { networkMonitor.isOffline }
+    }
+    if (!isOffline) {
+      displayAd()
+    }
   }
 }
 
