@@ -22,7 +22,7 @@ plugins {
 }
 
 android {
-  namespace = "dev.teogor.ceres"
+  namespace = "dev.teogor.ceres.backup.ui"
   defaultConfig {
     consumerProguardFiles("consumer-proguard-rules.pro")
   }
