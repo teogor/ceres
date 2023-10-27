@@ -50,6 +50,18 @@ public final class dev/teogor/ceres/monetisation/admob/Logger$DefaultImpls {
 	public static fun log (Ldev/teogor/ceres/monetisation/admob/Logger;Ljava/lang/String;)V
 }
 
+public abstract interface annotation class dev/teogor/ceres/monetisation/admob/annotations/AdField : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class dev/teogor/ceres/monetisation/admob/annotations/AdOptions : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class dev/teogor/ceres/monetisation/admob/annotations/AdProperty : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class dev/teogor/ceres/monetisation/admob/annotations/AdUI : java/lang/annotation/Annotation {
+}
+
 public final class dev/teogor/ceres/monetisation/admob/databinding/AdmobNativeBinding : androidx/viewbinding/ViewBinding {
 	public final field composeView Landroidx/compose/ui/platform/ComposeView;
 	public final field parentNative Lcom/google/android/gms/ads/nativead/NativeAdView;
@@ -510,12 +522,30 @@ public final class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAd
 	public fun toString ()Ljava/lang/String;
 }
 
+public abstract class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdData {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/runtime/MutableState;)V
+	public fun getNativeAd ()Landroidx/compose/runtime/MutableState;
+	public final fun getNativeAdData ()Landroidx/compose/runtime/State;
+}
+
+public final class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdDataKt {
+	public static final fun setNativeAd (Ldev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdData;Lcom/google/android/gms/ads/nativead/NativeAd;)V
+}
+
 public final class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdKt {
 	public static final fun NativeAd (Landroidx/compose/ui/Modifier;Ldev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdConfig;Lkotlin/jvm/functions/Function2;Lcom/google/android/gms/ads/nativead/NativeAd;Ldev/teogor/ceres/monetisation/admob/formats/nativead/AdLoaderConfig;JLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdUiKt {
 	public static final fun NativeAdUi (Ldev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdConfig;Landroidx/compose/runtime/Composer;I)V
+}
+
+public abstract class dev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdViewModel : androidx/lifecycle/ViewModel {
+	public static final field $stable I
+	public fun <init> (Ldev/teogor/ceres/monetisation/admob/formats/nativead/NativeAdData;)V
+	public final fun getNativeAd ()Landroidx/compose/runtime/State;
+	public final fun setNativeAd (Lcom/google/android/gms/ads/nativead/NativeAd;)V
 }
 
 public final class dev/teogor/ceres/monetisation/admob/formats/nativead/RefreshableNativeAdKt {
