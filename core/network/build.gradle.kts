@@ -33,4 +33,5 @@ dependencies {
 
 ceresLibrary {
   name = "Ceres Core Network"
+  deprecated = true
 }
