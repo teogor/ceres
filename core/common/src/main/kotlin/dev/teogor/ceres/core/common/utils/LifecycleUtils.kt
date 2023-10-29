@@ -65,7 +65,7 @@ fun OnLifecycleEvent(onEvent: (owner: LifecycleOwner, event: Lifecycle.Event) ->
 @Composable
 fun ObserveActivityLifecycle(
   onEnterForeground: () -> Unit = {},
-  onExitForeground: () -> Unit = {}
+  onExitForeground: () -> Unit = {},
 ) {
   val currentActivity = activity
 
@@ -104,7 +104,7 @@ fun ObserveActivityLifecycle(
 @Composable
 fun ObserveApplicationLifecycle(
   onEnterForeground: () -> Unit = {},
-  onExitForeground: () -> Unit = {}
+  onExitForeground: () -> Unit = {},
 ) {
   val context = LocalContext.current.applicationContext as Application
 
@@ -157,7 +157,7 @@ fun ObserveApplicationLifecycle(
 @Composable
 fun ObserveComposableLifecycle(
   onEnterForeground: () -> Unit = {},
-  onExitForeground: () -> Unit = {}
+  onExitForeground: () -> Unit = {},
 ) {
   val lifecycleOwner = LocalLifecycleOwner.current
 

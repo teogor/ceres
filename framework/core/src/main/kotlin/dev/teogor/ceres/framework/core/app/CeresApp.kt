@@ -73,6 +73,7 @@ import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavOptions
 import dev.teogor.ceres.core.foundation.FoundationGlobal
+import dev.teogor.ceres.core.foundation.NetworkMonitor
 import dev.teogor.ceres.core.foundation.NetworkMonitorUtility
 import dev.teogor.ceres.core.foundation.compositions.LocalNetworkMonitor
 import dev.teogor.ceres.data.datastore.defaults.ceresPreferences
@@ -141,7 +142,7 @@ fun CeresApp(
   // todo VMs
   val bottomSheetVM: BottomSheetState = viewModel()
   val toolbarState: ToolbarState = viewModel()
-  val networkMonitor = dev.teogor.ceres.core.foundation.NetworkMonitor()
+  val networkMonitor = NetworkMonitor()
 
   CompositionLocalProvider(
     LocalBottomSheetVM provides bottomSheetVM,

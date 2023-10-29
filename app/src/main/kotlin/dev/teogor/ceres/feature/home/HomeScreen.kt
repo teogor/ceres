@@ -16,13 +16,23 @@
 
 package dev.teogor.ceres.feature.home
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.google.android.gms.ads.MobileAds
 import dev.teogor.ceres.R
 import dev.teogor.ceres.ads.HomeNativeAdBeta
 import dev.teogor.ceres.core.foundation.compositions.LocalNetworkMonitor
 import dev.teogor.ceres.core.foundation.extensions.createMediaPlayer
+import dev.teogor.ceres.core.startup.ApplicationContextProvider.context
 import dev.teogor.ceres.data.datastore.defaults.ceresPreferences
 import dev.teogor.ceres.framework.core.app.BaseActions
 import dev.teogor.ceres.framework.core.app.setScreenInfo
@@ -42,6 +52,7 @@ import dev.teogor.ceres.screen.builder.compose.SimpleView
 import dev.teogor.ceres.screen.core.layout.ColumnLayoutBase
 import dev.teogor.ceres.screen.ui.api.ExperimentalOnboardingScreenApi
 import dev.teogor.ceres.screen.ui.onboarding.OnboardingRoute
+import dev.teogor.ceres.ui.theme.MaterialTheme
 
 // todo better way to configure this. perhaps use kotlin builder syntax
 @Composable
@@ -150,5 +161,30 @@ private fun HomeScreen(
     },
   )
 
-  NativeAd<HomeNativeAdBeta>()
+  SimpleView(
+    title = "Open Ad Inspector",
+    clickable = {
+      MobileAds.openAdInspector(
+        context,
+      ) {
+        // Error will be non-null if ad inspector closed due to an error.
+      }
+    },
+  )
+
+  repeat(10) {
+    NativeAd<HomeNativeAdBeta>()
+    repeat(5) {
+      Box(
+        modifier = Modifier
+          .padding(horizontal = 10.dp, vertical = 4.dp)
+          .fillMaxWidth()
+          .height(40.dp)
+          .background(
+            color = MaterialTheme.colorScheme.background,
+            shape = RoundedCornerShape(20.dp),
+          ),
+      ) { }
+    }
+  }
 }
