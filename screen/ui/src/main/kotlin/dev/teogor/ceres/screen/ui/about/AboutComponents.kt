@@ -58,6 +58,7 @@ import dev.teogor.ceres.ui.designsystem.Surface
 import dev.teogor.ceres.ui.designsystem.Text
 import dev.teogor.ceres.ui.foundation.graphics.asImageVectorIcon
 import dev.teogor.ceres.ui.theme.MaterialTheme
+import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
@@ -86,10 +87,12 @@ fun ScreenListScope.aboutHeaderVersion() = item {
   )
 }
 
-fun ScreenListScope.aboutAppVersion() = item {
+fun ScreenListScope.aboutAppVersion(
+  version: String = AppMetadataManager.versionName,
+) = item {
   SimpleView(
     title = "App version",
-    subtitle = AppMetadataManager.versionName,
+    subtitle = version,
     icon = Icons.Default.Info,
   )
 }
@@ -145,14 +148,19 @@ fun ScreenListScope.aboutCeresFramework(
   }
 }
 
-fun ScreenListScope.aboutBuildDate() = item {
-  SimpleView(
-    title = "Build date",
-    subtitle = AppMetadataManager.buildDateTime.format(
+fun ScreenListScope.aboutBuildDate(
+  buildDateTime: LocalDateTime = AppMetadataManager.buildDateTime,
+) {
+  item {
+    val formattedDate = buildDateTime.format(
       DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM),
-    ),
-    icon = Icons.Default.DateRange,
-  )
+    )
+    SimpleView(
+      title = "Build date",
+      subtitle = formattedDate,
+      icon = Icons.Default.DateRange,
+    )
+  }
 }
 
 fun ScreenListScope.aboutHeaderAboutUs() = item {
@@ -175,20 +183,24 @@ fun ScreenListScope.aboutHeaderSecurityPatch() = item {
   )
 }
 
-fun ScreenListScope.aboutBuildHash() = item {
+fun ScreenListScope.aboutBuildHash(
+  hash: String = AppMetadataManager.gitHash,
+) = item {
   SimpleView(
     title = "Build hash",
-    subtitle = AppMetadataManager.gitHash,
+    subtitle = hash,
     icon = Icons.Default.DomainVerification,
   )
 }
 
-fun ScreenListScope.aboutApkSignature() {
-  AppMetadataManager.apkSignature?.let { apkSignature ->
+fun ScreenListScope.aboutApkSignature(
+  apkSignature: String? = AppMetadataManager.apkSignature,
+) {
+  apkSignature?.let { signature ->
     item {
       SimpleView(
         title = "APK signature",
-        subtitle = apkSignature,
+        subtitle = signature,
         icon = Icons.Default.Verified,
       )
     }
