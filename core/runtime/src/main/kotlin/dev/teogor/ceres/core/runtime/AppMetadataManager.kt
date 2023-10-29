@@ -16,6 +16,7 @@
 
 package dev.teogor.ceres.core.runtime
 
+import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.util.Base64
@@ -27,29 +28,12 @@ import java.io.FileInputStream
 import java.security.MessageDigest
 import java.time.LocalDateTime
 import java.time.ZoneId
+import java.time.ZoneOffset
 
 @Suppress("MemberVisibilityCanBePrivate", "unused")
 object AppMetadataManager {
   val packageName: String
     get() = ApplicationContextProvider.context.packageName
-
-  val sanitizedPackageName: String
-    get() {
-      var sanitizedPackageName = when (flavor) {
-        "demo" -> packageName.removeSuffix(".demo")
-        else -> packageName
-      }
-      sanitizedPackageName = if (debug) {
-        sanitizedPackageName.removeSuffix(".debug")
-      } else {
-        sanitizedPackageName
-      }
-      sanitizedPackageName = when (flavor) {
-        "demo" -> sanitizedPackageName.removeSuffix(".demo")
-        else -> sanitizedPackageName
-      }
-      return sanitizedPackageName
-    }
 
   val packageManager: PackageManager
     get() = ApplicationContextProvider.context.packageManagerUtils().packageManager
@@ -63,29 +47,36 @@ object AppMetadataManager {
   val versionCode: Long
     get() = ApplicationContextProvider.context.packageManagerUtils().versionCode
 
-  val zoneOffset = ZoneId.systemDefault().rules.getOffset(LocalDateTime.now())
-  val buildDateTime = LocalDateTime.ofEpochSecond(
-    BuildConfig.BUILD_DATE_TIME.toLong(),
-    0,
-    zoneOffset,
-  )
+  val zoneOffset: ZoneOffset
+    get() = ZoneId.systemDefault().rules.getOffset(LocalDateTime.now())
 
-  val buildType = BuildConfig.BUILD_TYPE
-  val flavor = "demo" // todo BuildConfig.FLAVOR
-  val debug = BuildConfig.DEBUG
-  val gitHash = BuildConfig.GIT_HASH
-  val ceresFrameworkVersion = BuildConfig.CERES_FRAMEWORK_VERSION
+  val buildDateTime: LocalDateTime
+    get() = LocalDateTime.ofEpochSecond(
+      BuildConfig.BUILD_DATE_TIME.toLong(),
+      0,
+      zoneOffset,
+    )
 
   val isDebuggable: Boolean
-    get() = BuildConfig.DEBUG
+    get() = packageInfo.applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE != 0
+
+  val buildType: String
+    get() = BuildConfig.BUILD_TYPE
+
+  // todo BuildConfig.FLAVOR
+  val flavor: String
+    get() = "demo"
+
+  val gitHash: String
+    get() = BuildConfig.GIT_HASH
+
+  val ceresFrameworkVersion: String
+    get() = BuildConfig.CERES_FRAMEWORK_VERSION
 
   val apkSignature: String?
     get() {
       try {
-        val packageInfo = packageInfo
-        val sourceDir =
-          packageInfo.applicationInfo.sourceDir
-
+        val sourceDir = packageInfo.applicationInfo.sourceDir
         val file = File(sourceDir)
         val md = MessageDigest.getInstance("SHA-256")
         val fis = FileInputStream(file)
@@ -102,4 +93,31 @@ object AppMetadataManager {
       }
       return null
     }
+
+  // region Deprecated API
+  @Deprecated("use isDebuggable")
+  val debug = isDebuggable
+
+  @Deprecated(
+    message = "This property is deprecated. Please use packageName property instead.",
+    replaceWith = ReplaceWith("packageName"),
+  )
+  val sanitizedPackageName: String
+    get() {
+      var sanitizedPackageName = when (flavor) {
+        "demo" -> packageName.removeSuffix(".demo")
+        else -> packageName
+      }
+      sanitizedPackageName = if (isDebuggable) {
+        sanitizedPackageName.removeSuffix(".debug")
+      } else {
+        sanitizedPackageName
+      }
+      sanitizedPackageName = when (flavor) {
+        "demo" -> sanitizedPackageName.removeSuffix(".demo")
+        else -> sanitizedPackageName
+      }
+      return sanitizedPackageName
+    }
+  // endregion
 }
