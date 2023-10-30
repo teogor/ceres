@@ -21,6 +21,7 @@ plugins {
   id("dev.teogor.ceres.android.application.compose")
   id("dev.teogor.ceres.android.application.jacoco")
   id("dev.teogor.ceres.android.application.firebase")
+  id("dev.teogor.ceres.android.library.config")
   id("dev.teogor.ceres.android.hilt")
   id("dev.teogor.ceres.android.room")
   id("kotlinx-serialization")
