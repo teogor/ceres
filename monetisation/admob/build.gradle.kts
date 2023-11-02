@@ -38,6 +38,7 @@ dependencies {
   implementation(libs.androidx.lifecycle.process)
 
   api(project(":monetisation:ads"))
+  implementation(project(":core:register"))
   implementation(project(":core:runtime"))
   implementation(project(":core:foundation"))
   implementation(project(":ui:designsystem"))

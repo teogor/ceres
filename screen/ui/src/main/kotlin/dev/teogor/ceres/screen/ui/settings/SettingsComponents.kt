@@ -26,18 +26,19 @@ import dev.teogor.ceres.screen.builder.compose.SimpleView
 import dev.teogor.ceres.screen.core.scope.ScreenListScope
 import dev.teogor.ceres.screen.ui.lookandfeel.LookAndFeelScreenRoute
 import dev.teogor.ceres.screen.ui.privacy.PrivacyOptionsRoute
+import dev.teogor.ceres.screen.ui.res.Resources
 
 fun ScreenListScope.settingsHeaderUI() = item {
   HeaderView(
-    title = "UI",
+    title = Resources.Ui,
   )
 }
 
 fun ScreenListScope.settingsLookAndFeel() = item {
   val navigation = LocalNavigationParameters.current
   SimpleView(
-    title = "Look & Feel",
-    subtitle = "Design & color options",
+    title = Resources.LookAndFeel,
+    subtitle = Resources.DesignAndColorOptions,
     icon = Icons.Default.Style,
     clickable = {
       navigation.screenRoute = LookAndFeelScreenRoute
@@ -48,8 +49,8 @@ fun ScreenListScope.settingsLookAndFeel() = item {
 fun ScreenListScope.settingsBackup() = item {
   val navigation = LocalNavigationParameters.current
   SimpleView(
-    title = "Backup & Restore",
-    subtitle = "Full backup of your app",
+    title = Resources.BackupAndRestore,
+    subtitle = Resources.FullBackupOfYourApp,
     icon = Icons.Default.SettingsBackupRestore,
     clickable = {
     },
@@ -58,21 +59,21 @@ fun ScreenListScope.settingsBackup() = item {
 
 fun ScreenListScope.settingsHeaderSystem() = item {
   HeaderView(
-    title = "System",
+    title = Resources.System,
   )
 }
 
 fun ScreenListScope.settingsHeaderDataPrivacy() = item {
   HeaderView(
-    title = "Data & Privacy",
+    title = Resources.DataAndPrivacy,
   )
 }
 
 fun ScreenListScope.settingsPrivacyOptions() = item {
   val navigation = LocalNavigationParameters.current
   SimpleView(
-    title = "Privacy Options",
-    subtitle = "Manage your data and privacy preferences",
+    title = Resources.PrivacyOptions,
+    subtitle = Resources.ManageYourDataAndPrivacyPreferences,
     icon = Icons.Default.PrivacyTip,
     clickable = {
       navigation.screenRoute = PrivacyOptionsRoute

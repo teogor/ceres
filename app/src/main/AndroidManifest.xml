@@ -30,7 +30,8 @@
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/Theme.Ceres.Splash"
-    tools:targetApi="31">
+    android:localeConfig="@xml/locale_config"
+    tools:targetApi="33">
     <profileable android:shell="true" tools:targetApi="q" />
 
     <meta-data

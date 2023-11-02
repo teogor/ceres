@@ -25,7 +25,9 @@ import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import dev.teogor.ceres.core.foundation.DefaultResources
 import dev.teogor.ceres.core.foundation.ui.platform.LocalApplicationDetails
+import dev.teogor.ceres.core.startup.ApplicationContextProvider.context
 import dev.teogor.ceres.framework.core.menu.MenuTitle
 import dev.teogor.ceres.framework.core.menu.menu
 import dev.teogor.ceres.framework.core.menu.menuContent
@@ -39,8 +41,29 @@ import dev.teogor.ceres.framework.core.model.MenuConfig
 import dev.teogor.ceres.navigation.core.LocalNavigationParameters
 import dev.teogor.ceres.navigation.core.ScreenRoute
 import dev.teogor.ceres.screen.ui.about.AboutScreenRoute
+import dev.teogor.ceres.screen.ui.res.ResourceKey
+import dev.teogor.ceres.screen.ui.res.ResourceType
+import dev.teogor.ceres.screen.ui.res.Resources
 import dev.teogor.ceres.screen.ui.settings.SettingsScreenRoute
 import dev.teogor.ceres.screen.ui.userprefs.UserPreferencesScreenRoute
+
+inline fun <reified Type> ResourceKey.asRes(quantity: Int = 0, vararg args: Any): Type =
+  when (type) {
+    ResourceType.Array -> {
+      DefaultResources(resources = context.resources)
+        .getStringArray(id) as Type
+    }
+
+    ResourceType.Plurals -> {
+      DefaultResources(resources = context.resources)
+        .getQuantityString(id, quantity, *args) as Type
+    }
+
+    ResourceType.String -> {
+      DefaultResources(resources = context.resources)
+        .getString(id, *args) as Type
+    }
+  }
 
 /**
  * Applies the menu configuration to this [MenuConfig].
@@ -56,6 +79,9 @@ fun MenuConfig.applyMenuConfig() = apply {
   fun ScreenRoute.navigateTo() {
     navigationParameters.screenRoute = this
   }
+
+  val resSettingsTitle = Resources.Settings
+  val resHelpAndFeedback = Resources.HelpAndFeedback
 
   // Set the header content
   headerContent = {
@@ -94,7 +120,7 @@ fun MenuConfig.applyMenuConfig() = apply {
 
       menuContent {
         menuItem(
-          content = "Settings",
+          content = ResourceKey.SETTINGS.asRes(),
           icon = Icons.Outlined.Settings,
           clickable = {
             SettingsScreenRoute.navigateTo()
@@ -102,22 +128,22 @@ fun MenuConfig.applyMenuConfig() = apply {
         )
 
         menuItem(
-          content = "Help and feedback",
+          content = ResourceKey.HELP_AND_FEEDBACK.asRes(),
           icon = Icons.Outlined.HelpOutline,
         )
 
         menuItem(
-          content = "Privacy Policy",
+          content = ResourceKey.PRIVACY_POLICY.asRes(),
           icon = Icons.Outlined.Link,
         )
 
         menuItem(
-          content = "Terms of service",
+          content = ResourceKey.TERMS_OF_SERVICE.asRes(),
           icon = Icons.Outlined.Link,
         )
 
         menuItem(
-          content = "About",
+          content = ResourceKey.ABOUT.asRes(),
           icon = Icons.Outlined.Details,
           clickable = {
             AboutScreenRoute.navigateTo()

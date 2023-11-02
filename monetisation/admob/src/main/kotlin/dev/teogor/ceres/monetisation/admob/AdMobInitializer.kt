@@ -23,7 +23,8 @@ import android.content.Context
 import android.provider.Settings
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration
-import dev.teogor.ceres.core.runtime.AppMetadataManager
+import dev.teogor.ceres.core.register.BuildProfiler
+import dev.teogor.ceres.core.register.LocalBuildProfiler
 import dev.teogor.ceres.monetisation.ads.AdsControl
 import dev.teogor.ceres.monetisation.ads.AdsControlProvider
 import dev.teogor.ceres.monetisation.ads.ExperimentalAdsControlApi
@@ -41,11 +42,14 @@ object AdMobInitializer {
   internal val adsControl: AdsControl
     get() = AdsControlProvider.adsControl
 
+  internal val buildProfiler: BuildProfiler
+    get() = LocalBuildProfiler.current
+
   fun initialize(context: Context) {
     adsControl.canRequestAds.value = true
     MobileAds.initialize(context) {
       val configuration = RequestConfiguration.Builder().apply {
-        if (AppMetadataManager.isDebuggable) {
+        if (buildProfiler.isDebuggable) {
           setTestDeviceIds(listOf(getHashedAdvertisingId(context)))
         }
       }.build()

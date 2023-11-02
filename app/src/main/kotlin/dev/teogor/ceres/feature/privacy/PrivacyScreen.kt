@@ -39,11 +39,14 @@ import dev.teogor.ceres.screen.ui.privacy.privacyResetOnboarding
 import dev.teogor.ceres.screen.ui.privacy.privacyUserId
 import dev.teogor.ceres.screen.ui.privacy.resetAdsConsentOption
 import dev.teogor.ceres.screen.ui.privacy.termsOfServiceOption
+import dev.teogor.ceres.screen.ui.res.Resources
 
 @Composable
 internal fun PrivacyOptionsRoute(
   baseActions: BaseActions,
 ) {
+  val title = Resources.PrivacyOptions
+
   baseActions.setScreenInfo {
     showNavBar {
       false
@@ -53,7 +56,7 @@ internal fun PrivacyOptionsRoute(
     }
     toolbarTokens {
       toolbarTitle {
-        "Privacy Options"
+        title
       }
       showSettingsButton {
         false
@@ -95,5 +98,5 @@ private fun PrivacyOptionsLayout() = LazyColumnLayoutBase(
 
   // policyRefundPolicy()
 
-  policyAppLicensePolicy()
+  policyAppLicensePolicy(license = 0)
 }

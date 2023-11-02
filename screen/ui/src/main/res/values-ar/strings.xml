@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2023 teogor (Teodor Grigor)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+  <string name="ui">واجهة المستخدم</string>
+  <string name="look_and_feel">المظهر والإحساس</string>
+  <string name="design_and_color_options">خيارات التصميم والألوان</string>
+  <string name="backup_and_restore">النسخ الاحتياطي والاستعادة</string>
+  <string name="full_backup_of_your_app">نسخ احتياطية كاملة لتطبيقك</string>
+  <string name="system">النظام</string>
+  <string name="data_and_privacy">البيانات والخصوصية</string>
+  <string name="privacy_options">خيارات الخصوصية</string>
+  <string name="manage_your_data_and_privacy_preferences">إدارة بياناتك وتفضيلات الخصوصية</string>
+  <string name="look_and_feel_header_appearance">المظهر</string>
+  <string name="language">اللغة</string>
+  <string name="look_and_feel_app_theme">موضوع التطبيق</string>
+  <string name="look_and_feel_app_theme_subtitle">جرب موضوعًا آخر</string>
+  <string name="look_and_feel_dynamic_theming">تبديل السمات الديناميكية</string>
+  <string name="look_and_feel_dynamic_theming_subtitle">إيقاف للمزيد من خيارات الألوان</string>
+  <string name="look_and_feel_app_color_theme">موضوع لون التطبيق</string>
+  <string name="look_and_feel_app_color_theme_subtitle">جرب لونًا آخر</string>
+  <string name="look_and_feel_just_black">فقط الأسود</string>
+  <string name="look_and_feel_just_black_subtitle">تغييره من \'إيقاف\' سيعطي الأولوية لهذا على موضوع التطبيق.</string>
+  <string name="look_and_feel_sound_feedback">ردود الصوت</string>
+  <string name="look_and_feel_sound_feedback_subtitle">إيقاف لعدم وجود أصوات</string>
+  <string name="look_and_feel_vibration_feedback">ردود الاهتزاز</string>
+  <string name="look_and_feel_vibration_feedback_subtitle">إيقاف لعدم وجود اهتزازات</string>
+  <string name="look_and_feel_feedback">ردود الفعل</string>
+
+  <string-array name="app_theme">
+    <item>تلقائي</item>
+    <item>فاتح</item>
+    <item>داكن</item>
+  </string-array>
+
+  <string-array name="just_black">
+    <item>تشغيل</item>
+    <item>إيقاف</item>
+    <item>تلقائي</item>
+  </string-array>
+</resources>

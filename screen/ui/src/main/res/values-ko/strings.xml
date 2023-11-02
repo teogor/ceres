@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2023 teogor (Teodor Grigor)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+  <string name="ui">사용자 인터페이스</string>
+  <string name="look_and_feel">외관 및 느낌</string>
+  <string name="design_and_color_options">디자인 및 색상 옵션</string>
+  <string name="backup_and_restore">백업 및 복원</string>
+  <string name="full_backup_of_your_app">앱 전체 백업</string>
+  <string name="system">시스템</string>
+  <string name="data_and_privacy">데이터 및 개인 정보 보호</string>
+  <string name="privacy_options">개인정보 보호 옵션</string>
+  <string name="manage_your_data_and_privacy_preferences">데이터 및 개인정보 설정 관리</string>
+  <string name="look_and_feel_header_appearance">외관</string>
+  <string name="language">언어</string>
+  <string name="look_and_feel_app_theme">앱 테마</string>
+  <string name="look_and_feel_app_theme_subtitle">다른 테마 시도해 보기</string>
+  <string name="look_and_feel_dynamic_theming">동적 테마 설정</string>
+  <string name="look_and_feel_dynamic_theming_subtitle">더 많은 색상 옵션을 위해 끄기</string>
+  <string name="look_and_feel_app_color_theme">앱 색상 테마</string>
+  <string name="look_and_feel_app_color_theme_subtitle">다른 색상 시도해 보기</string>
+  <string name="look_and_feel_just_black">블랙만</string>
+  <string name="look_and_feel_just_black_subtitle">\'끄기\'에서 변경 시 앱 테마보다 우선시됩니다.</string>
+  <string name="look_and_feel_sound_feedback">음향 피드백</string>
+  <string name="look_and_feel_sound_feedback_subtitle">소리 끄기</string>
+  <string name="look_and_feel_vibration_feedback">진동 피드백</string>
+  <string name="look_and_feel_vibration_feedback_subtitle">진동 끄기</string>
+  <string name="look_and_feel_feedback">피드백</string>
+
+  <string-array name="app_theme">
+    <item>자동</item>
+    <item>라이트</item>
+    <item>다크</item>
+  </string-array>
+
+  <string-array name="just_black">
+    <item>켜기</item>
+    <item>끄기</item>
+    <item>자동</item>
+  </string-array>
+</resources>

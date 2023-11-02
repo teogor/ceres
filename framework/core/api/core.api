@@ -1,4 +1,4 @@
-public class dev/teogor/ceres/framework/core/Activity : androidx/activity/ComponentActivity {
+public class dev/teogor/ceres/framework/core/Activity : androidx/appcompat/app/AppCompatActivity {
 	public static final field $stable I
 	public field crashlyticsHelper Ldev/teogor/ceres/firebase/crashlytics/CrashlyticsHelper;
 	public field lazyStats Ldagger/Lazy;

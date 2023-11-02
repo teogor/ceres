@@ -32,6 +32,7 @@ dependencies {
   api(project(":core:common"))
   api(project(":core:foundation"))
   api(project(":core:runtime"))
+  api(project(":core:register"))
 
   api(project(":data:compose"))
   // required for theme config only
