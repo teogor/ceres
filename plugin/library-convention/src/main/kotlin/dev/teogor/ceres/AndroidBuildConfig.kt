@@ -17,17 +17,19 @@
 package dev.teogor.ceres
 
 import com.android.build.api.dsl.CommonExtension
-import org.gradle.api.Project
-import org.gradle.api.provider.ValueSource
-import org.gradle.api.provider.ValueSourceParameters
-import org.gradle.kotlin.dsl.of
-import org.gradle.process.ExecOperations
 import java.io.ByteArrayOutputStream
 import java.nio.charset.Charset
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 import javax.inject.Inject
+import org.gradle.api.Project
+import org.gradle.api.artifacts.ConfigurationContainer
+import org.gradle.api.artifacts.Dependency
+import org.gradle.api.provider.ValueSource
+import org.gradle.api.provider.ValueSourceParameters
+import org.gradle.kotlin.dsl.of
+import org.gradle.process.ExecOperations
 
 abstract class GitHashValueSource : ValueSource<String, ValueSourceParameters.None> {
 
@@ -56,6 +58,13 @@ abstract class GitHashValueSource : ValueSource<String, ValueSourceParameters.No
   }
 }
 
+internal fun ConfigurationContainer.findSpecificDependency(
+  group: String,
+  name: String,
+): Dependency? = flatMap { it.dependencies }
+  .firstOrNull { it.group == group && it.name == name }
+
+
 /**
  * Configure BuildConfig-specific options for the Android project.
  *
@@ -70,6 +79,17 @@ internal fun Project.configureAndroidBuildConfig(
   val buildDateTime = LocalDateTime.of(buildDate, buildTime)
 
   val gitHashProvider = providers.of(GitHashValueSource::class) {}
+
+  afterEvaluate {
+    val specificDependency = configurations.findSpecificDependency("dev.teogor.ceres", "bom")
+
+    val version = specificDependency?.version
+    if (version != null) {
+      println("[CeresBomVersion] Version of dev.teogor.ceres:bom: $version")
+    } else {
+      println("[CeresBomVersion] Dependency dev.teogor.ceres:bom not found or has no version.")
+    }
+  }
 
   // Enable BuildConfig generation
   commonExtension.apply {
