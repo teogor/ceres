@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2023 teogor (Teodor Grigor)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+  <string name="reset">Reset</string>
+  <string name="restart">Restart</string>
+  <string name="cancel">Cancel</string>
+  <string name="show_less">Show Less</string>
+  <string name="show_more">Show More</string>
+  <string name="this_action_cannot_be_undone">This action cannot be undone.</string>
+
+  <string name="and">and</string>
+  <string name="id">ID</string>
+  <string name="settings">Settings</string>
+  <string name="about">About</string>
+  <string name="help_and_feedback">Help &amp; Feedback</string>
+  <string name="ui">UI</string>
+  <string name="look_and_feel">Look &amp; Feel</string>
+  <string name="system">System</string>
+  <string name="feedback">Feedback</string>
+  <string name="language">Language</string>
+
+  <!-- Look & Feel -->
+  <string name="design_and_color_options">Design &amp; color options</string>
+  <string name="backup_and_restore">Backup &amp; Restore</string>
+  <string name="full_backup_of_your_app">Full backup of your app</string>
+  <string name="data_and_privacy">Data &amp; Privacy</string>
+  <string name="privacy_options">Privacy Options</string>
+  <string name="manage_your_data_and_privacy_preferences">Manage your data and privacy preferences</string>
+  <string name="look_and_feel_header_appearance">Appearance</string>
+  <string name="look_and_feel_app_theme">App theme</string>
+  <string name="look_and_feel_app_theme_subtitle">Try another look</string>
+  <string name="look_and_feel_dynamic_theming">Dynamic Theming</string>
+  <string name="look_and_feel_dynamic_theming_subtitle">Turn Off for more color options</string>
+  <string name="look_and_feel_app_color_theme">App color theme</string>
+  <string name="look_and_feel_app_color_theme_subtitle">Try another color</string>
+  <string name="look_and_feel_just_black">Just Black</string>
+  <string name="look_and_feel_just_black_subtitle">Changing it from \'Off\' will prioritize this over the App theme.</string>
+  <string name="look_and_feel_sound_feedback">Sound Feedback</string>
+  <string name="look_and_feel_sound_feedback_subtitle">Toggle Off for no sounds</string>
+  <string name="look_and_feel_vibration_feedback">Vibration Feedback</string>
+  <string name="look_and_feel_vibration_feedback_subtitle">Toggle Off for no vibrations</string>
+
+  <!-- Privacy -->
+  <string name="reset_ads_consent">Reset Ads Consent</string>
+  <string name="reset_ads_consent_subtitle">Reset your preferences for personalized ads</string>
+  <string name="reset_ads_consent_dialog_title">Reset Ads Consent</string>
+  <string name="reset_ads_consent_dialog_text">Are you sure you want to reset your personalized ads preferences?</string>
+  <string name="user_id">User ID</string>
+  <string name="user_id_subtitle">%s</string>
+  <string name="reset_onboarding">Reset Onboarding</string>
+  <string name="reset_onboarding_subtitle">Start the onboarding process again</string>
+  <string name="reset_onboarding_dialog_title">Restart Onboarding Process</string>
+  <string name="reset_onboarding_dialog_text">Are you sure you want to clear all onboarding progress and start over?</string>
+  <string name="reset_onboarding_dialog_delete_user_stored_content">Delete user-stored content</string>
+  <string name="reset_onboarding_dialog_restart_button">Restart</string>
+  <string name="reset_onboarding_dialog_cancel_button">Cancel</string>
+  <string name="legal_agreements_header">Legal Agreements</string>
+  <!-- TODO have like sepparate strings for pp and review our and merge them like PP + RO -->
+  <string name="privacy_policy">Privacy Policy</string>
+  <string name="review_our_privacy_policy">Review our Privacy Policy</string>
+  <string name="terms_of_service">Terms of Service</string>
+  <string name="review_our_terms_of_service">Review our Terms of Service</string>
+  <string name="copyright_policy">Copyright Policy</string>
+  <string name="review_our_copyright_policy">Review our Copyright Policy</string>
+  <string name="refund_policy">Refund Policy</string>
+  <string name="review_our_refund_policy">Review our Refund Policy</string>
+  <string name="app_license">App License</string>
+
+  <!-- About -->
+  <string name="app_info">App Info</string>
+  <string name="app_version">App version</string>
+  <string name="version_info">Version Info</string>
+  <string name="ceres_framework_version" translatable="false">Ceres version</string>
+  <string name="built_with_ceres">This app is built using the \uD83E\uDE90 Ceres</string>
+  <string name="build_date">Build date</string>
+  <string name="about_us">About Us</string>
+  <string name="made_in">Made in</string>
+  <string name="security_patch">Security Patch</string>
+  <string name="build_hash">Build hash</string>
+  <string name="apk_signature">APK signature</string>
+  <string name="open_source_licenses">Open-source licenses</string>
+  <string name="copyright_all_rights_reserved" args="year;holder">© %1$d %2$s. All rights reserved.</string>
+  <string name="license_details_for_open_source_software">License details for open-source software</string>
+
+  <string name="enterprise">Enterprise</string>
+  <string name="company">Company</string>
+  <string name="organization">Organization</string>
+  <string name="corporation">Corporation</string>
+  <string name="developer">Developer</string>
+  <string name="business">Business</string>
+
+  <!-- Licenses -->
+  <string name="licensed_under" args="license">Licensed under %1$s</string>
+  <string name="licenses">Licenses</string>
+  <string-array name="licenses_array" translatable="false">
+    <item>Apache License 2.0</item>
+    <item>GNU General Public License v3.0</item>
+    <item>MIT License</item>
+    <item>BSD 3-Clause License</item>
+    <item>Creative Commons Zero v1.0 Universal License</item>
+    <item>Mozilla Public License 2.0</item>
+  </string-array>
+
+  <string-array name="app_theme">
+    <item>Auto</item>
+    <item>Light</item>
+    <item>Dark</item>
+  </string-array>
+
+  <string-array name="just_black">
+    <item>On</item>
+    <item>Off</item>
+    <item>Auto</item>
+  </string-array>
+</resources>

@@ -36,6 +36,7 @@ include(":core:common")
 include(":core:foundation")
 include(":core:network")
 include(":core:notifications")
+include(":core:register")
 include(":core:runtime")
 include(":core:startup")
 

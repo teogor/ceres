@@ -162,6 +162,11 @@ gradlePlugin {
       description = "Builds project documentation and reports for your project."
       tags.set(listOf("documentation", "report", "build-logic"))
     }
+
+    register("kotlinLibrary") {
+      id = "dev.teogor.ceres.kotlin.library"
+      implementationClass = "KotlinLibraryConventionPlugin"
+    }
   }
 }
 

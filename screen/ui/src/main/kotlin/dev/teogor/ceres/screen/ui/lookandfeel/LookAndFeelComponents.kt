@@ -18,27 +18,39 @@ package dev.teogor.ceres.screen.ui.lookandfeel
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ContentAlpha
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material.icons.filled.ArrowDropUp
 import androidx.compose.material.icons.filled.Audiotrack
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.ColorLens
 import androidx.compose.material.icons.filled.InvertColors
+import androidx.compose.material.icons.filled.Language
 import androidx.compose.material.icons.filled.Style
 import androidx.compose.material.icons.filled.Vibration
+import androidx.compose.material3.Icon
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -48,8 +60,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.CompositingStrategy
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
+import dev.teogor.ceres.core.register.LocalSupportedDialects
 import dev.teogor.ceres.data.compose.rememberPreference
 import dev.teogor.ceres.data.datastore.defaults.AppTheme
 import dev.teogor.ceres.data.datastore.defaults.JustBlackTheme
@@ -59,20 +74,160 @@ import dev.teogor.ceres.screen.builder.compose.HeaderView
 import dev.teogor.ceres.screen.builder.compose.SimpleView
 import dev.teogor.ceres.screen.builder.compose.SwitchView
 import dev.teogor.ceres.screen.core.scope.ScreenListScope
+import dev.teogor.ceres.screen.ui.res.Resources
+import dev.teogor.ceres.ui.designsystem.AlertDialog
+import dev.teogor.ceres.ui.designsystem.HorizontalDivider
 import dev.teogor.ceres.ui.designsystem.SegmentedButtons
+import dev.teogor.ceres.ui.designsystem.Text
 import dev.teogor.ceres.ui.designsystem.VerticalDivider
-import dev.teogor.ceres.ui.foundation.clickable
 import dev.teogor.ceres.ui.spectrum.model.ColorInfo
 import dev.teogor.ceres.ui.spectrum.palettes.TonalPalette
 import dev.teogor.ceres.ui.spectrum.utilities.asHexColor
 import dev.teogor.ceres.ui.theme.MaterialTheme
 import dev.teogor.ceres.ui.theme.supportsDynamicTheming
 import dev.teogor.ceres.ui.theme.tokens.ColorSchemeKeyTokens
+import dev.teogor.querent.languages.schema.LanguageSettings
+import java.util.Locale
 
 fun ScreenListScope.lookAndFeelHeaderAppearance() = item {
   HeaderView(
-    title = "Appearance",
+    title = Resources.LookAndFeelHeaderAppearance,
   )
+}
+
+fun ScreenListScope.lookAndFeelLanguage() {
+  val supportedLocales = LocalSupportedDialects.current
+  item {
+    val languageTag = supportedLocales.getCurrentLocale().toLanguageTag()
+    val locale = Locale.forLanguageTag(languageTag)
+    val dialogVisibility = rememberDialogVisibility()
+    SimpleView(
+      title = Resources.Language,
+      subtitle = locale.getDisplayName(locale),
+      icon = Icons.Default.Language,
+      clickable = {
+        dialogVisibility.value = true
+      },
+    )
+    LanguagePickerDialog(dialogVisible = dialogVisibility)
+  }
+}
+
+@Composable
+fun rememberDialogVisibility(): MutableState<Boolean> {
+  return remember {
+    mutableStateOf(false)
+  }
+}
+
+@Composable
+fun LanguagePickerDialog(
+  dialogVisible: MutableState<Boolean>,
+) {
+  if (dialogVisible.value) {
+    var selectedCode by remember { mutableStateOf<String?>(null) }
+    AlertDialog(
+      onDismissRequest = { dialogVisible.value = false },
+      title = {
+        Text(
+          text = Resources.Language,
+          textAlign = TextAlign.Center,
+        )
+      },
+      text = {
+        LazyColumn {
+          val supportedLocales = LocalSupportedDialects.current
+          items(supportedLocales.getSupportedLanguages()) { code ->
+            val hasMultipleLanguages = remember(code) {
+              supportedLocales.hasMultipleCountriesForLanguage(code)
+            }
+            val isLanguageSelected = remember(code) {
+              supportedLocales.isLanguageSelected(code)
+            }
+            val locale = remember(code) { Locale(code) }
+            val languageName = remember(code) {
+              locale.getDisplayName(locale)
+            }
+
+            Box(modifier = Modifier.fillMaxWidth()) {
+              Text(
+                text = languageName,
+                color = if (isLanguageSelected) MaterialTheme.colorScheme.success else Color.Unspecified,
+                modifier = Modifier
+                  .clickable {
+                    if (selectedCode == code) {
+                      selectedCode = null
+                    } else {
+                      if (hasMultipleLanguages) {
+                        selectedCode = code
+                      } else {
+                        val languageTag = supportedLocales
+                          .getSupportedDialects()
+                          .first { it.startsWith(code) }
+                        LanguageSettings.setAppLanguage(
+                          languageTag,
+                        )
+                      }
+                    }
+                  }
+                  .fillMaxWidth()
+                  .padding(16.dp),
+                fontSize = 18.sp,
+                textAlign = TextAlign.Center,
+              )
+              if (hasMultipleLanguages) {
+                // Add an icon that is pointing up or down based on whether the language is selected
+                val icon = if (selectedCode != code) {
+                  Icons.Default.ArrowDropDown
+                } else {
+                  Icons.Default.ArrowDropUp
+                }
+                Icon(
+                  imageVector = icon,
+                  contentDescription = "",
+                  modifier = Modifier.align(Alignment.CenterEnd),
+                )
+              }
+            }
+
+            if (selectedCode == code) {
+              HorizontalDivider()
+              Column(
+                modifier = Modifier
+                  .padding(horizontal = 10.dp),
+              ) {
+                supportedLocales.getCountryCodesForLanguage(code)
+                  .forEach { languageTag ->
+                    val localeCountry = remember(languageTag) { Locale.forLanguageTag(languageTag) }
+                    val displayCountry = localeCountry.getDisplayCountry(localeCountry)
+                    val isCountrySelected = supportedLocales.isLanguageSelected(languageTag)
+                    Text(
+                      text = displayCountry,
+                      color = if (isCountrySelected) MaterialTheme.colorScheme.success else Color.Unspecified,
+                      modifier = Modifier
+                        .padding(2.dp)
+                        .clickable {
+                          selectedCode = null
+                          LanguageSettings.setAppLanguage(languageTag)
+                        }
+                        .padding(vertical = 12.dp)
+                        .fillMaxWidth(),
+                      fontSize = 16.sp,
+                      textAlign = TextAlign.Center,
+                    )
+                  }
+              }
+              HorizontalDivider()
+            }
+          }
+        }
+      },
+      confirmButton = {
+      },
+      dismissButton = {
+      },
+    )
+  }
 }
 
 fun ScreenListScope.lookAndFeelAppTheme() = item {
@@ -83,7 +238,7 @@ fun ScreenListScope.lookAndFeelAppTheme() = item {
     preferenceFlow = ceresPreferences.getAppThemeFlow(),
     initialValue = ceresPreferences.appTheme,
   )
-  val options = listOf("Auto", "Light", "Dark")
+  val options = Resources.AppTheme.toList()
   var selectedOption by remember {
     mutableIntStateOf(
       when (appThemeFlow) {
@@ -95,8 +250,8 @@ fun ScreenListScope.lookAndFeelAppTheme() = item {
   }
 
   SimpleView(
-    title = "App theme",
-    subtitle = "Try another look",
+    title = Resources.LookAndFeelAppTheme,
+    subtitle = Resources.LookAndFeelAppThemeSubtitle,
     icon = Icons.Default.Style,
     columnContent = {
       SegmentedButtons(
@@ -129,8 +284,8 @@ fun ScreenListScope.lookAndFeelDynamicTheming() {
         initialValue = ceresPreferences.disableDynamicTheming,
       )
       SwitchView(
-        title = "Dynamic Theming",
-        subtitle = "Turn Off for more color options",
+        title = Resources.LookAndFeelDynamicTheming,
+        subtitle = Resources.LookAndFeelDynamicThemingSubtitle,
         icon = Icons.Default.AutoAwesome,
         switchToggled = !disableDynamicTheming,
       ) { isToggled ->
@@ -152,8 +307,8 @@ fun ScreenListScope.lookAndFeelColorTheme() {
     )
     if (disableDynamicTheming) {
       SimpleView(
-        title = "App color theme",
-        subtitle = "Try another color",
+        title = Resources.LookAndFeelAppColorTheme,
+        subtitle = Resources.LookAndFeelAppColorThemeSubtitle,
         icon = Icons.Default.ColorLens,
         columnContent = {
           // AnimatedVisibility(
@@ -295,7 +450,7 @@ fun ScreenListScope.lookAndFeelJustBlack() = item {
     preferenceFlow = ceresPreferences.getJustBlackThemeFlow(),
     initialValue = ceresPreferences.justBlack,
   )
-  val options = listOf("On", "Off", "Auto")
+  val options = Resources.JustBlack.toList()
   var selectedOption by remember {
     mutableIntStateOf(
       when (justBlack) {
@@ -308,8 +463,8 @@ fun ScreenListScope.lookAndFeelJustBlack() = item {
   }
 
   SimpleView(
-    title = "Just Black",
-    subtitle = "Changing it from 'Off' will prioritize this over the App theme.",
+    title = Resources.LookAndFeelJustBlack,
+    subtitle = Resources.LookAndFeelJustBlackSubtitle,
     subtitleColor = ColorSchemeKeyTokens.Error,
     icon = Icons.Default.InvertColors,
     columnContent = {
@@ -334,7 +489,7 @@ fun ScreenListScope.lookAndFeelJustBlack() = item {
 
 fun ScreenListScope.lookAndFeelHeaderFeedback() = item {
   HeaderView(
-    title = "Feedback",
+    title = Resources.Feedback,
   )
 }
 
@@ -347,8 +502,8 @@ fun ScreenListScope.lookAndFeelSoundFeedback() = item {
     initialValue = ceresPreferences.disableSoundFeedback,
   )
   SwitchView(
-    title = "Sound Feedback",
-    subtitle = "Toggle Off for no sounds",
+    title = Resources.LookAndFeelSoundFeedback,
+    subtitle = Resources.LookAndFeelSoundFeedbackSubtitle,
     icon = Icons.Default.Audiotrack,
     switchToggled = !disableSoundFeedback,
   ) { isToggled ->
@@ -365,8 +520,8 @@ fun ScreenListScope.lookAndFeelVibrationFeedback() = item {
     initialValue = ceresPreferences.disableVibrationFeedback,
   )
   SwitchView(
-    title = "Vibration Feedback",
-    subtitle = "Toggle Off for no vibrations",
+    title = Resources.LookAndFeelVibrationFeedback,
+    subtitle = Resources.LookAndFeelVibrationFeedbackSubtitle,
     icon = Icons.Default.Vibration,
     switchToggled = !disableVibrationFeedback,
   ) { isToggled ->

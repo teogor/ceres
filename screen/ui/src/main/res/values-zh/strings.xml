@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2023 teogor (Teodor Grigor)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+  <string name="ui">用户界面</string>
+  <string name="look_and_feel">外观与感觉</string>
+  <string name="design_and_color_options">设计与颜色选项</string>
+  <string name="backup_and_restore">备份与恢复</string>
+  <string name="full_backup_of_your_app">您的应用完整备份</string>
+  <string name="system">系统</string>
+  <string name="data_and_privacy">数据与隐私</string>
+  <string name="privacy_options">隐私选项</string>
+  <string name="manage_your_data_and_privacy_preferences">管理您的数据和隐私偏好</string>
+  <string name="look_and_feel_header_appearance">外观</string>
+  <string name="language">语言</string>
+  <string name="look_and_feel_app_theme">应用主题</string>
+  <string name="look_and_feel_app_theme_subtitle">尝试其他主题</string>
+  <string name="look_and_feel_dynamic_theming">动态主题</string>
+  <string name="look_and_feel_dynamic_theming_subtitle">关闭以获得更多颜色选项</string>
+  <string name="look_and_feel_app_color_theme">应用颜色主题</string>
+  <string name="look_and_feel_app_color_theme_subtitle">尝试其他颜色</string>
+  <string name="look_and_feel_just_black">纯黑</string>
+  <string name="look_and_feel_just_black_subtitle">从“关闭”更改将优先于应用主题。</string>
+  <string name="look_and_feel_sound_feedback">声音反馈</string>
+  <string name="look_and_feel_sound_feedback_subtitle">关闭以消除声音</string>
+  <string name="look_and_feel_vibration_feedback">振动反馈</string>
+  <string name="look_and_feel_vibration_feedback_subtitle">关闭以消除振动</string>
+  <string name="look_and_feel_feedback">反馈</string>
+
+  <string-array name="app_theme">
+    <item>自动</item>
+    <item>明亮</item>
+    <item>暗黑</item>
+  </string-array>
+
+  <string-array name="just_black">
+    <item>开启</item>
+    <item>关闭</item>
+    <item>自动</item>
+  </string-array>
+</resources>

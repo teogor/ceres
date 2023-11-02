@@ -16,15 +16,19 @@
 
 package dev.teogor.ceres.monetisation.admob.formats
 
-import dev.teogor.ceres.core.runtime.AppMetadataManager
+import dev.teogor.ceres.core.register.BuildProfiler
+import dev.teogor.ceres.core.register.LocalBuildProfiler
 import dev.teogor.ceres.monetisation.admob.DemoAdUnitIds
 
 abstract class AdId {
   abstract fun id(): String
   abstract fun type(): AdType
 
+  internal val buildProfiler: BuildProfiler
+    get() = LocalBuildProfiler.current
+
   val id: String = ""
-    get() = if (!AppMetadataManager.isDebuggable) {
+    get() = if (!buildProfiler.isDebuggable) {
       id()
     } else {
       when (type()) {

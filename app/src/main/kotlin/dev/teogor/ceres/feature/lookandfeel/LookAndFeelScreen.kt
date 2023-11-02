@@ -36,13 +36,17 @@ import dev.teogor.ceres.screen.ui.lookandfeel.lookAndFeelDynamicTheming
 import dev.teogor.ceres.screen.ui.lookandfeel.lookAndFeelHeaderAppearance
 import dev.teogor.ceres.screen.ui.lookandfeel.lookAndFeelHeaderFeedback
 import dev.teogor.ceres.screen.ui.lookandfeel.lookAndFeelJustBlack
+import dev.teogor.ceres.screen.ui.lookandfeel.lookAndFeelLanguage
 import dev.teogor.ceres.screen.ui.lookandfeel.lookAndFeelSoundFeedback
 import dev.teogor.ceres.screen.ui.lookandfeel.lookAndFeelVibrationFeedback
+import dev.teogor.ceres.screen.ui.res.Resources
 
 @Composable
 internal fun LookAndFeelRoute(
   baseActions: BaseActions,
 ) {
+  val title = Resources.LookAndFeel
+
   baseActions.setScreenInfo {
     showNavBar {
       false
@@ -52,7 +56,7 @@ internal fun LookAndFeelRoute(
     }
     toolbarTokens {
       toolbarTitle {
-        "Look & Feel"
+        title
       }
       showSettingsButton {
         false
@@ -77,6 +81,8 @@ private fun LookAndFeelLayout() = LazyColumnLayoutBase(
   screenName = LookAndFeelScreenRoute.toScreenName(),
 ) {
   lookAndFeelHeaderAppearance()
+
+  lookAndFeelLanguage()
 
   lookAndFeelAppTheme()
 

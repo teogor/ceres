@@ -69,6 +69,10 @@ spotless = "6.21.0"
 startup = "1.2.0-alpha02"
 turbine = "0.12.1"
 vanniktechMavenPlugin = "0.25.3"
+kotlin-poet = "1.14.2"
+kotlin-xml-builder = "1.9.1"
+kotlinx-serialization-core = "1.6.0"
+jdom2 = "2.0.6.1"
 
 [libraries]
 about-libraries-core = { group = "com.mikepenz", name = "aboutlibraries-core", version.ref = "aboutLibraries" }
@@ -175,6 +179,10 @@ ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 ui = { group = "androidx.compose.ui", name = "ui" }
+kotlin-poet = { group = "com.squareup", name = "kotlinpoet", version.ref = "kotlin-poet" }
+kotlin-xml-builder = { module = "org.redundent:kotlin-xml-builder", version.ref = "kotlin-xml-builder" }
+kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization-core" }
+jdom2 = { module = "org.jdom:jdom2", version.ref = "jdom2" }
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }

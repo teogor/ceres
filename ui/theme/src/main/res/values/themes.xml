@@ -18,7 +18,7 @@
 
   <!-- Allows us to override night specific attributes in the
        values-night folder. -->
-  <style name="NightAdjusted.Theme.Ceres" parent="android:Theme.Material.Light.NoActionBar"/>
+  <style name="NightAdjusted.Theme.Ceres" parent="Theme.AppCompat.DayNight.NoActionBar"/>
 
   <!-- The base theme we use -->
   <style name="Base.Theme.Ceres" parent="NightAdjusted.Theme.Ceres" />

@@ -37,7 +37,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import dev.teogor.ceres.core.runtime.AppMetadataManager
+import dev.teogor.ceres.core.register.BuildProfiler
+import dev.teogor.ceres.core.register.LocalBuildProfiler
 import dev.teogor.ceres.navigation.core.LocalNavigationParameters
 import dev.teogor.ceres.ui.designsystem.Surface
 import dev.teogor.ceres.ui.designsystem.Text
@@ -50,6 +51,8 @@ import dev.teogor.ceres.ui.theme.surfaceColorAtElevation
 import dev.teogor.ceres.ui.theme.tokens.ElevationTokens
 import java.util.Calendar
 
+private val buildProfiler: BuildProfiler
+  get() = LocalBuildProfiler.current
 private val cornerSize = 20.dp
 private val roundedShape = RoundedCornerShape(cornerSize)
 private val roundedShapeTop = RoundedCornerShape(
@@ -169,10 +172,10 @@ internal fun MenuFooterItem(
       fontSize = 10.sp,
       color = MaterialTheme.colorScheme.onSurface,
     )
-    val versionContent = if (AppMetadataManager.isDebuggable) {
-      "v${AppMetadataManager.versionName} [debug]"
+    val versionContent = if (buildProfiler.isDebuggable) {
+      "v${buildProfiler.versionName} [debug]"
     } else {
-      "v${AppMetadataManager.versionName}"
+      "v${buildProfiler.versionName}"
     }
     Text(
       modifier = Modifier.padding(vertical = 0.dp),

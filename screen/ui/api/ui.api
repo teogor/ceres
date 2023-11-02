@@ -13,9 +13,11 @@ public final class dev/teogor/ceres/screen/ui/about/AboutComponentsKt {
 	public static final fun aboutHeaderLicenses (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun aboutHeaderSecurityPatch (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun aboutHeaderVersion (Landroidx/compose/foundation/lazy/LazyListScope;)V
-	public static final fun aboutMadeIn (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun aboutMadeIn (Landroidx/compose/foundation/lazy/LazyListScope;Ljava/lang/String;)V
 	public static final fun aboutOpenAppInfo (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun aboutOpenSourceLicenses (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun getApkSignature ()Ljava/lang/String;
+	public static final fun itemIf (Landroidx/compose/foundation/lazy/LazyListScope;ZLkotlin/jvm/functions/Function3;)V
 }
 
 public final class dev/teogor/ceres/screen/ui/about/AboutLibrariesScreenRoute : dev/teogor/ceres/navigation/core/ScreenRoute {
@@ -49,7 +51,6 @@ public final class dev/teogor/ceres/screen/ui/about/ComposableSingletons$AboutCo
 	public static field lambda-6 Lkotlin/jvm/functions/Function3;
 	public static field lambda-7 Lkotlin/jvm/functions/Function3;
 	public static field lambda-8 Lkotlin/jvm/functions/Function3;
-	public static field lambda-9 Lkotlin/jvm/functions/Function3;
 	public fun <init> ()V
 	public final fun getLambda-1$ui_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-2$ui_release ()Lkotlin/jvm/functions/Function3;
@@ -59,7 +60,6 @@ public final class dev/teogor/ceres/screen/ui/about/ComposableSingletons$AboutCo
 	public final fun getLambda-6$ui_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-7$ui_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-8$ui_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda-9$ui_release ()Lkotlin/jvm/functions/Function3;
 }
 
 public final class dev/teogor/ceres/screen/ui/about/libraries/AboutLibrariesScreenKt {
@@ -138,35 +138,44 @@ public final class dev/teogor/ceres/screen/ui/components/HeaderSurfaceKt {
 public final class dev/teogor/ceres/screen/ui/lookandfeel/ComposableSingletons$LookAndFeelComponentsKt {
 	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/lookandfeel/ComposableSingletons$LookAndFeelComponentsKt;
 	public static field lambda-1 Lkotlin/jvm/functions/Function3;
-	public static field lambda-2 Lkotlin/jvm/functions/Function3;
-	public static field lambda-3 Lkotlin/jvm/functions/Function3;
+	public static field lambda-10 Lkotlin/jvm/functions/Function3;
+	public static field lambda-11 Lkotlin/jvm/functions/Function3;
+	public static field lambda-12 Lkotlin/jvm/functions/Function3;
+	public static field lambda-2 Lkotlin/jvm/functions/Function2;
+	public static field lambda-3 Lkotlin/jvm/functions/Function2;
 	public static field lambda-4 Lkotlin/jvm/functions/Function2;
 	public static field lambda-5 Lkotlin/jvm/functions/Function3;
 	public static field lambda-6 Lkotlin/jvm/functions/Function3;
-	public static field lambda-7 Lkotlin/jvm/functions/Function3;
+	public static field lambda-7 Lkotlin/jvm/functions/Function2;
 	public static field lambda-8 Lkotlin/jvm/functions/Function3;
 	public static field lambda-9 Lkotlin/jvm/functions/Function3;
 	public fun <init> ()V
 	public final fun getLambda-1$ui_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda-2$ui_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda-3$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-10$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-11$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-12$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-2$ui_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-3$ui_release ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda-4$ui_release ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda-5$ui_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-6$ui_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda-7$ui_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-7$ui_release ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda-8$ui_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-9$ui_release ()Lkotlin/jvm/functions/Function3;
 }
 
 public final class dev/teogor/ceres/screen/ui/lookandfeel/LookAndFeelComponentsKt {
+	public static final fun LanguagePickerDialog (Landroidx/compose/runtime/MutableState;Landroidx/compose/runtime/Composer;I)V
 	public static final fun lookAndFeelAppTheme (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun lookAndFeelColorTheme (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun lookAndFeelDynamicTheming (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun lookAndFeelHeaderAppearance (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun lookAndFeelHeaderFeedback (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun lookAndFeelJustBlack (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun lookAndFeelLanguage (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun lookAndFeelSoundFeedback (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun lookAndFeelVibrationFeedback (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun rememberDialogVisibility (Landroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/MutableState;
 }
 
 public final class dev/teogor/ceres/screen/ui/lookandfeel/LookAndFeelNavigationKt {
@@ -402,7 +411,6 @@ public final class dev/teogor/ceres/screen/ui/privacy/ComposableSingletons$Priva
 	public static field lambda-15 Lkotlin/jvm/functions/Function3;
 	public static field lambda-16 Lkotlin/jvm/functions/Function3;
 	public static field lambda-17 Lkotlin/jvm/functions/Function3;
-	public static field lambda-18 Lkotlin/jvm/functions/Function3;
 	public static field lambda-2 Lkotlin/jvm/functions/Function3;
 	public static field lambda-3 Lkotlin/jvm/functions/Function3;
 	public static field lambda-4 Lkotlin/jvm/functions/Function2;
@@ -421,7 +429,6 @@ public final class dev/teogor/ceres/screen/ui/privacy/ComposableSingletons$Priva
 	public final fun getLambda-15$ui_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-16$ui_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-17$ui_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda-18$ui_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-2$ui_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-3$ui_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda-4$ui_release ()Lkotlin/jvm/functions/Function2;
@@ -444,7 +451,7 @@ public final class dev/teogor/ceres/screen/ui/privacy/PrivacyOptionsRoute : dev/
 
 public final class dev/teogor/ceres/screen/ui/privacy/PrivacyScreenKt {
 	public static final fun legalAgreementsHeader (Landroidx/compose/foundation/lazy/LazyListScope;)V
-	public static final fun policyAppLicensePolicy (Landroidx/compose/foundation/lazy/LazyListScope;)V
+	public static final fun policyAppLicensePolicy (Landroidx/compose/foundation/lazy/LazyListScope;I)V
 	public static final fun policyCopyrightPolicy (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun policyRefundPolicy (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun privacyOptionsHeader (Landroidx/compose/foundation/lazy/LazyListScope;)V
@@ -453,6 +460,284 @@ public final class dev/teogor/ceres/screen/ui/privacy/PrivacyScreenKt {
 	public static final fun privacyUserId (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun resetAdsConsentOption (Landroidx/compose/foundation/lazy/LazyListScope;)V
 	public static final fun termsOfServiceOption (Landroidx/compose/foundation/lazy/LazyListScope;)V
+}
+
+public final class dev/teogor/ceres/screen/ui/res/ResourceIdsKt {
+	public static final fun getAboutId ()I
+	public static final fun getAboutUsId ()I
+	public static final fun getAndId ()I
+	public static final fun getApkSignatureId ()I
+	public static final fun getAppInfoId ()I
+	public static final fun getAppLicenseId ()I
+	public static final fun getAppThemeId ()I
+	public static final fun getAppVersionId ()I
+	public static final fun getBackupAndRestoreId ()I
+	public static final fun getBuildDateId ()I
+	public static final fun getBuildHashId ()I
+	public static final fun getBuiltWithCeresId ()I
+	public static final fun getBusinessId ()I
+	public static final fun getCancelId ()I
+	public static final fun getCeresFrameworkVersionId ()I
+	public static final fun getCompanyId ()I
+	public static final fun getCopyrightAllRightsReservedId ()I
+	public static final fun getCopyrightPolicyId ()I
+	public static final fun getCorporationId ()I
+	public static final fun getDataAndPrivacyId ()I
+	public static final fun getDesignAndColorOptionsId ()I
+	public static final fun getDeveloperId ()I
+	public static final fun getEnterpriseId ()I
+	public static final fun getFeedbackId ()I
+	public static final fun getFullBackupOfYourAppId ()I
+	public static final fun getHelpAndFeedbackId ()I
+	public static final fun getIdId ()I
+	public static final fun getJustBlackId ()I
+	public static final fun getLanguageId ()I
+	public static final fun getLegalAgreementsHeaderId ()I
+	public static final fun getLicenseDetailsForOpenSourceSoftwareId ()I
+	public static final fun getLicensedUnderId ()I
+	public static final fun getLicensesArrayId ()I
+	public static final fun getLicensesId ()I
+	public static final fun getLookAndFeelAppColorThemeId ()I
+	public static final fun getLookAndFeelAppColorThemeSubtitleId ()I
+	public static final fun getLookAndFeelAppThemeId ()I
+	public static final fun getLookAndFeelAppThemeSubtitleId ()I
+	public static final fun getLookAndFeelDynamicThemingId ()I
+	public static final fun getLookAndFeelDynamicThemingSubtitleId ()I
+	public static final fun getLookAndFeelHeaderAppearanceId ()I
+	public static final fun getLookAndFeelId ()I
+	public static final fun getLookAndFeelJustBlackId ()I
+	public static final fun getLookAndFeelJustBlackSubtitleId ()I
+	public static final fun getLookAndFeelSoundFeedbackId ()I
+	public static final fun getLookAndFeelSoundFeedbackSubtitleId ()I
+	public static final fun getLookAndFeelVibrationFeedbackId ()I
+	public static final fun getLookAndFeelVibrationFeedbackSubtitleId ()I
+	public static final fun getMadeInId ()I
+	public static final fun getManageYourDataAndPrivacyPreferencesId ()I
+	public static final fun getOpenSourceLicensesId ()I
+	public static final fun getOrganizationId ()I
+	public static final fun getPrivacyOptionsId ()I
+	public static final fun getPrivacyPolicyId ()I
+	public static final fun getRefundPolicyId ()I
+	public static final fun getResetAdsConsentDialogTextId ()I
+	public static final fun getResetAdsConsentDialogTitleId ()I
+	public static final fun getResetAdsConsentId ()I
+	public static final fun getResetAdsConsentSubtitleId ()I
+	public static final fun getResetId ()I
+	public static final fun getResetOnboardingDialogCancelButtonId ()I
+	public static final fun getResetOnboardingDialogDeleteUserStoredContentId ()I
+	public static final fun getResetOnboardingDialogRestartButtonId ()I
+	public static final fun getResetOnboardingDialogTextId ()I
+	public static final fun getResetOnboardingDialogTitleId ()I
+	public static final fun getResetOnboardingId ()I
+	public static final fun getResetOnboardingSubtitleId ()I
+	public static final fun getRestartId ()I
+	public static final fun getReviewOurCopyrightPolicyId ()I
+	public static final fun getReviewOurPrivacyPolicyId ()I
+	public static final fun getReviewOurRefundPolicyId ()I
+	public static final fun getReviewOurTermsOfServiceId ()I
+	public static final fun getSecurityPatchId ()I
+	public static final fun getSettingsId ()I
+	public static final fun getShowLessId ()I
+	public static final fun getShowMoreId ()I
+	public static final fun getSystemId ()I
+	public static final fun getTermsOfServiceId ()I
+	public static final fun getThisActionCannotBeUndoneId ()I
+	public static final fun getUiId ()I
+	public static final fun getUserIdId ()I
+	public static final fun getUserIdSubtitleId ()I
+	public static final fun getVersionInfoId ()I
+}
+
+public final class dev/teogor/ceres/screen/ui/res/ResourceKey : java/lang/Enum {
+	public static final field ABOUT Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field ABOUT_US Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field AND Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field APK_SIGNATURE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field APP_INFO Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field APP_LICENSE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field APP_THEME Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field APP_VERSION Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field BACKUP_AND_RESTORE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field BUILD_DATE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field BUILD_HASH Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field BUILT_WITH_CERES Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field BUSINESS Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field CANCEL Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field CERES_FRAMEWORK_VERSION Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field COMPANY Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field COPYRIGHT_ALL_RIGHTS_RESERVED Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field COPYRIGHT_POLICY Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field CORPORATION Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field DATA_AND_PRIVACY Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field DESIGN_AND_COLOR_OPTIONS Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field DEVELOPER Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field ENTERPRISE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field FEEDBACK Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field FULL_BACKUP_OF_YOUR_APP Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field HELP_AND_FEEDBACK Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field ID Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field JUST_BLACK Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field LANGUAGE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field LEGAL_AGREEMENTS_HEADER Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field LICENSED_UNDER Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field LICENSES Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field LICENSES_ARRAY Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field LICENSE_DETAILS_FOR_OPEN_SOURCE_SOFTWARE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field LOOK_AND_FEEL Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field LOOK_AND_FEEL_APP_COLOR_THEME Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field LOOK_AND_FEEL_APP_COLOR_THEME_SUBTITLE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field LOOK_AND_FEEL_APP_THEME Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field LOOK_AND_FEEL_APP_THEME_SUBTITLE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field LOOK_AND_FEEL_DYNAMIC_THEMING Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field LOOK_AND_FEEL_DYNAMIC_THEMING_SUBTITLE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field LOOK_AND_FEEL_HEADER_APPEARANCE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field LOOK_AND_FEEL_JUST_BLACK Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field LOOK_AND_FEEL_JUST_BLACK_SUBTITLE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field LOOK_AND_FEEL_SOUND_FEEDBACK Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field LOOK_AND_FEEL_SOUND_FEEDBACK_SUBTITLE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field LOOK_AND_FEEL_VIBRATION_FEEDBACK Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field LOOK_AND_FEEL_VIBRATION_FEEDBACK_SUBTITLE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field MADE_IN Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field MANAGE_YOUR_DATA_AND_PRIVACY_PREFERENCES Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field OPEN_SOURCE_LICENSES Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field ORGANIZATION Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field PRIVACY_OPTIONS Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field PRIVACY_POLICY Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field REFUND_POLICY Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field RESET Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field RESET_ADS_CONSENT Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field RESET_ADS_CONSENT_DIALOG_TEXT Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field RESET_ADS_CONSENT_DIALOG_TITLE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field RESET_ADS_CONSENT_SUBTITLE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field RESET_ONBOARDING Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field RESET_ONBOARDING_DIALOG_CANCEL_BUTTON Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field RESET_ONBOARDING_DIALOG_DELETE_USER_STORED_CONTENT Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field RESET_ONBOARDING_DIALOG_RESTART_BUTTON Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field RESET_ONBOARDING_DIALOG_TEXT Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field RESET_ONBOARDING_DIALOG_TITLE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field RESET_ONBOARDING_SUBTITLE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field RESTART Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field REVIEW_OUR_COPYRIGHT_POLICY Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field REVIEW_OUR_PRIVACY_POLICY Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field REVIEW_OUR_REFUND_POLICY Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field REVIEW_OUR_TERMS_OF_SERVICE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field SECURITY_PATCH Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field SETTINGS Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field SHOW_LESS Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field SHOW_MORE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field SYSTEM Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field TERMS_OF_SERVICE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field THIS_ACTION_CANNOT_BE_UNDONE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field UI Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field USER_ID Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field USER_ID_SUBTITLE Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static final field VERSION_INFO Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()I
+	public final fun getType ()Ldev/teogor/ceres/screen/ui/res/ResourceType;
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+	public static fun values ()[Ldev/teogor/ceres/screen/ui/res/ResourceKey;
+}
+
+public final class dev/teogor/ceres/screen/ui/res/ResourceKeyKt {
+	public static final fun getValue (Ldev/teogor/ceres/screen/ui/res/ResourceKey;Ljava/lang/Object;Lkotlin/reflect/KProperty;)I
+}
+
+public final class dev/teogor/ceres/screen/ui/res/ResourceType : java/lang/Enum {
+	public static final field Array Ldev/teogor/ceres/screen/ui/res/ResourceType;
+	public static final field Plurals Ldev/teogor/ceres/screen/ui/res/ResourceType;
+	public static final field String Ldev/teogor/ceres/screen/ui/res/ResourceType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ldev/teogor/ceres/screen/ui/res/ResourceType;
+	public static fun values ()[Ldev/teogor/ceres/screen/ui/res/ResourceType;
+}
+
+public final class dev/teogor/ceres/screen/ui/res/Resources {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/screen/ui/res/Resources;
+	public final fun CopyrightAllRightsReserved (ILjava/lang/String;Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun LicensedUnder (Ljava/lang/String;Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getAbout (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getAboutUs (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getAnd (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getApkSignature (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getAppInfo (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getAppLicense (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getAppTheme (Landroidx/compose/runtime/Composer;I)[Ljava/lang/String;
+	public final fun getAppVersion (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getBackupAndRestore (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getBuildDate (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getBuildHash (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getBuiltWithCeres (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getBusiness (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getCancel (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getCeresFrameworkVersion (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getCompany (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getCopyrightPolicy (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getCorporation (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getDataAndPrivacy (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getDesignAndColorOptions (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getDeveloper (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getEnterprise (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getFeedback (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getFullBackupOfYourApp (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getHelpAndFeedback (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getId (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getJustBlack (Landroidx/compose/runtime/Composer;I)[Ljava/lang/String;
+	public final fun getLanguage (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getLegalAgreementsHeader (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getLicenseDetailsForOpenSourceSoftware (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getLicenses (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getLicensesArray (Landroidx/compose/runtime/Composer;I)[Ljava/lang/String;
+	public final fun getLookAndFeel (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getLookAndFeelAppColorTheme (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getLookAndFeelAppColorThemeSubtitle (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getLookAndFeelAppTheme (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getLookAndFeelAppThemeSubtitle (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getLookAndFeelDynamicTheming (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getLookAndFeelDynamicThemingSubtitle (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getLookAndFeelHeaderAppearance (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getLookAndFeelJustBlack (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getLookAndFeelJustBlackSubtitle (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getLookAndFeelSoundFeedback (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getLookAndFeelSoundFeedbackSubtitle (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getLookAndFeelVibrationFeedback (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getLookAndFeelVibrationFeedbackSubtitle (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getMadeIn (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getManageYourDataAndPrivacyPreferences (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getOpenSourceLicenses (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getOrganization (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getPrivacyOptions (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getPrivacyPolicy (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getRefundPolicy (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getReset (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getResetAdsConsent (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getResetAdsConsentDialogText (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getResetAdsConsentDialogTitle (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getResetAdsConsentSubtitle (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getResetOnboarding (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getResetOnboardingDialogCancelButton (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getResetOnboardingDialogDeleteUserStoredContent (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getResetOnboardingDialogRestartButton (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getResetOnboardingDialogText (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getResetOnboardingDialogTitle (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getResetOnboardingSubtitle (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getRestart (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getReviewOurCopyrightPolicy (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getReviewOurPrivacyPolicy (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getReviewOurRefundPolicy (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getReviewOurTermsOfService (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getSecurityPatch (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getSettings (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getShowLess (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getShowMore (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getSystem (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getTermsOfService (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getThisActionCannotBeUndone (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getUi (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getUserId (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getUserIdSubtitle (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
+	public final fun getVersionInfo (Landroidx/compose/runtime/Composer;I)Ljava/lang/String;
 }
 
 public final class dev/teogor/ceres/screen/ui/settings/ComposableSingletons$SettingsComponentsKt {

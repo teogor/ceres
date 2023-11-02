@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2023 teogor (Teodor Grigor)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+  <string name="reset">Resetare</string>
+  <string name="restart">Repornire</string>
+  <string name="cancel">Anulare</string>
+  <string name="show_less">Mai puțin</string>
+  <string name="show_more">Mai mult</string>
+  <string name="this_action_cannot_be_undone">Această acțiune nu poate fi anulată.</string>
+
+  <string name="and">și</string>
+  <string name="id">ID</string>
+  <string name="settings">Setări</string>
+  <string name="about">Despre</string>
+  <string name="help_and_feedback">Ajutor și sugestii</string>
+  <string name="ui">Interfață cu utilizatorul</string>
+  <string name="look_and_feel">Aspect și senzație</string>
+  <string name="system">Sistem</string>
+  <string name="feedback">Feedback</string>
+
+  <string name="design_and_color_options">Opțiuni de design și culoare</string>
+  <string name="backup_and_restore">Salvare și restaurare</string>
+  <string name="full_backup_of_your_app">Copie de rezervă completă a aplicației tale</string>
+  <string name="data_and_privacy">Date și confidențialitate</string>
+  <string name="privacy_options">Opțiuni de confidențialitate</string>
+  <string name="manage_your_data_and_privacy_preferences">Gestionați-vă preferințele de date și confidențialitate</string>
+  <string name="look_and_feel_header_appearance">Aspect</string>
+  <string name="language">Limbă</string>
+  <string name="look_and_feel_app_theme">Temă aplicație</string>
+  <string name="look_and_feel_app_theme_subtitle">Încercați un alt aspect</string>
+  <string name="look_and_feel_dynamic_theming">Teme dinamice</string>
+  <string name="look_and_feel_dynamic_theming_subtitle">Dezactivați pentru mai multe opțiuni de culoare</string>
+  <string name="look_and_feel_app_color_theme">Temă de culoare a aplicației</string>
+  <string name="look_and_feel_app_color_theme_subtitle">Încercați o altă culoare</string>
+  <string name="look_and_feel_just_black">Doar negru</string>
+  <string name="look_and_feel_just_black_subtitle">Modificarea de la „Oprit” va prioritiza acest lucru peste tema aplicației.</string>
+  <string name="look_and_feel_sound_feedback">Feedback sonor</string>
+  <string name="look_and_feel_sound_feedback_subtitle">Comutați pe Oprit pentru a nu avea sunete</string>
+  <string name="look_and_feel_vibration_feedback">Feedback haptic</string>
+  <string name="look_and_feel_vibration_feedback_subtitle">Comutați pe Oprit pentru a nu avea vibrații</string>
+
+  <!-- Privacy -->
+  <string name="reset_ads_consent">Resetați consimțământul reclamelor</string>
+  <string name="reset_ads_consent_subtitle">Resetați-vă preferințele pentru reclamele personalizate</string>
+  <string name="reset_ads_consent_dialog_title">Resetați consimțământul reclamelor</string>
+  <string name="reset_ads_consent_dialog_text">Sigur doriți să resetați preferințele pentru reclamele personalizate?</string>
+  <string name="user_id">ID utilizator</string>
+  <string name="user_id_subtitle">%s</string>
+  <string name="reset_onboarding">Resetați Onboarding</string>
+  <string name="reset_onboarding_subtitle">Porniți din nou procesul de onboarding</string>
+  <string name="reset_onboarding_dialog_title">Reporniți procesul de onboarding</string>
+  <string name="reset_onboarding_dialog_text">Sigur doriți să ștergeți tot progresul de onboarding și să o luați de la capăt?</string>
+  <string name="reset_onboarding_dialog_delete_user_stored_content">Ștergeți conținutul stocat de utilizator</string>
+  <string name="reset_onboarding_dialog_restart_button">Reporniți</string>
+  <string name="reset_onboarding_dialog_cancel_button">Anulați</string>
+  <string name="legal_agreements_header">Acorduri legale</string>
+  <string name="privacy_policy">Politica de confidențialitate</string>
+  <string name="review_our_privacy_policy">Revistați politica noastră de confidențialitate</string>
+  <string name="terms_of_service">Termeni de utilizare</string>
+  <string name="review_our_terms_of_service">Revistați termenii noștri de utilizare</string>
+  <string name="copyright_policy">Politica de copyright</string>
+  <string name="review_our_copyright_policy">Revistați politica noastră de copyright</string>
+  <string name="refund_policy">Politica de rambursare</string>
+  <string name="review_our_refund_policy">Revistați politica noastră de rambursare</string>
+  <string name="app_license">Licența aplicației</string>
+
+  <string name="app_info">Informații despre aplicație</string>
+  <string name="app_version">Versiunea aplicației</string>
+  <string name="version_info">Informații despre versiune</string>
+  <string name="ceres_framework_version">Versiunea Ceres</string>
+  <string name="build_date">Data construirii</string>
+  <string name="about_us">Despre noi</string>
+  <string name="made_in">Fabricat în</string>
+  <string name="security_patch">Patch de securitate</string>
+  <string name="build_hash">Hash de compilare</string>
+  <string name="apk_signature">Semnătură APK</string>
+  <string name="open_source_licenses">Licențe open-source</string>
+  <string name="copyright_all_rights_reserved" args="year;holder">© %1$d %2$s. Toate drepturile rezervate.</string>
+
+  <string name="licensed_under" args="license">Licențiat sub %1$s</string>
+  <string name="licenses">Licențe</string>
+
+  <string-array name="app_theme">
+    <item>Automat</item>
+    <item>Lumină</item>
+    <item>Întuneric</item>
+  </string-array>
+
+  <string-array name="just_black">
+    <item>Activat</item>
+    <item>Dezactivat</item>
+    <item>Automat</item>
+  </string-array>
+</resources>

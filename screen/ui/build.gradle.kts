@@ -17,6 +17,13 @@ plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
+  id("dev.teogor.querent.plugin")
+}
+
+querenet {
+  buildFeatures {
+    xmlResources = true
+  }
 }
 
 android {
@@ -27,6 +34,7 @@ android {
 }
 
 dependencies {
+  api(project(":core:register"))
   api(project(":core:runtime"))
   api(project(":framework:core"))
   api(project(":ui:designsystem"))
@@ -34,6 +42,7 @@ dependencies {
   api(project(":ui:compose"))
   api(project(":screen:builder"))
   api(project(":navigation:events"))
+  implementation(project(":querent:languages-schema"))
 
   api(libs.androidx.compose.foundation)
 

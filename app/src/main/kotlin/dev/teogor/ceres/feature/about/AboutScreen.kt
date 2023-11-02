@@ -53,6 +53,7 @@ import dev.teogor.ceres.screen.ui.about.aboutMadeIn
 import dev.teogor.ceres.screen.ui.about.aboutOpenAppInfo
 import dev.teogor.ceres.screen.ui.about.aboutOpenSourceLicenses
 import java.time.LocalDateTime
+import dev.teogor.ceres.screen.ui.res.Resources
 
 @Composable
 internal fun AboutRoute(
@@ -106,14 +107,14 @@ private fun AboutLayout() = LazyColumnLayoutBase(
       BuildConfig.BUILD_DATE_TIME.toLong(),
       0,
       AppMetadataManager.zoneOffset,
-    )
+    ),
   )
 
   aboutHeaderAboutUs()
 
   developerInfo()
 
-  aboutMadeIn()
+  aboutMadeIn("Brasov, Romania")
 
   aboutHeaderSecurityPatch()
 
@@ -132,7 +133,7 @@ private fun AboutLayout() = LazyColumnLayoutBase(
 
 private fun ScreenListScope.developerInfo() = item {
   SimpleView(
-    title = "Developer",
+    title = Resources.Developer,
     subtitle = "Teodor Grigor",
     icon = Icons.Default.Business,
   )

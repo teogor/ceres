@@ -25,7 +25,8 @@ import com.google.android.ump.ConsentDebugSettings
 import com.google.android.ump.ConsentInformation
 import com.google.android.ump.ConsentRequestParameters
 import com.google.android.ump.UserMessagingPlatform
-import dev.teogor.ceres.core.runtime.AppMetadataManager
+import dev.teogor.ceres.core.register.BuildProfiler
+import dev.teogor.ceres.core.register.LocalBuildProfiler
 import dev.teogor.ceres.monetisation.admob.AdMob
 import dev.teogor.ceres.monetisation.admob.AdMobInitializer
 import dev.teogor.ceres.monetisation.admob.getHashedAdvertisingId
@@ -109,6 +110,9 @@ object ConsentManager {
     }
   }
 
+  internal val buildProfiler: BuildProfiler
+    get() = LocalBuildProfiler.current
+
   @OptIn(ExperimentalAdsControlApi::class)
   fun initialiseConsentForm(
     activity: Activity,
@@ -116,7 +120,7 @@ object ConsentManager {
     consentInformation = UserMessagingPlatform.getConsentInformation(activity)
 
     val debugSettings = ConsentDebugSettings.Builder(activity).apply {
-      if (AppMetadataManager.isDebuggable) {
+      if (buildProfiler.isDebuggable) {
         addTestDeviceHashedId(getHashedAdvertisingId(activity))
         setDebugGeography(ConsentDebugSettings.DebugGeography.DEBUG_GEOGRAPHY_EEA)
       }

@@ -50,6 +50,7 @@ import dev.teogor.ceres.data.datastore.defaults.ceresPreferences
 import dev.teogor.ceres.screen.builder.compose.HeaderView
 import dev.teogor.ceres.screen.builder.compose.SimpleView
 import dev.teogor.ceres.screen.core.scope.ScreenListScope
+import dev.teogor.ceres.screen.ui.res.Resources
 import dev.teogor.ceres.screen.ui.utils.resetConsentHandler
 import dev.teogor.ceres.screen.ui.utils.resetOnboardingHandler
 import dev.teogor.ceres.ui.designsystem.AlertDialog
@@ -64,7 +65,7 @@ import dev.teogor.ceres.ui.theme.tokens.ColorSchemeKeyTokens
 
 fun ScreenListScope.privacyOptionsHeader() = item {
   HeaderView(
-    title = "Privacy Options",
+    title = Resources.PrivacyOptions,
   )
 }
 
@@ -72,8 +73,8 @@ fun ScreenListScope.resetAdsConsentOption() = item {
   var dialogVisible by remember { mutableStateOf(false) }
   val resetConsentHandler = resetConsentHandler()
   SimpleView(
-    title = "Reset Ads Consent",
-    subtitle = "Reset your preferences for personalized ads",
+    title = Resources.ResetAdsConsent,
+    subtitle = Resources.ResetAdsConsentSubtitle,
     icon = Icons.Default.Refresh,
     clickable = {
       dialogVisible = true
@@ -84,11 +85,11 @@ fun ScreenListScope.resetAdsConsentOption() = item {
     AlertDialog(
       onDismissRequest = { dialogVisible = false },
       title = {
-        Text("Reset Ads Consent")
+        Text(Resources.ResetAdsConsentDialogTitle)
       },
       text = {
         Column {
-          Text("Are you sure you want to reset your personalized ads preferences?")
+          Text(Resources.ResetAdsConsentDialogText)
         }
       },
       confirmButton = {
@@ -98,7 +99,7 @@ fun ScreenListScope.resetAdsConsentOption() = item {
             dialogVisible = false
           },
         ) {
-          Text("Reset")
+          Text(Resources.Reset)
         }
       },
       dismissButton = {
@@ -112,7 +113,7 @@ fun ScreenListScope.resetAdsConsentOption() = item {
           ),
         ) {
           Text(
-            text = "Cancel",
+            text = Resources.Cancel,
             color = ColorSchemeKeyTokens.Primary.toColor(),
           )
         }
@@ -133,7 +134,7 @@ fun ScreenListScope.privacyUserId() = item {
 
   val clipboardManager = LocalClipboardManager.current
   SimpleView(
-    title = "User ID",
+    title = Resources.UserId,
     subtitle = formattedUserId,
     icon = Icons.Default.Person2,
     clickable = {
@@ -164,7 +165,7 @@ fun ScreenListScope.privacyUserId() = item {
             },
           ) {
             Text(
-              text = if (showFullUserId) "Show Less" else "Show More",
+              text = if (showFullUserId) Resources.ShowLess else Resources.ShowMore,
               modifier = Modifier.padding(horizontal = 2.dp),
             )
           }
@@ -184,7 +185,7 @@ fun ScreenListScope.privacyUserId() = item {
             },
           ) {
             Text(
-              text = "Reset",
+              text = Resources.Reset,
               modifier = Modifier.padding(horizontal = 2.dp),
             )
           }
@@ -199,8 +200,8 @@ fun ScreenListScope.privacyResetOnboarding() = item {
   var deleteContentChecked by remember { mutableStateOf(false) }
   val resetOnboardingHandler = resetOnboardingHandler()
   SimpleView(
-    title = "Reset Onboarding",
-    subtitle = "Start the onboarding process again",
+    title = Resources.ResetOnboarding,
+    subtitle = Resources.ResetOnboardingSubtitle,
     icon = Icons.Default.Refresh,
     clickable = {
       dialogVisible = true
@@ -211,14 +212,14 @@ fun ScreenListScope.privacyResetOnboarding() = item {
     AlertDialog(
       onDismissRequest = { dialogVisible = false },
       title = {
-        Text("Restart Onboarding Process")
+        Text(Resources.ResetOnboardingDialogTitle)
       },
       text = {
         Column {
-          Text("Are you sure you want to clear all onboarding progress and start over?")
+          Text(Resources.ResetOnboardingDialogText)
           Spacer(modifier = Modifier.height(8.dp))
           CheckboxWithText(
-            text = "Delete user-stored content",
+            text = Resources.ResetOnboardingDialogDeleteUserStoredContent,
             isChecked = deleteContentChecked,
             onCheckedChange = { isChecked ->
               deleteContentChecked = isChecked
@@ -227,7 +228,7 @@ fun ScreenListScope.privacyResetOnboarding() = item {
           if (deleteContentChecked) {
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-              text = "This action cannot be undone.",
+              text = Resources.ThisActionCannotBeUndone,
               color = MaterialTheme.colorScheme.error,
               fontSize = 12.sp,
             )
@@ -247,7 +248,7 @@ fun ScreenListScope.privacyResetOnboarding() = item {
             dialogVisible = false
           },
         ) {
-          Text("Restart")
+          Text(Resources.Restart)
         }
       },
       dismissButton = {
@@ -261,7 +262,7 @@ fun ScreenListScope.privacyResetOnboarding() = item {
           ),
         ) {
           Text(
-            text = "Cancel",
+            text = Resources.Cancel,
             color = ColorSchemeKeyTokens.Primary.toColor(),
           )
         }
@@ -272,7 +273,7 @@ fun ScreenListScope.privacyResetOnboarding() = item {
 
 fun ScreenListScope.legalAgreementsHeader() = item {
   HeaderView(
-    title = "Legal Agreements",
+    title = Resources.LegalAgreementsHeader,
   )
 }
 
@@ -280,8 +281,8 @@ fun ScreenListScope.privacyPolicyOption() = item {
   val uriHandler = LocalUriHandler.current
   val applicationDetails = LocalApplicationDetails.current
   SimpleView(
-    title = "Privacy Policy",
-    subtitle = "Review our Privacy Policy",
+    title = Resources.PrivacyPolicy,
+    subtitle = Resources.ReviewOurPrivacyPolicy,
     icon = Icons.Default.Link,
     clickable = {
       applicationDetails.privacyLink?.let {
@@ -295,8 +296,8 @@ fun ScreenListScope.termsOfServiceOption() = item {
   val uriHandler = LocalUriHandler.current
   val applicationDetails = LocalApplicationDetails.current
   SimpleView(
-    title = "Terms of Service",
-    subtitle = "Review our Terms of Service",
+    title = Resources.TermsOfService,
+    subtitle = Resources.ReviewOurTermsOfService,
     icon = Icons.Default.Link,
     clickable = {
       applicationDetails.privacyLink?.let {
@@ -308,8 +309,8 @@ fun ScreenListScope.termsOfServiceOption() = item {
 
 fun ScreenListScope.policyCopyrightPolicy() = item {
   SimpleView(
-    title = "Copyright Policy",
-    subtitle = "Review our Copyright Policy",
+    title = Resources.CopyrightPolicy,
+    subtitle = Resources.ReviewOurCopyrightPolicy,
     icon = Icons.Filled.Description,
     clickable = {
     },
@@ -318,18 +319,37 @@ fun ScreenListScope.policyCopyrightPolicy() = item {
 
 fun ScreenListScope.policyRefundPolicy() = item {
   SimpleView(
-    title = "Refund Policy",
-    subtitle = "Review our Refund Policy",
+    title = Resources.RefundPolicy,
+    subtitle = Resources.ReviewOurRefundPolicy,
     icon = Icons.Filled.MonetizationOn,
     clickable = {
     },
   )
 }
 
-fun ScreenListScope.policyAppLicensePolicy() = item {
+/**
+ * Displays the app license policy.
+ *
+ * Supported licenses:
+ * * Apache License 2.0
+ * * GNU General Public License v3.0
+ * * MIT License
+ * * BSD 3-Clause License
+ * * Creative Commons Zero v1.0 Universal License
+ * * Mozilla Public License 2.0
+ *
+ * @param license The index of the license to display, from the
+ * `licenses` string array.
+ */
+fun ScreenListScope.policyAppLicensePolicy(
+  license: Int,
+) = item {
+  // TODO generate enum for string array ???
   SimpleView(
-    title = "App License",
-    subtitle = "Licensed under Apache License 2.0",
+    title = Resources.AppLicense,
+    subtitle = Resources.LicensedUnder(license = Resources.LicensesArray[license]),
     icon = Icons.Filled.Code,
+    clickable = {
+    },
   )
 }

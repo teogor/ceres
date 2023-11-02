@@ -20,10 +20,10 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
@@ -65,7 +65,7 @@ import dev.teogor.ceres.ui.foundation.config.FeedbackConfig
 import dev.teogor.ceres.ui.theme.core.Theme
 import javax.inject.Inject
 
-open class Activity : ComponentActivity() {
+open class Activity : AppCompatActivity() {
 
   private var navigationParameters by mutableStateOf(NavigationParameters())
 
@@ -264,7 +264,7 @@ open class Activity : ComponentActivity() {
 
   open fun setKeepOnScreenCondition(): Boolean = false
 
-  override fun onNewIntent(intent: Intent) {
+  override fun onNewIntent(intent: Intent?) {
     super.onNewIntent(intent)
     handleIntent(intent)
   }
