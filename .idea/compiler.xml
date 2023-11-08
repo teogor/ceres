@@ -17,6 +17,12 @@
       <module name="plugin.maven-publish" target="11" />
       <module name="plugin.maven-publish.main" target="11" />
       <module name="plugin.maven-publish.test" target="11" />
+      <module name="Querent.api" target="11" />
+      <module name="Querent.api.main" target="11" />
+      <module name="Querent.api.test" target="11" />
+      <module name="Querent.gradle-plugin" target="11" />
+      <module name="Querent.gradle-plugin.main" target="11" />
+      <module name="Querent.gradle-plugin.test" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

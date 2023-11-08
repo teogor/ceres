@@ -20,6 +20,7 @@ plugins {
   id("kotlinx-serialization")
   // required by *.lib.tools
   id("dev.teogor.ceres.android.hilt")
+  alias(libs.plugins.winds)
 }
 
 android {
@@ -49,6 +50,9 @@ dependencies {
   debugApi(libs.androidx.compose.ui.tooling)
 }
 
-ceresLibrary {
-  name = "Ceres UI Foundation"
+winds {
+  mavenPublish {
+    displayName = "Foundation"
+    name = "foundation"
+  }
 }

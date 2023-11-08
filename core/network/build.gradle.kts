@@ -17,6 +17,7 @@ plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.jacoco")
   id("dev.teogor.ceres.android.hilt")
+  alias(libs.plugins.winds)
 }
 
 android {
@@ -30,6 +31,9 @@ dependencies {
   implementation(libs.kotlinx.coroutines.android)
 }
 
-ceresLibrary {
-  name = "Ceres Core Network"
+winds {
+  mavenPublish {
+    displayName = "Network"
+    name = "network"
+  }
 }

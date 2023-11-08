@@ -18,7 +18,7 @@ plugins {
   id("dev.teogor.ceres.android.library.jacoco")
   id("dev.teogor.ceres.android.hilt")
   id("kotlinx-serialization")
-
+  alias(libs.plugins.winds)
   alias(libs.plugins.protobuf)
 }
 
@@ -60,6 +60,9 @@ dependencies {
   implementation(libs.gson)
 }
 
-ceresLibrary {
-  name = "Ceres Data Datastore"
+winds {
+  mavenPublish {
+    displayName = "Datastore"
+    name = "datastore"
+  }
 }

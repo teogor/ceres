@@ -1,3 +1,13 @@
+
+import com.vanniktech.maven.publish.SonatypeHost
+import dev.teogor.winds.api.MavenPublish
+import dev.teogor.winds.api.getValue
+import dev.teogor.winds.api.model.DependencyType
+import dev.teogor.winds.api.model.Developer
+import dev.teogor.winds.api.model.LicenseType
+import dev.teogor.winds.api.provider.Scm
+import dev.teogor.winds.gradle.utils.afterWindsPluginConfiguration
+import dev.teogor.winds.gradle.utils.attachTo
 import org.jetbrains.dokka.gradle.DokkaTaskPartial
 
 buildscript {
@@ -18,14 +28,95 @@ plugins {
   alias(libs.plugins.hilt) apply false
   alias(libs.plugins.ksp) apply false
   alias(libs.plugins.about.libraries) apply false
-  alias(libs.plugins.vanniktech.maven) apply false
 
-  alias(libs.plugins.dokka)
-  alias(libs.plugins.spotless)
-  alias(libs.plugins.api.validator)
+  // alias(libs.plugins.winds) apply true
+  id("dev.teogor.winds")
+
+  alias(libs.plugins.vanniktech.maven) apply true
+  alias(libs.plugins.dokka) apply true
+  alias(libs.plugins.spotless) apply true
+  alias(libs.plugins.api.validator) apply true
 
   id("dev.teogor.ceres.docs")
 }
+
+winds {
+  buildFeatures {
+    mavenPublish = true
+
+    docsGenerator = true
+  }
+
+  mavenPublish {
+    displayName = "Ceres"
+    name = "ceres"
+
+    canBePublished = false
+
+    description = "\uD83E\uDE90 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications."
+
+    groupId = "dev.teogor.ceres"
+    artifactIdElements = 2
+    url = "https://source.teogor.dev/ceres"
+
+    inceptionYear = 2022
+
+    sourceControlManagement(
+      Scm.Git(
+        owner = "teogor",
+        repo = "ceres",
+      ),
+    )
+
+    addLicense(LicenseType.APACHE_2_0)
+
+    addDeveloper(TeogorDeveloper())
+  }
+
+  docsGenerator {
+    name = "Ceres"
+    identifier = "ceres"
+
+    excludeModules {
+      listOf(
+        ":app",
+      )
+    }
+
+    dependencyGatheringType = DependencyType.LOCAL
+  }
+}
+
+afterWindsPluginConfiguration { winds ->
+  val mavenPublish: MavenPublish by winds
+  if (mavenPublish.canBePublished) {
+    mavenPublishing {
+      publishToMavenCentral(SonatypeHost.S01)
+      signAllPublications()
+
+      @Suppress("UnstableApiUsage")
+      pom {
+        coordinates(
+          groupId = mavenPublish.groupId!!,
+          artifactId = mavenPublish.artifactId!!,
+          version = mavenPublish.version!!.toString(),
+        )
+        mavenPublish attachTo this
+      }
+    }
+  }
+}
+
+data class TeogorDeveloper(
+  override val id: String = "teogor",
+  override val name: String = "Teodor Grigor",
+  override val email: String = "open-source@teogor.dev",
+  override val url: String = "https://teogor.dev",
+  override val roles: List<String> = listOf("Code Owner", "Developer", "Designer", "Maintainer"),
+  override val timezone: String = "UTC+2",
+  override val organization: String = "Teogor",
+  override val organizationUrl: String = "https://github.com/teogor",
+) : Developer
 
 val ktlintVersion = "0.50.0"
 
