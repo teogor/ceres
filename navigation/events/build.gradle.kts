@@ -18,6 +18,7 @@ plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
+  alias(libs.plugins.winds)
 }
 
 android {
@@ -32,6 +33,9 @@ dependencies {
   api(project(":firebase:analytics"))
 }
 
-ceresLibrary {
-  name = "Ceres Navigation Events"
+winds {
+  mavenPublish {
+    displayName = "Events"
+    name = "events"
+  }
 }

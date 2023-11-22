@@ -19,6 +19,7 @@ plugins {
   id("dev.teogor.ceres.android.library.jacoco")
   id("dev.teogor.ceres.android.hilt")
   id("kotlinx-serialization")
+  alias(libs.plugins.winds)
 }
 
 android {
@@ -58,6 +59,9 @@ dependencies {
   implementation(libs.androidx.metrics)
 }
 
-ceresLibrary {
-  name = "Ceres Framework Core"
+winds {
+  mavenPublish {
+    displayName = "Core"
+    name = "core"
+  }
 }

@@ -17,6 +17,7 @@ plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.hilt")
   id("kotlinx-serialization")
+  alias(libs.plugins.winds)
 }
 
 android {
@@ -36,6 +37,9 @@ dependencies {
   implementation(libs.gson)
 }
 
-ceresLibrary {
-  name = "Ceres Backup Core"
+winds {
+  mavenPublish {
+    displayName = "Core"
+    name = "core"
+  }
 }

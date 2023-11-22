@@ -16,6 +16,7 @@
 plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.jacoco")
+  alias(libs.plugins.winds)
 }
 
 android {
@@ -30,6 +31,9 @@ dependencies {
   implementation(libs.startup.runtime)
 }
 
-ceresLibrary {
-  name = "Ceres Core Startup"
+winds {
+  mavenPublish {
+    displayName = "Startup"
+    name = "startup"
+  }
 }
