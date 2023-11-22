@@ -18,6 +18,7 @@ plugins {
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
   id("dev.teogor.ceres.android.hilt")
+  alias(libs.plugins.winds)
 }
 
 android {
@@ -38,6 +39,9 @@ dependencies {
   implementation(libs.startup.runtime)
 }
 
-ceresLibrary {
-  name = "Ceres Monetisation Messaging"
+winds {
+  mavenPublish {
+    displayName = "Messaging"
+    name = "messaging"
+  }
 }

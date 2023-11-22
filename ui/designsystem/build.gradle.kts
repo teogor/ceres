@@ -18,6 +18,7 @@ plugins {
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
   id("kotlinx-serialization")
+  alias(libs.plugins.winds)
 }
 
 android {
@@ -44,6 +45,9 @@ dependencies {
   implementation(libs.androidx.constraintlayout.compose)
 }
 
-ceresLibrary {
-  name = "Ceres UI Design-System"
+winds {
+  mavenPublish {
+    displayName = "Design-System"
+    name = "design.system"
+  }
 }

@@ -19,6 +19,7 @@ plugins {
   id("dev.teogor.ceres.android.library.jacoco")
   id("dev.teogor.ceres.android.hilt")
   id("kotlinx-serialization")
+  alias(libs.plugins.winds)
 }
 
 android {
@@ -28,6 +29,9 @@ android {
   }
 }
 
-ceresLibrary {
-  name = "Ceres Navigation UI"
+winds {
+  mavenPublish {
+    displayName = "UI"
+    name = "ui"
+  }
 }

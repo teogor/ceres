@@ -69,6 +69,7 @@ spotless = "6.21.0"
 startup = "1.2.0-alpha02"
 turbine = "0.12.1"
 vanniktechMavenPlugin = "0.25.3"
+winds = "1.0.0-alpha03"
 
 [libraries]
 about-libraries-core = { group = "com.mikepenz", name = "aboutlibraries-core", version.ref = "aboutLibraries" }
@@ -201,6 +202,7 @@ api-validator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", v
 gradle-publish = { id = "com.gradle.plugin-publish", version.ref = "gradlePublish" }
 build-config = { id = "com.github.gmazzo.buildconfig", version.ref = "buildConfig" }
 vanniktech-maven = { id = "com.vanniktech.maven.publish", version.ref = "vanniktechMavenPlugin" }
+winds = { id = "dev.teogor.winds", version.ref = "winds" }
 
 [bundles]
 

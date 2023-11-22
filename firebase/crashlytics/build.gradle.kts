@@ -18,6 +18,7 @@ plugins {
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
   id("dev.teogor.ceres.android.hilt")
+  alias(libs.plugins.winds)
 }
 
 android {
@@ -37,6 +38,9 @@ dependencies {
   implementation(libs.androidx.compose.runtime)
 }
 
-ceresLibrary {
-  name = "Ceres Firebase Crashlytics"
+winds {
+  mavenPublish {
+    displayName = "Crashlytics"
+    name = "crashlytics"
+  }
 }

@@ -17,6 +17,7 @@ plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
+  alias(libs.plugins.winds)
 }
 
 android {
@@ -46,6 +47,9 @@ dependencies {
   implementation(libs.accompanist.permissions)
 }
 
-ceresLibrary {
-  name = "Ceres Screen UI"
+winds {
+  mavenPublish {
+    displayName = "UI"
+    name = "ui"
+  }
 }
