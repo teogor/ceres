@@ -62,6 +62,7 @@ lifecycleRuntimeKtx = "2.6.2"
 okhttp = "4.10.0"
 protobuf = "3.24.0"
 protobufPlugin = "0.9.4"
+querent = "1.0.0-alpha01"
 retrofit = "2.9.0"
 retrofitKotlinxSerializationJson = "1.0.0"
 room = "2.6.0"
@@ -73,6 +74,7 @@ kotlin-poet = "1.14.2"
 kotlin-xml-builder = "1.9.1"
 kotlinx-serialization-core = "1.6.0"
 jdom2 = "2.0.6.1"
+xenoglot-bom = "1.0.0-alpha01"
 
 [libraries]
 about-libraries-core = { group = "com.mikepenz", name = "aboutlibraries-core", version.ref = "aboutLibraries" }
@@ -183,6 +185,11 @@ kotlin-poet = { group = "com.squareup", name = "kotlinpoet", version.ref = "kotl
 kotlin-xml-builder = { module = "org.redundent:kotlin-xml-builder", version.ref = "kotlin-xml-builder" }
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization-core" }
 jdom2 = { module = "org.jdom:jdom2", version.ref = "jdom2" }
+# Xenoglot BoM
+xenoglot-bom = { group = "dev.teogor.xenoglot", name = "bom", version.ref = "xenoglot-bom" }
+# Xenoglot Libraries
+xenoglot-android = { group = "dev.teogor.xenoglot", name = "android" }
+xenoglot-core = { group = "dev.teogor.xenoglot", name = "core" }
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
@@ -209,6 +216,7 @@ api-validator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", v
 gradle-publish = { id = "com.gradle.plugin-publish", version.ref = "gradlePublish" }
 build-config = { id = "com.github.gmazzo.buildconfig", version.ref = "buildConfig" }
 vanniktech-maven = { id = "com.vanniktech.maven.publish", version.ref = "vanniktechMavenPlugin" }
+querent = { id = "dev.teogor.querent", version.ref = "querent" }
 
 [bundles]
 

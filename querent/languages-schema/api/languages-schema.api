@@ -1,7 +1,0 @@
-public final class dev/teogor/querent/languages/schema/LanguageSettings {
-	public static final field $stable I
-	public static final field INSTANCE Ldev/teogor/querent/languages/schema/LanguageSettings;
-	public final fun setAppLanguage (Ljava/lang/String;)V
-	public final fun setAppLanguage (Ljava/util/Locale;)V
-}
-

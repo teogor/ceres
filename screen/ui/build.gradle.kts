@@ -17,10 +17,10 @@ plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
-  id("dev.teogor.querent.plugin")
+  alias(libs.plugins.querent)
 }
 
-querenet {
+querent {
   buildFeatures {
     xmlResources = true
   }
@@ -42,7 +42,12 @@ dependencies {
   api(project(":ui:compose"))
   api(project(":screen:builder"))
   api(project(":navigation:events"))
-  implementation(project(":querent:languages-schema"))
+  // implementation(project(":querent:languages-schema"))
+
+  // Xenoglot BoM
+  api(platform(libs.xenoglot.bom))
+  // Xenoglot Libraries
+  api(libs.xenoglot.android)
 
   api(libs.androidx.compose.foundation)
 
