@@ -24,8 +24,6 @@ winds {
     displayName = "Monetisation"
     name = "monetisation"
 
-    artifactIdElements = 1
-
     version = createVersion(1, 0, 0) {
       alphaRelease(3)
     }

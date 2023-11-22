@@ -24,8 +24,6 @@ winds {
     displayName = "Backup"
     name = "backup"
 
-    artifactIdElements = 2
-
     version = createVersion(1, 0, 0) {
       alphaRelease(1)
     }

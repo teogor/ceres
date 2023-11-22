@@ -18,5 +18,15 @@
       "versionQualifier": 2
     },
     "date": 1696261957
+  },
+  {
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "date": 1700696388
   }
 ]
