@@ -601,11 +601,11 @@
   },
   {
     "completeName": "Ceres UI Design-System",
-    "name": "design.system",
+    "name": "design-system",
     "displayName": "Design-System",
     "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
     "groupId": "dev.teogor.ceres",
-    "artifactId": "ui-design.system",
+    "artifactId": "ui-design-system",
     "version": {
       "major": 1,
       "minor": 0,
