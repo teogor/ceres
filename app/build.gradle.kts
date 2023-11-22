@@ -15,27 +15,27 @@
  */
 import dev.teogor.ceres.CeresBuildType
 import dev.teogor.ceres.Version
-import dev.teogor.linguistic.Country
-import dev.teogor.linguistic.Language
-import dev.teogor.linguistic.territorialize
+import dev.teogor.xenoglot.Country
+import dev.teogor.xenoglot.Language
+import dev.teogor.xenoglot.territorialize
 
 plugins {
   id("dev.teogor.ceres.android.application")
   id("dev.teogor.ceres.android.application.compose")
   id("dev.teogor.ceres.android.application.jacoco")
   id("dev.teogor.ceres.android.application.firebase")
-  id("dev.teogor.ceres.android.library.config")
   id("dev.teogor.ceres.android.hilt")
   id("dev.teogor.ceres.android.room")
-  id("dev.teogor.querent.plugin")
   id("kotlinx-serialization")
   id("jacoco")
+
+  alias(libs.plugins.querent)
 
   // Feature :: About
   alias(libs.plugins.about.libraries) apply true
 }
 
-querenet {
+querent {
   buildFeatures {
     buildProfile = true
     xmlResources = true

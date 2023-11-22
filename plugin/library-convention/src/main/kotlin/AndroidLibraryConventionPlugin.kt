@@ -39,6 +39,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
 
       extensions.configure<LibraryExtension> {
         configureKotlinAndroid(this)
+        // TODO remove ??? deprecated
         defaultConfig.targetSdk = 34
         configureFlavors(this@configure)
         configureGradleManagedDevices(this)

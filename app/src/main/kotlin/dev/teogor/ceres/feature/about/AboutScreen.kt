@@ -23,8 +23,7 @@ import androidx.compose.material.icons.filled.Business
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import dev.teogor.ceres.BuildConfig
-import dev.teogor.ceres.core.runtime.AppMetadataManager
+import dev.teogor.ceres.build.BuildProfile
 import dev.teogor.ceres.framework.core.app.BaseActions
 import dev.teogor.ceres.framework.core.app.setScreenInfo
 import dev.teogor.ceres.framework.core.screen.floatingButton
@@ -52,7 +51,6 @@ import dev.teogor.ceres.screen.ui.about.aboutHeaderVersion
 import dev.teogor.ceres.screen.ui.about.aboutMadeIn
 import dev.teogor.ceres.screen.ui.about.aboutOpenAppInfo
 import dev.teogor.ceres.screen.ui.about.aboutOpenSourceLicenses
-import java.time.LocalDateTime
 import dev.teogor.ceres.screen.ui.res.Resources
 
 @Composable
@@ -103,11 +101,7 @@ private fun AboutLayout() = LazyColumnLayoutBase(
   // BuildConfigBet
 
   aboutBuildDate(
-    LocalDateTime.ofEpochSecond(
-      BuildConfig.BUILD_DATE_TIME.toLong(),
-      0,
-      AppMetadataManager.zoneOffset,
-    ),
+    BuildProfile.buildLocalDateTime,
   )
 
   aboutHeaderAboutUs()

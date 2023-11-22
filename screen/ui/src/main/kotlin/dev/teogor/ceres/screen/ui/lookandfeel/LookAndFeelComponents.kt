@@ -86,7 +86,7 @@ import dev.teogor.ceres.ui.spectrum.utilities.asHexColor
 import dev.teogor.ceres.ui.theme.MaterialTheme
 import dev.teogor.ceres.ui.theme.supportsDynamicTheming
 import dev.teogor.ceres.ui.theme.tokens.ColorSchemeKeyTokens
-import dev.teogor.querent.languages.schema.LanguageSettings
+import dev.teogor.xenoglot.android.LanguageUtils
 import java.util.Locale
 
 fun ScreenListScope.lookAndFeelHeaderAppearance() = item {
@@ -164,7 +164,7 @@ fun LanguagePickerDialog(
                         val languageTag = supportedLocales
                           .getSupportedDialects()
                           .first { it.startsWith(code) }
-                        LanguageSettings.setAppLanguage(
+                        LanguageUtils.setAppLanguage(
                           languageTag,
                         )
                       }
@@ -208,7 +208,7 @@ fun LanguagePickerDialog(
                         .padding(2.dp)
                         .clickable {
                           selectedCode = null
-                          LanguageSettings.setAppLanguage(languageTag)
+                          LanguageUtils.setAppLanguage(languageTag)
                         }
                         .padding(vertical = 12.dp)
                         .fillMaxWidth(),

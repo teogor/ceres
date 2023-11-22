@@ -1,8 +1,5 @@
 pluginManagement {
     includeBuild("plugin/")
-    includeBuild("querent/plugin/") {
-      name = ":querent:plugin-build"
-    }
     repositories {
         google()
         mavenCentral()
@@ -65,9 +62,6 @@ include(":navigation:core")
 include(":navigation:events")
 include(":navigation:screen")
 include(":navigation:ui")
-
-// include(":querent:common")
-include(":querent:languages-schema")
 
 // Screen
 include(":screen:builder")
