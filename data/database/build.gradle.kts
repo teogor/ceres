@@ -18,6 +18,7 @@ plugins {
   id("dev.teogor.ceres.android.library.jacoco")
   id("dev.teogor.ceres.android.hilt")
   id("dev.teogor.ceres.android.room")
+  alias(libs.plugins.winds)
 }
 
 android {
@@ -27,6 +28,9 @@ android {
   }
 }
 
-ceresLibrary {
-  name = "Ceres Data Database"
+winds {
+  mavenPublish {
+    displayName = "Database"
+    name = "database"
+  }
 }

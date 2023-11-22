@@ -17,6 +17,7 @@ plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
+  alias(libs.plugins.winds)
 }
 
 android {
@@ -33,6 +34,9 @@ dependencies {
   implementation(libs.androidx.compose.foundation)
 }
 
-ceresLibrary {
-  name = "Ceres Data Compose"
+winds {
+  mavenPublish {
+    displayName = "Compose"
+    name = "compose"
+  }
 }

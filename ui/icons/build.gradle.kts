@@ -18,6 +18,7 @@ plugins {
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
   id("kotlinx-serialization")
+  alias(libs.plugins.winds)
 }
 
 android {
@@ -32,6 +33,9 @@ dependencies {
   api(libs.google.material)
 }
 
-ceresLibrary {
-  name = "Ceres UI Icons"
+winds {
+  mavenPublish {
+    displayName = "Icons"
+    name = "icons"
+  }
 }

@@ -17,6 +17,7 @@ plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
+  alias(libs.plugins.winds)
 }
 
 android {
@@ -32,6 +33,9 @@ dependencies {
   api(libs.androidx.compose.ui.tooling)
 }
 
-ceresLibrary {
-  name = "Ceres Core Analytics"
+winds {
+  mavenPublish {
+    displayName = "Analytics"
+    name = "analytics"
+  }
 }

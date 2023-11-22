@@ -13,10 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+import dev.teogor.winds.gradle.utils.copyVersion
+
 plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.jacoco")
   id("dev.teogor.ceres.android.hilt")
+  alias(libs.plugins.winds)
 }
 
 android {
@@ -31,7 +35,13 @@ dependencies {
   implementation(libs.kotlinx.coroutines.android)
 }
 
-ceresLibrary {
-  name = "Ceres Core Network"
-  deprecated = true
+winds {
+  mavenPublish {
+    displayName = "Network"
+    name = "network"
+
+    version = copyVersion {
+      setIsDeprecated()
+    }
+  }
 }
