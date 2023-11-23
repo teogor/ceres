@@ -43,7 +43,6 @@ dependencies {
   api(project(":ui:compose"))
   api(project(":screen:builder"))
   api(project(":navigation:events"))
-  // implementation(project(":querent:languages-schema"))
 
   // Xenoglot BoM
   api(platform(libs.xenoglot.bom))

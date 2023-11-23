@@ -1,0 +1,154 @@
+site_name: Ceres
+site_description: Ceres is a comprehensive Android development framework designed to streamline your app development process.
+site_author: Teodor Grigor (teogor)
+site_dir: build/docs/ceres
+site_url: https://github.com/teogor/ceres
+edit_uri: raw/main/docs/
+
+docs_dir: docs
+
+# Repository
+repo_name: ceres
+repo_url: https://github.com/teogor/ceres
+
+# Copyright
+copyright: Copyright &copy; 2023 Teodor Grigor (Teogor)
+
+# Page tree
+nav:
+  - Home: index.md
+  - Releases:
+    - releases.md
+    - Implementation: releases/implementation.md
+    - Changelog:
+      - 1.0.0-alpha03: releases/changelog/1.0.0-alpha03.md
+      - 1.0.0-alpha02: releases/changelog/1.0.0-alpha02.md
+      - 1.0.0-alpha01: releases/changelog/1.0.0-alpha01.md
+  - Reference: reference.md
+  - Sponsor: sponsor.md
+  - Security: security.md
+
+# Configuration
+theme:
+  name: material
+  language: en
+
+  palette:
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+  font:
+    text: Roboto
+    code: JetBrains Mono
+
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
+    # - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+
+# Plugins
+plugins:
+  - blog
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
+      minify_css: true
+
+extra:
+  consent:
+    actions:
+      - accept
+      - manage
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+    analytics:
+      name: Google Analytics
+      checked: true
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/teogor
+    - icon: fontawesome/brands/instagram
+      link: https://instagram.com/teo.grigor
+    - icon: fontawesome/brands/twitter
+      link: https://x.com/teogor_dev
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:open-source@teogor.dev
+  generator: false
+  analytics:
+    provider: google
+    property: G-XN9N2SV8QZ
+  feedback:
+    title: Was this page helpful?
+    ratings:
+      - icon: material/emoticon-happy-outline
+        name: This page was helpful
+        data: 1
+        note: >-
+          Thanks for your feedback!
+      - icon: material/emoticon-sad-outline
+        name: This page could be improved
+        data: 0
+        note: >-
+          Thanks for your feedback! Help us improve this page by
+          using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - codehilite:
+      guess_lang: false
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.betterem
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details

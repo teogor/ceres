@@ -2,6 +2,7 @@
 import com.diffplug.spotless.LineEnding
 import com.vanniktech.maven.publish.SonatypeHost
 import dev.teogor.winds.api.MavenPublish
+import dev.teogor.winds.api.Winds
 import dev.teogor.winds.api.getValue
 import dev.teogor.winds.api.model.DependencyType
 import dev.teogor.winds.api.model.Developer
@@ -9,8 +10,8 @@ import dev.teogor.winds.api.model.LicenseType
 import dev.teogor.winds.api.provider.Scm
 import dev.teogor.winds.gradle.utils.afterWindsPluginConfiguration
 import dev.teogor.winds.gradle.utils.attachTo
+import org.jetbrains.dokka.gradle.DokkaMultiModuleTask
 import org.jetbrains.dokka.gradle.DokkaPlugin
-import org.jetbrains.dokka.gradle.DokkaTaskPartial
 
 buildscript {
   repositories {
@@ -34,8 +35,7 @@ plugins {
   alias(libs.plugins.ksp) apply false
 
   alias(libs.plugins.querent) apply false
-  // alias(libs.plugins.winds) apply true
-  id("dev.teogor.winds")
+  alias(libs.plugins.winds) apply true
 
   alias(libs.plugins.about.libraries) apply false
 
@@ -58,7 +58,8 @@ winds {
 
     canBePublished = false
 
-    description = "\uD83E\uDE90 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications."
+    description =
+      "\uD83E\uDE90 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications."
 
     groupId = "dev.teogor.ceres"
     url = "https://source.teogor.dev/ceres"
@@ -129,7 +130,7 @@ val ktlintVersion = "0.50.0"
 
 val excludedProjects = listOf(
   project.name,
-  "app"
+  "app",
 )
 
 // Spotless
@@ -212,15 +213,17 @@ apiValidation {
 // Dokka
 subprojects {
   if (!excludedProjects.contains(project.name)) {
-    apply<DokkaPlugin>()
-    tasks.withType<DokkaTaskPartial>().configureEach {
-      moduleName.set("PartialPrj${project.name}")
-      moduleVersion.set(project.version.toString())
-      outputDirectory.set(rootProject.projectDir.resolve("docs/dokka/${project.name}"))
-      failOnWarning.set(false)
-      suppressObviousFunctions.set(true)
-      suppressInheritedMembers.set(false)
-      offlineMode.set(false)
+    afterEvaluate {
+      val winds: Winds by extensions
+      val mavenPublish: MavenPublish by winds
+      apply<DokkaPlugin>()
+      tasks.withType<DokkaMultiModuleTask>().configureEach {
+        moduleName.set(mavenPublish.name)
+        moduleVersion.set(mavenPublish.version.toString())
+        val paths = project.path.split(":")
+        val pathRef = paths.joinToString(separator = "/")
+        outputDirectory.set(rootProject.projectDir.resolve("build/reference/${pathRef}"))
+      }
     }
   }
 }
