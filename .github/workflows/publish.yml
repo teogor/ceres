@@ -1,0 +1,155 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      bom:
+        description: Publish BOM
+        required: false
+        type: boolean
+        default: true
+      backup:
+        description: Publish Backup Module
+        required: false
+        type: boolean
+      core:
+        description: Publish Core Module
+        required: false
+        type: boolean
+      data:
+        description: Publish Data Module
+        required: false
+        type: boolean
+      firebase:
+        description: Publish Firebase Module
+        required: false
+        type: boolean
+      framework:
+        description: Publish Framework Module
+        required: false
+        type: boolean
+      monetisation:
+        description: Publish Monetisation Module
+        required: false
+        type: boolean
+      navigation:
+        description: Publish Navigation Module
+        required: false
+        type: boolean
+      screen:
+        description: Publish Screen Module
+        required: false
+        type: boolean
+      ui:
+        description: Publish UI Module
+        required: false
+        type: boolean
+
+jobs:
+  publish:
+    name: Snapshot build and publish
+    runs-on: ubuntu-latest
+    environment: PRODUCTION
+    timeout-minutes: 120
+    env:
+      ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.OSSRH_USERNAME }}
+      ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.OSSRH_PASSWORD }}
+      ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.SIGNING_KEY_ID }}
+      ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_PASSWORD }}
+      ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_KEY }}
+      SONATYPE_CONNECT_TIMEOUT_SECONDS: 120
+      SONATYPE_CLOSE_TIMEOUT_SECONDS: 1800
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3.1.0
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3.5.1
+        with:
+          distribution: zulu
+          java-version: 17
+
+      - name: Grant Permission to Execute Gradle
+        run: chmod +x gradlew
+
+#      - name: Build Project
+#        run: ./gradlew --continue build
+
+      - name: Publish BOM
+        env:
+          BOM_PUBLISH: ${{ github.event.inputs.bom }}
+        run: |
+          if [[ $BOM_PUBLISH == true ]]; then
+            echo "Publishing BOM module..."
+            ./gradlew :bom:publish --no-configuration-cache
+          else
+            echo "BOM module is not being published because the 'bom' input is not set to true."
+          fi
+
+#      - name: Check if directory exists
+#        run: |
+#          if [[ -d "screen/ui/build/generated/querent/xmlResources" ]]; then
+#            echo "Directory exists"
+#          else
+#            echo "Directory does not exist"
+#          fi
+
+      - name: Publish Specified Modules
+        env:
+          BACKUP_PUBLISH: ${{ github.event.inputs.backup }}
+          CORE_PUBLISH: ${{ github.event.inputs.core }}
+          DATA_PUBLISH: ${{ github.event.inputs.data }}
+          FIREBASE_PUBLISH: ${{ github.event.inputs.firebase }}
+          FRAMEWORK_PUBLISH: ${{ github.event.inputs.framework }}
+          MONETISATION_PUBLISH: ${{ github.event.inputs.monetisation }}
+          NAVIGATION_PUBLISH: ${{ github.event.inputs.navigation }}
+          SCREEN_PUBLISH: ${{ github.event.inputs.screen }}
+          UI_PUBLISH: ${{ github.event.inputs.ui }}
+        run: |
+          modules_to_publish=()
+
+          if [[ $BACKUP_PUBLISH == true ]]; then
+            modules_to_publish+=("backup")
+          fi
+
+          if [[ $CORE_PUBLISH == true ]]; then
+            modules_to_publish+=("core")
+          fi
+
+          if [[ $DATA_PUBLISH == true ]]; then
+           modules_to_publish+=("data")
+          fi
+
+          if [[ $FIREBASE_PUBLISH == true ]]; then
+           modules_to_publish+=("firebase")
+          fi
+
+          if [[ $FRAMEWORK_PUBLISH == true ]]; then
+           modules_to_publish+=("framework")
+          fi
+
+          if [[ $MONETISATION_PUBLISH == true ]]; then
+            modules_to_publish+=("monetisation")
+          fi
+
+          if [[ $NAVIGATION_PUBLISH == true ]]; then
+           modules_to_publish+=("navigation")
+          fi
+
+          if [[ $SCREEN_PUBLISH == true ]]; then
+            modules_to_publish+=("screen")
+          fi
+
+          if [[ $UI_PUBLISH == true ]]; then
+           modules_to_publish+=("ui")
+          fi
+
+          if [[ -z "$modules_to_publish" ]]; then
+            echo "No modules specified for publishing."
+          else
+            for module in "${modules_to_publish[@]}"; do
+              echo "Publishing $module module..."
+              ./gradlew ":${module}:publish" --no-configuration-cache
+            done
+          fi
