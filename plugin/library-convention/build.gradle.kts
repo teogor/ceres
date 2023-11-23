@@ -39,15 +39,15 @@ tasks.withType<KotlinCompile>().configureEach {
 }
 
 dependencies {
-  compileOnly(libs.android.gradlePlugin)
+  compileOnly(libs.gradle.plugin.android)
+  compileOnly(libs.gradle.plugin.kotlin)
+  compileOnly(libs.gradle.plugin.ksp)
   compileOnly(libs.firebase.crashlytics.gradle)
   compileOnly(libs.firebase.performance.gradle)
-  compileOnly(libs.kotlin.gradlePlugin)
-  compileOnly(libs.ksp.gradlePlugin)
 }
 
 gradlePlugin {
-  website.set("https://github.com/teogor/ceres")
+  website.set("https://source.teogor.dev/ceres")
   vcsUrl.set("https://github.com/teogor/ceres")
 
   plugins {
