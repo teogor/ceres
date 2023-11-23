@@ -23,7 +23,7 @@ plugins {
 }
 
 group = "dev.teogor.ceres.plugin"
-version = "1.0.0-alpha03"
+version = "1.0.0-alpha04"
 
 java {
   // Up to Java 11 APIs are available through desugaring

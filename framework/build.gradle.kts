@@ -25,7 +25,7 @@ winds {
     name = "framework"
 
     version = createVersion(1, 0, 0) {
-      alphaRelease(3)
+      alphaRelease(4)
     }
   }
 }
