@@ -79,6 +79,8 @@ fun CeresFilterChip(
         alpha = CeresChipDefaults.DisabledChipContentAlpha,
       ),
       selectedBorderWidth = CeresChipDefaults.ChipBorderWidth,
+      enabled = true,
+      selected = selected,
     ),
     colors = FilterChipDefaults.filterChipColors(
       labelColor = MaterialTheme.colorScheme.onBackground,
