@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+@file:Suppress("UnstableApiUsage")
+
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -166,6 +168,9 @@ gradlePlugin {
     register("kotlinLibrary") {
       id = "dev.teogor.ceres.kotlin.library"
       implementationClass = "KotlinLibraryConventionPlugin"
+      displayName = "Kotlin Library Convention"
+      description = "Streamline Kotlin Library Development with a Standardized Convention"
+      tags.set(listOf("kotlin", "convention", "build-logic", "library"))
     }
   }
 }
