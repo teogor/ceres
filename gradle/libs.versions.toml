@@ -75,6 +75,7 @@ kotlin-xml-builder = "1.9.1"
 kotlinx-serialization-core = "1.6.0"
 jdom2 = "2.0.6.1"
 xenoglot-bom = "1.0.0-alpha01"
+winds = "1.0.0-alpha03"
 
 [libraries]
 about-libraries-core = { group = "com.mikepenz", name = "aboutlibraries-core", version.ref = "aboutLibraries" }
@@ -217,6 +218,7 @@ gradle-publish = { id = "com.gradle.plugin-publish", version.ref = "gradlePublis
 build-config = { id = "com.github.gmazzo.buildconfig", version.ref = "buildConfig" }
 vanniktech-maven = { id = "com.vanniktech.maven.publish", version.ref = "vanniktechMavenPlugin" }
 querent = { id = "dev.teogor.querent", version.ref = "querent" }
+winds = { id = "dev.teogor.winds", version.ref = "winds" }
 
 [bundles]
 

@@ -1,0 +1,794 @@
+[
+  {
+    "completeName": "Ceres Backup Core",
+    "name": "core",
+    "displayName": "Core",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "backup-core",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 1
+    },
+    "path": ":backup:core",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Backup",
+      "Core"
+    ]
+  },
+  {
+    "completeName": "Ceres Backup UI",
+    "name": "ui",
+    "displayName": "UI",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "backup-ui",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 1
+    },
+    "path": ":backup:ui",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Backup",
+      "UI"
+    ]
+  },
+  {
+    "completeName": "Ceres Core Common",
+    "name": "common",
+    "displayName": "Common",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "core-common",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":core:common",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Core",
+      "Common"
+    ]
+  },
+  {
+    "completeName": "Ceres Core Foundation",
+    "name": "foundation",
+    "displayName": "Foundation",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "core-foundation",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":core:foundation",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Core",
+      "Foundation"
+    ]
+  },
+  {
+    "completeName": "Ceres Core Network",
+    "name": "network",
+    "displayName": "Network",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "core-network",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":core:network",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Core",
+      "Network"
+    ]
+  },
+  {
+    "completeName": "Ceres Core Notifications",
+    "name": "notifications",
+    "displayName": "Notifications",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "core-notifications",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":core:notifications",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Core",
+      "Notifications"
+    ]
+  },
+  {
+    "completeName": "Ceres Core Runtime",
+    "name": "runtime",
+    "displayName": "Runtime",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "core-runtime",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":core:runtime",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Core",
+      "Runtime"
+    ]
+  },
+  {
+    "completeName": "Ceres Core Startup",
+    "name": "startup",
+    "displayName": "Startup",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "core-startup",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":core:startup",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Core",
+      "Startup"
+    ]
+  },
+  {
+    "completeName": "Ceres Data Compose",
+    "name": "compose",
+    "displayName": "Compose",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "data-compose",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 2
+    },
+    "path": ":data:compose",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Data",
+      "Compose"
+    ]
+  },
+  {
+    "completeName": "Ceres Data Database",
+    "name": "database",
+    "displayName": "Database",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "data-database",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 2
+    },
+    "path": ":data:database",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Data",
+      "Database"
+    ]
+  },
+  {
+    "completeName": "Ceres Data Datastore",
+    "name": "datastore",
+    "displayName": "Datastore",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "data-datastore",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 2
+    },
+    "path": ":data:datastore",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Data",
+      "Datastore"
+    ]
+  },
+  {
+    "completeName": "Ceres Firebase Analytics",
+    "name": "analytics",
+    "displayName": "Analytics",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "firebase-analytics",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":firebase:analytics",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Firebase",
+      "Analytics"
+    ]
+  },
+  {
+    "completeName": "Ceres Firebase Crashlytics",
+    "name": "crashlytics",
+    "displayName": "Crashlytics",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "firebase-crashlytics",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":firebase:crashlytics",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Firebase",
+      "Crashlytics"
+    ]
+  },
+  {
+    "completeName": "Ceres Firebase Remote-Config",
+    "name": "remoteconfig",
+    "displayName": "Remote-Config",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "firebase-remoteconfig",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":firebase:remote-config",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Firebase",
+      "Remote-Config"
+    ]
+  },
+  {
+    "completeName": "Ceres Framework Core",
+    "name": "core",
+    "displayName": "Core",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "framework-core",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":framework:core",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Framework",
+      "Core"
+    ]
+  },
+  {
+    "completeName": "Ceres Framework UI",
+    "name": "ui",
+    "displayName": "UI",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "framework-ui",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":framework:ui",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Framework",
+      "UI"
+    ]
+  },
+  {
+    "completeName": "Ceres Monetisation AdMob",
+    "name": "admob",
+    "displayName": "AdMob",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "monetisation-admob",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":monetisation:admob",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Monetisation",
+      "AdMob"
+    ]
+  },
+  {
+    "completeName": "Ceres Monetisation Ads",
+    "name": "ads",
+    "displayName": "Ads",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "monetisation-ads",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":monetisation:ads",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Monetisation",
+      "Ads"
+    ]
+  },
+  {
+    "completeName": "Ceres Monetisation Messaging",
+    "name": "messaging",
+    "displayName": "Messaging",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "monetisation-messaging",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":monetisation:messaging",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Monetisation",
+      "Messaging"
+    ]
+  },
+  {
+    "completeName": "Ceres Navigation Common",
+    "name": "common",
+    "displayName": "Common",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "navigation-common",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 2
+    },
+    "path": ":navigation:common",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Navigation",
+      "Common"
+    ]
+  },
+  {
+    "completeName": "Ceres Navigation Core",
+    "name": "core",
+    "displayName": "Core",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "navigation-core",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 2
+    },
+    "path": ":navigation:core",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Navigation",
+      "Core"
+    ]
+  },
+  {
+    "completeName": "Ceres Navigation Events",
+    "name": "events",
+    "displayName": "Events",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "navigation-events",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 2
+    },
+    "path": ":navigation:events",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Navigation",
+      "Events"
+    ]
+  },
+  {
+    "completeName": "Ceres Navigation Screen",
+    "name": "screen",
+    "displayName": "Screen",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "navigation-screen",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 2
+    },
+    "path": ":navigation:screen",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Navigation",
+      "Screen"
+    ]
+  },
+  {
+    "completeName": "Ceres Navigation UI",
+    "name": "ui",
+    "displayName": "UI",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "navigation-ui",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 2
+    },
+    "path": ":navigation:ui",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Navigation",
+      "UI"
+    ]
+  },
+  {
+    "completeName": "Ceres Screen Builder",
+    "name": "builder",
+    "displayName": "Builder",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "screen-builder",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":screen:builder",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Screen",
+      "Builder"
+    ]
+  },
+  {
+    "completeName": "Ceres Screen Core",
+    "name": "core",
+    "displayName": "Core",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "screen-core",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":screen:core",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Screen",
+      "Core"
+    ]
+  },
+  {
+    "completeName": "Ceres Screen UI",
+    "name": "ui",
+    "displayName": "UI",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "screen-ui",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":screen:ui",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "Screen",
+      "UI"
+    ]
+  },
+  {
+    "completeName": "Ceres UI Compose",
+    "name": "compose",
+    "displayName": "Compose",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "ui-compose",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":ui:compose",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "UI",
+      "Compose"
+    ]
+  },
+  {
+    "completeName": "Ceres UI Design-System",
+    "name": "design.system",
+    "displayName": "Design-System",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "ui-design.system",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":ui:designsystem",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "UI",
+      "Design-System"
+    ]
+  },
+  {
+    "completeName": "Ceres UI Foundation",
+    "name": "foundation",
+    "displayName": "Foundation",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "ui-foundation",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":ui:foundation",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "UI",
+      "Foundation"
+    ]
+  },
+  {
+    "completeName": "Ceres UI Icons",
+    "name": "icons",
+    "displayName": "Icons",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "ui-icons",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":ui:icons",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "UI",
+      "Icons"
+    ]
+  },
+  {
+    "completeName": "Ceres UI Spectrum",
+    "name": "spectrum",
+    "displayName": "Spectrum",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "ui-spectrum",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":ui:spectrum",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "UI",
+      "Spectrum"
+    ]
+  },
+  {
+    "completeName": "Ceres UI Theme",
+    "name": "theme",
+    "displayName": "Theme",
+    "description": "🪐 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.",
+    "groupId": "dev.teogor.ceres",
+    "artifactId": "ui-theme",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "path": ":ui:theme",
+    "dependencies": [
+    ],
+    "canBePublished": true,
+    "names": [
+      "Ceres",
+      "UI",
+      "Theme"
+    ]
+  }
+]

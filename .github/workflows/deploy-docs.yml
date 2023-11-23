@@ -1,0 +1,158 @@
+name: Docs Deployment
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  pull-requests: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "api-docs"
+  cancel-in-progress: false
+
+env:
+  OWNER: teogor
+  DESTINATION_BRANCH: docs/teogor/${{ github.event.repository.name }}/${{ github.sha }}
+  REPOSITORY: ${{ github.event.repository.name }}
+  REPO: teogor/${{ github.event.repository.name }}
+  DISPLAY_NAME: Ceres
+
+jobs:
+  synchronize-documentation:
+    runs-on: ubuntu-latest
+    name: Synchronize Repository Documentation
+    steps:
+      - uses: actions/checkout@v4
+
+      # Grants execute permission to gradle (safety step)
+      - name: Grant Permissions to gradlew
+        run: chmod +x gradlew
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install mkdocs-material
+          pip install mkdocs-material[recommended,git,imaging]
+
+      - name: Build MkDocs
+        run: |
+          mkdocs build --clean
+          mkdocs --version
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Generate Backup's API Documentation
+        run: ./gradlew -D'org.gradle.unsafe.configuration-cache=false' :backup:dokkaHtmlMultiModule
+
+      - name: Generate Core's API Documentation
+        run: ./gradlew -D'org.gradle.unsafe.configuration-cache=false' :core:dokkaHtmlMultiModule
+
+      - name: Generate Data's API Documentation
+        run: ./gradlew -D'org.gradle.unsafe.configuration-cache=false' :data:dokkaHtmlMultiModule
+
+      - name: Generate Firebase's API Documentation
+        run: ./gradlew -D'org.gradle.unsafe.configuration-cache=false' :firebase:dokkaHtmlMultiModule
+
+      - name: Generate Framework's API Documentation
+        run: ./gradlew -D'org.gradle.unsafe.configuration-cache=false' :framework:dokkaHtmlMultiModule
+
+      - name: Generate Monetisation's API Documentation
+        run: ./gradlew -D'org.gradle.unsafe.configuration-cache=false' :monetisation:dokkaHtmlMultiModule
+
+      - name: Generate Navigation's API Documentation
+        run: ./gradlew -D'org.gradle.unsafe.configuration-cache=false' :navigation:dokkaHtmlMultiModule
+
+      - name: Generate Screen's API Documentation
+        run: ./gradlew -D'org.gradle.unsafe.configuration-cache=false' :screen:dokkaHtmlMultiModule
+
+      - name: Generate UI's API Documentation
+        run: ./gradlew -D'org.gradle.unsafe.configuration-cache=false' :ui:dokkaHtmlMultiModule
+
+      - name: Relocate API References
+        run: |
+          mkdir -p build/docs/${{ env.REPOSITORY }}/reference
+          cp -r build/reference/* build/docs/${{ env.REPOSITORY }}/reference
+
+      - id: publish-docs
+        name: Deploy Documentation
+        uses: ./.github/workflows/sync-docs/
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        with:
+          source-file: build/docs/${{ env.REPOSITORY }}/
+          destination-folder: ${{ env.REPOSITORY }}
+          destination-repo: teogor/source.teogor.dev
+          user-email: open-source@teogor.dev
+          user-name: Teodor Grigor
+          destination-branch-create: ${{ env.DESTINATION_BRANCH }}
+
+  build-and-deploy:
+    needs: synchronize-documentation
+    name: Build and Deploy Updated API Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout other repository
+        uses: actions/checkout@v3
+        with:
+          repository: teogor/source.teogor.dev
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          ref: ${{ env.DESTINATION_BRANCH || 'main' }}
+          # This is important to fetch the changes to the previous commit
+          fetch-depth: 0
+
+#      - name: Prettify code
+#        uses: creyD/prettier_action@v4.3
+#        with:
+#          # This part is also where you can pass other options, for example:
+#          prettier_options: --write ${{ env.REPOSITORY }}/**/*.{js,html,css,json}
+#          only_changed: False
+#          same_commit: True
+
+      - name: Create PR (Pull Request)
+        run: |
+          json=$(curl -L \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/teogor/source.teogor.dev/pulls \
+            -d '{
+              "title":"Updated documentation for `${{ env.REPO }}`",
+              "body":"## 🚀 **Updated Documentation for ${{ env.DISPLAY_NAME }}** 🚀\n\nThis pull request brings you the latest updates to the [${{ env.DISPLAY_NAME }}](https://github.com/${{ env.REPO }}) documentation, ensuring you have access to the most comprehensive and informative guide for using this powerful library.\n\n-------\n\n* Generated by [Publish Docs](https://github.com/${{ env.REPO }}/actions/workflows/publish-docs.yml)\n\n* From [${{ env.REPO }}](https://github.com/${{ env.REPO }})",
+              "head":"${{ env.DESTINATION_BRANCH }}",
+              "base":"main"
+            }' | jq .)
+
+          number=$(jq '.number' <<< ${json})
+
+          curl -L \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/teogor/source.teogor.dev/issues/${number}/labels \
+            -d '{"labels":["@documentation"]}'
+
+          curl -L \
+            -X PUT \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/teogor/source.teogor.dev/pulls/${number}/merge \

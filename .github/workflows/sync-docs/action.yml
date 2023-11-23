@@ -1,0 +1,65 @@
+name: 'Publish Docs'
+description: 'Comprehensive publish docs'
+branding:
+  icon: 'git-commit'
+  color: 'red'
+inputs:
+  source-file:
+    description: 'Source file from the origin directory'
+    required: true
+  destination-repo:
+    description: 'Destination repository'
+    required: true
+  destination-folder:
+    description: 'Directory to push the file to'
+    required: false
+  user-email:
+    description: 'Email for the git commit'
+    required: true
+  user-name:
+    description: 'GitHub username for the commit'
+    required: true
+  destination-branch:
+    description: 'branch to push file to, defaults to main'
+    required: false
+  destination-branch-create:
+    description: 'Destination branch to create for this commit'
+    required: false
+  commit-message:
+    description: 'A custom message for the commit'
+    required: false
+  rename:
+    description: 'Rename the destination file'
+    required: false
+  use-rsync:
+    description: 'Copy files/directories using rsync instead of cp. Experimental feature, please know your use case'
+    required: false
+  git-server:
+    description: 'Git server host, default github.com'
+    required: false
+    default: github.com
+runs:
+  using: "composite"
+  steps:
+    - name: Make all .sh files executable
+      run: find . -type f -name "*.sh" -exec chmod +x {} \;
+      shell: bash
+
+    - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      shell: bash
+
+    - name: Execute Entrypoint Script
+      shell: bash
+      env:
+        SOURCE_FILE: ${{ inputs.source-file }}
+        DESTINATION_REPO: ${{ inputs.destination-repo }}
+        DESTINATION_FOLDER: ${{ inputs.destination-folder }}
+        USER_EMAIL: ${{ inputs.user-email }}
+        USER_NAME: ${{ inputs.user-name }}
+        DESTINATION_BRANCH: ${{ inputs.destination-branch }}
+        DESTINATION_BRANCH_CREATE: ${{ inputs.destination-branch-create }}
+        COMMIT_MESSAGE: ${{ inputs.commit-message }}
+        GIT_SERVER: ${{ inputs.git-server }}
+        RENAME: ${{ inputs.rename }}
+        USE_RSYNC: ${{ inputs.use-rsync }}
+      run: sync-files.sh

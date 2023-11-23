@@ -17,6 +17,7 @@ plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
+  alias(libs.plugins.winds)
 }
 
 android {
@@ -36,6 +37,9 @@ dependencies {
   api(libs.androidx.compose.foundation)
 }
 
-ceresLibrary {
-  name = "Ceres Screen Core"
+winds {
+  mavenPublish {
+    displayName = "Core"
+    name = "core"
+  }
 }

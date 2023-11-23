@@ -17,6 +17,7 @@ plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
+  alias(libs.plugins.winds)
 }
 
 android {
@@ -41,6 +42,9 @@ dependencies {
   api(project(":ui:designsystem"))
 }
 
-ceresLibrary {
-  name = "Ceres Navigation Core"
+winds {
+  mavenPublish {
+    displayName = "Core"
+    name = "core"
+  }
 }

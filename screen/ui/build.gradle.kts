@@ -18,6 +18,7 @@ plugins {
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
   alias(libs.plugins.querent)
+  alias(libs.plugins.winds)
 }
 
 querent {
@@ -42,7 +43,6 @@ dependencies {
   api(project(":ui:compose"))
   api(project(":screen:builder"))
   api(project(":navigation:events"))
-  // implementation(project(":querent:languages-schema"))
 
   // Xenoglot BoM
   api(platform(libs.xenoglot.bom))
@@ -60,6 +60,9 @@ dependencies {
   implementation(libs.accompanist.permissions)
 }
 
-ceresLibrary {
-  name = "Ceres Screen UI"
+winds {
+  mavenPublish {
+    displayName = "UI"
+    name = "ui"
+  }
 }

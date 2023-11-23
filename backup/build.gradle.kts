@@ -13,37 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import com.vanniktech.maven.publish.SonatypeHost
-import dev.teogor.ceres.gradle.plugins.CeresLibraryExtension
-import dev.teogor.ceres.gradle.plugins.setModuleCoordinates
+import dev.teogor.winds.api.model.createVersion
 
 plugins {
-  id("dev.teogor.ceres.module")
+  alias(libs.plugins.winds)
 }
 
-ceresModule {
-  setModuleCoordinates(
-    artifactIdPrefix = "backup",
-    version = "1.0.0-alpha01",
-  )
-}
+winds {
+  mavenPublish {
+    displayName = "Backup"
+    name = "backup"
 
-subprojects {
-  afterEvaluate {
-    val ceresLibrary = project.extensions.getByType(CeresLibraryExtension::class.java)
-    mavenPublishing {
-      publishToMavenCentral(SonatypeHost.S01)
-      signAllPublications()
-
-      @Suppress("UnstableApiUsage")
-      pom {
-        coordinates(
-          groupId = ceresLibrary.groupId,
-          artifactId = ceresLibrary.artifactId!!,
-          version = ceresLibrary.version!!,
-        )
-        ceresLibrary.applyToMaven(this)
-      }
+    version = createVersion(1, 0, 0) {
+      alphaRelease(1)
     }
   }
 }

@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.libs
+
 /*
  * Copyright 2023 teogor (Teodor Grigor)
  *
@@ -16,6 +18,7 @@
 plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.compose")
+  alias(libs.plugins.winds)
 }
 
 android {
@@ -31,6 +34,9 @@ dependencies {
   implementation(libs.startup.runtime)
 }
 
-ceresLibrary {
-  name = "Ceres Core Register"
+winds {
+  mavenPublish {
+    displayName = "Register"
+    name = "register"
+  }
 }

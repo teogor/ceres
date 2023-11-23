@@ -1,4 +1,17 @@
-import org.jetbrains.dokka.gradle.DokkaTaskPartial
+
+import com.diffplug.spotless.LineEnding
+import com.vanniktech.maven.publish.SonatypeHost
+import dev.teogor.winds.api.MavenPublish
+import dev.teogor.winds.api.Winds
+import dev.teogor.winds.api.getValue
+import dev.teogor.winds.api.model.DependencyType
+import dev.teogor.winds.api.model.Developer
+import dev.teogor.winds.api.model.LicenseType
+import dev.teogor.winds.api.provider.Scm
+import dev.teogor.winds.gradle.utils.afterWindsPluginConfiguration
+import dev.teogor.winds.gradle.utils.attachTo
+import org.jetbrains.dokka.gradle.DokkaMultiModuleTask
+import org.jetbrains.dokka.gradle.DokkaPlugin
 
 buildscript {
   repositories {
@@ -22,138 +35,163 @@ plugins {
   alias(libs.plugins.ksp) apply false
 
   alias(libs.plugins.querent) apply false
-
+  alias(libs.plugins.winds) apply true
 
   alias(libs.plugins.about.libraries) apply false
-  alias(libs.plugins.vanniktech.maven) apply false
 
-
-  alias(libs.plugins.dokka)
-  alias(libs.plugins.spotless)
-  alias(libs.plugins.api.validator)
-
-  id("dev.teogor.ceres.docs")
+  alias(libs.plugins.vanniktech.maven) apply true
+  alias(libs.plugins.dokka) apply true
+  alias(libs.plugins.spotless) apply true
+  alias(libs.plugins.api.validator) apply true
 }
 
-val ktlintVersion = "0.50.0"
+winds {
+  buildFeatures {
+    mavenPublish = true
 
-subprojects {
-  apply<com.diffplug.gradle.spotless.SpotlessPlugin>()
-  configure<com.diffplug.gradle.spotless.SpotlessExtension> {
-    kotlin {
-      target("**/*.kt")
-      targetExclude("**/build/**/*.kt")
-      ktlint(ktlintVersion)
-        .userData(
-          mapOf(
-            "android" to "true",
-            "ktlint_code_style" to "android",
-            "ij_kotlin_allow_trailing_comma" to "true",
-            // These rules were introduced in ktlint 0.46.0 and should not be
-            // enabled without further discussion. They are disabled for now.
-            // See: https://github.com/pinterest/ktlint/releases/tag/0.46.0
-            "disabled_rules" to
-              "filename," +
-              "annotation,annotation-spacing," +
-              "argument-list-wrapping," +
-              "double-colon-spacing," +
-              "enum-entry-name-case," +
-              "multiline-if-else," +
-              "no-empty-first-line-in-method-block," +
-              "package-name," +
-              "trailing-comma," +
-              "spacing-around-angle-brackets," +
-              "spacing-between-declarations-with-annotations," +
-              "spacing-between-declarations-with-comments," +
-              "unary-op-spacing," +
-              "no-trailing-spaces," +
-              "no-wildcard-imports," +
-              "max-line-length",
-          ),
-        )
-      licenseHeaderFile(rootProject.file("spotless/copyright.kt"))
-      trimTrailingWhitespace()
-      endWithNewline()
-    }
-    format("kts") {
-      target("**/*.kts")
-      targetExclude("**/build/**/*.kts")
-      // Look for the first line that doesn't have a block comment (assumed to be the license)
-      licenseHeaderFile(rootProject.file("spotless/copyright.kts"), "(^(?![\\/ ]\\*).*$)")
-    }
-    format("xml") {
-      target("**/*.xml")
-      targetExclude("**/build/**/*.xml")
-      // Look for the first XML tag that isn't a comment (<!--) or the xml declaration (<?xml)
-      licenseHeaderFile(rootProject.file("spotless/copyright.xml"), "(<[^!?])")
-    }
-  }
-}
-
-fun Project.addDokka(
-  enabled: Boolean,
-) {
-  if (!enabled) {
-    return
-  }
-  tasks.dokkaHtmlMultiModule.configure {
-    outputDirectory.set(rootDir.resolve("docs/dokka"))
+    docsGenerator = true
   }
 
-  subprojects {
-    val excludeModules = listOf(
-      ":app",
+  mavenPublish {
+    displayName = "Ceres"
+    name = "ceres"
+
+    canBePublished = false
+
+    description =
+      "\uD83E\uDE90 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications."
+
+    groupId = "dev.teogor.ceres"
+    url = "https://source.teogor.dev/ceres"
+
+    inceptionYear = 2022
+
+    sourceControlManagement(
+      Scm.Git(
+        owner = "teogor",
+        repo = "ceres",
+      ),
     )
-    if (parent == rootProject) {
-      if (!excludeModules.contains(path)) {
-        apply(plugin = "org.jetbrains.dokka")
-        subprojects {
-          apply(plugin = "org.jetbrains.dokka")
-        }
 
-        tasks.withType<DokkaTaskPartial>().configureEach {
-          dokkaSourceSets {
-            configureEach {
-              outputDirectory.set(rootDir.resolve("docs/dokka/${this@subprojects.name}"))
+    addLicense(LicenseType.APACHE_2_0)
 
-              suppressInheritedMembers.set(true)
+    addDeveloper(TeogorDeveloper())
+  }
 
-              // includes.from("Module.md")
-              moduleName.set(this@subprojects.name)
+  docsGenerator {
+    name = "Ceres"
+    identifier = "ceres"
 
-              // Used for linking to JDK documentation
-              jdkVersion.set(11)
+    excludeModules {
+      listOf(
+        ":app",
+      )
+    }
 
-              // Disable linking to online kotlin-stdlib documentation
-              noStdlibLink.set(false)
+    dependencyGatheringType = DependencyType.LOCAL
+  }
+}
 
-              // Disable linking to online JDK documentation
-              noJdkLink.set(false)
+afterWindsPluginConfiguration { winds ->
+  val mavenPublish: MavenPublish by winds
+  mavenPublish.version?.let {
+    version = it.toString()
+  }
+  if (mavenPublish.canBePublished) {
+    mavenPublishing {
+      publishToMavenCentral(SonatypeHost.S01)
+      signAllPublications()
 
-              // Disable linking to online Android documentation (only applicable for Android projects)
-              noAndroidSdkLink.set(false)
-
-              // Include generated files in documentation
-              // By default Dokka will omit all files in folder named generated that is a child of buildDir
-              suppressGeneratedFiles.set(false)
-
-              // Do not output deprecated members. Applies globally, can be overridden by packageOptions
-              skipDeprecated.set(false)
-
-              // Do not create index pages for empty packages
-              skipEmptyPackages.set(false)
-
-              reportUndocumented.set(true) // Report undocumented members
-            }
-          }
-        }
+      @Suppress("UnstableApiUsage")
+      pom {
+        coordinates(
+          groupId = mavenPublish.groupId!!,
+          artifactId = mavenPublish.artifactId!!,
+          version = mavenPublish.version!!.toString(),
+        )
+        mavenPublish attachTo this
       }
     }
   }
 }
 
-addDokka(false)
+data class TeogorDeveloper(
+  override val id: String = "teogor",
+  override val name: String = "Teodor Grigor",
+  override val email: String = "open-source@teogor.dev",
+  override val url: String = "https://teogor.dev",
+  override val roles: List<String> = listOf("Code Owner", "Developer", "Designer", "Maintainer"),
+  override val timezone: String = "UTC+2",
+  override val organization: String = "Teogor",
+  override val organizationUrl: String = "https://github.com/teogor",
+) : Developer
 
+val ktlintVersion = "0.50.0"
+
+val excludedProjects = listOf(
+  project.name,
+  "app",
+)
+
+// Spotless
+subprojects {
+  if (!excludedProjects.contains(this.name)) {
+    apply<com.diffplug.gradle.spotless.SpotlessPlugin>()
+    configure<com.diffplug.gradle.spotless.SpotlessExtension> {
+      lineEndings = LineEnding.UNIX
+
+      kotlin {
+        target("**/*.kt")
+        targetExclude("**/build/**/*.kt")
+        ktlint(ktlintVersion)
+          .userData(
+            mapOf(
+              "android" to "true",
+              "ktlint_code_style" to "android",
+              "ij_kotlin_allow_trailing_comma" to "true",
+              // These rules were introduced in ktlint 0.46.0 and should not be
+              // enabled without further discussion. They are disabled for now.
+              // See: https://github.com/pinterest/ktlint/releases/tag/0.46.0
+              "disabled_rules" to
+                "filename," +
+                "annotation,annotation-spacing," +
+                "argument-list-wrapping," +
+                "double-colon-spacing," +
+                "enum-entry-name-case," +
+                "multiline-if-else," +
+                "no-empty-first-line-in-method-block," +
+                "package-name," +
+                "trailing-comma," +
+                "spacing-around-angle-brackets," +
+                "spacing-between-declarations-with-annotations," +
+                "spacing-between-declarations-with-comments," +
+                "unary-op-spacing," +
+                "no-trailing-spaces," +
+                "no-wildcard-imports," +
+                "max-line-length",
+            ),
+          )
+        licenseHeaderFile(rootProject.file("spotless/copyright.kt"))
+        trimTrailingWhitespace()
+        endWithNewline()
+      }
+      format("kts") {
+        target("**/*.kts")
+        targetExclude("**/build/**/*.kts")
+        // Look for the first line that doesn't have a block comment (assumed to be the license)
+        licenseHeaderFile(rootProject.file("spotless/copyright.kts"), "(^(?![\\/ ]\\*).*$)")
+      }
+      format("xml") {
+        target("**/*.xml")
+        targetExclude("**/build/**/*.xml")
+        // Look for the first XML tag that isn't a comment (<!--) or the xml declaration (<?xml)
+        licenseHeaderFile(rootProject.file("spotless/copyright.xml"), "(<[^!?])")
+      }
+    }
+  }
+}
+
+// API Validation
 apiValidation {
   /**
    * Packages that are excluded from public API dumps even if they
@@ -164,7 +202,7 @@ apiValidation {
   /**
    * Sub-projects that are excluded from API validation
    */
-  ignoredProjects.addAll(listOf("app"))
+  ignoredProjects.addAll(excludedProjects)
 
   /**
    * Flag to programmatically disable compatibility validator
@@ -172,6 +210,20 @@ apiValidation {
   validationDisabled = false
 }
 
-tasks.register<DependencyInfoGenerator>("generateDependenciesDocs") {
-  generateBomMapping()
+// Dokka
+subprojects {
+  if (!excludedProjects.contains(project.name)) {
+    afterEvaluate {
+      val winds: Winds by extensions
+      val mavenPublish: MavenPublish by winds
+      apply<DokkaPlugin>()
+      tasks.withType<DokkaMultiModuleTask>().configureEach {
+        moduleName.set(mavenPublish.name)
+        moduleVersion.set(mavenPublish.version.toString())
+        val paths = project.path.split(":")
+        val pathRef = paths.joinToString(separator = "/")
+        outputDirectory.set(rootProject.projectDir.resolve("build/reference/${pathRef}"))
+      }
+    }
+  }
 }
