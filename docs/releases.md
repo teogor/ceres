@@ -22,9 +22,9 @@ capabilities into their applications with ease.
 
 ### Release
 
-|  Latest Update   | Stable Release | Beta Release | Alpha Release |
-|:----------------:|:--------------:|:------------:|:-------------:|
-| October 06, 2023 |       -        |      -       | 1.0.0-alpha03 |
+|   Latest Update   | Stable Release | Beta Release | Alpha Release |
+|:-----------------:|:--------------:|:------------:|:-------------:|
+| November 23, 2023 |       -        |      -       | 1.0.0-alpha04 |
 
 ### Declaring dependencies
 
@@ -37,7 +37,7 @@ Add the dependencies for the artifacts you need in the `build.gradle` file for y
 
     ```kotlin
     dependencies {
-      val ceres_version = "1.0.0-alpha03"
+      val ceres_version = "1.0.0-alpha04"
 
       implementation("dev.teogor.ceres:core-common:$ceres_version")
       implementation("dev.teogor.ceres:ui-designsystem:$ceres_version")
@@ -54,7 +54,7 @@ Add the dependencies for the artifacts you need in the `build.gradle` file for y
 
     ```groovy
     dependencies {
-      def ceres_version = "1.0.0-alpha03"
+      def ceres_version = "1.0.0-alpha04"
 
       implementation("dev.teogor.ceres:core-common:${ceres_version}")
       implementation("dev.teogor.ceres:ui-designsystem:${ceres_version}")
@@ -79,6 +79,36 @@ existing issue by clicking the star button.
 [Create a new issue](https://github.com/teogor/ceres/issues/new){ .md-button }
 
 ### Version 1.0.0
+
+#### Version 1.0.0-alpha04
+
+November 23, 2023
+
+`dev.teogor.ceres:ceres-*:1.0.0-alpha04` is
+released. [Version 1.0.0-alpha04 contains these commits.](https://github.com/teogor/ceres/compare/1.0.0-alpha03...1.0.0-alpha04)
+
+**Enhancement**
+
+* Add Language Schema Support for Supported Languages ([#174](https://github.com/teogor/ceres/pull/174)) by [@teogor](https://github.com/teogor)
+* Incorporate Querent Plugin into Ceres ([#173](https://github.com/teogor/ceres/pull/173)) by [@teogor](https://github.com/teogor)
+* Flexible Configuration and Dependency Version Checking ([#172](https://github.com/teogor/ceres/pull/172)) by [@teogor](https://github.com/teogor)
+* Enhance About Components and Singleton Functions in About Module ([#170](https://github.com/teogor/ceres/pull/170)) by [@teogor](https://github.com/teogor)
+* Analytics Integration for Enhanced Event Tracking ([#168](https://github.com/teogor/ceres/pull/168)) by [@teogor](https://github.com/teogor)
+* Improved Resources Handling ([#167](https://github.com/teogor/ceres/pull/167)) by [@teogor](https://github.com/teogor)
+* Enhancements for Network Monitoring ([#166](https://github.com/teogor/ceres/pull/166)) by [@teogor](https://github.com/teogor)
+* Comprehensive Native Ad Enhancements in Compose ([#165](https://github.com/teogor/ceres/pull/165)) by [@teogor](https://github.com/teogor)
+* Enhance AdRequestOptions Extension Functions ([#161](https://github.com/teogor/ceres/pull/161)) by [@teogor](https://github.com/teogor)
+* Enhance Color Utilities and Customization ([#158](https://github.com/teogor/ceres/pull/158)) by [@teogor](https://github.com/teogor)
+
+**Bug Fixes**
+
+* Ad Caching and Loading Enhancements ([#163](https://github.com/teogor/ceres/pull/163)) by [@teogor](https://github.com/teogor)
+* Full-Screen Layout Background Color Override ([#157](https://github.com/teogor/ceres/pull/157)) by [@teogor](https://github.com/teogor)
+* Namespace Conflict Issue ([#156](https://github.com/teogor/ceres/pull/156)) by [@teogor](https://github.com/teogor)
+
+**Others**
+
+* Enhance Room Plugin with Schema Export Support ([#160](https://github.com/teogor/ceres/pull/160)) by [@teogor](https://github.com/teogor)
 
 #### Version 1.0.0-alpha03
 

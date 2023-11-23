@@ -4,7 +4,7 @@
 
 ### Latest Version
 
-The latest release is [`1.0.0-alpha03`](../releases.md)
+The latest release is [`1.0.0-alpha04`](../releases.md)
 
 ### BoM Releases
 
@@ -17,6 +17,7 @@ Here's a summary of the latest BoM versions:
 
 |    Version    |               Release Notes                | Release Date |
 |:-------------:|:------------------------------------------:|:------------:|
+| 1.0.0-alpha04 | [changelog 🔗](changelog/1.0.0-alpha04.md) | 23 Nov 2023 |
 | 1.0.0-alpha03 | [changelog 🔗](changelog/1.0.0-alpha03.md) | 06 Oct 2023 |
 | 1.0.0-alpha02 | [changelog 🔗](changelog/1.0.0-alpha02.md) | 02 Oct 2023 |
 | 1.0.0-alpha01 | [changelog 🔗](changelog/1.0.0-alpha01.md) | 28 Sept 2023 |
@@ -33,14 +34,16 @@ Materials (BoM) and individual libraries, in TOML format.
     ```toml title="gradle/libs.versions.toml"
     [versions]
     ceres-backup = "1.0.0-alpha01"
-    ceres-core = "1.0.0-alpha03"
+    ceres-core = "1.0.0-alpha04"
+    ceres-core = "0.0.0"
     ceres-data = "1.0.0-alpha02"
-    ceres-firebase = "1.0.0-alpha03"
-    ceres-framework = "1.0.0-alpha03"
-    ceres-monetisation = "1.0.0-alpha03"
-    ceres-navigation = "1.0.0-alpha02"
-    ceres-screen = "1.0.0-alpha03"
-    ceres-ui = "1.0.0-alpha03"
+    ceres-firebase = "1.0.0-alpha04"
+    ceres-framework = "1.0.0-alpha04"
+    ceres-monetisation = "1.0.0-alpha04"
+    ceres-navigation = "1.0.0-alpha03"
+    ceres-navigation = "0.0.0"
+    ceres-screen = "1.0.0-alpha04"
+    ceres-ui = "1.0.0-alpha04"
 
     [libraries]
     ceres-backup-core = { group = "dev.teogor.ceres", name = "ceres-backup-core", version.ref = "ceres-backup" }
@@ -84,7 +87,7 @@ Materials (BoM) and individual libraries, in TOML format.
 
     ```toml title="gradle/libs.versions.toml"
     [versions]
-    ceres-bom = "1.0.0-alpha03"
+    ceres-bom = "1.0.0-alpha04"
 
     [libraries]
     ceres-bom = { group = "dev.teogor.ceres", name = "bom", version.ref = "ceres-bom" }
