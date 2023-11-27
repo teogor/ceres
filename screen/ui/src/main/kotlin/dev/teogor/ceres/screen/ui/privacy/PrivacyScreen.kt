@@ -349,7 +349,6 @@ fun ScreenListScope.policyAppLicensePolicy(
     title = Resources.AppLicense,
     subtitle = Resources.LicensedUnder(license = Resources.LicensesArray[license]),
     icon = Icons.Filled.Code,
-    clickable = {
-    },
+    clickable = { },
   )
 }

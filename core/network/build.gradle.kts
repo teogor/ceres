@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-import dev.teogor.winds.gradle.utils.copyVersion
-
 plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.jacoco")
@@ -40,8 +38,9 @@ winds {
     displayName = "Network"
     name = "network"
 
-    version = copyVersion {
-      setIsDeprecated()
-    }
+    // todo overrides to 0
+    //  version = copyVersion {
+    //    setIsDeprecated()
+    //  }
   }
 }

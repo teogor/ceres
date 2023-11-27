@@ -21,6 +21,7 @@ nav:
     - releases.md
     - Implementation: releases/implementation.md
     - Changelog:
+      - 1.0.0-alpha04: releases/changelog/1.0.0-alpha04.md
       - 1.0.0-alpha03: releases/changelog/1.0.0-alpha03.md
       - 1.0.0-alpha02: releases/changelog/1.0.0-alpha02.md
       - 1.0.0-alpha01: releases/changelog/1.0.0-alpha01.md

@@ -25,7 +25,7 @@ winds {
     name = "navigation"
 
     version = createVersion(1, 0, 0) {
-      alphaRelease(2)
+      alphaRelease(3)
     }
   }
 }

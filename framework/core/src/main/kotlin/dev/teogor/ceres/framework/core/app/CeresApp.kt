@@ -16,6 +16,7 @@
 
 package dev.teogor.ceres.framework.core.app
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
@@ -109,6 +110,7 @@ import dev.teogor.ceres.ui.theme.tokens.ColorSchemeKeyTokens
 import dev.teogor.ceres.ui.theme.tokens.ElevationTokens
 import kotlinx.coroutines.launch
 
+@SuppressLint("RestrictedApi")
 @OptIn(
   ExperimentalComposeUiApi::class,
   ExperimentalMaterialApi::class,
