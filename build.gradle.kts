@@ -8,7 +8,8 @@ import dev.teogor.winds.api.model.DependencyType
 import dev.teogor.winds.api.model.Developer
 import dev.teogor.winds.api.model.LicenseType
 import dev.teogor.winds.api.provider.Scm
-import dev.teogor.winds.gradle.utils.afterWindsPluginConfiguration
+import dev.teogor.winds.common.utils.hasWindsPlugin
+import dev.teogor.winds.gradle.WindsPlugin
 import dev.teogor.winds.gradle.utils.attachTo
 import org.jetbrains.dokka.gradle.DokkaMultiModuleTask
 import org.jetbrains.dokka.gradle.DokkaPlugin
@@ -63,6 +64,7 @@ winds {
 
     groupId = "dev.teogor.ceres"
     url = "https://source.teogor.dev/ceres"
+    artifactIdElements = 2
 
     inceptionYear = 2022
 
@@ -92,7 +94,7 @@ winds {
   }
 }
 
-afterWindsPluginConfiguration { winds ->
+whenWindsPluginConfigured { winds ->
   val mavenPublish: MavenPublish by winds
   mavenPublish.version?.let {
     version = it.toString()
@@ -113,6 +115,35 @@ afterWindsPluginConfiguration { winds ->
       }
     }
   }
+}
+
+/**
+ * Executes the provided action when the Winds plugin is configured for any descendant project.
+ *
+ * @param action the action to execute for each project with the Winds plugin configured
+ *
+ * **How to Use:**
+ *
+ * ```kotlin
+ * project.onWindsPluginConfigured { winds ->
+ *   // Execute the action for each project with the Winds plugin configured
+ *   winds.doSomethingUseful()
+ * }
+ * ```
+ */
+fun Project.whenWindsPluginConfigured(action: Project.(Winds) -> Unit) {
+  subprojects.toList()
+    .filter { hasWindsPlugin() }
+    .forEach { project ->
+      project.afterEvaluate {
+        project.plugins.withType<WindsPlugin> {
+          project.afterEvaluate {
+            val winds: Winds by project.extensions
+            project.action(winds)
+          }
+        }
+      }
+    }
 }
 
 data class TeogorDeveloper(
@@ -218,6 +249,8 @@ subprojects {
       val mavenPublish: MavenPublish by winds
       apply<DokkaPlugin>()
       tasks.withType<DokkaMultiModuleTask>().configureEach {
+        failOnWarning.set(false)
+        suppressInheritedMembers.set(true)
         moduleName.set(mavenPublish.name)
         moduleVersion.set(mavenPublish.version.toString())
         val paths = project.path.split(":")

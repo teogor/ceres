@@ -23,7 +23,7 @@ plugins {
 
 querent {
   buildFeatures {
-    xmlResources = true
+    xmlResources = false
   }
 }
 

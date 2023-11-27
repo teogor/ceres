@@ -16,6 +16,7 @@
 
 package dev.teogor.ceres.navigation.core
 
+import android.annotation.SuppressLint
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
@@ -91,6 +92,7 @@ private fun isNavigating(
   return navigating
 }
 
+@SuppressLint("RestrictedApi")
 fun NavController.isRouteInBackStack(route: String): Boolean {
   // todo graph.route ??
   val backStackEntries = this.currentBackStack.value

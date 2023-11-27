@@ -35,7 +35,6 @@ Materials (BoM) and individual libraries, in TOML format.
     [versions]
     ceres-backup = "1.0.0-alpha01"
     ceres-core = "1.0.0-alpha04"
-    ceres-core = "0.0.0"
     ceres-data = "1.0.0-alpha02"
     ceres-firebase = "1.0.0-alpha04"
     ceres-framework = "1.0.0-alpha04"
@@ -46,41 +45,41 @@ Materials (BoM) and individual libraries, in TOML format.
     ceres-ui = "1.0.0-alpha04"
 
     [libraries]
-    ceres-backup-core = { group = "dev.teogor.ceres", name = "ceres-backup-core", version.ref = "ceres-backup" }
-    ceres-backup-ui = { group = "dev.teogor.ceres", name = "ceres-backup-ui", version.ref = "ceres-backup" }
-    ceres-core-analytics = { group = "dev.teogor.ceres", name = "ceres-core-analytics", version.ref = "ceres-core" }
-    ceres-core-common = { group = "dev.teogor.ceres", name = "ceres-core-common", version.ref = "ceres-core" }
-    ceres-core-foundation = { group = "dev.teogor.ceres", name = "ceres-core-foundation", version.ref = "ceres-core" }
-    ceres-core-network = { group = "dev.teogor.ceres", name = "ceres-core-network", version.ref = "ceres-core" }
-    ceres-core-notifications = { group = "dev.teogor.ceres", name = "ceres-core-notifications", version.ref = "ceres-core" }
-    ceres-core-register = { group = "dev.teogor.ceres", name = "ceres-core-register", version.ref = "ceres-core" }
-    ceres-core-runtime = { group = "dev.teogor.ceres", name = "ceres-core-runtime", version.ref = "ceres-core" }
-    ceres-core-startup = { group = "dev.teogor.ceres", name = "ceres-core-startup", version.ref = "ceres-core" }
-    ceres-data-compose = { group = "dev.teogor.ceres", name = "ceres-data-compose", version.ref = "ceres-data" }
-    ceres-data-database = { group = "dev.teogor.ceres", name = "ceres-data-database", version.ref = "ceres-data" }
-    ceres-data-datastore = { group = "dev.teogor.ceres", name = "ceres-data-datastore", version.ref = "ceres-data" }
-    ceres-firebase-analytics = { group = "dev.teogor.ceres", name = "ceres-firebase-analytics", version.ref = "ceres-firebase" }
-    ceres-firebase-crashlytics = { group = "dev.teogor.ceres", name = "ceres-firebase-crashlytics", version.ref = "ceres-firebase" }
-    ceres-firebase-remote-config = { group = "dev.teogor.ceres", name = "ceres-firebase-remoteconfig", version.ref = "ceres-firebase" }
-    ceres-framework-core = { group = "dev.teogor.ceres", name = "ceres-framework-core", version.ref = "ceres-framework" }
-    ceres-framework-ui = { group = "dev.teogor.ceres", name = "ceres-framework-ui", version.ref = "ceres-framework" }
-    ceres-monetisation-admob = { group = "dev.teogor.ceres", name = "ceres-monetisation-admob", version.ref = "ceres-monetisation" }
-    ceres-monetisation-ads = { group = "dev.teogor.ceres", name = "ceres-monetisation-ads", version.ref = "ceres-monetisation" }
-    ceres-monetisation-messaging = { group = "dev.teogor.ceres", name = "ceres-monetisation-messaging", version.ref = "ceres-monetisation" }
-    ceres-navigation-common = { group = "dev.teogor.ceres", name = "ceres-navigation-common", version.ref = "ceres-navigation" }
-    ceres-navigation-core = { group = "dev.teogor.ceres", name = "ceres-navigation-core", version.ref = "ceres-navigation" }
-    ceres-navigation-events = { group = "dev.teogor.ceres", name = "ceres-navigation-events", version.ref = "ceres-navigation" }
-    ceres-navigation-screen = { group = "dev.teogor.ceres", name = "ceres-navigation-screen", version.ref = "ceres-navigation" }
-    ceres-navigation-ui = { group = "dev.teogor.ceres", name = "ceres-navigation-ui", version.ref = "ceres-navigation" }
-    ceres-screen-builder = { group = "dev.teogor.ceres", name = "ceres-screen-builder", version.ref = "ceres-screen" }
-    ceres-screen-core = { group = "dev.teogor.ceres", name = "ceres-screen-core", version.ref = "ceres-screen" }
-    ceres-screen-ui = { group = "dev.teogor.ceres", name = "ceres-screen-ui", version.ref = "ceres-screen" }
-    ceres-ui-compose = { group = "dev.teogor.ceres", name = "ceres-ui-compose", version.ref = "ceres-ui" }
-    ceres-ui-design-system = { group = "dev.teogor.ceres", name = "ceres-ui-design.system", version.ref = "ceres-ui" }
-    ceres-ui-foundation = { group = "dev.teogor.ceres", name = "ceres-ui-foundation", version.ref = "ceres-ui" }
-    ceres-ui-icons = { group = "dev.teogor.ceres", name = "ceres-ui-icons", version.ref = "ceres-ui" }
-    ceres-ui-spectrum = { group = "dev.teogor.ceres", name = "ceres-ui-spectrum", version.ref = "ceres-ui" }
-    ceres-ui-theme = { group = "dev.teogor.ceres", name = "ceres-ui-theme", version.ref = "ceres-ui" }
+    ceres-backup-core = { group = "dev.teogor.ceres", name = "backup-core", version.ref = "ceres-backup" }
+    ceres-backup-ui = { group = "dev.teogor.ceres", name = "backup-ui", version.ref = "ceres-backup" }
+    ceres-core-analytics = { group = "dev.teogor.ceres", name = "core-analytics", version.ref = "ceres-core" }
+    ceres-core-common = { group = "dev.teogor.ceres", name = "core-common", version.ref = "ceres-core" }
+    ceres-core-foundation = { group = "dev.teogor.ceres", name = "core-foundation", version.ref = "ceres-core" }
+    ceres-core-network = { group = "dev.teogor.ceres", name = "core-network", version.ref = "ceres-core" }
+    ceres-core-notifications = { group = "dev.teogor.ceres", name = "core-notifications", version.ref = "ceres-core" }
+    ceres-core-register = { group = "dev.teogor.ceres", name = "core-register", version.ref = "ceres-core" }
+    ceres-core-runtime = { group = "dev.teogor.ceres", name = "core-runtime", version.ref = "ceres-core" }
+    ceres-core-startup = { group = "dev.teogor.ceres", name = "core-startup", version.ref = "ceres-core" }
+    ceres-data-compose = { group = "dev.teogor.ceres", name = "data-compose", version.ref = "ceres-data" }
+    ceres-data-database = { group = "dev.teogor.ceres", name = "data-database", version.ref = "ceres-data" }
+    ceres-data-datastore = { group = "dev.teogor.ceres", name = "data-datastore", version.ref = "ceres-data" }
+    ceres-firebase-analytics = { group = "dev.teogor.ceres", name = "firebase-analytics", version.ref = "ceres-firebase" }
+    ceres-firebase-crashlytics = { group = "dev.teogor.ceres", name = "firebase-crashlytics", version.ref = "ceres-firebase" }
+    ceres-firebase-remote-config = { group = "dev.teogor.ceres", name = "firebase-remoteconfig", version.ref = "ceres-firebase" }
+    ceres-framework-core = { group = "dev.teogor.ceres", name = "framework-core", version.ref = "ceres-framework" }
+    ceres-framework-ui = { group = "dev.teogor.ceres", name = "framework-ui", version.ref = "ceres-framework" }
+    ceres-monetisation-admob = { group = "dev.teogor.ceres", name = "monetisation-admob", version.ref = "ceres-monetisation" }
+    ceres-monetisation-ads = { group = "dev.teogor.ceres", name = "monetisation-ads", version.ref = "ceres-monetisation" }
+    ceres-monetisation-messaging = { group = "dev.teogor.ceres", name = "monetisation-messaging", version.ref = "ceres-monetisation" }
+    ceres-navigation-common = { group = "dev.teogor.ceres", name = "navigation-common", version.ref = "ceres-navigation" }
+    ceres-navigation-core = { group = "dev.teogor.ceres", name = "navigation-core", version.ref = "ceres-navigation" }
+    ceres-navigation-events = { group = "dev.teogor.ceres", name = "navigation-events", version.ref = "ceres-navigation" }
+    ceres-navigation-screen = { group = "dev.teogor.ceres", name = "navigation-screen", version.ref = "ceres-navigation" }
+    ceres-navigation-ui = { group = "dev.teogor.ceres", name = "navigation-ui", version.ref = "ceres-navigation" }
+    ceres-screen-builder = { group = "dev.teogor.ceres", name = "screen-builder", version.ref = "ceres-screen" }
+    ceres-screen-core = { group = "dev.teogor.ceres", name = "screen-core", version.ref = "ceres-screen" }
+    ceres-screen-ui = { group = "dev.teogor.ceres", name = "screen-ui", version.ref = "ceres-screen" }
+    ceres-ui-compose = { group = "dev.teogor.ceres", name = "ui-compose", version.ref = "ceres-ui" }
+    ceres-ui-design-system = { group = "dev.teogor.ceres", name = "ui-design.system", version.ref = "ceres-ui" }
+    ceres-ui-foundation = { group = "dev.teogor.ceres", name = "ui-foundation", version.ref = "ceres-ui" }
+    ceres-ui-icons = { group = "dev.teogor.ceres", name = "ui-icons", version.ref = "ceres-ui" }
+    ceres-ui-spectrum = { group = "dev.teogor.ceres", name = "ui-spectrum", version.ref = "ceres-ui" }
+    ceres-ui-theme = { group = "dev.teogor.ceres", name = "ui-theme", version.ref = "ceres-ui" }
     ```
 
 === "Using BoM"
@@ -91,41 +90,41 @@ Materials (BoM) and individual libraries, in TOML format.
 
     [libraries]
     ceres-bom = { group = "dev.teogor.ceres", name = "bom", version.ref = "ceres-bom" }
-    ceres-backup-core = { group = "dev.teogor.ceres", name = "ceres-backup-core" }
-    ceres-backup-ui = { group = "dev.teogor.ceres", name = "ceres-backup-ui" }
-    ceres-core-analytics = { group = "dev.teogor.ceres", name = "ceres-core-analytics" }
-    ceres-core-common = { group = "dev.teogor.ceres", name = "ceres-core-common" }
-    ceres-core-foundation = { group = "dev.teogor.ceres", name = "ceres-core-foundation" }
-    ceres-core-network = { group = "dev.teogor.ceres", name = "ceres-core-network" }
-    ceres-core-notifications = { group = "dev.teogor.ceres", name = "ceres-core-notifications" }
-    ceres-core-register = { group = "dev.teogor.ceres", name = "ceres-core-register" }
-    ceres-core-runtime = { group = "dev.teogor.ceres", name = "ceres-core-runtime" }
-    ceres-core-startup = { group = "dev.teogor.ceres", name = "ceres-core-startup" }
-    ceres-data-compose = { group = "dev.teogor.ceres", name = "ceres-data-compose" }
-    ceres-data-database = { group = "dev.teogor.ceres", name = "ceres-data-database" }
-    ceres-data-datastore = { group = "dev.teogor.ceres", name = "ceres-data-datastore" }
-    ceres-firebase-analytics = { group = "dev.teogor.ceres", name = "ceres-firebase-analytics" }
-    ceres-firebase-crashlytics = { group = "dev.teogor.ceres", name = "ceres-firebase-crashlytics" }
-    ceres-firebase-remote-config = { group = "dev.teogor.ceres", name = "ceres-firebase-remoteconfig" }
-    ceres-framework-core = { group = "dev.teogor.ceres", name = "ceres-framework-core" }
-    ceres-framework-ui = { group = "dev.teogor.ceres", name = "ceres-framework-ui" }
-    ceres-monetisation-admob = { group = "dev.teogor.ceres", name = "ceres-monetisation-admob" }
-    ceres-monetisation-ads = { group = "dev.teogor.ceres", name = "ceres-monetisation-ads" }
-    ceres-monetisation-messaging = { group = "dev.teogor.ceres", name = "ceres-monetisation-messaging" }
-    ceres-navigation-common = { group = "dev.teogor.ceres", name = "ceres-navigation-common" }
-    ceres-navigation-core = { group = "dev.teogor.ceres", name = "ceres-navigation-core" }
-    ceres-navigation-events = { group = "dev.teogor.ceres", name = "ceres-navigation-events" }
-    ceres-navigation-screen = { group = "dev.teogor.ceres", name = "ceres-navigation-screen" }
-    ceres-navigation-ui = { group = "dev.teogor.ceres", name = "ceres-navigation-ui" }
-    ceres-screen-builder = { group = "dev.teogor.ceres", name = "ceres-screen-builder" }
-    ceres-screen-core = { group = "dev.teogor.ceres", name = "ceres-screen-core" }
-    ceres-screen-ui = { group = "dev.teogor.ceres", name = "ceres-screen-ui" }
-    ceres-ui-compose = { group = "dev.teogor.ceres", name = "ceres-ui-compose" }
-    ceres-ui-design-system = { group = "dev.teogor.ceres", name = "ceres-ui-design.system" }
-    ceres-ui-foundation = { group = "dev.teogor.ceres", name = "ceres-ui-foundation" }
-    ceres-ui-icons = { group = "dev.teogor.ceres", name = "ceres-ui-icons" }
-    ceres-ui-spectrum = { group = "dev.teogor.ceres", name = "ceres-ui-spectrum" }
-    ceres-ui-theme = { group = "dev.teogor.ceres", name = "ceres-ui-theme" }
+    ceres-backup-core = { group = "dev.teogor.ceres", name = "backup-core" }
+    ceres-backup-ui = { group = "dev.teogor.ceres", name = "backup-ui" }
+    ceres-core-analytics = { group = "dev.teogor.ceres", name = "core-analytics" }
+    ceres-core-common = { group = "dev.teogor.ceres", name = "core-common" }
+    ceres-core-foundation = { group = "dev.teogor.ceres", name = "core-foundation" }
+    ceres-core-network = { group = "dev.teogor.ceres", name = "core-network" }
+    ceres-core-notifications = { group = "dev.teogor.ceres", name = "core-notifications" }
+    ceres-core-register = { group = "dev.teogor.ceres", name = "core-register" }
+    ceres-core-runtime = { group = "dev.teogor.ceres", name = "core-runtime" }
+    ceres-core-startup = { group = "dev.teogor.ceres", name = "core-startup" }
+    ceres-data-compose = { group = "dev.teogor.ceres", name = "data-compose" }
+    ceres-data-database = { group = "dev.teogor.ceres", name = "data-database" }
+    ceres-data-datastore = { group = "dev.teogor.ceres", name = "data-datastore" }
+    ceres-firebase-analytics = { group = "dev.teogor.ceres", name = "firebase-analytics" }
+    ceres-firebase-crashlytics = { group = "dev.teogor.ceres", name = "firebase-crashlytics" }
+    ceres-firebase-remote-config = { group = "dev.teogor.ceres", name = "firebase-remoteconfig" }
+    ceres-framework-core = { group = "dev.teogor.ceres", name = "framework-core" }
+    ceres-framework-ui = { group = "dev.teogor.ceres", name = "framework-ui" }
+    ceres-monetisation-admob = { group = "dev.teogor.ceres", name = "monetisation-admob" }
+    ceres-monetisation-ads = { group = "dev.teogor.ceres", name = "monetisation-ads" }
+    ceres-monetisation-messaging = { group = "dev.teogor.ceres", name = "monetisation-messaging" }
+    ceres-navigation-common = { group = "dev.teogor.ceres", name = "navigation-common" }
+    ceres-navigation-core = { group = "dev.teogor.ceres", name = "navigation-core" }
+    ceres-navigation-events = { group = "dev.teogor.ceres", name = "navigation-events" }
+    ceres-navigation-screen = { group = "dev.teogor.ceres", name = "navigation-screen" }
+    ceres-navigation-ui = { group = "dev.teogor.ceres", name = "navigation-ui" }
+    ceres-screen-builder = { group = "dev.teogor.ceres", name = "screen-builder" }
+    ceres-screen-core = { group = "dev.teogor.ceres", name = "screen-core" }
+    ceres-screen-ui = { group = "dev.teogor.ceres", name = "screen-ui" }
+    ceres-ui-compose = { group = "dev.teogor.ceres", name = "ui-compose" }
+    ceres-ui-design-system = { group = "dev.teogor.ceres", name = "ui-design.system" }
+    ceres-ui-foundation = { group = "dev.teogor.ceres", name = "ui-foundation" }
+    ceres-ui-icons = { group = "dev.teogor.ceres", name = "ui-icons" }
+    ceres-ui-spectrum = { group = "dev.teogor.ceres", name = "ui-spectrum" }
+    ceres-ui-theme = { group = "dev.teogor.ceres", name = "ui-theme" }
     ```
 
 #### Dependencies Implementation

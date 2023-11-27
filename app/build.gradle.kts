@@ -29,17 +29,10 @@ plugins {
   id("kotlinx-serialization")
   id("jacoco")
 
-  alias(libs.plugins.winds)
   alias(libs.plugins.querent)
 
   // Feature :: About
   alias(libs.plugins.about.libraries) apply true
-}
-
-winds {
-  mavenPublish {
-    canBePublished = false
-  }
 }
 
 querent {
@@ -106,17 +99,18 @@ android {
 
       resValue("string", "app_name", "Ceres")
     }
-    create("benchmark") {
-      // Enable all the optimizations from release build through initWith(release).
-      initWith(release)
-      matchingFallbacks.add("release")
-      // Debug key signing is available to everyone.
-      signingConfig = signingConfigs.getByName("debug")
-      // Only use benchmark proguard rules
-      proguardFiles("benchmark-rules.pro")
-      isMinifyEnabled = true
-      applicationIdSuffix = CeresBuildType.BENCHMARK.applicationIdSuffix
-    }
+    // todo error crashes the ./gradlew build
+    //  create("benchmark") {
+    //    // Enable all the optimizations from release build through initWith(release).
+    //    initWith(release)
+    //    matchingFallbacks.add("release")
+    //    // Debug key signing is available to everyone.
+    //    signingConfig = signingConfigs.getByName("debug")
+    //    // Only use benchmark proguard rules
+    //    proguardFiles("benchmark-rules.pro")
+    //    isMinifyEnabled = true
+    //    applicationIdSuffix = CeresBuildType.BENCHMARK.applicationIdSuffix
+    //  }
   }
 
   packaging {
