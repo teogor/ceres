@@ -18,7 +18,7 @@ package dev.teogor.ceres.monetisation.admob.formats
 
 import dev.teogor.ceres.core.register.BuildProfiler
 import dev.teogor.ceres.core.register.LocalBuildProfiler
-import dev.teogor.ceres.monetisation.admob.DemoAdUnitIds
+import dev.teogor.ceres.monetisation.admob.TestAdUnitIds
 
 abstract class AdId {
   abstract fun id(): String
@@ -32,14 +32,15 @@ abstract class AdId {
       id()
     } else {
       when (type()) {
-        AdType.AppOpen -> DemoAdUnitIds.APP_OPEN
-        AdType.Interstitial -> DemoAdUnitIds.INTERSTITIAL
-        AdType.RewardedInterstitial -> DemoAdUnitIds.REWARDED_INTERSTITIAL
-        AdType.Native -> DemoAdUnitIds.NATIVE
-        AdType.Rewarded -> DemoAdUnitIds.REWARDED
-        AdType.Banner -> DemoAdUnitIds.BANNER
-        AdType.InterstitialVideo -> DemoAdUnitIds.INTERSTITIAL_VIDEO
-        AdType.NativeVideo -> DemoAdUnitIds.NATIVE_VIDEO
+        AdType.AdaptiveBanner -> TestAdUnitIds.ADAPTIVE_BANNER
+        AdType.AppOpen -> TestAdUnitIds.APP_OPEN
+        AdType.Banner -> TestAdUnitIds.BANNER
+        AdType.Interstitial -> TestAdUnitIds.INTERSTITIAL
+        AdType.InterstitialVideo -> TestAdUnitIds.INTERSTITIAL_VIDEO
+        AdType.NativeAdvanced -> TestAdUnitIds.NATIVE_ADVANCED
+        AdType.NativeAdvancedVideo -> TestAdUnitIds.NATIVE_ADVANCED_VIDEO
+        AdType.Rewarded -> TestAdUnitIds.REWARDED
+        AdType.RewardedInterstitial -> TestAdUnitIds.REWARDED_INTERSTITIAL
         AdType.Unspecified -> field
       }
     }

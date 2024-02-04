@@ -16,14 +16,14 @@
 
 package dev.teogor.ceres.ads
 
-import dev.teogor.ceres.monetisation.admob.DemoAdUnitIds
+import dev.teogor.ceres.monetisation.admob.TestAdUnitIds
 import dev.teogor.ceres.monetisation.admob.formats.AppOpenAd
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class ApplicationOpenAd @Inject constructor() : AppOpenAd() {
-  override fun id() = DemoAdUnitIds.APP_OPEN
+  override fun id() = TestAdUnitIds.APP_OPEN
 
   override fun loadContinuously() = true
 }

@@ -16,7 +16,7 @@
 
 package dev.teogor.ceres.ads
 
-import dev.teogor.ceres.monetisation.admob.DemoAdUnitIds
+import dev.teogor.ceres.monetisation.admob.TestAdUnitIds
 import dev.teogor.ceres.monetisation.admob.formats.RewardedInterstitialAd
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -28,7 +28,7 @@ class HomeRewardedInterstitialAd @Inject constructor() : RewardedInterstitialAd(
   override val concurrentAdLoadLimit: Int
     get() = 2
 
-  override fun id() = DemoAdUnitIds.REWARDED_INTERSTITIAL
+  override fun id() = TestAdUnitIds.REWARDED_INTERSTITIAL
 
   override fun loadContinuously() = true
 }

@@ -17,7 +17,7 @@
 package dev.teogor.ceres.ads
 
 import com.google.android.gms.ads.AdSize
-import dev.teogor.ceres.monetisation.admob.DemoAdUnitIds
+import dev.teogor.ceres.monetisation.admob.TestAdUnitIds
 import dev.teogor.ceres.monetisation.admob.formats.BannerAd
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -30,7 +30,7 @@ class HomeBannerAd @Inject constructor() : BannerAd() {
   override val adSize: AdSize
     get() = AdSize.FULL_BANNER
 
-  override fun id() = DemoAdUnitIds.BANNER
+  override fun id() = TestAdUnitIds.BANNER
 
   override fun loadContinuously() = false
 }
