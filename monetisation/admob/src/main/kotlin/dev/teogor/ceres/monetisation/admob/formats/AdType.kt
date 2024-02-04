@@ -17,16 +17,46 @@
 package dev.teogor.ceres.monetisation.admob.formats
 
 import androidx.annotation.Keep
+import dev.teogor.ceres.monetisation.admob.formats.AdType.AdaptiveBanner
+import dev.teogor.ceres.monetisation.admob.formats.AdType.AppOpen
+import dev.teogor.ceres.monetisation.admob.formats.AdType.Banner
+import dev.teogor.ceres.monetisation.admob.formats.AdType.Interstitial
+import dev.teogor.ceres.monetisation.admob.formats.AdType.InterstitialVideo
+import dev.teogor.ceres.monetisation.admob.formats.AdType.NativeAdvanced
+import dev.teogor.ceres.monetisation.admob.formats.AdType.NativeAdvancedVideo
+import dev.teogor.ceres.monetisation.admob.formats.AdType.Rewarded
+import dev.teogor.ceres.monetisation.admob.formats.AdType.RewardedInterstitial
+import dev.teogor.ceres.monetisation.admob.formats.AdType.Unspecified
 
+/**
+ * Represents the various supported ad types within the app.
+ *
+ * @property AdaptiveBanner Ads that automatically adjust their size and layout
+ * to fit different screen sizes.
+ * @property AppOpen Ads that are displayed automatically when the app is opened.
+ * @property Banner Standard rectangular ads that appear at the top or bottom of
+ * the screen.
+ * @property Interstitial Full-screen ads that cover the entire app interface.
+ * @property InterstitialVideo Full-screen ads that play a video before allowing
+ * the user to return to the app.
+ * @property RewardedInterstitial Full-screen ads that offer a reward to the user
+ * for watching them.
+ * @property NativeAdvanced Ads that are designed to blend seamlessly with the app's
+ * content and layout.
+ * @property NativeAdvancedVideo Native ads that incorporate a video component.
+ * @property Rewarded Ads that offer a reward to the user for interacting with them.
+ * @property Unspecified Used when the ad type is unknown or not yet determined.
+ */
 @Keep
 enum class AdType {
+  AdaptiveBanner,
   AppOpen,
   Banner,
   Interstitial,
   InterstitialVideo,
   RewardedInterstitial,
-  Native,
-  NativeVideo,
+  NativeAdvanced,
+  NativeAdvancedVideo,
   Rewarded,
   Unspecified,
   ;

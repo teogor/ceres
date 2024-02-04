@@ -42,7 +42,7 @@ import com.google.android.gms.ads.nativead.NativeAd
 import com.skydoves.landscapist.ImageOptions
 import com.skydoves.landscapist.glide.GlideImage
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.teogor.ceres.monetisation.admob.DemoAdUnitIds
+import dev.teogor.ceres.monetisation.admob.TestAdUnitIds
 import dev.teogor.ceres.monetisation.admob.annotations.AdProperty
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAd
 import dev.teogor.ceres.monetisation.admob.formats.nativead.NativeAdConfig
@@ -147,7 +147,7 @@ class HomeNativeAdBeta : NativeAdManager() {
   @Composable
   override fun Display() {
     IsOnline {
-      val adId = DemoAdUnitIds.NATIVE
+      val adId = TestAdUnitIds.NATIVE_ADVANCED
       var isAdFillEmpty by remember { mutableStateOf(true) }
       NativeAd<HomeNativeAdVM>(
         modifier = Modifier

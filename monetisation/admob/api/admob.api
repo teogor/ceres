@@ -27,19 +27,6 @@ public final class dev/teogor/ceres/monetisation/admob/AdmobManagerInitializer :
 	public fun dependencies ()Ljava/util/List;
 }
 
-public final class dev/teogor/ceres/monetisation/admob/DemoAdUnitIds {
-	public static final field $stable I
-	public static final field APP_OPEN Ljava/lang/String;
-	public static final field BANNER Ljava/lang/String;
-	public static final field INSTANCE Ldev/teogor/ceres/monetisation/admob/DemoAdUnitIds;
-	public static final field INTERSTITIAL Ljava/lang/String;
-	public static final field INTERSTITIAL_VIDEO Ljava/lang/String;
-	public static final field NATIVE Ljava/lang/String;
-	public static final field NATIVE_VIDEO Ljava/lang/String;
-	public static final field REWARDED Ljava/lang/String;
-	public static final field REWARDED_INTERSTITIAL Ljava/lang/String;
-}
-
 public abstract interface class dev/teogor/ceres/monetisation/admob/Logger {
 	public abstract fun getTag ()Ljava/lang/String;
 	public abstract fun log (Ljava/lang/String;)V
@@ -48,6 +35,20 @@ public abstract interface class dev/teogor/ceres/monetisation/admob/Logger {
 public final class dev/teogor/ceres/monetisation/admob/Logger$DefaultImpls {
 	public static fun getTag (Ldev/teogor/ceres/monetisation/admob/Logger;)Ljava/lang/String;
 	public static fun log (Ldev/teogor/ceres/monetisation/admob/Logger;Ljava/lang/String;)V
+}
+
+public final class dev/teogor/ceres/monetisation/admob/TestAdUnitIds {
+	public static final field $stable I
+	public static final field ADAPTIVE_BANNER Ljava/lang/String;
+	public static final field APP_OPEN Ljava/lang/String;
+	public static final field BANNER Ljava/lang/String;
+	public static final field INSTANCE Ldev/teogor/ceres/monetisation/admob/TestAdUnitIds;
+	public static final field INTERSTITIAL Ljava/lang/String;
+	public static final field INTERSTITIAL_VIDEO Ljava/lang/String;
+	public static final field NATIVE_ADVANCED Ljava/lang/String;
+	public static final field NATIVE_ADVANCED_VIDEO Ljava/lang/String;
+	public static final field REWARDED Ljava/lang/String;
+	public static final field REWARDED_INTERSTITIAL Ljava/lang/String;
 }
 
 public abstract interface annotation class dev/teogor/ceres/monetisation/admob/annotations/AdField : java/lang/annotation/Annotation {
@@ -211,12 +212,13 @@ public abstract class dev/teogor/ceres/monetisation/admob/formats/AdId {
 }
 
 public final class dev/teogor/ceres/monetisation/admob/formats/AdType : java/lang/Enum {
+	public static final field AdaptiveBanner Ldev/teogor/ceres/monetisation/admob/formats/AdType;
 	public static final field AppOpen Ldev/teogor/ceres/monetisation/admob/formats/AdType;
 	public static final field Banner Ldev/teogor/ceres/monetisation/admob/formats/AdType;
 	public static final field Interstitial Ldev/teogor/ceres/monetisation/admob/formats/AdType;
 	public static final field InterstitialVideo Ldev/teogor/ceres/monetisation/admob/formats/AdType;
-	public static final field Native Ldev/teogor/ceres/monetisation/admob/formats/AdType;
-	public static final field NativeVideo Ldev/teogor/ceres/monetisation/admob/formats/AdType;
+	public static final field NativeAdvanced Ldev/teogor/ceres/monetisation/admob/formats/AdType;
+	public static final field NativeAdvancedVideo Ldev/teogor/ceres/monetisation/admob/formats/AdType;
 	public static final field Rewarded Ldev/teogor/ceres/monetisation/admob/formats/AdType;
 	public static final field RewardedInterstitial Ldev/teogor/ceres/monetisation/admob/formats/AdType;
 	public static final field Unspecified Ldev/teogor/ceres/monetisation/admob/formats/AdType;
