@@ -38,7 +38,6 @@
   <string name="look_and_feel_sound_feedback_subtitle">إيقاف لعدم وجود أصوات</string>
   <string name="look_and_feel_vibration_feedback">ردود الاهتزاز</string>
   <string name="look_and_feel_vibration_feedback_subtitle">إيقاف لعدم وجود اهتزازات</string>
-  <string name="look_and_feel_feedback">ردود الفعل</string>
 
   <string-array name="app_theme">
     <item>تلقائي</item>

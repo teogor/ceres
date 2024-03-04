@@ -38,7 +38,6 @@
   <string name="look_and_feel_sound_feedback_subtitle">Desactivar para no tener sonidos</string>
   <string name="look_and_feel_vibration_feedback">Retroalimentación de vibración</string>
   <string name="look_and_feel_vibration_feedback_subtitle">Desactivar para no tener vibraciones</string>
-  <string name="look_and_feel_feedback">Comentarios</string>
 
   <string-array name="app_theme">
     <item>Automático</item>

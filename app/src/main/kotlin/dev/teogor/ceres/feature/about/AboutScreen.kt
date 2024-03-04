@@ -16,6 +16,7 @@
 
 package dev.teogor.ceres.feature.about
 
+import android.os.Build
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.icons.Icons
@@ -100,9 +101,11 @@ private fun AboutLayout() = LazyColumnLayoutBase(
 
   // BuildConfigBet
 
-  aboutBuildDate(
-    BuildProfile.buildLocalDateTime,
-  )
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+    aboutBuildDate(
+      BuildProfile.buildLocalDateTime,
+    )
+  }
 
   aboutHeaderAboutUs()
 
