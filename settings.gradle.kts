@@ -33,6 +33,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "Ceres"
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 // App
 include(":app")
 
@@ -44,7 +46,7 @@ include(":backup:core")
 include(":backup:ui")
 
 // Core
-include(":core:analytics")
+include(":core:core-analytics")
 include(":core:common")
 include(":core:foundation")
 include(":core:network")
@@ -54,18 +56,18 @@ include(":core:runtime")
 include(":core:startup")
 
 // Data
-include(":data:compose")
+include(":data:data-compose")
 include(":data:database")
 include(":data:datastore")
 
 // Firebase
-include(":firebase:analytics")
+include(":firebase:firebase-analytics")
 include(":firebase:crashlytics")
 include(":firebase:remote-config")
 
 // Framework
-include(":framework:core")
-include(":framework:ui")
+include(":framework:framework-core")
+include(":framework:framework-ui")
 
 // Monetisation
 include(":monetisation:admob")
@@ -81,13 +83,13 @@ include(":navigation:ui")
 
 // Screen
 include(":screen:builder")
-include(":screen:core")
-include(":screen:ui")
+include(":screen:screen-core")
+include(":screen:screen-ui")
 
 // UI
 include(":ui:compose")
 include(":ui:designsystem")
-include(":ui:foundation")
+include(":ui:ui-foundation")
 include(":ui:icons")
 include(":ui:spectrum")
 include(":ui:theme")

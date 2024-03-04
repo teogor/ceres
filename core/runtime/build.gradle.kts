@@ -13,10 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.jacoco")
-  alias(libs.plugins.winds)
+  alias(libs.plugins.teogor.winds)
 }
 
 android {
@@ -27,13 +28,14 @@ android {
 }
 
 dependencies {
-  api(project(":core:startup"))
-  api(project(":core:foundation"))
+  api(projects.core.startup)
+  api(projects.core.foundation)
 }
 
 winds {
-  mavenPublish {
-    displayName = "Runtime"
-    name = "runtime"
+  moduleMetadata {
+    artifactDescriptor {
+      name = "Runtime"
+    }
   }
 }

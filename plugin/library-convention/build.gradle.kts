@@ -27,25 +27,33 @@ plugins {
 group = "dev.teogor.ceres.plugin"
 version = "1.0.0-alpha04"
 
+// Configure the build-logic plugins to target JDK 17
+// This matches the JDK used to build the project, and is not related to what is running on device.
 java {
-  // Up to Java 11 APIs are available through desugaring
-  // https://developer.android.com/studio/write/java11-minimal-support-table
-  sourceCompatibility = JavaVersion.VERSION_11
-  targetCompatibility = JavaVersion.VERSION_11
+  sourceCompatibility = JavaVersion.VERSION_17
+  targetCompatibility = JavaVersion.VERSION_17
 }
-
 tasks.withType<KotlinCompile>().configureEach {
   kotlinOptions {
-    jvmTarget = JavaVersion.VERSION_11.toString()
+    jvmTarget = JavaVersion.VERSION_17.toString()
   }
 }
 
 dependencies {
+  compileOnly(libs.android.tools.common)
   compileOnly(libs.gradle.plugin.android)
   compileOnly(libs.gradle.plugin.kotlin)
   compileOnly(libs.gradle.plugin.ksp)
   compileOnly(libs.firebase.crashlytics.gradle)
   compileOnly(libs.firebase.performance.gradle)
+  implementation(libs.truth)
+}
+
+tasks {
+  validatePlugins {
+    enableStricterValidation = true
+    failOnWarning = true
+  }
 }
 
 gradlePlugin {
@@ -161,14 +169,6 @@ gradlePlugin {
       displayName = "Android Flavors Plugin | Ceres Plugin"
       description = "Configures Android application projects with multiple flavor variants for your project."
       tags.set(listOf("android", "flavors", "android-library", "android-development"))
-    }
-
-    register("buildDocs") {
-      id = "dev.teogor.ceres.docs"
-      implementationClass = "BuildDocsPlugin"
-      displayName = "Documentation Builder Plugin"
-      description = "Builds project documentation and reports for your project."
-      tags.set(listOf("documentation", "report", "build-logic"))
     }
 
     register("kotlinLibrary") {

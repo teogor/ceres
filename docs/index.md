@@ -1,66 +1,75 @@
-# Ceres Documentation
+# Ceres
 
-Welcome to the Ceres documentation! This documentation provides detailed information on various
-modules, Bill of Materials (BoM) versions, and usage guidelines for the Ceres Android library.
+Learn more: **[User Guide](user-guide.md)** and **[Code Samples](code-samples.md)**
 
-## Table of Contents
+Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.
 
-1. [Modules](#modules)
-2. [Bill of Materials (BoM)](#bill-of-materials)
-3. [Version Catalog](#version-catalog)
+[//]: # (REGION-API-REFERENCE)
 
----
+API Reference
+[`dev.teogor.ceres:*`](html/)
 
-## Modules
+[//]: # (REGION-API-REFERENCE)
 
-Ceres is organized into multiple modules, each serving a specific purpose. These modules can be
-included selectively in your Android project to streamline development. Here are the available
-modules:
+[//]: # (REGION-GROUP-OVERVIEW)
 
-- [Backup](reference.md): The Backup module provides essential utilities for data backup
-  and recovery.
-- [Core](reference.md): The core module provides essential utilities and foundation for
-  Ceres.
-- [Data](reference.md): The data module offers data-related functionality for Ceres.
-- [Firebase](reference.md): Integrate Firebase services seamlessly with Ceres.
-- [Framework](reference.md): Get access to framework-level components and features.
-- [Monetisation](reference.md): Monetize your Android app using the Monetisation
-  module.
-- [Navigation](reference.md): Efficiently handle app navigation with the Navigation
-  module.
-- [Screen](reference.md): Simplify screen management and UI with the Screen module.
-- [UI](reference.md): Enhance your app's user interface using the UI module.
+**Ceres** is formed by combining 9 Maven Group Ids within dev.teogor.ceres. Each Group encompasses a targeted subset of functionality, with individual sets of release notes.
 
-Each module documentation provides in-depth information on its features and how to integrate it into
-your project.
+This table provides an overview of the groups and their corresponding links to individual sets of release notes.
 
----
+| Group                                           | Description    |
+|:------------------------------------------------|:---------------|
+| [ceres.backup](./backup/index.md)               | not provided   |
+| [ceres.core](./core/index.md)                   | not provided   |
+| [ceres.data](./data/index.md)                   | not provided   |
+| [ceres.firebase](./firebase/index.md)           | not provided   |
+| [ceres.framework](./framework/index.md)         | not provided   |
+| [ceres.monetisation](./monetisation/index.md)   | not provided   |
+| [ceres.navigation](./navigation/index.md)       | not provided   |
+| [ceres.screen](./screen/index.md)               | not provided   |
+| [ceres.ui](./ui/index.md)                       | not provided   |
 
-## Bill of Materials
+[//]: # (REGION-GROUP-OVERVIEW)
 
-The Bill of Materials (BoM) simplifies library version management by providing a centralized
-mechanism to manage versions across Ceres modules. Learn how to use the BoM in your project by
-referring to the [BoM documentation](releases.md).
+[//]: # (REGION-GROUP-VERSION-OVERVIEW)
 
-- [BoM Versions](releases.md): Explore the available BoM versions and their release dates.
+## Version
 
----
+Refer to the table below for an overview of the current versions associated with each group.
 
-## Version Catalog
+| Maven Group ID                                  | Latest Update        |  Stable Release  |  Release Candidate  |  Beta Release  |  Alpha Release  |
+|:------------------------------------------------|:---------------------|:----------------:|:-------------------:|:--------------:|:---------------:|
+| [ceres.backup](./backup/index.md)               | September 28, 2023   |        -         |          -          |       -        |  1.0.0-alpha01  |
+| [ceres.core](./core/index.md)                   | November 23, 2023    |        -         |          -          |       -        |  1.0.0-alpha04  |
+| [ceres.data](./data/index.md)                   | November 23, 2023    |        -         |          -          |       -        |  1.0.0-alpha02  |
+| [ceres.firebase](./firebase/index.md)           | November 23, 2023    |        -         |          -          |       -        |  1.0.0-alpha04  |
+| [ceres.framework](./framework/index.md)         | November 23, 2023    |        -         |          -          |       -        |  1.0.0-alpha04  |
+| [ceres.monetisation](./monetisation/index.md)   | November 23, 2023    |        -         |          -          |       -        |  1.0.0-alpha04  |
+| [ceres.navigation](./navigation/index.md)       | November 23, 2023    |        -         |          -          |       -        |  1.0.0-alpha03  |
+| [ceres.screen](./screen/index.md)               | November 23, 2023    |        -         |          -          |       -        |  1.0.0-alpha04  |
+| [ceres.ui](./ui/index.md)                       | November 23, 2023    |        -         |          -          |       -        |  1.0.0-alpha04  |
 
-The Ceres Version Catalog provides implementation details of Ceres libraries and BoM versions in
-TOML format. It helps you manage library versions effortlessly. Refer to
-the [Version Catalog](ceres-version-catalog.md) to understand how to declare dependencies using the
-latest versions and access implementation details.
+[//]: # (REGION-GROUP-VERSION-OVERVIEW)
 
----
+[//]: # (REGION-REPORT-ISSUE-FEEDBACK)
 
-We hope this documentation helps you make the most of the Ceres Android library. If you have any
-questions or need further assistance, feel free to reach out to us. Happy coding!
+## Feedback
 
-**Getting Started**
+Your feedback helps make Ceres better. Let us know if you discover new issues or have
+ideas for improving this library. Please take a look at the [existing issues on GitHub](https://github.com/teogor/ceres/issues)
+for this library before you create a new one.
 
-To get started with Xenoglot, refer to the comprehensive documentation available at
+[Create a new issue](https://github.com/teogor/ceres/issues/new){ .md-button }
+
+[//]: # (REGION-REPORT-ISSUE-FEEDBACK)
+
+## BOMs
+
+To stay updated with the latest BOM releases, explore the [Ceres BOM Mapping Page](./bom/bom-mapping.md).
+
+## Getting Started
+
+To get started with Ceres, refer to the comprehensive documentation available at
 [source.teogor.dev/ceres](https://source.teogor.dev/ceres). The documentation provides
 detailed explanations, examples, and best practices for using the library effectively.
 

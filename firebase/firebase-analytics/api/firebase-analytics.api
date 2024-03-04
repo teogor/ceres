@@ -1,0 +1,55 @@
+public final class dev/teogor/ceres/firebase/analytics/AnalyticsManagerInitializer : androidx/startup/Initializer {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun create (Landroid/content/Context;)Ljava/lang/Object;
+	public fun create (Landroid/content/Context;)V
+	public fun dependencies ()Ljava/util/List;
+}
+
+public final class dev/teogor/ceres/firebase/analytics/AnalyticsManagerInitializerKt {
+	public static final fun text ()V
+}
+
+public abstract class dev/teogor/ceres/firebase/analytics/AnalyticsModule {
+	public static final field $stable I
+	public static final field Companion Ldev/teogor/ceres/firebase/analytics/AnalyticsModule$Companion;
+	public fun <init> ()V
+}
+
+public final class dev/teogor/ceres/firebase/analytics/AnalyticsModule$Companion {
+	public final fun provideFirebaseAnalytics ()Lcom/google/firebase/analytics/FirebaseAnalytics;
+}
+
+public final class dev/teogor/ceres/firebase/analytics/AnalyticsModule_Companion_ProvideFirebaseAnalyticsFactory : dagger/internal/Factory {
+	public fun <init> ()V
+	public static fun create ()Ldev/teogor/ceres/firebase/analytics/AnalyticsModule_Companion_ProvideFirebaseAnalyticsFactory;
+	public fun get ()Lcom/google/firebase/analytics/FirebaseAnalytics;
+	public synthetic fun get ()Ljava/lang/Object;
+	public static fun provideFirebaseAnalytics ()Lcom/google/firebase/analytics/FirebaseAnalytics;
+}
+
+public final class dev/teogor/ceres/firebase/analytics/FirebaseAnalyticsHelper : dev/teogor/ceres/core/analytics/AnalyticsHelper {
+	public static final field $stable I
+	public fun <init> (Lcom/google/firebase/analytics/FirebaseAnalytics;)V
+	public fun logEvent (Ldev/teogor/ceres/core/analytics/AnalyticsEvent;)V
+}
+
+public final class dev/teogor/ceres/firebase/analytics/FirebaseAnalyticsHelperKt {
+	public static final fun logEvent (Lcom/google/firebase/analytics/FirebaseAnalytics;Ldev/teogor/ceres/core/analytics/Types;Lkotlin/jvm/functions/Function1;)V
+}
+
+public final class dev/teogor/ceres/firebase/analytics/ParametersBuilder {
+	public static final field $stable I
+	public fun <init> ()V
+	public final fun build ()Landroid/os/Bundle;
+	public final fun param (Ljava/lang/String;D)V
+	public final fun param (Ljava/lang/String;J)V
+	public final fun param (Ljava/lang/String;Landroid/os/Bundle;)V
+	public final fun param (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun param (Ljava/lang/String;[Landroid/os/Bundle;)V
+}
+
+public class hilt_aggregated_deps/_dev_teogor_ceres_firebase_analytics_AnalyticsModule {
+	public fun <init> ()V
+}
+

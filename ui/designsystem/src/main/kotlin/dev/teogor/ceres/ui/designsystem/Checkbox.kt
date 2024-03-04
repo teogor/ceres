@@ -33,8 +33,8 @@ import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.selection.triStateToggleable
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.minimumInteractiveComponentSize
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.State
@@ -171,7 +171,7 @@ fun TriStateCheckbox(
         enabled = enabled,
         role = Role.Checkbox,
         interactionSource = interactionSource,
-        indication = rememberRipple(
+        indication = ripple(
           bounded = false,
           radius = CheckboxTokens.StateLayerSize / 2,
         ),

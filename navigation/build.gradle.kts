@@ -13,19 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import dev.teogor.winds.api.model.createVersion
+
+import dev.teogor.winds.ktx.createVersion
 
 plugins {
-  alias(libs.plugins.winds)
+  alias(libs.plugins.teogor.winds)
 }
 
 winds {
-  mavenPublish {
-    displayName = "Navigation"
-    name = "navigation"
-
-    version = createVersion(1, 0, 0) {
-      alphaRelease(3)
+  moduleMetadata {
+    artifactDescriptor {
+      name = "Navigation"
+      version = createVersion(1, 0, 0) {
+        alphaRelease(3)
+      }
     }
+  }
+
+  publishingOptions {
+    publish = false
   }
 }

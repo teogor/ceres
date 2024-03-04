@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
   id("dev.teogor.ceres.android.hilt")
-  alias(libs.plugins.winds)
+  alias(libs.plugins.teogor.winds)
 }
 
 android {
@@ -31,18 +32,19 @@ android {
 dependencies {
   api(libs.google.android.ump)
 
-  api(project(":core:register"))
-  api(project(":core:runtime"))
-  api(project(":core:startup"))
-  api(project(":monetisation:admob"))
+  api(projects.core.register)
+  api(projects.core.runtime)
+  api(projects.core.startup)
+  api(projects.monetisation.admob)
 
   implementation(libs.androidx.compose.runtime)
   implementation(libs.startup.runtime)
 }
 
 winds {
-  mavenPublish {
-    displayName = "Messaging"
-    name = "messaging"
+  moduleMetadata {
+    artifactDescriptor {
+      name = "Messaging"
+    }
   }
 }

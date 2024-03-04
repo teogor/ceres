@@ -26,7 +26,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidViewBinding
 import com.google.android.gms.ads.nativead.NativeAdView
-import dev.teogor.ceres.monetisation.admob.databinding.AdmobNativeBinding
+import dev.teogor.ceres.monetisation.admob.databinding.MonetisationAdmobNativeBinding
 import dev.teogor.ceres.monetisation.admob.formats.AdEvent
 import dev.teogor.ceres.monetisation.admob.models.AdChoicesPlacement
 
@@ -67,7 +67,7 @@ fun <T : NativeAdViewModel> NativeAd(
 
   val backgroundModifier = onRetrieveBackground(config.adChoicesPlacement)
   AndroidViewBinding(
-    factory = AdmobNativeBinding::inflate,
+    factory = MonetisationAdmobNativeBinding::inflate,
     modifier = modifier.then(backgroundModifier),
   ) {
     if (adView == null) {

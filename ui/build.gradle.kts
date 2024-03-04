@@ -14,19 +14,23 @@
  * limitations under the License.
  */
 
-import dev.teogor.winds.api.model.createVersion
+import dev.teogor.winds.ktx.createVersion
 
 plugins {
-  alias(libs.plugins.winds)
+  alias(libs.plugins.teogor.winds)
 }
 
 winds {
-  mavenPublish {
-    displayName = "UI"
-    name = "ui"
-
-    version = createVersion(1, 0, 0) {
-      alphaRelease(4)
+  moduleMetadata {
+    artifactDescriptor {
+      name = "UI"
+      version = createVersion(1, 0, 0) {
+        alphaRelease(4)
+      }
     }
+  }
+
+  publishingOptions {
+    publish = false
   }
 }

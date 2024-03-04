@@ -18,7 +18,7 @@ plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.jacoco")
   id("dev.teogor.ceres.android.hilt")
-  alias(libs.plugins.winds)
+  alias(libs.plugins.teogor.winds)
 }
 
 android {
@@ -29,18 +29,14 @@ android {
 }
 
 dependencies {
-  implementation(project(":core:foundation"))
+  implementation(projects.core.foundation)
   implementation(libs.kotlinx.coroutines.android)
 }
 
 winds {
-  mavenPublish {
-    displayName = "Network"
-    name = "network"
-
-    // todo overrides to 0
-    //  version = copyVersion {
-    //    setIsDeprecated()
-    //  }
+  moduleMetadata {
+    artifactDescriptor {
+      name = "Network"
+    }
   }
 }

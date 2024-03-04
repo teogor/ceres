@@ -1,0 +1,48 @@
+[
+  {
+    "module": "dev.teogor.ceres:ceres-data",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 2
+    },
+    "date": 1700741300,
+    "dependencies": [
+      {
+        "module": "dev.teogor.ceres:data-compose",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 2
+        },
+        "date": 1700741300
+      },
+      {
+        "module": "dev.teogor.ceres:data-database",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 2
+        },
+        "date": 1700741300
+      },
+      {
+        "module": "dev.teogor.ceres:data-datastore",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 2
+        },
+        "date": 1700741300
+      }
+    ]
+  }
+]

@@ -1,12 +1,12 @@
 package dev.teogor.ceres.utils
 
 import dev.teogor.ceres.models.LibrarySpec
-import java.util.Optional
 import org.gradle.api.artifacts.MinimalExternalModuleDependency
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.logging.Logger
 import org.gradle.api.provider.Provider
 import org.gradle.kotlin.dsl.DependencyHandlerScope
+import java.util.Optional
 
 fun VersionCatalog.findLibrary(
   librarySpec: LibrarySpec,

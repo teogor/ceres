@@ -16,26 +16,20 @@
 
 package dev.teogor.ceres.ui.theme
 
-import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.text.selection.LocalTextSelectionColors
 import androidx.compose.foundation.text.selection.TextSelectionColors
-import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.material.ripple.RippleAlpha
-import androidx.compose.material.ripple.RippleTheme
-import androidx.compose.material.ripple.rememberRipple
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.LocalRippleConfiguration
 import androidx.compose.material3.ProvideTextStyle
+import androidx.compose.material3.RippleConfiguration
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
 import dev.teogor.ceres.ui.theme.tokens.StateTokens
 
-// TODO: Create a sample dev.teogor.ceres.core.designsystem.alpha.samples.MaterialThemeSample
-// TODO(b/197880751) Update to link M3 Material Theming page (i.e. a <a href="https://material
-//  .io/design/material-theming/overview.html" class="external" target="_blank">Material
-//  Theming</a> M3 equivalent).
 /**
  * Material Theming refers to the customization of your Material Design app to better reflect your
  * product’s brand.
@@ -56,6 +50,7 @@ import dev.teogor.ceres.ui.theme.tokens.StateTokens
  * @param typography A set of text styles to be used as this hierarchy's typography system
  * @param shapes A set of corner shapes to be used as this hierarchy's shape system
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MaterialTheme(
   darkTheme: Boolean = isSystemInDarkTheme(),
@@ -75,12 +70,10 @@ fun MaterialTheme(
   val rememberDarkTheme = remember(darkTheme) {
     darkTheme
   }
-  val rippleIndication = rememberRipple()
   val selectionColors = rememberTextSelectionColors(rememberedColorScheme)
   CompositionLocalProvider(
     LocalColorScheme provides rememberedColorScheme,
-    LocalIndication provides rippleIndication,
-    LocalRippleTheme provides MaterialRippleTheme,
+    LocalRippleConfiguration provides MaterialRippleConfiguration,
     LocalShapes provides shapes,
     LocalTextSelectionColors provides selectionColors,
     LocalTypography provides typography,
@@ -89,6 +82,21 @@ fun MaterialTheme(
     ProvideTextStyle(value = typography.bodyLarge, content = content)
   }
 }
+
+@OptIn(ExperimentalMaterial3Api::class)
+private val MaterialRippleConfiguration: RippleConfiguration
+  @Composable
+  get() = RippleConfiguration(
+    color = LocalContentColor.current,
+    rippleAlpha = DefaultRippleAlpha,
+  )
+
+private val DefaultRippleAlpha = RippleAlpha(
+  pressedAlpha = StateTokens.PressedStateLayerOpacity,
+  focusedAlpha = StateTokens.FocusStateLayerOpacity,
+  draggedAlpha = StateTokens.DraggedStateLayerOpacity,
+  hoveredAlpha = StateTokens.HoverStateLayerOpacity,
+)
 
 /**
  * Contains functions to access the current theme values provided at the call site's position in
@@ -130,24 +138,7 @@ object MaterialTheme {
     get() = LocalShapes.current
 }
 
-@Immutable
-private object MaterialRippleTheme : RippleTheme {
-  @Composable
-  override fun defaultColor() = LocalContentColor.current
-
-  @Composable
-  override fun rippleAlpha() = DefaultRippleAlpha
-}
-
-private val DefaultRippleAlpha = RippleAlpha(
-  pressedAlpha = StateTokens.PressedStateLayerOpacity,
-  focusedAlpha = StateTokens.FocusStateLayerOpacity,
-  draggedAlpha = StateTokens.DraggedStateLayerOpacity,
-  hoveredAlpha = StateTokens.HoverStateLayerOpacity,
-)
-
 @Composable
-/*@VisibleForTesting*/
 internal fun rememberTextSelectionColors(colorScheme: ColorScheme): TextSelectionColors {
   val primaryColor = colorScheme.primary
   return remember(primaryColor) {

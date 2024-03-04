@@ -1,0 +1,48 @@
+[
+  {
+    "module": "dev.teogor.ceres:ceres-firebase",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 4
+    },
+    "date": 1700741300,
+    "dependencies": [
+      {
+        "module": "dev.teogor.ceres:firebase-crashlytics",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 4
+        },
+        "date": 1700741300
+      },
+      {
+        "module": "dev.teogor.ceres:firebase-analytics",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 4
+        },
+        "date": 1700741300
+      },
+      {
+        "module": "dev.teogor.ceres:firebase-remote-config",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 4
+        },
+        "date": 1700741300
+      }
+    ]
+  }
+]
