@@ -174,10 +174,10 @@ subprojects {
         target("**/*.kt")
         targetExclude("**/build/**/*.kt")
         ktlint(ktlintVersion)
-          .userData(
+          .editorConfigOverride(
             mapOf(
               "android" to "true",
-              "ktlint_code_style" to "android",
+              "ktlint_code_style" to "intellij_idea",
               "ij_kotlin_allow_trailing_comma" to "true",
               // These rules were introduced in ktlint 0.46.0 and should not be
               // enabled without further discussion. They are disabled for now.
@@ -259,7 +259,6 @@ subprojects {
     }
   }
 }
-
 
 tasks.dokkaHtmlMultiModule {
   dependsOn(":backup:dokkaHtmlMultiModule")

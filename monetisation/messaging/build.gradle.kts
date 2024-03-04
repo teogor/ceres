@@ -29,7 +29,7 @@ android {
 }
 
 dependencies {
-  api("com.google.android.ump:user-messaging-platform:2.1.0")
+  api(libs.google.android.ump)
 
   api(project(":core:register"))
   api(project(":core:runtime"))
