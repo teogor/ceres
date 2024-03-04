@@ -87,7 +87,10 @@ internal fun Project.configureKotlinAndroid(
         defaultValue = true,
       )
     ) {
-      add("coreLibraryDesugaring", libs.findLibrary("android.desugarJdkLibs").get())
+      val desugarJdkLibs = libs.findLibrary("android.desugarJdkLibs")
+      if (desugarJdkLibs.isPresent) {
+        add("coreLibraryDesugaring", desugarJdkLibs.get())
+      }
     }
   }
 }

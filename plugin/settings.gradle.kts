@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+@Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
   repositories {
     google()
@@ -27,4 +28,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "plugin"
+
 include(":library-convention")

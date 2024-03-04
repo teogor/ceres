@@ -80,17 +80,6 @@ internal fun Project.configureAndroidBuildConfig(
 
   val gitHashProvider = providers.of(GitHashValueSource::class) {}
 
-  afterEvaluate {
-    val specificDependency = configurations.findSpecificDependency("dev.teogor.ceres", "bom")
-
-    val version = specificDependency?.version
-    if (version != null) {
-      println("[CeresBomVersion] Version of dev.teogor.ceres:bom: $version")
-    } else {
-      println("[CeresBomVersion] Dependency dev.teogor.ceres:bom not found or has no version.")
-    }
-  }
-
   // Enable BuildConfig generation
   commonExtension.apply {
     buildFeatures {

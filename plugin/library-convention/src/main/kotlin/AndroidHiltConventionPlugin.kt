@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+import dev.teogor.ceres.models.hiltAndroid
+import dev.teogor.ceres.models.hiltAndroidCompiler
+import dev.teogor.ceres.utils.add
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
@@ -30,9 +33,14 @@ class AndroidHiltConventionPlugin : Plugin<Project> {
 
       val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
       dependencies {
-        "implementation"(libs.findLibrary("hilt.android").get())
-        "ksp"(libs.findLibrary("hilt.compiler").get())
-        "kspAndroidTest"(libs.findLibrary("hilt.compiler").get())
+        add(
+          dependencies = listOf(
+            hiltAndroid,
+            hiltAndroidCompiler,
+          ),
+          logger = logger,
+          libs = libs,
+        )
       }
     }
   }

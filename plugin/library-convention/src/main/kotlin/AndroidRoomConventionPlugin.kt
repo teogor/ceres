@@ -16,6 +16,10 @@
 
 import com.google.devtools.ksp.gradle.KspExtension
 import dev.teogor.ceres.models.RoomOptionsExtension
+import dev.teogor.ceres.models.roomCompiler
+import dev.teogor.ceres.models.roomKtx
+import dev.teogor.ceres.models.roomRuntime
+import dev.teogor.ceres.utils.add
 import java.io.File
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -44,7 +48,7 @@ class AndroidRoomConventionPlugin : Plugin<Project> {
           // The schemas directory contains a schema file for each version of the Room database.
           // This is required to enable Room auto migrations.
           // See https://developer.android.com/reference/kotlin/androidx/room/AutoMigration.
-          if(roomOptions.enableSchemaProvider) {
+          if (roomOptions.enableSchemaProvider) {
             arg(RoomSchemaArgProvider(File(projectDir, roomOptions.schemasPath)))
           }
         }
@@ -52,9 +56,15 @@ class AndroidRoomConventionPlugin : Plugin<Project> {
 
       val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
       dependencies {
-        add("implementation", libs.findLibrary("room.runtime").get())
-        add("implementation", libs.findLibrary("room.ktx").get())
-        add("ksp", libs.findLibrary("room.compiler").get())
+        add(
+          dependencies = listOf(
+            roomRuntime,
+            roomKtx,
+            roomCompiler,
+          ),
+          logger = logger,
+          libs = libs,
+        )
       }
     }
   }
