@@ -18,6 +18,7 @@ package dev.teogor.ceres.screen.ui.onboarding
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import dev.teogor.ceres.framework.core.app.BaseActions
@@ -67,7 +68,8 @@ internal fun OnboardingGraphBeta(
 
   Box(
     modifier = Modifier
-      .fillMaxSize(),
+      .fillMaxSize()
+      .navigationBarsPadding(),
   ) {
     when (screen) {
       OnboardingScreen.INTRO -> {
