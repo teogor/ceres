@@ -24,6 +24,7 @@ import org.gradle.kotlin.dsl.invoke
 /**
  * Configure project for Gradle managed devices
  */
+@Suppress("UnstableApiUsage")
 internal fun configureGradleManagedDevices(
   commonExtension: CommonExtension<*, *, *, *, *>,
 ) {

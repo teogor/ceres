@@ -17,6 +17,7 @@
 package dev.teogor.ceres
 
 import com.android.build.api.variant.AndroidComponentsExtension
+import java.util.Locale
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.api.tasks.testing.Test
@@ -27,7 +28,6 @@ import org.gradle.kotlin.dsl.withType
 import org.gradle.testing.jacoco.plugins.JacocoPluginExtension
 import org.gradle.testing.jacoco.plugins.JacocoTaskExtension
 import org.gradle.testing.jacoco.tasks.JacocoReport
-import java.util.Locale
 
 private val coverageExclusions = listOf(
   // Android
@@ -47,7 +47,11 @@ internal fun Project.configureJacoco(
   val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
   configure<JacocoPluginExtension> {
-    toolVersion = libs.findVersion("jacoco").get().toString()
+    libs.findVersion("jacoco").let { jacoco ->
+      if (jacoco.isPresent) {
+        toolVersion = jacoco.get().toString()
+      }
+    }
   }
 
   val jacocoTestReport = tasks.create("jacocoTestReport")
