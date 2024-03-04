@@ -1,338 +1,357 @@
+/*
+ * Copyright 2024 teogor (Teodor Grigor)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package dev.teogor.ceres.screen.ui.res
 
 import androidx.compose.runtime.Composable
+import kotlin.Array
+import kotlin.Int
+import kotlin.String
 
-object Resources {
-  val About: String
+public object Resources {
+  public val About: String
     @Composable
     get() = ResourceKey.ABOUT.asResource()
 
-  val AboutUs: String
+  public val AboutUs: String
     @Composable
     get() = ResourceKey.ABOUT_US.asResource()
 
-  val And: String
+  public val And: String
     @Composable
     get() = ResourceKey.AND.asResource()
 
-  val ApkSignature: String
+  public val ApkSignature: String
     @Composable
     get() = ResourceKey.APK_SIGNATURE.asResource()
 
-  val AppInfo: String
+  public val AppInfo: String
     @Composable
     get() = ResourceKey.APP_INFO.asResource()
 
-  val AppLicense: String
+  public val AppLicense: String
     @Composable
     get() = ResourceKey.APP_LICENSE.asResource()
 
-  val AppVersion: String
+  public val AppVersion: String
     @Composable
     get() = ResourceKey.APP_VERSION.asResource()
 
-  val BackupAndRestore: String
+  public val BackupAndRestore: String
     @Composable
     get() = ResourceKey.BACKUP_AND_RESTORE.asResource()
 
-  val BuildDate: String
+  public val BuildDate: String
     @Composable
     get() = ResourceKey.BUILD_DATE.asResource()
 
-  val BuildHash: String
+  public val BuildHash: String
     @Composable
     get() = ResourceKey.BUILD_HASH.asResource()
 
-  val BuiltWithCeres: String
+  public val BuiltWithCeres: String
     @Composable
     get() = ResourceKey.BUILT_WITH_CERES.asResource()
 
-  val Business: String
+  public val Business: String
     @Composable
     get() = ResourceKey.BUSINESS.asResource()
 
-  val Cancel: String
+  public val Cancel: String
     @Composable
     get() = ResourceKey.CANCEL.asResource()
 
-  val CeresFrameworkVersion: String
+  public val CeresFrameworkVersion: String
     @Composable
     get() = ResourceKey.CERES_FRAMEWORK_VERSION.asResource()
 
-  val Company: String
+  public val Company: String
     @Composable
     get() = ResourceKey.COMPANY.asResource()
 
-  val CopyrightPolicy: String
+  public val CopyrightPolicy: String
     @Composable
     get() = ResourceKey.COPYRIGHT_POLICY.asResource()
 
-  val Corporation: String
+  public val Corporation: String
     @Composable
     get() = ResourceKey.CORPORATION.asResource()
 
-  val DataAndPrivacy: String
+  public val DataAndPrivacy: String
     @Composable
     get() = ResourceKey.DATA_AND_PRIVACY.asResource()
 
-  val DesignAndColorOptions: String
+  public val DesignAndColorOptions: String
     @Composable
     get() = ResourceKey.DESIGN_AND_COLOR_OPTIONS.asResource()
 
-  val Developer: String
+  public val Developer: String
     @Composable
     get() = ResourceKey.DEVELOPER.asResource()
 
-  val Enterprise: String
+  public val Enterprise: String
     @Composable
     get() = ResourceKey.ENTERPRISE.asResource()
 
-  val Feedback: String
+  public val Feedback: String
     @Composable
     get() = ResourceKey.FEEDBACK.asResource()
 
-  val FullBackupOfYourApp: String
+  public val FullBackupOfYourApp: String
     @Composable
     get() = ResourceKey.FULL_BACKUP_OF_YOUR_APP.asResource()
 
-  val HelpAndFeedback: String
+  public val HelpAndFeedback: String
     @Composable
     get() = ResourceKey.HELP_AND_FEEDBACK.asResource()
 
-  val Id: String
+  public val Id: String
     @Composable
     get() = ResourceKey.ID.asResource()
 
-  val Language: String
+  public val Language: String
     @Composable
     get() = ResourceKey.LANGUAGE.asResource()
 
-  val LegalAgreementsHeader: String
+  public val LegalAgreementsHeader: String
     @Composable
     get() = ResourceKey.LEGAL_AGREEMENTS_HEADER.asResource()
 
-  val LicenseDetailsForOpenSourceSoftware: String
+  public val LicenseDetailsForOpenSourceSoftware: String
     @Composable
     get() = ResourceKey.LICENSE_DETAILS_FOR_OPEN_SOURCE_SOFTWARE.asResource()
 
-  val Licenses: String
+  public val Licenses: String
     @Composable
     get() = ResourceKey.LICENSES.asResource()
 
-  val LookAndFeel: String
+  public val LookAndFeel: String
     @Composable
     get() = ResourceKey.LOOK_AND_FEEL.asResource()
 
-  val LookAndFeelAppColorTheme: String
+  public val LookAndFeelAppColorTheme: String
     @Composable
     get() = ResourceKey.LOOK_AND_FEEL_APP_COLOR_THEME.asResource()
 
-  val LookAndFeelAppColorThemeSubtitle: String
+  public val LookAndFeelAppColorThemeSubtitle: String
     @Composable
     get() = ResourceKey.LOOK_AND_FEEL_APP_COLOR_THEME_SUBTITLE.asResource()
 
-  val LookAndFeelAppTheme: String
+  public val LookAndFeelAppTheme: String
     @Composable
     get() = ResourceKey.LOOK_AND_FEEL_APP_THEME.asResource()
 
-  val LookAndFeelAppThemeSubtitle: String
+  public val LookAndFeelAppThemeSubtitle: String
     @Composable
     get() = ResourceKey.LOOK_AND_FEEL_APP_THEME_SUBTITLE.asResource()
 
-  val LookAndFeelDynamicTheming: String
+  public val LookAndFeelDynamicTheming: String
     @Composable
     get() = ResourceKey.LOOK_AND_FEEL_DYNAMIC_THEMING.asResource()
 
-  val LookAndFeelDynamicThemingSubtitle: String
+  public val LookAndFeelDynamicThemingSubtitle: String
     @Composable
     get() = ResourceKey.LOOK_AND_FEEL_DYNAMIC_THEMING_SUBTITLE.asResource()
 
-  val LookAndFeelHeaderAppearance: String
+  public val LookAndFeelHeaderAppearance: String
     @Composable
     get() = ResourceKey.LOOK_AND_FEEL_HEADER_APPEARANCE.asResource()
 
-  val LookAndFeelJustBlack: String
+  public val LookAndFeelJustBlack: String
     @Composable
     get() = ResourceKey.LOOK_AND_FEEL_JUST_BLACK.asResource()
 
-  val LookAndFeelJustBlackSubtitle: String
+  public val LookAndFeelJustBlackSubtitle: String
     @Composable
     get() = ResourceKey.LOOK_AND_FEEL_JUST_BLACK_SUBTITLE.asResource()
 
-  val LookAndFeelSoundFeedback: String
+  public val LookAndFeelSoundFeedback: String
     @Composable
     get() = ResourceKey.LOOK_AND_FEEL_SOUND_FEEDBACK.asResource()
 
-  val LookAndFeelSoundFeedbackSubtitle: String
+  public val LookAndFeelSoundFeedbackSubtitle: String
     @Composable
     get() = ResourceKey.LOOK_AND_FEEL_SOUND_FEEDBACK_SUBTITLE.asResource()
 
-  val LookAndFeelVibrationFeedback: String
+  public val LookAndFeelVibrationFeedback: String
     @Composable
     get() = ResourceKey.LOOK_AND_FEEL_VIBRATION_FEEDBACK.asResource()
 
-  val LookAndFeelVibrationFeedbackSubtitle: String
+  public val LookAndFeelVibrationFeedbackSubtitle: String
     @Composable
     get() = ResourceKey.LOOK_AND_FEEL_VIBRATION_FEEDBACK_SUBTITLE.asResource()
 
-  val MadeIn: String
+  public val MadeIn: String
     @Composable
     get() = ResourceKey.MADE_IN.asResource()
 
-  val ManageYourDataAndPrivacyPreferences: String
+  public val ManageYourDataAndPrivacyPreferences: String
     @Composable
     get() = ResourceKey.MANAGE_YOUR_DATA_AND_PRIVACY_PREFERENCES.asResource()
 
-  val OpenSourceLicenses: String
+  public val OpenSourceLicenses: String
     @Composable
     get() = ResourceKey.OPEN_SOURCE_LICENSES.asResource()
 
-  val Organization: String
+  public val Organization: String
     @Composable
     get() = ResourceKey.ORGANIZATION.asResource()
 
-  val PrivacyOptions: String
+  public val PrivacyOptions: String
     @Composable
     get() = ResourceKey.PRIVACY_OPTIONS.asResource()
 
-  val PrivacyPolicy: String
+  public val PrivacyPolicy: String
     @Composable
     get() = ResourceKey.PRIVACY_POLICY.asResource()
 
-  val RefundPolicy: String
+  public val RefundPolicy: String
     @Composable
     get() = ResourceKey.REFUND_POLICY.asResource()
 
-  val Reset: String
+  public val Reset: String
     @Composable
     get() = ResourceKey.RESET.asResource()
 
-  val ResetAdsConsent: String
+  public val ResetAdsConsent: String
     @Composable
     get() = ResourceKey.RESET_ADS_CONSENT.asResource()
 
-  val ResetAdsConsentDialogText: String
+  public val ResetAdsConsentDialogText: String
     @Composable
     get() = ResourceKey.RESET_ADS_CONSENT_DIALOG_TEXT.asResource()
 
-  val ResetAdsConsentDialogTitle: String
+  public val ResetAdsConsentDialogTitle: String
     @Composable
     get() = ResourceKey.RESET_ADS_CONSENT_DIALOG_TITLE.asResource()
 
-  val ResetAdsConsentSubtitle: String
+  public val ResetAdsConsentSubtitle: String
     @Composable
     get() = ResourceKey.RESET_ADS_CONSENT_SUBTITLE.asResource()
 
-  val ResetOnboarding: String
+  public val ResetOnboarding: String
     @Composable
     get() = ResourceKey.RESET_ONBOARDING.asResource()
 
-  val ResetOnboardingDialogCancelButton: String
+  public val ResetOnboardingDialogCancelButton: String
     @Composable
     get() = ResourceKey.RESET_ONBOARDING_DIALOG_CANCEL_BUTTON.asResource()
 
-  val ResetOnboardingDialogDeleteUserStoredContent: String
+  public val ResetOnboardingDialogDeleteUserStoredContent: String
     @Composable
     get() = ResourceKey.RESET_ONBOARDING_DIALOG_DELETE_USER_STORED_CONTENT.asResource()
 
-  val ResetOnboardingDialogRestartButton: String
+  public val ResetOnboardingDialogRestartButton: String
     @Composable
     get() = ResourceKey.RESET_ONBOARDING_DIALOG_RESTART_BUTTON.asResource()
 
-  val ResetOnboardingDialogText: String
+  public val ResetOnboardingDialogText: String
     @Composable
     get() = ResourceKey.RESET_ONBOARDING_DIALOG_TEXT.asResource()
 
-  val ResetOnboardingDialogTitle: String
+  public val ResetOnboardingDialogTitle: String
     @Composable
     get() = ResourceKey.RESET_ONBOARDING_DIALOG_TITLE.asResource()
 
-  val ResetOnboardingSubtitle: String
+  public val ResetOnboardingSubtitle: String
     @Composable
     get() = ResourceKey.RESET_ONBOARDING_SUBTITLE.asResource()
 
-  val Restart: String
+  public val Restart: String
     @Composable
     get() = ResourceKey.RESTART.asResource()
 
-  val ReviewOurCopyrightPolicy: String
+  public val ReviewOurCopyrightPolicy: String
     @Composable
     get() = ResourceKey.REVIEW_OUR_COPYRIGHT_POLICY.asResource()
 
-  val ReviewOurPrivacyPolicy: String
+  public val ReviewOurPrivacyPolicy: String
     @Composable
     get() = ResourceKey.REVIEW_OUR_PRIVACY_POLICY.asResource()
 
-  val ReviewOurRefundPolicy: String
+  public val ReviewOurRefundPolicy: String
     @Composable
     get() = ResourceKey.REVIEW_OUR_REFUND_POLICY.asResource()
 
-  val ReviewOurTermsOfService: String
+  public val ReviewOurTermsOfService: String
     @Composable
     get() = ResourceKey.REVIEW_OUR_TERMS_OF_SERVICE.asResource()
 
-  val SecurityPatch: String
+  public val SecurityPatch: String
     @Composable
     get() = ResourceKey.SECURITY_PATCH.asResource()
 
-  val Settings: String
+  public val Settings: String
     @Composable
     get() = ResourceKey.SETTINGS.asResource()
 
-  val ShowLess: String
+  public val ShowLess: String
     @Composable
     get() = ResourceKey.SHOW_LESS.asResource()
 
-  val ShowMore: String
+  public val ShowMore: String
     @Composable
     get() = ResourceKey.SHOW_MORE.asResource()
 
-  val System: String
+  public val System: String
     @Composable
     get() = ResourceKey.SYSTEM.asResource()
 
-  val TermsOfService: String
+  public val TermsOfService: String
     @Composable
     get() = ResourceKey.TERMS_OF_SERVICE.asResource()
 
-  val ThisActionCannotBeUndone: String
+  public val ThisActionCannotBeUndone: String
     @Composable
     get() = ResourceKey.THIS_ACTION_CANNOT_BE_UNDONE.asResource()
 
-  val Ui: String
+  public val Ui: String
     @Composable
     get() = ResourceKey.UI.asResource()
 
-  val UserId: String
+  public val UserId: String
     @Composable
     get() = ResourceKey.USER_ID.asResource()
 
-  val UserIdSubtitle: String
+  public val UserIdSubtitle: String
     @Composable
     get() = ResourceKey.USER_ID_SUBTITLE.asResource()
 
-  val VersionInfo: String
+  public val VersionInfo: String
     @Composable
     get() = ResourceKey.VERSION_INFO.asResource()
 
-  val AppTheme: Array<String>
+  public val AppTheme: Array<String>
     @Composable
     get() = ResourceKey.APP_THEME.asResource()
 
-  val JustBlack: Array<String>
+  public val JustBlack: Array<String>
     @Composable
     get() = ResourceKey.JUST_BLACK.asResource()
 
-  val LicensesArray: Array<String>
+  public val LicensesArray: Array<String>
     @Composable
     get() = ResourceKey.LICENSES_ARRAY.asResource()
 
   @Composable
-  fun CopyrightAllRightsReserved(year: Int, holder: String): String =
+  public fun CopyrightAllRightsReserved(year: Int, holder: String): String =
     ResourceKey.COPYRIGHT_ALL_RIGHTS_RESERVED.asResource(args = arrayOf(year, holder))
 
   @Composable
-  fun LicensedUnder(license: String): String = ResourceKey.LICENSED_UNDER.asResource(
+  public fun LicensedUnder(license: String): String = ResourceKey.LICENSED_UNDER.asResource(
     args =
     arrayOf(license),
   )

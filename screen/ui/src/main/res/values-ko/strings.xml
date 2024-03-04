@@ -38,7 +38,6 @@
   <string name="look_and_feel_sound_feedback_subtitle">소리 끄기</string>
   <string name="look_and_feel_vibration_feedback">진동 피드백</string>
   <string name="look_and_feel_vibration_feedback_subtitle">진동 끄기</string>
-  <string name="look_and_feel_feedback">피드백</string>
 
   <string-array name="app_theme">
     <item>자동</item>

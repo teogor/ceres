@@ -38,7 +38,6 @@
   <string name="look_and_feel_sound_feedback_subtitle">关闭以消除声音</string>
   <string name="look_and_feel_vibration_feedback">振动反馈</string>
   <string name="look_and_feel_vibration_feedback_subtitle">关闭以消除振动</string>
-  <string name="look_and_feel_feedback">反馈</string>
 
   <string-array name="app_theme">
     <item>自动</item>

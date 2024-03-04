@@ -1,4 +1,3 @@
-
 import com.diffplug.spotless.LineEnding
 import com.vanniktech.maven.publish.SonatypeHost
 import dev.teogor.winds.api.MavenPublish
@@ -259,4 +258,17 @@ subprojects {
       }
     }
   }
+}
+
+
+tasks.dokkaHtmlMultiModule {
+  dependsOn(":backup:dokkaHtmlMultiModule")
+  dependsOn(":core:dokkaHtmlMultiModule")
+  dependsOn(":data:dokkaHtmlMultiModule")
+  dependsOn(":firebase:dokkaHtmlMultiModule")
+  dependsOn(":framework:dokkaHtmlMultiModule")
+  dependsOn(":monetisation:dokkaHtmlMultiModule")
+  dependsOn(":navigation:dokkaHtmlMultiModule")
+  dependsOn(":screen:dokkaHtmlMultiModule")
+  dependsOn(":ui:dokkaHtmlMultiModule")
 }

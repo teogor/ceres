@@ -38,7 +38,6 @@
   <string name="look_and_feel_sound_feedback_subtitle">Uitschakelen voor geen geluiden</string>
   <string name="look_and_feel_vibration_feedback">Trillingsfeedback</string>
   <string name="look_and_feel_vibration_feedback_subtitle">Uitschakelen voor geen trillingen</string>
-  <string name="look_and_feel_feedback">Feedback</string>
 
   <string-array name="app_theme">
     <item>Automatisch</item>

@@ -212,7 +212,9 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 protobuf = { id = "com.google.protobuf", version.ref = "protobufPlugin" }
-querent = { id = "dev.teogor.querent", version.ref = "querent" }
+# TODO: Temporary workaround until next release
+#  Use version 1.0.0-alpha03-SNAPSHOT-8f9a736 for the querent module
+querent = { id = "dev.teogor.querent", version = "1.0.0-alpha03-SNAPSHOT-8f9a736" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 vanniktech-maven = { id = "com.vanniktech.maven.publish", version.ref = "vanniktechMavenPlugin" }
 winds = { id = "dev.teogor.winds", version.ref = "winds" }

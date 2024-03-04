@@ -1,3 +1,19 @@
+/*
+ * Copyright 2024 teogor (Teodor Grigor)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package dev.teogor.ceres.screen.ui.res
 
 import androidx.compose.runtime.Composable
@@ -5,11 +21,13 @@ import dev.teogor.ceres.core.foundation.compositions.quantityStringResource
 import dev.teogor.ceres.core.foundation.compositions.stringArrayResource
 import dev.teogor.ceres.core.foundation.compositions.stringResource
 import dev.teogor.ceres.screen.ui.R
+import kotlin.Any
+import kotlin.Int
 import kotlin.reflect.KProperty
 
-enum class ResourceKey(
-  val id: Int,
-  val type: ResourceType,
+public enum class ResourceKey(
+  public val id: Int,
+  public val type: ResourceType,
 ) {
   ABOUT(R.string.about, ResourceType.String),
   ABOUT_US(R.string.about_us, ResourceType.String),
@@ -124,13 +142,12 @@ enum class ResourceKey(
   USER_ID(R.string.user_id, ResourceType.String),
   USER_ID_SUBTITLE(R.string.user_id_subtitle, ResourceType.String),
   VERSION_INFO(R.string.version_info, ResourceType.String),
-  ;
 }
 
-operator fun ResourceKey.getValue(thisObj: Any?, `property`: KProperty<*>): Int = id
+public operator fun ResourceKey.getValue(thisObj: Any?, `property`: KProperty<*>): Int = id
 
 @Composable
-inline fun <reified Type> ResourceKey.asResource(quantity: Int = 0, vararg args: Any): Type =
+public inline fun <reified Type> ResourceKey.asResource(quantity: Int = 0, vararg args: Any): Type =
   when (type) {
     ResourceType.Array -> stringArrayResource(id) as Type
     ResourceType.Plurals -> quantityStringResource(id, quantity, *args) as Type

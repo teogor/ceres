@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.compose")
@@ -23,6 +24,7 @@ plugins {
 
 querent {
   buildFeatures {
+    // TODO querent issue - https://github.com/teogor/querent/issues/16
     xmlResources = false
   }
 }

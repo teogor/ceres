@@ -58,37 +58,13 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Generate Backup's API Documentation
-        run: ./gradlew -D'org.gradle.unsafe.configuration-cache=false' :backup:dokkaHtmlMultiModule
-
-      - name: Generate Core's API Documentation
-        run: ./gradlew -D'org.gradle.unsafe.configuration-cache=false' :core:dokkaHtmlMultiModule
-
-      - name: Generate Data's API Documentation
-        run: ./gradlew -D'org.gradle.unsafe.configuration-cache=false' :data:dokkaHtmlMultiModule
-
-      - name: Generate Firebase's API Documentation
-        run: ./gradlew -D'org.gradle.unsafe.configuration-cache=false' :firebase:dokkaHtmlMultiModule
-
-      - name: Generate Framework's API Documentation
-        run: ./gradlew -D'org.gradle.unsafe.configuration-cache=false' :framework:dokkaHtmlMultiModule
-
-      - name: Generate Monetisation's API Documentation
-        run: ./gradlew -D'org.gradle.unsafe.configuration-cache=false' :monetisation:dokkaHtmlMultiModule
-
-      - name: Generate Navigation's API Documentation
-        run: ./gradlew -D'org.gradle.unsafe.configuration-cache=false' :navigation:dokkaHtmlMultiModule
-
-      - name: Generate Screen's API Documentation
-        run: ./gradlew -D'org.gradle.unsafe.configuration-cache=false' :screen:dokkaHtmlMultiModule
-
-      - name: Generate UI's API Documentation
-        run: ./gradlew -D'org.gradle.unsafe.configuration-cache=false' :ui:dokkaHtmlMultiModule
+      - name: Generate API Documentation
+        run: ./gradlew -D'org.gradle.unsafe.configuration-cache=false' dokkaHtmlMultiModule
 
       - name: Relocate API References
         run: |
-          mkdir -p build/docs/${{ env.REPOSITORY }}/reference
-          cp -r build/reference/* build/docs/${{ env.REPOSITORY }}/reference
+          mkdir -p build/docs/${{ env.REPOSITORY }}/html
+          cp -r build/reference/* build/docs/${{ env.REPOSITORY }}/html
 
       - id: publish-docs
         name: Deploy Documentation

@@ -38,7 +38,6 @@
   <string name="look_and_feel_sound_feedback_subtitle">Ausschalten für keine Geräusche</string>
   <string name="look_and_feel_vibration_feedback">Vibrations-Feedback</string>
   <string name="look_and_feel_vibration_feedback_subtitle">Ausschalten für keine Vibrationen</string>
-  <string name="look_and_feel_feedback">Feedback</string>
 
   <string-array name="app_theme">
     <item>Automatisch</item>

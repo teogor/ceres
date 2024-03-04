@@ -35,15 +35,15 @@ render.experimental.xml
 # IDEA/Android Studio project files, because
 # the project can be imported from menu.gradle.kts
 *.iml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/dictionaries
+.idea/libraries
 .idea/*
-!.idea/copyright
-# Keep the code styles.
-!/.idea/codeStyles
-/.idea/codeStyles/*
-!/.idea/codeStyles/Project.xml
-!/.idea/codeStyles/codeStyleConfig.xml
-!/.idea/icon.png
-!/.idea/icon_dark.png
+# Allow Project Icons
+!.idea/icon.png
+!.idea/icon_dark.png
 
 /docs/dokka/
 
