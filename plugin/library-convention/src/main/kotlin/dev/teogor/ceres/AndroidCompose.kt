@@ -17,13 +17,15 @@
 package dev.teogor.ceres
 
 import com.android.build.api.dsl.CommonExtension
+import dev.teogor.ceres.models.androidxComposeBom
+import dev.teogor.ceres.utils.add
+import java.io.File
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import java.io.File
 
 /**
  * Configure Compose-specific options
@@ -43,9 +45,13 @@ internal fun Project.configureAndroidCompose(
     }
 
     dependencies {
-      val bom = libs.findLibrary("androidx-compose-bom").get()
-      add("implementation", platform(bom))
-      add("androidTestImplementation", platform(bom))
+      add(
+        dependencies = listOf(
+          androidxComposeBom,
+        ),
+        logger = logger,
+        libs = libs,
+      )
     }
   }
 
