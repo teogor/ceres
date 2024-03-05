@@ -300,7 +300,7 @@ fun ScreenListScope.termsOfServiceOption() = item {
     subtitle = Resources.ReviewOurTermsOfService,
     icon = Icons.Default.Link,
     clickable = {
-      applicationDetails.privacyLink?.let {
+      applicationDetails.termsLink?.let {
         uriHandler.openUri(it)
       }
     },
