@@ -305,7 +305,9 @@ fun ScreenListScope.lookAndFeelColorTheme() {
       preferenceFlow = ceresPreferences.getDisableDynamicThemingFlow(),
       initialValue = ceresPreferences.disableDynamicTheming,
     )
-    if (disableDynamicTheming) {
+    val showColorThemePicker = supportsDynamicTheming() && disableDynamicTheming ||
+      !supportsDynamicTheming()
+    if (showColorThemePicker) {
       SimpleView(
         title = Resources.LookAndFeelAppColorTheme,
         subtitle = Resources.LookAndFeelAppColorThemeSubtitle,
