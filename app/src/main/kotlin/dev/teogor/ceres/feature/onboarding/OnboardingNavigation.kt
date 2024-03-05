@@ -32,6 +32,8 @@ fun NavGraphBuilder.onboardingScreenNav(
   baseActions = baseActions,
   onboardingData = OnboardingScreenData(
     appName = "Ceres",
+    description = "Your Mobile framework",
+    getStartedButton = "GetStarted",
     supportEmail = "open-source@teogor.dev",
     privacyPolicyLink = "https://privacy.teogor.dev",
     termsOfServiceLink = "https://terms.teogor.dev",

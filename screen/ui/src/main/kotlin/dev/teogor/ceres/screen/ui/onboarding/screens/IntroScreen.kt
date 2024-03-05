@@ -111,7 +111,7 @@ fun BoxScope.IntroScreen(
         modifier = Modifier.padding(bottom = 30.dp),
       ) {
         Text(
-          text = "Get started",
+          text = data.getStartedButton,
           modifier = Modifier.padding(end = 10.dp, start = 10.dp),
         )
       }
