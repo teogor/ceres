@@ -25,6 +25,7 @@ data class OnboardingScreenData(
   val supportEmail: String = "%%SUPPORT_EMAIL%%",
   val privacyPolicyLink: String = "%%PRIVACY_POLICY_LINK%%",
   val termsOfServiceLink: String = "%%TERMS_OF_SERVICE_LINK%%",
+  val getStartedButton: String = "%%GET_STARTED%%",
   val permissionCategories: List<PermissionCategory> = listOf(PermissionCategory()),
 ) {
   fun areAllPermissionsGranted(): Boolean {
