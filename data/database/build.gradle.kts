@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.jacoco")
   id("dev.teogor.ceres.android.hilt")
   id("dev.teogor.ceres.android.room")
-  alias(libs.plugins.winds)
+  alias(libs.plugins.teogor.winds)
 }
 
 android {
@@ -29,8 +30,9 @@ android {
 }
 
 winds {
-  mavenPublish {
-    displayName = "Database"
-    name = "database"
+  moduleMetadata {
+    artifactDescriptor {
+      name = "Database"
+    }
   }
 }

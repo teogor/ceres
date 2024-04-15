@@ -1,15 +1,16 @@
 import com.diffplug.spotless.LineEnding
 import com.vanniktech.maven.publish.SonatypeHost
-import dev.teogor.winds.api.MavenPublish
+import dev.teogor.winds.api.ArtifactIdFormat
+import dev.teogor.winds.api.License
+import dev.teogor.winds.api.NameFormat
+import dev.teogor.winds.api.Person
+import dev.teogor.winds.api.Scm
+import dev.teogor.winds.api.TicketSystem
 import dev.teogor.winds.api.Winds
-import dev.teogor.winds.api.getValue
 import dev.teogor.winds.api.model.DependencyType
-import dev.teogor.winds.api.model.Developer
-import dev.teogor.winds.api.model.LicenseType
-import dev.teogor.winds.api.provider.Scm
-import dev.teogor.winds.common.utils.hasWindsPlugin
-import dev.teogor.winds.gradle.WindsPlugin
-import dev.teogor.winds.gradle.utils.attachTo
+import dev.teogor.winds.ktx.person
+import dev.teogor.winds.ktx.scm
+import dev.teogor.winds.ktx.ticketSystem
 import org.jetbrains.dokka.gradle.DokkaMultiModuleTask
 import org.jetbrains.dokka.gradle.DokkaPlugin
 
@@ -22,8 +23,8 @@ buildscript {
 
 // Lists all plugins used throughout the project without applying them.
 plugins {
-  alias(libs.plugins.kotlin.jvm) apply false
-  alias(libs.plugins.kotlin.serialization) apply false
+  alias(libs.plugins.jetbrains.kotlin.jvm) apply false
+  alias(libs.plugins.jetbrains.kotlin.serialization) apply false
 
   alias(libs.plugins.android.application) apply false
 
@@ -35,126 +36,86 @@ plugins {
   alias(libs.plugins.ksp) apply false
 
   alias(libs.plugins.querent) apply false
-  alias(libs.plugins.winds) apply true
+  alias(libs.plugins.teogor.winds) apply true
 
   alias(libs.plugins.about.libraries) apply false
 
   alias(libs.plugins.vanniktech.maven) apply true
-  alias(libs.plugins.dokka) apply true
+  alias(libs.plugins.jetbrains.dokka) apply true
   alias(libs.plugins.spotless) apply true
-  alias(libs.plugins.api.validator) apply true
+  alias(libs.plugins.jetbrains.binary.compatibility.validator) apply true
+
+  alias(libs.plugins.ben.manes.versions) apply true
+  alias(libs.plugins.littlerobots.version.catalog.update) apply true
 }
 
 winds {
-  buildFeatures {
-    mavenPublish = true
-
+  windsFeatures {
+    mavenPublishing = true
     docsGenerator = true
+    workflowSynthesizer = true
   }
 
-  mavenPublish {
-    displayName = "Ceres"
-    name = "ceres"
-
-    canBePublished = false
-
-    description =
-      "\uD83E\uDE90 Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications."
-
-    groupId = "dev.teogor.ceres"
-    url = "https://source.teogor.dev/ceres"
-    artifactIdElements = 2
-
-    inceptionYear = 2022
-
-    sourceControlManagement(
-      Scm.Git(
-        owner = "teogor",
-        repo = "ceres",
-      ),
-    )
-
-    addLicense(LicenseType.APACHE_2_0)
-
-    addDeveloper(TeogorDeveloper())
-  }
-
-  docsGenerator {
+  moduleMetadata {
     name = "Ceres"
-    identifier = "ceres"
+    description = """
+    |Ceres is a comprehensive Android development framework designed to streamline your app development process. Powered by the latest technologies like Jetpack Compose, Hilt, Coroutines, and Flow, Ceres empowers developers to build modern and efficient Android applications.
+    """.trimMargin()
 
-    excludeModules {
-      listOf(
-        ":app",
-      )
+    yearCreated = 2022
+
+    websiteUrl = "https://source.teogor.dev/ceres/"
+    apiDocsUrl = "https://source.teogor.dev/ceres/html/"
+
+    artifactDescriptor {
+      group = "dev.teogor.ceres"
+      name = "ceres"
+      nameFormat = NameFormat.FULL
+      artifactIdFormat = ArtifactIdFormat.MODULE_NAME_ONLY
     }
 
-    dependencyGatheringType = DependencyType.LOCAL
-  }
-}
+    // Providing SCM (Source Control Management)
+    scm<Scm.GitHub> {
+      owner = "teogor"
+      repository = "ceres"
+    }
 
-whenWindsPluginConfigured { winds ->
-  val mavenPublish: MavenPublish by winds
-  mavenPublish.version?.let {
-    version = it.toString()
-  }
-  if (mavenPublish.canBePublished) {
-    mavenPublishing {
-      publishToMavenCentral(SonatypeHost.S01)
-      signAllPublications()
+    // Providing Ticket System
+    ticketSystem<TicketSystem.GitHub> {
+      owner = "teogor"
+      repository = "ceres"
+    }
 
-      @Suppress("UnstableApiUsage")
-      pom {
-        coordinates(
-          groupId = mavenPublish.groupId!!,
-          artifactId = mavenPublish.artifactId!!,
-          version = mavenPublish.version!!.toString(),
-        )
-        mavenPublish attachTo this
-      }
+    // Providing Licenses
+    licensedUnder(License.Apache2())
+
+    // Providing Persons
+    person<Person.DeveloperContributor> {
+      id = "teogor"
+      name = "Teodor Grigor"
+      email = "open-source@teogor.dev"
+      url = "https://teogor.dev"
+      roles = listOf("Code Owner", "Developer", "Designer", "Maintainer")
+      timezone = "UTC+2"
+      organization = "Teogor"
+      organizationUrl = "https://github.com/teogor"
     }
   }
-}
 
-/**
- * Executes the provided action when the Winds plugin is configured for any descendant project.
- *
- * @param action the action to execute for each project with the Winds plugin configured
- *
- * **How to Use:**
- *
- * ```kotlin
- * project.onWindsPluginConfigured { winds ->
- *   // Execute the action for each project with the Winds plugin configured
- *   winds.doSomethingUseful()
- * }
- * ```
- */
-fun Project.whenWindsPluginConfigured(action: Project.(Winds) -> Unit) {
-  subprojects.toList()
-    .filter { hasWindsPlugin() }
-    .forEach { project ->
-      project.afterEvaluate {
-        project.plugins.withType<WindsPlugin> {
-          project.afterEvaluate {
-            val winds: Winds by project.extensions
-            project.action(winds)
-          }
-        }
-      }
-    }
-}
+  publishingOptions {
+    publish = false
+    enablePublicationSigning = true
+    optInForVanniktechPlugin = true
+    cascadePublish = true
+    sonatypeHost = SonatypeHost.S01
+  }
 
-data class TeogorDeveloper(
-  override val id: String = "teogor",
-  override val name: String = "Teodor Grigor",
-  override val email: String = "open-source@teogor.dev",
-  override val url: String = "https://teogor.dev",
-  override val roles: List<String> = listOf("Code Owner", "Developer", "Designer", "Maintainer"),
-  override val timezone: String = "UTC+2",
-  override val organization: String = "Teogor",
-  override val organizationUrl: String = "https://github.com/teogor",
-) : Developer
+  documentationBuilder {
+    htmlPath = "html/"
+    markdownNewlineSeparator = "  "
+    dependencyGatheringType = DependencyType.NONE
+  }
+}
 
 val ktlintVersion = "0.50.0"
 
@@ -245,13 +206,13 @@ subprojects {
   if (!excludedProjects.contains(project.name)) {
     afterEvaluate {
       val winds: Winds by extensions
-      val mavenPublish: MavenPublish by winds
+      val moduleMetadata = winds.moduleMetadata
       apply<DokkaPlugin>()
       tasks.withType<DokkaMultiModuleTask>().configureEach {
         failOnWarning.set(false)
         suppressInheritedMembers.set(true)
-        moduleName.set(mavenPublish.name)
-        moduleVersion.set(mavenPublish.version.toString())
+        moduleName.set(moduleMetadata.name)
+        moduleVersion.set(moduleMetadata.artifactDescriptor?.version.toString())
         val paths = project.path.split(":")
         val pathRef = paths.joinToString(separator = "/")
         outputDirectory.set(rootProject.projectDir.resolve("build/reference/${pathRef}"))
@@ -261,13 +222,18 @@ subprojects {
 }
 
 tasks.dokkaHtmlMultiModule {
-  dependsOn(":backup:dokkaHtmlMultiModule")
-  dependsOn(":core:dokkaHtmlMultiModule")
-  dependsOn(":data:dokkaHtmlMultiModule")
-  dependsOn(":firebase:dokkaHtmlMultiModule")
-  dependsOn(":framework:dokkaHtmlMultiModule")
-  dependsOn(":monetisation:dokkaHtmlMultiModule")
-  dependsOn(":navigation:dokkaHtmlMultiModule")
-  dependsOn(":screen:dokkaHtmlMultiModule")
-  dependsOn(":ui:dokkaHtmlMultiModule")
+  childProjects.values.forEach {
+    dependsOn(":${it.name}:dokkaHtmlMultiModule")
+  }
+}
+
+versionCatalogUpdate {
+  keep {
+    // keep versions without any library or plugin reference
+    keepUnusedVersions = true
+    // keep all libraries that aren't used in the project
+    keepUnusedLibraries = true
+    // keep all plugins that aren't used in the project
+    keepUnusedPlugins = true
+  }
 }

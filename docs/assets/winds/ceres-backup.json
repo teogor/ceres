@@ -1,0 +1,37 @@
+[
+  {
+    "module": "dev.teogor.ceres:ceres-backup",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 1
+    },
+    "date": 1695925132,
+    "dependencies": [
+      {
+        "module": "dev.teogor.ceres:backup-core",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 1
+        },
+        "date": 1695925132
+      },
+      {
+        "module": "dev.teogor.ceres:backup-ui",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 1
+        },
+        "date": 1695925132
+      }
+    ]
+  }
+]

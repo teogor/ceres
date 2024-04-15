@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
   id("dev.teogor.ceres.android.hilt")
-  alias(libs.plugins.winds)
+  alias(libs.plugins.teogor.winds)
 }
 
 android {
@@ -32,17 +33,18 @@ android {
 }
 
 dependencies {
-  api("com.google.android.gms:play-services-ads:22.4.0")
+  api(libs.google.play.services.ads)
 
-  implementation("io.github.farimarwat:admobnative-compose:1.2")
+  implementation(libs.farimarwat.admobnative.compose)
 
   implementation(libs.androidx.lifecycle.process)
 
-  api(project(":monetisation:ads"))
-  implementation(project(":core:register"))
-  implementation(project(":core:runtime"))
-  implementation(project(":core:foundation"))
-  implementation(project(":ui:designsystem"))
+  api(projects.monetisation.ads)
+  implementation(projects.core.register)
+  implementation(projects.core.runtime)
+  implementation(projects.core.foundation)
+  implementation(projects.ui.designsystem)
+  implementation(projects.ui.theme)
 
   implementation(libs.androidx.compose.foundation)
   implementation(libs.androidx.compose.runtime)
@@ -51,8 +53,9 @@ dependencies {
 }
 
 winds {
-  mavenPublish {
-    displayName = "AdMob"
-    name = "admob"
+  moduleMetadata {
+    artifactDescriptor {
+      name = "AdMob"
+    }
   }
 }

@@ -13,11 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.hilt")
   id("kotlinx-serialization")
-  alias(libs.plugins.winds)
+  alias(libs.plugins.teogor.winds)
 }
 
 android {
@@ -28,8 +29,8 @@ android {
 }
 
 dependencies {
-  api(project(":data:database"))
-  api(project(":data:datastore"))
+  api(projects.data.database)
+  api(projects.data.datastore)
 
   implementation(libs.kotlinx.datetime)
   implementation(libs.kotlinx.serialization.json)
@@ -38,8 +39,9 @@ dependencies {
 }
 
 winds {
-  mavenPublish {
-    displayName = "Core"
-    name = "core"
+  moduleMetadata {
+    artifactDescriptor {
+      name = "Core"
+    }
   }
 }

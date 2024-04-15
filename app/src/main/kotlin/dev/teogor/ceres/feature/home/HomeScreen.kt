@@ -172,7 +172,7 @@ private fun HomeScreen(
     },
   )
 
-  repeat(10) {
+  repeat(1) {
     NativeAd<HomeNativeAdBeta>()
     repeat(5) {
       Box(

@@ -1,0 +1,37 @@
+[
+  {
+    "module": "dev.teogor.ceres:ceres-framework",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 4
+    },
+    "date": 1700741300,
+    "dependencies": [
+      {
+        "module": "dev.teogor.ceres:framework-core",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 4
+        },
+        "date": 1700741300
+      },
+      {
+        "module": "dev.teogor.ceres:framework-ui",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 4
+        },
+        "date": 1700741300
+      }
+    ]
+  }
+]

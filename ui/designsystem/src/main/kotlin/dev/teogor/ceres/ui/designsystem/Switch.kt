@@ -32,11 +32,11 @@ import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.selection.toggleable
-import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.material3.minimumInteractiveComponentSize
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
@@ -211,7 +211,7 @@ private fun BoxScope.SwitchImpl(
         .offset { IntOffset(thumbOffset.roundToInt(), 0) }
         .indication(
           interactionSource = interactionSource,
-          indication = rememberRipple(bounded = false, SwitchTokens.StateLayerSize / 2),
+          indication = ripple(bounded = false, SwitchTokens.StateLayerSize / 2),
         )
         .requiredSize(thumbSizeDp)
         .background(resolvedThumbColor, thumbShape),

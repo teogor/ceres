@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 plugins {
   id("dev.teogor.ceres.android.feature")
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
   id("kotlinx-serialization")
-  alias(libs.plugins.winds)
+  alias(libs.plugins.teogor.winds)
 }
 
 android {
@@ -29,7 +30,7 @@ android {
 }
 
 dependencies {
-  api(project(":ui:spectrum"))
+  api(projects.ui.spectrum)
 
   // needed for theme manager
   implementation(libs.androidx.core.splashscreen)
@@ -40,8 +41,9 @@ dependencies {
 }
 
 winds {
-  mavenPublish {
-    displayName = "Theme"
-    name = "theme"
+  moduleMetadata {
+    artifactDescriptor {
+      name = "Theme"
+    }
   }
 }

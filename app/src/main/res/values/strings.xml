@@ -15,5 +15,6 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Ceres</string>
+  <string name="app_name" translatable="false">Ceres</string>
+  <string name="admob_application_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
 </resources>

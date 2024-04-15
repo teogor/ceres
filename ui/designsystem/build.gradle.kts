@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
   id("kotlinx-serialization")
-  alias(libs.plugins.winds)
+  alias(libs.plugins.teogor.winds)
 }
 
 android {
@@ -29,10 +30,10 @@ android {
 }
 
 dependencies {
-  api(project(":ui:foundation"))
-  api(project(":ui:icons"))
-  api(project(":ui:spectrum"))
-  api(project(":ui:theme"))
+  implementation(projects.ui.uiFoundation)
+  implementation(projects.ui.icons)
+  implementation(projects.ui.spectrum)
+  implementation(projects.ui.theme)
 
   api(libs.google.material)
 
@@ -46,8 +47,9 @@ dependencies {
 }
 
 winds {
-  mavenPublish {
-    displayName = "Design-System"
-    name = "design.system"
+  moduleMetadata {
+    artifactDescriptor {
+      name = "Design System"
+    }
   }
 }

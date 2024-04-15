@@ -1,0 +1,171 @@
+public final class dev/teogor/ceres/ui/foundation/ModifierExtensionsKt {
+	public static final fun applyIf (Landroidx/compose/ui/Modifier;ZLkotlin/jvm/functions/Function1;)Landroidx/compose/ui/Modifier;
+	public static final fun clickable-GK2WfCU (Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/foundation/Indication;ZLjava/lang/String;Landroidx/compose/ui/semantics/Role;ILkotlin/jvm/functions/Function0;)Landroidx/compose/ui/Modifier;
+	public static synthetic fun clickable-GK2WfCU$default (Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/foundation/Indication;ZLjava/lang/String;Landroidx/compose/ui/semantics/Role;ILkotlin/jvm/functions/Function0;ILjava/lang/Object;)Landroidx/compose/ui/Modifier;
+	public static final fun clickable-oSLSa3U (Landroidx/compose/ui/Modifier;ZLjava/lang/String;Landroidx/compose/ui/semantics/Role;ILkotlin/jvm/functions/Function0;)Landroidx/compose/ui/Modifier;
+	public static synthetic fun clickable-oSLSa3U$default (Landroidx/compose/ui/Modifier;ZLjava/lang/String;Landroidx/compose/ui/semantics/Role;ILkotlin/jvm/functions/Function0;ILjava/lang/Object;)Landroidx/compose/ui/Modifier;
+	public static final fun rippleClickable-bi-UJ9A (Landroidx/compose/ui/Modifier;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/functions/Function0;)Landroidx/compose/ui/Modifier;
+	public static synthetic fun rippleClickable-bi-UJ9A$default (Landroidx/compose/ui/Modifier;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Landroidx/compose/ui/Modifier;
+	public static final fun sideClickable (Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function1;)Landroidx/compose/ui/Modifier;
+}
+
+public final class dev/teogor/ceres/ui/foundation/SingleClickHandlerKt {
+	public static final fun clickableSingle-oSLSa3U (Landroidx/compose/ui/Modifier;ZLjava/lang/String;Landroidx/compose/ui/semantics/Role;ILkotlin/jvm/functions/Function0;)Landroidx/compose/ui/Modifier;
+	public static synthetic fun clickableSingle-oSLSa3U$default (Landroidx/compose/ui/Modifier;ZLjava/lang/String;Landroidx/compose/ui/semantics/Role;ILkotlin/jvm/functions/Function0;ILjava/lang/Object;)Landroidx/compose/ui/Modifier;
+}
+
+public final class dev/teogor/ceres/ui/foundation/TouchFeedbackKt {
+	public static final fun applyTouchFeedback (Landroid/content/Context;I)V
+	public static synthetic fun applyTouchFeedback$default (Landroid/content/Context;IILjava/lang/Object;)V
+	public static final fun withTouchFeedback (Lkotlin/jvm/functions/Function0;Landroid/content/Context;I)Lkotlin/jvm/functions/Function0;
+	public static synthetic fun withTouchFeedback$default (Lkotlin/jvm/functions/Function0;Landroid/content/Context;IILjava/lang/Object;)Lkotlin/jvm/functions/Function0;
+}
+
+public final class dev/teogor/ceres/ui/foundation/config/FeedbackConfig {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/ui/foundation/config/FeedbackConfig;
+	public final fun getDisableAudioFeedback ()Z
+	public final fun getDisableVibrationFeedback ()Z
+	public final fun getVibrationFeedbackIntensity ()J
+	public final fun setDisableAudioFeedback (Z)V
+	public final fun setDisableVibrationFeedback (Z)V
+	public final fun setVibrationFeedbackIntensity (J)V
+}
+
+public abstract class dev/teogor/ceres/ui/foundation/graphics/Icon {
+	public static final field $stable I
+}
+
+public final class dev/teogor/ceres/ui/foundation/graphics/Icon$DrawableResourceIcon : dev/teogor/ceres/ui/foundation/graphics/Icon {
+	public static final field $stable I
+	public final fun component1 ()I
+	public final fun copy (I)Ldev/teogor/ceres/ui/foundation/graphics/Icon$DrawableResourceIcon;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/ui/foundation/graphics/Icon$DrawableResourceIcon;IILjava/lang/Object;)Ldev/teogor/ceres/ui/foundation/graphics/Icon$DrawableResourceIcon;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/ui/foundation/graphics/Icon$ImageVectorIcon : dev/teogor/ceres/ui/foundation/graphics/Icon {
+	public static final field $stable I
+	public final fun component1 ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public final fun copy (Landroidx/compose/ui/graphics/vector/ImageVector;)Ldev/teogor/ceres/ui/foundation/graphics/Icon$ImageVectorIcon;
+	public static synthetic fun copy$default (Ldev/teogor/ceres/ui/foundation/graphics/Icon$ImageVectorIcon;Landroidx/compose/ui/graphics/vector/ImageVector;ILjava/lang/Object;)Ldev/teogor/ceres/ui/foundation/graphics/Icon$ImageVectorIcon;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getImageVector ()Landroidx/compose/ui/graphics/vector/ImageVector;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/ui/foundation/graphics/IconKt {
+	public static final fun asDrawableResourceIcon (I)Ldev/teogor/ceres/ui/foundation/graphics/Icon$DrawableResourceIcon;
+	public static final fun asImageVectorIcon (Landroidx/compose/ui/graphics/vector/ImageVector;)Ldev/teogor/ceres/ui/foundation/graphics/Icon$ImageVectorIcon;
+}
+
+public final class dev/teogor/ceres/ui/foundation/lib/common/ComposableSingletons$EmptyComposableKt {
+	public static final field INSTANCE Ldev/teogor/ceres/ui/foundation/lib/common/ComposableSingletons$EmptyComposableKt;
+	public static field lambda-1 Lkotlin/jvm/functions/Function3;
+	public fun <init> ()V
+	public final fun getLambda-1$ui_foundation_release ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class dev/teogor/ceres/ui/foundation/lib/common/EmptyComposableKt {
+	public static final fun getEmptyComposable ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class dev/teogor/ceres/ui/foundation/lib/resources/ResourceProvider {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/ui/foundation/lib/resources/ResourceProvider;
+	public final fun getStatusBarHeight (Landroidx/compose/runtime/Composer;I)F
+}
+
+public final class dev/teogor/ceres/ui/foundation/lib/resources/ResourceProviderKt {
+	public static final fun getIdentifier (Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+}
+
+public final class dev/teogor/ceres/ui/foundation/lib/resources/Strings_androidKt {
+	public static final fun getString-ejom7pM (ILandroidx/compose/runtime/Composer;I)Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/ui/foundation/lib/resources/Symbols {
+	public static final field $stable I
+	public static final field BULLET Ljava/lang/String;
+	public static final field COPYRIGHT Ljava/lang/String;
+	public static final field DEGREE Ljava/lang/String;
+	public static final field ELLIPSIS Ljava/lang/String;
+	public static final field EM_DASH Ljava/lang/String;
+	public static final field EN_DASH Ljava/lang/String;
+	public static final field INSTANCE Ldev/teogor/ceres/ui/foundation/lib/resources/Symbols;
+	public static final field MICRO Ljava/lang/String;
+	public static final field PLUS_MINUS Ljava/lang/String;
+	public static final field REGISTERED_TRADEMARK Ljava/lang/String;
+	public static final field TRADEMARK Ljava/lang/String;
+}
+
+public final class dev/teogor/ceres/ui/foundation/lib/resources/model/Strings {
+	public static final field Companion Ldev/teogor/ceres/ui/foundation/lib/resources/model/Strings$Companion;
+	public static final synthetic fun box-impl (I)Ldev/teogor/ceres/ui/foundation/lib/resources/model/Strings;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (ILjava/lang/Object;)Z
+	public static final fun equals-impl0 (II)Z
+	public fun hashCode ()I
+	public static fun hashCode-impl (I)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (I)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()I
+}
+
+public final class dev/teogor/ceres/ui/foundation/lib/resources/model/Strings$Companion {
+	public final fun getCloseDrawer-AfB059Q ()I
+	public final fun getCloseSheet-AfB059Q ()I
+	public final fun getDefaultErrorMessage-AfB059Q ()I
+	public final fun getExposedDropdownMenu-AfB059Q ()I
+	public final fun getNavigationMenu-AfB059Q ()I
+	public final fun getSliderRangeEnd-AfB059Q ()I
+	public final fun getSliderRangeStart-AfB059Q ()I
+}
+
+public final class dev/teogor/ceres/ui/foundation/lib/tools/JankStatsExtensionsKt {
+	public static final fun TrackDisposableJank ([Ljava/lang/Object;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+	public static final fun TrackJank ([Ljava/lang/Object;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)V
+	public static final fun TrackScrollJank (Landroidx/compose/foundation/gestures/ScrollableState;Ljava/lang/String;Landroidx/compose/runtime/Composer;I)V
+	public static final fun rememberMetricsStateHolder (Landroidx/compose/runtime/Composer;I)Landroidx/metrics/performance/PerformanceMetricsState$Holder;
+}
+
+public final class dev/teogor/ceres/ui/foundation/lib/tools/di/JankStatsModule {
+	public static final field $stable I
+	public static final field INSTANCE Ldev/teogor/ceres/ui/foundation/lib/tools/di/JankStatsModule;
+	public final fun providesJankStats (Landroid/view/Window;Landroidx/metrics/performance/JankStats$OnFrameListener;)Landroidx/metrics/performance/JankStats;
+	public final fun providesOnFrameListener ()Landroidx/metrics/performance/JankStats$OnFrameListener;
+	public final fun providesWindow (Landroid/app/Activity;)Landroid/view/Window;
+}
+
+public final class dev/teogor/ceres/ui/foundation/lib/tools/di/JankStatsModule_ProvidesJankStatsFactory : dagger/internal/Factory {
+	public fun <init> (Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+	public static fun create (Ljavax/inject/Provider;Ljavax/inject/Provider;)Ldev/teogor/ceres/ui/foundation/lib/tools/di/JankStatsModule_ProvidesJankStatsFactory;
+	public fun get ()Landroidx/metrics/performance/JankStats;
+	public synthetic fun get ()Ljava/lang/Object;
+	public static fun providesJankStats (Landroid/view/Window;Landroidx/metrics/performance/JankStats$OnFrameListener;)Landroidx/metrics/performance/JankStats;
+}
+
+public final class dev/teogor/ceres/ui/foundation/lib/tools/di/JankStatsModule_ProvidesOnFrameListenerFactory : dagger/internal/Factory {
+	public fun <init> ()V
+	public static fun create ()Ldev/teogor/ceres/ui/foundation/lib/tools/di/JankStatsModule_ProvidesOnFrameListenerFactory;
+	public fun get ()Landroidx/metrics/performance/JankStats$OnFrameListener;
+	public synthetic fun get ()Ljava/lang/Object;
+	public static fun providesOnFrameListener ()Landroidx/metrics/performance/JankStats$OnFrameListener;
+}
+
+public final class dev/teogor/ceres/ui/foundation/lib/tools/di/JankStatsModule_ProvidesWindowFactory : dagger/internal/Factory {
+	public fun <init> (Ljavax/inject/Provider;)V
+	public static fun create (Ljavax/inject/Provider;)Ldev/teogor/ceres/ui/foundation/lib/tools/di/JankStatsModule_ProvidesWindowFactory;
+	public fun get ()Landroid/view/Window;
+	public synthetic fun get ()Ljava/lang/Object;
+	public static fun providesWindow (Landroid/app/Activity;)Landroid/view/Window;
+}
+
+public class hilt_aggregated_deps/_dev_teogor_ceres_ui_foundation_lib_tools_di_JankStatsModule {
+	public fun <init> ()V
+}
+

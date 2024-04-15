@@ -13,11 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
-  alias(libs.plugins.winds)
+  alias(libs.plugins.teogor.winds)
 }
 
 android {
@@ -28,7 +29,9 @@ android {
 }
 
 dependencies {
-  api(project(":ui:foundation"))
+  api(projects.ui.uiFoundation)
+  // ** navigation-handler
+  api(projects.ui.designsystem)
 
   // Compose
   api(libs.androidx.compose.foundation)
@@ -37,14 +40,12 @@ dependencies {
   // Navigation
   api(libs.androidx.hilt.navigation.compose)
   api(libs.androidx.navigation.compose)
-
-  // ** navigation-handler
-  api(project(":ui:designsystem"))
 }
 
 winds {
-  mavenPublish {
-    displayName = "Core"
-    name = "core"
+  moduleMetadata {
+    artifactDescriptor {
+      name = "Core"
+    }
   }
 }

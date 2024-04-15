@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-import dev.teogor.winds.gradle.utils.copyVersion
+import dev.teogor.winds.ktx.copyVersion
 
 // todo refactor and place inside somewhere and make use of local composition
 plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
-  alias(libs.plugins.winds)
+  alias(libs.plugins.teogor.winds)
 }
 
 android {
@@ -31,16 +31,14 @@ android {
   }
 }
 
-dependencies {
-}
-
 winds {
-  mavenPublish {
-    displayName = "Events"
-    name = "events"
+  moduleMetadata {
+    artifactDescriptor {
+      name = "Events"
 
-    version = copyVersion {
-      setIsDeprecated()
+      version = copyVersion {
+        setIsDeprecated()
+      }
     }
   }
 }

@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 plugins {
   id("dev.teogor.ceres.android.feature")
   id("dev.teogor.ceres.android.library.compose")
   id("dev.teogor.ceres.android.library.jacoco")
   id("kotlinx-serialization")
-  alias(libs.plugins.winds)
+  alias(libs.plugins.teogor.winds)
 }
 
 android {
@@ -35,8 +36,9 @@ dependencies {
 }
 
 winds {
-  mavenPublish {
-    displayName = "Spectrum"
-    name = "spectrum"
+  moduleMetadata {
+    artifactDescriptor {
+      name = "Spectrum"
+    }
   }
 }

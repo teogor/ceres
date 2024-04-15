@@ -97,23 +97,6 @@ public final class dev/teogor/ceres/core/register/SupportedDialects$DefaultImpls
 	public static synthetic fun getExonyms$default (Ldev/teogor/ceres/core/register/SupportedDialects;Ljava/util/Locale;ILjava/lang/Object;)Ljava/util/Map;
 }
 
-public final class dev/teogor/ceres/core/register/SupportedDialects2 : dev/teogor/ceres/core/register/SupportedDialects {
-	public static final field $stable I
-	public fun <init> ()V
-	public fun getCountryCodesForLanguage (Ljava/lang/String;)Ljava/util/List;
-	public fun getCountryNamesForLanguage (Ljava/lang/String;)Ljava/util/List;
-	public fun getCurrentLocale ()Ljava/util/Locale;
-	public fun getDefaultLocale ()Ljava/util/Locale;
-	public fun getDefaultLocaleLanguage ()Ljava/lang/String;
-	public fun getEndonyms ()Ljava/util/Map;
-	public fun getExonyms (Ljava/lang/String;)Ljava/util/Map;
-	public fun getExonyms (Ljava/util/Locale;)Ljava/util/Map;
-	public fun getSupportedDialects ()Ljava/util/List;
-	public fun getSupportedLanguages ()Ljava/util/List;
-	public fun hasMultipleCountriesForLanguage (Ljava/lang/String;)Z
-	public fun isLanguageSelected (Ljava/lang/String;)Z
-}
-
 public final class dev/teogor/ceres/core/register/SupportedDialectsKt {
 	public static final fun getLocalSupportedDialects ()Ldev/teogor/ceres/core/register/ProvidableRegistryLocal;
 }

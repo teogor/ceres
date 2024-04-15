@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.jacoco")
   id("dev.teogor.ceres.android.hilt")
   id("kotlinx-serialization")
-  alias(libs.plugins.winds)
+  alias(libs.plugins.teogor.winds)
 
   alias(libs.plugins.protobuf)
 }
@@ -50,8 +51,8 @@ protobuf {
 }
 
 dependencies {
-  api(project(":core:startup"))
-  api(project(":core:foundation"))
+  api(projects.core.startup)
+  api(projects.core.foundation)
 
   api(libs.androidx.dataStore.preferences)
   api(libs.androidx.dataStore.core)
@@ -63,8 +64,9 @@ dependencies {
 }
 
 winds {
-  mavenPublish {
-    displayName = "Datastore"
-    name = "datastore"
+  moduleMetadata {
+    artifactDescriptor {
+      name = "Datastore"
+    }
   }
 }

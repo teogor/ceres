@@ -127,22 +127,22 @@ android {
 
 dependencies {
   // application configuration
-  implementation(project(":framework:core"))
+  implementation(projects.framework.frameworkCore)
 
   // screen builder
-  implementation(project(":screen:builder"))
-  implementation(project(":screen:core"))
+  implementation(projects.screen.builder)
+  implementation(projects.screen.screenCore)
 
   // default screens
   // TODO split into locale and ui
-  implementation(project(":screen:ui"))
+  implementation(projects.screen.screenUi)
 
   // theme config
-  implementation(project(":ui:theme"))
+  implementation(projects.ui.theme)
 
   // monetisation
-  implementation(project(":monetisation:admob"))
-  implementation(project(":monetisation:messaging"))
+  implementation(projects.monetisation.admob)
+  implementation(projects.monetisation.messaging)
 
   implementation(libs.kotlinx.serialization.json)
   implementation(libs.kotlinx.serialization.protobuf)

@@ -1,0 +1,71 @@
+[
+  {
+    "module": "dev.teogor.ceres:ceres-navigation",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 3
+    },
+    "date": 1700741300,
+    "dependencies": [
+      {
+        "module": "dev.teogor.ceres:navigation-common",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 3
+        },
+        "date": 1700741300
+      },
+      {
+        "module": "dev.teogor.ceres:navigation-core",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 3
+        },
+        "date": 1700741300
+      },
+      {
+        "module": "dev.teogor.ceres:navigation-events",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "isDeprecated": true,
+          "versionQualifier": 3
+        },
+        "date": 1700741300
+      },
+      {
+        "module": "dev.teogor.ceres:navigation-screen",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 3
+        },
+        "date": 1700741300
+      },
+      {
+        "module": "dev.teogor.ceres:navigation-ui",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 3
+        },
+        "date": 1700741300
+      }
+    ]
+  }
+]

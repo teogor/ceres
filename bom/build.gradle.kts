@@ -13,23 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import dev.teogor.winds.api.model.createVersion
+
+import dev.teogor.winds.api.ArtifactIdFormat
+import dev.teogor.winds.ktx.createVersion
 
 plugins {
-  alias(libs.plugins.winds)
+  alias(libs.plugins.teogor.winds)
 }
 
 winds {
-  mavenPublish {
-    displayName = "BoM"
-    name = "bom"
+  moduleMetadata {
+    isBom = true
 
-    artifactIdElements = 1
-
-    version = createVersion(1, 0, 0) {
-      alphaRelease(4)
+    artifactDescriptor {
+      name = "BoM"
+      version = createVersion(1, 0, 0) {
+        alphaRelease(4)
+      }
+      artifactIdFormat = ArtifactIdFormat.NAME_ONLY
     }
-
-    defineBoM()
   }
 }
