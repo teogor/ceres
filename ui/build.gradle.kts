@@ -25,7 +25,7 @@ winds {
     artifactDescriptor {
       name = "UI"
       version = createVersion(1, 0, 0) {
-        alphaRelease(4)
+        alphaRelease(5)
       }
     }
   }

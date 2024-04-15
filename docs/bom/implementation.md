@@ -11,9 +11,9 @@
 
 **Note:** If you prefer manual dependency setup, follow the instructions in the "Manual Setup" section. Otherwise, jump to the "Version Catalog" section for centralized management.
 
-For information on using the KAPT plugin, see the [KAPT documentation](https://kotlinlang.org/docs/kapt.html).
-For information on using the KSP plugin, see the [KSP quick-start documentation](https://kotlinlang.org/docs/ksp-quickstart.html).
-For more information about dependencies, see [Add Build Dependencies](https://developer.android.com/studio/build/dependencies).
+For information on using the KAPT plugin, see the [KAPT documentation](https://kotlinlang.org/docs/kapt.html).  
+For information on using the KSP plugin, see the [KSP quick-start documentation](https://kotlinlang.org/docs/ksp-quickstart.html).  
+For more information about dependencies, see [Add Build Dependencies](https://developer.android.com/studio/build/dependencies).  
 
 ### Adding BoM Dependencies Manually
 
@@ -23,8 +23,8 @@ To use BoM in your app, add the following dependencies to your app's `build.grad
 
     ```groovy title="build.gradle"
     dependencies {
-        def teogorCeresBom = "1.0.0-alpha04"
-
+        def teogorCeresBom = "1.0.0-alpha05"
+        
         implementation "dev.teogor.ceres:bom:$teogorCeresBom"
         implementation "dev.teogor.ceres:backup-core:$teogorCeresBom"
         implementation "dev.teogor.ceres:backup-ui:$teogorCeresBom"
@@ -68,8 +68,8 @@ To use BoM in your app, add the following dependencies to your app's `build.grad
 
     ```kotlin title="build.gradle.kts"
     dependencies {
-        val teogorCeresBom = "1.0.0-alpha04"
-
+        val teogorCeresBom = "1.0.0-alpha05"
+        
         implementation("dev.teogor.ceres:bom:$teogorCeresBom")
         implementation("dev.teogor.ceres:backup-core:$teogorCeresBom")
         implementation("dev.teogor.ceres:backup-ui:$teogorCeresBom")
@@ -122,8 +122,8 @@ First, define the dependencies in the `libs.versions.toml` file:
 
     ```toml title="gradle/libs.versions.toml"
     [versions]
-    teogor-ceres-bom = "1.0.0-alpha04"
-
+    teogor-ceres-bom = "1.0.0-alpha05"
+    
     [libraries]
     teogor-ceres-bom = { group = "dev.teogor.ceres", name = "bom", version.ref = "teogor-ceres-bom" }
     teogor-ceres-backup-core = { group = "dev.teogor.ceres", name = "backup-core" }
@@ -167,8 +167,8 @@ First, define the dependencies in the `libs.versions.toml` file:
 
     ```toml title="gradle/libs.versions.toml"
     [versions]
-    teogor-ceres-bom = "1.0.0-alpha04"
-
+    teogor-ceres-bom = "1.0.0-alpha05"
+    
     [libraries]
     teogor-ceres-bom = { module = "dev.teogor.ceres:bom", version.ref = "teogor-ceres-bom" }
     teogor-ceres-backup-core = { module = "dev.teogor.ceres:backup-core" }

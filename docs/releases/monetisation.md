@@ -16,9 +16,9 @@ API Reference
 
 [//]: # (REGION-RELEASE-TABLE)
 
-| Latest Update       |  Stable Release  |  Release Candidate  |  Beta Release  |  Alpha Release  |
-|:--------------------|:----------------:|:-------------------:|:--------------:|:---------------:|
-| November 23, 2023   |        -         |          -          |       -        |  1.0.0-alpha04  |
+| Latest Update    |  Stable Release  |  Release Candidate  |  Beta Release  |  Alpha Release  |
+|:-----------------|:----------------:|:-------------------:|:--------------:|:---------------:|
+| April 15, 2024   |        -         |          -          |       -        |  1.0.0-alpha05  |
 
 [//]: # (REGION-RELEASE-TABLE)
 
@@ -32,7 +32,7 @@ To use Monetisation in your app, add the following dependencies to your app's `b
 
     ```groovy title="build.gradle"
     dependencies {
-        def teogorCeresMonetisation = "1.0.0-alpha04"
+        def teogorCeresMonetisation = "1.0.0-alpha05"
         
         implementation "dev.teogor.ceres:monetisation-admob:$teogorCeresMonetisation"
         implementation "dev.teogor.ceres:monetisation-ads:$teogorCeresMonetisation"
@@ -44,7 +44,7 @@ To use Monetisation in your app, add the following dependencies to your app's `b
 
     ```kotlin title="build.gradle.kts"
     dependencies {
-        val teogorCeresMonetisation = "1.0.0-alpha04"
+        val teogorCeresMonetisation = "1.0.0-alpha05"
         
         implementation("dev.teogor.ceres:monetisation-admob:$teogorCeresMonetisation")
         implementation("dev.teogor.ceres:monetisation-ads:$teogorCeresMonetisation")

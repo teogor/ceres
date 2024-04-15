@@ -23,7 +23,7 @@ To use Monetisation in your app, add the following dependencies to your app's `b
 
     ```groovy title="build.gradle"
     dependencies {
-        def teogorCeresMonetisation = "1.0.0-alpha04"
+        def teogorCeresMonetisation = "1.0.0-alpha05"
         
         implementation "dev.teogor.ceres:monetisation-admob:$teogorCeresMonetisation"
         implementation "dev.teogor.ceres:monetisation-ads:$teogorCeresMonetisation"
@@ -35,7 +35,7 @@ To use Monetisation in your app, add the following dependencies to your app's `b
 
     ```kotlin title="build.gradle.kts"
     dependencies {
-        val teogorCeresMonetisation = "1.0.0-alpha04"
+        val teogorCeresMonetisation = "1.0.0-alpha05"
         
         implementation("dev.teogor.ceres:monetisation-admob:$teogorCeresMonetisation")
         implementation("dev.teogor.ceres:monetisation-ads:$teogorCeresMonetisation")
@@ -56,7 +56,7 @@ First, define the dependencies in the `libs.versions.toml` file:
 
     ```toml title="gradle/libs.versions.toml"
     [versions]
-    teogor-ceres-monetisation = "1.0.0-alpha04"
+    teogor-ceres-monetisation = "1.0.0-alpha05"
     
     [libraries]
     teogor-ceres-monetisation-admob = { group = "dev.teogor.ceres", name = "monetisation-admob", version.ref = "teogor-ceres-monetisation" }
@@ -68,7 +68,7 @@ First, define the dependencies in the `libs.versions.toml` file:
 
     ```toml title="gradle/libs.versions.toml"
     [versions]
-    teogor-ceres-monetisation = "1.0.0-alpha04"
+    teogor-ceres-monetisation = "1.0.0-alpha05"
     
     [libraries]
     teogor-ceres-monetisation-admob = { module = "dev.teogor.ceres:monetisation-admob", version.ref = "teogor-ceres-monetisation" }

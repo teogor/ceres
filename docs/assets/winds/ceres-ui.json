@@ -77,5 +77,84 @@
         "date": 1700741300
       }
     ]
+  },
+  {
+    "module": "dev.teogor.ceres:ceres-ui",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 5
+    },
+    "date": 1713210492,
+    "dependencies": [
+      {
+        "module": "dev.teogor.ceres:ui-compose",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210492
+      },
+      {
+        "module": "dev.teogor.ceres:ui-design-system",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210492
+      },
+      {
+        "module": "dev.teogor.ceres:ui-icons",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210492
+      },
+      {
+        "module": "dev.teogor.ceres:ui-spectrum",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210492
+      },
+      {
+        "module": "dev.teogor.ceres:ui-theme",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210492
+      },
+      {
+        "module": "dev.teogor.ceres:ui-foundation",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210492
+      }
+    ]
   }
 ]

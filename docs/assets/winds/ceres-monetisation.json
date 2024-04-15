@@ -44,5 +44,51 @@
         "date": 1700741300
       }
     ]
+  },
+  {
+    "module": "dev.teogor.ceres:ceres-monetisation",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 5
+    },
+    "date": 1713210492,
+    "dependencies": [
+      {
+        "module": "dev.teogor.ceres:monetisation-admob",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210492
+      },
+      {
+        "module": "dev.teogor.ceres:monetisation-ads",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210492
+      },
+      {
+        "module": "dev.teogor.ceres:monetisation-messaging",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210492
+      }
+    ]
   }
 ]

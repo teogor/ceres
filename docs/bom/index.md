@@ -21,10 +21,10 @@ in the BOM:
 ```groovy
 dependencies {
   // Import the BoM BOM
-  implementation platform('dev.teogor.ceres:bom:1.0.0-alpha04')
+  implementation platform('dev.teogor.ceres:bom:1.0.0-alpha05')
 
   // Import Compose library
-  implementation 'dev.teogor.ceres:ui-compose:1.0.0-alpha04'
+  implementation 'dev.teogor.ceres:ui-compose:1.0.0-alpha05'
 
   // Import other BoM libraries without version numbers
   // ..

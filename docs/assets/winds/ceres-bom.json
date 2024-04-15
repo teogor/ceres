@@ -1550,5 +1550,415 @@
         "date": 1695925132
       }
     ]
+  },
+  {
+    "module": "dev.teogor.ceres:bom",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 5
+    },
+    "date": 1713210491,
+    "dependencies": [
+      {
+        "module": "dev.teogor.ceres:bom",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:backup-core",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 1
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:backup-ui",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 1
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:core-common",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:core-analytics",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:core-foundation",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:core-network",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:core-notifications",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:core-register",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:core-runtime",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:core-start-up",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:data-compose",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 2
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:data-database",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 2
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:data-datastore",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 2
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:firebase-crashlytics",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 4
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:firebase-analytics",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 4
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:firebase-remote-config",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 4
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:framework-core",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 4
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:framework-ui",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 4
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:monetisation-admob",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:monetisation-ads",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:monetisation-messaging",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:navigation-common",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 3
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:navigation-core",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 3
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:navigation-events",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "isDeprecated": true,
+          "versionQualifier": 3
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:navigation-screen",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 3
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:navigation-ui",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 3
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:screen-builder",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:screen-core",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:screen-ui",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:ui-compose",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:ui-design-system",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:ui-icons",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:ui-spectrum",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:ui-theme",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      },
+      {
+        "module": "dev.teogor.ceres:ui-foundation",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210491
+      }
+    ]
   }
 ]

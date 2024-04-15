@@ -25,7 +25,7 @@ plugins {
 }
 
 group = "dev.teogor.ceres.plugin"
-version = "1.0.0-alpha04"
+version = "1.0.0-alpha05"
 
 // Configure the build-logic plugins to target JDK 17
 // This matches the JDK used to build the project, and is not related to what is running on device.
@@ -153,6 +153,8 @@ gradlePlugin {
       id = "dev.teogor.ceres.android.lint"
       implementationClass = "AndroidLintConventionPlugin"
       displayName = "Android Lint Plugin | Ceres Plugin"
+      description = "Enforce code quality and best practices for Android projects using Ceres conventions."
+      tags.set(listOf("android", "lint", "convention", "ceres"))
     }
 
     register("androidFirebase") {
@@ -183,6 +185,8 @@ gradlePlugin {
       id = "dev.teogor.ceres.jvm.library"
       implementationClass = "JvmLibraryConventionPlugin"
       displayName = "JVM Library Convention"
+      description = "Simplify JVM library development with standardized build logic and configurations for JVM (Java Virtual Machine) libraries within the Ceres project."
+      tags.set(listOf("jvm", "library", "convention", "build-logic"))
     }
   }
 }

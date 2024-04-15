@@ -16,9 +16,9 @@ API Reference
 
 [//]: # (REGION-RELEASE-TABLE)
 
-| Latest Update       |  Stable Release  |  Release Candidate  |  Beta Release  |  Alpha Release  |
-|:--------------------|:----------------:|:-------------------:|:--------------:|:---------------:|
-| November 23, 2023   |        -         |          -          |       -        |  1.0.0-alpha04  |
+| Latest Update    |  Stable Release  |  Release Candidate  |  Beta Release  |  Alpha Release  |
+|:-----------------|:----------------:|:-------------------:|:--------------:|:---------------:|
+| April 15, 2024   |        -         |          -          |       -        |  1.0.0-alpha05  |
 
 [//]: # (REGION-RELEASE-TABLE)
 
@@ -32,7 +32,7 @@ To use Screen in your app, add the following dependencies to your app's `build.g
 
     ```groovy title="build.gradle"
     dependencies {
-        def teogorCeresScreen = "1.0.0-alpha04"
+        def teogorCeresScreen = "1.0.0-alpha05"
         
         implementation "dev.teogor.ceres:screen-builder:$teogorCeresScreen"
         implementation "dev.teogor.ceres:screen-core:$teogorCeresScreen"
@@ -44,7 +44,7 @@ To use Screen in your app, add the following dependencies to your app's `build.g
 
     ```kotlin title="build.gradle.kts"
     dependencies {
-        val teogorCeresScreen = "1.0.0-alpha04"
+        val teogorCeresScreen = "1.0.0-alpha05"
         
         implementation("dev.teogor.ceres:screen-builder:$teogorCeresScreen")
         implementation("dev.teogor.ceres:screen-core:$teogorCeresScreen")

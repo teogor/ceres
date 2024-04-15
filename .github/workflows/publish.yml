@@ -150,6 +150,6 @@ jobs:
           else
             for module in "${modules_to_publish[@]}"; do
               echo "Publishing $module module..."
-              ./gradlew ":${module}:publish" --no-configuration-cache
+              ./gradlew publishModule -PmoduleName="${module}" --no-configuration-cache
             done
           fi
