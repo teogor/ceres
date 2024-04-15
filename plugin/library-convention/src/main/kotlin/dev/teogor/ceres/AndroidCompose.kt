@@ -31,10 +31,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
  * Configure Compose-specific options
  */
 internal fun Project.configureAndroidCompose(
-  commonExtension: CommonExtension<*, *, *, *, *>,
+  commonExtension: CommonExtension<*, *, *, *, *, *>,
 ) {
-  val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
-
   commonExtension.apply {
     buildFeatures {
       compose = true

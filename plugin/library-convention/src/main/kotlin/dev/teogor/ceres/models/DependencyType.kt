@@ -8,4 +8,5 @@ enum class DependencyType(val gradleNotation: String) {
   ANDROID_TEST_IMPLEMENTATION("androidTestImplementation"),
   TEST_IMPLEMENTATION("testImplementation"),
   COMPILE_ONLY("compileOnly"),
+  CORE_LIBRARY_DESUGARING("coreLibraryDesugaring"),
 }

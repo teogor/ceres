@@ -21,6 +21,7 @@ import dev.teogor.ceres.configureGradleManagedDevices
 import dev.teogor.ceres.configureKotlinAndroid
 import dev.teogor.ceres.configurePrintApksTask
 import dev.teogor.ceres.disableUnnecessaryAndroidTests
+import dev.teogor.ceres.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
@@ -48,7 +49,6 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
         configurePrintApksTask(this)
         disableUnnecessaryAndroidTests(target)
       }
-      val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
       configurations.configureEach {
         resolutionStrategy {
           val junit4 = libs.findLibrary("junit4")

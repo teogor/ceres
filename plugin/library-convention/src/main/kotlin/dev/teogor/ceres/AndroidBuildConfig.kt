@@ -71,7 +71,7 @@ internal fun ConfigurationContainer.findSpecificDependency(
  * @param commonExtension The common extension of the Android project.
  */
 internal fun Project.configureAndroidBuildConfig(
-  commonExtension: CommonExtension<*, *, *, *, *>,
+  commonExtension: CommonExtension<*, *, *, *, *, *>,
 ) {
   val now = Instant.now()
   val buildDate = now.atOffset(ZoneOffset.UTC).toLocalDate()
