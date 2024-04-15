@@ -44,8 +44,6 @@ private fun String.capitalize() = replaceFirstChar {
 internal fun Project.configureJacoco(
   androidComponentsExtension: AndroidComponentsExtension<*, *, *>,
 ) {
-  val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
-
   configure<JacocoPluginExtension> {
     libs.findVersion("jacoco").let { jacoco ->
       if (jacoco.isPresent) {

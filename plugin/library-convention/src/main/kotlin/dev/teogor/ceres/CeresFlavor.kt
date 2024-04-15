@@ -26,7 +26,7 @@ import dev.teogor.ceres.utils.getBooleanProperty
 import org.gradle.api.Project
 
 fun Project.configureFlavors(
-  commonExtension: CommonExtension<*, *, *, *, *>,
+  commonExtension: CommonExtension<*, *, *, *, *, *>,
   flavorConfigurationBlock: ProductFlavor.(flavor: CeresFlavor) -> Unit = {},
 ) {
   val flavoursEnabled = getBooleanProperty(

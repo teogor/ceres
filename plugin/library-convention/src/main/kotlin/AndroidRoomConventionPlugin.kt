@@ -15,6 +15,7 @@
  */
 
 import com.google.devtools.ksp.gradle.KspExtension
+import dev.teogor.ceres.libs
 import dev.teogor.ceres.models.RoomOptionsExtension
 import dev.teogor.ceres.models.roomCompiler
 import dev.teogor.ceres.models.roomKtx
@@ -54,7 +55,6 @@ class AndroidRoomConventionPlugin : Plugin<Project> {
         }
       }
 
-      val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
       dependencies {
         add(
           dependencies = listOf(

@@ -52,3 +52,10 @@ val androidxComposeBom = LibrarySpec(
   ),
   isBom = true,
 )
+val desugarJdkLibs = LibrarySpec(
+  name = "android.desugar.jdk.libs",
+  module = "com.android.tools:desugar_jdk_libs",
+  dependencyTypes = listOf(
+    DependencyType.CORE_LIBRARY_DESUGARING,
+  ),
+)

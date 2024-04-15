@@ -141,6 +141,12 @@ gradlePlugin {
       tags.set(listOf("android", "room", "android-library", "android-development"))
     }
 
+    register("androidLint") {
+      id = "dev.teogor.ceres.android.lint"
+      implementationClass = "AndroidLintConventionPlugin"
+      displayName = "Android Lint Plugin | Ceres Plugin"
+    }
+
     register("androidFirebase") {
       id = "dev.teogor.ceres.android.application.firebase"
       implementationClass = "AndroidApplicationFirebaseConventionPlugin"
@@ -171,6 +177,12 @@ gradlePlugin {
       displayName = "Kotlin Library Convention"
       description = "Streamline Kotlin Library Development with a Standardized Convention"
       tags.set(listOf("kotlin", "convention", "build-logic", "library"))
+    }
+
+    register("jvmLibrary") {
+      id = "dev.teogor.ceres.jvm.library"
+      implementationClass = "JvmLibraryConventionPlugin"
+      displayName = "JVM Library Convention"
     }
   }
 }
