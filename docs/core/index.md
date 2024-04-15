@@ -23,7 +23,7 @@ To use Core in your app, add the following dependencies to your app's `build.gra
 
     ```groovy title="build.gradle"
     dependencies {
-        def teogorCeresCore = "1.0.0-alpha04"
+        def teogorCeresCore = "1.0.0-alpha05"
         
         implementation "dev.teogor.ceres:core-common:$teogorCeresCore"
         implementation "dev.teogor.ceres:core-analytics:$teogorCeresCore"
@@ -40,7 +40,7 @@ To use Core in your app, add the following dependencies to your app's `build.gra
 
     ```kotlin title="build.gradle.kts"
     dependencies {
-        val teogorCeresCore = "1.0.0-alpha04"
+        val teogorCeresCore = "1.0.0-alpha05"
         
         implementation("dev.teogor.ceres:core-common:$teogorCeresCore")
         implementation("dev.teogor.ceres:core-analytics:$teogorCeresCore")
@@ -66,7 +66,7 @@ First, define the dependencies in the `libs.versions.toml` file:
 
     ```toml title="gradle/libs.versions.toml"
     [versions]
-    teogor-ceres-core = "1.0.0-alpha04"
+    teogor-ceres-core = "1.0.0-alpha05"
     
     [libraries]
     teogor-ceres-core-common = { group = "dev.teogor.ceres", name = "core-common", version.ref = "teogor-ceres-core" }
@@ -83,7 +83,7 @@ First, define the dependencies in the `libs.versions.toml` file:
 
     ```toml title="gradle/libs.versions.toml"
     [versions]
-    teogor-ceres-core = "1.0.0-alpha04"
+    teogor-ceres-core = "1.0.0-alpha05"
     
     [libraries]
     teogor-ceres-core-common = { module = "dev.teogor.ceres:core-common", version.ref = "teogor-ceres-core" }

@@ -303,5 +303,106 @@
         "date": 1695925132
       }
     ]
+  },
+  {
+    "module": "dev.teogor.ceres:ceres-core",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "flag": "Alpha",
+      "versionQualifier": 5
+    },
+    "date": 1713210492,
+    "dependencies": [
+      {
+        "module": "dev.teogor.ceres:core-common",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210492
+      },
+      {
+        "module": "dev.teogor.ceres:core-analytics",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210492
+      },
+      {
+        "module": "dev.teogor.ceres:core-foundation",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210492
+      },
+      {
+        "module": "dev.teogor.ceres:core-network",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210492
+      },
+      {
+        "module": "dev.teogor.ceres:core-notifications",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210492
+      },
+      {
+        "module": "dev.teogor.ceres:core-register",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210492
+      },
+      {
+        "module": "dev.teogor.ceres:core-runtime",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210492
+      },
+      {
+        "module": "dev.teogor.ceres:core-start-up",
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0,
+          "flag": "Alpha",
+          "versionQualifier": 5
+        },
+        "date": 1713210492
+      }
+    ]
   }
 ]

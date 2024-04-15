@@ -19,9 +19,9 @@ API Reference
 
 [//]: # (REGION-RELEASE-TABLE)
 
-| Latest Update       |  Stable Release  |  Release Candidate  |  Beta Release  |  Alpha Release  |
-|:--------------------|:----------------:|:-------------------:|:--------------:|:---------------:|
-| November 23, 2023   |        -         |          -          |       -        |  1.0.0-alpha04  |
+| Latest Update    |  Stable Release  |  Release Candidate  |  Beta Release  |  Alpha Release  |
+|:-----------------|:----------------:|:-------------------:|:--------------:|:---------------:|
+| April 15, 2024   |        -         |          -          |       -        |  1.0.0-alpha05  |
 
 [//]: # (REGION-RELEASE-TABLE)
 
@@ -35,7 +35,7 @@ To use UI in your app, add the following dependencies to your app's `build.gradl
 
     ```groovy title="build.gradle"
     dependencies {
-        def teogorCeresUi = "1.0.0-alpha04"
+        def teogorCeresUi = "1.0.0-alpha05"
         
         implementation "dev.teogor.ceres:ui-compose:$teogorCeresUi"
         implementation "dev.teogor.ceres:ui-design-system:$teogorCeresUi"
@@ -50,7 +50,7 @@ To use UI in your app, add the following dependencies to your app's `build.gradl
 
     ```kotlin title="build.gradle.kts"
     dependencies {
-        val teogorCeresUi = "1.0.0-alpha04"
+        val teogorCeresUi = "1.0.0-alpha05"
         
         implementation("dev.teogor.ceres:ui-compose:$teogorCeresUi")
         implementation("dev.teogor.ceres:ui-design-system:$teogorCeresUi")

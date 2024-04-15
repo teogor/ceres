@@ -28,7 +28,7 @@ winds {
     artifactDescriptor {
       name = "BoM"
       version = createVersion(1, 0, 0) {
-        alphaRelease(4)
+        alphaRelease(5)
       }
       artifactIdFormat = ArtifactIdFormat.NAME_ONLY
     }

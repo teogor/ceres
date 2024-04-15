@@ -6,7 +6,7 @@ Ceres is a comprehensive Android development framework designed to streamline yo
 
 [//]: # (REGION-API-REFERENCE)
 
-API Reference
+API Reference  
 [`dev.teogor.ceres:*`](html/)
 
 [//]: # (REGION-API-REFERENCE)
@@ -40,14 +40,14 @@ Refer to the table below for an overview of the current versions associated with
 | Maven Group ID                                  | Latest Update        |  Stable Release  |  Release Candidate  |  Beta Release  |  Alpha Release  |
 |:------------------------------------------------|:---------------------|:----------------:|:-------------------:|:--------------:|:---------------:|
 | [ceres.backup](./backup/index.md)               | September 28, 2023   |        -         |          -          |       -        |  1.0.0-alpha01  |
-| [ceres.core](./core/index.md)                   | November 23, 2023    |        -         |          -          |       -        |  1.0.0-alpha04  |
+| [ceres.core](./core/index.md)                   | November 23, 2023    |        -         |          -          |       -        |  1.0.0-alpha05  |
 | [ceres.data](./data/index.md)                   | November 23, 2023    |        -         |          -          |       -        |  1.0.0-alpha02  |
 | [ceres.firebase](./firebase/index.md)           | November 23, 2023    |        -         |          -          |       -        |  1.0.0-alpha04  |
 | [ceres.framework](./framework/index.md)         | November 23, 2023    |        -         |          -          |       -        |  1.0.0-alpha04  |
-| [ceres.monetisation](./monetisation/index.md)   | November 23, 2023    |        -         |          -          |       -        |  1.0.0-alpha04  |
+| [ceres.monetisation](./monetisation/index.md)   | November 23, 2023    |        -         |          -          |       -        |  1.0.0-alpha05  |
 | [ceres.navigation](./navigation/index.md)       | November 23, 2023    |        -         |          -          |       -        |  1.0.0-alpha03  |
-| [ceres.screen](./screen/index.md)               | November 23, 2023    |        -         |          -          |       -        |  1.0.0-alpha04  |
-| [ceres.ui](./ui/index.md)                       | November 23, 2023    |        -         |          -          |       -        |  1.0.0-alpha04  |
+| [ceres.screen](./screen/index.md)               | November 23, 2023    |        -         |          -          |       -        |  1.0.0-alpha05  |
+| [ceres.ui](./ui/index.md)                       | November 23, 2023    |        -         |          -          |       -        |  1.0.0-alpha05  |
 
 [//]: # (REGION-GROUP-VERSION-OVERVIEW)
 

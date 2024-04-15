@@ -21,9 +21,9 @@ API Reference
 
 [//]: # (REGION-RELEASE-TABLE)
 
-| Latest Update       |  Stable Release  |  Release Candidate  |  Beta Release  |  Alpha Release  |
-|:--------------------|:----------------:|:-------------------:|:--------------:|:---------------:|
-| November 23, 2023   |        -         |          -          |       -        |  1.0.0-alpha04  |
+| Latest Update    |  Stable Release  |  Release Candidate  |  Beta Release  |  Alpha Release  |
+|:-----------------|:----------------:|:-------------------:|:--------------:|:---------------:|
+| April 15, 2024   |        -         |          -          |       -        |  1.0.0-alpha05  |
 
 [//]: # (REGION-RELEASE-TABLE)
 
@@ -37,7 +37,7 @@ To use Core in your app, add the following dependencies to your app's `build.gra
 
     ```groovy title="build.gradle"
     dependencies {
-        def teogorCeresCore = "1.0.0-alpha04"
+        def teogorCeresCore = "1.0.0-alpha05"
         
         implementation "dev.teogor.ceres:core-common:$teogorCeresCore"
         implementation "dev.teogor.ceres:core-analytics:$teogorCeresCore"
@@ -54,7 +54,7 @@ To use Core in your app, add the following dependencies to your app's `build.gra
 
     ```kotlin title="build.gradle.kts"
     dependencies {
-        val teogorCeresCore = "1.0.0-alpha04"
+        val teogorCeresCore = "1.0.0-alpha05"
         
         implementation("dev.teogor.ceres:core-common:$teogorCeresCore")
         implementation("dev.teogor.ceres:core-analytics:$teogorCeresCore")

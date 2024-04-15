@@ -17,10 +17,41 @@ copyright: Copyright &copy; 2023 Teodor Grigor (Teogor)
 # Page tree
 nav:
   - Home: index.md
+  - Modules:
+    - Backup:
+      - backup/index.md
+      - Backup Release: releases/backup.md
+    - Core:
+      - core/index.md
+      - Core Release: releases/core.md
+    - Data:
+      - data/index.md
+      - Data Release: releases/data.md
+    - Firebase:
+      - firebase/index.md
+      - Firebase Release: releases/firebase.md
+    - Monetisation:
+      - monetisation/index.md
+      - Monetisation Release: releases/monetisation.md
+    - Navigation:
+      - navigation/index.md
+      - Navigation Release: releases/navigation.md
+    - Screen:
+      - screen/index.md
+      - Screen Release: releases/screen.md
+    - UI:
+        - ui/index.md
+        - UI Release: releases/ui.md
+  - BoM:
+    - bom/index.md
+    - Implementation: bom/implementation.md
+    - BoM Mapping: bom/bom-mapping.md
+  - Framework: framework/index.md
   - Releases:
     - releases.md
     - Implementation: releases/implementation.md
     - Changelog:
+      - 1.0.0-alpha05: releases/changelog/1.0.0-alpha05.md
       - 1.0.0-alpha04: releases/changelog/1.0.0-alpha04.md
       - 1.0.0-alpha03: releases/changelog/1.0.0-alpha03.md
       - 1.0.0-alpha02: releases/changelog/1.0.0-alpha02.md

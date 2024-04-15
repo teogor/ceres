@@ -23,7 +23,7 @@ To use UI in your app, add the following dependencies to your app's `build.gradl
 
     ```groovy title="build.gradle"
     dependencies {
-        def teogorCeresUi = "1.0.0-alpha04"
+        def teogorCeresUi = "1.0.0-alpha05"
         
         implementation "dev.teogor.ceres:ui-compose:$teogorCeresUi"
         implementation "dev.teogor.ceres:ui-design-system:$teogorCeresUi"
@@ -38,7 +38,7 @@ To use UI in your app, add the following dependencies to your app's `build.gradl
 
     ```kotlin title="build.gradle.kts"
     dependencies {
-        val teogorCeresUi = "1.0.0-alpha04"
+        val teogorCeresUi = "1.0.0-alpha05"
         
         implementation("dev.teogor.ceres:ui-compose:$teogorCeresUi")
         implementation("dev.teogor.ceres:ui-design-system:$teogorCeresUi")
@@ -62,7 +62,7 @@ First, define the dependencies in the `libs.versions.toml` file:
 
     ```toml title="gradle/libs.versions.toml"
     [versions]
-    teogor-ceres-ui = "1.0.0-alpha04"
+    teogor-ceres-ui = "1.0.0-alpha05"
     
     [libraries]
     teogor-ceres-ui-compose = { group = "dev.teogor.ceres", name = "ui-compose", version.ref = "teogor-ceres-ui" }
@@ -77,7 +77,7 @@ First, define the dependencies in the `libs.versions.toml` file:
 
     ```toml title="gradle/libs.versions.toml"
     [versions]
-    teogor-ceres-ui = "1.0.0-alpha04"
+    teogor-ceres-ui = "1.0.0-alpha05"
     
     [libraries]
     teogor-ceres-ui-compose = { module = "dev.teogor.ceres:ui-compose", version.ref = "teogor-ceres-ui" }

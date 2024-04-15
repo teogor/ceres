@@ -232,6 +232,58 @@ tasks.dokkaHtmlMultiModule {
   }
 }
 
+childProjects.values.filter {
+  it.name != "app" && it.name != "bom"
+}.forEach { subproject ->
+  val name = subproject.name[0].uppercaseChar() + subproject.name.substring(1)
+  tasks.register("publish${name}Module") {
+    group = "publishing"
+    description = "Publishes artifacts from the specified subproject."
+
+    subproject.subprojects.forEach { sp ->
+      sp.tasks.findByName("publish")?.let { task ->
+        dependsOn(task)
+      }
+    }
+  }
+}
+
+abstract class PublishModuleTask : DefaultTask() {
+
+  @get:Input
+  abstract val moduleName: Property<String>
+
+  private val childProjects = project.childProjects.values.filter {
+    it.name != "app" && it.name != "bom"
+  }
+
+  @TaskAction
+  fun publish() {
+    println("Published module: ${moduleName.get()}")
+  }
+
+  fun configureDependencies() {
+    childProjects.firstOrNull {
+      it.name == moduleName.get()
+    }?.let { subproject ->
+      // Handle scenarios where subproject might have subprojects (nested modules)
+      subproject.subprojects.forEach { childProject ->
+        childProject.tasks.findByName("publish")?.let { childPublishTask ->
+          dependsOn(childPublishTask) // Depend on child publish tasks
+        }
+      }
+    }
+  }
+}
+
+tasks.register("publishModule", PublishModuleTask::class) {
+  group = "publishing"
+  description = "Publishes artifacts from a specified module."
+  moduleName = project.findProperty("moduleName") as String? ?: ""
+
+  configureDependencies()
+}
+
 versionCatalogUpdate {
   keep {
     // keep versions without any library or plugin reference
