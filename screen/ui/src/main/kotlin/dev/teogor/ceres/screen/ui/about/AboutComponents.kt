@@ -29,14 +29,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.OpenInNew
 import androidx.compose.material.icons.filled.DateRange
-import androidx.compose.material.icons.filled.DomainVerification
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocationOn
-import androidx.compose.material.icons.filled.PermDeviceInformation
-import androidx.compose.material.icons.filled.Source
-import androidx.compose.material.icons.filled.Verified
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -64,6 +59,11 @@ import dev.teogor.ceres.screen.ui.res.Resources
 import dev.teogor.ceres.ui.designsystem.Surface
 import dev.teogor.ceres.ui.designsystem.Text
 import dev.teogor.ceres.ui.foundation.graphics.asImageVectorIcon
+import dev.teogor.ceres.ui.icons.automirrored.filled.OpenInNew
+import dev.teogor.ceres.ui.icons.filled.DomainVerification
+import dev.teogor.ceres.ui.icons.filled.PermDeviceInformation
+import dev.teogor.ceres.ui.icons.filled.Source
+import dev.teogor.ceres.ui.icons.filled.Verified
 import dev.teogor.ceres.ui.theme.MaterialTheme
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter

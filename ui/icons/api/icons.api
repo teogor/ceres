@@ -23,3 +23,23 @@ public final class dev/teogor/ceres/ui/icons/CeresIcons {
 	public final fun getVolumeUp ()Landroidx/compose/ui/graphics/vector/ImageVector;
 }
 
+public final class dev/teogor/ceres/ui/icons/automirrored/filled/OpenInNewKt {
+	public static final fun getOpenInNew (Landroidx/compose/material/icons/Icons$AutoMirrored$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class dev/teogor/ceres/ui/icons/filled/DomainVerificationKt {
+	public static final fun getDomainVerification (Landroidx/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class dev/teogor/ceres/ui/icons/filled/PermDeviceInformationKt {
+	public static final fun getPermDeviceInformation (Landroidx/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class dev/teogor/ceres/ui/icons/filled/SourceKt {
+	public static final fun getSource (Landroidx/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class dev/teogor/ceres/ui/icons/filled/VerifiedKt {
+	public static final fun getVerified (Landroidx/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
