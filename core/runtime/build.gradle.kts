@@ -16,7 +16,6 @@
 plugins {
   id("dev.teogor.ceres.android.library")
   id("dev.teogor.ceres.android.library.jacoco")
-  id("dev.teogor.ceres.android.library.config")
   alias(libs.plugins.winds)
 }
 
