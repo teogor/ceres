@@ -222,8 +222,13 @@ subprojects {
 }
 
 tasks.dokkaHtmlMultiModule {
-  childProjects.values.forEach {
-    dependsOn(":${it.name}:dokkaHtmlMultiModule")
+  childProjects.values.map {
+    it.name
+  }.filter {
+    it != "app" && it != "bom"
+  }.forEach {
+    val taskPath = ":${it}:dokkaHtmlMultiModule"
+    dependsOn(taskPath)
   }
 }
 
